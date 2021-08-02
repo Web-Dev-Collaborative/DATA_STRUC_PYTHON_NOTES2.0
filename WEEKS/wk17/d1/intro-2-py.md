@@ -3233,20 +3233,3 @@ They are usually there to allow the program to clean up resources like files, me
     Except block
     Finally block
     
-
-That's it!
-
-Congratulations on reaching the end.
-
-I want to thank you for reading this article.
-
-If you want to learn more, checkout my blog [renanmf.com](https://renanmf.com/).
-
-Remember [to download a PDF version of this Python Guide for Beginners](https://renanmf.com/python-guide-beginners/).
-
-You can also find me on Twitter: [@renanmouraf](https://twitter.com/renanmouraf).
-
-Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. [Get started](https://www.freecodecamp.org/learn/)
-
-
-[Source](https://www.freecodecamp.org/news/the-python-guide-for-beginners/)
