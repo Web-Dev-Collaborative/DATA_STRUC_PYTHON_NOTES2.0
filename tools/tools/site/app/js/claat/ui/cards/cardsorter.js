@@ -189,7 +189,7 @@ claat.ui.cards.Sorter.prototype.do_ = function () {
 claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
   switch (this.order_) {
     case claat.ui.cards.Order.DURATION:
-      cards.sort(function (a, b) {
+      cards.sort((a, b) => {
         var n = comparePinned(a, b);
         if (n !== null) {
           return n;
@@ -198,7 +198,7 @@ claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
       });
       break;
     case claat.ui.cards.Order.RECENT:
-      cards.sort(function (a, b) {
+      cards.sort((a, b) => {
         var n = comparePinned(a, b);
         if (n !== null) {
           return n;
@@ -214,7 +214,7 @@ claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
       break;
     default:
       // alphabetical sort
-      cards.sort(function (a, b) {
+      cards.sort((a, b) => {
         var n = comparePinned(a, b);
         if (n !== null) {
           return n;

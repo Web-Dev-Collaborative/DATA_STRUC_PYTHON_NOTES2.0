@@ -85,7 +85,7 @@ var prettyPrintOne;
  */
 var prettyPrint;
 
-(function () {
+(() => {
   var win = window;
   // Keyword lists for various languages.
   // We use things that coerce to strings to make them compact when minified
@@ -394,7 +394,7 @@ var prettyPrint;
 
       // [[1, 10], [3, 4], [8, 12], [14, 14], [16, 16], [17, 17]]
       // -> [[1, 12], [14, 14], [16, 17]]
-      ranges.sort(function (a, b) {
+      ranges.sort((a, b) => {
         return a[0] - b[0] || b[1] - a[1];
       });
       var consolidatedRanges = [];
@@ -510,7 +510,7 @@ var prettyPrint;
             parts[i] = caseFoldCharset(p);
           } else if (ch0 !== "\\") {
             // TODO: handle letters in numeric escapes.
-            parts[i] = p.replace(/[a-zA-Z]/g, function (ch) {
+            parts[i] = p.replace(/[a-zA-Z]/g, ch => {
               var cc = ch.charCodeAt(0);
               return "[" + String.fromCharCode(cc & ~32, cc | 32) + "]";
             });
@@ -728,7 +728,7 @@ var prettyPrint;
   function createSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns) {
     var shortcuts = {};
     var tokenizer;
-    (function () {
+    (() => {
       var allPatterns = shortcutStylePatterns.concat(fallthroughStylePatterns);
       var allRegexs = [];
       var regexKeys = {};
@@ -764,7 +764,7 @@ var prettyPrint;
      *        sourceCode.
      * }</pre>
      */
-    var decorate = function (job) {
+    var decorate = job => {
       var sourceCode = job.sourceCode,
         basePos = job.basePos;
       /** Even entries are positions in source in ascending order.  Odd enties
@@ -1676,7 +1676,7 @@ var prettyPrint;
             }
             if (value) {
               attrs = {};
-              value.replace(/\b(\w+)=([\w:.%+-]+)/g, function (_, name, value) {
+              value.replace(/\b(\w+)=([\w:.%+-]+)/g, (_, name, value) => {
                 attrs[name] = value;
               });
               break;
@@ -1831,7 +1831,7 @@ var prettyPrint;
   // other existing JavaScript code that could have defined a define()
   // function that does not conform to the AMD API.
   if (typeof define === "function" && define["amd"]) {
-    define("google-code-prettify", [], function () {
+    define("google-code-prettify", [], () => {
       return PR;
     });
   }

@@ -9,7 +9,7 @@
     h =
       "function" == typeof Object.create
         ? Object.create
-        : function (a) {
+        : a => {
             function c() {}
             c.prototype = a;
             return new c();
@@ -29,7 +29,7 @@
       l = !1;
     }
     k = l
-      ? function (a, c) {
+      ? (a, c) => {
           a.__proto__ = c;
           if (a.__proto__ !== c) throw new TypeError(a + " is not extensible");
           return a;
@@ -102,10 +102,10 @@
     C = /\x00/g,
     v = /[\x00&<>"']/,
     aa = String.prototype.repeat
-      ? function (a, c) {
+      ? (a, c) => {
           return a.repeat(c);
         }
-      : function (a, c) {
+      : (a, c) => {
           return Array(c + 1).join(a);
         };
   function D(a, c) {
@@ -419,25 +419,25 @@
         )
       : U(u(String(String(a))), fa(a));
   }
-  var U = (function (a) {
+  var U = (a => {
     function c(a) {
       this.h = a;
     }
     c.prototype = a.prototype;
-    return function (a, f) {
+    return (a, f) => {
       a = new c(String(a));
       void 0 !== f && (a.v = f);
       return a;
     };
   })(R);
-  var ha = (function (a) {
+  var ha = (a => {
     var c = !1,
       b;
-    return function () {
+    return () => {
       c || ((b = a()), (c = !0));
       return b;
     };
-  })(function () {
+  })(() => {
     var a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
     var c = a.firstChild.firstChild;
@@ -580,7 +580,7 @@
   var aa =
       "function" == typeof Object.defineProperties
         ? Object.defineProperty
-        : function (a, b, c) {
+        : (a, b, c) => {
             a != Array.prototype && a != Object.prototype && (a[b] = c.value);
           },
     h =
@@ -590,12 +590,12 @@
         ? global
         : this;
   function ba() {
-    ba = function () {};
+    ba = () => {};
     h.Symbol || (h.Symbol = ca);
   }
-  var ca = (function () {
+  var ca = (() => {
     var a = 0;
-    return function (b) {
+    return b => {
       return "jscomp_symbol_" + (b || "") + a++;
     };
   })();
@@ -611,11 +611,11 @@
           return da(this);
         },
       });
-    k = function () {};
+    k = () => {};
   }
   function da(a) {
     var b = 0;
-    return ea(function () {
+    return ea(() => {
       return b < a.length ? { done: !1, value: a[b++] } : { done: !0 };
     });
   }
@@ -649,7 +649,7 @@
         aa(c, a, { configurable: !0, writable: !0, value: b });
     }
   }
-  ha("Promise", function (a) {
+  ha("Promise", a => {
     function b(a) {
       this.b = 0;
       this.g = void 0;
@@ -667,7 +667,7 @@
     function d(a) {
       return a instanceof b
         ? a
-        : new b(function (b) {
+        : new b(b => {
             b(a);
           });
     }
@@ -678,12 +678,12 @@
     };
     c.prototype.f = function () {
       var a = this;
-      this.c(function () {
+      this.c(() => {
         a.h();
       });
     };
     var e = h.setTimeout;
-    c.prototype.c = function (a) {
+    c.prototype.c = a => {
       e(a, 0);
     };
     c.prototype.h = function () {
@@ -703,14 +703,14 @@
       this.a = null;
     };
     c.prototype.g = function (a) {
-      this.c(function () {
+      this.c(() => {
         throw a;
       });
     };
     b.prototype.c = function () {
       class a extends c {
         constructor(a) {
-          return function (d) {
+          return d => {
             c || ((c = !0), a.call(b, d));
           };
         }
@@ -839,7 +839,7 @@
     b.prototype.then = function (a, c) {
       function d(a, b) {
         return "function" == typeof a
-          ? function (b) {
+          ? b => {
               try {
                 e(a(b));
               } catch ($a) {
@@ -850,7 +850,7 @@
       }
       var e,
         f,
-        g = new b(function (a, b) {
+        g = new b((a, b) => {
           e = a;
           f = b;
         });
@@ -877,25 +877,25 @@
       null == this.a ? f.b(c) : this.a.push(c);
     };
     b.resolve = d;
-    b.reject = function (a) {
-      return new b(function (b, c) {
+    b.reject = a => {
+      return new b((b, c) => {
         c(a);
       });
     };
-    b.race = function (a) {
-      return new b(function (b, c) {
+    b.race = a => {
+      return new b((b, c) => {
         for (var e = fa(a), f = e.next(); !f.done; f = e.next())
           d(f.value).m(b, c);
       });
     };
-    b.all = function (a) {
+    b.all = a => {
       var c = fa(a),
         e = c.next();
       return e.done
         ? d([])
-        : new b(function (a, b) {
+        : new b((a, b) => {
             function f(b) {
-              return function (c) {
+              return c => {
                 g[b] = c;
                 l--;
                 0 == l && a(g);
@@ -913,18 +913,18 @@
     };
     return b;
   });
-  ha("Promise.prototype.finally", function (a) {
+  ha("Promise.prototype.finally", a => {
     return a
       ? a
       : function (a) {
           return this.then(
-            function (b) {
-              return Promise.resolve(a()).then(function () {
+            b => {
+              return Promise.resolve(a()).then(() => {
                 return b;
               });
             },
-            function (b) {
-              return Promise.resolve(a()).then(function () {
+            b => {
+              return Promise.resolve(a()).then(() => {
                 throw b;
               });
             }
@@ -946,7 +946,7 @@
       n = !1;
     }
     m = n
-      ? function (a, b) {
+      ? (a, b) => {
           a.__proto__ = b;
           if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
           return a;
@@ -998,7 +998,7 @@
         a,
         "return" in c
           ? c["return"]
-          : function (a) {
+          : a => {
               return { value: a, done: !0 };
             },
         b,
@@ -1039,17 +1039,17 @@
     return { value: void 0, done: !0 };
   }
   function qa(a) {
-    this.next = function (b) {
+    this.next = b => {
       q(a.a);
       a.a.a ? (b = t(a, a.a.a.next, b, a.a.g)) : (a.a.g(b), (b = u(a)));
       return b;
     };
-    this.throw = function (b) {
+    this.throw = b => {
       q(a.a);
       a.a.a ? (b = t(a, a.a.a["throw"], b, a.a.g)) : (r(a.a, b), (b = u(a)));
       return b;
     };
-    this.return = function (b) {
+    this.return = b => {
       return pa(a, b);
     };
     k();
@@ -1064,7 +1064,7 @@
     function c(b) {
       return a.throw(b);
     }
-    return new Promise(function (d, e) {
+    return new Promise((d, e) => {
       function f(a) {
         a.done ? d(a.value) : Promise.resolve(a.value).then(b, c).then(f, e);
       }
@@ -1074,7 +1074,7 @@
   var sa =
       "function" == typeof Object.create
         ? Object.create
-        : function (a) {
+        : a => {
             function b() {}
             b.prototype = a;
             return new b();
@@ -1124,20 +1124,20 @@
   }
   var xa = 0;
   var ya = Array.prototype.indexOf
-    ? function (a, b) {
+    ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
-    : function (a, b) {
+    : (a, b) => {
         if ("string" == typeof a)
           return "string" == typeof b && 1 == b.length ? a.indexOf(b, 0) : -1;
         for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
         return -1;
       };
   var za = String.prototype.trim
-    ? function (a) {
+    ? a => {
         return a.trim();
       }
-    : function (a) {
+    : a => {
         return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1];
       };
   function z(a, b) {
@@ -1179,7 +1179,7 @@
   var D;
   a: {
     var E = "",
-      F = (function () {
+      F = (() => {
         var a = A;
         if (Fa) return /rv:([^\);]+)(\)|;)/.exec(a);
         if (Ea) return /Edge\/([\d\.]+)/.exec(a);
@@ -1243,7 +1243,7 @@
     L = !M;
   }
   var Qa = L,
-    Ra = (function () {
+    Ra = (() => {
       if (!v.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
@@ -1259,7 +1259,7 @@
     this.type = a;
     this.a = this.target = b;
   }
-  R.prototype.b = function () {};
+  R.prototype.b = () => {};
   function S(a, b) {
     R.call(this, a ? a.type : "");
     this.relatedTarget = this.a = this.target = null;
@@ -1405,10 +1405,10 @@
   function gb() {
     var a = ib,
       b = Ka
-        ? function (c) {
+        ? c => {
             return a.call(b.src, b.listener, c);
           }
-        : function (c) {
+        : c => {
             c = a.call(b.src, b.listener, c);
             if (!c) return c;
           };
@@ -1521,7 +1521,7 @@
   function db(a) {
     if ("function" == x(a)) return a;
     a[mb] ||
-      (a[mb] = function (b) {
+      (a[mb] = b => {
         return a.handleEvent(b);
       });
     return a[mb];
@@ -1552,7 +1552,7 @@
     );
     a.a = {};
   }
-  T.prototype.handleEvent = function () {
+  T.prototype.handleEvent = () => {
     throw Error("EventHandler.handleEvent not implemented");
   }; /*
 
@@ -1599,13 +1599,13 @@
       this.a &&
       (void 0 !== window.ga
         ? (sb(this), tb(this), ub(), (this.s = !0))
-        : vb().then(function (b) {
+        : vb().then(b => {
             b && (sb(a), tb(a), ub(), (a.s = !0));
           }));
   };
   U.prototype.connectedCallback = U.prototype.connectedCallback;
   function tb(a) {
-    ob(a.B, "google-codelab-action", function (b) {
+    ob(a.B, "google-codelab-action", b => {
       b = b.o.detail;
       wb({
         hitType: "event",
@@ -1617,7 +1617,7 @@
         eventValue: b.value || "",
       });
     });
-    ob(a.I, "google-codelab-pageview", function (b) {
+    ob(a.I, "google-codelab-pageview", b => {
       b = b.o.detail;
       wb({
         hitType: "pageview",
@@ -1645,15 +1645,15 @@
   };
   U.prototype.attributeChangedCallback = U.prototype.attributeChangedCallback;
   function ub() {
-    qb.forEach(function (a) {
-      document.querySelectorAll(a).forEach(function (a) {
+    qb.forEach(a => {
+      document.querySelectorAll(a).forEach(a => {
         a.setAttribute("anayltics-ready", "anayltics-ready");
       });
     });
   }
   function wb(a) {
-    window.ga(function () {
-      window.ga.getAll().forEach(function (b) {
+    window.ga(() => {
+      window.ga.getAll().forEach(b => {
         b.send(a);
       });
     });
@@ -1666,7 +1666,7 @@
     var a = document.createElement("script");
     a.src = "https://www.google-analytics.com/analytics.js";
     a.async = !1;
-    return new Promise(function (b, c) {
+    return new Promise((b, c) => {
       document.head && document.head.appendChild(a);
     });
   }
@@ -1685,7 +1685,7 @@
   function vb() {
     return ra(
       new qa(
-        new oa(function (a) {
+        new oa(a => {
           if (1 == a.c)
             return (
               (window.GoogleAnalyticsObject = "ga"),
@@ -1731,7 +1731,7 @@
   }
   function zb(a) {
     var b = !1;
-    window.ga.getAll().forEach(function (c) {
+    window.ga.getAll().forEach(c => {
       c.get("trackingId") == a && (b = !0);
     });
     return b;
@@ -1762,7 +1762,7 @@
     ba =
       "function" == typeof Object.create
         ? Object.create
-        : function (a) {
+        : a => {
             function b() {}
             b.prototype = a;
             return new b();
@@ -1782,7 +1782,7 @@
       l = !1;
     }
     k = l
-      ? function (a, b) {
+      ? (a, b) => {
           a.__proto__ = b;
           if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
           return a;
@@ -1836,20 +1836,20 @@
   var ja = 0;
   var ka;
   var la = Array.prototype.indexOf
-    ? function (a, b) {
+    ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
-    : function (a, b) {
+    : (a, b) => {
         if ("string" == typeof a)
           return "string" == typeof b && 1 == b.length ? a.indexOf(b, 0) : -1;
         for (var d = 0; d < a.length; d++) if (d in a && a[d] === b) return d;
         return -1;
       };
   var ma = String.prototype.trim
-    ? function (a) {
+    ? a => {
         return a.trim();
       }
-    : function (a) {
+    : a => {
         return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1];
       };
   function na(a) {
@@ -1905,7 +1905,7 @@
   var x;
   a: {
     var y = "",
-      z = (function () {
+      z = (() => {
         var a = u;
         if (za) return /rv:([^\);]+)(\)|;)/.exec(a);
         if (ya) return /Edge\/([\d\.]+)/.exec(a);
@@ -1969,7 +1969,7 @@
     D = !E;
   }
   var Ma = D,
-    Na = (function () {
+    Na = (() => {
       if (!m.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
@@ -1985,7 +1985,7 @@
     this.type = a;
     this.a = this.target = b;
   }
-  J.prototype.b = function () {};
+  J.prototype.b = () => {};
   function K(a, b) {
     J.call(this, a ? a.type : "");
     this.relatedTarget = this.a = this.target = null;
@@ -2131,10 +2131,10 @@
   function Xa() {
     var a = Za,
       b = Ga
-        ? function (d) {
+        ? d => {
             return a.call(b.src, b.listener, d);
           }
-        : function (d) {
+        : d => {
             d = a.call(b.src, b.listener, d);
             if (!d) return d;
           };
@@ -2246,7 +2246,7 @@
   function Va(a) {
     if ("function" == p(a)) return a;
     a[Q] ||
-      (a[Q] = function (b) {
+      (a[Q] = b => {
         return a.handleEvent(b);
       });
     return a[Q];
@@ -2317,25 +2317,25 @@
         )
       : W(na(String(String(a))), fb(a));
   }
-  var W = (function (a) {
+  var W = (a => {
     function b(a) {
       this.o = a;
     }
     b.prototype = a.prototype;
-    return function (a, c) {
+    return (a, c) => {
       a = new b(String(a));
       void 0 !== c && (a.v = c);
       return a;
     };
   })(V);
-  var hb = (function (a) {
+  var hb = (a => {
     var b = !1,
       d;
-    return function () {
+    return () => {
       b || ((d = a()), (b = !0));
       return d;
     };
-  })(function () {
+  })(() => {
     var a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
     var b = a.firstChild.firstChild;
@@ -2454,10 +2454,10 @@ limitations under the License.
       b = lb({ step: a.u, label: a.s });
       a.i = b;
       jb(a.c, b);
-      a.c.querySelectorAll("pre code").forEach(function (b) {
+      a.c.querySelectorAll("pre code").forEach(b => {
         var c = window.prettyPrintOne(b.innerHTML);
         b.innerHTML = c;
-        cb(a.C, b, function () {
+        cb(a.C, b, () => {
           var a = new CustomEvent("google-codelab-action", {
             detail: {
               category: "snippet",
@@ -2493,7 +2493,7 @@ limitations under the License.
   var aa =
       "function" == typeof Object.create
         ? Object.create
-        : function (a) {
+        : a => {
             function b() {}
             b.prototype = a;
             return new b();
@@ -2513,7 +2513,7 @@ limitations under the License.
       k = !1;
     }
     h = k
-      ? function (a, b) {
+      ? (a, b) => {
           a.__proto__ = b;
           if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
           return a;
@@ -2570,19 +2570,19 @@ limitations under the License.
   var ia = 0;
   var ja;
   var ka = Array.prototype.indexOf
-    ? function (a, b) {
+    ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
-    : function (a, b) {
+    : (a, b) => {
         if (n(a)) return n(b) && 1 == b.length ? a.indexOf(b, 0) : -1;
         for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
         return -1;
       };
   var la = String.prototype.trim
-    ? function (a) {
+    ? a => {
         return a.trim();
       }
-    : function (a) {
+    : a => {
         return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1];
       };
   function u(a) {
@@ -2641,7 +2641,7 @@ limitations under the License.
   var z;
   a: {
     var A = "",
-      B = (function () {
+      B = (() => {
         var a = w;
         if (ya) return /rv:([^\);]+)(\)|;)/.exec(a);
         if (xa) return /Edge\/([\d\.]+)/.exec(a);
@@ -2705,7 +2705,7 @@ limitations under the License.
     G = !H;
   }
   var Ja = G,
-    Ka = (function () {
+    Ka = (() => {
       if (!m.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
@@ -2721,7 +2721,7 @@ limitations under the License.
     this.type = a;
     this.a = this.target = b;
   }
-  M.prototype.b = function () {};
+  M.prototype.b = () => {};
   function N(a, b) {
     M.call(this, a ? a.type : "");
     this.relatedTarget = this.a = this.target = null;
@@ -2866,10 +2866,10 @@ limitations under the License.
   function Ua() {
     var a = Wa,
       b = Da
-        ? function (c) {
+        ? c => {
             return a.call(b.src, b.listener, c);
           }
-        : function (c) {
+        : c => {
             c = a.call(b.src, b.listener, c);
             if (!c) return c;
           };
@@ -2982,7 +2982,7 @@ limitations under the License.
   function Sa(a) {
     if ("function" == q(a)) return a;
     a[$a] ||
-      (a[$a] = function (b) {
+      (a[$a] = b => {
         return a.handleEvent(b);
       });
     return a[$a];
@@ -3096,12 +3096,12 @@ limitations under the License.
         )
       : nb(u(String(String(a))), lb(a));
   }
-  var nb = (function (a) {
+  var nb = (a => {
     function b(a) {
       this.h = a;
     }
     b.prototype = a.prototype;
-    return function (a, d) {
+    return (a, d) => {
       a = new b(String(a));
       void 0 !== d && (a.s = d);
       return a;
@@ -3142,14 +3142,14 @@ limitations under the License.
     ub = /[\x00\x09-\x0d \x22\x27\x2d\/\x3c-\x3e`\x85\xa0\u2028\u2029]/g,
     ob = /<(?:!|\/?([a-zA-Z][a-zA-Z0-9:\-]*))(?:[^>'"]|"[^"]*"|'[^']*')*>/g,
     pb = /</g;
-  var vb = (function (a) {
+  var vb = (a => {
     var b = !1,
       c;
-    return function () {
+    return () => {
       b || ((c = a()), (b = !0));
       return c;
     };
-  })(function () {
+  })(() => {
     var a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
     var b = a.firstChild.firstChild;
@@ -3275,7 +3275,7 @@ limitations under the License.
   X.A = Y.prototype;
   X.prototype.connectedCallback = X.prototype.connectedCallback;
   function Cb(a) {
-    cb(a.u, function (b) {
+    cb(a.u, b => {
       var c = b.target,
         d = c.classList.contains("survey-option-wrapper");
       b = c.parentElement;
@@ -3310,11 +3310,11 @@ limitations under the License.
       d = [];
     b.length &&
       c.length == b.length &&
-      (b.forEach(function (a, b) {
+      (b.forEach((a, b) => {
         var e = [],
           f = a.querySelectorAll("paper-radio-button");
         wb(a);
-        f.forEach(function (a) {
+        f.forEach(a => {
           a = a.textContent;
           e.push({ o: Db(c[b].textContent, a), C: a });
         });
@@ -3329,7 +3329,7 @@ limitations under the License.
   function Eb(a) {
     var b = a.j[a.f];
     b &&
-      Object.keys(b).forEach(function (c) {
+      Object.keys(b).forEach(c => {
         if ((c = a.querySelector("#" + Db(c, b[c])))) c.checked = !0;
       });
   }
@@ -3357,7 +3357,7 @@ limitations under the License.
     ba =
       "function" == typeof Object.create
         ? Object.create
-        : function (a) {
+        : a => {
             function b() {}
             b.prototype = a;
             return new b();
@@ -3377,7 +3377,7 @@ limitations under the License.
       da = !1;
     }
     ca = da
-      ? function (a, b) {
+      ? (a, b) => {
           a.__proto__ = b;
           if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
           return a;
@@ -3452,9 +3452,9 @@ limitations under the License.
   }
   var oa =
     Date.now ||
-    function () {
+    (() => {
       return +new Date();
-    };
+    });
   function q(a, b) {
     function c() {}
     c.prototype = b.prototype;
@@ -3466,27 +3466,27 @@ limitations under the License.
   var pa = 0;
   var qa;
   var ra = Array.prototype.indexOf
-      ? function (a, b) {
+      ? (a, b) => {
           return Array.prototype.indexOf.call(a, b, void 0);
         }
-      : function (a, b) {
+      : (a, b) => {
           if (l(a)) return l(b) && 1 == b.length ? a.indexOf(b, 0) : -1;
           for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
           return -1;
         },
     sa = Array.prototype.forEach
-      ? function (a, b) {
+      ? (a, b) => {
           Array.prototype.forEach.call(a, b, void 0);
         }
-      : function (a, b) {
+      : (a, b) => {
           for (var c = a.length, d = l(a) ? a.split("") : a, e = 0; e < c; e++)
             e in d && b.call(void 0, d[e], e, a);
         },
     ta = Array.prototype.map
-      ? function (a, b) {
+      ? (a, b) => {
           return Array.prototype.map.call(a, b, void 0);
         }
-      : function (a, b) {
+      : (a, b) => {
           for (
             var c = a.length, d = Array(c), e = l(a) ? a.split("") : a, f = 0;
             f < c;
@@ -3496,10 +3496,10 @@ limitations under the License.
           return d;
         };
   var ua = String.prototype.trim
-    ? function (a) {
+    ? a => {
         return a.trim();
       }
-    : function (a) {
+    : a => {
         return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1];
       };
   function t(a) {
@@ -3523,7 +3523,7 @@ limitations under the License.
     return a < b ? -1 : a > b ? 1 : 0;
   }
   function Da(a) {
-    return String(a).replace(/\-([a-z])/g, function (a, c) {
+    return String(a).replace(/\-([a-z])/g, (a, c) => {
       return c.toUpperCase();
     });
   }
@@ -3535,7 +3535,7 @@ limitations under the License.
       : "\\s";
     return a.replace(
       new RegExp("(^" + (b ? "|[" + b + "]+" : "") + ")([a-z])", "g"),
-      function (a, b, e) {
+      (a, b, e) => {
         return b + e.toUpperCase();
       }
     );
@@ -3593,7 +3593,7 @@ limitations under the License.
   var A;
   a: {
     var Qa = "",
-      Ra = (function () {
+      Ra = (() => {
         var a = u;
         if (w) return /rv:([^\);]+)(\)|;)/.exec(a);
         if (Oa) return /Edge\/([\d\.]+)/.exec(a);
@@ -3613,7 +3613,7 @@ limitations under the License.
   }
   var Ma = {};
   function Ta(a) {
-    return La(a, function () {
+    return La(a, () => {
       for (
         var b = 0,
           c = ua(String(A)).split("."),
@@ -3653,7 +3653,7 @@ limitations under the License.
   (Wa = !v) || (Wa = 9 <= Number(Ua));
   var Xa = Wa,
     Ya = v && !Ta("9"),
-    Za = (function () {
+    Za = (() => {
       if (!h.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
@@ -3855,10 +3855,10 @@ limitations under the License.
   function mb() {
     var a = ob,
       b = Xa
-        ? function (c) {
+        ? c => {
             return a.call(b.src, b.listener, c);
           }
-        : function (c) {
+        : c => {
             c = a.call(b.src, b.listener, c);
             if (!c) return c;
           };
@@ -3983,7 +3983,7 @@ limitations under the License.
   function kb(a) {
     if ("function" == ja(a)) return a;
     a[tb] ||
-      (a[tb] = function (b) {
+      (a[tb] = b => {
         return a.handleEvent(b);
       });
     return a[tb];
@@ -4032,7 +4032,7 @@ limitations under the License.
   function yb(a) {
     var b = !1,
       c;
-    return function () {
+    return () => {
       b || ((c = a()), (b = !0));
       return c;
     };
@@ -4236,9 +4236,9 @@ limitations under the License.
       /\b(hsl|hsla|rgb|rgba|matrix|calc|minmax|fit-content|repeat|(rotate|scale|translate)(X|Y|Z|3d)?)\([-+*/0-9a-z.%\[\], ]+\)/g,
     Tb = /\/\*/;
   function Vb(a) {
-    return a.replace(Rb, function (a, c, d, e) {
+    return a.replace(Rb, (a, c, d, e) => {
       var b = "";
-      d = d.replace(/^(['"])(.*)\1$/, function (a, c, d) {
+      d = d.replace(/^(['"])(.*)\1$/, (a, c, d) => {
         b = c;
         return d;
       });
@@ -4367,12 +4367,12 @@ limitations under the License.
       ? R(O(a), a.v())
       : R(t(String(String(a))), fc(a));
   }
-  var R = (function (a) {
+  var R = (a => {
     function b(a) {
       this.K = a;
     }
     b.prototype = a.prototype;
-    return function (a, d) {
+    return (a, d) => {
       a = new b(String(a));
       void 0 !== d && (a.W = d);
       return a;
@@ -4591,7 +4591,7 @@ limitations under the License.
   }
   q(yc, S);
   var zc = 0;
-  var Ac = yb(function () {
+  var Ac = yb(() => {
     var a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
     var b = a.firstChild.firstChild;
@@ -4652,14 +4652,14 @@ limitations under the License.
   }
   function Hc(a, b) {
     m(b) || (b = [b]);
-    b = ta(b, function (a) {
+    b = ta(b, a => {
       return l(a)
         ? a
         : a.ka + " " + a.duration + "s " + a.timing + " " + a.ea + "s";
     });
     U(a, "transition", b.join(","));
   }
-  var Ic = yb(function () {
+  var Ic = yb(() => {
     if (v) return Ta("10.0");
     var a = document.createElement("DIV");
     var b = z ? "-webkit" : w ? "-moz" : v ? "-ms" : Na ? "-o" : null,
@@ -4933,7 +4933,7 @@ limitations under the License.
           this.hasAttribute("anayltics-ready") &&
             (this.S
               ? Wc(this)
-              : this.addEventListener("google-codelab-ready", function () {
+              : this.addEventListener("google-codelab-ready", () => {
                   return Wc(b);
                 }));
       }
@@ -4978,19 +4978,19 @@ limitations under the License.
   W.prototype.select = W.prototype.select;
   function Rc(a) {
     a.A &&
-      H(a.i, a.A, "click", function (b) {
+      H(a.i, a.A, "click", b => {
         b.preventDefault();
         b.stopPropagation();
         a.U();
       });
     a.w &&
-      H(a.i, a.w, "click", function (b) {
+      H(a.i, a.w, "click", b => {
         b.preventDefault();
         b.stopPropagation();
         a.T();
       });
     a.g &&
-      (H(a.i, a.g, "click", function (b) {
+      (H(a.i, a.g, "click", b => {
         for (var c = b.target; c !== a.g && "A" !== c.tagName.toUpperCase(); )
           b.preventDefault(), b.stopPropagation(), (c = c.parentNode);
         c !== a.g &&
@@ -5000,7 +5000,7 @@ limitations under the License.
           ).hash.substring(1)),
           a.setAttribute("selected", b));
       }),
-      H(a.i, a.g, "keydown", function (b) {
+      H(a.i, a.g, "keydown", b => {
         if (a.g) {
           var c = a.g.querySelector(":focus"),
             e;
@@ -5024,24 +5024,24 @@ limitations under the License.
     if (a.l) {
       var b = a.l.querySelector("#menu");
       b &&
-        (H(a.i, b, "click", function (b) {
+        (H(a.i, b, "click", b => {
           b.preventDefault();
           b.stopPropagation();
           a.hasAttribute("drawer--open")
             ? a.removeAttribute("drawer--open")
             : a.setAttribute("drawer--open", "");
         }),
-        H(a.i, document.body, "click", function () {
+        H(a.i, document.body, "click", () => {
           a.hasAttribute("drawer--open") && a.removeAttribute("drawer--open");
         }));
     }
-    H(a.i, window, "popstate", function () {
+    H(a.i, window, "popstate", () => {
       document.location.hash &&
         (a.setAttribute("dsh", ""),
         a.setAttribute("selected", document.location.hash.substring(1)),
         a.removeAttribute("dsh"));
     });
-    H(a.i, document.body, "keydown", function (b) {
+    H(a.i, document.body, "keydown", b => {
       37 == b.C
         ? (document.activeElement && document.activeElement.blur(), a.U())
         : 39 == b.C &&
@@ -5085,7 +5085,7 @@ limitations under the License.
     }
   }
   function Yc(a) {
-    a.c.forEach(function (a, c) {
+    a.c.forEach((a, c) => {
       a.setAttribute("step", c + 1);
     });
   }
@@ -5131,11 +5131,11 @@ limitations under the License.
           a.F = new V(f, 0.5, { transform: "translate3d(0, 0, 0)" }, d, g);
           Jc(a.D);
           Jc(a.F);
-          vb(a.O, a.D, function () {
+          vb(a.O, a.D, () => {
             e.setAttribute("selected", "");
             e.removeAttribute("animating");
           });
-          vb(a.O, a.F, function () {
+          vb(a.O, a.F, () => {
             f.removeAttribute("selected");
           });
         }
@@ -5156,7 +5156,7 @@ limitations under the License.
               }))
             : (a.w.removeAttribute("hidden"), a.I.setAttribute("hidden", "")));
         a.g &&
-          a.g.querySelectorAll("li").forEach(function (a, c) {
+          a.g.querySelectorAll("li").forEach((a, c) => {
             c <= b
               ? a.setAttribute("completed", "")
               : a.removeAttribute("completed");
@@ -5172,7 +5172,7 @@ limitations under the License.
   }
   function Zc(a) {
     var b = a.getAttribute("feedback-link"),
-      c = a.c.map(function (a) {
+      c = a.c.map(a => {
         return a.getAttribute("label");
       });
     Lc(a.g, vc, { steps: c, fa: b });
@@ -5195,7 +5195,7 @@ limitations under the License.
       page: location.pathname + "#" + a.h,
       title: a.c[a.h].getAttribute("label"),
     });
-    window.requestAnimationFrame(function () {
+    window.requestAnimationFrame(() => {
       document.body.removeAttribute("unresolved");
       Z(a, "google-codelab-action", { category: "codelab", action: "ready" });
     });
@@ -5211,7 +5211,7 @@ limitations under the License.
     a.A = a.querySelector("#controls #previous-step");
     a.w = a.querySelector("#controls #next-step");
     a.I = a.querySelector("#controls #done");
-    a.c.forEach(function (b) {
+    a.c.forEach(b => {
       a.ba.appendChild(b);
     });
     Yc(a);

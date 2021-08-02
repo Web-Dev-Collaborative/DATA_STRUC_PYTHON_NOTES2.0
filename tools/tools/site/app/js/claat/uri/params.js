@@ -22,7 +22,7 @@ goog.provide("claat.uri.params");
  * @param {string} search URL search part, after the '?'.
  * @return {Object<string,!Array<string>>} An object.
  */
-claat.uri.params.decode = function (search) {
+claat.uri.params.decode = search => {
   var obj = /** @dict */ {};
   if (!search) {
     return obj;

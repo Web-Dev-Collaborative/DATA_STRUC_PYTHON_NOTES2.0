@@ -9,7 +9,7 @@
     aa =
       "function" == typeof Object.create
         ? Object.create
-        : function (a) {
+        : a => {
             function b() {}
             b.prototype = a;
             return new b();
@@ -29,7 +29,7 @@
       m = !1;
     }
     k = m
-      ? function (a, b) {
+      ? (a, b) => {
           a.__proto__ = b;
           if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
           return a;
@@ -53,16 +53,16 @@
   var fa =
     "function" == typeof Object.defineProperties
       ? Object.defineProperty
-      : function (a, b, c) {
+      : (a, b, c) => {
           a != Array.prototype && a != Object.prototype && (a[b] = c.value);
         };
   function ha() {
-    ha = function () {};
+    ha = () => {};
     h.Symbol || (h.Symbol = ia);
   }
-  var ia = (function () {
+  var ia = (() => {
     var a = 0;
-    return function (b) {
+    return b => {
       return "jscomp_symbol_" + (b || "") + a++;
     };
   })();
@@ -78,11 +78,11 @@
           return ja(this);
         },
       });
-    n = function () {};
+    n = () => {};
   }
   function ja(a) {
     var b = 0;
-    return ka(function () {
+    return ka(() => {
       return b < a.length ? { done: !1, value: a[b++] } : { done: !0 };
     });
   }
@@ -168,9 +168,9 @@
   }
   var pa =
     Date.now ||
-    function () {
+    (() => {
       return +new Date();
-    };
+    });
   function x(a, b) {
     function c() {}
     c.prototype = b.prototype;
@@ -189,10 +189,10 @@
   }
   var qa;
   var ra = Array.prototype.indexOf
-    ? function (a, b) {
+    ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
-    : function (a, b) {
+    : (a, b) => {
         if (r(a)) return r(b) && 1 == b.length ? a.indexOf(b, 0) : -1;
         for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
         return -1;
@@ -237,10 +237,10 @@
   }
   x(ua, y);
   var va = String.prototype.trim
-    ? function (a) {
+    ? a => {
         return a.trim();
       }
-    : function (a) {
+    : a => {
         return /^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1];
       };
   function z(a) {
@@ -360,7 +360,7 @@
   var J;
   a: {
     var K = "",
-      L = (function () {
+      L = (() => {
         var a = C;
         if (Na) return /rv:([^\);]+)(\)|;)/.exec(a);
         if (Ma) return /Edge\/([\d\.]+)/.exec(a);
@@ -409,12 +409,12 @@
         )
       : N(z(String(String(a))), Xa(a));
   }
-  var N = (function (a) {
+  var N = (a => {
     function b(a) {
       this.u = a;
     }
     b.prototype = a.prototype;
-    return function (a, d) {
+    return (a, d) => {
       a = new b(String(a));
       void 0 !== d && (a.B = d);
       return a;
@@ -470,14 +470,14 @@
     }
     return N(b + "</select></div>");
   }
-  var db = (function (a) {
+  var db = (a => {
     var b = !1,
       c;
-    return function () {
+    return () => {
       b || ((c = a()), (b = !0));
       return c;
     };
-  })(function () {
+  })(() => {
     var a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
     var b = a.firstChild.firstChild;
@@ -666,7 +666,7 @@ limitations under the License.
         default:
           (b = "alpha"), c.sort(a.b.bind(a));
       }
-      c.forEach(function (b) {
+      c.forEach(b => {
         return a.appendChild(b);
       });
       c = new URL(document.location.toString());
@@ -685,7 +685,7 @@ limitations under the License.
     var b = mb(a.getAttribute("filter")),
       c = Q((a.getAttribute("tags") || "").split(",")),
       d = Q((a.getAttribute("category") || "").split(","));
-    [].concat(p(a.querySelectorAll(".card"))).forEach(function (a) {
+    [].concat(p(a.querySelectorAll(".card"))).forEach(a => {
       var e = mb(a.getAttribute("title")),
         f = Q((a.getAttribute("category") || "").split(",")),
         Sb = Q((a.getAttribute("tags") || "").split(",")),
@@ -725,7 +725,7 @@ limitations under the License.
   function Q(a) {
     a = a || [];
     var b = [];
-    a.forEach(function (a) {
+    a.forEach(a => {
       (a = mb(a)) && b.push(a);
     });
     return b.sort();
@@ -788,7 +788,7 @@ limitations under the License.
     rb = !sb;
   }
   var yb = rb,
-    zb = (function () {
+    zb = (() => {
       if (!q.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
@@ -973,10 +973,10 @@ limitations under the License.
   function Qb() {
     var a = Tb,
       b = qb
-        ? function (c) {
+        ? c => {
             return a.call(b.src, b.listener, c);
           }
-        : function (c) {
+        : c => {
             c = a.call(b.src, b.listener, c);
             if (!c) return c;
           };
@@ -1081,7 +1081,7 @@ limitations under the License.
   function Nb(a) {
     if ("function" == u(a)) return a;
     a[Xb] ||
-      (a[Xb] = function (b) {
+      (a[Xb] = b => {
         return a.handleEvent(b);
       });
     return a[Xb];
@@ -1160,7 +1160,7 @@ limitations under the License.
       a.f = null;
       a.l = null;
       a.h = null;
-      a.L = new X(function () {
+      a.L = new X(() => {
         var b = a.f.value.trim();
         a.l &&
           ("" === b ? a.l.setAttribute("hide", "") : a.l.removeAttribute("hide"));
@@ -1172,7 +1172,7 @@ limitations under the License.
     connectedCallback() {
       this.C || bc(this);
       cc(this);
-      window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(() => {
         document.body.removeAttribute("unresolved");
       });
     }
@@ -1189,7 +1189,7 @@ limitations under the License.
     if (a.w) {
       var b = a.w.querySelector("#sort-by-tabs");
       b &&
-        Y(a.m, b, "click", function (b) {
+        Y(a.m, b, "click", b => {
           b.preventDefault();
           b = b.target;
           var c = b.getAttribute("sort");
@@ -1199,21 +1199,21 @@ limitations under the License.
         });
     }
     a.f &&
-      Y(a.m, a.f, "keyup", function () {
+      Y(a.m, a.f, "keyup", () => {
         return dc(a);
       });
     a.l &&
-      Y(a.m, a.l, "click", function () {
+      Y(a.m, a.l, "click", () => {
         a.f && (a.f.value = "");
         dc(a);
       });
     a.h &&
-      Y(a.m, a.h, "change", function () {
+      Y(a.m, a.h, "change", () => {
         a.g && a.h && a.g.setAttribute("category", a.h.value);
       });
   }
   function dc(a) {
-    window.requestAnimationFrame(function () {
+    window.requestAnimationFrame(() => {
       return a.L.I();
     });
   }
@@ -1237,7 +1237,7 @@ limitations under the License.
       e.searchParams.has("sort") &&
         ((g = e.searchParams.get("sort")), d.setAttribute("sort", g));
       c
-        ? ([].concat(p(c.querySelectorAll("a"))).forEach(function (a) {
+        ? ([].concat(p(c.querySelectorAll("a"))).forEach(a => {
             d.addCard(a);
           }),
           c && c.parentNode && c.parentNode.removeChild(c),
@@ -1245,9 +1245,9 @@ limitations under the License.
         : (d = b.querySelector("google-codelab-index-cards"));
       if (d) {
         var l = new Set();
-        [].concat(p(d.querySelectorAll(".card"))).forEach(function (a) {
+        [].concat(p(d.querySelectorAll(".card"))).forEach(a => {
           (a = a.getAttribute("category")) &&
-            a.split(",").forEach(function (a) {
+            a.split(",").forEach(a => {
               l.add(a.trim());
             });
         });
@@ -1259,7 +1259,7 @@ limitations under the License.
         a.h = a.w.querySelector("#codelab-categories");
         f &&
           a.h &&
-          [].concat(p(a.h.options)).forEach(function (a) {
+          [].concat(p(a.h.options)).forEach(a => {
             a.value.toLowerCase() === f && (a.selected = !0);
           });
       }

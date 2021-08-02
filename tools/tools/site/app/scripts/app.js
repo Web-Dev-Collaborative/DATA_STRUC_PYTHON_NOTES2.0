@@ -14,7 +14,7 @@
     app.kioskTags = [];
 
     // template is="dom-bind" has stamped its content.
-    app.addEventListener("dom-change", function (e) {
+    app.addEventListener("dom-change", e => {
       // Use element's protected _readied property to signal if a dom-change
       // has already happened.
       if (app._readied) {
@@ -23,7 +23,7 @@
 
       // Calculate category offsets.
       var cards = document.querySelectorAll(".codelab-card");
-      Array.prototype.forEach.call(cards, function (card, i) {
+      Array.prototype.forEach.call(cards, (card, i) => {
         var category = card.getAttribute("data-category");
         if (app.categoryStartCards[category] === undefined) {
           app.categoryStartCards[category] = card;
@@ -31,7 +31,7 @@
       });
     });
 
-    app.codelabUrl = function (view, codelab) {
+    app.codelabUrl = (view, codelab) => {
       var codelabUrlParams = "index=" + encodeURIComponent("../.." + view.url);
       if (view.ga) {
         codelabUrlParams += "&viewga=" + view.ga;
@@ -59,7 +59,7 @@
         detail.selected = null;
       }
       if (!detail.selected) {
-        this.async(function () {
+        this.async(() => {
           e.target.selected = null;
         });
       }
@@ -122,7 +122,7 @@
     }
 
     if (chips) {
-      chips.addEventListener("click", function (e) {
+      chips.addEventListener("click", e => {
         e.preventDefault();
         e.stopPropagation();
 
@@ -180,10 +180,10 @@
     };
 
     // Prevent immediate link navigation.
-    app.navigate = function (event) {
+    app.navigate = event => {
       event.preventDefault();
 
-      var go = function (href) {
+      var go = href => {
         window.location.href = href;
       };
 

@@ -741,7 +741,7 @@ const filterCodelabs = (view, codelabs) => {
   // Filter out codelabs with tags that don't intersect with view.tags
   // unless view.tags is empty - equivalent to any tag.
   // Same for categories.
-  codelabs = codelabs.filter(function (codelab) {
+  codelabs = codelabs.filter(codelab => {
     // Matches by default if both tags and cats are empty.
     var match = !vtags.length && !vcats.length;
     var ctags = cleanStringList(codelab.tags);
@@ -829,17 +829,17 @@ const cleanStringList = (a) => {
 // sortCodelabs reorders codelabs array in-place for the given view. Pinned
 // codelabs always come first, sorted by their pin index.
 const sortCodelabs = (codelabs, view) => {
-  let attr = function (codelab) {
+  let attr = codelab => {
     return levelledCategory(codelab, view.catLevel).name;
   };
 
   if (view.sort !== "mainCategory") {
-    attr = function (codelab) {
+    attr = codelab => {
       return codelab[view.sort];
     };
   }
 
-  codelabs.sort(function (a, b) {
+  codelabs.sort((a, b) => {
     // Move pinned codelabs to the top.
     var ia = view.pins.indexOf(a.id);
     var ib = view.pins.indexOf(b.id);

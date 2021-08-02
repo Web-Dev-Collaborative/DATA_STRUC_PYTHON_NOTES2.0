@@ -8,7 +8,7 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 // @version 0.7.24
-(function () {
+(() => {
   window.WebComponents = window.WebComponents || {
     flags: {},
   };
@@ -19,7 +19,7 @@
     location.search
       .slice(1)
       .split("&")
-      .forEach(function (option) {
+      .forEach(option => {
         var parts = option.split("=");
         var match;
         if (parts[0] && (match = parts[0].match(/wc-(.+)/))) {
@@ -36,7 +36,7 @@
     if (flags.log && flags.log.split) {
       var parts = flags.log.split(",");
       flags.log = {};
-      parts.forEach(function (f) {
+      parts.forEach(f => {
         flags.log[f] = true;
       });
     } else {
@@ -52,7 +52,7 @@
   WebComponents.flags = flags;
 })();
 
-(function (scope) {
+(scope => {
   "use strict";
   var hasWorkingUrl = false;
   if (!scope.forceJURL) {
@@ -685,7 +685,7 @@
 })(self);
 
 if (typeof WeakMap === "undefined") {
-  (function () {
+  (() => {
     var defineProperty = Object.defineProperty;
     var counter = Date.now() % 1e9;
 
@@ -730,7 +730,7 @@ if (typeof WeakMap === "undefined") {
   })();
 }
 
-(function (global) {
+(global => {
   if (global.JsMutationObserver) {
     return;
   }
@@ -743,16 +743,16 @@ if (typeof WeakMap === "undefined") {
   } else {
     var setImmediateQueue = [];
     var sentinel = String(Math.random());
-    window.addEventListener("message", function (e) {
+    window.addEventListener("message", e => {
       if (e.data === sentinel) {
         var queue = setImmediateQueue;
         setImmediateQueue = [];
-        queue.forEach(function (func) {
+        queue.forEach(func => {
           func();
         });
       }
     });
-    setImmediate = function (func) {
+    setImmediate = func => {
       setImmediateQueue.push(func);
       window.postMessage(sentinel, "*");
     };
@@ -777,11 +777,11 @@ if (typeof WeakMap === "undefined") {
     isScheduled = false;
     var observers = scheduledObservers;
     scheduledObservers = [];
-    observers.sort(function (o1, o2) {
+    observers.sort((o1, o2) => {
       return o1.uid_ - o2.uid_;
     });
     var anyNonEmpty = false;
-    observers.forEach(function (observer) {
+    observers.forEach(observer => {
       var queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
@@ -792,10 +792,10 @@ if (typeof WeakMap === "undefined") {
     if (anyNonEmpty) dispatchCallbacks();
   }
   function removeTransientObserversFor(observer) {
-    observer.nodes_.forEach(function (node) {
+    observer.nodes_.forEach(node => {
       var registrations = registrationsTable.get(node);
       if (!registrations) return;
-      registrations.forEach(function (registration) {
+      registrations.forEach(registration => {
         if (registration.observer === observer)
           registration.removeTransientObservers();
       });
@@ -1015,7 +1015,7 @@ if (typeof WeakMap === "undefined") {
           record.attributeNamespace = namespace;
           var oldValue =
             e.attrChange === MutationEvent.ADDITION ? null : e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.attributes) return;
             if (
               options.attributeFilter &&
@@ -1035,7 +1035,7 @@ if (typeof WeakMap === "undefined") {
           var target = e.target;
           var record = getRecord("characterData", target);
           var oldValue = e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.characterData) return;
             if (options.characterDataOldValue)
               return getRecordWithOldValue(oldValue);
@@ -1065,7 +1065,7 @@ if (typeof WeakMap === "undefined") {
           record.nextSibling = nextSibling;
           forEachAncestorAndObserverEnqueueRecord(
             e.relatedNode,
-            function (options) {
+            options => {
               if (!options.childList) return;
               return record;
             }
@@ -1082,10 +1082,10 @@ if (typeof WeakMap === "undefined") {
   }
 })(self);
 
-(function () {
+(() => {
   var needsTemplate = typeof HTMLTemplateElement === "undefined";
   if (/Trident/.test(navigator.userAgent)) {
-    (function () {
+    (() => {
       var importNode = document.importNode;
       document.importNode = function () {
         var n = importNode.apply(document, arguments);
@@ -1099,7 +1099,7 @@ if (typeof WeakMap === "undefined") {
       };
     })();
   }
-  var needsCloning = (function () {
+  var needsCloning = (() => {
     if (!needsTemplate) {
       var t = document.createElement("template");
       var t2 = document.createElement("template");
@@ -1201,7 +1201,7 @@ if (typeof WeakMap === "undefined") {
     templateStyle.textContent = TEMPLATE_TAG + "{display:none;}";
     var head = document.head;
     head.insertBefore(templateStyle, head.firstElementChild);
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
       TemplateImpl.bootstrap(document);
     });
     var createElement = document.createElement;
@@ -1243,7 +1243,7 @@ if (typeof WeakMap === "undefined") {
       }
       return dom;
     };
-    document.importNode = function (element, deep) {
+    document.importNode = (element, deep) => {
       if (element.localName === TEMPLATE_TAG) {
         return TemplateImpl.cloneNode(element, deep);
       } else {
@@ -1265,7 +1265,7 @@ if (typeof WeakMap === "undefined") {
   }
 })();
 
-(function (scope) {
+(scope => {
   "use strict";
   if (!(window.performance && window.performance.now)) {
     var start = Date.now();
@@ -1276,32 +1276,30 @@ if (typeof WeakMap === "undefined") {
     };
   }
   if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = (function () {
+    window.requestAnimationFrame = (() => {
       var nativeRaf =
         window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
       return nativeRaf
-        ? function (callback) {
-            return nativeRaf(function () {
+        ? callback => {
+            return nativeRaf(() => {
               callback(performance.now());
             });
           }
-        : function (callback) {
+        : callback => {
             return window.setTimeout(callback, 1e3 / 60);
           };
     })();
   }
   if (!window.cancelAnimationFrame) {
-    window.cancelAnimationFrame = (function () {
-      return (
-        window.webkitCancelAnimationFrame ||
-        window.mozCancelAnimationFrame ||
-        function (id) {
-          clearTimeout(id);
-        }
-      );
+    window.cancelAnimationFrame = (() => {
+      return window.webkitCancelAnimationFrame ||
+      window.mozCancelAnimationFrame ||
+      (id => {
+        clearTimeout(id);
+      });
     })();
   }
-  var workingDefaultPrevented = (function () {
+  var workingDefaultPrevented = (() => {
     var e = document.createEvent("Event");
     e.initEvent("foo", true, true);
     e.preventDefault();
@@ -1327,7 +1325,7 @@ if (typeof WeakMap === "undefined") {
     !window.CustomEvent ||
     (isIE && typeof window.CustomEvent !== "function")
   ) {
-    window.CustomEvent = function (inType, params) {
+    window.CustomEvent = (inType, params) => {
       params = params || {};
       var e = document.createEvent("CustomEvent");
       e.initCustomEvent(
@@ -1342,7 +1340,7 @@ if (typeof WeakMap === "undefined") {
   }
   if (!window.Event || (isIE && typeof window.Event !== "function")) {
     var origEvent = window.Event;
-    window.Event = function (inType, params) {
+    window.Event = (inType, params) => {
       params = params || {};
       var e = document.createEvent("Event");
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
@@ -1356,11 +1354,11 @@ window.HTMLImports = window.HTMLImports || {
   flags: {},
 };
 
-(function (scope) {
+(scope => {
   var IMPORT_LINK_TYPE = "import";
   var useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
   var hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
-  var wrap = function (node) {
+  var wrap = node => {
     return hasShadowDOMPolyfill
       ? window.ShadowDOMPolyfill.wrapIfNeeded(node)
       : node;
@@ -1387,7 +1385,7 @@ window.HTMLImports = window.HTMLImports || {
   var isIE = /Trident/.test(navigator.userAgent);
   function whenReady(callback, doc) {
     doc = doc || rootDocument;
-    whenDocumentReady(function () {
+    whenDocumentReady(() => {
       watchImportsLoad(callback, doc);
     }, doc);
   }
@@ -1400,7 +1398,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   function whenDocumentReady(callback, doc) {
     if (!isDocumentReady(doc)) {
-      var checkReady = function () {
+      var checkReady = () => {
         if (
           doc.readyState === "complete" ||
           doc.readyState === requiredReadyState
@@ -1464,7 +1462,7 @@ window.HTMLImports = window.HTMLImports || {
       : link.__importParsed;
   }
   if (useNative) {
-    new MutationObserver(function (mxns) {
+    new MutationObserver(mxns => {
       for (var i = 0, l = mxns.length, m; i < l && (m = mxns[i]); i++) {
         if (m.addedNodes) {
           handleImports(m.addedNodes);
@@ -1494,7 +1492,7 @@ window.HTMLImports = window.HTMLImports || {
         element.addEventListener("error", markTargetLoaded);
       }
     }
-    (function () {
+    (() => {
       if (document.readyState === "loading") {
         var imports = document.querySelectorAll("link[rel=import]");
         for (
@@ -1507,7 +1505,7 @@ window.HTMLImports = window.HTMLImports || {
       }
     })();
   }
-  whenReady(function (detail) {
+  whenReady(detail => {
     window.HTMLImports.ready = true;
     window.HTMLImports.readyTime = new Date().getTime();
     var evt = rootDocument.createEvent("CustomEvent");
@@ -1521,13 +1519,13 @@ window.HTMLImports = window.HTMLImports || {
   scope.isIE = isIE;
 })(window.HTMLImports);
 
-(function (scope) {
+(scope => {
   var modules = [];
-  var addModule = function (module) {
+  var addModule = module => {
     modules.push(module);
   };
-  var initializeModules = function () {
-    modules.forEach(function (module) {
+  var initializeModules = () => {
+    modules.forEach(module => {
       module(scope);
     });
   };
@@ -1535,7 +1533,7 @@ window.HTMLImports = window.HTMLImports || {
   scope.initializeModules = initializeModules;
 })(window.HTMLImports);
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
   var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
   var path = {
@@ -1555,7 +1553,7 @@ window.HTMLImports.addModule(function (scope) {
       return r;
     },
     replaceUrls(text, urlObj, linkUrl, regexp) {
-      return text.replace(regexp, function (m, pre, url, post) {
+      return text.replace(regexp, (m, pre, url, post) => {
         var urlPath = url.replace(/["']/g, "");
         if (linkUrl) {
           urlPath = new URL(urlPath, linkUrl).href;
@@ -1569,7 +1567,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.path = path;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var xhr = {
     async: true,
     ok(request) {
@@ -1585,7 +1583,7 @@ window.HTMLImports.addModule(function (scope) {
         url += "?" + Math.random();
       }
       request.open("GET", url, xhr.async);
-      request.addEventListener("readystatechange", function (e) {
+      request.addEventListener("readystatechange", e => {
         if (request.readyState === 4) {
           var redirectedUrl = null;
           try {
@@ -1617,7 +1615,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.xhr = xhr;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var xhr = scope.xhr;
   var flags = scope.flags;
 
@@ -1671,7 +1669,7 @@ window.HTMLImports.addModule(function (scope) {
       flags.load && console.log("fetch", url, elt);
       if (!url) {
         setTimeout(
-          function () {
+          () => {
             this.receive(
               url,
               elt,
@@ -1680,7 +1678,7 @@ window.HTMLImports.addModule(function (scope) {
               },
               null
             );
-          }.bind(this),
+          },
           0
         );
       } else if (url.match(/^data:/)) {
@@ -1693,15 +1691,15 @@ window.HTMLImports.addModule(function (scope) {
           body = decodeURIComponent(body);
         }
         setTimeout(
-          function () {
+          () => {
             this.receive(url, elt, null, body);
-          }.bind(this),
+          },
           0
         );
       } else {
-        var receiveXhr = function (err, resource, redirectedUrl) {
+        var receiveXhr = (err, resource, redirectedUrl) => {
           this.receive(url, elt, err, resource, redirectedUrl);
-        }.bind(this);
+        };
         xhr.load(url, receiveXhr);
       }
     }
@@ -1731,7 +1729,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.Loader = Loader;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   class Observer {
     constructor(addCallback) {
       this.addCallback = addCallback;
@@ -1776,7 +1774,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.Observer = Observer;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var path = scope.path;
   var rootDocument = scope.rootDocument;
   var flags = scope.flags;
@@ -1909,7 +1907,7 @@ window.HTMLImports.addModule(function (scope) {
     },
     trackElement(elt, callback) {
       var self = this;
-      var done = function (e) {
+      var done = e => {
         elt.removeEventListener("load", done);
         elt.removeEventListener("error", done);
         if (callback) {
@@ -1935,7 +1933,7 @@ window.HTMLImports.addModule(function (scope) {
           }
         }
         if (fakeLoad) {
-          setTimeout(function () {
+          setTimeout(() => {
             elt.dispatchEvent(
               new CustomEvent("load", {
                 bubbles: false,
@@ -1952,7 +1950,7 @@ window.HTMLImports.addModule(function (scope) {
         ? scriptElt.src
         : generateScriptDataUrl(scriptElt);
       scope.currentScript = scriptElt;
-      this.trackElement(script, function (e) {
+      this.trackElement(script, e => {
         if (script.parentNode) {
           script.parentNode.removeChild(script);
         }
@@ -2035,7 +2033,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.IMPORT_SELECTOR = IMPORT_SELECTOR;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var flags = scope.flags;
   var IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
   var IMPORT_SELECTOR = scope.IMPORT_SELECTOR;
@@ -2139,7 +2137,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.importLoader = importLoader;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var parser = scope.parser;
   var importer = scope.importer;
   var dynamic = {
@@ -2181,7 +2179,7 @@ window.HTMLImports.addModule(function (scope) {
     HTMLElement.prototype.msMatchesSelector;
 });
 
-(function (scope) {
+(scope => {
   var initializeModules = scope.initializeModules;
   var isIE = scope.isIE;
   if (scope.useNative) {
@@ -2206,14 +2204,14 @@ window.CustomElements = window.CustomElements || {
   flags: {},
 };
 
-(function (scope) {
+(scope => {
   var flags = scope.flags;
   var modules = [];
-  var addModule = function (module) {
+  var addModule = module => {
     modules.push(module);
   };
-  var initializeModules = function () {
-    modules.forEach(function (module) {
+  var initializeModules = () => {
+    modules.forEach(module => {
       module(scope);
     });
   };
@@ -2228,12 +2226,12 @@ window.CustomElements = window.CustomElements || {
     (!window.HTMLImports || window.HTMLImports.useNative);
 })(window.CustomElements);
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var IMPORT_LINK_TYPE = window.HTMLImports
     ? window.HTMLImports.IMPORT_LINK_TYPE
     : "none";
   function forSubtree(node, cb) {
-    findAllElements(node, function (e) {
+    findAllElements(node, e => {
       if (cb(e)) {
         return true;
       }
@@ -2285,7 +2283,7 @@ window.CustomElements.addModule(function (scope) {
   scope.forSubtree = forSubtree;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var flags = scope.flags;
   var forSubtree = scope.forSubtree;
   var forDocumentTree = scope.forDocumentTree;
@@ -2301,7 +2299,7 @@ window.CustomElements.addModule(function (scope) {
     }
   }
   function addedSubtree(node, isAttached) {
-    forSubtree(node, function (e) {
+    forSubtree(node, e => {
       if (added(e, isAttached)) {
         return true;
       }
@@ -2330,7 +2328,7 @@ window.CustomElements.addModule(function (scope) {
   }
   function attached(element) {
     if (hasThrottledAttached) {
-      deferMutation(function () {
+      deferMutation(() => {
         _attached(element);
       });
     } else {
@@ -2347,13 +2345,13 @@ window.CustomElements.addModule(function (scope) {
   }
   function detachedNode(node) {
     detached(node);
-    forSubtree(node, function (e) {
+    forSubtree(node, e => {
       detached(e);
     });
   }
   function detached(element) {
     if (hasThrottledAttached) {
-      deferMutation(function () {
+      deferMutation(() => {
         _detached(element);
       });
     } else {
@@ -2406,15 +2404,15 @@ window.CustomElements.addModule(function (scope) {
       console.group("mutations (%d) [%s]", mutations.length, u || "");
     }
     var isAttached = inDocument(root);
-    mutations.forEach(function (mx) {
+    mutations.forEach(mx => {
       if (mx.type === "childList") {
-        forEach(mx.addedNodes, function (n) {
+        forEach(mx.addedNodes, n => {
           if (!n.localName) {
             return;
           }
           addedNode(n, isAttached);
         });
-        forEach(mx.removedNodes, function (n) {
+        forEach(mx.removedNodes, n => {
           if (!n.localName) {
             return;
           }
@@ -2479,7 +2477,7 @@ window.CustomElements.addModule(function (scope) {
   scope.takeRecords = takeRecords;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var flags = scope.flags;
   function upgrade(node, isAttached) {
     if (node.localName === "template") {
@@ -2553,7 +2551,7 @@ window.CustomElements.addModule(function (scope) {
   scope.implementPrototype = implementPrototype;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var isIE = scope.isIE;
   var upgradeDocumentTree = scope.upgradeDocumentTree;
   var upgradeAll = scope.upgradeAll;
@@ -2709,7 +2707,7 @@ window.CustomElements.addModule(function (scope) {
     registry[name] = definition;
   }
   function generateConstructor(definition) {
-    return function () {
+    return () => {
       return instantiate(definition);
     };
   }
@@ -2753,7 +2751,7 @@ window.CustomElements.addModule(function (scope) {
   var domCreateElementNS = document.createElementNS.bind(document);
   var isInstance;
   if (!Object.__proto__ && !useNative) {
-    isInstance = function (obj, ctor) {
+    isInstance = (obj, ctor) => {
       if (obj instanceof ctor) {
         return true;
       }
@@ -2767,7 +2765,7 @@ window.CustomElements.addModule(function (scope) {
       return false;
     };
   } else {
-    isInstance = function (obj, base) {
+    isInstance = (obj, base) => {
       return obj instanceof base;
     };
   }
@@ -2791,19 +2789,19 @@ window.CustomElements.addModule(function (scope) {
   document.register = document.registerElement;
 });
 
-(function (scope) {
+(scope => {
   var useNative = scope.useNative;
   var initializeModules = scope.initializeModules;
   var isIE = scope.isIE;
   if (useNative) {
-    var nop = function () {};
+    var nop = () => {};
     scope.watchShadow = nop;
     scope.upgrade = nop;
     scope.upgradeAll = nop;
     scope.upgradeDocumentTree = nop;
     scope.upgradeSubtree = nop;
     scope.takeRecords = nop;
-    scope.instanceof = function (obj, base) {
+    scope.instanceof = (obj, base) => {
       return obj instanceof base;
     };
   } else {
@@ -2816,13 +2814,13 @@ window.CustomElements.addModule(function (scope) {
       window.wrap = window.ShadowDOMPolyfill.wrapIfNeeded;
       window.unwrap = window.ShadowDOMPolyfill.unwrapIfNeeded;
     } else {
-      window.wrap = window.unwrap = function (node) {
+      window.wrap = window.unwrap = node => {
         return node;
       };
     }
   }
   if (window.HTMLImports) {
-    window.HTMLImports.__importsParsingHook = function (elt) {
+    window.HTMLImports.__importsParsingHook = elt => {
       if (elt.import) {
         upgradeDocument(wrap(elt.import));
       }
@@ -2833,11 +2831,11 @@ window.CustomElements.addModule(function (scope) {
     window.CustomElements.ready = true;
     var requestAnimationFrame =
       window.requestAnimationFrame ||
-      function (f) {
+      (f => {
         setTimeout(f, 16);
-      };
-    requestAnimationFrame(function () {
-      setTimeout(function () {
+      });
+    requestAnimationFrame(() => {
+      setTimeout(() => {
         window.CustomElements.readyTime = Date.now();
         if (window.HTMLImports) {
           window.CustomElements.elapsed =
@@ -2868,7 +2866,7 @@ window.CustomElements.addModule(function (scope) {
   }
 })(window.CustomElements);
 
-(function (scope) {
+(scope => {
   var style = document.createElement("style");
   style.textContent =
     "" +

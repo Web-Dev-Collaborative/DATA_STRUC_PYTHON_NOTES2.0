@@ -8,7 +8,7 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 // @version 0.7.24
-(function () {
+(() => {
   window.WebComponents = window.WebComponents || {
     flags: {},
   };
@@ -19,7 +19,7 @@
     location.search
       .slice(1)
       .split("&")
-      .forEach(function (option) {
+      .forEach(option => {
         var parts = option.split("=");
         var match;
         if (parts[0] && (match = parts[0].match(/wc-(.+)/))) {
@@ -36,7 +36,7 @@
     if (flags.log && flags.log.split) {
       var parts = flags.log.split(",");
       flags.log = {};
-      parts.forEach(function (f) {
+      parts.forEach(f => {
         flags.log[f] = true;
       });
     } else {
@@ -60,7 +60,7 @@
 
 if (WebComponents.flags.shadow) {
   if (typeof WeakMap === "undefined") {
-    (function () {
+    (() => {
       var defineProperty = Object.defineProperty;
       var counter = Date.now() % 1e9;
 
@@ -105,7 +105,7 @@ if (WebComponents.flags.shadow) {
     })();
   }
   window.ShadowDOMPolyfill = {};
-  (function (scope) {
+  (scope => {
     "use strict";
     var constructorTable = new WeakMap();
     var nativePrototypeTable = new WeakMap();
@@ -245,7 +245,7 @@ if (WebComponents.flags.shadow) {
         return dummyDescriptor;
       }
     }
-    var isBrokenSafari = (function () {
+    var isBrokenSafari = (() => {
       var descr = Object.getOwnPropertyDescriptor(Node.prototype, "nodeType");
       return descr && !descr.get && !descr.set;
     })();
@@ -389,8 +389,8 @@ if (WebComponents.flags.shadow) {
       });
     }
     function forwardMethodsToWrapper(constructors, names) {
-      constructors.forEach(function (constructor) {
-        names.forEach(function (name) {
+      constructors.forEach(constructor => {
+        names.forEach(name => {
           constructor.prototype[name] = function () {
             var w = wrapIfNeeded(this);
             return w[name].apply(w, arguments);
@@ -421,7 +421,7 @@ if (WebComponents.flags.shadow) {
     scope.wrapIfNeeded = wrapIfNeeded;
     scope.wrappers = wrappers;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     function newSplice(index, removed, addedCount) {
       return {
@@ -617,7 +617,7 @@ if (WebComponents.flags.shadow) {
 
     scope.ArraySplice = ArraySplice;
   })(window.ShadowDOMPolyfill);
-  (function (context) {
+  (context => {
     "use strict";
     var OriginalMutationObserver = window.MutationObserver;
     var callbacks = [];
@@ -638,7 +638,7 @@ if (WebComponents.flags.shadow) {
       observer.observe(textNode, {
         characterData: true,
       });
-      timerFunc = function () {
+      timerFunc = () => {
         counter = (counter + 1) % 2;
         textNode.data = counter;
       };
@@ -653,7 +653,7 @@ if (WebComponents.flags.shadow) {
     }
     context.setEndOfMicrotask = setEndOfMicrotask;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var setEndOfMicrotask = scope.setEndOfMicrotask;
     var wrapIfNeeded = scope.wrapIfNeeded;
@@ -674,7 +674,7 @@ if (WebComponents.flags.shadow) {
       while (globalMutationObservers.length) {
         var notifyList = globalMutationObservers;
         globalMutationObservers = [];
-        notifyList.sort(function (x, y) {
+        notifyList.sort((x, y) => {
           return x.uid_ - y.uid_;
         });
         for (var i = 0; i < notifyList.length; i++) {
@@ -891,7 +891,7 @@ if (WebComponents.flags.shadow) {
     scope.wrappers.MutationObserver = MutationObserver;
     scope.wrappers.MutationRecord = MutationRecord;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
 
     class TreeScope {
@@ -941,7 +941,7 @@ if (WebComponents.flags.shadow) {
     scope.getTreeScope = getTreeScope;
     scope.setTreeScope = setTreeScope;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var forwardMethodsToWrapper = scope.forwardMethodsToWrapper;
     var getTreeScope = scope.getTreeScope;
@@ -1355,7 +1355,7 @@ if (WebComponents.flags.shadow) {
       }
     }
 
-    var supportsDefaultPrevented = (function () {
+    var supportsDefaultPrevented = (() => {
       var e = document.createEvent("Event");
       e.initEvent("test", true, true);
       e.preventDefault();
@@ -1438,7 +1438,7 @@ if (WebComponents.flags.shadow) {
       focusEventProto
     );
     var defaultInitDicts = Object.create(null);
-    var supportsEventConstructors = (function () {
+    var supportsEventConstructors = (() => {
       try {
         new window.FocusEvent("focus");
       } catch (ex) {
@@ -1452,7 +1452,7 @@ if (WebComponents.flags.shadow) {
       var event = unwrap(document.createEvent(name));
       var defaultDict = defaultInitDicts[name];
       var args = [type];
-      Object.keys(defaultDict).forEach(function (key) {
+      Object.keys(defaultDict).forEach(key => {
         var v =
           options != null && key in options ? options[key] : defaultDict[key];
         if (key === "relatedTarget") v = unwrap(v);
@@ -1462,7 +1462,7 @@ if (WebComponents.flags.shadow) {
       return event;
     }
     if (!supportsEventConstructors) {
-      var configureEventConstructor = function (name, initDict, superName) {
+      var configureEventConstructor = (name, initDict, superName) => {
         if (superName) {
           var superDict = defaultInitDicts[superName];
           initDict = mixin(mixin({}, superDict), initDict);
@@ -1602,7 +1602,7 @@ if (WebComponents.flags.shadow) {
         scope.renderAllPending();
         var tempListener;
         if (!hasListenerInAncestors(this, eventType)) {
-          tempListener = function () {};
+          tempListener = () => {};
           this.addEventListener(eventType, tempListener, true);
         }
         try {
@@ -1619,9 +1619,9 @@ if (WebComponents.flags.shadow) {
       "removeEventListener",
       "dispatchEvent",
     ];
-    [Node, Window].forEach(function (constructor) {
+    [Node, Window].forEach(constructor => {
       var p = constructor.prototype;
-      methodNames.forEach(function (name) {
+      methodNames.forEach(name => {
         Object.defineProperty(p, name + "_", {
           value: p[name],
         });
@@ -1711,7 +1711,7 @@ if (WebComponents.flags.shadow) {
     scope.wrappers.MouseEvent = MouseEvent;
     scope.wrappers.UIEvent = UIEvent;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var UIEvent = scope.wrappers.UIEvent;
     var mixin = scope.mixin;
@@ -1761,7 +1761,7 @@ if (WebComponents.flags.shadow) {
       "webkitRadiusY",
       "webkitRotationAngle",
       "webkitForce",
-    ].forEach(function (name) {
+    ].forEach(name => {
       descr.get = function () {
         return unsafeUnwrap(this)[name];
       };
@@ -1813,7 +1813,7 @@ if (WebComponents.flags.shadow) {
     scope.wrappers.TouchEvent = TouchEvent;
     scope.wrappers.TouchList = TouchList;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var unsafeUnwrap = scope.unsafeUnwrap;
     var wrap = scope.wrap;
@@ -1856,12 +1856,12 @@ if (WebComponents.flags.shadow) {
     scope.addWrapNodeListMethod = addWrapNodeListMethod;
     scope.wrapNodeList = wrapNodeList;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     scope.wrapHTMLCollection = scope.wrapNodeList;
     scope.wrappers.HTMLCollection = scope.wrappers.NodeList;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var EventTarget = scope.wrappers.EventTarget;
     var NodeList = scope.wrappers.NodeList;
@@ -2109,14 +2109,14 @@ if (WebComponents.flags.shadow) {
     var originalReplaceChild = OriginalNode.prototype.replaceChild;
     var isIEOrEdge = /Trident|Edge/.test(navigator.userAgent);
     var removeChildOriginalHelper = isIEOrEdge
-      ? function (parent, child) {
+      ? (parent, child) => {
           try {
             originalRemoveChild.call(parent, child);
           } catch (ex) {
             if (!(parent instanceof OriginalDocumentFragment)) throw ex;
           }
         }
-      : function (parent, child) {
+      : (parent, child) => {
           originalRemoveChild.call(parent, child);
         };
     mixin(Node.prototype, {
@@ -2441,7 +2441,7 @@ if (WebComponents.flags.shadow) {
     scope.snapshotNodeList = snapshotNodeList;
     scope.wrappers.Node = Node;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLCollection = scope.wrappers.HTMLCollection;
     var NodeList = scope.wrappers.NodeList;
@@ -2691,7 +2691,7 @@ if (WebComponents.flags.shadow) {
     scope.SelectorsInterface = SelectorsInterface;
     scope.MatchesInterface = MatchesInterface;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var NodeList = scope.wrappers.NodeList;
     function forwardElement(node) {
@@ -2760,7 +2760,7 @@ if (WebComponents.flags.shadow) {
     scope.NonElementParentNodeInterface = NonElementParentNodeInterface;
     scope.ParentNodeInterface = ParentNodeInterface;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var ChildNodeInterface = scope.ChildNodeInterface;
     var Node = scope.wrappers.Node;
@@ -2808,7 +2808,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.CharacterData = CharacterData;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var CharacterData = scope.wrappers.CharacterData;
     var enqueueMutation = scope.enqueueMutation;
@@ -2842,7 +2842,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(OriginalText, Text, document.createTextNode(""));
     scope.wrappers.Text = Text;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     if (!window.DOMTokenList) {
       console.warn(
@@ -2892,7 +2892,7 @@ if (WebComponents.flags.shadow) {
       return changeClass(this, oldToggle, arguments);
     };
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var ChildNodeInterface = scope.ChildNodeInterface;
     var GetElementsByInterface = scope.GetElementsByInterface;
@@ -2913,7 +2913,7 @@ if (WebComponents.flags.shadow) {
       "mozMatchesSelector",
       "msMatchesSelector",
       "webkitMatchesSelector",
-    ].filter(function (name) {
+    ].filter(name => {
       return OriginalElement.prototype[name];
     });
     var matchesName = matchesNames[0];
@@ -2996,7 +2996,7 @@ if (WebComponents.flags.shadow) {
         this.setAttribute("id", v);
       },
     });
-    matchesNames.forEach(function (name) {
+    matchesNames.forEach(name => {
       if (name !== "matches") {
         Element.prototype[name] = function (selector) {
           return this.matches(selector);
@@ -3023,7 +3023,7 @@ if (WebComponents.flags.shadow) {
     scope.originalMatches = originalMatches;
     scope.wrappers.Element = Element;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var Element = scope.wrappers.Element;
     var defineGetter = scope.defineGetter;
@@ -3309,7 +3309,7 @@ if (WebComponents.flags.shadow) {
     scope.getInnerHTML = getInnerHTML;
     scope.setInnerHTML = setInnerHTML;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3340,7 +3340,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.HTMLCanvasElement = HTMLCanvasElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3371,7 +3371,7 @@ if (WebComponents.flags.shadow) {
       registerWrapper(OriginalHTMLContentElement, HTMLContentElement);
     scope.wrappers.HTMLContentElement = HTMLContentElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3398,7 +3398,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.HTMLFormElement = HTMLFormElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var registerWrapper = scope.registerWrapper;
@@ -3433,7 +3433,7 @@ if (WebComponents.flags.shadow) {
     scope.wrappers.HTMLImageElement = HTMLImageElement;
     scope.wrappers.Image = Image;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3451,7 +3451,7 @@ if (WebComponents.flags.shadow) {
       registerWrapper(OriginalHTMLShadowElement, HTMLShadowElement);
     scope.wrappers.HTMLShadowElement = HTMLShadowElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3506,7 +3506,7 @@ if (WebComponents.flags.shadow) {
       registerWrapper(OriginalHTMLTemplateElement, HTMLTemplateElement);
     scope.wrappers.HTMLTemplateElement = HTMLTemplateElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var registerWrapper = scope.registerWrapper;
@@ -3526,7 +3526,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.HTMLMediaElement = HTMLMediaElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLMediaElement = scope.wrappers.HTMLMediaElement;
     var registerWrapper = scope.registerWrapper;
@@ -3562,7 +3562,7 @@ if (WebComponents.flags.shadow) {
     scope.wrappers.HTMLAudioElement = HTMLAudioElement;
     scope.wrappers.Audio = Audio;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3615,7 +3615,7 @@ if (WebComponents.flags.shadow) {
     scope.wrappers.HTMLOptionElement = HTMLOptionElement;
     scope.wrappers.Option = Option;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3654,7 +3654,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.HTMLSelectElement = HTMLSelectElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3709,7 +3709,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.HTMLTableElement = HTMLTableElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3741,7 +3741,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.HTMLTableSectionElement = HTMLTableSectionElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var mixin = scope.mixin;
@@ -3772,7 +3772,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.HTMLTableRowElement = HTMLTableRowElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLContentElement = scope.wrappers.HTMLContentElement;
     var HTMLElement = scope.wrappers.HTMLElement;
@@ -3801,7 +3801,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(OriginalHTMLUnknownElement, HTMLUnknownElement);
     scope.wrappers.HTMLUnknownElement = HTMLUnknownElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var Element = scope.wrappers.Element;
     var HTMLElement = scope.wrappers.HTMLElement;
@@ -3840,7 +3840,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.SVGElement = SVGElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var mixin = scope.mixin;
     var registerWrapper = scope.registerWrapper;
@@ -3870,7 +3870,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(OriginalSVGUseElement, SVGUseElement, useElement);
     scope.wrappers.SVGUseElement = SVGUseElement;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var EventTarget = scope.wrappers.EventTarget;
     var mixin = scope.mixin;
@@ -3915,7 +3915,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(OriginalSVGElementInstance, SVGElementInstance);
     scope.wrappers.SVGElementInstance = SVGElementInstance;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var mixin = scope.mixin;
     var registerWrapper = scope.registerWrapper;
@@ -3951,7 +3951,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.CanvasRenderingContext2D = CanvasRenderingContext2D;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var addForwardingProperties = scope.addForwardingProperties;
     var mixin = scope.mixin;
@@ -4000,7 +4000,7 @@ if (WebComponents.flags.shadow) {
     );
     scope.wrappers.WebGLRenderingContext = WebGLRenderingContext;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var Node = scope.wrappers.Node;
     var GetElementsByInterface = scope.GetElementsByInterface;
@@ -4031,7 +4031,7 @@ if (WebComponents.flags.shadow) {
     var Comment = registerObject(document.createComment(""));
     scope.wrappers.Comment = Comment;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var DocumentFragment = scope.wrappers.DocumentFragment;
     var TreeScope = scope.TreeScope;
@@ -4108,7 +4108,7 @@ if (WebComponents.flags.shadow) {
     });
     scope.wrappers.ShadowRoot = ShadowRoot;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var registerWrapper = scope.registerWrapper;
     var setWrapper = scope.setWrapper;
@@ -4250,7 +4250,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(window.Range, Range, document.createRange());
     scope.wrappers.Range = Range;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var Element = scope.wrappers.Element;
     var HTMLContentElement = scope.wrappers.HTMLContentElement;
@@ -4378,7 +4378,7 @@ if (WebComponents.flags.shadow) {
       return getRendererForHost(shadowRoot.host);
     }
     var spliceDiff = new ArraySplice();
-    spliceDiff.equals = function (renderNode, rawNode) {
+    spliceDiff.equals = (renderNode, rawNode) => {
       return unwrap(renderNode.node) === rawNode;
     };
 
@@ -4587,7 +4587,7 @@ if (WebComponents.flags.shadow) {
         var attributes = this.attributes;
         if (/\.\w+/.test(selector)) attributes["class"] = true;
         if (/#\w+/.test(selector)) attributes["id"] = true;
-        selector.replace(/\[\s*([^\s=\|~\]]+)/g, function (_, name) {
+        selector.replace(/\[\s*([^\s=\|~\]]+)/g, (_, name) => {
           attributes[name] = true;
         });
       }
@@ -4692,7 +4692,7 @@ if (WebComponents.flags.shadow) {
       remove: remove,
     };
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var HTMLElement = scope.wrappers.HTMLElement;
     var assert = scope.assert;
@@ -4735,7 +4735,7 @@ if (WebComponents.flags.shadow) {
     }
     elementsWithFormProperty.forEach(createWrapperConstructor);
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var registerWrapper = scope.registerWrapper;
     var setWrapper = scope.setWrapper;
@@ -4802,7 +4802,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(window.Selection, Selection, window.getSelection());
     scope.wrappers.Selection = Selection;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var registerWrapper = scope.registerWrapper;
     var setWrapper = scope.setWrapper;
@@ -4860,7 +4860,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(OriginalTreeWalker, TreeWalker);
     scope.wrappers.TreeWalker = TreeWalker;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var GetElementsByInterface = scope.GetElementsByInterface;
     var Node = scope.wrappers.Node;
@@ -4904,7 +4904,7 @@ if (WebComponents.flags.shadow) {
               },
             };
           } else if (typeof filter === "function") {
-            newFilter = function (node) {
+            newFilter = node => {
               return filter(wrap(node));
             };
           }
@@ -4951,7 +4951,7 @@ if (WebComponents.flags.shadow) {
           "attachedCallback",
           "detachedCallback",
           "attributeChangedCallback",
-        ].forEach(function (name) {
+        ].forEach(name => {
           var f = prototype[name];
           if (!f) return;
           newPrototype[name] = function () {
@@ -5189,7 +5189,7 @@ if (WebComponents.flags.shadow) {
     scope.wrappers.DOMImplementation = DOMImplementation;
     scope.wrappers.Document = Document;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var EventTarget = scope.wrappers.EventTarget;
     var Selection = scope.wrappers.Selection;
@@ -5237,7 +5237,7 @@ if (WebComponents.flags.shadow) {
     delete window.getDefaultComputedStyle;
     delete window.getSelection;
     ["addEventListener", "removeEventListener", "dispatchEvent"].forEach(
-      function (name) {
+      name => {
         OriginalWindow.prototype[name] = function () {
           var w = wrap(this || window);
           return w[name].apply(w, arguments);
@@ -5266,7 +5266,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(OriginalWindow, Window, window);
     scope.wrappers.Window = Window;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var unwrap = scope.unwrap;
     var OriginalDataTransfer = window.DataTransfer || window.Clipboard;
@@ -5278,7 +5278,7 @@ if (WebComponents.flags.shadow) {
       };
     }
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var registerWrapper = scope.registerWrapper;
     var setWrapper = scope.setWrapper;
@@ -5297,7 +5297,7 @@ if (WebComponents.flags.shadow) {
     registerWrapper(OriginalFormData, FormData, new OriginalFormData());
     scope.wrappers.FormData = FormData;
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var unwrapIfNeeded = scope.unwrapIfNeeded;
     var originalSend = XMLHttpRequest.prototype.send;
@@ -5305,7 +5305,7 @@ if (WebComponents.flags.shadow) {
       return originalSend.call(this, unwrapIfNeeded(obj));
     };
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     "use strict";
     var isWrapperFor = scope.isWrapperFor;
     var elements = {
@@ -5387,11 +5387,11 @@ if (WebComponents.flags.shadow) {
       window[nativeConstructorName] = wrapperConstructor;
     }
     Object.keys(elements).forEach(overrideConstructor);
-    Object.getOwnPropertyNames(scope.wrappers).forEach(function (name) {
+    Object.getOwnPropertyNames(scope.wrappers).forEach(name => {
       window[name] = scope.wrappers[name];
     });
   })(window.ShadowDOMPolyfill);
-  (function (scope) {
+  (scope => {
     var ShadowCSS = {
       strictStyling: false,
       registry: {},
@@ -5456,7 +5456,7 @@ if (WebComponents.flags.shadow) {
           return [];
         }
         var styles = root.querySelectorAll("style");
-        return Array.prototype.filter.call(styles, function (s) {
+        return Array.prototype.filter.call(styles, s => {
           return !s.hasAttribute(NO_SHIM_ATTRIBUTE);
         });
       },
@@ -5464,7 +5464,7 @@ if (WebComponents.flags.shadow) {
         if (root) {
           Array.prototype.forEach.call(
             root.querySelectorAll("*"),
-            function (node) {
+            node => {
               node.setAttribute(name, "");
             }
           );
@@ -5484,19 +5484,19 @@ if (WebComponents.flags.shadow) {
       insertPolyfillDirectivesInCssText(cssText) {
         cssText = cssText.replace(
           cssCommentNextSelectorRe,
-          function (match, p1) {
+          (match, p1) => {
             return p1.slice(0, -2) + "{";
           }
         );
-        return cssText.replace(cssContentNextSelectorRe, function (match, p1) {
+        return cssText.replace(cssContentNextSelectorRe, (match, p1) => {
           return p1 + " {";
         });
       },
       insertPolyfillRulesInCssText(cssText) {
-        cssText = cssText.replace(cssCommentRuleRe, function (match, p1) {
+        cssText = cssText.replace(cssCommentRuleRe, (match, p1) => {
           return p1.slice(0, -1);
         });
-        return cssText.replace(cssContentRuleRe, function (match, p1, p2, p3) {
+        return cssText.replace(cssContentRuleRe, (match, p1, p2, p3) => {
           var rule = match.replace(p1, "").replace(p2, "");
           return p3 + rule;
         });
@@ -5510,7 +5510,7 @@ if (WebComponents.flags.shadow) {
         if (scopeSelector) {
           var self = this,
             cssText;
-          withCssRules(cssText, function (rules) {
+          withCssRules(cssText, rules => {
             cssText = self.scopeRules(rules, scopeSelector);
           });
         }
@@ -5543,7 +5543,7 @@ if (WebComponents.flags.shadow) {
         );
       },
       convertColonRule(cssText, regExp, partReplacer) {
-        return cssText.replace(regExp, function (m, p1, p2, p3) {
+        return cssText.replace(regExp, (m, p1, p2, p3) => {
           p1 = polyfillHostNoCombinator;
           if (p2) {
             var parts = p2.split(","),
@@ -5615,7 +5615,7 @@ if (WebComponents.flags.shadow) {
       },
       ieSafeCssTextFromKeyFrameRule(rule) {
         var cssText = "@keyframes " + rule.name + " {";
-        Array.prototype.forEach.call(rule.cssRules, function (rule) {
+        Array.prototype.forEach.call(rule.cssRules, rule => {
           cssText += " " + rule.keyText + " {" + rule.style.cssText + "}";
         });
         cssText += " }";
@@ -5674,10 +5674,10 @@ if (WebComponents.flags.shadow) {
         var splits = [" ", ">", "+", "~"],
           scoped = selector,
           attrName = "[" + scopeSelector + "]";
-        splits.forEach(function (sep) {
+        splits.forEach(sep => {
           var parts = scoped.split(sep);
           scoped = parts
-            .map(function (p) {
+            .map(p => {
               var t = p.trim().replace(polyfillHostRe, "");
               if (t && splits.indexOf(t) < 0 && t.indexOf(attrName) < 0) {
                 p = t.replace(/([^:]*)(:*)(.*)/, "$1" + attrName + "$2$3");
@@ -5772,7 +5772,7 @@ if (WebComponents.flags.shadow) {
       ];
     function stylesToCssText(styles, preserveComments) {
       var cssText = "";
-      Array.prototype.forEach.call(styles, function (s) {
+      Array.prototype.forEach.call(styles, s => {
         cssText += s.textContent + "\n\n";
       });
       if (!preserveComments) {
@@ -5825,7 +5825,7 @@ if (WebComponents.flags.shadow) {
       var rules;
       if (cssText.match("@import") && isChrome) {
         var style = cssTextToStyle(cssText);
-        inFrame(function (doc) {
+        inFrame(doc => {
           doc.head.appendChild(style.impl);
           rules = Array.prototype.slice.call(style.sheet.cssRules, 0);
           callback(rules);
@@ -5869,7 +5869,7 @@ if (WebComponents.flags.shadow) {
       var doc = ShadowDOMPolyfill.wrap(document);
       var head = doc.querySelector("head");
       head.insertBefore(getSheet(), head.childNodes[0]);
-      document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", () => {
         var urlResolver = scope.urlResolver;
         if (window.HTMLImports && !HTMLImports.useNative) {
           var SHIM_SHEET_SELECTOR =
@@ -5933,18 +5933,18 @@ if (WebComponents.flags.shadow) {
   })(window.WebComponents);
 }
 
-(function (scope) {
+(scope => {
   if (window.ShadowDOMPolyfill) {
     window.wrap = ShadowDOMPolyfill.wrapIfNeeded;
     window.unwrap = ShadowDOMPolyfill.unwrapIfNeeded;
   } else {
-    window.wrap = window.unwrap = function (n) {
+    window.wrap = window.unwrap = n => {
       return n;
     };
   }
 })(window.WebComponents);
 
-(function (scope) {
+(scope => {
   "use strict";
   var hasWorkingUrl = false;
   if (!scope.forceJURL) {
@@ -6576,7 +6576,7 @@ if (WebComponents.flags.shadow) {
   scope.URL = jURL;
 })(self);
 
-(function (global) {
+(global => {
   if (global.JsMutationObserver) {
     return;
   }
@@ -6589,16 +6589,16 @@ if (WebComponents.flags.shadow) {
   } else {
     var setImmediateQueue = [];
     var sentinel = String(Math.random());
-    window.addEventListener("message", function (e) {
+    window.addEventListener("message", e => {
       if (e.data === sentinel) {
         var queue = setImmediateQueue;
         setImmediateQueue = [];
-        queue.forEach(function (func) {
+        queue.forEach(func => {
           func();
         });
       }
     });
-    setImmediate = function (func) {
+    setImmediate = func => {
       setImmediateQueue.push(func);
       window.postMessage(sentinel, "*");
     };
@@ -6623,11 +6623,11 @@ if (WebComponents.flags.shadow) {
     isScheduled = false;
     var observers = scheduledObservers;
     scheduledObservers = [];
-    observers.sort(function (o1, o2) {
+    observers.sort((o1, o2) => {
       return o1.uid_ - o2.uid_;
     });
     var anyNonEmpty = false;
-    observers.forEach(function (observer) {
+    observers.forEach(observer => {
       var queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
@@ -6638,10 +6638,10 @@ if (WebComponents.flags.shadow) {
     if (anyNonEmpty) dispatchCallbacks();
   }
   function removeTransientObserversFor(observer) {
-    observer.nodes_.forEach(function (node) {
+    observer.nodes_.forEach(node => {
       var registrations = registrationsTable.get(node);
       if (!registrations) return;
-      registrations.forEach(function (registration) {
+      registrations.forEach(registration => {
         if (registration.observer === observer)
           registration.removeTransientObservers();
       });
@@ -6861,7 +6861,7 @@ if (WebComponents.flags.shadow) {
           record.attributeNamespace = namespace;
           var oldValue =
             e.attrChange === MutationEvent.ADDITION ? null : e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.attributes) return;
             if (
               options.attributeFilter &&
@@ -6881,7 +6881,7 @@ if (WebComponents.flags.shadow) {
           var target = e.target;
           var record = getRecord("characterData", target);
           var oldValue = e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.characterData) return;
             if (options.characterDataOldValue)
               return getRecordWithOldValue(oldValue);
@@ -6911,7 +6911,7 @@ if (WebComponents.flags.shadow) {
           record.nextSibling = nextSibling;
           forEachAncestorAndObserverEnqueueRecord(
             e.relatedNode,
-            function (options) {
+            options => {
               if (!options.childList) return;
               return record;
             }
@@ -6928,7 +6928,7 @@ if (WebComponents.flags.shadow) {
   }
 })(self);
 
-(function (scope) {
+(scope => {
   "use strict";
   if (!(window.performance && window.performance.now)) {
     var start = Date.now();
@@ -6939,32 +6939,30 @@ if (WebComponents.flags.shadow) {
     };
   }
   if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = (function () {
+    window.requestAnimationFrame = (() => {
       var nativeRaf =
         window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
       return nativeRaf
-        ? function (callback) {
-            return nativeRaf(function () {
+        ? callback => {
+            return nativeRaf(() => {
               callback(performance.now());
             });
           }
-        : function (callback) {
+        : callback => {
             return window.setTimeout(callback, 1e3 / 60);
           };
     })();
   }
   if (!window.cancelAnimationFrame) {
-    window.cancelAnimationFrame = (function () {
-      return (
-        window.webkitCancelAnimationFrame ||
-        window.mozCancelAnimationFrame ||
-        function (id) {
-          clearTimeout(id);
-        }
-      );
+    window.cancelAnimationFrame = (() => {
+      return window.webkitCancelAnimationFrame ||
+      window.mozCancelAnimationFrame ||
+      (id => {
+        clearTimeout(id);
+      });
     })();
   }
-  var workingDefaultPrevented = (function () {
+  var workingDefaultPrevented = (() => {
     var e = document.createEvent("Event");
     e.initEvent("foo", true, true);
     e.preventDefault();
@@ -6978,7 +6976,7 @@ if (WebComponents.flags.shadow) {
     !window.CustomEvent ||
     (isIE && typeof window.CustomEvent !== "function")
   ) {
-    window.CustomEvent = function (inType, params) {
+    window.CustomEvent = (inType, params) => {
       params = params || {};
       var e = document.createEvent("CustomEvent");
       e.initCustomEvent(
@@ -6993,7 +6991,7 @@ if (WebComponents.flags.shadow) {
   }
   if (!window.Event || (isIE && typeof window.Event !== "function")) {
     var origEvent = window.Event;
-    window.Event = function (inType, params) {
+    window.Event = (inType, params) => {
       params = params || {};
       var e = document.createEvent("Event");
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
@@ -7007,11 +7005,11 @@ window.HTMLImports = window.HTMLImports || {
   flags: {},
 };
 
-(function (scope) {
+(scope => {
   var IMPORT_LINK_TYPE = "import";
   var useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
   var hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
-  var wrap = function (node) {
+  var wrap = node => {
     return hasShadowDOMPolyfill
       ? window.ShadowDOMPolyfill.wrapIfNeeded(node)
       : node;
@@ -7038,7 +7036,7 @@ window.HTMLImports = window.HTMLImports || {
   var isIE = /Trident/.test(navigator.userAgent);
   function whenReady(callback, doc) {
     doc = doc || rootDocument;
-    whenDocumentReady(function () {
+    whenDocumentReady(() => {
       watchImportsLoad(callback, doc);
     }, doc);
   }
@@ -7051,7 +7049,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   function whenDocumentReady(callback, doc) {
     if (!isDocumentReady(doc)) {
-      var checkReady = function () {
+      var checkReady = () => {
         if (
           doc.readyState === "complete" ||
           doc.readyState === requiredReadyState
@@ -7115,7 +7113,7 @@ window.HTMLImports = window.HTMLImports || {
       : link.__importParsed;
   }
   if (useNative) {
-    new MutationObserver(function (mxns) {
+    new MutationObserver(mxns => {
       for (var i = 0, l = mxns.length, m; i < l && (m = mxns[i]); i++) {
         if (m.addedNodes) {
           handleImports(m.addedNodes);
@@ -7145,7 +7143,7 @@ window.HTMLImports = window.HTMLImports || {
         element.addEventListener("error", markTargetLoaded);
       }
     }
-    (function () {
+    (() => {
       if (document.readyState === "loading") {
         var imports = document.querySelectorAll("link[rel=import]");
         for (
@@ -7158,7 +7156,7 @@ window.HTMLImports = window.HTMLImports || {
       }
     })();
   }
-  whenReady(function (detail) {
+  whenReady(detail => {
     window.HTMLImports.ready = true;
     window.HTMLImports.readyTime = new Date().getTime();
     var evt = rootDocument.createEvent("CustomEvent");
@@ -7172,13 +7170,13 @@ window.HTMLImports = window.HTMLImports || {
   scope.isIE = isIE;
 })(window.HTMLImports);
 
-(function (scope) {
+(scope => {
   var modules = [];
-  var addModule = function (module) {
+  var addModule = module => {
     modules.push(module);
   };
-  var initializeModules = function () {
-    modules.forEach(function (module) {
+  var initializeModules = () => {
+    modules.forEach(module => {
       module(scope);
     });
   };
@@ -7186,7 +7184,7 @@ window.HTMLImports = window.HTMLImports || {
   scope.initializeModules = initializeModules;
 })(window.HTMLImports);
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
   var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
   var path = {
@@ -7206,7 +7204,7 @@ window.HTMLImports.addModule(function (scope) {
       return r;
     },
     replaceUrls(text, urlObj, linkUrl, regexp) {
-      return text.replace(regexp, function (m, pre, url, post) {
+      return text.replace(regexp, (m, pre, url, post) => {
         var urlPath = url.replace(/["']/g, "");
         if (linkUrl) {
           urlPath = new URL(urlPath, linkUrl).href;
@@ -7220,7 +7218,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.path = path;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var xhr = {
     async: true,
     ok(request) {
@@ -7236,7 +7234,7 @@ window.HTMLImports.addModule(function (scope) {
         url += "?" + Math.random();
       }
       request.open("GET", url, xhr.async);
-      request.addEventListener("readystatechange", function (e) {
+      request.addEventListener("readystatechange", e => {
         if (request.readyState === 4) {
           var redirectedUrl = null;
           try {
@@ -7268,7 +7266,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.xhr = xhr;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var xhr = scope.xhr;
   var flags = scope.flags;
 
@@ -7322,7 +7320,7 @@ window.HTMLImports.addModule(function (scope) {
       flags.load && console.log("fetch", url, elt);
       if (!url) {
         setTimeout(
-          function () {
+          () => {
             this.receive(
               url,
               elt,
@@ -7331,7 +7329,7 @@ window.HTMLImports.addModule(function (scope) {
               },
               null
             );
-          }.bind(this),
+          },
           0
         );
       } else if (url.match(/^data:/)) {
@@ -7344,15 +7342,15 @@ window.HTMLImports.addModule(function (scope) {
           body = decodeURIComponent(body);
         }
         setTimeout(
-          function () {
+          () => {
             this.receive(url, elt, null, body);
-          }.bind(this),
+          },
           0
         );
       } else {
-        var receiveXhr = function (err, resource, redirectedUrl) {
+        var receiveXhr = (err, resource, redirectedUrl) => {
           this.receive(url, elt, err, resource, redirectedUrl);
-        }.bind(this);
+        };
         xhr.load(url, receiveXhr);
       }
     }
@@ -7382,7 +7380,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.Loader = Loader;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   class Observer {
     constructor(addCallback) {
       this.addCallback = addCallback;
@@ -7427,7 +7425,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.Observer = Observer;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var path = scope.path;
   var rootDocument = scope.rootDocument;
   var flags = scope.flags;
@@ -7560,7 +7558,7 @@ window.HTMLImports.addModule(function (scope) {
     },
     trackElement(elt, callback) {
       var self = this;
-      var done = function (e) {
+      var done = e => {
         elt.removeEventListener("load", done);
         elt.removeEventListener("error", done);
         if (callback) {
@@ -7586,7 +7584,7 @@ window.HTMLImports.addModule(function (scope) {
           }
         }
         if (fakeLoad) {
-          setTimeout(function () {
+          setTimeout(() => {
             elt.dispatchEvent(
               new CustomEvent("load", {
                 bubbles: false,
@@ -7603,7 +7601,7 @@ window.HTMLImports.addModule(function (scope) {
         ? scriptElt.src
         : generateScriptDataUrl(scriptElt);
       scope.currentScript = scriptElt;
-      this.trackElement(script, function (e) {
+      this.trackElement(script, e => {
         if (script.parentNode) {
           script.parentNode.removeChild(script);
         }
@@ -7686,7 +7684,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.IMPORT_SELECTOR = IMPORT_SELECTOR;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var flags = scope.flags;
   var IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
   var IMPORT_SELECTOR = scope.IMPORT_SELECTOR;
@@ -7790,7 +7788,7 @@ window.HTMLImports.addModule(function (scope) {
   scope.importLoader = importLoader;
 });
 
-window.HTMLImports.addModule(function (scope) {
+window.HTMLImports.addModule(scope => {
   var parser = scope.parser;
   var importer = scope.importer;
   var dynamic = {
@@ -7832,7 +7830,7 @@ window.HTMLImports.addModule(function (scope) {
     HTMLElement.prototype.msMatchesSelector;
 });
 
-(function (scope) {
+(scope => {
   var initializeModules = scope.initializeModules;
   var isIE = scope.isIE;
   if (scope.useNative) {
@@ -7857,14 +7855,14 @@ window.CustomElements = window.CustomElements || {
   flags: {},
 };
 
-(function (scope) {
+(scope => {
   var flags = scope.flags;
   var modules = [];
-  var addModule = function (module) {
+  var addModule = module => {
     modules.push(module);
   };
-  var initializeModules = function () {
-    modules.forEach(function (module) {
+  var initializeModules = () => {
+    modules.forEach(module => {
       module(scope);
     });
   };
@@ -7879,12 +7877,12 @@ window.CustomElements = window.CustomElements || {
     (!window.HTMLImports || window.HTMLImports.useNative);
 })(window.CustomElements);
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var IMPORT_LINK_TYPE = window.HTMLImports
     ? window.HTMLImports.IMPORT_LINK_TYPE
     : "none";
   function forSubtree(node, cb) {
-    findAllElements(node, function (e) {
+    findAllElements(node, e => {
       if (cb(e)) {
         return true;
       }
@@ -7936,7 +7934,7 @@ window.CustomElements.addModule(function (scope) {
   scope.forSubtree = forSubtree;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var flags = scope.flags;
   var forSubtree = scope.forSubtree;
   var forDocumentTree = scope.forDocumentTree;
@@ -7952,7 +7950,7 @@ window.CustomElements.addModule(function (scope) {
     }
   }
   function addedSubtree(node, isAttached) {
-    forSubtree(node, function (e) {
+    forSubtree(node, e => {
       if (added(e, isAttached)) {
         return true;
       }
@@ -7981,7 +7979,7 @@ window.CustomElements.addModule(function (scope) {
   }
   function attached(element) {
     if (hasThrottledAttached) {
-      deferMutation(function () {
+      deferMutation(() => {
         _attached(element);
       });
     } else {
@@ -7998,13 +7996,13 @@ window.CustomElements.addModule(function (scope) {
   }
   function detachedNode(node) {
     detached(node);
-    forSubtree(node, function (e) {
+    forSubtree(node, e => {
       detached(e);
     });
   }
   function detached(element) {
     if (hasThrottledAttached) {
-      deferMutation(function () {
+      deferMutation(() => {
         _detached(element);
       });
     } else {
@@ -8057,15 +8055,15 @@ window.CustomElements.addModule(function (scope) {
       console.group("mutations (%d) [%s]", mutations.length, u || "");
     }
     var isAttached = inDocument(root);
-    mutations.forEach(function (mx) {
+    mutations.forEach(mx => {
       if (mx.type === "childList") {
-        forEach(mx.addedNodes, function (n) {
+        forEach(mx.addedNodes, n => {
           if (!n.localName) {
             return;
           }
           addedNode(n, isAttached);
         });
-        forEach(mx.removedNodes, function (n) {
+        forEach(mx.removedNodes, n => {
           if (!n.localName) {
             return;
           }
@@ -8124,7 +8122,7 @@ window.CustomElements.addModule(function (scope) {
   scope.takeRecords = takeRecords;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var flags = scope.flags;
   function upgrade(node, isAttached) {
     if (node.localName === "template") {
@@ -8198,7 +8196,7 @@ window.CustomElements.addModule(function (scope) {
   scope.implementPrototype = implementPrototype;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var isIE = scope.isIE;
   var upgradeDocumentTree = scope.upgradeDocumentTree;
   var upgradeAll = scope.upgradeAll;
@@ -8354,7 +8352,7 @@ window.CustomElements.addModule(function (scope) {
     registry[name] = definition;
   }
   function generateConstructor(definition) {
-    return function () {
+    return () => {
       return instantiate(definition);
     };
   }
@@ -8398,7 +8396,7 @@ window.CustomElements.addModule(function (scope) {
   var domCreateElementNS = document.createElementNS.bind(document);
   var isInstance;
   if (!Object.__proto__ && !useNative) {
-    isInstance = function (obj, ctor) {
+    isInstance = (obj, ctor) => {
       if (obj instanceof ctor) {
         return true;
       }
@@ -8412,7 +8410,7 @@ window.CustomElements.addModule(function (scope) {
       return false;
     };
   } else {
-    isInstance = function (obj, base) {
+    isInstance = (obj, base) => {
       return obj instanceof base;
     };
   }
@@ -8436,19 +8434,19 @@ window.CustomElements.addModule(function (scope) {
   document.register = document.registerElement;
 });
 
-(function (scope) {
+(scope => {
   var useNative = scope.useNative;
   var initializeModules = scope.initializeModules;
   var isIE = scope.isIE;
   if (useNative) {
-    var nop = function () {};
+    var nop = () => {};
     scope.watchShadow = nop;
     scope.upgrade = nop;
     scope.upgradeAll = nop;
     scope.upgradeDocumentTree = nop;
     scope.upgradeSubtree = nop;
     scope.takeRecords = nop;
-    scope.instanceof = function (obj, base) {
+    scope.instanceof = (obj, base) => {
       return obj instanceof base;
     };
   } else {
@@ -8461,13 +8459,13 @@ window.CustomElements.addModule(function (scope) {
       window.wrap = window.ShadowDOMPolyfill.wrapIfNeeded;
       window.unwrap = window.ShadowDOMPolyfill.unwrapIfNeeded;
     } else {
-      window.wrap = window.unwrap = function (node) {
+      window.wrap = window.unwrap = node => {
         return node;
       };
     }
   }
   if (window.HTMLImports) {
-    window.HTMLImports.__importsParsingHook = function (elt) {
+    window.HTMLImports.__importsParsingHook = elt => {
       if (elt.import) {
         upgradeDocument(wrap(elt.import));
       }
@@ -8478,11 +8476,11 @@ window.CustomElements.addModule(function (scope) {
     window.CustomElements.ready = true;
     var requestAnimationFrame =
       window.requestAnimationFrame ||
-      function (f) {
+      (f => {
         setTimeout(f, 16);
-      };
-    requestAnimationFrame(function () {
-      setTimeout(function () {
+      });
+    requestAnimationFrame(() => {
+      setTimeout(() => {
         window.CustomElements.readyTime = Date.now();
         if (window.HTMLImports) {
           window.CustomElements.elapsed =
@@ -8513,7 +8511,7 @@ window.CustomElements.addModule(function (scope) {
   }
 })(window.CustomElements);
 
-(function (scope) {
+(scope => {
   if (!Function.prototype.bind) {
     Function.prototype.bind = function (scope) {
       var self = this;
@@ -8527,7 +8525,7 @@ window.CustomElements.addModule(function (scope) {
   }
 })(window.WebComponents);
 
-(function (scope) {
+(scope => {
   var style = document.createElement("style");
   style.textContent =
     "" +
@@ -8541,6 +8539,6 @@ window.CustomElements.addModule(function (scope) {
   head.insertBefore(style, head.firstChild);
 })(window.WebComponents);
 
-(function (scope) {
+(scope => {
   window.Platform = scope;
 })(window.WebComponents);

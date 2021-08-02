@@ -5,7 +5,7 @@ It allows bindings in <body>, and other Polymer features which are lazily
 upgraded. This approach does not block rendering!.
 */
 
-(function () {
+(() => {
   var origTryReady = Polymer.Base._tryReady;
 
   Polymer.Base._tryReady = function () {
