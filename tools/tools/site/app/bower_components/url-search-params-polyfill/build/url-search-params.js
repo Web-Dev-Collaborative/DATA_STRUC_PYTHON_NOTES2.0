@@ -1,5 +1,5 @@
 /*! (C) WebReflection Mit Style License */
-var URLSearchParams =
+const URLSearchParams =
   URLSearchParams || (() => {
     "use strict";
     function e(e) {
@@ -11,7 +11,7 @@ var URLSearchParams =
     function n(e) {
       this[f] = Object.create(null);
       if (!e) return;
-      for (var n, r, i = (e || "").split("&"), s = 0, o = i.length; s < o; s++)
+      for (let n, r, i = (e || "").split("&"), s = 0, o = i.length; s < o; s++)
         (r = i[s]),
           (n = r.indexOf("=")),
           -1 < n && this.append(t(r.slice(0, n)), t(r.slice(n + 1)));
@@ -23,36 +23,39 @@ var URLSearchParams =
         return !1;
       }
     }
-    var r = n.prototype,
-      i = /[!'\(\)~]|%20|%00/g,
-      s = /\+/g,
-      o = {
-        "!": "%21",
-        "'": "%27",
-        "(": "%28",
-        ")": "%29",
-        "~": "%7E",
-        "%20": "+",
-        "%00": "\0",
-      },
-      u = e => {
-        return o[e];
-      },
-      a = l(),
-      f = "__URLSearchParams__:" + Math.random();
+    const r = n.prototype;
+    var i = /[!'\(\)~]|%20|%00/g;
+    var s = /\+/g;
+
+    const o = {
+      "!": "%21",
+      "'": "%27",
+      "(": "%28",
+      ")": "%29",
+      "~": "%7E",
+      "%20": "+",
+      "%00": "\0",
+    };
+
+    var u = e => {
+      return o[e];
+    };
+
+    const a = l();
+    var f = "__URLSearchParams__:" + Math.random();
     (r.append = function (t, n) {
-      var r = this[f];
+      const r = this[f];
       t in r ? r[t].push("" + n) : (r[t] = ["" + n]);
     }),
       (r.delete = function (t) {
         delete this[f][t];
       }),
       (r.get = function (t) {
-        var n = this[f];
+        const n = this[f];
         return t in n ? n[t][0] : null;
       }),
       (r.getAll = function (t) {
-        var n = this[f];
+        const n = this[f];
         return t in n ? n[t].slice(0) : [];
       }),
       (r.has = function (t) {
@@ -62,7 +65,7 @@ var URLSearchParams =
         this[f][t] = ["" + n];
       }),
       (r.forEach = function (t, n) {
-        var r = this[f];
+        const r = this[f];
         Object.getOwnPropertyNames(r).forEach(function (e) {
           r[e].forEach(function (r) {
             t.call(n, r, e, this);
@@ -70,13 +73,13 @@ var URLSearchParams =
         }, this);
       }),
       (r.keys = function () {
-        var t = [];
+        const t = [];
         this.forEach((e, n) => {
           t.push(n);
         });
-        var n = {
+        const n = {
           next() {
-            var e = t.shift();
+            const e = t.shift();
             return { done: e === undefined, value: e };
           },
         };
@@ -88,13 +91,13 @@ var URLSearchParams =
       ;
       }),
       (r.values = function () {
-        var t = [];
+        const t = [];
         this.forEach(e => {
           t.push(e);
         });
-        var n = {
+        const n = {
           next() {
-            var e = t.shift();
+            const e = t.shift();
             return { done: e === undefined, value: e };
           },
         };
@@ -106,13 +109,13 @@ var URLSearchParams =
       ;
       }),
       (r.entries = function () {
-        var t = [];
+        const t = [];
         this.forEach((e, n) => {
           t.push([n, e]);
         });
-        var n = {
+        const n = {
           next() {
-            var e = t.shift();
+            const e = t.shift();
             return { done: e === undefined, value: e };
           },
         };
@@ -128,112 +131,112 @@ var URLSearchParams =
         return {};
       }),
       (r.toString = function y() {
-        var t = this[f],
-          n = [],
-          r,
-          i,
-          s,
-          o;
-        for (i in t) {
-          s = e(i);
-          for (r = 0, o = t[i]; r < o.length; r++) n.push(s + "=" + e(o[r]));
-        }
-        return n.join("&");
-      });
-    var c = Object.defineProperty,
-      h = Object.getOwnPropertyDescriptor,
-      p = e => {
-        function t(t, n) {
-          r.append.call(this, t, n),
-            (t = this.toString()),
-            e.set.call(this._usp, t ? "?" + t : "");
-        }
-        function n(t) {
-          r.delete.call(this, t),
-            (t = this.toString()),
-            e.set.call(this._usp, t ? "?" + t : "");
-        }
-        function i(t, n) {
-          r.set.call(this, t, n),
-            (t = this.toString()),
-            e.set.call(this._usp, t ? "?" + t : "");
-        }
-        return (e, r) => {
-          return (
-            (e.append = t),
-            (e.delete = n),
-            (e.set = i),
-            c(e, "_usp", { configurable: !0, writable: !0, value: r })
-          );
-        };
-      },
-      d = e => {
-        return (t, n) => {
-          return (
-            c(t, "_searchParams", {
-              configurable: !0,
-              writable: !0,
-              value: e(n, t),
-            }),
-            n
-          );
-        };
-      },
-      v = e => {
-        var t = e.append;
-        (e.append = r.append),
-          n.call(e, e._usp.search.slice(1)),
-          (e.append = t);
-      },
-      m = (e, t) => {
-        if (!(e instanceof t))
-          throw new TypeError(
-            "'searchParams' accessed on an object that does not implement interface " +
-              t.name
-          );
-      },
-      g = e => {
-        var t = e.prototype,
-          r = h(t, "searchParams"),
-          i = h(t, "href"),
-          s = h(t, "search"),
-          o;
-        !r &&
-          s &&
-          s.set &&
-          ((o = d(p(s))),
-          Object.defineProperties(t, {
-            href: {
-              get() {
-                return i.get.call(this);
-              },
-              set(e) {
-                var t = this._searchParams;
-                i.set.call(this, e), t && v(t);
-              },
-            },
-            search: {
-              get() {
-                return s.get.call(this);
-              },
-              set(e) {
-                var t = this._searchParams;
-                s.set.call(this, e), t && v(t);
-              },
-            },
-            searchParams: {
-              get() {
-                return (
-                  m(this, e),
-                  this._searchParams || o(this, new n(this.search.slice(1)))
-                );
-              },
-              set(t) {
-                m(this, e), o(this, t);
-              },
-            },
-          }));
-      };
+      const t = this[f];
+      const n = [];
+      let r;
+      let i;
+      let s;
+      let o;
+      for (i in t) {
+        s = e(i);
+        for (r = 0, o = t[i]; r < o.length; r++) n.push(s + "=" + e(o[r]));
+      }
+      return n.join("&");
+    });
+    const c = Object.defineProperty,
+          h = Object.getOwnPropertyDescriptor,
+          p = e => {
+            function t(t, n) {
+              r.append.call(this, t, n),
+                (t = this.toString()),
+                e.set.call(this._usp, t ? "?" + t : "");
+            }
+            function n(t) {
+              r.delete.call(this, t),
+                (t = this.toString()),
+                e.set.call(this._usp, t ? "?" + t : "");
+            }
+            function i(t, n) {
+              r.set.call(this, t, n),
+                (t = this.toString()),
+                e.set.call(this._usp, t ? "?" + t : "");
+            }
+            return (e, r) => {
+              return (
+                (e.append = t),
+                (e.delete = n),
+                (e.set = i),
+                c(e, "_usp", { configurable: !0, writable: !0, value: r })
+              );
+            };
+          },
+          d = e => {
+            return (t, n) => {
+              return (
+                c(t, "_searchParams", {
+                  configurable: !0,
+                  writable: !0,
+                  value: e(n, t),
+                }),
+                n
+              );
+            };
+          },
+          v = e => {
+            const t = e.append;
+            (e.append = r.append),
+              n.call(e, e._usp.search.slice(1)),
+              (e.append = t);
+          },
+          m = (e, t) => {
+            if (!(e instanceof t))
+              throw new TypeError(
+                "'searchParams' accessed on an object that does not implement interface " +
+                  t.name
+              );
+          },
+          g = e => {
+            const t = e.prototype;
+            const r = h(t, "searchParams");
+            const i = h(t, "href");
+            const s = h(t, "search");
+            let o;
+            !r &&
+              s &&
+              s.set &&
+              ((o = d(p(s))),
+              Object.defineProperties(t, {
+                href: {
+                  get() {
+                    return i.get.call(this);
+                  },
+                  set(e) {
+                    const t = this._searchParams;
+                    i.set.call(this, e), t && v(t);
+                  },
+                },
+                search: {
+                  get() {
+                    return s.get.call(this);
+                  },
+                  set(e) {
+                    const t = this._searchParams;
+                    s.set.call(this, e), t && v(t);
+                  },
+                },
+                searchParams: {
+                  get() {
+                    return (
+                      m(this, e),
+                      this._searchParams || o(this, new n(this.search.slice(1)))
+                    );
+                  },
+                  set(t) {
+                    m(this, e), o(this, t);
+                  },
+                },
+              }));
+          };
     return (
       g(HTMLAnchorElement), /^function|object$/.test(typeof URL) && g(URL), n
     );

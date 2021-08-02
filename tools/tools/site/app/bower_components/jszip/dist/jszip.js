@@ -15,7 +15,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
   } else if (typeof define === "function" && define.amd) {
     define([], f);
   } else {
-    var g;
+    let g;
     if (typeof window !== "undefined") {
       g = window;
     } else if (typeof global !== "undefined") {
@@ -28,22 +28,22 @@ https://github.com/nodeca/pako/blob/master/LICENSE
     g.JSZip = f();
   }
 })(() => {
-  var define, module, exports;
+  let define, module, exports;
   return (function e(t, n, r) {
     function s(o, u) {
       if (!n[o]) {
         if (!t[o]) {
-          var a = typeof require == "function" && require;
+          const a = typeof require == "function" && require;
           if (!u && a) return a(o, !0);
           if (i) return i(o, !0);
-          var f = new Error("Cannot find module '" + o + "'");
+          const f = new Error("Cannot find module '" + o + "'");
           throw ((f.code = "MODULE_NOT_FOUND"), f);
         }
-        var l = (n[o] = { exports: {} });
+        const l = (n[o] = { exports: {} });
         t[o][0].call(
           l.exports,
           e => {
-            var n = t[o][1][e];
+            const n = t[o][1][e];
             return s(n ? n : e);
           },
           l,
@@ -57,14 +57,14 @@ https://github.com/nodeca/pako/blob/master/LICENSE
       return n[o].exports;
     }
     var i = typeof require == "function" && require;
-    for (var o = 0; o < r.length; o++) s(r[o]);
+    for (let o = 0; o < r.length; o++) s(r[o]);
     return s;
   })(
     {
       1: [
         (require, module, exports) => {
           "use strict";
-          var DataReader = require("./dataReader");
+          const DataReader = require("./dataReader");
 
           class ArrayReader extends DataReader {
             constructor(data) {
@@ -74,7 +74,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
                 this.index = 0;
                 this.zero = 0;
 
-                for (var i = 0; i < this.data.length; i++) {
+                for (let i = 0; i < this.data.length; i++) {
                   data[i] = data[i] & 0xff;
                 }
               }
@@ -91,11 +91,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @see DataReader.lastIndexOfSignature
              */
             lastIndexOfSignature(sig) {
-              var sig0 = sig.charCodeAt(0),
-                sig1 = sig.charCodeAt(1),
-                sig2 = sig.charCodeAt(2),
-                sig3 = sig.charCodeAt(3);
-              for (var i = this.length - 4; i >= 0; --i) {
+              const sig0 = sig.charCodeAt(0), sig1 = sig.charCodeAt(1), sig2 = sig.charCodeAt(2), sig3 = sig.charCodeAt(3);
+              for (let i = this.length - 4; i >= 0; --i) {
                 if (
                   this.data[i] === sig0 &&
                   this.data[i + 1] === sig1 &&
@@ -117,7 +114,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
               if (size === 0) {
                 return [];
               }
-              var result = this.data.slice(
+              const result = this.data.slice(
                 this.zero + this.index,
                 this.zero + this.index + size
               );
@@ -134,14 +131,14 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         (require, module, exports) => {
           "use strict";
           // private property
-          var _keyStr =
+          const _keyStr =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
           // public method for encoding
           exports.encode = (input, utf8) => {
-            var output = "";
-            var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
-            var i = 0;
+            let output = "";
+            let chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+            let i = 0;
 
             while (i < input.length) {
               chr1 = input.charCodeAt(i++);
@@ -172,10 +169,10 @@ https://github.com/nodeca/pako/blob/master/LICENSE
 
           // public method for decoding
           exports.decode = (input, utf8) => {
-            var output = "";
-            var chr1, chr2, chr3;
-            var enc1, enc2, enc3, enc4;
-            var i = 0;
+            let output = "";
+            let chr1, chr2, chr3;
+            let enc1, enc2, enc3, enc4;
+            let i = 0;
 
             input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
 
@@ -262,9 +259,9 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("./utils");
+          const utils = require("./utils");
 
-          var table = [
+          const table = [
             0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419,
             0x706af48f, 0xe963a535, 0x9e6495a3, 0x0edb8832, 0x79dcb8a4,
             0xe0d5e91e, 0x97d2d988, 0x09b64c2b, 0x7eb17cbd, 0xe7b82d07,
@@ -330,17 +327,17 @@ https://github.com/nodeca/pako/blob/master/LICENSE
               return 0;
             }
 
-            var isArray = utils.getTypeOf(input) !== "string";
+            const isArray = utils.getTypeOf(input) !== "string";
 
             if (typeof crc == "undefined") {
               crc = 0;
             }
-            var x = 0;
-            var y = 0;
-            var b = 0;
+            let x = 0;
+            let y = 0;
+            let b = 0;
 
             crc = crc ^ -1;
-            for (var i = 0, iTop = input.length; i < iTop; i++) {
+            for (let i = 0, iTop = input.length; i < iTop; i++) {
               b = isArray ? input[i] : input.charCodeAt(i);
               y = (crc ^ b) & 0xff;
               x = table[y];
@@ -356,7 +353,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
       6: [
         (require, module, exports) => {
           "use strict";
-          var utils = require("./utils");
+          const utils = require("./utils");
 
           class DataReader {
             constructor(data) {
@@ -426,8 +423,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @return {number} the corresponding number.
              */
             readInt(size) {
-              var result = 0,
-                i;
+              let result = 0, i;
               this.checkOffset(size);
               for (i = this.index + size - 1; i >= this.index; i--) {
                 result = (result << 8) + this.byteAt(i);
@@ -468,7 +464,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @return {Date} the date.
              */
             readDate() {
-              var dostime = this.readInt(4);
+              const dostime = this.readInt(4);
               return new Date(
                 ((dostime >> 25) & 0x7f) + 1980, // year
                 ((dostime >> 21) & 0x0f) - 1, // month
@@ -503,7 +499,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
       8: [
         (require, module, exports) => {
           "use strict";
-          var utils = require("./utils");
+          const utils = require("./utils");
 
           /**
            * @deprecated
@@ -534,7 +530,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * This function will be removed in a future version without replacement.
            */
           exports.string2Blob = str => {
-            var buffer = utils.transformTo("arraybuffer", str);
+            const buffer = utils.transformTo("arraybuffer", str);
             return utils.arrayBuffer2Blob(buffer);
           };
 
@@ -611,12 +607,12 @@ https://github.com/nodeca/pako/blob/master/LICENSE
       9: [
         (require, module, exports) => {
           "use strict";
-          var USE_TYPEDARRAY =
+          const USE_TYPEDARRAY =
             typeof Uint8Array !== "undefined" &&
             typeof Uint16Array !== "undefined" &&
             typeof Uint32Array !== "undefined";
 
-          var pako = require("pako");
+          const pako = require("pako");
           exports.uncompressInputType = USE_TYPEDARRAY ? "uint8array" : "array";
           exports.compressInputType = USE_TYPEDARRAY ? "uint8array" : "array";
 
@@ -636,7 +632,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         (require, module, exports) => {
           "use strict";
 
-          var base64 = require("./base64");
+          const base64 = require("./base64");
 
           /**
 Usage:
@@ -675,8 +671,8 @@ Usage:
               this.load(data, options);
             }
             this.clone = function () {
-              var newObj = new JSZip();
-              for (var i in this) {
+              const newObj = new JSZip();
+              for (const i in this) {
                 if (typeof this[i] !== "function") {
                   newObj[i] = this[i];
                 }
@@ -727,12 +723,12 @@ Usage:
       11: [
         (require, module, exports) => {
           "use strict";
-          var base64 = require("./base64");
-          var utf8 = require("./utf8");
-          var utils = require("./utils");
-          var ZipEntries = require("./zipEntries");
+          const base64 = require("./base64");
+          const utf8 = require("./utf8");
+          const utils = require("./utils");
+          const ZipEntries = require("./zipEntries");
           module.exports = function (data, options) {
-            var files, zipEntries, i, input;
+            let files, zipEntries, i, input;
             options = utils.extend(options || {}, {
               base64: false,
               checkCRC32: false,
@@ -787,7 +783,7 @@ Usage:
       13: [
         (require, module, exports) => {
           "use strict";
-          var Uint8ArrayReader = require("./uint8ArrayReader");
+          const Uint8ArrayReader = require("./uint8ArrayReader");
 
           class NodeBufferReader extends Uint8ArrayReader {
             constructor(data) {
@@ -802,7 +798,7 @@ Usage:
              */
             readData(size) {
               this.checkOffset(size);
-              var result = this.data.slice(
+              const result = this.data.slice(
                 this.zero + this.index,
                 this.zero + this.index + size
               );
@@ -818,32 +814,32 @@ Usage:
       14: [
         (require, module, exports) => {
           "use strict";
-          var support = require("./support");
-          var utils = require("./utils");
-          var crc32 = require("./crc32");
-          var signature = require("./signature");
-          var defaults = require("./defaults");
-          var base64 = require("./base64");
-          var compressions = require("./compressions");
-          var CompressedObject = require("./compressedObject");
-          var nodeBuffer = require("./nodeBuffer");
-          var utf8 = require("./utf8");
-          var StringWriter = require("./stringWriter");
-          var Uint8ArrayWriter = require("./uint8ArrayWriter");
+          const support = require("./support");
+          const utils = require("./utils");
+          const crc32 = require("./crc32");
+          const signature = require("./signature");
+          const defaults = require("./defaults");
+          const base64 = require("./base64");
+          const compressions = require("./compressions");
+          const CompressedObject = require("./compressedObject");
+          const nodeBuffer = require("./nodeBuffer");
+          const utf8 = require("./utf8");
+          const StringWriter = require("./stringWriter");
+          const Uint8ArrayWriter = require("./uint8ArrayWriter");
 
           /**
            * Returns the raw data of a ZipObject, decompress the content if necessary.
            * @param {ZipObject} file the file to use.
            * @return {String|ArrayBuffer|Uint8Array|Buffer} the data.
            */
-          var getRawData = file => {
+          const getRawData = file => {
             if (file._data instanceof CompressedObject) {
               file._data = file._data.getContent();
               file.options.binary = true;
               file.options.base64 = false;
 
               if (utils.getTypeOf(file._data) === "uint8array") {
-                var copy = file._data;
+                const copy = file._data;
                 // when reading an arraybuffer, the CompressedObject mechanism will keep it and subarray() a Uint8Array.
                 // if we request a file in the same format, we might get the same Uint8Array or its ArrayBuffer (the original zip file).
                 file._data = new Uint8Array(copy.length);
@@ -861,9 +857,8 @@ Usage:
            * @param {ZipObject} file the file to use.
            * @return {String|ArrayBuffer|Uint8Array|Buffer} the data.
            */
-          var getBinaryData = file => {
-            var result = getRawData(file),
-              type = utils.getTypeOf(result);
+          const getBinaryData = file => {
+            const result = getRawData(file), type = utils.getTypeOf(result);
             if (type === "string") {
               if (!file.options.binary) {
                 // unicode text !
@@ -882,8 +877,8 @@ Usage:
            * @param {function} filter a function String -> String, applied if not null on the result.
            * @return {String} the string representing this._data.
            */
-          var dataToString = function (asUTF8) {
-            var result = getRawData(this);
+          const dataToString = function (asUTF8) {
+            let result = getRawData(this);
             if (result === null || typeof result === "undefined") {
               return "";
             }
@@ -957,7 +952,7 @@ Usage:
              * @return {Buffer} the content as a Buffer.
              */
             asNodeBuffer() {
-              var result = getBinaryData(this);
+              const result = getBinaryData(this);
               return utils.transformTo("nodebuffer", result);
             }
 
@@ -966,7 +961,7 @@ Usage:
              * @return {Uint8Array} the content as an Uint8Array.
              */
             asUint8Array() {
-              var result = getBinaryData(this);
+              const result = getBinaryData(this);
               return utils.transformTo("uint8array", result);
             }
 
@@ -986,9 +981,8 @@ Usage:
            * @param {number} bytes the number of bytes to generate.
            * @returns {string} the result.
            */
-          var decToHex = (dec, bytes) => {
-            var hex = "",
-              i;
+          const decToHex = (dec, bytes) => {
+            let hex = "", i;
             for (i = 0; i < bytes; i++) {
               hex += String.fromCharCode(dec & 0xff);
               dec = dec >>> 8;
@@ -1003,7 +997,7 @@ Usage:
            * @param {Object} o the options from the user.
            * @return {Object} the complete set of options.
            */
-          var prepareFileAttrs = o => {
+          const prepareFileAttrs = o => {
             o = o || {};
             if (
               o.base64 === true &&
@@ -1027,10 +1021,9 @@ Usage:
            * @param {Object} o the options of the file
            * @return {Object} the new file.
            */
-          var fileAdd = function (name, data, o) {
+          const fileAdd = function (name, data, o) {
             // be sure sub folders exist
-            var dataType = utils.getTypeOf(data),
-              parent;
+            let dataType = utils.getTypeOf(data), parent;
 
             o = prepareFileAttrs(o);
 
@@ -1086,7 +1079,7 @@ Usage:
               }
             }
 
-            var object = new ZipObject(name, data, o);
+            const object = new ZipObject(name, data, o);
             this.files[name] = object;
             return object;
           };
@@ -1101,7 +1094,7 @@ Usage:
             if (path.slice(-1) == "/") {
               path = path.substring(0, path.length - 1);
             }
-            var lastSlash = path.lastIndexOf("/");
+            const lastSlash = path.lastIndexOf("/");
             return lastSlash > 0 ? path.substring(0, lastSlash) : "";
           };
 
@@ -1149,9 +1142,9 @@ Usage:
            * @param {Object} compressionOptions the options to use when compressing.
            * @return {JSZip.CompressedObject} the compressed result.
            */
-          var generateCompressedObjectFrom = (file, compression, compressionOptions) => {
-            var result = new CompressedObject(),
-              content;
+          const generateCompressedObjectFrom = (file, compression, compressionOptions) => {
+            const result = new CompressedObject();
+            let content;
 
             // the data has not been decompressed, we might reuse things !
             if (file._data instanceof CompressedObject) {
@@ -1208,8 +1201,8 @@ Usage:
            *                 ^^^^^^^^^^______ not used ?
            *                           ^^^^^^ DOS attribute bits : Archive, Directory, Volume label, System file, Hidden, Read only
            */
-          var generateUnixExternalFileAttr = (unixPermissions, isDir) => {
-            var result = unixPermissions;
+          const generateUnixExternalFileAttr = (unixPermissions, isDir) => {
+            let result = unixPermissions;
             if (!unixPermissions) {
               // I can't use octal values in strict mode, hence the hexa.
               //  040775 => 0x41fd
@@ -1233,7 +1226,7 @@ Usage:
            * Bit 4     Directory
            * Bit 5     Archive
            */
-          var generateDosExternalFileAttr = (dosPermissions, isDir) => {
+          const generateDosExternalFileAttr = (dosPermissions, isDir) => {
             // the dir flag is already set for compatibility
 
             return (dosPermissions || 0) & 0x3f;
@@ -1249,7 +1242,7 @@ Usage:
            * @param {Function} encodeFileName the function to encode the file name / comment.
            * @return {object} the zip parts.
            */
-          var generateZipParts = function (
+          const generateZipParts = function (
             name,
             file,
             compressedObject,
@@ -1257,36 +1250,43 @@ Usage:
             platform,
             encodeFileName
           ) {
-            var data = compressedObject.compressedContent,
-              useCustomEncoding = encodeFileName !== utf8.utf8encode,
-              encodedFileName = utils.transformTo(
-                "string",
-                encodeFileName(file.name)
-              ),
-              utfEncodedFileName = utils.transformTo(
-                "string",
-                utf8.utf8encode(file.name)
-              ),
-              comment = file.comment || "",
-              encodedComment = utils.transformTo(
-                "string",
-                encodeFileName(comment)
-              ),
-              utfEncodedComment = utils.transformTo(
-                "string",
-                utf8.utf8encode(comment)
-              ),
-              useUTF8ForFileName =
-                utfEncodedFileName.length !== file.name.length,
-              useUTF8ForComment = utfEncodedComment.length !== comment.length,
-              o = file.options,
-              dosTime,
-              dosDate,
-              extraFields = "",
-              unicodePathExtraField = "",
-              unicodeCommentExtraField = "",
-              dir,
-              date;
+            const data = compressedObject.compressedContent;
+            const useCustomEncoding = encodeFileName !== utf8.utf8encode;
+
+            const encodedFileName = utils.transformTo(
+              "string",
+              encodeFileName(file.name)
+            );
+
+            const utfEncodedFileName = utils.transformTo(
+              "string",
+              utf8.utf8encode(file.name)
+            );
+
+            const comment = file.comment || "";
+
+            const encodedComment = utils.transformTo(
+              "string",
+              encodeFileName(comment)
+            );
+
+            const utfEncodedComment = utils.transformTo(
+              "string",
+              utf8.utf8encode(comment)
+            );
+
+            const useUTF8ForFileName =
+              utfEncodedFileName.length !== file.name.length;
+
+            const useUTF8ForComment = utfEncodedComment.length !== comment.length;
+            const o = file.options;
+            let dosTime;
+            let dosDate;
+            let extraFields = "";
+            let unicodePathExtraField = "";
+            let unicodeCommentExtraField = "";
+            let dir;
+            let date;
 
             // handle the deprecated options.dir
             if (file._initialMetadata.dir !== file.dir) {
@@ -1302,8 +1302,8 @@ Usage:
               date = o.date;
             }
 
-            var extFileAttr = 0;
-            var versionMadeBy = 0;
+            let extFileAttr = 0;
+            let versionMadeBy = 0;
             if (dir) {
               // dos or unix, we set the dos dir flag
               extFileAttr |= 0x00010;
@@ -1385,7 +1385,7 @@ Usage:
                 unicodeCommentExtraField;
             }
 
-            var header = "";
+            let header = "";
 
             // version needed to extract
             header += "\x0A\x00";
@@ -1412,13 +1412,13 @@ Usage:
             // extra field length
             header += decToHex(extraFields.length, 2);
 
-            var fileRecord =
+            const fileRecord =
               signature.LOCAL_FILE_HEADER +
               header +
               encodedFileName +
               extraFields;
 
-            var dirRecord =
+            const dirRecord =
               signature.CENTRAL_FILE_HEADER +
               // version made by (00: DOS)
               decToHex(versionMadeBy, 2) +
@@ -1472,11 +1472,11 @@ Usage:
              * @return {Array} An array of matching elements.
              */
             filter(search) {
-              var result = [],
-                filename,
-                relativePath,
-                file,
-                fileClone;
+              const result = [];
+              let filename;
+              let relativePath;
+              let file;
+              let fileClone;
               for (filename in this.files) {
                 if (!this.files.hasOwnProperty(filename)) {
                   continue;
@@ -1515,7 +1515,7 @@ Usage:
             file(name, data, o) {
               if (arguments.length === 1) {
                 if (utils.isRegExp(name)) {
-                  var regexp = name;
+                  const regexp = name;
                   return this.filter((relativePath, file) => {
                     return !file.dir && regexp.test(relativePath);
                   });
@@ -1550,11 +1550,11 @@ Usage:
               }
 
               // else, name is a new folder
-              var name = this.root + arg;
-              var newFolder = folderAdd.call(this, name);
+              const name = this.root + arg;
+              const newFolder = folderAdd.call(this, name);
 
               // Allow chaining by returning a new object with this folder as the root
-              var ret = this.clone();
+              const ret = this.clone();
               ret.root = newFolder.name;
               return ret;
             },
@@ -1566,7 +1566,7 @@ Usage:
              */
             remove(name) {
               name = this.root + name;
-              var file = this.files[name];
+              let file = this.files[name];
               if (!file) {
                 // Look for any folders
                 if (name.slice(-1) != "/") {
@@ -1580,10 +1580,10 @@ Usage:
                 delete this.files[name];
               } else {
                 // maybe a folder, delete recursively
-                var kids = this.filter((relativePath, file) => {
+                const kids = this.filter((relativePath, file) => {
                   return file.name.slice(0, name.length) === name;
                 });
-                for (var i = 0; i < kids.length; i++) {
+                for (let i = 0; i < kids.length; i++) {
                   delete this.files[kids[i].name];
                 }
               }
@@ -1626,44 +1626,45 @@ Usage:
                 options.platform = "DOS";
               }
 
-              var zipData = [],
-                localDirLength = 0,
-                centralDirLength = 0,
-                writer,
-                i,
-                encodedComment = utils.transformTo(
-                  "string",
-                  options.encodeFileName(options.comment || this.comment || "")
-                );
+              const zipData = [];
+              let localDirLength = 0;
+              let centralDirLength = 0;
+              let writer;
+              let i;
+
+              const encodedComment = utils.transformTo(
+                "string",
+                options.encodeFileName(options.comment || this.comment || "")
+              );
 
               // first, generate all the zip parts.
-              for (var name in this.files) {
+              for (const name in this.files) {
                 if (!this.files.hasOwnProperty(name)) {
                   continue;
                 }
-                var file = this.files[name];
+                const file = this.files[name];
 
-                var compressionName =
+                const compressionName =
                   file.options.compression || options.compression.toUpperCase();
-                var compression = compressions[compressionName];
+                const compression = compressions[compressionName];
                 if (!compression) {
                   throw new Error(
                     compressionName + " is not a valid compression method !"
                   );
                 }
-                var compressionOptions =
+                const compressionOptions =
                   file.options.compressionOptions ||
                   options.compressionOptions ||
                   {};
 
-                var compressedObject = generateCompressedObjectFrom.call(
+                const compressedObject = generateCompressedObjectFrom.call(
                   this,
                   file,
                   compression,
                   compressionOptions
                 );
 
-                var zipPart = generateZipParts.call(
+                const zipPart = generateZipParts.call(
                   this,
                   name,
                   file,
@@ -1678,7 +1679,7 @@ Usage:
                 zipData.push(zipPart);
               }
 
-              var dirEnd = "";
+              let dirEnd = "";
 
               // end of central dir signature
               dirEnd =
@@ -1702,7 +1703,7 @@ Usage:
 
               // we have all the parts (and the total length)
               // time to create a writer !
-              var typeName = options.type.toLowerCase();
+              const typeName = options.type.toLowerCase();
               if (
                 typeName === "uint8array" ||
                 typeName === "arraybuffer" ||
@@ -1728,7 +1729,7 @@ Usage:
 
               writer.append(dirEnd);
 
-              var zip = writer.finalize();
+              const zip = writer.finalize();
 
               switch (options.type.toLowerCase()) {
                 // case "zip is an Uint8Array"
@@ -1806,8 +1807,8 @@ Usage:
       16: [
         (require, module, exports) => {
           "use strict";
-          var DataReader = require("./dataReader");
-          var utils = require("./utils");
+          const DataReader = require("./dataReader");
+          const utils = require("./utils");
 
           class StringReader extends DataReader {
             constructor(data, optimizedBinaryString) {
@@ -1840,7 +1841,7 @@ Usage:
             readData(size) {
               this.checkOffset(size);
               // this will work because the constructor applied the "& 0xff" mask.
-              var result = this.data.slice(
+              const result = this.data.slice(
                 this.zero + this.index,
                 this.zero + this.index + size
               );
@@ -1857,7 +1858,7 @@ Usage:
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("./utils");
+          const utils = require("./utils");
 
           /**
            * An object to write any content to a string.
@@ -1910,7 +1911,7 @@ Usage:
             if (typeof ArrayBuffer === "undefined") {
               exports.blob = false;
             } else {
-              var buffer = new ArrayBuffer(0);
+              const buffer = new ArrayBuffer(0);
               try {
                 exports.blob =
                   new Blob([buffer], {
@@ -1918,12 +1919,12 @@ Usage:
                   }).size === 0;
               } catch (e) {
                 try {
-                  var Builder =
+                  const Builder =
                     window.BlobBuilder ||
                     window.WebKitBlobBuilder ||
                     window.MozBlobBuilder ||
                     window.MSBlobBuilder;
-                  var builder = new Builder();
+                  const builder = new Builder();
                   builder.append(buffer);
                   exports.blob = builder.getBlob("application/zip").size === 0;
                 } catch (e) {
@@ -1938,7 +1939,7 @@ Usage:
       19: [
         (require, module, exports) => {
           "use strict";
-          var ArrayReader = require("./arrayReader");
+          const ArrayReader = require("./arrayReader");
 
           class Uint8ArrayReader extends ArrayReader {
             constructor(data) {
@@ -1959,7 +1960,7 @@ Usage:
                 // in IE10, when using subarray(idx, idx), we get the array [0x00] instead of [].
                 return new Uint8Array(0);
               }
-              var result = this.data.subarray(
+              const result = this.data.subarray(
                 this.zero + this.index,
                 this.zero + this.index + size
               );
@@ -1976,7 +1977,7 @@ Usage:
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("./utils");
+          const utils = require("./utils");
 
           /**
            * An object to write any content to an Uint8Array.
@@ -2019,9 +2020,9 @@ Usage:
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("./utils");
-          var support = require("./support");
-          var nodeBuffer = require("./nodeBuffer");
+          const utils = require("./utils");
+          const support = require("./support");
+          const nodeBuffer = require("./nodeBuffer");
 
           /**
            * The following functions come from pako, from pako/lib/utils/strings
@@ -2031,8 +2032,8 @@ Usage:
           // Table with utf8 lengths (calculated by first byte of sequence)
           // Note, that 5 & 6-byte values and some 4-byte values can not be represented in JS,
           // because max possible codepoint is 0x10ffff
-          var _utf8len = new Array(256);
-          for (var i = 0; i < 256; i++) {
+          const _utf8len = new Array(256);
+          for (let i = 0; i < 256; i++) {
             _utf8len[i] =
               i >= 252
                 ? 6
@@ -2049,14 +2050,14 @@ Usage:
           _utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
 
           // convert string to array (typed, when possible)
-          var string2buf = str => {
-            var buf,
-              c,
-              c2,
-              m_pos,
-              i,
-              str_len = str.length,
-              buf_len = 0;
+          const string2buf = str => {
+            let buf;
+            let c;
+            let c2;
+            let m_pos;
+            let i;
+            const str_len = str.length;
+            let buf_len = 0;
 
             // count binary size
             for (m_pos = 0; m_pos < str_len; m_pos++) {
@@ -2118,8 +2119,8 @@ Usage:
           //
           // buf[] - utf8 bytes array
           // max   - length limit (mandatory);
-          var utf8border = (buf, max) => {
-            var pos;
+          const utf8border = (buf, max) => {
+            let pos;
 
             max = max || buf.length;
             if (max > buf.length) {
@@ -2148,14 +2149,14 @@ Usage:
           };
 
           // convert array to string
-          var buf2string = buf => {
-            var str, i, out, c, c_len;
-            var len = buf.length;
+          const buf2string = buf => {
+            let str, i, out, c, c_len;
+            const len = buf.length;
 
             // Reserve max possible length (2 words per char)
             // NB: by unknown reasons, Array is significantly faster for
             //     String.fromCharCode.apply than Uint16Array.
-            var utf16buf = new Array(len * 2);
+            let utf16buf = new Array(len * 2);
 
             for (out = 0, i = 0; i < len; ) {
               c = buf[i++];
@@ -2245,12 +2246,13 @@ Usage:
             // Chrome prefers to work with "small" chunks of data
             // for the method buf2string.
             // Firefox and Chrome has their own shortcut, IE doesn't seem to really care.
-            var result = [],
-              k = 0,
-              len = buf.length,
-              chunk = 65536;
+            const result = [];
+
+            let k = 0;
+            const len = buf.length;
+            const chunk = 65536;
             while (k < len) {
-              var nextBoundary = utf8border(buf, Math.min(k + chunk, len));
+              const nextBoundary = utf8border(buf, Math.min(k + chunk, len));
               if (support.uint8array) {
                 result.push(buf2string(buf.subarray(k, nextBoundary)));
               } else {
@@ -2267,17 +2269,17 @@ Usage:
       22: [
         (require, module, exports) => {
           "use strict";
-          var support = require("./support");
-          var compressions = require("./compressions");
-          var nodeBuffer = require("./nodeBuffer");
+          const support = require("./support");
+          const compressions = require("./compressions");
+          const nodeBuffer = require("./nodeBuffer");
           /**
            * Convert a string to a "binary string" : a string containing only char codes between 0 and 255.
            * @param {string} str the string to transform.
            * @return {String} the binary string.
            */
           exports.string2binary = str => {
-            var result = "";
-            for (var i = 0; i < str.length; i++) {
+            let result = "";
+            for (let i = 0; i < str.length; i++) {
               result += String.fromCharCode(str.charCodeAt(i) & 0xff);
             }
             return result;
@@ -2294,12 +2296,12 @@ Usage:
             } catch (e) {
               try {
                 // deprecated, browser only, old way
-                var Builder =
+                const Builder =
                   window.BlobBuilder ||
                   window.WebKitBlobBuilder ||
                   window.MozBlobBuilder ||
                   window.MSBlobBuilder;
-                var builder = new Builder();
+                const builder = new Builder();
                 builder.append(buffer);
                 return builder.getBlob(mimeType);
               } catch (e) {
@@ -2324,7 +2326,7 @@ Usage:
            * @return {Array|ArrayBuffer|Uint8Array|Buffer} the updated array.
            */
           function stringToArrayLike(str, array) {
-            for (var i = 0; i < str.length; ++i) {
+            for (let i = 0; i < str.length; ++i) {
               array[i] = str.charCodeAt(i) & 0xff;
             }
             return array;
@@ -2345,12 +2347,12 @@ Usage:
             // result += String.fromCharCode(array[i]); generate too many strings !
             //
             // This code is inspired by http://jsperf.com/arraybuffer-to-string-apply-performance/2
-            var chunk = 65536;
-            var result = [],
-              len = array.length,
-              type = exports.getTypeOf(array),
-              k = 0,
-              canUseApply = true;
+            let chunk = 65536;
+            const result = [];
+            const len = array.length;
+            const type = exports.getTypeOf(array);
+            let k = 0;
+            let canUseApply = true;
             try {
               switch (type) {
                 case "uint8array":
@@ -2367,8 +2369,8 @@ Usage:
             // no apply : slow and painful algorithm
             // default browser on android 4.*
             if (!canUseApply) {
-              var resultStr = "";
-              for (var i = 0; i < array.length; i++) {
+              let resultStr = "";
+              for (let i = 0; i < array.length; i++) {
                 resultStr += String.fromCharCode(array[i]);
               }
               return resultStr;
@@ -2407,14 +2409,14 @@ Usage:
            * @return {Array|ArrayBuffer|Uint8Array|Buffer} the updated destination array.
            */
           function arrayLikeToArrayLike(arrayFrom, arrayTo) {
-            for (var i = 0; i < arrayFrom.length; i++) {
+            for (let i = 0; i < arrayFrom.length; i++) {
               arrayTo[i] = arrayFrom[i];
             }
             return arrayTo;
           }
 
           // a matrix containing functions to transform everything into everything.
-          var transform = {};
+          const transform = {};
 
           // string to ?
           transform["string"] = {
@@ -2516,8 +2518,8 @@ Usage:
               return input;
             }
             exports.checkSupport(outputType);
-            var inputType = exports.getTypeOf(input);
-            var result = transform[inputType][outputType](input);
+            const inputType = exports.getTypeOf(input);
+            const result = transform[inputType][outputType](input);
             return result;
           };
 
@@ -2551,7 +2553,7 @@ Usage:
            * @throws {Error} an Error if the browser doesn't support the requested type.
            */
           exports.checkSupport = type => {
-            var supported = support[type.toLowerCase()];
+            const supported = support[type.toLowerCase()];
             if (!supported) {
               throw new Error(type + " is not supported by this browser");
             }
@@ -2565,9 +2567,7 @@ Usage:
            * @return {string} a pretty string.
            */
           exports.pretty = str => {
-            var res = "",
-              code,
-              i;
+            let res = "", code, i;
             for (i = 0; i < (str || "").length; i++) {
               code = str.charCodeAt(i);
               res +=
@@ -2584,7 +2584,7 @@ Usage:
            * @return {Object|null} the JSZip compression object, null if none found.
            */
           exports.findCompression = compressionMethod => {
-            for (var method in compressions) {
+            for (const method in compressions) {
               if (!compressions.hasOwnProperty(method)) {
                 continue;
               }
@@ -2611,9 +2611,9 @@ Usage:
            * @return {Object} a new object with the data of the others.
            */
           exports.extend = function () {
-            var result = {},
-              i,
-              attr;
+            const result = {};
+            let i;
+            let attr;
             for (i = 0; i < arguments.length; i++) {
               // arguments is not enumerable in some browsers
               for (attr in arguments[i]) {
@@ -2633,15 +2633,15 @@ Usage:
       23: [
         (require, module, exports) => {
           "use strict";
-          var StringReader = require("./stringReader");
-          var NodeBufferReader = require("./nodeBufferReader");
-          var Uint8ArrayReader = require("./uint8ArrayReader");
-          var ArrayReader = require("./arrayReader");
-          var utils = require("./utils");
-          var sig = require("./signature");
-          var ZipEntry = require("./zipEntry");
-          var support = require("./support");
-          var jszipProto = require("./object");
+          const StringReader = require("./stringReader");
+          const NodeBufferReader = require("./nodeBufferReader");
+          const Uint8ArrayReader = require("./uint8ArrayReader");
+          const ArrayReader = require("./arrayReader");
+          const utils = require("./utils");
+          const sig = require("./signature");
+          const ZipEntry = require("./zipEntry");
+          const support = require("./support");
+          const jszipProto = require("./object");
 
           //  class ZipEntries {{{
           /**
@@ -2665,7 +2665,7 @@ Usage:
              * @throws {Error} if it is an other signature.
              */
             checkSignature(expectedSignature) {
-              var signature = this.reader.readString(4);
+              const signature = this.reader.readString(4);
               if (signature !== expectedSignature) {
                 throw new Error(
                   "Corrupted zip or bug : unexpected signature " +
@@ -2685,10 +2685,10 @@ Usage:
              * @return {boolean} true if the signature is here, false otherwise.
              */
             isSignature(askedIndex, expectedSignature) {
-              var currentIndex = this.reader.index;
+              const currentIndex = this.reader.index;
               this.reader.setIndex(askedIndex);
-              var signature = this.reader.readString(4);
-              var result = signature === expectedSignature;
+              const signature = this.reader.readString(4);
+              const result = signature === expectedSignature;
               this.reader.setIndex(currentIndex);
               return result;
             }
@@ -2708,11 +2708,11 @@ Usage:
               // warning : the encoding depends of the system locale
               // On a linux machine with LANG=en_US.utf8, this field is utf8 encoded.
               // On a windows machine, this field is encoded with the localized windows code page.
-              var zipComment = this.reader.readData(this.zipCommentLength);
-              var decodeParamType = support.uint8array ? "uint8array" : "array";
+              const zipComment = this.reader.readData(this.zipCommentLength);
+              const decodeParamType = support.uint8array ? "uint8array" : "array";
               // To get consistent behavior with the generation part, we will assume that
               // this is utf8 encoded unless specified otherwise.
-              var decodeContent = utils.transformTo(
+              const decodeContent = utils.transformTo(
                 decodeParamType,
                 zipComment
               );
@@ -2737,11 +2737,11 @@ Usage:
               this.centralDirOffset = this.reader.readInt(8);
 
               this.zip64ExtensibleData = {};
-              var extraDataSize = this.zip64EndOfCentralSize - 44,
-                index = 0,
-                extraFieldId,
-                extraFieldLength,
-                extraFieldValue;
+              const extraDataSize = this.zip64EndOfCentralSize - 44;
+              const index = 0;
+              let extraFieldId;
+              let extraFieldLength;
+              let extraFieldValue;
               while (index < extraDataSize) {
                 extraFieldId = this.reader.readInt(2);
                 extraFieldLength = this.reader.readInt(4);
@@ -2770,7 +2770,7 @@ Usage:
              * Read the local files, based on the offset read in the central part.
              */
             readLocalFiles() {
-              var i, file;
+              let i, file;
               for (i = 0; i < this.files.length; i++) {
                 file = this.files[i];
                 this.reader.setIndex(file.localHeaderOffset);
@@ -2785,7 +2785,7 @@ Usage:
              * Read the central directory.
              */
             readCentralDir() {
-              var file;
+              let file;
 
               this.reader.setIndex(this.centralDirOffset);
               while (this.reader.readString(4) === sig.CENTRAL_FILE_HEADER) {
@@ -2821,7 +2821,7 @@ Usage:
              * Read the end of central directory.
              */
             readEndOfCentral() {
-              var offset = this.reader.lastIndexOfSignature(
+              let offset = this.reader.lastIndexOfSignature(
                 sig.CENTRAL_DIRECTORY_END
               );
               if (offset < 0) {
@@ -2830,7 +2830,7 @@ Usage:
                 // extractible zip for example) but it can give a good hint.
                 // If an ajax request was used without responseType, we will also
                 // get unreadable data.
-                var isGarbage = !this.isSignature(0, sig.LOCAL_FILE_HEADER);
+                const isGarbage = !this.isSignature(0, sig.LOCAL_FILE_HEADER);
 
                 if (isGarbage) {
                   throw new Error(
@@ -2844,7 +2844,7 @@ Usage:
                 }
               }
               this.reader.setIndex(offset);
-              var endOfCentralDirOffset = offset;
+              const endOfCentralDirOffset = offset;
               this.checkSignature(sig.CENTRAL_DIRECTORY_END);
               this.readBlockEndOfCentral();
 
@@ -2913,7 +2913,7 @@ Usage:
                 this.readBlockZip64EndOfCentral();
               }
 
-              var expectedEndOfCentralDirOffset =
+              let expectedEndOfCentralDirOffset =
                 this.centralDirOffset + this.centralDirSize;
               if (this.zip64) {
                 expectedEndOfCentralDirOffset += 20; // end of central dir 64 locator
@@ -2922,7 +2922,7 @@ Usage:
                   this.zip64EndOfCentralSize;
               }
 
-              var extraBytes =
+              const extraBytes =
                 endOfCentralDirOffset - expectedEndOfCentralDirOffset;
 
               if (extraBytes > 0) {
@@ -2948,7 +2948,7 @@ Usage:
             }
 
             prepareReader(data) {
-              var type = utils.getTypeOf(data);
+              const type = utils.getTypeOf(data);
               utils.checkSupport(type);
               if (type === "string" && !support.uint8array) {
                 this.reader = new StringReader(
@@ -3000,14 +3000,14 @@ Usage:
       24: [
         (require, module, exports) => {
           "use strict";
-          var StringReader = require("./stringReader");
-          var utils = require("./utils");
-          var CompressedObject = require("./compressedObject");
-          var jszipProto = require("./object");
-          var support = require("./support");
+          const StringReader = require("./stringReader");
+          const utils = require("./utils");
+          const CompressedObject = require("./compressedObject");
+          const jszipProto = require("./object");
+          const support = require("./support");
 
-          var MADE_BY_DOS = 0x00;
-          var MADE_BY_UNIX = 0x03;
+          const MADE_BY_DOS = 0x00;
+          const MADE_BY_UNIX = 0x03;
 
           // class ZipEntry {{{
           /**
@@ -3049,9 +3049,9 @@ Usage:
              */
             prepareCompressedContent(reader, from, length) {
               return () => {
-                var previousIndex = reader.index;
+                const previousIndex = reader.index;
                 reader.setIndex(from);
-                var compressedFileData = reader.readData(length);
+                const compressedFileData = reader.readData(length);
                 reader.setIndex(previousIndex);
 
                 return compressedFileData;
@@ -3069,11 +3069,11 @@ Usage:
              */
             prepareContent(reader, from, length, compression, uncompressedSize) {
               return function () {
-                var compressedFileData = utils.transformTo(
+                const compressedFileData = utils.transformTo(
                   compression.uncompressInputType,
                   this.getCompressedContent()
                 );
-                var uncompressedFileData =
+                const uncompressedFileData =
                   compression.uncompress(compressedFileData);
 
                 if (uncompressedFileData.length !== uncompressedSize) {
@@ -3089,7 +3089,7 @@ Usage:
              * @param {DataReader} reader the reader to use.
              */
             readLocalPart(reader) {
-              var compression, localExtraFieldsLength;
+              let compression, localExtraFieldsLength;
 
               // we already know everything from the central dir !
               // If the central dir data are false, we are doomed.
@@ -3200,7 +3200,7 @@ Usage:
             processAttributes() {
               this.unixPermissions = null;
               this.dosPermissions = null;
-              var madeBy = this.versionMadeBy >> 8;
+              const madeBy = this.versionMadeBy >> 8;
 
               // Check if we have the DOS directory flag set.
               // We look for it in the DOS and UNIX permissions
@@ -3234,7 +3234,7 @@ Usage:
               }
 
               // should be something, preparing the extra reader
-              var extraReader = new StringReader(
+              const extraReader = new StringReader(
                 this.extraFields[0x0001].value
               );
 
@@ -3259,10 +3259,10 @@ Usage:
              * @param {DataReader} reader the reader to use.
              */
             readExtraFields(reader) {
-              var start = reader.index,
-                extraFieldId,
-                extraFieldLength,
-                extraFieldValue;
+              const start = reader.index;
+              let extraFieldId;
+              let extraFieldLength;
+              let extraFieldValue;
 
               this.extraFields = this.extraFields || {};
 
@@ -3283,16 +3283,16 @@ Usage:
              * Apply an UTF8 transformation if needed.
              */
             handleUTF8() {
-              var decodeParamType = support.uint8array ? "uint8array" : "array";
+              const decodeParamType = support.uint8array ? "uint8array" : "array";
               if (this.useUTF8()) {
                 this.fileNameStr = jszipProto.utf8decode(this.fileName);
                 this.fileCommentStr = jszipProto.utf8decode(this.fileComment);
               } else {
-                var upath = this.findExtraFieldUnicodePath();
+                const upath = this.findExtraFieldUnicodePath();
                 if (upath !== null) {
                   this.fileNameStr = upath;
                 } else {
-                  var fileNameByteArray = utils.transformTo(
+                  const fileNameByteArray = utils.transformTo(
                     decodeParamType,
                     this.fileName
                   );
@@ -3300,11 +3300,11 @@ Usage:
                     this.loadOptions.decodeFileName(fileNameByteArray);
                 }
 
-                var ucomment = this.findExtraFieldUnicodeComment();
+                const ucomment = this.findExtraFieldUnicodeComment();
                 if (ucomment !== null) {
                   this.fileCommentStr = ucomment;
                 } else {
-                  var commentByteArray = utils.transformTo(
+                  const commentByteArray = utils.transformTo(
                     decodeParamType,
                     this.fileComment
                   );
@@ -3319,9 +3319,9 @@ Usage:
              * @return {String} the unicode path, null otherwise.
              */
             findExtraFieldUnicodePath() {
-              var upathField = this.extraFields[0x7075];
+              const upathField = this.extraFields[0x7075];
               if (upathField) {
-                var extraReader = new StringReader(upathField.value);
+                const extraReader = new StringReader(upathField.value);
 
                 // wrong version
                 if (extraReader.readInt(1) !== 1) {
@@ -3347,9 +3347,9 @@ Usage:
              * @return {String} the unicode comment, null otherwise.
              */
             findExtraFieldUnicodeComment() {
-              var ucommentField = this.extraFields[0x6375];
+              const ucommentField = this.extraFields[0x6375];
               if (ucommentField) {
-                var extraReader = new StringReader(ucommentField.value);
+                const extraReader = new StringReader(ucommentField.value);
 
                 // wrong version
                 if (extraReader.readInt(1) !== 1) {
@@ -3386,13 +3386,13 @@ Usage:
           // Top level file is just a mixin of submodules & constants
           "use strict";
 
-          var assign = require("./lib/utils/common").assign;
+          const assign = require("./lib/utils/common").assign;
 
-          var deflate = require("./lib/deflate");
-          var inflate = require("./lib/inflate");
-          var constants = require("./lib/zlib/constants");
+          const deflate = require("./lib/deflate");
+          const inflate = require("./lib/inflate");
+          const constants = require("./lib/zlib/constants");
 
-          var pako = {};
+          const pako = {};
 
           assign(pako, deflate, inflate, constants);
 
@@ -3409,29 +3409,29 @@ Usage:
         (require, module, exports) => {
           "use strict";
 
-          var zlib_deflate = require("./zlib/deflate");
-          var utils = require("./utils/common");
-          var strings = require("./utils/strings");
-          var msg = require("./zlib/messages");
-          var ZStream = require("./zlib/zstream");
+          const zlib_deflate = require("./zlib/deflate");
+          const utils = require("./utils/common");
+          const strings = require("./utils/strings");
+          const msg = require("./zlib/messages");
+          const ZStream = require("./zlib/zstream");
 
-          var toString = Object.prototype.toString;
+          const toString = Object.prototype.toString;
 
           /* Public constants ==========================================================*/
           /* ===========================================================================*/
 
-          var Z_NO_FLUSH = 0;
-          var Z_FINISH = 4;
+          const Z_NO_FLUSH = 0;
+          const Z_FINISH = 4;
 
-          var Z_OK = 0;
-          var Z_STREAM_END = 1;
-          var Z_SYNC_FLUSH = 2;
+          const Z_OK = 0;
+          const Z_STREAM_END = 1;
+          const Z_SYNC_FLUSH = 2;
 
-          var Z_DEFAULT_COMPRESSION = -1;
+          const Z_DEFAULT_COMPRESSION = -1;
 
-          var Z_DEFAULT_STRATEGY = 0;
+          const Z_DEFAULT_STRATEGY = 0;
 
-          var Z_DEFLATED = 8;
+          const Z_DEFLATED = 8;
 
           /* ===========================================================================*/
 
@@ -3540,7 +3540,7 @@ Usage:
                 options || {}
               );
 
-              var opt = this.options;
+              const opt = this.options;
 
               if (opt.raw && opt.windowBits > 0) {
                 opt.windowBits = -opt.windowBits;
@@ -3556,7 +3556,7 @@ Usage:
               this.strm = new ZStream();
               this.strm.avail_out = 0;
 
-              var status = zlib_deflate.deflateInit2(
+              let status = zlib_deflate.deflateInit2(
                 this.strm,
                 opt.level,
                 opt.method,
@@ -3574,7 +3574,7 @@ Usage:
               }
 
               if (opt.dictionary) {
-                var dict;
+                let dict;
                 // Convert data if needed
                 if (typeof opt.dictionary === "string") {
                   // If we need to compress text, change encoding to utf8.
@@ -3627,9 +3627,9 @@ Usage:
              * ```
              **/
             push(data, mode) {
-              var strm = this.strm;
-              var chunkSize = this.options.chunkSize;
-              var status, _mode;
+              const strm = this.strm;
+              const chunkSize = this.options.chunkSize;
+              let status, _mode;
 
               if (this.ended) {
                 return false;
@@ -3778,7 +3778,7 @@ Usage:
            * ```
            **/
           function deflate(input, options) {
-            var deflator = new Deflate(options);
+            const deflator = new Deflate(options);
 
             deflator.push(input, true);
 
@@ -3835,15 +3835,15 @@ Usage:
         (require, module, exports) => {
           "use strict";
 
-          var zlib_inflate = require("./zlib/inflate");
-          var utils = require("./utils/common");
-          var strings = require("./utils/strings");
-          var c = require("./zlib/constants");
-          var msg = require("./zlib/messages");
-          var ZStream = require("./zlib/zstream");
-          var GZheader = require("./zlib/gzheader");
+          const zlib_inflate = require("./zlib/inflate");
+          const utils = require("./utils/common");
+          const strings = require("./utils/strings");
+          const c = require("./zlib/constants");
+          const msg = require("./zlib/messages");
+          const ZStream = require("./zlib/zstream");
+          const GZheader = require("./zlib/gzheader");
 
-          var toString = Object.prototype.toString;
+          const toString = Object.prototype.toString;
 
           /**
            * class Inflate
@@ -3936,7 +3936,7 @@ Usage:
                 options || {}
               );
 
-              var opt = this.options;
+              const opt = this.options;
 
               // Force window size for `raw` data, if not set directly,
               // because we have no header for autodetect.
@@ -3974,7 +3974,7 @@ Usage:
               this.strm = new ZStream();
               this.strm.avail_out = 0;
 
-              var status = zlib_inflate.inflateInit2(this.strm, opt.windowBits);
+              const status = zlib_inflate.inflateInit2(this.strm, opt.windowBits);
 
               if (status !== c.Z_OK) {
                 throw new Error(msg[status]);
@@ -4014,16 +4014,16 @@ Usage:
              * ```
              **/
             push(data, mode) {
-              var strm = this.strm;
-              var chunkSize = this.options.chunkSize;
-              var dictionary = this.options.dictionary;
-              var status, _mode;
-              var next_out_utf8, tail, utf8str;
-              var dict;
+              const strm = this.strm;
+              const chunkSize = this.options.chunkSize;
+              const dictionary = this.options.dictionary;
+              let status, _mode;
+              let next_out_utf8, tail, utf8str;
+              let dict;
 
               // Flag to properly process Z_BUF_ERROR on testing inflate call
               // when we check that all output data was flushed.
-              var allowBufError = false;
+              let allowBufError = false;
 
               if (this.ended) {
                 return false;
@@ -4239,7 +4239,7 @@ Usage:
            * ```
            **/
           function inflate(input, options) {
-            var inflator = new Inflate(options);
+            const inflator = new Inflate(options);
 
             inflator.push(input, true);
 
@@ -4293,15 +4293,15 @@ Usage:
         (require, module, exports) => {
           "use strict";
 
-          var TYPED_OK =
+          const TYPED_OK =
             typeof Uint8Array !== "undefined" &&
             typeof Uint16Array !== "undefined" &&
             typeof Int32Array !== "undefined";
 
           exports.assign = function (obj /*from1, from2, from3, ...*/) {
-            var sources = Array.prototype.slice.call(arguments, 1);
+            const sources = Array.prototype.slice.call(arguments, 1);
             while (sources.length) {
-              var source = sources.shift();
+              const source = sources.shift();
               if (!source) {
                 continue;
               }
@@ -4310,7 +4310,7 @@ Usage:
                 throw new TypeError(source + "must be non-object");
               }
 
-              for (var p in source) {
+              for (const p in source) {
                 if (source.hasOwnProperty(p)) {
                   obj[p] = source[p];
                 }
@@ -4332,20 +4332,20 @@ Usage:
             return buf;
           };
 
-          var fnTyped = {
+          const fnTyped = {
             arraySet(dest, src, src_offs, len, dest_offs) {
               if (src.subarray && dest.subarray) {
                 dest.set(src.subarray(src_offs, src_offs + len), dest_offs);
                 return;
               }
               // Fallback to ordinary array
-              for (var i = 0; i < len; i++) {
+              for (let i = 0; i < len; i++) {
                 dest[dest_offs + i] = src[src_offs + i];
               }
             },
             // Join array of chunks to single array.
             flattenChunks(chunks) {
-              var i, l, len, pos, chunk, result;
+              let i, l, len, pos, chunk, result;
 
               // calculate data length
               len = 0;
@@ -4366,9 +4366,9 @@ Usage:
             },
           };
 
-          var fnUntyped = {
+          const fnUntyped = {
             arraySet(dest, src, src_offs, len, dest_offs) {
-              for (var i = 0; i < len; i++) {
+              for (let i = 0; i < len; i++) {
                 dest[dest_offs + i] = src[src_offs + i];
               }
             },
@@ -4403,15 +4403,15 @@ Usage:
           // String encode/decode helpers
           "use strict";
 
-          var utils = require("./common");
+          const utils = require("./common");
 
           // Quick check if we can use fast array to bin string conversion
           //
           // - apply(Array) can fail on Android 2.2
           // - apply(Uint8Array) can fail on iOS 5.1 Safary
           //
-          var STR_APPLY_OK = true;
-          var STR_APPLY_UIA_OK = true;
+          let STR_APPLY_OK = true;
+          let STR_APPLY_UIA_OK = true;
 
           try {
             String.fromCharCode.apply(null, [0]);
@@ -4427,8 +4427,8 @@ Usage:
           // Table with utf8 lengths (calculated by first byte of sequence)
           // Note, that 5 & 6-byte values and some 4-byte values can not be represented in JS,
           // because max possible codepoint is 0x10ffff
-          var _utf8len = new utils.Buf8(256);
-          for (var q = 0; q < 256; q++) {
+          const _utf8len = new utils.Buf8(256);
+          for (let q = 0; q < 256; q++) {
             _utf8len[q] =
               q >= 252
                 ? 6
@@ -4446,13 +4446,13 @@ Usage:
 
           // convert string to array (typed, when possible)
           exports.string2buf = str => {
-            var buf,
-              c,
-              c2,
-              m_pos,
-              i,
-              str_len = str.length,
-              buf_len = 0;
+            let buf;
+            let c;
+            let c2;
+            let m_pos;
+            let i;
+            const str_len = str.length;
+            let buf_len = 0;
 
             // count binary size
             for (m_pos = 0; m_pos < str_len; m_pos++) {
@@ -4519,8 +4519,8 @@ Usage:
               }
             }
 
-            var result = "";
-            for (var i = 0; i < len; i++) {
+            let result = "";
+            for (let i = 0; i < len; i++) {
               result += String.fromCharCode(buf[i]);
             }
             return result;
@@ -4533,8 +4533,8 @@ Usage:
 
           // Convert binary string (typed, when possible)
           exports.binstring2buf = str => {
-            var buf = new utils.Buf8(str.length);
-            for (var i = 0, len = buf.length; i < len; i++) {
+            const buf = new utils.Buf8(str.length);
+            for (let i = 0, len = buf.length; i < len; i++) {
               buf[i] = str.charCodeAt(i);
             }
             return buf;
@@ -4542,13 +4542,13 @@ Usage:
 
           // convert array to string
           exports.buf2string = (buf, max) => {
-            var i, out, c, c_len;
-            var len = max || buf.length;
+            let i, out, c, c_len;
+            const len = max || buf.length;
 
             // Reserve max possible length (2 words per char)
             // NB: by unknown reasons, Array is significantly faster for
             //     String.fromCharCode.apply than Uint16Array.
-            var utf16buf = new Array(len * 2);
+            const utf16buf = new Array(len * 2);
 
             for (out = 0, i = 0; i < len; ) {
               c = buf[i++];
@@ -4599,7 +4599,7 @@ Usage:
           // buf[] - utf8 bytes array
           // max   - length limit (mandatory);
           exports.utf8border = (buf, max) => {
-            var pos;
+            let pos;
 
             max = max || buf.length;
             if (max > buf.length) {
@@ -4638,9 +4638,7 @@ Usage:
           // Small size is preferable.
 
           function adler32(adler, buf, len, pos) {
-            var s1 = (adler & 0xffff) | 0,
-              s2 = ((adler >>> 16) & 0xffff) | 0,
-              n = 0;
+            let s1 = (adler & 0xffff) | 0, s2 = ((adler >>> 16) & 0xffff) | 0, n = 0;
 
             while (len !== 0) {
               // Set limit ~ twice less than 5552, to keep
@@ -4727,12 +4725,12 @@ Usage:
 
           // Use ordinary array, since untyped makes no boost here
           function makeTable() {
-            var c,
-              table = [];
+            let c;
+            const table = [];
 
-            for (var n = 0; n < 256; n++) {
+            for (let n = 0; n < 256; n++) {
               c = n;
-              for (var k = 0; k < 8; k++) {
+              for (let k = 0; k < 8; k++) {
                 c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
               }
               table[n] = c;
@@ -4742,15 +4740,14 @@ Usage:
           }
 
           // Create table on load. Just 255 signed longs. Not a problem.
-          var crcTable = makeTable();
+          const crcTable = makeTable();
 
           function crc32(crc, buf, len, pos) {
-            var t = crcTable,
-              end = pos + len;
+            const t = crcTable, end = pos + len;
 
             crc ^= -1;
 
-            for (var i = pos; i < end; i++) {
+            for (let i = pos; i < end; i++) {
               crc = (crc >>> 8) ^ t[(crc ^ buf[i]) & 0xff];
             }
 
@@ -4765,101 +4762,101 @@ Usage:
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("../utils/common");
-          var trees = require("./trees");
-          var adler32 = require("./adler32");
-          var crc32 = require("./crc32");
-          var msg = require("./messages");
+          const utils = require("../utils/common");
+          const trees = require("./trees");
+          const adler32 = require("./adler32");
+          const crc32 = require("./crc32");
+          const msg = require("./messages");
 
           /* Public constants ==========================================================*/
           /* ===========================================================================*/
 
           /* Allowed flush values; see deflate() and inflate() below for details */
-          var Z_NO_FLUSH = 0;
-          var Z_PARTIAL_FLUSH = 1;
+          const Z_NO_FLUSH = 0;
+          const Z_PARTIAL_FLUSH = 1;
           //var Z_SYNC_FLUSH    = 2;
-          var Z_FULL_FLUSH = 3;
-          var Z_FINISH = 4;
-          var Z_BLOCK = 5;
+          const Z_FULL_FLUSH = 3;
+          const Z_FINISH = 4;
+          const Z_BLOCK = 5;
           //var Z_TREES         = 6;
 
           /* Return codes for the compression/decompression functions. Negative values
            * are errors, positive values are used for special but normal events.
            */
-          var Z_OK = 0;
-          var Z_STREAM_END = 1;
+          const Z_OK = 0;
+          const Z_STREAM_END = 1;
           //var Z_NEED_DICT     = 2;
           //var Z_ERRNO         = -1;
-          var Z_STREAM_ERROR = -2;
-          var Z_DATA_ERROR = -3;
+          const Z_STREAM_ERROR = -2;
+          const Z_DATA_ERROR = -3;
           //var Z_MEM_ERROR     = -4;
-          var Z_BUF_ERROR = -5;
+          const Z_BUF_ERROR = -5;
           //var Z_VERSION_ERROR = -6;
 
           /* compression levels */
           //var Z_NO_COMPRESSION      = 0;
           //var Z_BEST_SPEED          = 1;
           //var Z_BEST_COMPRESSION    = 9;
-          var Z_DEFAULT_COMPRESSION = -1;
+          const Z_DEFAULT_COMPRESSION = -1;
 
-          var Z_FILTERED = 1;
-          var Z_HUFFMAN_ONLY = 2;
-          var Z_RLE = 3;
-          var Z_FIXED = 4;
-          var Z_DEFAULT_STRATEGY = 0;
+          const Z_FILTERED = 1;
+          const Z_HUFFMAN_ONLY = 2;
+          const Z_RLE = 3;
+          const Z_FIXED = 4;
+          const Z_DEFAULT_STRATEGY = 0;
 
           /* Possible values of the data_type field (though see inflate()) */
           //var Z_BINARY              = 0;
           //var Z_TEXT                = 1;
           //var Z_ASCII               = 1; // = Z_TEXT
-          var Z_UNKNOWN = 2;
+          const Z_UNKNOWN = 2;
 
           /* The deflate compression method */
-          var Z_DEFLATED = 8;
+          const Z_DEFLATED = 8;
 
           /*============================================================================*/
 
-          var MAX_MEM_LEVEL = 9;
+          const MAX_MEM_LEVEL = 9;
           /* Maximum value for memLevel in deflateInit2 */
-          var MAX_WBITS = 15;
+          const MAX_WBITS = 15;
           /* 32K LZ77 window */
-          var DEF_MEM_LEVEL = 8;
+          const DEF_MEM_LEVEL = 8;
 
-          var LENGTH_CODES = 29;
+          const LENGTH_CODES = 29;
           /* number of length codes, not counting the special END_BLOCK code */
-          var LITERALS = 256;
+          const LITERALS = 256;
           /* number of literal bytes 0..255 */
-          var L_CODES = LITERALS + 1 + LENGTH_CODES;
+          const L_CODES = LITERALS + 1 + LENGTH_CODES;
           /* number of Literal or Length codes, including the END_BLOCK code */
-          var D_CODES = 30;
+          const D_CODES = 30;
           /* number of distance codes */
-          var BL_CODES = 19;
+          const BL_CODES = 19;
           /* number of codes used to transfer the bit lengths */
-          var HEAP_SIZE = 2 * L_CODES + 1;
+          const HEAP_SIZE = 2 * L_CODES + 1;
           /* maximum heap size */
-          var MAX_BITS = 15;
+          const MAX_BITS = 15;
           /* All codes must not exceed MAX_BITS bits */
 
-          var MIN_MATCH = 3;
-          var MAX_MATCH = 258;
-          var MIN_LOOKAHEAD = MAX_MATCH + MIN_MATCH + 1;
+          const MIN_MATCH = 3;
+          const MAX_MATCH = 258;
+          const MIN_LOOKAHEAD = MAX_MATCH + MIN_MATCH + 1;
 
-          var PRESET_DICT = 0x20;
+          const PRESET_DICT = 0x20;
 
-          var INIT_STATE = 42;
-          var EXTRA_STATE = 69;
-          var NAME_STATE = 73;
-          var COMMENT_STATE = 91;
-          var HCRC_STATE = 103;
-          var BUSY_STATE = 113;
-          var FINISH_STATE = 666;
+          const INIT_STATE = 42;
+          const EXTRA_STATE = 69;
+          const NAME_STATE = 73;
+          const COMMENT_STATE = 91;
+          const HCRC_STATE = 103;
+          const BUSY_STATE = 113;
+          const FINISH_STATE = 666;
 
-          var BS_NEED_MORE = 1; /* block not completed, need more input or more output */
-          var BS_BLOCK_DONE = 2; /* block flush performed */
-          var BS_FINISH_STARTED = 3; /* finish started, need only more output at next deflate */
-          var BS_FINISH_DONE = 4; /* finish done, accept no more input or output */
+          const BS_NEED_MORE = 1; /* block not completed, need more input or more output */
+          const BS_BLOCK_DONE = 2; /* block flush performed */
+          const BS_FINISH_STARTED = 3; /* finish started, need only more output at next deflate */
+          const BS_FINISH_DONE = 4; /* finish done, accept no more input or output */
 
-          var OS_CODE = 0x03; // Unix :) . Don't detect, use this default.
+          const OS_CODE = 0x03; // Unix :) . Don't detect, use this default.
 
           function err(strm, errorCode) {
             strm.msg = msg[errorCode];
@@ -4871,7 +4868,7 @@ Usage:
           }
 
           function zero(buf) {
-            var len = buf.length;
+            let len = buf.length;
             while (--len >= 0) {
               buf[len] = 0;
             }
@@ -4884,10 +4881,10 @@ Usage:
            * (See also read_buf()).
            */
           function flush_pending(strm) {
-            var s = strm.state;
+            const s = strm.state;
 
             //_tr_flush_bits(s);
-            var len = s.pending;
+            let len = s.pending;
             if (len > strm.avail_out) {
               len = strm.avail_out;
             }
@@ -4947,7 +4944,7 @@ Usage:
            * (See also flush_pending()).
            */
           function read_buf(strm, buf, start, size) {
-            var len = strm.avail_in;
+            let len = strm.avail_in;
 
             if (len > size) {
               len = size;
@@ -4982,29 +4979,29 @@ Usage:
            * OUT assertion: the match length is not greater than s->lookahead.
            */
           function longest_match(s, cur_match) {
-            var chain_length = s.max_chain_length; /* max hash chain length */
-            var scan = s.strstart; /* current string */
-            var match; /* matched string */
-            var len; /* length of current match */
-            var best_len = s.prev_length; /* best match length so far */
-            var nice_match = s.nice_match; /* stop if match long enough */
-            var limit =
+            let chain_length = s.max_chain_length; /* max hash chain length */
+            let scan = s.strstart; /* current string */
+            let match; /* matched string */
+            let len; /* length of current match */
+            let best_len = s.prev_length; /* best match length so far */
+            let nice_match = s.nice_match; /* stop if match long enough */
+            const limit =
               s.strstart > s.w_size - MIN_LOOKAHEAD
                 ? s.strstart - (s.w_size - MIN_LOOKAHEAD)
                 : 0; /*NIL*/
 
-            var _win = s.window; // shortcut
+            const _win = s.window; // shortcut
 
-            var wmask = s.w_mask;
-            var prev = s.prev;
+            const wmask = s.w_mask;
+            const prev = s.prev;
 
             /* Stop when cur_match becomes <= limit. To simplify the code,
              * we prevent matches with the string of window index 0.
              */
 
-            var strend = s.strstart + MAX_MATCH;
-            var scan_end1 = _win[scan + best_len - 1];
-            var scan_end = _win[scan + best_len];
+            const strend = s.strstart + MAX_MATCH;
+            let scan_end1 = _win[scan + best_len - 1];
+            let scan_end = _win[scan + best_len];
 
             /* The code is optimized for HASH_BITS >= 8 and MAX_MATCH-2 multiple of 16.
              * It is easy to get rid of this optimization if necessary.
@@ -5109,8 +5106,8 @@ Usage:
            *    option -- not supported here).
            */
           function fill_window(s) {
-            var _w_size = s.w_size;
-            var p, n, m, more, str;
+            const _w_size = s.w_size;
+            let p, n, m, more, str;
 
             //Assert(s->lookahead < MIN_LOOKAHEAD, "already enough lookahead");
 
@@ -5269,7 +5266,7 @@ Usage:
             /* Stored blocks are limited to 0xffff bytes, pending_buf is limited
              * to pending_buf_size, and each stored block has a 5 byte header:
              */
-            var max_block_size = 0xffff;
+            let max_block_size = 0xffff;
 
             if (max_block_size > s.pending_buf_size - 5) {
               max_block_size = s.pending_buf_size - 5;
@@ -5303,7 +5300,7 @@ Usage:
               s.lookahead = 0;
 
               /* Emit a stored block if pending_buf will be full: */
-              var max_start = s.block_start + max_block_size;
+              const max_start = s.block_start + max_block_size;
 
               if (s.strstart === 0 || s.strstart >= max_start) {
                 /* strstart == 0 is possible when wraparound on 16-bit machine */
@@ -5361,8 +5358,8 @@ Usage:
            * matches. It is used only for the fast compression options.
            */
           function deflate_fast(s, flush) {
-            var hash_head; /* head of the hash chain */
-            var bflush; /* set if current block must be flushed */
+            let hash_head; /* head of the hash chain */
+            let bflush; /* set if current block must be flushed */
 
             for (;;) {
               /* Make sure that we always have enough lookahead, except
@@ -5506,10 +5503,10 @@ Usage:
            * no better match at the next window position.
            */
           function deflate_slow(s, flush) {
-            var hash_head; /* head of hash chain */
-            var bflush; /* set if current block must be flushed */
+            let hash_head; /* head of hash chain */
+            let bflush; /* set if current block must be flushed */
 
-            var max_insert;
+            let max_insert;
 
             /* Process the input block. */
             for (;;) {
@@ -5688,11 +5685,11 @@ Usage:
            * deflate switches away from Z_RLE.)
            */
           function deflate_rle(s, flush) {
-            var bflush; /* set if current block must be flushed */
-            var prev; /* byte at distance one to match */
-            var scan, strend; /* scan goes up to strend for length of run */
+            let bflush; /* set if current block must be flushed */
+            let prev; /* byte at distance one to match */
+            let scan, strend; /* scan goes up to strend for length of run */
 
-            var _win = s.window;
+            const _win = s.window;
 
             for (;;) {
               /* Make sure that we always have enough lookahead, except
@@ -5795,7 +5792,7 @@ Usage:
            * (It will be regenerated if this run of deflate switches away from Huffman.)
            */
           function deflate_huff(s, flush) {
-            var bflush; /* set if current block must be flushed */
+            let bflush; /* set if current block must be flushed */
 
             for (;;) {
               /* Make sure that we have a literal to write. */
@@ -5859,7 +5856,7 @@ Usage:
             this.func = func;
           }
 
-          var configuration_table;
+          let configuration_table;
 
           configuration_table = [
             /*      good lazy nice chain */
@@ -6104,7 +6101,7 @@ Usage:
           }
 
           function deflateResetKeep(strm) {
-            var s;
+            let s;
 
             if (!strm || !strm.state) {
               return err(strm, Z_STREAM_ERROR);
@@ -6132,7 +6129,7 @@ Usage:
           }
 
           function deflateReset(strm) {
-            var ret = deflateResetKeep(strm);
+            const ret = deflateResetKeep(strm);
             if (ret === Z_OK) {
               lm_init(strm.state);
             }
@@ -6162,7 +6159,7 @@ Usage:
               // === Z_NULL
               return Z_STREAM_ERROR;
             }
-            var wrap = 1;
+            let wrap = 1;
 
             if (level === Z_DEFAULT_COMPRESSION) {
               level = 6;
@@ -6196,7 +6193,7 @@ Usage:
             }
             /* until 256-byte window bug fixed */
 
-            var s = new DeflateState();
+            const s = new DeflateState();
 
             strm.state = s;
             s.strm = strm;
@@ -6253,8 +6250,8 @@ Usage:
           }
 
           function deflate(strm, flush) {
-            var old_flush, s;
-            var beg, val; // for gzip header write only
+            let old_flush, s;
+            let beg, val; // for gzip header write only
 
             if (!strm || !strm.state || flush > Z_BLOCK || flush < 0) {
               return strm ? err(strm, Z_STREAM_ERROR) : Z_STREAM_ERROR;
@@ -6336,8 +6333,8 @@ Usage:
                 }
               } // DEFLATE header
               else {
-                var header = (Z_DEFLATED + ((s.w_bits - 8) << 4)) << 8;
-                var level_flags = -1;
+                let header = (Z_DEFLATED + ((s.w_bits - 8) << 4)) << 8;
+                let level_flags = -1;
 
                 if (s.strategy >= Z_HUFFMAN_ONLY || s.level < 2) {
                   level_flags = 0;
@@ -6554,7 +6551,7 @@ Usage:
               s.lookahead !== 0 ||
               (flush !== Z_NO_FLUSH && s.status !== FINISH_STATE)
             ) {
-              var bstate =
+              const bstate =
                 s.strategy === Z_HUFFMAN_ONLY
                   ? deflate_huff(s, flush)
                   : s.strategy === Z_RLE
@@ -6644,7 +6641,7 @@ Usage:
           }
 
           function deflateEnd(strm) {
-            var status;
+            let status;
 
             if (!strm /*== Z_NULL*/ || !strm.state /*== Z_NULL*/) {
               return Z_STREAM_ERROR;
@@ -6673,15 +6670,15 @@ Usage:
            * sequence without producing any compressed output.
            */
           function deflateSetDictionary(strm, dictionary) {
-            var dictLength = dictionary.length;
+            let dictLength = dictionary.length;
 
-            var s;
-            var str, n;
-            var wrap;
-            var avail;
-            var next;
-            var input;
-            var tmpDict;
+            let s;
+            let str, n;
+            let wrap;
+            let avail;
+            let next;
+            let input;
+            let tmpDict;
 
             if (!strm /*== Z_NULL*/ || !strm.state /*== Z_NULL*/) {
               return Z_STREAM_ERROR;
@@ -6844,8 +6841,8 @@ exports.deflateTune = deflateTune;
           "use strict";
 
           // See state defs from inflate.js
-          var BAD = 30; /* got a data error -- remain here until reset */
-          var TYPE = 12; /* i: waiting for type bits, including last-flag bit */
+          const BAD = 30; /* got a data error -- remain here until reset */
+          const TYPE = 12; /* i: waiting for type bits, including last-flag bit */
 
           /*
    Decode literal, length, and distance codes and write out the resulting
@@ -6883,35 +6880,35 @@ exports.deflateTune = deflateTune;
       output space.
  */
           module.exports = function inflate_fast(strm, start) {
-            var state;
-            var _in; /* local strm.input */
-            var last; /* have enough input while in < last */
-            var _out; /* local strm.output */
-            var beg; /* inflate()'s initial strm.output */
-            var end; /* while out < end, enough space available */
+            let state;
+            let _in; /* local strm.input */
+            let last; /* have enough input while in < last */
+            let _out; /* local strm.output */
+            let beg; /* inflate()'s initial strm.output */
+            let end; /* while out < end, enough space available */
             //#ifdef INFLATE_STRICT
-            var dmax; /* maximum distance from zlib header */
+            let dmax; /* maximum distance from zlib header */
             //#endif
-            var wsize; /* window size or zero if not using window */
-            var whave; /* valid bytes in the window */
-            var wnext; /* window write index */
+            let wsize; /* window size or zero if not using window */
+            let whave; /* valid bytes in the window */
+            let wnext; /* window write index */
             // Use `s_window` instead `window`, avoid conflict with instrumentation tools
-            var s_window; /* allocated sliding window, if wsize != 0 */
-            var hold; /* local strm.hold */
-            var bits; /* local strm.bits */
-            var lcode; /* local strm.lencode */
-            var dcode; /* local strm.distcode */
-            var lmask; /* mask for first level of length codes */
-            var dmask; /* mask for first level of distance codes */
-            var here; /* retrieved table entry */
-            var op; /* code bits, operation, extra bits, or */
+            let s_window; /* allocated sliding window, if wsize != 0 */
+            let hold; /* local strm.hold */
+            let bits; /* local strm.bits */
+            let lcode; /* local strm.lencode */
+            let dcode; /* local strm.distcode */
+            let lmask; /* mask for first level of length codes */
+            let dmask; /* mask for first level of distance codes */
+            let here; /* retrieved table entry */
+            let op; /* code bits, operation, extra bits, or */
             /*  window position, window bytes to copy */
-            var len; /* match length, unused bytes */
-            var dist; /* match distance */
-            var from; /* where to copy match from */
-            var from_source;
+            let len; /* match length, unused bytes */
+            let dist; /* match distance */
+            let from; /* where to copy match from */
+            let from_source;
 
-            var input, output; // JS specific, because we have no pointers
+            let input, output; // JS specific, because we have no pointers
 
             /* copy state to local variables */
             state = strm.state;
@@ -7185,15 +7182,15 @@ exports.deflateTune = deflateTune;
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("../utils/common");
-          var adler32 = require("./adler32");
-          var crc32 = require("./crc32");
-          var inflate_fast = require("./inffast");
-          var inflate_table = require("./inftrees");
+          const utils = require("../utils/common");
+          const adler32 = require("./adler32");
+          const crc32 = require("./crc32");
+          const inflate_fast = require("./inffast");
+          const inflate_table = require("./inftrees");
 
-          var CODES = 0;
-          var LENS = 1;
-          var DISTS = 2;
+          const CODES = 0;
+          const LENS = 1;
+          const DISTS = 2;
 
           /* Public constants ==========================================================*/
           /* ===========================================================================*/
@@ -7203,71 +7200,71 @@ exports.deflateTune = deflateTune;
           //var Z_PARTIAL_FLUSH = 1;
           //var Z_SYNC_FLUSH    = 2;
           //var Z_FULL_FLUSH    = 3;
-          var Z_FINISH = 4;
-          var Z_BLOCK = 5;
-          var Z_TREES = 6;
+          const Z_FINISH = 4;
+          const Z_BLOCK = 5;
+          const Z_TREES = 6;
 
           /* Return codes for the compression/decompression functions. Negative values
            * are errors, positive values are used for special but normal events.
            */
-          var Z_OK = 0;
-          var Z_STREAM_END = 1;
-          var Z_NEED_DICT = 2;
+          const Z_OK = 0;
+          const Z_STREAM_END = 1;
+          const Z_NEED_DICT = 2;
           //var Z_ERRNO         = -1;
-          var Z_STREAM_ERROR = -2;
-          var Z_DATA_ERROR = -3;
-          var Z_MEM_ERROR = -4;
-          var Z_BUF_ERROR = -5;
+          const Z_STREAM_ERROR = -2;
+          const Z_DATA_ERROR = -3;
+          const Z_MEM_ERROR = -4;
+          const Z_BUF_ERROR = -5;
           //var Z_VERSION_ERROR = -6;
 
           /* The deflate compression method */
-          var Z_DEFLATED = 8;
+          const Z_DEFLATED = 8;
 
           /* STATES ====================================================================*/
           /* ===========================================================================*/
 
-          var HEAD = 1; /* i: waiting for magic header */
-          var FLAGS = 2; /* i: waiting for method and flags (gzip) */
-          var TIME = 3; /* i: waiting for modification time (gzip) */
-          var OS = 4; /* i: waiting for extra flags and operating system (gzip) */
-          var EXLEN = 5; /* i: waiting for extra length (gzip) */
-          var EXTRA = 6; /* i: waiting for extra bytes (gzip) */
-          var NAME = 7; /* i: waiting for end of file name (gzip) */
-          var COMMENT = 8; /* i: waiting for end of comment (gzip) */
-          var HCRC = 9; /* i: waiting for header crc (gzip) */
-          var DICTID = 10; /* i: waiting for dictionary check value */
-          var DICT = 11; /* waiting for inflateSetDictionary() call */
-          var TYPE = 12; /* i: waiting for type bits, including last-flag bit */
-          var TYPEDO = 13; /* i: same, but skip check to exit inflate on new block */
-          var STORED = 14; /* i: waiting for stored size (length and complement) */
-          var COPY_ = 15; /* i/o: same as COPY below, but only first time in */
-          var COPY = 16; /* i/o: waiting for input or output to copy stored block */
-          var TABLE = 17; /* i: waiting for dynamic block table lengths */
-          var LENLENS = 18; /* i: waiting for code length code lengths */
-          var CODELENS = 19; /* i: waiting for length/lit and distance code lengths */
-          var LEN_ = 20; /* i: same as LEN below, but only first time in */
-          var LEN = 21; /* i: waiting for length/lit/eob code */
-          var LENEXT = 22; /* i: waiting for length extra bits */
-          var DIST = 23; /* i: waiting for distance code */
-          var DISTEXT = 24; /* i: waiting for distance extra bits */
-          var MATCH = 25; /* o: waiting for output space to copy string */
-          var LIT = 26; /* o: waiting for output space to write literal */
-          var CHECK = 27; /* i: waiting for 32-bit check value */
-          var LENGTH = 28; /* i: waiting for 32-bit length (gzip) */
-          var DONE = 29; /* finished check, done -- remain here until reset */
-          var BAD = 30; /* got a data error -- remain here until reset */
-          var MEM = 31; /* got an inflate() memory error -- remain here until reset */
-          var SYNC = 32; /* looking for synchronization bytes to restart inflate() */
+          const HEAD = 1; /* i: waiting for magic header */
+          const FLAGS = 2; /* i: waiting for method and flags (gzip) */
+          const TIME = 3; /* i: waiting for modification time (gzip) */
+          const OS = 4; /* i: waiting for extra flags and operating system (gzip) */
+          const EXLEN = 5; /* i: waiting for extra length (gzip) */
+          const EXTRA = 6; /* i: waiting for extra bytes (gzip) */
+          const NAME = 7; /* i: waiting for end of file name (gzip) */
+          const COMMENT = 8; /* i: waiting for end of comment (gzip) */
+          const HCRC = 9; /* i: waiting for header crc (gzip) */
+          const DICTID = 10; /* i: waiting for dictionary check value */
+          const DICT = 11; /* waiting for inflateSetDictionary() call */
+          const TYPE = 12; /* i: waiting for type bits, including last-flag bit */
+          const TYPEDO = 13; /* i: same, but skip check to exit inflate on new block */
+          const STORED = 14; /* i: waiting for stored size (length and complement) */
+          const COPY_ = 15; /* i/o: same as COPY below, but only first time in */
+          const COPY = 16; /* i/o: waiting for input or output to copy stored block */
+          const TABLE = 17; /* i: waiting for dynamic block table lengths */
+          const LENLENS = 18; /* i: waiting for code length code lengths */
+          const CODELENS = 19; /* i: waiting for length/lit and distance code lengths */
+          const LEN_ = 20; /* i: same as LEN below, but only first time in */
+          const LEN = 21; /* i: waiting for length/lit/eob code */
+          const LENEXT = 22; /* i: waiting for length extra bits */
+          const DIST = 23; /* i: waiting for distance code */
+          const DISTEXT = 24; /* i: waiting for distance extra bits */
+          const MATCH = 25; /* o: waiting for output space to copy string */
+          const LIT = 26; /* o: waiting for output space to write literal */
+          const CHECK = 27; /* i: waiting for 32-bit check value */
+          const LENGTH = 28; /* i: waiting for 32-bit length (gzip) */
+          const DONE = 29; /* finished check, done -- remain here until reset */
+          const BAD = 30; /* got a data error -- remain here until reset */
+          const MEM = 31; /* got an inflate() memory error -- remain here until reset */
+          const SYNC = 32; /* looking for synchronization bytes to restart inflate() */
 
           /* ===========================================================================*/
 
-          var ENOUGH_LENS = 852;
-          var ENOUGH_DISTS = 592;
+          const ENOUGH_LENS = 852;
+          const ENOUGH_DISTS = 592;
           //var ENOUGH =  (ENOUGH_LENS+ENOUGH_DISTS);
 
-          var MAX_WBITS = 15;
+          const MAX_WBITS = 15;
           /* 32K LZ77 window */
-          var DEF_WBITS = MAX_WBITS;
+          const DEF_WBITS = MAX_WBITS;
 
           function zswap32(q) {
             return (
@@ -7343,7 +7340,7 @@ exports.deflateTune = deflateTune;
           }
 
           function inflateResetKeep(strm) {
-            var state;
+            let state;
 
             if (!strm || !strm.state) {
               return Z_STREAM_ERROR;
@@ -7373,7 +7370,7 @@ exports.deflateTune = deflateTune;
           }
 
           function inflateReset(strm) {
-            var state;
+            let state;
 
             if (!strm || !strm.state) {
               return Z_STREAM_ERROR;
@@ -7386,8 +7383,8 @@ exports.deflateTune = deflateTune;
           }
 
           function inflateReset2(strm, windowBits) {
-            var wrap;
-            var state;
+            let wrap;
+            let state;
 
             /* get the state */
             if (!strm || !strm.state) {
@@ -7421,8 +7418,8 @@ exports.deflateTune = deflateTune;
           }
 
           function inflateInit2(strm, windowBits) {
-            var ret;
-            var state;
+            let ret;
+            let state;
 
             if (!strm) {
               return Z_STREAM_ERROR;
@@ -7456,14 +7453,14 @@ exports.deflateTune = deflateTune;
  used for threaded applications, since the rewriting of the tables and virgin
  may not be thread-safe.
  */
-          var virgin = true;
+          let virgin = true;
 
-          var lenfix, distfix; // We have no pointers in JS, so keep tables separate
+          let lenfix, distfix; // We have no pointers in JS, so keep tables separate
 
           function fixedtables(state) {
             /* build fixed huffman tables if first call (may not be thread safe) */
             if (virgin) {
-              var sym;
+              let sym;
 
               lenfix = new utils.Buf32(512);
               distfix = new utils.Buf32(32);
@@ -7522,8 +7519,8 @@ exports.deflateTune = deflateTune;
  The advantage may be dependent on the size of the processor's data caches.
  */
           function updatewindow(strm, src, end, copy) {
-            var dist;
-            var state = strm.state;
+            let dist;
+            const state = strm.state;
 
             /* if it hasn't been done already, allocate space for the window */
             if (state.window === null) {
@@ -7572,31 +7569,31 @@ exports.deflateTune = deflateTune;
           }
 
           function inflate(strm, flush) {
-            var state;
-            var input, output; // input/output buffers
-            var next; /* next input INDEX */
-            var put; /* next output INDEX */
-            var have, left; /* available input and output */
-            var hold; /* bit buffer */
-            var bits; /* bits in bit buffer */
-            var _in, _out; /* save starting available input and output */
-            var copy; /* number of stored or match bytes to copy */
-            var from; /* where to copy match bytes from */
-            var from_source;
-            var here = 0; /* current decoding table entry */
-            var here_bits, here_op, here_val; // paked "here" denormalized (JS specific)
+            let state;
+            let input, output; // input/output buffers
+            let next; /* next input INDEX */
+            let put; /* next output INDEX */
+            let have, left; /* available input and output */
+            let hold; /* bit buffer */
+            let bits; /* bits in bit buffer */
+            let _in, _out; /* save starting available input and output */
+            let copy; /* number of stored or match bytes to copy */
+            let from; /* where to copy match bytes from */
+            let from_source;
+            let here = 0; /* current decoding table entry */
+            let here_bits, here_op, here_val; // paked "here" denormalized (JS specific)
             //var last;                   /* parent table entry */
-            var last_bits, last_op, last_val; // paked "last" denormalized (JS specific)
-            var len; /* length to copy for repeats, bits to drop */
-            var ret; /* return code */
-            var hbuf = new utils.Buf8(
+            let last_bits, last_op, last_val; // paked "last" denormalized (JS specific)
+            let len; /* length to copy for repeats, bits to drop */
+            let ret; /* return code */
+            const hbuf = new utils.Buf8(
               4
             ); /* buffer for gzip header crc calculation */
-            var opts;
+            let opts;
 
-            var n; // temporary var for NEED_BITS
+            let n; // temporary var for NEED_BITS
 
-            var order =
+            const order =
               /* permutation of code lengths */
               [
                 16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1,
@@ -8842,7 +8839,7 @@ exports.deflateTune = deflateTune;
               return Z_STREAM_ERROR;
             }
 
-            var state = strm.state;
+            const state = strm.state;
             if (state.window) {
               state.window = null;
             }
@@ -8851,7 +8848,7 @@ exports.deflateTune = deflateTune;
           }
 
           function inflateGetHeader(strm, head) {
-            var state;
+            let state;
 
             /* check state */
             if (!strm || !strm.state) {
@@ -8869,11 +8866,11 @@ exports.deflateTune = deflateTune;
           }
 
           function inflateSetDictionary(strm, dictionary) {
-            var dictLength = dictionary.length;
+            const dictLength = dictionary.length;
 
-            var state;
-            var dictid;
-            var ret;
+            let state;
+            let dictid;
+            let ret;
 
             /* check state */
             if (!strm /* == Z_NULL */ || !strm.state /* == Z_NULL */) {
@@ -8939,36 +8936,36 @@ exports.inflateUndermine = inflateUndermine;
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("../utils/common");
+          const utils = require("../utils/common");
 
-          var MAXBITS = 15;
-          var ENOUGH_LENS = 852;
-          var ENOUGH_DISTS = 592;
+          const MAXBITS = 15;
+          const ENOUGH_LENS = 852;
+          const ENOUGH_DISTS = 592;
           //var ENOUGH = (ENOUGH_LENS+ENOUGH_DISTS);
 
-          var CODES = 0;
-          var LENS = 1;
-          var DISTS = 2;
+          const CODES = 0;
+          const LENS = 1;
+          const DISTS = 2;
 
-          var lbase = [
+          const lbase = [
             /* Length codes 257..285 base */ 3, 4, 5, 6, 7, 8, 9, 10, 11, 13,
             15, 17, 19, 23, 27, 31, 35, 43, 51, 59, 67, 83, 99, 115, 131, 163,
             195, 227, 258, 0, 0,
           ];
 
-          var lext = [
+          const lext = [
             /* Length codes 257..285 extra */ 16, 16, 16, 16, 16, 16, 16, 16,
             17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21,
             21, 21, 21, 16, 72, 78,
           ];
 
-          var dbase = [
+          const dbase = [
             /* Distance codes 0..29 base */ 1, 2, 3, 4, 5, 7, 9, 13, 17, 25, 33,
             49, 65, 97, 129, 193, 257, 385, 513, 769, 1025, 1537, 2049, 3073,
             4097, 6145, 8193, 12289, 16385, 24577, 0, 0,
           ];
 
-          var dext = [
+          const dext = [
             /* Distance codes 0..29 extra */ 16, 16, 16, 16, 17, 17, 18, 18, 19,
             19, 20, 20, 21, 21, 22, 22, 23, 23, 24, 24, 25, 25, 26, 26, 27, 27,
             28, 28, 29, 29, 64, 64,
@@ -8984,34 +8981,33 @@ exports.inflateUndermine = inflateUndermine;
             work,
             opts
           ) {
-            var bits = opts.bits;
+            const bits = opts.bits;
             //here = opts.here; /* table entry for duplication */
 
-            var len = 0; /* a code's length in bits */
-            var sym = 0; /* index of code symbols */
-            var min = 0,
-              max = 0; /* minimum and maximum code lengths */
-            var root = 0; /* number of index bits for root table */
-            var curr = 0; /* number of index bits for current table */
-            var drop = 0; /* code bits to drop for sub-table */
-            var left = 0; /* number of prefix codes available */
-            var used = 0; /* code entries in table used */
-            var huff = 0; /* Huffman code */
-            var incr; /* for incrementing code, index */
-            var fill; /* index for replicating entries */
-            var low; /* low bits for current root entry */
-            var mask; /* mask for low root bits */
-            var next; /* next available space in table */
-            var base = null; /* base value table to use */
-            var base_index = 0;
+            let len = 0; /* a code's length in bits */
+            let sym = 0; /* index of code symbols */
+            let min = 0, max = 0; /* minimum and maximum code lengths */
+            let root = 0; /* number of index bits for root table */
+            let curr = 0; /* number of index bits for current table */
+            let drop = 0; /* code bits to drop for sub-table */
+            let left = 0; /* number of prefix codes available */
+            let used = 0; /* code entries in table used */
+            let huff = 0; /* Huffman code */
+            let incr; /* for incrementing code, index */
+            let fill; /* index for replicating entries */
+            let low; /* low bits for current root entry */
+            let mask; /* mask for low root bits */
+            let next; /* next available space in table */
+            let base = null; /* base value table to use */
+            let base_index = 0;
             //  var shoextra;    /* extra bits table to use */
-            var end; /* use base and extra for symbol > end */
-            var count = new utils.Buf16(MAXBITS + 1); //[MAXBITS+1];    /* number of codes of each length */
-            var offs = new utils.Buf16(MAXBITS + 1); //[MAXBITS+1];     /* offsets in table for each length */
-            var extra = null;
-            var extra_index = 0;
+            let end; /* use base and extra for symbol > end */
+            const count = new utils.Buf16(MAXBITS + 1); //[MAXBITS+1];    /* number of codes of each length */
+            const offs = new utils.Buf16(MAXBITS + 1); //[MAXBITS+1];     /* offsets in table for each length */
+            let extra = null;
+            let extra_index = 0;
 
-            var here_bits, here_op, here_val;
+            let here_bits, here_op, here_val;
 
             /*
    Process a set of code lengths to create a canonical Huffman code.  The
@@ -9181,7 +9177,7 @@ exports.inflateUndermine = inflateUndermine;
               return 1;
             }
 
-            var i = 0;
+            let i = 0;
             /* process all codes and make table entries */
             for (;;) {
               i++;
@@ -9310,7 +9306,7 @@ exports.inflateUndermine = inflateUndermine;
         (require, module, exports) => {
           "use strict";
 
-          var utils = require("../utils/common");
+          const utils = require("../utils/common");
 
           /* Public constants ==========================================================*/
           /* ===========================================================================*/
@@ -9318,19 +9314,19 @@ exports.inflateUndermine = inflateUndermine;
           //var Z_FILTERED          = 1;
           //var Z_HUFFMAN_ONLY      = 2;
           //var Z_RLE               = 3;
-          var Z_FIXED = 4;
+          const Z_FIXED = 4;
           //var Z_DEFAULT_STRATEGY  = 0;
 
           /* Possible values of the data_type field (though see inflate()) */
-          var Z_BINARY = 0;
-          var Z_TEXT = 1;
+          const Z_BINARY = 0;
+          const Z_TEXT = 1;
           //var Z_ASCII             = 1; // = Z_TEXT
-          var Z_UNKNOWN = 2;
+          const Z_UNKNOWN = 2;
 
           /*============================================================================*/
 
           function zero(buf) {
-            var len = buf.length;
+            let len = buf.length;
             while (--len >= 0) {
               buf[len] = 0;
             }
@@ -9338,13 +9334,13 @@ exports.inflateUndermine = inflateUndermine;
 
           // From zutil.h
 
-          var STORED_BLOCK = 0;
-          var STATIC_TREES = 1;
-          var DYN_TREES = 2;
+          const STORED_BLOCK = 0;
+          const STATIC_TREES = 1;
+          const DYN_TREES = 2;
           /* The three kinds of block type */
 
-          var MIN_MATCH = 3;
-          var MAX_MATCH = 258;
+          const MIN_MATCH = 3;
+          const MAX_MATCH = 258;
           /* The minimum and maximum match lengths */
 
           // From deflate.h
@@ -9352,69 +9348,69 @@ exports.inflateUndermine = inflateUndermine;
            * Internal compression state.
            */
 
-          var LENGTH_CODES = 29;
+          const LENGTH_CODES = 29;
           /* number of length codes, not counting the special END_BLOCK code */
 
-          var LITERALS = 256;
+          const LITERALS = 256;
           /* number of literal bytes 0..255 */
 
-          var L_CODES = LITERALS + 1 + LENGTH_CODES;
+          const L_CODES = LITERALS + 1 + LENGTH_CODES;
           /* number of Literal or Length codes, including the END_BLOCK code */
 
-          var D_CODES = 30;
+          const D_CODES = 30;
           /* number of distance codes */
 
-          var BL_CODES = 19;
+          const BL_CODES = 19;
           /* number of codes used to transfer the bit lengths */
 
-          var HEAP_SIZE = 2 * L_CODES + 1;
+          const HEAP_SIZE = 2 * L_CODES + 1;
           /* maximum heap size */
 
-          var MAX_BITS = 15;
+          const MAX_BITS = 15;
           /* All codes must not exceed MAX_BITS bits */
 
-          var Buf_size = 16;
+          const Buf_size = 16;
           /* size of bit buffer in bi_buf */
 
           /* ===========================================================================
            * Constants
            */
 
-          var MAX_BL_BITS = 7;
+          const MAX_BL_BITS = 7;
           /* Bit length codes must not exceed MAX_BL_BITS bits */
 
-          var END_BLOCK = 256;
+          const END_BLOCK = 256;
           /* end of block literal code */
 
-          var REP_3_6 = 16;
+          const REP_3_6 = 16;
           /* repeat previous bit length 3-6 times (2 bits of repeat count) */
 
-          var REPZ_3_10 = 17;
+          const REPZ_3_10 = 17;
           /* repeat a zero length 3-10 times  (3 bits of repeat count) */
 
-          var REPZ_11_138 = 18;
+          const REPZ_11_138 = 18;
           /* repeat a zero length 11-138 times  (7 bits of repeat count) */
 
           /* eslint-disable comma-spacing,array-bracket-spacing */
-          var extra_lbits =
+          const extra_lbits =
             /* extra bits for each length code */
             [
               0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4,
               4, 4, 5, 5, 5, 5, 0,
             ];
 
-          var extra_dbits =
+          const extra_dbits =
             /* extra bits for each distance code */
             [
               0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9,
               10, 10, 11, 11, 12, 12, 13, 13,
             ];
 
-          var extra_blbits =
+          const extra_blbits =
             /* extra bits for each bit length code */
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 7];
 
-          var bl_order = [
+          const bl_order = [
             16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15,
           ];
           /* eslint-enable comma-spacing,array-bracket-spacing */
@@ -9429,10 +9425,10 @@ exports.inflateUndermine = inflateUndermine;
 
           // We pre-fill arrays with 0 to avoid uninitialized gaps
 
-          var DIST_CODE_LEN = 512; /* see definition of array dist_code below */
+          const DIST_CODE_LEN = 512; /* see definition of array dist_code below */
 
           // !!!! Use flat array insdead of structure, Freq = i*2, Len = i*2+1
-          var static_ltree = new Array((L_CODES + 2) * 2);
+          const static_ltree = new Array((L_CODES + 2) * 2);
           zero(static_ltree);
           /* The static literal tree. Since the bit lengths are imposed, there is no
            * need for the L_CODES extra codes used during heap construction. However
@@ -9440,28 +9436,28 @@ exports.inflateUndermine = inflateUndermine;
            * below).
            */
 
-          var static_dtree = new Array(D_CODES * 2);
+          const static_dtree = new Array(D_CODES * 2);
           zero(static_dtree);
           /* The static distance tree. (Actually a trivial tree since all codes use
            * 5 bits.)
            */
 
-          var _dist_code = new Array(DIST_CODE_LEN);
+          const _dist_code = new Array(DIST_CODE_LEN);
           zero(_dist_code);
           /* Distance codes. The first 256 values correspond to the distances
            * 3 .. 258, the last 256 values correspond to the top 8 bits of
            * the 15 bit distances.
            */
 
-          var _length_code = new Array(MAX_MATCH - MIN_MATCH + 1);
+          const _length_code = new Array(MAX_MATCH - MIN_MATCH + 1);
           zero(_length_code);
           /* length code for each normalized match length (0 == MIN_MATCH) */
 
-          var base_length = new Array(LENGTH_CODES);
+          const base_length = new Array(LENGTH_CODES);
           zero(base_length);
           /* First normalized length for each code (0 = MIN_MATCH) */
 
-          var base_dist = new Array(D_CODES);
+          const base_dist = new Array(D_CODES);
           zero(base_dist);
           /* First normalized distance for each code (0 = distance of 1) */
 
@@ -9482,9 +9478,9 @@ exports.inflateUndermine = inflateUndermine;
             this.has_stree = static_tree && static_tree.length;
           }
 
-          var static_l_desc;
-          var static_d_desc;
-          var static_bl_desc;
+          let static_l_desc;
+          let static_d_desc;
+          let static_bl_desc;
 
           function TreeDesc(dyn_tree, stat_desc) {
             this.dyn_tree = dyn_tree; /* the dynamic tree */
@@ -9535,7 +9531,7 @@ exports.inflateUndermine = inflateUndermine;
            * IN assertion: 1 <= len <= 15
            */
           function bi_reverse(code, len) {
-            var res = 0;
+            let res = 0;
             do {
               res |= code & 1;
               code >>>= 1;
@@ -9572,19 +9568,19 @@ exports.inflateUndermine = inflateUndermine;
           function gen_bitlen(s, desc) {
             //    deflate_state *s;
             //    tree_desc *desc;    /* the tree descriptor */
-            var tree = desc.dyn_tree;
-            var max_code = desc.max_code;
-            var stree = desc.stat_desc.static_tree;
-            var has_stree = desc.stat_desc.has_stree;
-            var extra = desc.stat_desc.extra_bits;
-            var base = desc.stat_desc.extra_base;
-            var max_length = desc.stat_desc.max_length;
-            var h; /* heap index */
-            var n, m; /* iterate over the tree elements */
-            var bits; /* bit length */
-            var xbits; /* extra bits */
-            var f; /* frequency */
-            var overflow = 0; /* number of elements with bit length too large */
+            const tree = desc.dyn_tree;
+            const max_code = desc.max_code;
+            const stree = desc.stat_desc.static_tree;
+            const has_stree = desc.stat_desc.has_stree;
+            const extra = desc.stat_desc.extra_bits;
+            const base = desc.stat_desc.extra_base;
+            const max_length = desc.stat_desc.max_length;
+            let h; /* heap index */
+            let n, m; /* iterate over the tree elements */
+            let bits; /* bit length */
+            let xbits; /* extra bits */
+            let f; /* frequency */
+            let overflow = 0; /* number of elements with bit length too large */
 
             for (bits = 0; bits <= MAX_BITS; bits++) {
               s.bl_count[bits] = 0;
@@ -9681,12 +9677,12 @@ exports.inflateUndermine = inflateUndermine;
             //    ct_data *tree;             /* the tree to decorate */
             //    int max_code;              /* largest code with non zero frequency */
             //    ushf *bl_count;            /* number of codes at each bit length */
-            var next_code = new Array(
+            const next_code = new Array(
               MAX_BITS + 1
             ); /* next code value for each bit length */
-            var code = 0; /* running code value */
-            var bits; /* bit index */
-            var n; /* code index */
+            let code = 0; /* running code value */
+            let bits; /* bit index */
+            let n; /* code index */
 
             /* The distribution counts are first used to generate the code values
              * without bit reversal.
@@ -9702,7 +9698,7 @@ exports.inflateUndermine = inflateUndermine;
             //Tracev((stderr,"\ngen_codes: max_code %d ", max_code));
 
             for (n = 0; n <= max_code; n++) {
-              var len = tree[n * 2 + 1]; /*.Len*/
+              const len = tree[n * 2 + 1]; /*.Len*/
               if (len === 0) {
                 continue;
               }
@@ -9718,12 +9714,12 @@ exports.inflateUndermine = inflateUndermine;
            * Initialize the various 'constant' tables.
            */
           function tr_static_init() {
-            var n; /* iterates over tree elements */
-            var bits; /* bit counter */
-            var length; /* length value */
-            var code; /* code value */
-            var dist; /* distance index */
-            var bl_count = new Array(MAX_BITS + 1);
+            let n; /* iterates over tree elements */
+            let bits; /* bit counter */
+            let length; /* length value */
+            let code; /* code value */
+            let dist; /* distance index */
+            const bl_count = new Array(MAX_BITS + 1);
             /* number of codes at each bit length for an optimal tree */
 
             // do check in _tr_init()
@@ -9839,7 +9835,7 @@ exports.inflateUndermine = inflateUndermine;
            * Initialize a new block.
            */
           function init_block(s) {
-            var n; /* iterates over tree elements */
+            let n; /* iterates over tree elements */
 
             /* Initialize the trees. */
             for (n = 0; n < L_CODES; n++) {
@@ -9898,8 +9894,8 @@ exports.inflateUndermine = inflateUndermine;
            * the subtrees have equal frequency. This minimizes the worst case length.
            */
           function smaller(tree, n, m, depth) {
-            var _n2 = n * 2;
-            var _m2 = m * 2;
+            const _n2 = n * 2;
+            const _m2 = m * 2;
             return (
               tree[_n2] /*.Freq*/ < tree[_m2] /*.Freq*/ ||
               (tree[_n2] /*.Freq*/ === tree[_m2] /*.Freq*/ &&
@@ -9917,8 +9913,8 @@ exports.inflateUndermine = inflateUndermine;
             //    deflate_state *s;
             //    ct_data *tree;  /* the tree to restore */
             //    int k;               /* node to move down */
-            var v = s.heap[k];
-            var j = k << 1; /* left son of k */
+            const v = s.heap[k];
+            let j = k << 1; /* left son of k */
             while (j <= s.heap_len) {
               /* Set j to the smallest of the two sons: */
               if (
@@ -9952,11 +9948,11 @@ exports.inflateUndermine = inflateUndermine;
             //    deflate_state *s;
             //    const ct_data *ltree; /* literal tree */
             //    const ct_data *dtree; /* distance tree */
-            var dist; /* distance of matched string */
-            var lc; /* match length or unmatched char (if dist == 0) */
-            var lx = 0; /* running index in l_buf */
-            var code; /* the code to send */
-            var extra; /* number of extra bits to send */
+            let dist; /* distance of matched string */
+            let lc; /* match length or unmatched char (if dist == 0) */
+            let lx = 0; /* running index in l_buf */
+            let code; /* the code to send */
+            let extra; /* number of extra bits to send */
 
             if (s.last_lit !== 0) {
               do {
@@ -10018,13 +10014,13 @@ exports.inflateUndermine = inflateUndermine;
           function build_tree(s, desc) {
             //    deflate_state *s;
             //    tree_desc *desc; /* the tree descriptor */
-            var tree = desc.dyn_tree;
-            var stree = desc.stat_desc.static_tree;
-            var has_stree = desc.stat_desc.has_stree;
-            var elems = desc.stat_desc.elems;
-            var n, m; /* iterate over heap elements */
-            var max_code = -1; /* largest code with non zero frequency */
-            var node; /* new node being created */
+            const tree = desc.dyn_tree;
+            const stree = desc.stat_desc.static_tree;
+            const has_stree = desc.stat_desc.has_stree;
+            const elems = desc.stat_desc.elems;
+            let n, m; /* iterate over heap elements */
+            let max_code = -1; /* largest code with non zero frequency */
+            let node; /* new node being created */
 
             /* Construct the initial heap, with least frequent element in
              * heap[SMALLEST]. The sons of heap[n] are heap[2*n] and heap[2*n+1].
@@ -10115,15 +10111,15 @@ exports.inflateUndermine = inflateUndermine;
             //    deflate_state *s;
             //    ct_data *tree;   /* the tree to be scanned */
             //    int max_code;    /* and its largest code of non zero frequency */
-            var n; /* iterates over all tree elements */
-            var prevlen = -1; /* last emitted length */
-            var curlen; /* length of current code */
+            let n; /* iterates over all tree elements */
+            let prevlen = -1; /* last emitted length */
+            let curlen; /* length of current code */
 
-            var nextlen = tree[0 * 2 + 1]; /*.Len*/ /* length of next code */
+            let nextlen = tree[0 * 2 + 1]; /*.Len*/ /* length of next code */
 
-            var count = 0; /* repeat count of the current code */
-            var max_count = 7; /* max repeat count */
-            var min_count = 4; /* min repeat count */
+            let count = 0; /* repeat count of the current code */
+            let max_count = 7; /* max repeat count */
+            let min_count = 4; /* min repeat count */
 
             if (nextlen === 0) {
               max_count = 138;
@@ -10174,15 +10170,15 @@ exports.inflateUndermine = inflateUndermine;
             //    deflate_state *s;
             //    ct_data *tree; /* the tree to be scanned */
             //    int max_code;       /* and its largest code of non zero frequency */
-            var n; /* iterates over all tree elements */
-            var prevlen = -1; /* last emitted length */
-            var curlen; /* length of current code */
+            let n; /* iterates over all tree elements */
+            let prevlen = -1; /* last emitted length */
+            let curlen; /* length of current code */
 
-            var nextlen = tree[0 * 2 + 1]; /*.Len*/ /* length of next code */
+            let nextlen = tree[0 * 2 + 1]; /*.Len*/ /* length of next code */
 
-            var count = 0; /* repeat count of the current code */
-            var max_count = 7; /* max repeat count */
-            var min_count = 4; /* min repeat count */
+            let count = 0; /* repeat count of the current code */
+            let max_count = 7; /* max repeat count */
+            let min_count = 4; /* min repeat count */
 
             /* tree[max_code+1].Len = -1; */ /* guard already set */
             if (nextlen === 0) {
@@ -10236,7 +10232,7 @@ exports.inflateUndermine = inflateUndermine;
            * bl_order of the last bit length code to send.
            */
           function build_bl_tree(s) {
-            var max_blindex; /* index of last bit length code of non zero freq */
+            let max_blindex; /* index of last bit length code of non zero freq */
 
             /* Determine the bit length frequencies for literal and distance trees */
             scan_tree(s, s.dyn_ltree, s.l_desc.max_code);
@@ -10273,7 +10269,7 @@ exports.inflateUndermine = inflateUndermine;
           function send_all_trees(s, lcodes, dcodes, blcodes) {
             //    deflate_state *s;
             //    int lcodes, dcodes, blcodes; /* number of codes for each tree */
-            var rank; /* index in bl_order */
+            let rank; /* index in bl_order */
 
             //Assert (lcodes >= 257 && dcodes >= 1 && blcodes >= 4, "not enough codes");
             //Assert (lcodes <= L_CODES && dcodes <= D_CODES && blcodes <= BL_CODES,
@@ -10317,8 +10313,8 @@ exports.inflateUndermine = inflateUndermine;
              * set bits 0..6, 14..25, and 28..31
              * 0xf3ffc07f = binary 11110011111111111100000001111111
              */
-            var black_mask = 0xf3ffc07f;
-            var n;
+            let black_mask = 0xf3ffc07f;
+            let n;
 
             /* Check for non-textual ("black-listed") bytes. */
             for (n = 0; n <= 31; n++, black_mask >>>= 1) {
@@ -10347,7 +10343,7 @@ exports.inflateUndermine = inflateUndermine;
             return Z_BINARY;
           }
 
-          var static_init_done = false;
+          let static_init_done = false;
 
           /* ===========================================================================
            * Initialize the tree data structures for a new zlib stream.
@@ -10404,8 +10400,8 @@ exports.inflateUndermine = inflateUndermine;
             //charf *buf;       /* input block, or NULL if too old */
             //ulg stored_len;   /* length of input block */
             //int last;         /* one if this is the last block for a file */
-            var opt_lenb, static_lenb; /* opt_len and static_len in bytes */
-            var max_blindex = 0; /* index of last bit length code of non zero freq */
+            let opt_lenb, static_lenb; /* opt_len and static_len in bytes */
+            let max_blindex = 0; /* index of last bit length code of non zero freq */
 
             /* Build the Huffman trees unless a stored block is forced */
             if (s.level > 0) {

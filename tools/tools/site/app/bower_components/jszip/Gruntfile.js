@@ -1,7 +1,7 @@
 /*jshint node: true */
 module.exports = grunt => {
   // see https://saucelabs.com/rest/v1/info/browsers/webdriver
-  var browsers = [
+  const browsers = [
     {
       browserName: "iphone",
       version: "7.0",
@@ -90,7 +90,7 @@ module.exports = grunt => {
     },
   ];
 
-  var tags = [];
+  const tags = [];
   if (
     process.env.TRAVIS_PULL_REQUEST &&
     process.env.TRAVIS_PULL_REQUEST != "false"
@@ -146,9 +146,9 @@ module.exports = grunt => {
           },
           postBundleCB(err, src, done) {
             // add the license
-            var license = require("fs").readFileSync("lib/license_header.js");
+            const license = require("fs").readFileSync("lib/license_header.js");
             // remove the source mapping of zlib.js, see #75
-            var srcWithoutSourceMapping = src
+            const srcWithoutSourceMapping = src
               .toString()
               .replace(/\/\/@ sourceMappingURL=raw..flate.min.js.map/g, "");
             done(err, license + srcWithoutSourceMapping);

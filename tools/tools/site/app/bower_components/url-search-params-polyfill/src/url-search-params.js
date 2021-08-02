@@ -12,11 +12,7 @@ function URLSearchParams(query) {
   this[secret] = Object.create(null);
   if (!query) return;
   for (
-    var index,
-      value,
-      pairs = (query || "").split("&"),
-      i = 0,
-      length = pairs.length;
+    let index, value, pairs = (query || "").split("&"), i = 0, length = pairs.length;
     i < length;
     i++
   ) {
@@ -31,23 +27,26 @@ function URLSearchParams(query) {
   }
 }
 
-var URLSearchParamsProto = URLSearchParams.prototype,
-  find = /[!'\(\)~]|%20|%00/g,
-  plus = /\+/g,
-  replace = {
-    "!": "%21",
-    "'": "%27",
-    "(": "%28",
-    ")": "%29",
-    "~": "%7E",
-    "%20": "+",
-    "%00": "\x00",
-  },
-  replacer = match => {
-    return replace[match];
-  },
-  iterable = isIterable(),
-  secret = "__URLSearchParams__:" + Math.random();
+const URLSearchParamsProto = URLSearchParams.prototype;
+var find = /[!'\(\)~]|%20|%00/g;
+var plus = /\+/g;
+
+const replace = {
+  "!": "%21",
+  "'": "%27",
+  "(": "%28",
+  ")": "%29",
+  "~": "%7E",
+  "%20": "+",
+  "%00": "\x00",
+};
+
+var replacer = match => {
+  return replace[match];
+};
+
+const iterable = isIterable();
+var secret = "__URLSearchParams__:" + Math.random();
 function isIterable() {
   try {
     return !!Symbol.iterator;
@@ -57,7 +56,7 @@ function isIterable() {
 }
 
 URLSearchParamsProto.append = function append(name, value) {
-  var dict = this[secret];
+  const dict = this[secret];
   if (name in dict) {
     dict[name].push("" + value);
   } else {
@@ -70,12 +69,12 @@ URLSearchParamsProto.delete = function del(name) {
 };
 
 URLSearchParamsProto.get = function get(name) {
-  var dict = this[secret];
+  const dict = this[secret];
   return name in dict ? dict[name][0] : null;
 };
 
 URLSearchParamsProto.getAll = function getAll(name) {
-  var dict = this[secret];
+  const dict = this[secret];
   return name in dict ? dict[name].slice(0) : [];
 };
 
@@ -88,7 +87,7 @@ URLSearchParamsProto.set = function set(name, value) {
 };
 
 URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
-  var dict = this[secret];
+  const dict = this[secret];
   Object.getOwnPropertyNames(dict).forEach(function (name) {
     dict[name].forEach(function (value) {
       callback.call(thisArg, value, name, this);
@@ -97,13 +96,13 @@ URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
 };
 
 URLSearchParamsProto.keys = function keys() {
-  var items = [];
+  const items = [];
   this.forEach((value, name) => {
     items.push(name);
   });
-  var iterator = {
+  const iterator = {
     next() {
-      var value = items.shift();
+      const value = items.shift();
       return { done: value === undefined, value: value };
     },
   };
@@ -118,13 +117,13 @@ URLSearchParamsProto.keys = function keys() {
 };
 
 URLSearchParamsProto.values = function values() {
-  var items = [];
+  const items = [];
   this.forEach(value => {
     items.push(value);
   });
-  var iterator = {
+  const iterator = {
     next() {
-      var value = items.shift();
+      const value = items.shift();
       return { done: value === undefined, value: value };
     },
   };
@@ -139,13 +138,13 @@ URLSearchParamsProto.values = function values() {
 };
 
 URLSearchParamsProto.entries = function entries() {
-  var items = [];
+  const items = [];
   this.forEach((value, name) => {
     items.push([name, value]);
   });
-  var iterator = {
+  const iterator = {
     next() {
-      var value = items.shift();
+      const value = items.shift();
       return { done: value === undefined, value: value };
     },
   };
@@ -177,12 +176,12 @@ URLSearchParamsProto.toJSON = function toJSON() {
 };
 
 URLSearchParamsProto.toString = function toString() {
-  var dict = this[secret],
-    query = [],
-    i,
-    key,
-    name,
-    value;
+  const dict = this[secret];
+  const query = [];
+  let i;
+  let key;
+  let name;
+  let value;
   for (key in dict) {
     name = encode(key);
     for (i = 0, value = dict[key]; i < value.length; i++) {

@@ -10,8 +10,8 @@
 // @version 0.7.24
 if (typeof WeakMap === "undefined") {
   (() => {
-    var defineProperty = Object.defineProperty;
-    var counter = Date.now() % 1e9;
+    const defineProperty = Object.defineProperty;
+    let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
@@ -19,7 +19,7 @@ if (typeof WeakMap === "undefined") {
       }
 
       set(key, value) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (entry && entry[0] === key) entry[1] = value;
         else
           defineProperty(key, this.name, {
@@ -30,21 +30,21 @@ if (typeof WeakMap === "undefined") {
       }
 
       get(key) {
-        var entry;
+        let entry;
         return (entry = key[this.name]) && entry[0] === key
           ? entry[1]
           : undefined;
       }
 
       delete(key) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (!entry || entry[0] !== key) return false;
         entry[0] = entry[1] = undefined;
         return true;
       }
 
       has(key) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (!entry) return false;
         return entry[0] === key;
       }
@@ -58,18 +58,18 @@ if (typeof WeakMap === "undefined") {
   if (global.JsMutationObserver) {
     return;
   }
-  var registrationsTable = new WeakMap();
-  var setImmediate;
+  const registrationsTable = new WeakMap();
+  let setImmediate;
   if (/Trident|Edge/.test(navigator.userAgent)) {
     setImmediate = setTimeout;
   } else if (window.setImmediate) {
     setImmediate = window.setImmediate;
   } else {
-    var setImmediateQueue = [];
-    var sentinel = String(Math.random());
+    let setImmediateQueue = [];
+    const sentinel = String(Math.random());
     window.addEventListener("message", e => {
       if (e.data === sentinel) {
-        var queue = setImmediateQueue;
+        const queue = setImmediateQueue;
         setImmediateQueue = [];
         queue.forEach(func => {
           func();
@@ -81,8 +81,8 @@ if (typeof WeakMap === "undefined") {
       window.postMessage(sentinel, "*");
     };
   }
-  var isScheduled = false;
-  var scheduledObservers = [];
+  let isScheduled = false;
+  let scheduledObservers = [];
   function scheduleCallback(observer) {
     scheduledObservers.push(observer);
     if (!isScheduled) {
@@ -99,14 +99,14 @@ if (typeof WeakMap === "undefined") {
   }
   function dispatchCallbacks() {
     isScheduled = false;
-    var observers = scheduledObservers;
+    const observers = scheduledObservers;
     scheduledObservers = [];
     observers.sort((o1, o2) => {
       return o1.uid_ - o2.uid_;
     });
-    var anyNonEmpty = false;
+    let anyNonEmpty = false;
     observers.forEach(observer => {
-      var queue = observer.takeRecords();
+      const queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
         observer.callback_(queue, observer);
@@ -117,7 +117,7 @@ if (typeof WeakMap === "undefined") {
   }
   function removeTransientObserversFor(observer) {
     observer.nodes_.forEach(node => {
-      var registrations = registrationsTable.get(node);
+      const registrations = registrationsTable.get(node);
       if (!registrations) return;
       registrations.forEach(registration => {
         if (registration.observer === observer)
@@ -126,20 +126,20 @@ if (typeof WeakMap === "undefined") {
     });
   }
   function forEachAncestorAndObserverEnqueueRecord(target, callback) {
-    for (var node = target; node; node = node.parentNode) {
-      var registrations = registrationsTable.get(node);
+    for (let node = target; node; node = node.parentNode) {
+      const registrations = registrationsTable.get(node);
       if (registrations) {
-        for (var j = 0; j < registrations.length; j++) {
-          var registration = registrations[j];
-          var options = registration.options;
+        for (let j = 0; j < registrations.length; j++) {
+          const registration = registrations[j];
+          const options = registration.options;
           if (node !== target && !options.subtree) continue;
-          var record = callback(options);
+          const record = callback(options);
           if (record) registration.enqueue(record);
         }
       }
     }
   }
-  var uidCounter = 0;
+  let uidCounter = 0;
 
   class JsMutationObserver {
     constructor(callback) {
@@ -161,10 +161,10 @@ if (typeof WeakMap === "undefined") {
       ) {
         throw new SyntaxError();
       }
-      var registrations = registrationsTable.get(target);
+      let registrations = registrationsTable.get(target);
       if (!registrations) registrationsTable.set(target, (registrations = []));
-      var registration;
-      for (var i = 0; i < registrations.length; i++) {
+      let registration;
+      for (let i = 0; i < registrations.length; i++) {
         if (registrations[i].observer === this) {
           registration = registrations[i];
           registration.removeListeners();
@@ -182,9 +182,9 @@ if (typeof WeakMap === "undefined") {
 
     disconnect() {
       this.nodes_.forEach(function (node) {
-        var registrations = registrationsTable.get(node);
-        for (var i = 0; i < registrations.length; i++) {
-          var registration = registrations[i];
+        const registrations = registrationsTable.get(node);
+        for (let i = 0; i < registrations.length; i++) {
+          const registration = registrations[i];
           if (registration.observer === this) {
             registration.removeListeners();
             registrations.splice(i, 1);
@@ -196,7 +196,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     takeRecords() {
-      var copyOfRecords = this.records_;
+      const copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
     }
@@ -214,7 +214,7 @@ if (typeof WeakMap === "undefined") {
     this.oldValue = null;
   }
   function copyMutationRecord(original) {
-    var record = new MutationRecord(original.type, original.target);
+    const record = new MutationRecord(original.type, original.target);
     record.addedNodes = original.addedNodes.slice();
     record.removedNodes = original.removedNodes.slice();
     record.previousSibling = original.previousSibling;
@@ -224,7 +224,7 @@ if (typeof WeakMap === "undefined") {
     record.oldValue = original.oldValue;
     return record;
   }
-  var currentRecord, recordWithOldValue;
+  let currentRecord, recordWithOldValue;
   function getRecord(type, target) {
     return (currentRecord = new MutationRecord(type, target));
   }
@@ -256,11 +256,11 @@ if (typeof WeakMap === "undefined") {
     }
 
     enqueue(record) {
-      var records = this.observer.records_;
-      var length = records.length;
+      const records = this.observer.records_;
+      const length = records.length;
       if (records.length > 0) {
-        var lastRecord = records[length - 1];
-        var recordToReplaceLast = selectRecord(lastRecord, record);
+        const lastRecord = records[length - 1];
+        const recordToReplaceLast = selectRecord(lastRecord, record);
         if (recordToReplaceLast) {
           records[length - 1] = recordToReplaceLast;
           return;
@@ -276,7 +276,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     addListeners_(node) {
-      var options = this.options;
+      const options = this.options;
       if (options.attributes)
         node.addEventListener("DOMAttrModified", this, true);
       if (options.characterData)
@@ -292,7 +292,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     removeListeners_(node) {
-      var options = this.options;
+      const options = this.options;
       if (options.attributes)
         node.removeEventListener("DOMAttrModified", this, true);
       if (options.characterData)
@@ -307,18 +307,18 @@ if (typeof WeakMap === "undefined") {
       if (node === this.target) return;
       this.addListeners_(node);
       this.transientObservedNodes.push(node);
-      var registrations = registrationsTable.get(node);
+      let registrations = registrationsTable.get(node);
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
     }
 
     removeTransientObservers() {
-      var transientObservedNodes = this.transientObservedNodes;
+      const transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
       transientObservedNodes.forEach(function (node) {
         this.removeListeners_(node);
-        var registrations = registrationsTable.get(node);
-        for (var i = 0; i < registrations.length; i++) {
+        const registrations = registrationsTable.get(node);
+        for (let i = 0; i < registrations.length; i++) {
           if (registrations[i] === this) {
             registrations.splice(i, 1);
             break;
@@ -331,8 +331,8 @@ if (typeof WeakMap === "undefined") {
       e.stopImmediatePropagation();
       switch (e.type) {
         case "DOMAttrModified":
-          var name = e.attrName;
-          var namespace = e.relatedNode.namespaceURI;
+          const name = e.attrName;
+          const namespace = e.relatedNode.namespaceURI;
           var target = e.target;
           var record = new getRecord("attributes", target);
           record.attributeName = name;
@@ -371,8 +371,8 @@ if (typeof WeakMap === "undefined") {
           this.addTransientObserver(e.target);
 
         case "DOMNodeInserted":
-          var changedNode = e.target;
-          var addedNodes, removedNodes;
+          const changedNode = e.target;
+          let addedNodes, removedNodes;
           if (e.type === "DOMNodeInserted") {
             addedNodes = [changedNode];
             removedNodes = [];
@@ -380,8 +380,8 @@ if (typeof WeakMap === "undefined") {
             addedNodes = [];
             removedNodes = [changedNode];
           }
-          var previousSibling = changedNode.previousSibling;
-          var nextSibling = changedNode.nextSibling;
+          const previousSibling = changedNode.previousSibling;
+          const nextSibling = changedNode.nextSibling;
           var record = getRecord("childList", e.target.parentNode);
           record.addedNodes = addedNodes;
           record.removedNodes = removedNodes;

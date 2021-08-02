@@ -10,8 +10,8 @@
 // @version 0.7.24
 if (typeof WeakMap === "undefined") {
   (() => {
-    var defineProperty = Object.defineProperty;
-    var counter = Date.now() % 1e9;
+    const defineProperty = Object.defineProperty;
+    let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
@@ -19,7 +19,7 @@ if (typeof WeakMap === "undefined") {
       }
 
       set(key, value) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (entry && entry[0] === key) entry[1] = value;
         else
           defineProperty(key, this.name, {
@@ -30,21 +30,21 @@ if (typeof WeakMap === "undefined") {
       }
 
       get(key) {
-        var entry;
+        let entry;
         return (entry = key[this.name]) && entry[0] === key
           ? entry[1]
           : undefined;
       }
 
       delete(key) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (!entry || entry[0] !== key) return false;
         entry[0] = entry[1] = undefined;
         return true;
       }
 
       has(key) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (!entry) return false;
         return entry[0] === key;
       }
@@ -58,18 +58,18 @@ if (typeof WeakMap === "undefined") {
   if (global.JsMutationObserver) {
     return;
   }
-  var registrationsTable = new WeakMap();
-  var setImmediate;
+  const registrationsTable = new WeakMap();
+  let setImmediate;
   if (/Trident|Edge/.test(navigator.userAgent)) {
     setImmediate = setTimeout;
   } else if (window.setImmediate) {
     setImmediate = window.setImmediate;
   } else {
-    var setImmediateQueue = [];
-    var sentinel = String(Math.random());
+    let setImmediateQueue = [];
+    const sentinel = String(Math.random());
     window.addEventListener("message", e => {
       if (e.data === sentinel) {
-        var queue = setImmediateQueue;
+        const queue = setImmediateQueue;
         setImmediateQueue = [];
         queue.forEach(func => {
           func();
@@ -81,8 +81,8 @@ if (typeof WeakMap === "undefined") {
       window.postMessage(sentinel, "*");
     };
   }
-  var isScheduled = false;
-  var scheduledObservers = [];
+  let isScheduled = false;
+  let scheduledObservers = [];
   function scheduleCallback(observer) {
     scheduledObservers.push(observer);
     if (!isScheduled) {
@@ -99,14 +99,14 @@ if (typeof WeakMap === "undefined") {
   }
   function dispatchCallbacks() {
     isScheduled = false;
-    var observers = scheduledObservers;
+    const observers = scheduledObservers;
     scheduledObservers = [];
     observers.sort((o1, o2) => {
       return o1.uid_ - o2.uid_;
     });
-    var anyNonEmpty = false;
+    let anyNonEmpty = false;
     observers.forEach(observer => {
-      var queue = observer.takeRecords();
+      const queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
         observer.callback_(queue, observer);
@@ -117,7 +117,7 @@ if (typeof WeakMap === "undefined") {
   }
   function removeTransientObserversFor(observer) {
     observer.nodes_.forEach(node => {
-      var registrations = registrationsTable.get(node);
+      const registrations = registrationsTable.get(node);
       if (!registrations) return;
       registrations.forEach(registration => {
         if (registration.observer === observer)
@@ -126,20 +126,20 @@ if (typeof WeakMap === "undefined") {
     });
   }
   function forEachAncestorAndObserverEnqueueRecord(target, callback) {
-    for (var node = target; node; node = node.parentNode) {
-      var registrations = registrationsTable.get(node);
+    for (let node = target; node; node = node.parentNode) {
+      const registrations = registrationsTable.get(node);
       if (registrations) {
-        for (var j = 0; j < registrations.length; j++) {
-          var registration = registrations[j];
-          var options = registration.options;
+        for (let j = 0; j < registrations.length; j++) {
+          const registration = registrations[j];
+          const options = registration.options;
           if (node !== target && !options.subtree) continue;
-          var record = callback(options);
+          const record = callback(options);
           if (record) registration.enqueue(record);
         }
       }
     }
   }
-  var uidCounter = 0;
+  let uidCounter = 0;
 
   class JsMutationObserver {
     constructor(callback) {
@@ -161,10 +161,10 @@ if (typeof WeakMap === "undefined") {
       ) {
         throw new SyntaxError();
       }
-      var registrations = registrationsTable.get(target);
+      let registrations = registrationsTable.get(target);
       if (!registrations) registrationsTable.set(target, (registrations = []));
-      var registration;
-      for (var i = 0; i < registrations.length; i++) {
+      let registration;
+      for (let i = 0; i < registrations.length; i++) {
         if (registrations[i].observer === this) {
           registration = registrations[i];
           registration.removeListeners();
@@ -182,9 +182,9 @@ if (typeof WeakMap === "undefined") {
 
     disconnect() {
       this.nodes_.forEach(function (node) {
-        var registrations = registrationsTable.get(node);
-        for (var i = 0; i < registrations.length; i++) {
-          var registration = registrations[i];
+        const registrations = registrationsTable.get(node);
+        for (let i = 0; i < registrations.length; i++) {
+          const registration = registrations[i];
           if (registration.observer === this) {
             registration.removeListeners();
             registrations.splice(i, 1);
@@ -196,7 +196,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     takeRecords() {
-      var copyOfRecords = this.records_;
+      const copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
     }
@@ -214,7 +214,7 @@ if (typeof WeakMap === "undefined") {
     this.oldValue = null;
   }
   function copyMutationRecord(original) {
-    var record = new MutationRecord(original.type, original.target);
+    const record = new MutationRecord(original.type, original.target);
     record.addedNodes = original.addedNodes.slice();
     record.removedNodes = original.removedNodes.slice();
     record.previousSibling = original.previousSibling;
@@ -224,7 +224,7 @@ if (typeof WeakMap === "undefined") {
     record.oldValue = original.oldValue;
     return record;
   }
-  var currentRecord, recordWithOldValue;
+  let currentRecord, recordWithOldValue;
   function getRecord(type, target) {
     return (currentRecord = new MutationRecord(type, target));
   }
@@ -256,11 +256,11 @@ if (typeof WeakMap === "undefined") {
     }
 
     enqueue(record) {
-      var records = this.observer.records_;
-      var length = records.length;
+      const records = this.observer.records_;
+      const length = records.length;
       if (records.length > 0) {
-        var lastRecord = records[length - 1];
-        var recordToReplaceLast = selectRecord(lastRecord, record);
+        const lastRecord = records[length - 1];
+        const recordToReplaceLast = selectRecord(lastRecord, record);
         if (recordToReplaceLast) {
           records[length - 1] = recordToReplaceLast;
           return;
@@ -276,7 +276,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     addListeners_(node) {
-      var options = this.options;
+      const options = this.options;
       if (options.attributes)
         node.addEventListener("DOMAttrModified", this, true);
       if (options.characterData)
@@ -292,7 +292,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     removeListeners_(node) {
-      var options = this.options;
+      const options = this.options;
       if (options.attributes)
         node.removeEventListener("DOMAttrModified", this, true);
       if (options.characterData)
@@ -307,18 +307,18 @@ if (typeof WeakMap === "undefined") {
       if (node === this.target) return;
       this.addListeners_(node);
       this.transientObservedNodes.push(node);
-      var registrations = registrationsTable.get(node);
+      let registrations = registrationsTable.get(node);
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
     }
 
     removeTransientObservers() {
-      var transientObservedNodes = this.transientObservedNodes;
+      const transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
       transientObservedNodes.forEach(function (node) {
         this.removeListeners_(node);
-        var registrations = registrationsTable.get(node);
-        for (var i = 0; i < registrations.length; i++) {
+        const registrations = registrationsTable.get(node);
+        for (let i = 0; i < registrations.length; i++) {
           if (registrations[i] === this) {
             registrations.splice(i, 1);
             break;
@@ -331,8 +331,8 @@ if (typeof WeakMap === "undefined") {
       e.stopImmediatePropagation();
       switch (e.type) {
         case "DOMAttrModified":
-          var name = e.attrName;
-          var namespace = e.relatedNode.namespaceURI;
+          const name = e.attrName;
+          const namespace = e.relatedNode.namespaceURI;
           var target = e.target;
           var record = new getRecord("attributes", target);
           record.attributeName = name;
@@ -371,8 +371,8 @@ if (typeof WeakMap === "undefined") {
           this.addTransientObserver(e.target);
 
         case "DOMNodeInserted":
-          var changedNode = e.target;
-          var addedNodes, removedNodes;
+          const changedNode = e.target;
+          let addedNodes, removedNodes;
           if (e.type === "DOMNodeInserted") {
             addedNodes = [changedNode];
             removedNodes = [];
@@ -380,8 +380,8 @@ if (typeof WeakMap === "undefined") {
             addedNodes = [];
             removedNodes = [changedNode];
           }
-          var previousSibling = changedNode.previousSibling;
-          var nextSibling = changedNode.nextSibling;
+          const previousSibling = changedNode.previousSibling;
+          const nextSibling = changedNode.nextSibling;
           var record = getRecord("childList", e.target.parentNode);
           record.addedNodes = addedNodes;
           record.removedNodes = removedNodes;
@@ -409,7 +409,7 @@ if (typeof WeakMap === "undefined") {
 (scope => {
   "use strict";
   if (!(window.performance && window.performance.now)) {
-    var start = Date.now();
+    const start = Date.now();
     window.performance = {
       now() {
         return Date.now() - start;
@@ -418,7 +418,7 @@ if (typeof WeakMap === "undefined") {
   }
   if (!window.requestAnimationFrame) {
     window.requestAnimationFrame = (() => {
-      var nativeRaf =
+      const nativeRaf =
         window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
       return nativeRaf
         ? callback => {
@@ -440,14 +440,14 @@ if (typeof WeakMap === "undefined") {
       });
     })();
   }
-  var workingDefaultPrevented = (() => {
-    var e = document.createEvent("Event");
+  const workingDefaultPrevented = (() => {
+    const e = document.createEvent("Event");
     e.initEvent("foo", true, true);
     e.preventDefault();
     return e.defaultPrevented;
   })();
   if (!workingDefaultPrevented) {
-    var origPreventDefault = Event.prototype.preventDefault;
+    const origPreventDefault = Event.prototype.preventDefault;
     Event.prototype.preventDefault = function () {
       if (!this.cancelable) {
         return;
@@ -461,14 +461,14 @@ if (typeof WeakMap === "undefined") {
       });
     };
   }
-  var isIE = /Trident/.test(navigator.userAgent);
+  const isIE = /Trident/.test(navigator.userAgent);
   if (
     !window.CustomEvent ||
     (isIE && typeof window.CustomEvent !== "function")
   ) {
     window.CustomEvent = (inType, params) => {
       params = params || {};
-      var e = document.createEvent("CustomEvent");
+      const e = document.createEvent("CustomEvent");
       e.initCustomEvent(
         inType,
         Boolean(params.bubbles),
@@ -480,10 +480,10 @@ if (typeof WeakMap === "undefined") {
     window.CustomEvent.prototype = window.Event.prototype;
   }
   if (!window.Event || (isIE && typeof window.Event !== "function")) {
-    var origEvent = window.Event;
+    const origEvent = window.Event;
     window.Event = (inType, params) => {
       params = params || {};
-      var e = document.createEvent("Event");
+      const e = document.createEvent("Event");
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
       return e;
     };
@@ -496,18 +496,18 @@ window.HTMLImports = window.HTMLImports || {
 };
 
 (scope => {
-  var IMPORT_LINK_TYPE = "import";
-  var useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
-  var hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
-  var wrap = node => {
+  const IMPORT_LINK_TYPE = "import";
+  const useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
+  const hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
+  const wrap = node => {
     return hasShadowDOMPolyfill
       ? window.ShadowDOMPolyfill.wrapIfNeeded(node)
       : node;
   };
-  var rootDocument = wrap(document);
-  var currentScriptDescriptor = {
+  const rootDocument = wrap(document);
+  const currentScriptDescriptor = {
     get() {
-      var script =
+      const script =
         window.HTMLImports.currentScript ||
         document.currentScript ||
         (document.readyState !== "complete"
@@ -523,15 +523,15 @@ window.HTMLImports = window.HTMLImports || {
     "_currentScript",
     currentScriptDescriptor
   );
-  var isIE = /Trident/.test(navigator.userAgent);
+  const isIE = /Trident/.test(navigator.userAgent);
   function whenReady(callback, doc) {
     doc = doc || rootDocument;
     whenDocumentReady(() => {
       watchImportsLoad(callback, doc);
     }, doc);
   }
-  var requiredReadyState = isIE ? "complete" : "interactive";
-  var READY_EVENT = "readystatechange";
+  const requiredReadyState = isIE ? "complete" : "interactive";
+  const READY_EVENT = "readystatechange";
   function isDocumentReady(doc) {
     return (
       doc.readyState === "complete" || doc.readyState === requiredReadyState
@@ -539,7 +539,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   function whenDocumentReady(callback, doc) {
     if (!isDocumentReady(doc)) {
-      var checkReady = () => {
+      const checkReady = () => {
         if (
           doc.readyState === "complete" ||
           doc.readyState === requiredReadyState
@@ -557,11 +557,11 @@ window.HTMLImports = window.HTMLImports || {
     event.target.__loaded = true;
   }
   function watchImportsLoad(callback, doc) {
-    var imports = doc.querySelectorAll("link[rel=import]");
-    var parsedCount = 0,
-      importCount = imports.length,
-      newImports = [],
-      errorImports = [];
+    const imports = doc.querySelectorAll("link[rel=import]");
+    let parsedCount = 0;
+    const importCount = imports.length;
+    const newImports = [];
+    const errorImports = [];
     function checkDone() {
       if (parsedCount == importCount && callback) {
         callback({
@@ -583,7 +583,7 @@ window.HTMLImports = window.HTMLImports || {
       checkDone();
     }
     if (importCount) {
-      for (var i = 0, imp; i < importCount && (imp = imports[i]); i++) {
+      for (let i = 0, imp; i < importCount && (imp = imports[i]); i++) {
         if (isImportLoaded(imp)) {
           newImports.push(this);
           parsedCount++;
@@ -604,7 +604,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   if (useNative) {
     new MutationObserver(mxns => {
-      for (var i = 0, l = mxns.length, m; i < l && (m = mxns[i]); i++) {
+      for (let i = 0, l = mxns.length, m; i < l && (m = mxns[i]); i++) {
         if (m.addedNodes) {
           handleImports(m.addedNodes);
         }
@@ -613,7 +613,7 @@ window.HTMLImports = window.HTMLImports || {
       childList: true,
     });
     function handleImports(nodes) {
-      for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+      for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         if (isImport(n)) {
           handleImport(n);
         }
@@ -623,7 +623,7 @@ window.HTMLImports = window.HTMLImports || {
       return element.localName === "link" && element.rel === "import";
     }
     function handleImport(element) {
-      var loaded = element.import;
+      const loaded = element.import;
       if (loaded) {
         markTargetLoaded({
           target: element,
@@ -635,9 +635,9 @@ window.HTMLImports = window.HTMLImports || {
     }
     (() => {
       if (document.readyState === "loading") {
-        var imports = document.querySelectorAll("link[rel=import]");
+        const imports = document.querySelectorAll("link[rel=import]");
         for (
-          var i = 0, l = imports.length, imp;
+          let i = 0, l = imports.length, imp;
           i < l && (imp = imports[i]);
           i++
         ) {
@@ -649,7 +649,7 @@ window.HTMLImports = window.HTMLImports || {
   whenReady(detail => {
     window.HTMLImports.ready = true;
     window.HTMLImports.readyTime = new Date().getTime();
-    var evt = rootDocument.createEvent("CustomEvent");
+    const evt = rootDocument.createEvent("CustomEvent");
     evt.initCustomEvent("HTMLImportsLoaded", true, true, detail);
     rootDocument.dispatchEvent(evt);
   });
@@ -661,11 +661,11 @@ window.HTMLImports = window.HTMLImports || {
 })(window.HTMLImports);
 
 (scope => {
-  var modules = [];
-  var addModule = module => {
+  const modules = [];
+  const addModule = module => {
     modules.push(module);
   };
-  var initializeModules = () => {
+  const initializeModules = () => {
     modules.forEach(module => {
       module(scope);
     });
@@ -675,12 +675,12 @@ window.HTMLImports = window.HTMLImports || {
 })(window.HTMLImports);
 
 window.HTMLImports.addModule(scope => {
-  var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
-  var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
-  var path = {
+  const CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
+  const CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
+  const path = {
     resolveUrlsInStyle(style, linkUrl) {
-      var doc = style.ownerDocument;
-      var resolver = doc.createElement("a");
+      const doc = style.ownerDocument;
+      const resolver = doc.createElement("a");
       style.textContent = this.resolveUrlsInCssText(
         style.textContent,
         linkUrl,
@@ -689,13 +689,13 @@ window.HTMLImports.addModule(scope => {
       return style;
     },
     resolveUrlsInCssText(cssText, linkUrl, urlObj) {
-      var r = this.replaceUrls(cssText, urlObj, linkUrl, CSS_URL_REGEXP);
+      let r = this.replaceUrls(cssText, urlObj, linkUrl, CSS_URL_REGEXP);
       r = this.replaceUrls(r, urlObj, linkUrl, CSS_IMPORT_REGEXP);
       return r;
     },
     replaceUrls(text, urlObj, linkUrl, regexp) {
       return text.replace(regexp, (m, pre, url, post) => {
-        var urlPath = url.replace(/["']/g, "");
+        let urlPath = url.replace(/["']/g, "");
         if (linkUrl) {
           urlPath = new URL(urlPath, linkUrl).href;
         }
@@ -709,7 +709,7 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var xhr = {
+  const xhr = {
     async: true,
     ok(request) {
       return (
@@ -719,16 +719,16 @@ window.HTMLImports.addModule(scope => {
       );
     },
     load(url, next, nextContext) {
-      var request = new XMLHttpRequest();
+      const request = new XMLHttpRequest();
       if (scope.flags.debug || scope.flags.bust) {
         url += "?" + Math.random();
       }
       request.open("GET", url, xhr.async);
       request.addEventListener("readystatechange", e => {
         if (request.readyState === 4) {
-          var redirectedUrl = null;
+          let redirectedUrl = null;
           try {
-            var locationHeader = request.getResponseHeader("Location");
+            const locationHeader = request.getResponseHeader("Location");
             if (locationHeader) {
               redirectedUrl =
                 locationHeader.substr(0, 1) === "/"
@@ -757,8 +757,8 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var xhr = scope.xhr;
-  var flags = scope.flags;
+  const xhr = scope.xhr;
+  const flags = scope.flags;
 
   class Loader {
     constructor(onLoad, onComplete) {
@@ -771,7 +771,7 @@ window.HTMLImports.addModule(scope => {
 
     addNodes(nodes) {
       this.inflight += nodes.length;
-      for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+      for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         this.require(n);
       }
       this.checkDone();
@@ -784,7 +784,7 @@ window.HTMLImports.addModule(scope => {
     }
 
     require(elt) {
-      var url = elt.src || elt.href;
+      const url = elt.src || elt.href;
       elt.__nodeUrl = url;
       if (!this.dedupe(url, elt)) {
         this.fetch(url, elt);
@@ -796,7 +796,7 @@ window.HTMLImports.addModule(scope => {
         this.pending[url].push(elt);
         return true;
       }
-      var resource;
+      let resource;
       if (this.cache[url]) {
         this.onload(url, elt, this.cache[url]);
         this.tail();
@@ -823,9 +823,9 @@ window.HTMLImports.addModule(scope => {
           0
         );
       } else if (url.match(/^data:/)) {
-        var pieces = url.split(",");
-        var header = pieces[0];
-        var body = pieces[1];
+        const pieces = url.split(",");
+        const header = pieces[0];
+        let body = pieces[1];
         if (header.indexOf(";base64") > -1) {
           body = atob(body);
         } else {
@@ -838,7 +838,7 @@ window.HTMLImports.addModule(scope => {
           0
         );
       } else {
-        var receiveXhr = (err, resource, redirectedUrl) => {
+        const receiveXhr = (err, resource, redirectedUrl) => {
           this.receive(url, elt, err, resource, redirectedUrl);
         };
         xhr.load(url, receiveXhr);
@@ -847,8 +847,8 @@ window.HTMLImports.addModule(scope => {
 
     receive(url, elt, err, resource, redirectedUrl) {
       this.cache[url] = resource;
-      var $p = this.pending[url];
-      for (var i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
+      const $p = this.pending[url];
+      for (let i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
         this.onload(url, p, resource, err, redirectedUrl);
         this.tail();
       }
@@ -879,7 +879,7 @@ window.HTMLImports.addModule(scope => {
 
     handler(mutations) {
       for (
-        var i = 0, l = mutations.length, m;
+        let i = 0, l = mutations.length, m;
         i < l && (m = mutations[i]);
         i++
       ) {
@@ -894,7 +894,7 @@ window.HTMLImports.addModule(scope => {
         this.addCallback(nodes);
       }
       for (
-        var i = 0, l = nodes.length, n, loading;
+        let i = 0, l = nodes.length, n, loading;
         i < l && (n = nodes[i]);
         i++
       ) {
@@ -916,13 +916,13 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var path = scope.path;
-  var rootDocument = scope.rootDocument;
-  var flags = scope.flags;
-  var isIE = scope.isIE;
-  var IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
-  var IMPORT_SELECTOR = "link[rel=" + IMPORT_LINK_TYPE + "]";
-  var importParser = {
+  const path = scope.path;
+  const rootDocument = scope.rootDocument;
+  const flags = scope.flags;
+  const isIE = scope.isIE;
+  const IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
+  const IMPORT_SELECTOR = "link[rel=" + IMPORT_LINK_TYPE + "]";
+  const importParser = {
     documentSelectors: IMPORT_SELECTOR,
     importsSelectors: [
       IMPORT_SELECTOR,
@@ -939,7 +939,7 @@ window.HTMLImports.addModule(scope => {
     },
     dynamicElements: [],
     parseNext() {
-      var next = this.nextToParse();
+      const next = this.nextToParse();
       if (next) {
         this.parse(next);
       }
@@ -949,7 +949,7 @@ window.HTMLImports.addModule(scope => {
         flags.parse && console.log("[%s] is already parsed", elt.localName);
         return;
       }
-      var fn = this[this.map[elt.localName]];
+      const fn = this[this.map[elt.localName]];
       if (fn) {
         this.markParsing(elt);
         fn.call(this, elt);
@@ -976,7 +976,7 @@ window.HTMLImports.addModule(scope => {
       flags.parse && console.log("completed", elt);
     },
     markDynamicParsingComplete(elt) {
-      var i = this.dynamicElements.indexOf(elt);
+      const i = this.dynamicElements.indexOf(elt);
       if (i >= 0) {
         this.dynamicElements.splice(i, 1);
       }
@@ -1004,7 +1004,7 @@ window.HTMLImports.addModule(scope => {
         );
       }
       if (elt.__pending) {
-        var fn;
+        let fn;
         while (elt.__pending.length) {
           fn = elt.__pending.shift();
           if (fn) {
@@ -1025,7 +1025,7 @@ window.HTMLImports.addModule(scope => {
       }
     },
     parseStyle(elt) {
-      var src = elt;
+      const src = elt;
       elt = cloneStyle(elt);
       src.__appliedElement = elt;
       elt.__importElement = src;
@@ -1036,19 +1036,19 @@ window.HTMLImports.addModule(scope => {
       this.addElementToDocument(elt);
     },
     rootImportForElement(elt) {
-      var n = elt;
+      let n = elt;
       while (n.ownerDocument.__importLink) {
         n = n.ownerDocument.__importLink;
       }
       return n;
     },
     addElementToDocument(elt) {
-      var port = this.rootImportForElement(elt.__importElement || elt);
+      const port = this.rootImportForElement(elt.__importElement || elt);
       port.parentNode.insertBefore(elt, port);
     },
     trackElement(elt, callback) {
-      var self = this;
-      var done = e => {
+      const self = this;
+      const done = e => {
         elt.removeEventListener("load", done);
         elt.removeEventListener("error", done);
         if (callback) {
@@ -1060,14 +1060,14 @@ window.HTMLImports.addModule(scope => {
       elt.addEventListener("load", done);
       elt.addEventListener("error", done);
       if (isIE && elt.localName === "style") {
-        var fakeLoad = false;
+        let fakeLoad = false;
         if (elt.textContent.indexOf("@import") == -1) {
           fakeLoad = true;
         } else if (elt.sheet) {
           fakeLoad = true;
-          var csr = elt.sheet.cssRules;
-          var len = csr ? csr.length : 0;
-          for (var i = 0, r; i < len && (r = csr[i]); i++) {
+          const csr = elt.sheet.cssRules;
+          const len = csr ? csr.length : 0;
+          for (let i = 0, r; i < len && (r = csr[i]); i++) {
             if (r.type === CSSRule.IMPORT_RULE) {
               fakeLoad = fakeLoad && Boolean(r.styleSheet);
             }
@@ -1085,7 +1085,7 @@ window.HTMLImports.addModule(scope => {
       }
     },
     parseScript(scriptElt) {
-      var script = document.createElement("script");
+      const script = document.createElement("script");
       script.__importElement = scriptElt;
       script.src = scriptElt.src
         ? scriptElt.src
@@ -1109,8 +1109,8 @@ window.HTMLImports.addModule(scope => {
     nextToParseInDoc(doc, link) {
       if (doc && this._mayParse.indexOf(doc) < 0) {
         this._mayParse.push(doc);
-        var nodes = doc.querySelectorAll(this.parseSelectorsForNode(doc));
-        for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+        const nodes = doc.querySelectorAll(this.parseSelectorsForNode(doc));
+        for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
           if (!this.isParsed(n)) {
             if (this.hasResource(n)) {
               return nodeIsImport(n) ? this.nextToParseInDoc(n.__doc, n) : n;
@@ -1126,7 +1126,7 @@ window.HTMLImports.addModule(scope => {
       return this.dynamicElements[0];
     },
     parseSelectorsForNode(node) {
-      var doc = node.ownerDocument || node;
+      const doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentSelectors
         : this.importsSelectors;
@@ -1148,7 +1148,7 @@ window.HTMLImports.addModule(scope => {
     return elt.localName === "link" && elt.rel === IMPORT_LINK_TYPE;
   }
   function generateScriptDataUrl(script) {
-    var scriptContent = generateScriptContent(script);
+    const scriptContent = generateScriptContent(script);
     return (
       "data:text/javascript;charset=utf-8," + encodeURIComponent(scriptContent)
     );
@@ -1157,15 +1157,15 @@ window.HTMLImports.addModule(scope => {
     return script.textContent + generateSourceMapHint(script);
   }
   function generateSourceMapHint(script) {
-    var owner = script.ownerDocument;
+    const owner = script.ownerDocument;
     owner.__importedScripts = owner.__importedScripts || 0;
-    var moniker = script.ownerDocument.baseURI;
-    var num = owner.__importedScripts ? "-" + owner.__importedScripts : "";
+    const moniker = script.ownerDocument.baseURI;
+    const num = owner.__importedScripts ? "-" + owner.__importedScripts : "";
     owner.__importedScripts++;
     return "\n//# sourceURL=" + moniker + num + ".js\n";
   }
   function cloneStyle(style) {
-    var clone = style.ownerDocument.createElement("style");
+    const clone = style.ownerDocument.createElement("style");
     clone.textContent = style.textContent;
     path.resolveUrlsInStyle(clone);
     return clone;
@@ -1175,14 +1175,14 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var flags = scope.flags;
-  var IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
-  var IMPORT_SELECTOR = scope.IMPORT_SELECTOR;
-  var rootDocument = scope.rootDocument;
-  var Loader = scope.Loader;
-  var Observer = scope.Observer;
-  var parser = scope.parser;
-  var importer = {
+  const flags = scope.flags;
+  const IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
+  const IMPORT_SELECTOR = scope.IMPORT_SELECTOR;
+  const rootDocument = scope.rootDocument;
+  const Loader = scope.Loader;
+  const Observer = scope.Observer;
+  const parser = scope.parser;
+  const importer = {
     documents: {},
     documentPreloadSelectors: IMPORT_SELECTOR,
     importsPreloadSelectors: [IMPORT_SELECTOR].join(","),
@@ -1190,14 +1190,14 @@ window.HTMLImports.addModule(scope => {
       importLoader.addNode(node);
     },
     loadSubtree(parent) {
-      var nodes = this.marshalNodes(parent);
+      const nodes = this.marshalNodes(parent);
       importLoader.addNodes(nodes);
     },
     marshalNodes(parent) {
       return parent.querySelectorAll(this.loadSelectorsForNode(parent));
     },
     loadSelectorsForNode(node) {
-      var doc = node.ownerDocument || node;
+      const doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentPreloadSelectors
         : this.importsPreloadSelectors;
@@ -1207,7 +1207,7 @@ window.HTMLImports.addModule(scope => {
       elt.__resource = resource;
       elt.__error = err;
       if (isImportLink(elt)) {
-        var doc = this.documents[url];
+        let doc = this.documents[url];
         if (doc === undefined) {
           doc = err ? null : makeDocument(resource, redirectedUrl || url);
           if (doc) {
@@ -1244,16 +1244,16 @@ window.HTMLImports.addModule(scope => {
     return !!Object.getOwnPropertyDescriptor(doc, "baseURI");
   }
   function makeDocument(resource, url) {
-    var doc = document.implementation.createHTMLDocument(IMPORT_LINK_TYPE);
+    const doc = document.implementation.createHTMLDocument(IMPORT_LINK_TYPE);
     doc._URL = url;
-    var base = doc.createElement("base");
+    const base = doc.createElement("base");
     base.setAttribute("href", url);
     if (!doc.baseURI && !hasBaseURIAccessor(doc)) {
       Object.defineProperty(doc, "baseURI", {
         value: url,
       });
     }
-    var meta = doc.createElement("meta");
+    const meta = doc.createElement("meta");
     meta.setAttribute("charset", "utf-8");
     doc.head.appendChild(meta);
     doc.head.appendChild(base);
@@ -1264,9 +1264,9 @@ window.HTMLImports.addModule(scope => {
     return doc;
   }
   if (!document.baseURI) {
-    var baseURIDescriptor = {
+    const baseURIDescriptor = {
       get() {
-        var base = document.querySelector("base");
+        const base = document.querySelector("base");
         return base ? base.href : window.location.href;
       },
       configurable: true,
@@ -1279,12 +1279,12 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var parser = scope.parser;
-  var importer = scope.importer;
-  var dynamic = {
+  const parser = scope.parser;
+  const importer = scope.importer;
+  const dynamic = {
     added(nodes) {
-      var owner, parsed, loading;
-      for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+      let owner, parsed, loading;
+      for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         if (!owner) {
           owner = n.ownerDocument;
           parsed = parser.isParsed(owner);
@@ -1321,13 +1321,13 @@ window.HTMLImports.addModule(scope => {
 });
 
 (scope => {
-  var initializeModules = scope.initializeModules;
-  var isIE = scope.isIE;
+  const initializeModules = scope.initializeModules;
+  const isIE = scope.isIE;
   if (scope.useNative) {
     return;
   }
   initializeModules();
-  var rootDocument = scope.rootDocument;
+  const rootDocument = scope.rootDocument;
   function bootstrap() {
     window.HTMLImports.importer.bootDocument(rootDocument);
   }
