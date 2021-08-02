@@ -23,7 +23,7 @@
  */
 (() => {
   // http://nemerle.org/wiki/index.php?title=Base_keywords
-  var keywords =
+  const keywords =
     "abstract|and|as|base|catch|class|def|delegate|enum|event|extern|false|finally|" +
     "fun|implements|interface|internal|is|macro|match|matches|module|mutable|namespace|new|" +
     "null|out|override|params|partial|private|protected|public|ref|sealed|static|struct|" +

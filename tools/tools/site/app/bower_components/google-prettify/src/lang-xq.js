@@ -30,9 +30,9 @@
 
 (() => {
   // Falls back to plain for stylesheets that don't style fun.
-  var PR_FUNCTION = "fun pln";
+  const PR_FUNCTION = "fun pln";
   // Falls back to plaiin for stylesheets that don't style var.
-  var PR_VARIABLE = "var pln";
+  const PR_VARIABLE = "var pln";
 
   PR["registerLangHandler"](
     PR["createSimpleLexer"](

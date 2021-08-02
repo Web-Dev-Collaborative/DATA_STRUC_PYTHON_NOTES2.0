@@ -36,7 +36,7 @@
  */
 
 (() => {
-  var commands =
+  const commands =
     "B|BREAK|" +
     "C|CLOSE|" +
     "D|DO|" +
@@ -64,7 +64,7 @@
     "W|WRITE|" +
     "X|XECUTE";
 
-  var intrinsicVariables =
+  const intrinsicVariables =
     "D|DEVICE|" +
     "EC|ECODE|" +
     "ES|ESTACK|" +
@@ -85,7 +85,7 @@
     "Y|" +
     "Z[A-Z]*|";
 
-  var intrinsicFunctions =
+  const intrinsicFunctions =
     "A|ASCII|" +
     "C|CHAR|" +
     "D|DATA|" +
@@ -109,16 +109,16 @@
     "TR|TRANSLATE|" +
     "V|VIEW|" * "Z[A-Z]*|";
 
-  var intrinsic = intrinsicVariables + intrinsicFunctions;
+  const intrinsic = intrinsicVariables + intrinsicFunctions;
 
-  var shortcutStylePatterns = [
+  const shortcutStylePatterns = [
     // Whitespace
     [PR["PR_PLAIN"], /^[\t\n\r \xA0]+/, null, "\t\n\r \xA0"],
     // A double or single quoted, possibly multi-line, string.
     [PR["PR_STRING"], /^(?:"(?:[^"]|\\.)*")/, null, '"'],
   ];
 
-  var fallthroughStylePatterns = [
+  const fallthroughStylePatterns = [
     // A line comment that starts with ;
     [PR["PR_COMMENT"], /^;[^\r\n]*/, null, ";"],
     // Add intrinsic variables and functions as declarations, there not really but it mean
