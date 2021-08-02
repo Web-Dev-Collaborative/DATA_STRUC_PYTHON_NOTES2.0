@@ -8,10 +8,10 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <script>
-/**
+  /**
 `Polymer.IronFitBehavior` fits an element in another element using `max-height` and `max-width`, and
 optionally centers it in the window or another element.
 
@@ -59,9 +59,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
 */
 
   Polymer.IronFitBehavior = {
-
     properties: {
-
       /**
        * The element that will receive a `max-height`/`width`. By default it is the same as `this`,
        * but it can be set to a child element. This is useful, for example, for implementing a
@@ -70,9 +68,9 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
        */
       sizingTarget: {
         type: Object,
-        value: function() {
+        value: function () {
           return this;
-        }
+        },
       },
 
       /**
@@ -80,14 +78,14 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
        */
       fitInto: {
         type: Object,
-        value: window
+        value: window,
       },
 
       /**
        * Will position the element around the positionTarget without overlapping it.
        */
       noOverlap: {
-        type: Boolean
+        type: Boolean,
       },
 
       /**
@@ -96,7 +94,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
        * @type {!Element}
        */
       positionTarget: {
-        type: Element
+        type: Element,
       },
 
       /**
@@ -104,7 +102,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
        * relative to the `positionTarget`. Possible values are "left", "right", "auto".
        */
       horizontalAlign: {
-        type: String
+        type: String,
       },
 
       /**
@@ -112,7 +110,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
        * relative to the `positionTarget`. Possible values are "top", "bottom", "auto".
        */
       verticalAlign: {
-        type: String
+        type: String,
       },
 
       /**
@@ -120,7 +118,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
        * and if there's not enough space, it will pick the values which minimize the cropping.
        */
       dynamicAlign: {
-        type: Boolean
+        type: Boolean,
       },
 
       /**
@@ -140,7 +138,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
       horizontalOffset: {
         type: Number,
         value: 0,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -160,7 +158,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
       verticalOffset: {
         type: Number,
         value: 0,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -168,13 +166,13 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
        */
       autoFitOnAttach: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /** @type {?Object} */
       _fitInfo: {
-        type: Object
-      }
+        type: Object,
+      },
     },
 
     get _fitWidth() {
@@ -237,29 +235,31 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
     get _localeHorizontalAlign() {
       if (this._isRTL) {
         // In RTL, "left" becomes "right".
-        if (this.horizontalAlign === 'right') {
-          return 'left';
+        if (this.horizontalAlign === "right") {
+          return "left";
         }
-        if (this.horizontalAlign === 'left') {
-          return 'right';
+        if (this.horizontalAlign === "left") {
+          return "right";
         }
       }
       return this.horizontalAlign;
     },
 
-    attached: function() {
+    attached: function () {
       // Memoize this to avoid expensive calculations & relayouts.
       // Make sure we do it only once
-      if (typeof this._isRTL === 'undefined') {
-        this._isRTL = window.getComputedStyle(this).direction == 'rtl';
+      if (typeof this._isRTL === "undefined") {
+        this._isRTL = window.getComputedStyle(this).direction == "rtl";
       }
-          
+
       this.positionTarget = this.positionTarget || this._defaultPositionTarget;
       if (this.autoFitOnAttach) {
-        if (window.getComputedStyle(this).display === 'none') {
-          setTimeout(function() {
-            this.fit();
-          }.bind(this));
+        if (window.getComputedStyle(this).display === "none") {
+          setTimeout(
+            function () {
+              this.fit();
+            }.bind(this)
+          );
         } else {
           this.fit();
         }
@@ -269,7 +269,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
     /**
      * Positions and fits the element into the `fitInto` element.
      */
-    fit: function() {
+    fit: function () {
       this.position();
       this.constrain();
       this.center();
@@ -279,7 +279,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
      * Memoize information needed to position and size the target element.
      * @suppress {deprecated}
      */
-    _discoverInfo: function() {
+    _discoverInfo: function () {
       if (this._fitInfo) {
         return;
       }
@@ -288,33 +288,41 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
 
       this._fitInfo = {
         inlineStyle: {
-          top: this.style.top || '',
-          left: this.style.left || '',
-          position: this.style.position || ''
+          top: this.style.top || "",
+          left: this.style.left || "",
+          position: this.style.position || "",
         },
         sizerInlineStyle: {
-          maxWidth: this.sizingTarget.style.maxWidth || '',
-          maxHeight: this.sizingTarget.style.maxHeight || '',
-          boxSizing: this.sizingTarget.style.boxSizing || ''
+          maxWidth: this.sizingTarget.style.maxWidth || "",
+          maxHeight: this.sizingTarget.style.maxHeight || "",
+          boxSizing: this.sizingTarget.style.boxSizing || "",
         },
         positionedBy: {
-          vertically: target.top !== 'auto' ? 'top' : (target.bottom !== 'auto' ?
-            'bottom' : null),
-          horizontally: target.left !== 'auto' ? 'left' : (target.right !== 'auto' ?
-            'right' : null)
+          vertically:
+            target.top !== "auto"
+              ? "top"
+              : target.bottom !== "auto"
+              ? "bottom"
+              : null,
+          horizontally:
+            target.left !== "auto"
+              ? "left"
+              : target.right !== "auto"
+              ? "right"
+              : null,
         },
         sizedBy: {
-          height: sizer.maxHeight !== 'none',
-          width: sizer.maxWidth !== 'none',
+          height: sizer.maxHeight !== "none",
+          width: sizer.maxWidth !== "none",
           minWidth: parseInt(sizer.minWidth, 10) || 0,
-          minHeight: parseInt(sizer.minHeight, 10) || 0
+          minHeight: parseInt(sizer.minHeight, 10) || 0,
         },
         margin: {
           top: parseInt(target.marginTop, 10) || 0,
           right: parseInt(target.marginRight, 10) || 0,
           bottom: parseInt(target.marginBottom, 10) || 0,
-          left: parseInt(target.marginLeft, 10) || 0
-        }
+          left: parseInt(target.marginLeft, 10) || 0,
+        },
       };
     },
 
@@ -322,7 +330,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
      * Resets the target element's position and size constraints, and clear
      * the memoized data.
      */
-    resetFit: function() {
+    resetFit: function () {
       var info = this._fitInfo || {};
       for (var property in info.sizerInlineStyle) {
         this.sizingTarget.style[property] = info.sizerInlineStyle[property];
@@ -340,7 +348,7 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
      * positioning properties (e.g. `horizontalAlign, verticalAlign`) is updated.
      * It preserves the scroll position of the sizingTarget.
      */
-    refit: function() {
+    refit: function () {
       var scrollLeft = this.sizingTarget.scrollLeft;
       var scrollTop = this.sizingTarget.scrollTop;
       this.resetFit();
@@ -352,19 +360,19 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
     /**
      * Positions the element according to `horizontalAlign, verticalAlign`.
      */
-    position: function() {
+    position: function () {
       if (!this.horizontalAlign && !this.verticalAlign) {
         // needs to be centered, and it is done after constrain.
         return;
       }
       this._discoverInfo();
 
-      this.style.position = 'fixed';
+      this.style.position = "fixed";
       // Need border-box for margin/padding.
-      this.sizingTarget.style.boxSizing = 'border-box';
+      this.sizingTarget.style.boxSizing = "border-box";
       // Set to 0, 0 in order to discover any offset caused by parent stacking contexts.
-      this.style.left = '0px';
-      this.style.top = '0px';
+      this.style.left = "0px";
+      this.style.top = "0px";
 
       var rect = this.getBoundingClientRect();
       var positionRect = this.__getNormalizedRect(this.positionTarget);
@@ -375,10 +383,16 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
       // Consider the margin as part of the size for position calculations.
       var size = {
         width: rect.width + margin.left + margin.right,
-        height: rect.height + margin.top + margin.bottom
+        height: rect.height + margin.top + margin.bottom,
       };
 
-      var position = this.__getPosition(this._localeHorizontalAlign, this.verticalAlign, size, positionRect, fitRect);
+      var position = this.__getPosition(
+        this._localeHorizontalAlign,
+        this.verticalAlign,
+        size,
+        positionRect,
+        fitRect
+      );
 
       var left = position.left + margin.left;
       var top = position.top + margin.top;
@@ -389,25 +403,31 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
       var bottom = Math.min(fitRect.bottom - margin.bottom, top + rect.height);
 
       // Keep left/top within fitInto respecting the margin.
-      left = Math.max(fitRect.left + margin.left,
-        Math.min(left, right - this._fitInfo.sizedBy.minWidth));
-      top = Math.max(fitRect.top + margin.top,
-        Math.min(top, bottom - this._fitInfo.sizedBy.minHeight));
+      left = Math.max(
+        fitRect.left + margin.left,
+        Math.min(left, right - this._fitInfo.sizedBy.minWidth)
+      );
+      top = Math.max(
+        fitRect.top + margin.top,
+        Math.min(top, bottom - this._fitInfo.sizedBy.minHeight)
+      );
 
       // Use right/bottom to set maxWidth/maxHeight, and respect minWidth/minHeight.
-      this.sizingTarget.style.maxWidth = Math.max(right - left, this._fitInfo.sizedBy.minWidth) + 'px';
-      this.sizingTarget.style.maxHeight = Math.max(bottom - top, this._fitInfo.sizedBy.minHeight) + 'px';
+      this.sizingTarget.style.maxWidth =
+        Math.max(right - left, this._fitInfo.sizedBy.minWidth) + "px";
+      this.sizingTarget.style.maxHeight =
+        Math.max(bottom - top, this._fitInfo.sizedBy.minHeight) + "px";
 
       // Remove the offset caused by any stacking context.
-      this.style.left = (left - rect.left) + 'px';
-      this.style.top = (top - rect.top) + 'px';
+      this.style.left = left - rect.left + "px";
+      this.style.top = top - rect.top + "px";
     },
 
     /**
      * Constrains the size of the element to `fitInto` by setting `max-height`
      * and/or `max-width`.
      */
-    constrain: function() {
+    constrain: function () {
       if (this.horizontalAlign || this.verticalAlign) {
         return;
       }
@@ -416,23 +436,35 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
       var info = this._fitInfo;
       // position at (0px, 0px) if not already positioned, so we can measure the natural size.
       if (!info.positionedBy.vertically) {
-        this.style.position = 'fixed';
-        this.style.top = '0px';
+        this.style.position = "fixed";
+        this.style.top = "0px";
       }
       if (!info.positionedBy.horizontally) {
-        this.style.position = 'fixed';
-        this.style.left = '0px';
+        this.style.position = "fixed";
+        this.style.left = "0px";
       }
 
       // need border-box for margin/padding
-      this.sizingTarget.style.boxSizing = 'border-box';
+      this.sizingTarget.style.boxSizing = "border-box";
       // constrain the width and height if not already set
       var rect = this.getBoundingClientRect();
       if (!info.sizedBy.height) {
-        this.__sizeDimension(rect, info.positionedBy.vertically, 'top', 'bottom', 'Height');
+        this.__sizeDimension(
+          rect,
+          info.positionedBy.vertically,
+          "top",
+          "bottom",
+          "Height"
+        );
       }
       if (!info.sizedBy.width) {
-        this.__sizeDimension(rect, info.positionedBy.horizontally, 'left', 'right', 'Width');
+        this.__sizeDimension(
+          rect,
+          info.positionedBy.horizontally,
+          "left",
+          "right",
+          "Width"
+        );
       }
     },
 
@@ -440,30 +472,31 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
      * @protected
      * @deprecated
      */
-    _sizeDimension: function(rect, positionedBy, start, end, extent) {
+    _sizeDimension: function (rect, positionedBy, start, end, extent) {
       this.__sizeDimension(rect, positionedBy, start, end, extent);
     },
 
     /**
      * @private
      */
-    __sizeDimension: function(rect, positionedBy, start, end, extent) {
+    __sizeDimension: function (rect, positionedBy, start, end, extent) {
       var info = this._fitInfo;
       var fitRect = this.__getNormalizedRect(this.fitInto);
-      var max = extent === 'Width' ? fitRect.width : fitRect.height;
-      var flip = (positionedBy === end);
+      var max = extent === "Width" ? fitRect.width : fitRect.height;
+      var flip = positionedBy === end;
       var offset = flip ? max - rect[end] : rect[start];
       var margin = info.margin[flip ? start : end];
-      var offsetExtent = 'offset' + extent;
+      var offsetExtent = "offset" + extent;
       var sizingOffset = this[offsetExtent] - this.sizingTarget[offsetExtent];
-      this.sizingTarget.style['max' + extent] = (max - margin - offset - sizingOffset) + 'px';
+      this.sizingTarget.style["max" + extent] =
+        max - margin - offset - sizingOffset + "px";
     },
 
     /**
      * Centers horizontally and vertically if not already positioned. This also sets
      * `position:fixed`.
      */
-    center: function() {
+    center: function () {
       if (this.horizontalAlign || this.verticalAlign) {
         return;
       }
@@ -475,30 +508,30 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
         return;
       }
       // Need position:fixed to center
-      this.style.position = 'fixed';
+      this.style.position = "fixed";
       // Take into account the offset caused by parents that create stacking
       // contexts (e.g. with transform: translate3d). Translate to 0,0 and
       // measure the bounding rect.
       if (!positionedBy.vertically) {
-        this.style.top = '0px';
+        this.style.top = "0px";
       }
       if (!positionedBy.horizontally) {
-        this.style.left = '0px';
+        this.style.left = "0px";
       }
       // It will take in consideration margins and transforms
       var rect = this.getBoundingClientRect();
       var fitRect = this.__getNormalizedRect(this.fitInto);
       if (!positionedBy.vertically) {
         var top = fitRect.top - rect.top + (fitRect.height - rect.height) / 2;
-        this.style.top = top + 'px';
+        this.style.top = top + "px";
       }
       if (!positionedBy.horizontally) {
         var left = fitRect.left - rect.left + (fitRect.width - rect.width) / 2;
-        this.style.left = left + 'px';
+        this.style.left = left + "px";
       }
     },
 
-    __getNormalizedRect: function(target) {
+    __getNormalizedRect: function (target) {
       if (target === document.documentElement || target === window) {
         return {
           top: 0,
@@ -506,43 +539,54 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
           width: window.innerWidth,
           height: window.innerHeight,
           right: window.innerWidth,
-          bottom: window.innerHeight
+          bottom: window.innerHeight,
         };
       }
       return target.getBoundingClientRect();
     },
 
-    __getCroppedArea: function(position, size, fitRect) {
-      var verticalCrop = Math.min(0, position.top) + Math.min(0, fitRect.bottom - (position.top + size.height));
-      var horizontalCrop = Math.min(0, position.left) + Math.min(0, fitRect.right - (position.left + size.width));
-      return Math.abs(verticalCrop) * size.width + Math.abs(horizontalCrop) * size.height;
+    __getCroppedArea: function (position, size, fitRect) {
+      var verticalCrop =
+        Math.min(0, position.top) +
+        Math.min(0, fitRect.bottom - (position.top + size.height));
+      var horizontalCrop =
+        Math.min(0, position.left) +
+        Math.min(0, fitRect.right - (position.left + size.width));
+      return (
+        Math.abs(verticalCrop) * size.width +
+        Math.abs(horizontalCrop) * size.height
+      );
     },
 
-
-    __getPosition: function(hAlign, vAlign, size, positionRect, fitRect) {
+    __getPosition: function (hAlign, vAlign, size, positionRect, fitRect) {
       // All the possible configurations.
       // Ordered as top-left, top-right, bottom-left, bottom-right.
-      var positions = [{
-        verticalAlign: 'top',
-        horizontalAlign: 'left',
-        top: positionRect.top + this.verticalOffset,
-        left: positionRect.left + this.horizontalOffset
-      }, {
-        verticalAlign: 'top',
-        horizontalAlign: 'right',
-        top: positionRect.top + this.verticalOffset,
-        left: positionRect.right - size.width - this.horizontalOffset
-      }, {
-        verticalAlign: 'bottom',
-        horizontalAlign: 'left',
-        top: positionRect.bottom - size.height - this.verticalOffset,
-        left: positionRect.left + this.horizontalOffset
-      }, {
-        verticalAlign: 'bottom',
-        horizontalAlign: 'right',
-        top: positionRect.bottom - size.height - this.verticalOffset,
-        left: positionRect.right - size.width - this.horizontalOffset
-      }];
+      var positions = [
+        {
+          verticalAlign: "top",
+          horizontalAlign: "left",
+          top: positionRect.top + this.verticalOffset,
+          left: positionRect.left + this.horizontalOffset,
+        },
+        {
+          verticalAlign: "top",
+          horizontalAlign: "right",
+          top: positionRect.top + this.verticalOffset,
+          left: positionRect.right - size.width - this.horizontalOffset,
+        },
+        {
+          verticalAlign: "bottom",
+          horizontalAlign: "left",
+          top: positionRect.bottom - size.height - this.verticalOffset,
+          left: positionRect.left + this.horizontalOffset,
+        },
+        {
+          verticalAlign: "bottom",
+          horizontalAlign: "right",
+          top: positionRect.bottom - size.height - this.verticalOffset,
+          left: positionRect.right - size.width - this.horizontalOffset,
+        },
+      ];
 
       if (this.noOverlap) {
         // Duplicate.
@@ -562,8 +606,8 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
       }
 
       // Consider auto as null for coding convenience.
-      vAlign = vAlign === 'auto' ? null : vAlign;
-      hAlign = hAlign === 'auto' ? null : hAlign;
+      vAlign = vAlign === "auto" ? null : vAlign;
+      hAlign = hAlign === "auto" ? null : hAlign;
 
       var position;
       for (var i = 0; i < positions.length; i++) {
@@ -572,16 +616,21 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
         // If both vAlign and hAlign are defined, return exact match.
         // For dynamicAlign and noOverlap we'll have more than one candidate, so
         // we'll have to check the croppedArea to make the best choice.
-        if (!this.dynamicAlign && !this.noOverlap &&
-            pos.verticalAlign === vAlign && pos.horizontalAlign === hAlign) {
+        if (
+          !this.dynamicAlign &&
+          !this.noOverlap &&
+          pos.verticalAlign === vAlign &&
+          pos.horizontalAlign === hAlign
+        ) {
           position = pos;
           break;
         }
 
         // Align is ok if alignment preferences are respected. If no preferences,
         // it is considered ok.
-        var alignOk = (!vAlign || pos.verticalAlign === vAlign) &&
-                      (!hAlign || pos.horizontalAlign === hAlign);
+        var alignOk =
+          (!vAlign || pos.verticalAlign === vAlign) &&
+          (!hAlign || pos.horizontalAlign === hAlign);
 
         // Filter out elements that don't match the alignment (if defined).
         // With dynamicAlign, we need to consider all the positions to find the
@@ -606,7 +655,6 @@ within `fitInto` boundaries, while preserving the element's CSS margin values.
       }
 
       return position;
-    }
-
+    },
   };
 </script>

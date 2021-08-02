@@ -8,10 +8,13 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../../iron-media-query/iron-media-query.html">
-<link rel="import" href="../../iron-resizable-behavior/iron-resizable-behavior.html">
-<link rel="import" href="../app-drawer/app-drawer.html">
+<link rel="import" href="../../polymer/polymer.html" />
+<link rel="import" href="../../iron-media-query/iron-media-query.html" />
+<link
+  rel="import"
+  href="../../iron-resizable-behavior/iron-resizable-behavior.html"
+/>
+<link rel="import" href="../app-drawer/app-drawer.html" />
 
 <!--
 app-drawer-layout is a wrapper element that positions an app-drawer and other content. When
@@ -119,7 +122,7 @@ Custom property                          | Description                          
       }
 
       :host([fullbleed]) {
-        @apply(--layout-fit);
+        @apply (--layout-fit);
       }
 
       #contentContainer {
@@ -142,17 +145,16 @@ Custom property                          | Description                          
     <content id="drawerContent" select="app-drawer"></content>
 
     <iron-media-query
-        query="[[_computeMediaQuery(forceNarrow, responsiveWidth)]]"
-        on-query-matches-changed="_onQueryMatchesChanged"></iron-media-query>
+      query="[[_computeMediaQuery(forceNarrow, responsiveWidth)]]"
+      on-query-matches-changed="_onQueryMatchesChanged"
+    ></iron-media-query>
   </template>
 
   <script>
     Polymer({
-      is: 'app-drawer-layout',
+      is: "app-drawer-layout",
 
-      behaviors: [
-        Polymer.IronResizableBehavior
-      ],
+      behaviors: [Polymer.IronResizableBehavior],
 
       properties: {
         /**
@@ -160,7 +162,7 @@ Custom property                          | Description                          
          */
         forceNarrow: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -169,7 +171,7 @@ Custom property                          | Description                          
          */
         responsiveWidth: {
           type: String,
-          value: '640px'
+          value: "640px",
         },
 
         /**
@@ -179,7 +181,7 @@ Custom property                          | Description                          
         narrow: {
           type: Boolean,
           readOnly: true,
-          notify: true
+          notify: true,
         },
 
         /**
@@ -187,20 +189,20 @@ Custom property                          | Description                          
          */
         openedWhenNarrow: {
           type: Boolean,
-          value: false
-        }
+          value: false,
+        },
       },
 
       listeners: {
-        'tap': '_tapHandler',
-        'app-drawer-attached': '_resetDrawerState',
-        'app-drawer-reset-layout': 'resetLayout',
-        'iron-resize': 'resetLayout'
+        tap: "_tapHandler",
+        "app-drawer-attached": "_resetDrawerState",
+        "app-drawer-reset-layout": "resetLayout",
+        "iron-resize": "resetLayout",
       },
 
       observers: [
-        'resetLayout(narrow, isAttached)',
-        '_narrowChanged(narrow, isAttached)'
+        "resetLayout(narrow, isAttached)",
+        "_narrowChanged(narrow, isAttached)",
       ],
 
       /**
@@ -212,9 +214,9 @@ Custom property                          | Description                          
         return Polymer.dom(this.$.drawerContent).getDistributedNodes()[0];
       },
 
-      _tapHandler: function(e) {
+      _tapHandler: function (e) {
         var target = Polymer.dom(e).localTarget;
-        if (target && target.hasAttribute('drawer-toggle')) {
+        if (target && target.hasAttribute("drawer-toggle")) {
           var drawer = this.drawer;
           if (drawer && !drawer.persistent) {
             drawer.toggle();
@@ -222,29 +224,29 @@ Custom property                          | Description                          
         }
       },
 
-      resetLayout: function() {
-        this.debounce('_resetLayout', function() {
+      resetLayout: function () {
+        this.debounce("_resetLayout", function () {
           var drawer = this.drawer;
           var contentContainer = this.$.contentContainer;
 
           if (this.narrow || !drawer) {
-            contentContainer.style.marginLeft = '';
-            contentContainer.style.marginRight = '';
+            contentContainer.style.marginLeft = "";
+            contentContainer.style.marginRight = "";
           } else {
             var drawerWidth = drawer.getWidth();
-            if (drawer.position == 'right') {
-              contentContainer.style.marginLeft = '';
-              contentContainer.style.marginRight = drawerWidth + 'px';
+            if (drawer.position == "right") {
+              contentContainer.style.marginLeft = "";
+              contentContainer.style.marginRight = drawerWidth + "px";
             } else {
-              contentContainer.style.marginLeft = drawerWidth + 'px';
-              contentContainer.style.marginRight = '';
+              contentContainer.style.marginLeft = drawerWidth + "px";
+              contentContainer.style.marginRight = "";
             }
           }
         });
       },
 
-      _resetDrawerState: function() {
-        this.debounce('_resetDrawerState', function() {
+      _resetDrawerState: function () {
+        this.debounce("_resetDrawerState", function () {
           var drawer = this.drawer;
           if (!drawer) {
             return;
@@ -259,19 +261,21 @@ Custom property                          | Description                          
         });
       },
 
-      _narrowChanged: function(narrow) {
-        this.toggleClass('narrow', narrow, this.$.contentContainer);
+      _narrowChanged: function (narrow) {
+        this.toggleClass("narrow", narrow, this.$.contentContainer);
         this._resetDrawerState();
         this.notifyResize();
       },
 
-      _onQueryMatchesChanged: function(event) {
+      _onQueryMatchesChanged: function (event) {
         this._setNarrow(event.detail.value);
       },
 
-      _computeMediaQuery: function(forceNarrow, responsiveWidth) {
-        return forceNarrow ? '(min-width: 0px)' : '(max-width: ' + responsiveWidth + ')';
-      }
+      _computeMediaQuery: function (forceNarrow, responsiveWidth) {
+        return forceNarrow
+          ? "(min-width: 0px)"
+          : "(max-width: " + responsiveWidth + ")";
+      },
     });
   </script>
 </dom-module>

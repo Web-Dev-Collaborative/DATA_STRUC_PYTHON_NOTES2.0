@@ -1,8 +1,6 @@
 {
   "name": "test-drive",
-  "authors": [
-    "The Polymer Authors"
-  ],
+  "authors": ["The Polymer Authors"],
   "private": true,
   "dependencies": {
     "app-layout": "polymerelements/app-layout#^0.10.0",

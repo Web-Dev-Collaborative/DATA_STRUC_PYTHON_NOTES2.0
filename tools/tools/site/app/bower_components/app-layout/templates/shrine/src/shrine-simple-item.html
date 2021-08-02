@@ -8,18 +8,15 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer.html" />
 
 <dom-module id="shrine-simple-item">
-
   <template>
-
     <style>
-
       :host {
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
-        @apply(--layout-wrap);
+        @apply (--layout-horizontal);
+        @apply (--layout-center-center);
+        @apply (--layout-wrap);
         position: relative;
         text-align: center;
         width: 100%;
@@ -54,29 +51,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host:hover::after {
         opacity: 1;
       }
-
     </style>
 
     <div class="pic" style$="background-image: url([[item.imageUrl]]);"></div>
-
   </template>
 
   <script>
+    Polymer({
+      is: "shrine-simple-item",
 
-  Polymer({
-
-    is: 'shrine-simple-item',
-
-    properties: {
-
-      item: {
-        type: Object
-      }
-
-    }
-
-  });
-
+      properties: {
+        item: {
+          type: Object,
+        },
+      },
+    });
   </script>
-
 </dom-module>

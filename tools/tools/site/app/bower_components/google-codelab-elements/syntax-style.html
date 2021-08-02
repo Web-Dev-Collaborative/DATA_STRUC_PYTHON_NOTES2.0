@@ -14,21 +14,22 @@ License for the specific language governing permissions and limitations under
 the License.
 -->
 
-<link rel="import" href="font-source-code-pro.html">
+<link rel="import" href="font-source-code-pro.html" />
 
 <dom-module id="syntax-style">
   <template>
     <style>
-      ::content pre, ::content code {
-        font-family: 'Source Code Pro', Helvetica, Arial;
+      ::content pre,
+      ::content code {
+        font-family: "Source Code Pro", Helvetica, Arial;
         font-size: inherit;
         border-radius: 4px;
         overflow-x: auto;
-        @apply(--google-codelab-step-code);
+        @apply (--google-codelab-step-code);
       }
 
       ::content code {
-        background-color: #E8EAEd;
+        background-color: #e8eaed;
         padding: 0.1em 0.3em;
       }
 
@@ -47,20 +48,54 @@ the License.
       }
 
       ::content code em {
-        color: #97C8F2;
+        color: #97c8f2;
       }
 
-      ::content pre .str, ::content code .str { color: #34A853; } /* string  - green */
-      ::content pre .kwd, ::content code .kwd { color: #F538A0; } /* keyword - dark pink */
-      ::content pre .com, ::content code .com { color: #BDC1C6; font-style: italic; } /* comment - gray */
-      ::content pre .typ, ::content code .typ { color: #24C1E0; } /* type - light blue */
-      ::content pre .lit, ::content code .lit { color: #4285F4; } /* literal - blue */
-      ::content pre .pun, ::content code .pun { color: #F8F9FA; } /* punctuation - white */
-      ::content pre .pln, ::content code .pln { color: #F8F9FA; } /* plaintext - white */
-      ::content pre .tag, ::content code .tag { color: #24C1E0; } /* html/xml tag    - light blue */
-      ::content pre .atn, ::content code .atn { color: #EDA912; } /* html/xml attribute name  - khaki */
-      ::content pre .atv, ::content code .atv { color: #34A853; } /* html/xml attribute value - green */
-      ::content pre .dec, ::content code .dec { color: #5195EA; } /* decimal - blue */
+      ::content pre .str,
+      ::content code .str {
+        color: #34a853;
+      } /* string  - green */
+      ::content pre .kwd,
+      ::content code .kwd {
+        color: #f538a0;
+      } /* keyword - dark pink */
+      ::content pre .com,
+      ::content code .com {
+        color: #bdc1c6;
+        font-style: italic;
+      } /* comment - gray */
+      ::content pre .typ,
+      ::content code .typ {
+        color: #24c1e0;
+      } /* type - light blue */
+      ::content pre .lit,
+      ::content code .lit {
+        color: #4285f4;
+      } /* literal - blue */
+      ::content pre .pun,
+      ::content code .pun {
+        color: #f8f9fa;
+      } /* punctuation - white */
+      ::content pre .pln,
+      ::content code .pln {
+        color: #f8f9fa;
+      } /* plaintext - white */
+      ::content pre .tag,
+      ::content code .tag {
+        color: #24c1e0;
+      } /* html/xml tag    - light blue */
+      ::content pre .atn,
+      ::content code .atn {
+        color: #eda912;
+      } /* html/xml attribute name  - khaki */
+      ::content pre .atv,
+      ::content code .atv {
+        color: #34a853;
+      } /* html/xml attribute value - green */
+      ::content pre .dec,
+      ::content code .dec {
+        color: #5195ea;
+      } /* decimal - blue */
     </style>
   </template>
 </dom-module>

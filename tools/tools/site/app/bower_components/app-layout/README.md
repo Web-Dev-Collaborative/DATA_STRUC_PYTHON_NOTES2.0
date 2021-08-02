@@ -62,10 +62,14 @@ A collection of elements, along with guidelines and templates that can be used t
 </custom-element-demo>
 ```
 -->
+
 ```html
 <app-header reveals>
   <app-toolbar>
-    <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+    <paper-icon-button
+      icon="menu"
+      onclick="drawer.toggle()"
+    ></paper-icon-button>
     <div main-title>My app</div>
     <paper-icon-button icon="delete"></paper-icon-button>
     <paper-icon-button icon="search"></paper-icon-button>
@@ -86,7 +90,7 @@ $ bower install PolymerElements/app-layout --save
 ## Import
 
 ```html
-<link rel="import" href="/bower_components/app-layout/app-layout.html">
+<link rel="import" href="/bower_components/app-layout/app-layout.html" />
 ```
 
 ## What is inside
@@ -114,34 +118,34 @@ $ bower install PolymerElements/app-layout --save
 The templates are a means to define, illustrate and share best practices in App Layout. Pick a template and customize it:
 
 - **Getting started**
-([Demo](https://polymerelements.github.io/app-layout/templates/getting-started) - [Source](/templates/getting-started))
+  ([Demo](https://polymerelements.github.io/app-layout/templates/getting-started) - [Source](/templates/getting-started))
 
 - **Landing page**
-([Demo](https://polymerelements.github.io/app-layout/templates/landing-page) - [Source](/templates/landing-page))
+  ([Demo](https://polymerelements.github.io/app-layout/templates/landing-page) - [Source](/templates/landing-page))
 
 - **Publishing: Zuperkülblog**
-([Demo](https://polymerelements.github.io/app-layout/templates/publishing) - [Source](/templates/publishing))
+  ([Demo](https://polymerelements.github.io/app-layout/templates/publishing) - [Source](/templates/publishing))
 
 - **Shop: Shrine**
-([Demo](https://polymerelements.github.io/app-layout/templates/shrine) - [Source](/templates/shrine))
+  ([Demo](https://polymerelements.github.io/app-layout/templates/shrine) - [Source](/templates/shrine))
 
 - **Blog: Pesto**
-([Demo](https://polymerelements.github.io/app-layout/templates/pesto) - [Source](/templates/pesto))
+  ([Demo](https://polymerelements.github.io/app-layout/templates/pesto) - [Source](/templates/pesto))
 
 - **Scroll effects: Test drive**
-([Demo](https://polymerelements.github.io/app-layout/templates/test-drive) - [Source](/templates/test-drive))
+  ([Demo](https://polymerelements.github.io/app-layout/templates/test-drive) - [Source](/templates/test-drive))
 
 ### Patterns
 
 Sample code for various UI patterns:
 
 - **Transform navigation:**
-As more screen space is available, side navigation can transform into tabs.
-([Demo](https://polymerelements.github.io/app-layout/patterns/transform-navigation/index.html) - [Source](/patterns/transform-navigation/x-app.html))
+  As more screen space is available, side navigation can transform into tabs.
+  ([Demo](https://polymerelements.github.io/app-layout/patterns/transform-navigation/index.html) - [Source](/patterns/transform-navigation/x-app.html))
 
 - **Expand Card:**
-Content cards may expand to take up more horizontal space.
-([Demo](https://polymerelements.github.io/app-layout/patterns/expand-card/index.html) - [Source](/patterns/expand-card/index.html))
+  Content cards may expand to take up more horizontal space.
+  ([Demo](https://polymerelements.github.io/app-layout/patterns/expand-card/index.html) - [Source](/patterns/expand-card/index.html))
 
 ## Users
 

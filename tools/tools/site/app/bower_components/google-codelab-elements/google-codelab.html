@@ -14,29 +14,50 @@ License for the specific language governing permissions and limitations under
 the License.
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-localstorage/iron-localstorage.html">
-<link rel="import" href="../neon-animation/neon-animated-pages.html">
-<link rel="import" href="../neon-animation/animations/slide-from-right-animation.html">
-<link rel="import" href="../neon-animation/animations/slide-from-left-animation.html">
-<link rel="import" href="../neon-animation/animations/slide-right-animation.html">
-<link rel="import" href="../neon-animation/animations/slide-left-animation.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"
+/>
+<link rel="import" href="../iron-icons/iron-icons.html" />
+<link rel="import" href="../iron-localstorage/iron-localstorage.html" />
+<link rel="import" href="../neon-animation/neon-animated-pages.html" />
+<link
+  rel="import"
+  href="../neon-animation/animations/slide-from-right-animation.html"
+/>
+<link
+  rel="import"
+  href="../neon-animation/animations/slide-from-left-animation.html"
+/>
+<link
+  rel="import"
+  href="../neon-animation/animations/slide-right-animation.html"
+/>
+<link
+  rel="import"
+  href="../neon-animation/animations/slide-left-animation.html"
+/>
 
-<link rel="import" href="../app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="../app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="../app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="../paper-button/paper-button.html">
-<link rel="import" href="../paper-dialog/paper-dialog.html">
-<link rel="import" href="../paper-fab/paper-fab.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../paper-menu/paper-menu.html">
-<link rel="import" href="../paper-item/paper-item.html">
+<link
+  rel="import"
+  href="../app-layout/app-header-layout/app-header-layout.html"
+/>
+<link rel="import" href="../app-layout/app-drawer/app-drawer.html" />
+<link
+  rel="import"
+  href="../app-layout/app-drawer-layout/app-drawer-layout.html"
+/>
+<link rel="import" href="../paper-button/paper-button.html" />
+<link rel="import" href="../paper-dialog/paper-dialog.html" />
+<link rel="import" href="../paper-fab/paper-fab.html" />
+<link rel="import" href="../paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="../paper-menu/paper-menu.html" />
+<link rel="import" href="../paper-item/paper-item.html" />
 
-<link rel="import" href="layout-style.html">
-<link rel="import" href="codelab-style.html">
-<link rel="import" href="analytics-behavior.html">
+<link rel="import" href="layout-style.html" />
+<link rel="import" href="codelab-style.html" />
+<link rel="import" href="analytics-behavior.html" />
 
 <!--
 This is the top level component of google-codelab elements.
@@ -69,24 +90,36 @@ prevent syntax highlighting code blocks, respectively:
     <style include="layout-style"></style>
     <style include="codelab-style"></style>
 
-    <iron-localstorage name="{{title}}" value="{{state}}" hidden
-        on-iron-localstorage-load-empty="_stateInit"
-        on-iron-localstorage-load="_stateLoaded">
+    <iron-localstorage
+      name="{{title}}"
+      value="{{state}}"
+      hidden
+      on-iron-localstorage-load-empty="_stateInit"
+      on-iron-localstorage-load="_stateLoaded"
+    >
     </iron-localstorage>
 
     <app-drawer-layout fullbleed narrow="{{_narrow}}">
       <app-drawer id="drawer" swipe-open>
-
-        <div class="drawer-content-wrapper layout vertical" style="height:100%">
-
-          <div class="flex" style="overflow: auto;">
-            <div title="Time remaining" hidden$="{{!_isPositiveNum(duration)}}"
-                 class="countdown layout horizontal">
+        <div
+          class="drawer-content-wrapper layout vertical"
+          style="height: 100%"
+        >
+          <div class="flex" style="overflow: auto">
+            <div
+              title="Time remaining"
+              hidden$="{{!_isPositiveNum(duration)}}"
+              class="countdown layout horizontal"
+            >
               <iron-icon icon="schedule"></iron-icon> <span>[[remaining]]</span>
             </div>
 
-            <paper-menu id="toc" class="flex" selected="{{selected}}"
-                        on-iron-select="_allowCodelabComplete">
+            <paper-menu
+              id="toc"
+              class="flex"
+              selected="{{selected}}"
+              on-iron-select="_allowCodelabComplete"
+            >
               <template is="dom-repeat" items="{{steps}}" strip-whitespace>
                 <paper-item class$="{{_tocItemClass(selected, index)}}">
                   <i>{{item.step}}</i><span>{{item.label}}</span>
@@ -104,78 +137,110 @@ prevent syntax highlighting code blocks, respectively:
               <a target="_blank" href$="{{feedbackLink}}">Please file a bug</a>.
             </div>
           </div>
-
         </div>
-
       </app-drawer>
 
       <app-header-layout fullbleed>
-
         <div id="headerpanel" fixed narrow$="[[_narrow]]">
           <div id="main-toolbar" hidden$="[[noToolbar]]">
             <div>
               <template is="dom-if" if="{{_narrow}}" strip-whitespace>
-                <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+                <paper-icon-button
+                  icon="menu"
+                  drawer-toggle
+                ></paper-icon-button>
               </template>
               <template is="dom-if" if="{{!_narrow}}" strip-whitespace>
-                <paper-icon-button icon="arrow-back" on-tap="_goToHome"></paper-icon-button>
+                <paper-icon-button
+                  icon="arrow-back"
+                  on-tap="_goToHome"
+                ></paper-icon-button>
               </template>
             </div>
             <h3 class="title">[[title]]</h3>
-            <div title="Time remaining" hidden$="{{!_isPositiveNum(duration)}}"
-                 class="countdown layout horizontal">
+            <div
+              title="Time remaining"
+              hidden$="{{!_isPositiveNum(duration)}}"
+              class="countdown layout horizontal"
+            >
               <iron-icon icon="schedule"></iron-icon> <span>{{remaining}}</span>
             </div>
           </div>
         </div>
 
         <div id="main-content">
-
-          <neon-animated-pages id="pages" selected="{{selected}}"
-              on-iron-deselect="_onStepLeave"
-              on-iron-items-changed="_onStepsChanged">
+          <neon-animated-pages
+            id="pages"
+            selected="{{selected}}"
+            on-iron-deselect="_onStepLeave"
+            on-iron-items-changed="_onStepsChanged"
+          >
             <content select="google-codelab-step"></content>
           </neon-animated-pages>
 
           <footer id="controls" hidden$="[[noArrows]]" narrow$="[[_narrow]]">
             <div class="fabs layout horizontal justified">
-              <paper-button raised class="navbutton prevbutton"
+              <paper-button
+                raised
+                class="navbutton prevbutton"
                 on-tap="selectPrevious"
                 title="Previous step"
-                disabled$="{{_isFirstStep(selected)}}">Back</paper-button>
+                disabled$="{{_isFirstStep(selected)}}"
+                >Back</paper-button
+              >
 
               <div>
-                <template is="dom-if" if="{{_showNextFab(selected, steps)}}" strip-whitespace>
-                  <paper-button raised class="navbutton nextbutton"
+                <template
+                  is="dom-if"
+                  if="{{_showNextFab(selected, steps)}}"
+                  strip-whitespace
+                >
+                  <paper-button
+                    raised
+                    class="navbutton nextbutton"
                     title="{{_nextFabTitle(selected)}}"
-                    on-tap="selectNext">Next</paper-button>
+                    on-tap="selectNext"
+                    >Next</paper-button
+                  >
                 </template>
 
-                <template is="dom-if" if="{{_showDoneFab(selected, steps)}}" strip-whitespace>
-                  <paper-button raised class="navbutton donebutton"
-                    on-tap="_goToHome" title="Complete codelab">Done</paper-button>
+                <template
+                  is="dom-if"
+                  if="{{_showDoneFab(selected, steps)}}"
+                  strip-whitespace
+                >
+                  <paper-button
+                    raised
+                    class="navbutton donebutton"
+                    on-tap="_goToHome"
+                    title="Complete codelab"
+                    >Done</paper-button
+                  >
                 </template>
               </div>
             </div>
           </footer>
         </div>
-
       </app-header-layout>
     </app-drawer-layout>
 
     <paper-dialog id="resumeDialog" modal>
       <h2>Would you like to resume where you left off?</h2>
-      <p>Step <span>{{_storedStep.step}}</span>: <span>{{_storedStep.label}}</span></p>
+      <p>
+        Step <span>{{_storedStep.step}}</span>:
+        <span>{{_storedStep.label}}</span>
+      </p>
       <div class="buttons">
         <paper-button dialog-dismiss on-click="_stateInit">Cancel</paper-button>
-        <paper-button dialog-confirm on-click="_resume" autofocus>Resume</paper-button>
+        <paper-button dialog-confirm on-click="_resume" autofocus
+          >Resume</paper-button
+        >
       </div>
     </paper-dialog>
-
   </template>
   <script>
     Polymer({
-      is: 'google-codelab',
+      is: "google-codelab",
 
       /**
        * Fired when the codelab steps have been fully initialized.
@@ -195,7 +260,7 @@ prevent syntax highlighting code blocks, respectively:
 
       behaviors: [
         Polymer.IronA11yKeysBehavior,
-        GoogleCodelabs.AnalyticsBehavior
+        GoogleCodelabs.AnalyticsBehavior,
       ],
 
       properties: {
@@ -204,7 +269,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         title: {
           type: String,
-          value: ''
+          value: "",
         },
 
         /**
@@ -212,7 +277,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         category: {
           type: String,
-          value: null
+          value: null,
         },
 
         /**
@@ -220,7 +285,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         environment: {
           type: String,
-          value: null
+          value: null,
         },
 
         /**
@@ -228,7 +293,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         feedbackLink: {
           type: String,
-          value: ''
+          value: "",
         },
 
         /**
@@ -237,7 +302,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         selected: {
           type: Number,
-          value: 0
+          value: 0,
         },
 
         /**
@@ -246,7 +311,7 @@ prevent syntax highlighting code blocks, respectively:
         duration: {
           type: Number,
           value: 0,
-          readOnly: true
+          readOnly: true,
         },
 
         /**
@@ -254,8 +319,8 @@ prevent syntax highlighting code blocks, respectively:
          */
         remaining: {
           type: String,
-          value: '',
-          readOnly: true
+          value: "",
+          readOnly: true,
         },
 
         /**
@@ -263,7 +328,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         lastUpdated: {
           type: String,
-          value: ''
+          value: "",
         },
 
         /**
@@ -274,8 +339,10 @@ prevent syntax highlighting code blocks, respectively:
          */
         steps: {
           type: Array,
-          value: function() { return []; },
-          readOnly: true
+          value: function () {
+            return [];
+          },
+          readOnly: true,
         },
 
         /**
@@ -284,7 +351,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         state: {
           type: Object,
-          value: null
+          value: null,
         },
 
         /**
@@ -292,7 +359,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         noToolbar: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -300,7 +367,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         noArrows: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -309,7 +376,7 @@ prevent syntax highlighting code blocks, respectively:
         noHighlight: {
           type: Boolean,
           value: false,
-          reflectToAttribute: true
+          reflectToAttribute: true,
         },
 
         /**
@@ -322,7 +389,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         _storedStep: {
           type: Object,
-          value: null
+          value: null,
         },
 
         /**
@@ -333,7 +400,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         _resumed: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -342,63 +409,63 @@ prevent syntax highlighting code blocks, respectively:
         _userHasNavigated: {
           type: Boolean,
           value: false,
-          readOnly: true
-        }
+          readOnly: true,
+        },
       },
 
-      observers: [
-        '_selectedChanged(steps, selected)'
-      ],
+      observers: ["_selectedChanged(steps, selected)"],
 
       keyBindings: {
-        'left': 'selectPrevious',
-        'right': 'selectNext',
+        left: "selectPrevious",
+        right: "selectNext",
       },
 
-      ready: function() {
+      ready: function () {
         // TODO: cannot be done on prototype.
         // SEe https://github.com/PolymerElements/iron-a11y-keys-behavior/issues/19
-        this.keyEventTarget = /** @type {!HTMLBodyElement} */(document.body);
+        this.keyEventTarget = /** @type {!HTMLBodyElement} */ (document.body);
 
         // select the step early, before localStorage is loaded
         this._updateStepIndexFromUrl();
       },
 
-      _onStepsChanged: function() {
+      _onStepsChanged: function () {
         var duration = 0;
-        var steps = this.$.pages.items.map(function(item, i) {
-          duration += item.duration;
-          item.step = i + 1;
-          return item;
-        }.bind(this));
+        var steps = this.$.pages.items.map(
+          function (item, i) {
+            duration += item.duration;
+            item.step = i + 1;
+            return item;
+          }.bind(this)
+        );
         this._setSteps(steps);
         this._setDuration(duration);
         this._updateRemaining();
-        this.fire('google-codelab-ready', {steps: this.steps});
+        this.fire("google-codelab-ready", { steps: this.steps });
       },
 
       /**
        * Advance one step of the codelab.
        */
-      selectNext: function() {
-        this.$.pages.entryAnimation = 'slide-from-right-animation';
-        this.$.pages.exitAnimation = 'slide-left-animation';
+      selectNext: function () {
+        this.$.pages.entryAnimation = "slide-from-right-animation";
+        this.$.pages.exitAnimation = "slide-left-animation";
         this.select(this.selected + 1);
       },
 
       /**
        * Go one step backwards.
        */
-      selectPrevious: function() {
-        this.$.pages.entryAnimation = 'slide-from-left-animation';
-        this.$.pages.exitAnimation = 'slide-right-animation';
+      selectPrevious: function () {
+        this.$.pages.entryAnimation = "slide-from-left-animation";
+        this.$.pages.exitAnimation = "slide-right-animation";
         this.select(this.selected - 1);
       },
 
       /**
        * Select an arbitrary step of the codelab.
        */
-      select: function(stepIndex) {
+      select: function (stepIndex) {
         if (stepIndex < 0 || stepIndex > this.steps.length - 1) {
           return;
         }
@@ -407,8 +474,8 @@ prevent syntax highlighting code blocks, respectively:
         this.selected = stepIndex;
       },
 
-      _selectedChanged: function(steps, selected) {
-        this.set('state.stepIndex', this.selected);
+      _selectedChanged: function (steps, selected) {
+        this.set("state.stepIndex", this.selected);
         this._updateRemaining();
 
         if (!this.steps.length) {
@@ -420,29 +487,32 @@ prevent syntax highlighting code blocks, respectively:
 
         location.hash = this.selected.toString();
 
-        this.fire('google-codelab-step', {index: this.selected, step: step});
+        this.fire("google-codelab-step", { index: this.selected, step: step });
 
-        if (this.selected === this.steps.length - 1 &&
-            !this._resumed && this._userHasNavigated) {
-          this.fire('google-codelab-complete');
+        if (
+          this.selected === this.steps.length - 1 &&
+          !this._resumed &&
+          this._userHasNavigated
+        ) {
+          this.fire("google-codelab-complete");
         }
       },
 
-      _onStepLeave: function(e, detail) {
+      _onStepLeave: function (e, detail) {
         var prev = detail.item;
         prev.active = false;
         this._scrollToTopOfStep();
       },
 
-      _stateInit: function() {
-        this.state = {stepIndex: this.selected};
+      _stateInit: function () {
+        this.state = { stepIndex: this.selected };
       },
 
-      _stateLoaded: function() {
+      _stateLoaded: function () {
         // allow everything render and initialize,
         // especially this.steps which runs at the same init level
         // as iron-localstorage (on attached).
-        this.async(function() {
+        this.async(function () {
           this._storedStep = this.steps[this.state.stepIndex];
           // resume dialog is shown only when all 3 conditions hold:
           // 1. user has already visited the codelab in the past
@@ -454,7 +524,7 @@ prevent syntax highlighting code blocks, respectively:
         }, 500);
       },
 
-      _updateStepIndexFromUrl: function() {
+      _updateStepIndexFromUrl: function () {
         var step = parseInt(location.hash.slice(1), 10);
         if (isNaN(step) || step < 0) {
           step = 0;
@@ -465,23 +535,23 @@ prevent syntax highlighting code blocks, respectively:
         this.selected = step;
       },
 
-      _allowCodelabComplete: function() {
+      _allowCodelabComplete: function () {
         this._set_userHasNavigated(true);
       },
 
-      _updateRemaining: function() {
+      _updateRemaining: function () {
         if (!this.steps) {
           return;
         }
         var remain = 0;
-        this.steps.slice(this.selected).forEach(function(item) {
-          remain += (item.duration || 0);
+        this.steps.slice(this.selected).forEach(function (item) {
+          remain += item.duration || 0;
         });
-        var str = this._narrow ? '' : ' remaining';
-        this._setRemaining(remain + ' min' + str);
+        var str = this._narrow ? "" : " remaining";
+        this._setRemaining(remain + " min" + str);
       },
 
-      _resume: function() {
+      _resume: function () {
         this._resumed = true;
         this.select(this.state.stepIndex);
         this._resumed = false;
@@ -490,63 +560,63 @@ prevent syntax highlighting code blocks, respectively:
       _goToHome: function () {
         // extract 'index' search param
         var index;
-        var parts = location.search.substring(1).split('&');
+        var parts = location.search.substring(1).split("&");
         for (var i = 0; i < parts.length; i++) {
-          var param = parts[i].split('=');
-          if (param[0] === 'index') {
+          var param = parts[i].split("=");
+          if (param[0] === "index") {
             index = param[1];
             break;
           }
         }
         // decode and extract index name from the search param
         // default index is 'index'
-        index = index ? decodeURIComponent(index) : '';
-        index = index.replace(/[^a-z0-9\-]+/ig, '');
-        if (index === 'index') {
-          index = '';
+        index = index ? decodeURIComponent(index) : "";
+        index = index.replace(/[^a-z0-9\-]+/gi, "");
+        if (index === "index") {
+          index = "";
         }
         // navigate away to the index page
-        window.location.href = '/' + index;
+        window.location.href = "/" + index;
       },
 
-      _tocItemClass: function(selected, i) {
-        var cls = ['toc-item'];
+      _tocItemClass: function (selected, i) {
+        var cls = ["toc-item"];
         if (i < selected) {
-          cls.push('completed');
+          cls.push("completed");
         }
-        return cls.join(' ');
+        return cls.join(" ");
       },
 
-      _scrollToTopOfStep: function() {
+      _scrollToTopOfStep: function () {
         document.body.scrollTop = 0;
       },
 
-      _isPositiveNum: function(duration) {
+      _isPositiveNum: function (duration) {
         return duration > 0;
       },
 
-      _isFirstStep: function(stepIndex) {
+      _isFirstStep: function (stepIndex) {
         return isNaN(stepIndex) || stepIndex == 0;
       },
 
-      _isLastStep: function(stepIndex) {
+      _isLastStep: function (stepIndex) {
         if (!this.steps.length) {
           return false;
         }
         return stepIndex >= this.steps.length - 1;
       },
 
-      _showDoneFab: function(stepIndex, steps) {
+      _showDoneFab: function (stepIndex, steps) {
         return this._isLastStep(stepIndex);
       },
 
-      _showNextFab: function(stepIndex, steps) {
+      _showNextFab: function (stepIndex, steps) {
         return !this._isLastStep(stepIndex);
       },
 
-      _nextFabTitle: function(stepIndex) {
-        return stepIndex > 0 ? 'Next step' : 'Start codelab';
-      }
+      _nextFabTitle: function (stepIndex) {
+        return stepIndex > 0 ? "Next step" : "Start codelab";
+      },
     });
   </script>
 </dom-module>

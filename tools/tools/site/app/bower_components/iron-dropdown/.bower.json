@@ -2,14 +2,8 @@
   "name": "iron-dropdown",
   "version": "1.5.5",
   "description": "An unstyled element that works similarly to a native browser select",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "web-component",
-    "polymer"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "web-component", "polymer"],
   "main": "iron-dropdown.html",
   "private": true,
   "repository": {

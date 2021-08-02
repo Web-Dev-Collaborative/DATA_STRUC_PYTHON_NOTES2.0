@@ -19,20 +19,25 @@ the License.
     <meta name="project_path" value="/_project.yaml" />
     <meta name="book_path" value="/_book.yaml" />
     <meta name="full_width" value="true" />
-    <meta name="keywords" value="{{range $index, $tag := .Meta.Tags}}{{if $index}},{{end}}tag_{{$tag}}{{end}}{{range $index, $cat := .Meta.Categories}},category_{{$cat}}{{end}}" />
+    <meta
+      name="keywords"
+      value="{{range $index, $tag := .Meta.Tags}}{{if $index}},{{end}}tag_{{$tag}}{{end}}{{range $index, $cat := .Meta.Categories}},category_{{$cat}}{{end}}"
+    />
     {{if .Meta.Summary}}
-      <meta name="description" content="{{.Meta.Summary}}" />
+    <meta name="description" content="{{.Meta.Summary}}" />
     {{end}}
-    <meta name="original_source" content="https://docs.google.com/document/d/{{.Meta.Source}}/edit" />
+    <meta
+      name="original_source"
+      content="https://docs.google.com/document/d/{{.Meta.Source}}/edit"
+    />
     <meta name="hide_last_updated" value="true" />
     <meta name="hide_ratings_widget" value="true" />
     <meta name="page_type" value="codelab" />
     <meta name="duration_minutes" value="{{.Meta.Duration}}" />
     {{if .Meta.Authors}}
-      <meta name="author_name" value="{{.Meta.Authors}}" />
-    {{end}}
-    {{if .Meta.Extra.robots}}
-      <meta name="robots" value="{{.Meta.Extra.robots}}">
+    <meta name="author_name" value="{{.Meta.Authors}}" />
+    {{end}} {{if .Meta.Extra.robots}}
+    <meta name="robots" value="{{.Meta.Extra.robots}}" />
     {{end}}
     <style>
       body {
@@ -49,24 +54,33 @@ the License.
   </head>
   <body class="devsite-full-width-page">
     <google-codelab-analytics gaid="{{.GlobalGA}}"></google-codelab-analytics>
-    <google-codelab codelab-gaid="{{.Meta.GA}}"
-                    doc-id="{{.Meta.Source}}"
-                    id="{{.Meta.ID}}"
-                    title="{{.Meta.Title}}"
-                    environment="{{index .Env}}"
-                    category="{{range  $index, $cat := .Meta.Categories}}{{if $index}},{{end}}{{$cat}}{{end}}"
-                    feedback-link="{{.Meta.Feedback}}"
-                    {{if $.Meta.BadgePath}}badge-path="{{$.Meta.BadgePath}}"{{end}}>
+    <google-codelab
+      codelab-gaid="{{.Meta.GA}}"
+      doc-id="{{.Meta.Source}}"
+      id="{{.Meta.ID}}"
+      title="{{.Meta.Title}}"
+      environment="{{index .Env}}"
+      category="{{range  $index, $cat := .Meta.Categories}}{{if $index}},{{end}}{{$cat}}{{end}}"
+      feedback-link="{{.Meta.Feedback}}"
+      {{if
+      $.Meta.BadgePath}}badge-path="{{$.Meta.BadgePath}}"
+      {{end}}
+    >
       {{range $i, $e := .Steps}}{{if matchEnv .Tags $.Env}}
-        <google-codelab-step label="{{.Title}}" duration="{{.Duration.Minutes}}">
-          {{if eq $i 0}}
-            <google-codelab-about codelab-title="{{$.Meta.Title}}"
-                                  {{if $.Meta.Authors}}authors="{{$.Meta.Authors}}"{{end}}
-                                  {{if $.Meta.BadgePath}}badge-path="{{$.Meta.BadgePath}}"{{end}}>
-            </google-codelab-about>
+      <google-codelab-step label="{{.Title}}" duration="{{.Duration.Minutes}}">
+        {{if eq $i 0}}
+        <google-codelab-about
+          codelab-title="{{$.Meta.Title}}"
+          {{if
+          $.Meta.Authors}}authors="{{$.Meta.Authors}}"
           {{end}}
-          {{.Content | renderHTML $.Context}}
-        </google-codelab-step>
+          {{if
+          $.Meta.BadgePath}}badge-path="{{$.Meta.BadgePath}}"
+          {{end}}
+        >
+        </google-codelab-about>
+        {{end}} {{.Content | renderHTML $.Context}}
+      </google-codelab-step>
       {{end}}{{end}}
     </google-codelab>
   </body>

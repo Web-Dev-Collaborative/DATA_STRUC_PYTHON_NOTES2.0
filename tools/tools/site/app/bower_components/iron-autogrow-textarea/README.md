@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-autogrow-textarea)_
 
-
 ##&lt;iron-autogrow-textarea&gt;
 
 `iron-autogrow-textarea` is an element containing a textarea that grows in height as more
@@ -33,9 +31,7 @@ Example:
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--iron-autogrow-textarea` | Mixin applied to the textarea | `{}` |
-| `--iron-autogrow-textarea-placeholder` | Mixin applied to the textarea placeholder | `{}` |
-
-
+| Custom property                        | Description                               | Default |
+| -------------------------------------- | ----------------------------------------- | ------- |
+| `--iron-autogrow-textarea`             | Mixin applied to the textarea             | `{}`    |
+| `--iron-autogrow-textarea-placeholder` | Mixin applied to the textarea placeholder | `{}`    |

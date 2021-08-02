@@ -1,9 +1,7 @@
 {
   "name": "code-prettify",
   "description": "Google Code Prettify",
-  "authors": [
-    "Google"
-  ],
+  "authors": ["Google"],
   "license": "Apache-2.0",
   "homepage": "https://github.com/google/code-prettify",
   "repository": {
@@ -19,14 +17,8 @@
     "prettify",
     "google"
   ],
-  "main": [
-    "src/prettify.js",
-    "src/prettify.css"
-  ],
-  "moduleType": [
-    "globals",
-    "amd"
-  ],
+  "main": ["src/prettify.js", "src/prettify.css"],
+  "moduleType": ["globals", "amd"],
   "ignore": [
     "**/.*",
     "node_modules",

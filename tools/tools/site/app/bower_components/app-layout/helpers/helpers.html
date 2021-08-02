@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../polymer/polymer.html" />
 
 <script>
   Polymer.AppLayout = Polymer.AppLayout || {};
@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   Polymer.AppLayout.scrollTimingFunction = function easeOutQuad(t, b, c, d) {
     t /= d;
-    return -c * t*(t-2) + b;
+    return -c * t * (t - 2) + b;
   };
 
   /**
@@ -27,9 +27,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @param {string} effectName The effect name.
    * @param {Object} effectDef The effect definition.
    */
-  Polymer.AppLayout.registerEffect = function registerEffect(effectName, effectDef) {
+  Polymer.AppLayout.registerEffect = function registerEffect(
+    effectName,
+    effectDef
+  ) {
     if (Polymer.AppLayout._scrollEffects[effectName] != null) {
-      throw new Error('effect `'+ effectName + '` is already registered.');
+      throw new Error("effect `" + effectName + "` is already registered.");
     }
     Polymer.AppLayout._scrollEffects[effectName] = effectDef;
   };
@@ -60,49 +63,55 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     var docEl = document.documentElement;
     var target = options.target || docEl;
-    var hasNativeScrollBehavior = 'scrollBehavior' in target.style && target.scroll;
-    var scrollClassName = 'app-layout-silent-scroll';
+    var hasNativeScrollBehavior =
+      "scrollBehavior" in target.style && target.scroll;
+    var scrollClassName = "app-layout-silent-scroll";
     var scrollTop = options.top || 0;
     var scrollLeft = options.left || 0;
-    var scrollTo = target === docEl ? window.scrollTo :
-      function scrollTo(scrollLeft, scrollTop) {
-        target.scrollLeft = scrollLeft;
-        target.scrollTop = scrollTop;
-      };
+    var scrollTo =
+      target === docEl
+        ? window.scrollTo
+        : function scrollTo(scrollLeft, scrollTop) {
+            target.scrollLeft = scrollLeft;
+            target.scrollTop = scrollTop;
+          };
 
-    if (options.behavior === 'smooth') {
-
+    if (options.behavior === "smooth") {
       if (hasNativeScrollBehavior) {
-
         target.scroll(options);
-
       } else {
-
         var timingFn = Polymer.AppLayout.scrollTimingFunction;
         var startTime = Date.now();
-        var currentScrollTop = target === docEl ? window.pageYOffset : target.scrollTop;
-        var currentScrollLeft = target === docEl ? window.pageXOffset : target.scrollLeft;
+        var currentScrollTop =
+          target === docEl ? window.pageYOffset : target.scrollTop;
+        var currentScrollLeft =
+          target === docEl ? window.pageXOffset : target.scrollLeft;
         var deltaScrollTop = scrollTop - currentScrollTop;
         var deltaScrollLeft = scrollLeft - currentScrollLeft;
         var duration = 300;
-        var updateFrame = (function updateFrame() {
+        var updateFrame = function updateFrame() {
           var now = Date.now();
           var elapsedTime = now - startTime;
 
           if (elapsedTime < duration) {
-            scrollTo(timingFn(elapsedTime, currentScrollLeft, deltaScrollLeft, duration),
-                timingFn(elapsedTime, currentScrollTop, deltaScrollTop, duration));
+            scrollTo(
+              timingFn(
+                elapsedTime,
+                currentScrollLeft,
+                deltaScrollLeft,
+                duration
+              ),
+              timingFn(elapsedTime, currentScrollTop, deltaScrollTop, duration)
+            );
             requestAnimationFrame(updateFrame);
           } else {
             scrollTo(scrollLeft, scrollTop);
           }
-        }).bind(this);
+        }.bind(this);
 
         updateFrame();
       }
-
-    } else if (options.behavior === 'silent') {
-
+    } else if (options.behavior === "silent") {
       docEl.classList.add(scrollClassName);
 
       // Browsers keep the scroll momentum even if the bottom of the scrolling content
@@ -113,18 +122,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       clearInterval(Polymer.AppLayout._scrollTimer);
 
-      Polymer.AppLayout._scrollTimer = setTimeout(function() {
+      Polymer.AppLayout._scrollTimer = setTimeout(function () {
         docEl.classList.remove(scrollClassName);
         Polymer.AppLayout._scrollTimer = null;
       }, 100);
 
       scrollTo(scrollLeft, scrollTop);
-
     } else {
-
       scrollTo(scrollLeft, scrollTop);
-
     }
   };
-
 </script>

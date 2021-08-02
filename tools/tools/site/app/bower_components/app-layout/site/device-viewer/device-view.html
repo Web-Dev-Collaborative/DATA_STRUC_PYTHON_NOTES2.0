@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../../polymer/polymer.html">
+<link rel="import" href="../../../polymer/polymer.html" />
 
 <!--
 Displays a page on a device layout.
@@ -17,11 +17,8 @@ Displays a page on a device layout.
 
 -->
 <dom-module id="device-view">
-
   <template>
-
     <style>
-
       :host {
         display: block;
         position: relative;
@@ -33,37 +30,37 @@ Displays a page on a device layout.
         overflow: hidden;
       }
 
-      :host([device=phone]) {
+      :host([device="phone"]) {
         width: 360px;
         height: 600px;
         margin: 60px 0 96px;
       }
 
-      :host([device=phone][landscape]) {
+      :host([device="phone"][landscape]) {
         width: 600px;
         height: 360px;
         margin: 0;
       }
 
-      :host([device=tablet]) {
+      :host([device="tablet"]) {
         width: 720px;
         height: 1024px;
         margin: 60px 0 96px;
       }
 
-      :host([device=tablet][landscape]) {
+      :host([device="tablet"][landscape]) {
         width: 1024px;
         height: 720px;
         margin: 0;
       }
 
-      :host([device=laptop]) {
+      :host([device="laptop"]) {
         width: 1366px;
         height: 800px;
       }
 
-      :host([device=phone]):before,
-      :host([device=tablet]):before {
+      :host([device="phone"]):before,
+      :host([device="tablet"]):before {
         display: block;
         content: "";
         position: absolute;
@@ -76,13 +73,13 @@ Displays a page on a device layout.
         background: #666;
       }
 
-      :host([device=phone][landscape]):before,
-      :host([device=tablet][landscape]):before {
+      :host([device="phone"][landscape]):before,
+      :host([device="tablet"][landscape]):before {
         margin: -16px -96px -16px -60px;
       }
 
-      :host([device=phone]):after,
-      :host([device=tablet]):after {
+      :host([device="phone"]):after,
+      :host([device="tablet"]):after {
         display: block;
         content: "";
         position: absolute;
@@ -95,8 +92,8 @@ Displays a page on a device layout.
         background: #fff;
       }
 
-      :host([device=phone][landscape]):after,
-      :host([device=tablet][landscape]):after {
+      :host([device="phone"][landscape]):after,
+      :host([device="tablet"][landscape]):after {
         top: 50%;
         right: -76px;
         bottom: auto;
@@ -104,7 +101,7 @@ Displays a page on a device layout.
         margin-top: -28px;
       }
 
-      :host([device=laptop]):before {
+      :host([device="laptop"]):before {
         display: block;
         content: "";
         position: absolute;
@@ -117,7 +114,7 @@ Displays a page on a device layout.
         background: #666;
       }
 
-      :host([device=laptop]):after {
+      :host([device="laptop"]):after {
         display: block;
         content: "";
         position: absolute;
@@ -138,23 +135,18 @@ Displays a page on a device layout.
         background-color: #fff;
         border: 0;
       }
-
     </style>
 
     <div class="container">
       <iframe src="{{src}}"></iframe>
     </div>
-
   </template>
 
   <script>
-
     Polymer({
-
-      is: 'device-view',
+      is: "device-view",
 
       properties: {
-
         /**
          * The url of the page to display.
          */
@@ -165,8 +157,8 @@ Displays a page on a device layout.
          */
         device: {
           type: String,
-          value: 'phone',
-          reflectToAttribute: true
+          value: "phone",
+          reflectToAttribute: true,
         },
 
         /**
@@ -175,20 +167,16 @@ Displays a page on a device layout.
         landscape: {
           type: Boolean,
           value: false,
-          reflectToAttribute: true
-        }
-
+          reflectToAttribute: true,
+        },
       },
 
       /**
        * Toggles the landscape orientation.
        */
-      toggleLandscape: function() {
+      toggleLandscape: function () {
         this.landscape = !this.landscape;
-      }
-
+      },
     });
-
   </script>
-
 </dom-module>

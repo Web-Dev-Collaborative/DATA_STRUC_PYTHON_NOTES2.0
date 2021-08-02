@@ -9,31 +9,44 @@ you should see `codelab-elements.js`, `codelab-elements.css` and other files,
 ready to be added to an HTML page like the following. Only relevant parts are shown:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>A codelab demo</title>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
-  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="codelab-elements.css">
-</head>
-<body>
-  <google-codelab-analytics gaid="UA-123"></google-codelab-analytics>
-  <google-codelab codelab-gaid="UA-345" id="codelab-demo" title="A codelab demo">
-    <google-codelab-step label="Overview" duration="1">
-      Contents of the first step.
-    </google-codelab-step>
-    <google-codelab-step label="Second" duration="10">
-      Contents of the second step.
-    </google-codelab-step>
-  </google-codelab>
-  <script src="native-shim.js"></script>
-  <script src="custom-elements.min.js"></script>
-  <script src="prettify.js"></script>
-  <script src="codelab-elements.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>A codelab demo</title>
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono"
+    />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="codelab-elements.css" />
+  </head>
+  <body>
+    <google-codelab-analytics gaid="UA-123"></google-codelab-analytics>
+    <google-codelab
+      codelab-gaid="UA-345"
+      id="codelab-demo"
+      title="A codelab demo"
+    >
+      <google-codelab-step label="Overview" duration="1">
+        Contents of the first step.
+      </google-codelab-step>
+      <google-codelab-step label="Second" duration="10">
+        Contents of the second step.
+      </google-codelab-step>
+    </google-codelab>
+    <script src="native-shim.js"></script>
+    <script src="custom-elements.min.js"></script>
+    <script src="prettify.js"></script>
+    <script src="codelab-elements.js"></script>
+  </body>
 </html>
 ```
 
@@ -118,6 +131,7 @@ unzip ../bazel-genfiles/bundle.zip
 export SRC="codelab-elements.css native-shim.js custom-elements.min.js prettify.js codelab-elements.js codelab-index.css codelab-index.js"
 gsutil -m cp -a public-read $SRC  gs://codelab-elements
 ```
+
 Then you need to include these artifacts using their full path, which is:
 
 `https://storage.googleapis.com/codelab-elements/FILE`

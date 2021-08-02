@@ -8,8 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../../iron-scroll-target-behavior/iron-scroll-target-behavior.html">
+<link rel="import" href="../../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../../iron-scroll-target-behavior/iron-scroll-target-behavior.html"
+/>
 
 <!--
 app-scrollpos-control is a manager for saving and restoring the scroll position when multiple
@@ -54,11 +57,9 @@ Example:
 <dom-module id="app-scrollpos-control">
   <script>
     Polymer({
-      is: 'app-scrollpos-control',
+      is: "app-scrollpos-control",
 
-      behaviors: [
-        Polymer.IronScrollTargetBehavior
-      ],
+      behaviors: [Polymer.IronScrollTargetBehavior],
 
       properties: {
         /**
@@ -66,7 +67,7 @@ Example:
          */
         selected: {
           type: String,
-          observer: '_selectedChanged'
+          observer: "_selectedChanged",
         },
 
         /**
@@ -74,26 +75,24 @@ Example:
          */
         reset: {
           type: Boolean,
-          value: false
-        }
+          value: false,
+        },
       },
 
-      observers: [
-        '_updateScrollPos(selected, reset)'
-      ],
+      observers: ["_updateScrollPos(selected, reset)"],
 
-      created: function() {
+      created: function () {
         this._scrollposMap = {};
       },
 
-      _selectedChanged: function(selected, old) {
+      _selectedChanged: function (selected, old) {
         if (old != null) {
-          this._scrollposMap[old] = {x: this._scrollLeft, y: this._scrollTop};
+          this._scrollposMap[old] = { x: this._scrollLeft, y: this._scrollTop };
         }
       },
 
-      _updateScrollPos: function(selected, reset) {
-        this.debounce('_updateScrollPos', function() {
+      _updateScrollPos: function (selected, reset) {
+        this.debounce("_updateScrollPos", function () {
           var pos = this._scrollposMap[this.selected];
           if (pos != null && !this.reset) {
             this.scroll(pos.x, pos.y);
@@ -101,7 +100,7 @@ Example:
             this.scroll(0, 0);
           }
         });
-      }
+      },
     });
   </script>
 </dom-module>

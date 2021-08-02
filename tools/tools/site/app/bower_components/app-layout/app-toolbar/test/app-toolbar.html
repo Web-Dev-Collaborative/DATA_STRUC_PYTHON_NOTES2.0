@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -9,80 +9,80 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS
 -->
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>test for app-toolbar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <title>test for app-toolbar</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
 
-  <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
-  <script src="../../../web-component-tester/browser.js"></script>
-  <script src="../../../test-fixture/test-fixture-mocha.js"></script>
-  <link rel="import" href="../../../test-fixture/test-fixture.html">
-  <link rel="import" href="../app-toolbar.html">
+    <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../../web-component-tester/browser.js"></script>
+    <script src="../../../test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../../../test-fixture/test-fixture.html" />
+    <link rel="import" href="../app-toolbar.html" />
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-    app-toolbar {
-      height: 50px;
-      background-color: gray;
-    }
+      app-toolbar {
+        height: 50px;
+        background-color: gray;
+      }
 
-    [top-item] {
-      height: 10px;
-      background-color: green;
-    }
+      [top-item] {
+        height: 10px;
+        background-color: green;
+      }
 
-    [bottom-item] {
-      height: 10px;
-      background-color: green;
-    }
+      [bottom-item] {
+        height: 10px;
+        background-color: green;
+      }
 
-    [main-title] {
-      background-color: red;
-    }
-  </style>
-</head>
-<body>
+      [main-title] {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <test-fixture id="trivialToolbar">
+      <template>
+        <app-toolbar>
+          <div top-item></div>
+          <div main-title>Title</div>
+          <div bottom-item></div>
+        </app-toolbar>
+      </template>
+    </test-fixture>
 
-  <test-fixture id="trivialToolbar">
-    <template>
-      <app-toolbar>
-        <div top-item></div>
-        <div main-title>Title</div>
-        <div bottom-item></div>
-      </app-toolbar>
-    </template>
-  </test-fixture>
+    <script>
+      suite("basic features", function () {
+        var toolbar;
 
-  <script>
+        setup(function () {
+          toolbar = fixture("trivialToolbar");
+        });
 
-    suite('basic features', function() {
-      var toolbar;
+        test("Items", function () {
+          var barHeight = toolbar.offsetHeight;
+          var topItem = document.elementFromPoint(0, 0);
+          var title = Polymer.dom(toolbar).querySelector("[main-title]");
+          var titleRect = title.getBoundingClientRect();
+          var barRect = toolbar.getBoundingClientRect();
+          var bottomItem = document.elementFromPoint(0, barHeight - 1);
 
-      setup(function() {
-        toolbar = fixture('trivialToolbar');
+          assert.isTrue(topItem.hasAttribute("top-item"));
+          assert.isTrue(bottomItem.hasAttribute("bottom-item"));
+          assert.isTrue(
+            titleRect.top > 0 && barRect.bottom - titleRect.bottom > 0
+          );
+        });
       });
-
-      test('Items', function() {
-        var barHeight = toolbar.offsetHeight;
-        var topItem = document.elementFromPoint(0, 0);
-        var title = Polymer.dom(toolbar).querySelector('[main-title]');
-        var titleRect = title.getBoundingClientRect();
-        var barRect = toolbar.getBoundingClientRect();
-        var bottomItem = document.elementFromPoint(0, barHeight-1);
-
-        assert.isTrue(topItem.hasAttribute('top-item'));
-        assert.isTrue(bottomItem.hasAttribute('bottom-item'));
-        assert.isTrue(titleRect.top > 0 && barRect.bottom - titleRect.bottom > 0);
-      });
-
-    });
-
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>

@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-goog.module('googlecodelabs.CodelabDef');
-const Codelab = goog.require('googlecodelabs.Codelab');
+goog.module("googlecodelabs.CodelabDef");
+const Codelab = goog.require("googlecodelabs.Codelab");
 
 try {
   window.customElements.define(Codelab.getTagName(), Codelab);
 } catch (e) {
-  console.warn('googlecodelabs.Codelab', e);
+  console.warn("googlecodelabs.Codelab", e);
 }

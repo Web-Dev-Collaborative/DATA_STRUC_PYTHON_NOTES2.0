@@ -15,30 +15,30 @@
  * limitations under the License.
  */
 
-goog.module('googlecodelabs.CodelabIndex');
+goog.module("googlecodelabs.CodelabIndex");
 
-const Cards = goog.require('googlecodelabs.CodelabIndex.Cards');
-const Debouncer = goog.require('goog.async.Debouncer');
-const EventHandler = goog.require('goog.events.EventHandler');
-const Templates = goog.require('googlecodelabs.CodelabIndex.Templates');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const soy = goog.require('goog.soy');
-
-/** @const {string} */
-const CATEGORY_ATTR = 'category';
+const Cards = goog.require("googlecodelabs.CodelabIndex.Cards");
+const Debouncer = goog.require("goog.async.Debouncer");
+const EventHandler = goog.require("goog.events.EventHandler");
+const Templates = goog.require("googlecodelabs.CodelabIndex.Templates");
+const dom = goog.require("goog.dom");
+const events = goog.require("goog.events");
+const soy = goog.require("goog.soy");
 
 /** @const {string} */
-const CATEGORY_PARAM = 'cat';
+const CATEGORY_ATTR = "category";
 
 /** @const {string} */
-const SORT_ATTR = 'sort';
+const CATEGORY_PARAM = "cat";
 
 /** @const {string} */
-const FILTER_ATTR = 'filter';
+const SORT_ATTR = "sort";
 
 /** @const {string} */
-const TAGS_ATTR = 'tags';
+const FILTER_ATTR = "filter";
+
+/** @const {string} */
+const TAGS_ATTR = "tags";
 
 /**
  * Interval over which to debounce in ms.
@@ -51,7 +51,9 @@ const SEARCH_DEBOUNCE_INTERVAL = 20;
  */
 class CodelabIndex extends HTMLElement {
   /** @return {string} */
-  static getTagName() { return 'google-codelab-index'; }
+  static getTagName() {
+    return "google-codelab-index";
+  }
 
   constructor() {
     super();
@@ -85,8 +87,9 @@ class CodelabIndex extends HTMLElement {
      * @const
      */
     this.searchDebouncer_ = new Debouncer(
-      () => this.handleSearchDebounced_(), SEARCH_DEBOUNCE_INTERVAL);
-
+      () => this.handleSearchDebounced_(),
+      SEARCH_DEBOUNCE_INTERVAL
+    );
   }
 
   /**
@@ -101,7 +104,7 @@ class CodelabIndex extends HTMLElement {
     this.addEvents_();
 
     window.requestAnimationFrame(() => {
-      document.body.removeAttribute('unresolved');
+      document.body.removeAttribute("unresolved");
     });
   }
 
@@ -118,29 +121,35 @@ class CodelabIndex extends HTMLElement {
    */
   addEvents_() {
     if (this.sortBy_) {
-      const tabs = this.sortBy_.querySelector('#sort-by-tabs');
+      const tabs = this.sortBy_.querySelector("#sort-by-tabs");
       if (tabs) {
-        this.eventHandler_.listen(tabs, events.EventType.CLICK,
-          (e) => {
-            e.preventDefault();
-            this.handleSortByClick_(e);
-          });
+        this.eventHandler_.listen(tabs, events.EventType.CLICK, (e) => {
+          e.preventDefault();
+          this.handleSortByClick_(e);
+        });
       }
     }
 
     if (this.search_) {
-      this.eventHandler_.listen(this.search_, events.EventType.KEYUP,
-        () => this.handleSearch_());
+      this.eventHandler_.listen(this.search_, events.EventType.KEYUP, () =>
+        this.handleSearch_()
+      );
     }
 
     if (this.clearSearchBtn_) {
-      this.eventHandler_.listen(this.clearSearchBtn_, events.EventType.CLICK,
-        () => this.clearSearch_());
+      this.eventHandler_.listen(
+        this.clearSearchBtn_,
+        events.EventType.CLICK,
+        () => this.clearSearch_()
+      );
     }
 
     if (this.categoriesSelect_) {
-      this.eventHandler_.listen(this.categoriesSelect_, events.EventType.CHANGE,
-        () => this.selectCategories_());
+      this.eventHandler_.listen(
+        this.categoriesSelect_,
+        events.EventType.CHANGE,
+        () => this.selectCategories_()
+      );
     }
   }
 
@@ -158,7 +167,7 @@ class CodelabIndex extends HTMLElement {
    */
   clearSearch_() {
     if (this.search_) {
-      this.search_.value = '';
+      this.search_.value = "";
     }
     this.handleSearch_();
   }
@@ -177,10 +186,10 @@ class CodelabIndex extends HTMLElement {
     const search = /** @type {!HTMLInputElement} */ (this.search_);
     const val = search.value.trim();
     if (this.clearSearchBtn_) {
-      if (val === '') {
-        this.clearSearchBtn_.setAttribute('hide', '');
+      if (val === "") {
+        this.clearSearchBtn_.setAttribute("hide", "");
       } else {
-        this.clearSearchBtn_.removeAttribute('hide');
+        this.clearSearchBtn_.removeAttribute("hide");
       }
     }
 
@@ -199,65 +208,69 @@ class CodelabIndex extends HTMLElement {
     if (this.cards_) {
       this.cards_.setAttribute(SORT_ATTR, sort);
     }
-    const selected = this.querySelector('[selected]');
+    const selected = this.querySelector("[selected]");
     if (selected) {
-      selected.removeAttribute('selected');
+      selected.removeAttribute("selected");
     }
-    target.setAttribute('selected', '');
+    target.setAttribute("selected", "");
   }
 
   /**
    * @private
    */
   setupDom_() {
-    const mainInner = this.querySelector('main .main-inner');
+    const mainInner = this.querySelector("main .main-inner");
     if (!mainInner) {
       return;
     }
 
     this.search_ = /** @type {?HTMLInputElement} */ (
-        document.querySelector('#search-field'));
-    this.clearSearchBtn_ = document.querySelector('#clear-icon');
+      document.querySelector("#search-field")
+    );
+    this.clearSearchBtn_ = document.querySelector("#clear-icon");
 
-    const list = this.querySelector('main ul');
+    const list = this.querySelector("main ul");
     let cards = /** @type {!Cards} */ (
-        document.createElement('google-codelab-index-cards'));
+      document.createElement("google-codelab-index-cards")
+    );
 
     const url = new URL(document.location.toString());
     if (url.searchParams.has(TAGS_ATTR)) {
-      cards.setAttribute(TAGS_ATTR,
-        url.searchParams.getAll(TAGS_ATTR).join(','));
+      cards.setAttribute(
+        TAGS_ATTR,
+        url.searchParams.getAll(TAGS_ATTR).join(",")
+      );
     }
 
-    let selectedCategory = '';
+    let selectedCategory = "";
     if (url.searchParams.has(CATEGORY_PARAM)) {
       const categories = url.searchParams.getAll(CATEGORY_PARAM);
       selectedCategory = categories[0].trim().toLowerCase();
-      cards.setAttribute(CATEGORY_ATTR, categories.join(','));
+      cards.setAttribute(CATEGORY_ATTR, categories.join(","));
     }
 
-    let sort = 'alpha';
+    let sort = "alpha";
     if (url.searchParams.has(SORT_ATTR)) {
       sort = /** @type {string} */ (url.searchParams.get(SORT_ATTR));
       cards.setAttribute(SORT_ATTR, sort);
     }
 
     if (list) {
-      [...list.querySelectorAll('a')].forEach((link) => {
-        cards['addCard'](link);
+      [...list.querySelectorAll("a")].forEach((link) => {
+        cards["addCard"](link);
       });
       dom.removeNode(list);
       dom.appendChild(mainInner, cards);
     } else {
-      cards = mainInner.querySelector('google-codelab-index-cards');
+      cards = mainInner.querySelector("google-codelab-index-cards");
     }
 
     if (cards) {
       const categories = new Set();
-      [...cards.querySelectorAll('.card')].forEach((card) => {
+      [...cards.querySelectorAll(".card")].forEach((card) => {
         const category = card.getAttribute(CATEGORY_ATTR);
         if (category) {
-          category.split(',').forEach((c) => {
+          category.split(",").forEach((c) => {
             categories.add(c.trim());
           });
         }
@@ -266,15 +279,16 @@ class CodelabIndex extends HTMLElement {
       const sortBy = soy.renderAsElement(Templates.sortby, {
         categories: Array.from(categories).sort(),
         selectedCategory: selectedCategory,
-        sort: sort
+        sort: sort,
       });
-      sortBy.setAttribute('id', 'sort-by');
+      sortBy.setAttribute("id", "sort-by");
       dom.insertSiblingBefore(sortBy, cards);
 
       this.sortBy_ = sortBy;
       this.cards_ = /** @type {!Cards} */ (cards);
       this.categoriesSelect_ = /** @type {?HTMLSelectElement} */ (
-          this.sortBy_.querySelector('#codelab-categories'));
+        this.sortBy_.querySelector("#codelab-categories")
+      );
 
       if (selectedCategory && this.categoriesSelect_) {
         [...this.categoriesSelect_.options].forEach((option) => {

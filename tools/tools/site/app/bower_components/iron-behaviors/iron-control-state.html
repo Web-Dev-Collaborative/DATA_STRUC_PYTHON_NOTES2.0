@@ -8,18 +8,15 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <script>
-
   /**
    * @demo demo/index.html
    * @polymerBehavior
    */
   Polymer.IronControlState = {
-
     properties: {
-
       /**
        * If true, the element currently has focus.
        */
@@ -28,7 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         value: false,
         notify: true,
         readOnly: true,
-        reflectToAttribute: true
+        reflectToAttribute: true,
       },
 
       /**
@@ -38,33 +35,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         type: Boolean,
         value: false,
         notify: true,
-        observer: '_disabledChanged',
-        reflectToAttribute: true
+        observer: "_disabledChanged",
+        reflectToAttribute: true,
       },
 
       _oldTabIndex: {
-        type: Number
+        type: Number,
       },
 
       _boundFocusBlurHandler: {
         type: Function,
-        value: function() {
+        value: function () {
           return this._focusBlurHandler.bind(this);
-        }
-      }
-
+        },
+      },
     },
 
-    observers: [
-      '_changedControlState(focused, disabled)'
-    ],
+    observers: ["_changedControlState(focused, disabled)"],
 
-    ready: function() {
-      this.addEventListener('focus', this._boundFocusBlurHandler, true);
-      this.addEventListener('blur', this._boundFocusBlurHandler, true);
+    ready: function () {
+      this.addEventListener("focus", this._boundFocusBlurHandler, true);
+      this.addEventListener("blur", this._boundFocusBlurHandler, true);
     },
 
-    _focusBlurHandler: function(event) {
+    _focusBlurHandler: function (event) {
       // NOTE(cdata):  if we are in ShadowDOM land, `event.target` will
       // eventually become `this` due to retargeting; if we are not in
       // ShadowDOM land, `event.target` will eventually become `this` due
@@ -72,22 +66,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // handled). In either case, we can disregard `event.path`.
 
       if (event.target === this) {
-        this._setFocused(event.type === 'focus');
+        this._setFocused(event.type === "focus");
       } else if (!this.shadowRoot) {
-        var target = /** @type {Node} */(Polymer.dom(event).localTarget);
+        var target = /** @type {Node} */ (Polymer.dom(event).localTarget);
         if (!this.isLightDescendant(target)) {
-          this.fire(event.type, {sourceEvent: event}, {
-            node: this,
-            bubbles: event.bubbles,
-            cancelable: event.cancelable
-          });
+          this.fire(
+            event.type,
+            { sourceEvent: event },
+            {
+              node: this,
+              bubbles: event.bubbles,
+              cancelable: event.cancelable,
+            }
+          );
         }
       }
     },
 
-    _disabledChanged: function(disabled, old) {
-      this.setAttribute('aria-disabled', disabled ? 'true' : 'false');
-      this.style.pointerEvents = disabled ? 'none' : '';
+    _disabledChanged: function (disabled, old) {
+      this.setAttribute("aria-disabled", disabled ? "true" : "false");
+      this.style.pointerEvents = disabled ? "none" : "";
       if (disabled) {
         this._oldTabIndex = this.tabIndex;
         this._setFocused(false);
@@ -98,13 +96,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _changedControlState: function() {
+    _changedControlState: function () {
       // _controlStateChanged is abstract, follow-on behaviors may implement it
       if (this._controlStateChanged) {
         this._controlStateChanged();
       }
-    }
-
+    },
   };
-
 </script>

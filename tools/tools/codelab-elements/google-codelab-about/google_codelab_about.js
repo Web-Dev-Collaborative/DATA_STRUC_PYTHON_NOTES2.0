@@ -15,23 +15,23 @@
  * limitations under the License.
  */
 
-goog.module('googlecodelabs.CodelabAbout');
+goog.module("googlecodelabs.CodelabAbout");
 
-const DateTimeFormat = goog.require('goog.i18n.DateTimeFormat');
-const Templates = goog.require('googlecodelabs.CodelabAbout.Templates');
-const soy = goog.require('goog.soy');
-
-/** @const {string} */
-const LAST_UPDATED_ATTR = 'last-updated';
+const DateTimeFormat = goog.require("goog.i18n.DateTimeFormat");
+const Templates = goog.require("googlecodelabs.CodelabAbout.Templates");
+const soy = goog.require("goog.soy");
 
 /** @const {string} */
-const AUTHORS_ATTR = 'authors';
+const LAST_UPDATED_ATTR = "last-updated";
 
 /** @const {string} */
-const BADGE_PATH_ATTR = 'badge-path';
+const AUTHORS_ATTR = "authors";
 
 /** @const {string} */
-const CODELAB_TITLE_ATTR = 'codelab-title';
+const BADGE_PATH_ATTR = "badge-path";
+
+/** @const {string} */
+const CODELAB_TITLE_ATTR = "codelab-title";
 
 /**
  * @extends {HTMLElement}
@@ -39,25 +39,27 @@ const CODELAB_TITLE_ATTR = 'codelab-title';
  */
 class CodelabAbout extends HTMLElement {
   /** @return {string} */
-  static getTagName() { return 'google-codelab-about'; }
+  static getTagName() {
+    return "google-codelab-about";
+  }
 
   constructor() {
     super();
 
     /** @private {string} */
-    this.authors_ = '';
+    this.authors_ = "";
 
     /** @private {string} */
-    this.codelabTitle_ = '';
+    this.codelabTitle_ = "";
 
     /** @private {boolean} */
     this.hasSetup_ = false;
 
     /** @private {string} */
-    this.lastUpdated_ = '';
+    this.lastUpdated_ = "";
 
     /** @private {string} */
-    this.badgePath_ = '';
+    this.badgePath_ = "";
   }
 
   /**
@@ -87,7 +89,7 @@ class CodelabAbout extends HTMLElement {
    * @override
    */
   attributeChangedCallback(attr, oldValue, newValue, namespace) {
-    switch(attr) {
+    switch (attr) {
       case LAST_UPDATED_ATTR:
         if (this.hasAttribute(LAST_UPDATED_ATTR)) {
           this.lastUpdated_ = this.getAttribute(LAST_UPDATED_ATTR);
@@ -124,7 +126,7 @@ class CodelabAbout extends HTMLElement {
     }
     // Formatting the Last updated date.
     const lastUpdatedDate = new Date(dateString);
-    const dateFormat = new DateTimeFormat('MMM d, yyyy');
+    const dateFormat = new DateTimeFormat("MMM d, yyyy");
     return dateFormat.format(lastUpdatedDate);
   }
 
@@ -136,7 +138,7 @@ class CodelabAbout extends HTMLElement {
     soy.renderElement(this, Templates.about, {
       lastUpdated: CodelabAbout.formatDate_(this.lastUpdated_),
       authors: this.authors_,
-      codelabTitle: this.codelabTitle_.split(':').join(':||').split('||'),
+      codelabTitle: this.codelabTitle_.split(":").join(":||").split("||"),
       badgePath: this.badgePath_,
     });
 

@@ -8,8 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-resizable-behavior/iron-resizable-behavior.html"
+/>
 
 <!--
 `iron-collapse` creates a collapsible block of content.  By default, the content
@@ -59,9 +62,7 @@ Custom property | Description | Default
 -->
 
 <dom-module id="iron-collapse">
-
   <template>
-
     <style>
       :host {
         display: block;
@@ -79,23 +80,16 @@ Custom property | Description | Default
     </style>
 
     <content></content>
-
   </template>
-
 </dom-module>
 
 <script>
-
   Polymer({
+    is: "iron-collapse",
 
-    is: 'iron-collapse',
-
-    behaviors: [
-      Polymer.IronResizableBehavior
-    ],
+    behaviors: [Polymer.IronResizableBehavior],
 
     properties: {
-
       /**
        * If true, the orientation is horizontal; otherwise is vertical.
        *
@@ -104,7 +98,7 @@ Custom property | Description | Default
       horizontal: {
         type: Boolean,
         value: false,
-        observer: '_horizontalChanged'
+        observer: "_horizontalChanged",
       },
 
       /**
@@ -116,7 +110,7 @@ Custom property | Description | Default
         type: Boolean,
         value: false,
         notify: true,
-        observer: '_openedChanged'
+        observer: "_openedChanged",
       },
 
       /**
@@ -128,7 +122,7 @@ Custom property | Description | Default
       transitioning: {
         type: Boolean,
         notify: true,
-        readOnly: true
+        readOnly: true,
       },
 
       /**
@@ -137,7 +131,7 @@ Custom property | Description | Default
        * @attribute noAnimation
        */
       noAnimation: {
-        type: Boolean
+        type: Boolean,
       },
 
       /**
@@ -146,12 +140,12 @@ Custom property | Description | Default
        */
       _desiredSize: {
         type: String,
-        value: ''
-      }
+        value: "",
+      },
     },
 
     get dimension() {
-      return this.horizontal ? 'width' : 'height';
+      return this.horizontal ? "width" : "height";
     },
 
     /**
@@ -159,7 +153,7 @@ Custom property | Description | Default
      * @private
      */
     get _dimensionMax() {
-      return this.horizontal ? 'maxWidth' : 'maxHeight';
+      return this.horizontal ? "maxWidth" : "maxHeight";
     },
 
     /**
@@ -167,17 +161,17 @@ Custom property | Description | Default
      * @private
      */
     get _dimensionMaxCss() {
-      return this.horizontal ? 'max-width' : 'max-height';
+      return this.horizontal ? "max-width" : "max-height";
     },
 
     hostAttributes: {
-      role: 'group',
-      'aria-hidden': 'true',
-      'aria-expanded': 'false'
+      role: "group",
+      "aria-hidden": "true",
+      "aria-expanded": "false",
     },
 
     listeners: {
-      transitionend: '_onTransitionEnd'
+      transitionend: "_onTransitionEnd",
     },
 
     /**
@@ -185,15 +179,15 @@ Custom property | Description | Default
      *
      * @method toggle
      */
-    toggle: function() {
+    toggle: function () {
       this.opened = !this.opened;
     },
 
-    show: function() {
+    show: function () {
       this.opened = true;
     },
 
-    hide: function() {
+    hide: function () {
       this.opened = false;
     },
 
@@ -202,12 +196,15 @@ Custom property | Description | Default
      * @param {string} size The new value for `maxWidth`/`maxHeight` as css property value, usually `auto` or `0px`.
      * @param {boolean=} animated if `true` updates the size with an animation, otherwise without.
      */
-    updateSize: function(size, animated) {
+    updateSize: function (size, animated) {
       // Consider 'auto' as '', to take full size.
-      size = size === 'auto' ? '' : size;
+      size = size === "auto" ? "" : size;
 
-      var willAnimate = animated && !this.noAnimation &&
-                        this.isAttached && this._desiredSize !== size;
+      var willAnimate =
+        animated &&
+        !this.noAnimation &&
+        this.isAttached &&
+        this._desiredSize !== size;
 
       this._desiredSize = size;
 
@@ -218,8 +215,8 @@ Custom property | Description | Default
         var startSize = this._calcSize();
         // For `auto` we must calculate what is the final size for the animation.
         // After the transition is done, _transitionEnd will set the size back to `auto`.
-        if (size === '') {
-          this.style[this._dimensionMax] = '';
+        if (size === "") {
+          this.style[this._dimensionMax] = "";
           size = this._calcSize();
         }
         // Go to startSize without animation.
@@ -230,7 +227,7 @@ Custom property | Description | Default
         // Enable animation.
         this._updateTransition(true);
         // If final size is the same as startSize it will not animate.
-        willAnimate = (size !== startSize);
+        willAnimate = size !== startSize;
       }
       // Set the final size.
       this.style[this._dimensionMax] = size;
@@ -247,30 +244,33 @@ Custom property | Description | Default
      * @method enableTransition
      * @deprecated since version 1.0.4
      */
-    enableTransition: function(enabled) {
-      Polymer.Base._warn('`enableTransition()` is deprecated, use `noAnimation` instead.');
+    enableTransition: function (enabled) {
+      Polymer.Base._warn(
+        "`enableTransition()` is deprecated, use `noAnimation` instead."
+      );
       this.noAnimation = !enabled;
     },
 
-    _updateTransition: function(enabled) {
-      this.style.transitionDuration = (enabled && !this.noAnimation) ? '' : '0s';
+    _updateTransition: function (enabled) {
+      this.style.transitionDuration = enabled && !this.noAnimation ? "" : "0s";
     },
 
-    _horizontalChanged: function() {
+    _horizontalChanged: function () {
       this.style.transitionProperty = this._dimensionMaxCss;
-      var otherDimension = this._dimensionMax === 'maxWidth' ? 'maxHeight' : 'maxWidth';
-      this.style[otherDimension] = '';
-      this.updateSize(this.opened ? 'auto' : '0px', false);
+      var otherDimension =
+        this._dimensionMax === "maxWidth" ? "maxHeight" : "maxWidth";
+      this.style[otherDimension] = "";
+      this.updateSize(this.opened ? "auto" : "0px", false);
     },
 
-    _openedChanged: function() {
-      this.setAttribute('aria-expanded', this.opened);
-      this.setAttribute('aria-hidden', !this.opened);
+    _openedChanged: function () {
+      this.setAttribute("aria-expanded", this.opened);
+      this.setAttribute("aria-hidden", !this.opened);
 
       this._setTransitioning(true);
-      this.toggleClass('iron-collapse-closed', false);
-      this.toggleClass('iron-collapse-opened', false);
-      this.updateSize(this.opened ? 'auto' : '0px', true);
+      this.toggleClass("iron-collapse-closed", false);
+      this.toggleClass("iron-collapse-opened", false);
+      this.updateSize(this.opened ? "auto" : "0px", true);
 
       // Focus the current collapse.
       if (this.opened) {
@@ -278,25 +278,23 @@ Custom property | Description | Default
       }
     },
 
-    _transitionEnd: function() {
+    _transitionEnd: function () {
       this.style[this._dimensionMax] = this._desiredSize;
-      this.toggleClass('iron-collapse-closed', !this.opened);
-      this.toggleClass('iron-collapse-opened', this.opened);
+      this.toggleClass("iron-collapse-closed", !this.opened);
+      this.toggleClass("iron-collapse-opened", this.opened);
       this._updateTransition(false);
       this.notifyResize();
       this._setTransitioning(false);
     },
 
-    _onTransitionEnd: function(event) {
+    _onTransitionEnd: function (event) {
       if (Polymer.dom(event).rootTarget === this) {
         this._transitionEnd();
       }
     },
 
-    _calcSize: function() {
-      return this.getBoundingClientRect()[this.dimension] + 'px';
-    }
-
+    _calcSize: function () {
+      return this.getBoundingClientRect()[this.dimension] + "px";
+    },
   });
-
 </script>

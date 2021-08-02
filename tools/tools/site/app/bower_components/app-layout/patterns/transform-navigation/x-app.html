@@ -8,25 +8,22 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="../../app-drawer/app-drawer.html">
-<link rel="import" href="../../app-header/app-header.html">
-<link rel="import" href="../../app-header-layout/app-header-layout.html">
-<link rel="import" href="../../app-toolbar/app-toolbar.html">
-<link rel="import" href="../../../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../../iron-icons/iron-icons.html">
-<link rel="import" href="../../../iron-media-query/iron-media-query.html">
-<link rel="import" href="../../../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../../paper-item/paper-item.html">
-<link rel="import" href="../../../paper-menu/paper-menu.html">
-<link rel="import" href="../../../paper-tabs/paper-tabs.html">
+<link rel="import" href="../../app-drawer-layout/app-drawer-layout.html" />
+<link rel="import" href="../../app-drawer/app-drawer.html" />
+<link rel="import" href="../../app-header/app-header.html" />
+<link rel="import" href="../../app-header-layout/app-header-layout.html" />
+<link rel="import" href="../../app-toolbar/app-toolbar.html" />
+<link rel="import" href="../../../iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../../../iron-icons/iron-icons.html" />
+<link rel="import" href="../../../iron-media-query/iron-media-query.html" />
+<link rel="import" href="../../../paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="../../../paper-item/paper-item.html" />
+<link rel="import" href="../../../paper-menu/paper-menu.html" />
+<link rel="import" href="../../../paper-tabs/paper-tabs.html" />
 
 <dom-module id="x-app">
-
   <template>
-
     <style>
-
       app-toolbar {
         background-color: #dcdcdc;
       }
@@ -49,13 +46,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       [hidden] {
         display: none !important;
       }
-
     </style>
 
     <app-drawer-layout force-narrow>
-
       <app-drawer id="drawer">
-
         <app-toolbar></app-toolbar>
 
         <!-- Nav on mobile: side nav menu -->
@@ -64,14 +58,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-item name="{{item}}">{{item}}</paper-item>
           </template>
         </paper-menu>
-
       </app-drawer>
 
       <app-header-layout>
         <app-header class="main-header">
-
           <app-toolbar>
-            <paper-icon-button class="menu-button" icon="menu" drawer-toggle hidden$="{{wideLayout}}"></paper-icon-button>
+            <paper-icon-button
+              class="menu-button"
+              icon="menu"
+              drawer-toggle
+              hidden$="{{wideLayout}}"
+            ></paper-icon-button>
           </app-toolbar>
 
           <app-toolbar class="tabs-bar" hidden$="{{!wideLayout}}">
@@ -82,52 +79,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </template>
             </paper-tabs>
           </app-toolbar>
-
         </app-header>
       </app-header-layout>
-
     </app-drawer-layout>
 
-    <iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
-
+    <iron-media-query
+      query="min-width: 600px"
+      query-matches="{{wideLayout}}"
+    ></iron-media-query>
   </template>
 
   <script>
-
     Polymer({
-
-      is: 'x-app',
+      is: "x-app",
 
       properties: {
-
         selected: {
           type: String,
-          value: 'Item One'
+          value: "Item One",
         },
 
         wideLayout: {
           type: Boolean,
           value: false,
-          observer: 'onLayoutChange',
+          observer: "onLayoutChange",
         },
 
         items: {
           type: Array,
-          value: function() {
-            return ['Item One', 'Item Two', 'Item Three', 'Item Four', 'Item Five'];
-          }
-        }
+          value: function () {
+            return [
+              "Item One",
+              "Item Two",
+              "Item Three",
+              "Item Four",
+              "Item Five",
+            ];
+          },
+        },
       },
 
-      onLayoutChange: function(wide) {
+      onLayoutChange: function (wide) {
         var drawer = this.$.drawer;
 
         if (wide && drawer.opened) {
           drawer.opened = false;
         }
-      }
+      },
     });
-
   </script>
-
 </dom-module>

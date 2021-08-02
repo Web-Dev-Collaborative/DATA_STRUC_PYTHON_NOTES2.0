@@ -7,14 +7,20 @@
 app-layout provides a set of scroll effects that can be used by explicitly importing `app-scroll-effects.html`:
 
 ```html
-<link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link
+  rel="import"
+  href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"
+/>
 ```
 
 The scroll effects can also be used by individually importing `app-layout/app-scroll-effects/effects/[effectName].html`.
 For example:
 
 ```html
-<link rel="import" href="/bower_components/app-layout/app-scroll-effects/effects/waterfall.html">
+<link
+  rel="import"
+  href="/bower_components/app-layout/app-scroll-effects/effects/waterfall.html"
+/>
 ```
 
 ### Consuming effects
@@ -36,35 +42,39 @@ To register the effect, you can use `Polymer.AppLayout.registerEffect(effectName
 For example, let's define an effect that resizes the header's logo:
 
 ```js
-Polymer.AppLayout.registerEffect('resizable-logo', {
-  setUp: function(config) {
+Polymer.AppLayout.registerEffect("resizable-logo", {
+  setUp: function (config) {
     // the effect's config is passed to the setUp.
-    this._fxResizeLogo = { logo: Polymer.dom(this).querySelector('[logo]') };
+    this._fxResizeLogo = { logo: Polymer.dom(this).querySelector("[logo]") };
   },
 
-  run: function(progress) {
-     // the progress of the effect
-     this.transform('scale3d(' + progress + ', '+ progress +', 1)',  this._fxResizeLogo.logo);
+  run: function (progress) {
+    // the progress of the effect
+    this.transform(
+      "scale3d(" + progress + ", " + progress + ", 1)",
+      this._fxResizeLogo.logo
+    );
   },
 
-  tearDown: function() {
-     // clean up and reset of states
-     delete this._fxResizeLogo;
-  }
+  tearDown: function () {
+    // clean up and reset of states
+    delete this._fxResizeLogo;
+  },
 });
 ```
+
 Now, you can consume the effect:
 
 ```html
 <app-header id="appHeader" effects="resizable-logo">
-  <img logo src="logo.svg">
+  <img logo src="logo.svg" />
 </app-header>
 ```
 
 ### Imperative API
 
 ```js
-var logoEffect = appHeader.createEffect('resizable-logo', effectConfig);
+var logoEffect = appHeader.createEffect("resizable-logo", effectConfig);
 // run the effect: logoEffect.run(progress);
 // tear down the effect: logoEffect.tearDown();
 ```
@@ -75,8 +85,10 @@ For effects installed via the `effects` property, their configuration can be set
 via the `effectsConfig` property. For example:
 
 ```html
-<app-header effects="waterfall"
-  effects-config='{"waterfall": {"startsAt": 0, "endsAt": 0.5}}'>
+<app-header
+  effects="waterfall"
+  effects-config='{"waterfall": {"startsAt": 0, "endsAt": 0.5}}'
+>
 </app-header>
 ```
 

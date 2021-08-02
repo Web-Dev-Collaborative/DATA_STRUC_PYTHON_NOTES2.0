@@ -16,10 +16,10 @@
  */
 
 google-codelab-index-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 0 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 24px 0;
 }
 
 google-codelab-index-cards[num="1"],
@@ -65,7 +65,7 @@ google-codelab-index-cards .card-header .category-icon {
 google-codelab-index-cards .card-header .card-duration {
   display: flex;
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 google-codelab-index-cards .card-header .card-duration img {
@@ -75,14 +75,14 @@ google-codelab-index-cards .card-header .card-duration img {
 google-codelab-index-cards .card .card-description {
   padding: 16px 32px;
   flex: 1 0 auto;
-  color: #3C4043
+  color: #3c4043;
 }
 
 google-codelab-index-cards .card .card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid #DADCE0;
+  border-top: 1px solid #dadce0;
   padding: 8px 16px;
 }
 
@@ -100,7 +100,7 @@ google-codelab-index-cards .card .card-start {
   cursor: pointer;
   z-index: 0;
   padding: 0.7em 0.57em;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: "Roboto", "Noto", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
   font-weight: 500;
@@ -111,7 +111,7 @@ google-codelab-index-cards .card .card-start {
 
 google-codelab-index-cards .card .card-updated {
   font-size: 12px;
-  color: #9AA0A6;
+  color: #9aa0a6;
   line-height: 16px;
   text-align: right;
 }
@@ -126,9 +126,9 @@ google-codelab-index-cards .card .card-updated {
 
 @media (max-width: 1136px) and (min-width: 767px) {
   google-codelab-index-cards .card {
-      flex: 0 0 33%;
-      margin: 0 0% 2% 0;
-      min-height: 200px;
+    flex: 0 0 33%;
+    margin: 0 0% 2% 0;
+    min-height: 200px;
   }
 }
 
@@ -140,11 +140,11 @@ google-codelab-index-cards .card .card-updated {
   }
 
   google-codelab-index-cards .card {
-      margin: 0 0 16px;
-      min-width: 330px;
-      max-width: 100%;
-      width: 100%;
-      flex: 1 0 200px;
+    margin: 0 0 16px;
+    min-width: 330px;
+    max-width: 100%;
+    width: 100%;
+    flex: 1 0 200px;
   }
   google-codelab-index-cards[num="1"] .card,
   google-codelab-index-cards[num="2"] .card {

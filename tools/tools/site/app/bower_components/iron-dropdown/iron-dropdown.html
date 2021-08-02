@@ -8,14 +8,23 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../iron-behaviors/iron-control-state.html">
-<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html">
-<link rel="import" href="../neon-animation/neon-animation-runner-behavior.html">
-<link rel="import" href="../neon-animation/animations/opaque-animation.html">
-<link rel="import" href="iron-dropdown-scroll-manager.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-resizable-behavior/iron-resizable-behavior.html"
+/>
+<link
+  rel="import"
+  href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"
+/>
+<link rel="import" href="../iron-behaviors/iron-control-state.html" />
+<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html" />
+<link
+  rel="import"
+  href="../neon-animation/neon-animation-runner-behavior.html"
+/>
+<link rel="import" href="../neon-animation/animations/opaque-animation.html" />
+<link rel="import" href="iron-dropdown-scroll-manager.html" />
 
 <!--
 `<iron-dropdown>` is a generalized element that is useful when you have
@@ -65,17 +74,17 @@ method is called on the element.
   </template>
 
   <script>
-    (function() {
-      'use strict';
+    (function () {
+      "use strict";
 
       Polymer({
-        is: 'iron-dropdown',
+        is: "iron-dropdown",
 
         behaviors: [
           Polymer.IronControlState,
           Polymer.IronA11yKeysBehavior,
           Polymer.IronOverlayBehavior,
-          Polymer.NeonAnimationRunnerBehavior
+          Polymer.NeonAnimationRunnerBehavior,
         ],
 
         properties: {
@@ -86,8 +95,8 @@ method is called on the element.
            */
           horizontalAlign: {
             type: String,
-            value: 'left',
-            reflectToAttribute: true
+            value: "left",
+            reflectToAttribute: true,
           },
 
           /**
@@ -97,8 +106,8 @@ method is called on the element.
            */
           verticalAlign: {
             type: String,
-            value: 'top',
-            reflectToAttribute: true
+            value: "top",
+            reflectToAttribute: true,
           },
 
           /**
@@ -108,7 +117,7 @@ method is called on the element.
            * details.
            */
           openAnimationConfig: {
-            type: Object
+            type: Object,
           },
 
           /**
@@ -118,7 +127,7 @@ method is called on the element.
            * details.
            */
           closeAnimationConfig: {
-            type: Object
+            type: Object,
           },
 
           /**
@@ -126,7 +135,7 @@ method is called on the element.
            * the dropdown opens.
            */
           focusTarget: {
-            type: Object
+            type: Object,
           },
 
           /**
@@ -135,7 +144,7 @@ method is called on the element.
            */
           noAnimations: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -146,7 +155,7 @@ method is called on the element.
            */
           allowOutsideScroll: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -156,18 +165,18 @@ method is called on the element.
            */
           _boundOnCaptureScroll: {
             type: Function,
-            value: function() {
+            value: function () {
               return this._onCaptureScroll.bind(this);
-            }
-          }
+            },
+          },
         },
 
         listeners: {
-          'neon-animation-finish': '_onNeonAnimationFinish'
+          "neon-animation-finish": "_onNeonAnimationFinish",
         },
 
         observers: [
-          '_updateOverlayPosition(positionTarget, verticalAlign, horizontalAlign, verticalOffset, horizontalOffset)'
+          "_updateOverlayPosition(positionTarget, verticalAlign, horizontalAlign, verticalOffset, horizontalOffset)",
         ],
 
         /**
@@ -185,7 +194,7 @@ method is called on the element.
           return this.focusTarget || this.containedElement;
         },
 
-        ready: function() {
+        ready: function () {
           // Memoized scrolling position, used to block scrolling outside.
           this._scrollTop = 0;
           this._scrollLeft = 0;
@@ -199,9 +208,9 @@ method is called on the element.
           }
         },
 
-        detached: function() {
+        detached: function () {
           this.cancelAnimation();
-          document.removeEventListener('scroll', this._boundOnCaptureScroll);
+          document.removeEventListener("scroll", this._boundOnCaptureScroll);
           Polymer.IronDropdownScrollManager.removeScrollLock(this);
         },
 
@@ -209,7 +218,7 @@ method is called on the element.
          * Called when the value of `opened` changes.
          * Overridden from `IronOverlayBehavior`
          */
-        _openedChanged: function() {
+        _openedChanged: function () {
           if (this.opened && this.disabled) {
             this.cancel();
           } else {
@@ -217,38 +226,50 @@ method is called on the element.
             this._updateAnimationConfig();
             this._saveScrollPosition();
             if (this.opened) {
-              document.addEventListener('scroll', this._boundOnCaptureScroll);
-              !this.allowOutsideScroll && Polymer.IronDropdownScrollManager.pushScrollLock(this);
+              document.addEventListener("scroll", this._boundOnCaptureScroll);
+              !this.allowOutsideScroll &&
+                Polymer.IronDropdownScrollManager.pushScrollLock(this);
             } else {
-              document.removeEventListener('scroll', this._boundOnCaptureScroll);
+              document.removeEventListener(
+                "scroll",
+                this._boundOnCaptureScroll
+              );
               Polymer.IronDropdownScrollManager.removeScrollLock(this);
             }
-            Polymer.IronOverlayBehaviorImpl._openedChanged.apply(this, arguments);
+            Polymer.IronOverlayBehaviorImpl._openedChanged.apply(
+              this,
+              arguments
+            );
           }
         },
 
         /**
          * Overridden from `IronOverlayBehavior`.
          */
-        _renderOpened: function() {
+        _renderOpened: function () {
           if (!this.noAnimations && this.animationConfig.open) {
-            this.$.contentWrapper.classList.add('animating');
-            this.playAnimation('open');
+            this.$.contentWrapper.classList.add("animating");
+            this.playAnimation("open");
           } else {
-            Polymer.IronOverlayBehaviorImpl._renderOpened.apply(this, arguments);
+            Polymer.IronOverlayBehaviorImpl._renderOpened.apply(
+              this,
+              arguments
+            );
           }
         },
 
         /**
          * Overridden from `IronOverlayBehavior`.
          */
-        _renderClosed: function() {
-
+        _renderClosed: function () {
           if (!this.noAnimations && this.animationConfig.close) {
-            this.$.contentWrapper.classList.add('animating');
-            this.playAnimation('close');
+            this.$.contentWrapper.classList.add("animating");
+            this.playAnimation("close");
           } else {
-            Polymer.IronOverlayBehaviorImpl._renderClosed.apply(this, arguments);
+            Polymer.IronOverlayBehaviorImpl._renderClosed.apply(
+              this,
+              arguments
+            );
           }
         },
 
@@ -258,8 +279,8 @@ method is called on the element.
          * closing the dropdown by positioning it or setting its display to
          * none.
          */
-        _onNeonAnimationFinish: function() {
-          this.$.contentWrapper.classList.remove('animating');
+        _onNeonAnimationFinish: function () {
+          this.$.contentWrapper.classList.remove("animating");
           if (this.opened) {
             this._finishRenderOpened();
           } else {
@@ -267,12 +288,15 @@ method is called on the element.
           }
         },
 
-        _onCaptureScroll: function() {
+        _onCaptureScroll: function () {
           if (!this.allowOutsideScroll) {
             this._restoreScrollPosition();
           } else {
-            this._refitOnScrollRAF && window.cancelAnimationFrame(this._refitOnScrollRAF);
-            this._refitOnScrollRAF = window.requestAnimationFrame(this.refit.bind(this));
+            this._refitOnScrollRAF &&
+              window.cancelAnimationFrame(this._refitOnScrollRAF);
+            this._refitOnScrollRAF = window.requestAnimationFrame(
+              this.refit.bind(this)
+            );
           }
         },
 
@@ -280,14 +304,20 @@ method is called on the element.
          * Memoizes the scroll position of the outside scrolling element.
          * @private
          */
-        _saveScrollPosition: function() {
+        _saveScrollPosition: function () {
           if (document.scrollingElement) {
             this._scrollTop = document.scrollingElement.scrollTop;
             this._scrollLeft = document.scrollingElement.scrollLeft;
           } else {
             // Since we don't know if is the body or html, get max.
-            this._scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
-            this._scrollLeft = Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);
+            this._scrollTop = Math.max(
+              document.documentElement.scrollTop,
+              document.body.scrollTop
+            );
+            this._scrollLeft = Math.max(
+              document.documentElement.scrollLeft,
+              document.body.scrollLeft
+            );
           }
         },
 
@@ -295,7 +325,7 @@ method is called on the element.
          * Resets the scroll position of the outside scrolling element.
          * @private
          */
-        _restoreScrollPosition: function() {
+        _restoreScrollPosition: function () {
           if (document.scrollingElement) {
             document.scrollingElement.scrollTop = this._scrollTop;
             document.scrollingElement.scrollLeft = this._scrollLeft;
@@ -312,16 +342,18 @@ method is called on the element.
          * Constructs the final animation config from different properties used
          * to configure specific parts of the opening and closing animations.
          */
-        _updateAnimationConfig: function() {
+        _updateAnimationConfig: function () {
           // Update the animation node to be the containedElement.
           var animationNode = this.containedElement;
-          var animations = [].concat(this.openAnimationConfig || []).concat(this.closeAnimationConfig || []);
+          var animations = []
+            .concat(this.openAnimationConfig || [])
+            .concat(this.closeAnimationConfig || []);
           for (var i = 0; i < animations.length; i++) {
             animations[i].node = animationNode;
           }
           this.animationConfig = {
             open: this.openAnimationConfig,
-            close: this.closeAnimationConfig
+            close: this.closeAnimationConfig,
           };
         },
 
@@ -329,7 +361,7 @@ method is called on the element.
          * Updates the overlay position based on configured horizontal
          * and vertical alignment.
          */
-        _updateOverlayPosition: function() {
+        _updateOverlayPosition: function () {
           if (this.isAttached) {
             // This triggers iron-resize, and iron-overlay-behavior will call refit if needed.
             this.notifyResize();
@@ -346,7 +378,7 @@ method is called on the element.
           } else {
             Polymer.IronOverlayBehaviorImpl._applyFocus.apply(this, arguments);
           }
-        }
+        },
       });
     })();
   </script>

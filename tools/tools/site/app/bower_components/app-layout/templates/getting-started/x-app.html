@@ -8,45 +8,63 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/polymer/polymer.html" />
 
-<link rel="import" href="bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html" />
+<link
+  rel="import"
+  href="bower_components/paper-icon-button/paper-icon-button.html"
+/>
 
-<link rel="import" href="bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
-<link rel="import" href="bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="bower_components/app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link
+  rel="import"
+  href="bower_components/app-layout/app-drawer-layout/app-drawer-layout.html"
+/>
+<link
+  rel="import"
+  href="bower_components/app-layout/app-drawer/app-drawer.html"
+/>
+<link
+  rel="import"
+  href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"
+/>
+<link
+  rel="import"
+  href="bower_components/app-layout/app-header/app-header.html"
+/>
+<link
+  rel="import"
+  href="bower_components/app-layout/app-header-layout/app-header-layout.html"
+/>
+<link
+  rel="import"
+  href="bower_components/app-layout/app-toolbar/app-toolbar.html"
+/>
 
-<link rel="import" href="bower_components/app-layout/demo/sample-content.html">
+<link
+  rel="import"
+  href="bower_components/app-layout/demo/sample-content.html"
+/>
 
 <dom-module id="x-app">
-
   <template>
-
     <style>
-
       app-header {
-        background-color: #00897B;
+        background-color: #00897b;
         color: #fff;
       }
 
       app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
       }
-
     </style>
 
     <app-drawer-layout>
-
       <app-drawer>
         <app-toolbar>Getting Started</app-toolbar>
       </app-drawer>
 
       <app-header-layout>
-
         <app-header reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
@@ -55,21 +73,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </app-header>
 
         <sample-content size="100"></sample-content>
-
       </app-header-layout>
-
     </app-drawer-layout>
-
   </template>
 
   <script>
-
     Polymer({
-
-      is: 'x-app'
-
+      is: "x-app",
     });
-
   </script>
-
 </dom-module>

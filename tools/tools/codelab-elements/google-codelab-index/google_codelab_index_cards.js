@@ -1,13 +1,13 @@
 /**
  * @license
  * Copyright 2018 Google Inc.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,67 +15,71 @@
  * limitations under the License.
  */
 
-goog.module('googlecodelabs.CodelabIndex.Cards');
+goog.module("googlecodelabs.CodelabIndex.Cards");
 
-const HTML5LocalStorage = goog.require('goog.storage.mechanism.HTML5LocalStorage');
-const Templates = goog.require('googlecodelabs.CodelabIndex.Templates');
-const dom = goog.require('goog.dom');
-const soy = goog.require('goog.soy');
-
-/** @const {string} */
-const AUTHORS_ATTR = 'authors';
-
-/** @const {string} */
-const CATEGORY_ATTR = 'category';
+const HTML5LocalStorage = goog.require(
+  "goog.storage.mechanism.HTML5LocalStorage"
+);
+const Templates = goog.require("googlecodelabs.CodelabIndex.Templates");
+const dom = goog.require("goog.dom");
+const soy = goog.require("goog.soy");
 
 /** @const {string} */
-const CATEGORY_PARAM = 'cat';
+const AUTHORS_ATTR = "authors";
 
 /** @const {string} */
-const TITLE_ATTR = 'title';
+const CATEGORY_ATTR = "category";
 
 /** @const {string} */
-const DURATION_ATTR = 'duration';
+const CATEGORY_PARAM = "cat";
 
 /** @const {string} */
-const UPDATED_ATTR = 'updated';
+const TITLE_ATTR = "title";
 
 /** @const {string} */
-const TAGS_ATTR = 'tags';
+const DURATION_ATTR = "duration";
 
 /** @const {string} */
-const SORT_ATTR = 'sort';
+const UPDATED_ATTR = "updated";
 
 /** @const {string} */
-const FILTER_ATTR = 'filter';
+const TAGS_ATTR = "tags";
 
 /** @const {string} */
-const SORT_ALPHA = 'alpha';
+const SORT_ATTR = "sort";
 
 /** @const {string} */
-const SORT_RECENT = 'recent';
+const FILTER_ATTR = "filter";
 
 /** @const {string} */
-const SORT_DURATION = 'duration';
+const SORT_ALPHA = "alpha";
 
 /** @const {string} */
-const HIDDEN_ATTR = 'hidden';
+const SORT_RECENT = "recent";
 
 /** @const {string} */
-const PROGRESS_ATTR = 'progress';
+const SORT_DURATION = "duration";
 
 /** @const {string} */
-const STEPS_ATTR = 'steps';
+const HIDDEN_ATTR = "hidden";
 
 /** @const {string} */
-const NUM_ATTR = 'num';
+const PROGRESS_ATTR = "progress";
+
+/** @const {string} */
+const STEPS_ATTR = "steps";
+
+/** @const {string} */
+const NUM_ATTR = "num";
 
 /**
  * @extends {HTMLElement}
  */
 class Cards extends HTMLElement {
   /** @return {string} */
-  static getTagName() { return 'google-codelab-index-cards'; }
+  static getTagName() {
+    return "google-codelab-index-cards";
+  }
 
   constructor() {
     super();
@@ -98,9 +102,11 @@ class Cards extends HTMLElement {
       this.sort_();
     }
 
-    if (this.hasAttribute(FILTER_ATTR) ||
-        this.hasAttribute(CATEGORY_ATTR) ||
-        this.hasAttribute(TAGS_ATTR)) {
+    if (
+      this.hasAttribute(FILTER_ATTR) ||
+      this.hasAttribute(CATEGORY_ATTR) ||
+      this.hasAttribute(TAGS_ATTR)
+    ) {
       this.filter_();
     }
   }
@@ -134,13 +140,12 @@ class Cards extends HTMLElement {
     }
   }
 
-
   /**
    * @private
    */
   sort_() {
     let sort = this.getAttribute(SORT_ATTR) || SORT_ALPHA;
-    const cards = [...this.querySelectorAll('.card')];
+    const cards = [...this.querySelectorAll(".card")];
     if (cards.length < 2) {
       // No point sorting 0 or 1 items.
       return;
@@ -172,7 +177,7 @@ class Cards extends HTMLElement {
     this.setNum_();
 
     const path = `${url.pathname}${url.search}`;
-    window.history.replaceState({path}, document.title, path);
+    window.history.replaceState({ path }, document.title, path);
   }
 
   /**
@@ -250,17 +255,21 @@ class Cards extends HTMLElement {
   filter_() {
     const filter = this.normalizeValue_(this.getAttribute(FILTER_ATTR));
     const tags = this.cleanStrings_(
-        (this.getAttribute(TAGS_ATTR) || '').split(','));
+      (this.getAttribute(TAGS_ATTR) || "").split(",")
+    );
     const categories = this.cleanStrings_(
-        (this.getAttribute(CATEGORY_ATTR) || '').split(','));
+      (this.getAttribute(CATEGORY_ATTR) || "").split(",")
+    );
 
-    const cards = [...this.querySelectorAll('.card')];
+    const cards = [...this.querySelectorAll(".card")];
     cards.forEach((card) => {
       const title = this.normalizeValue_(card.getAttribute(TITLE_ATTR));
       const cardCategories = this.cleanStrings_(
-          (card.getAttribute(CATEGORY_ATTR) || '').split(','));
+        (card.getAttribute(CATEGORY_ATTR) || "").split(",")
+      );
       const cardTags = this.cleanStrings_(
-          (card.getAttribute(TAGS_ATTR) || '').split(','));
+        (card.getAttribute(TAGS_ATTR) || "").split(",")
+      );
 
       let matchesFilter = true;
       let matchesTags = true;
@@ -281,19 +290,19 @@ class Cards extends HTMLElement {
       if (matchesFilter && matchesTags && matchesCategory) {
         card.removeAttribute(HIDDEN_ATTR);
       } else {
-        card.setAttribute(HIDDEN_ATTR, '');
+        card.setAttribute(HIDDEN_ATTR, "");
       }
     });
 
     const url = new URL(document.location.toString());
     if (tags.length) {
-      url.searchParams.set(TAGS_ATTR, tags.join(','));
+      url.searchParams.set(TAGS_ATTR, tags.join(","));
     } else {
       url.searchParams.delete(TAGS_ATTR);
     }
 
     if (categories.length) {
-      url.searchParams.set(CATEGORY_PARAM, categories.join(','));
+      url.searchParams.set(CATEGORY_PARAM, categories.join(","));
     } else {
       url.searchParams.delete(CATEGORY_PARAM);
     }
@@ -307,7 +316,7 @@ class Cards extends HTMLElement {
     this.setNum_();
 
     const path = `${url.pathname}${url.search}`;
-    window.history.replaceState({path}, document.title, path);
+    window.history.replaceState({ path }, document.title, path);
   }
 
   /**
@@ -327,15 +336,18 @@ class Cards extends HTMLElement {
   }
 
   /**
-   * @param {string} category 
+   * @param {string} category
    * @return {string}
    * @private
    */
   normalizeCategory_(category) {
-    return category.toLowerCase()
-        .replace(/\s+/g, '-')           // Replace spaces with -
-        .replace(/--+/g, '-')         // Replace multiple - with single -
-        .trim().split(',').shift();
+    return category
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Replace spaces with -
+      .replace(/--+/g, "-") // Replace multiple - with single -
+      .trim()
+      .split(",")
+      .shift();
   }
 
   /**
@@ -345,13 +357,15 @@ class Cards extends HTMLElement {
    * @private
    */
   normalizeValue_(v) {
-    return (v || '').trim().toLowerCase()
-        .replace('\n', '')
-        .replace(/\s+/g, ' ');
+    return (v || "")
+      .trim()
+      .toLowerCase()
+      .replace("\n", "")
+      .replace(/\s+/g, " ");
   }
 
   /**
-   * @param {!Array<string>} strings 
+   * @param {!Array<string>} strings
    * @return {!Array<string>}
    * @private
    */
@@ -373,15 +387,15 @@ class Cards extends HTMLElement {
    */
   addCard(link) {
     const info = {
-      category: this.normalizeCategory_(link.getAttribute(CATEGORY_ATTR) || ''),
-      title: link.getAttribute(TITLE_ATTR) || '',
+      category: this.normalizeCategory_(link.getAttribute(CATEGORY_ATTR) || ""),
+      title: link.getAttribute(TITLE_ATTR) || "",
       duration: parseInt(link.getAttribute(DURATION_ATTR), 10) || 0,
-      updated: this.prettyDate_(link.getAttribute(UPDATED_ATTR)) || '',
-      tags: link.getAttribute(TAGS_ATTR) || '',
-      authors: link.getAttribute(AUTHORS_ATTR) || ''
+      updated: this.prettyDate_(link.getAttribute(UPDATED_ATTR)) || "",
+      tags: link.getAttribute(TAGS_ATTR) || "",
+      authors: link.getAttribute(AUTHORS_ATTR) || "",
     };
     soy.renderElement(link, Templates.card, info);
-    link.classList.add('card');
+    link.classList.add("card");
     this.addHomeLinkForCard_(link);
     this.showProgressForCard_(link);
     this.appendChild(link);
@@ -393,8 +407,8 @@ class Cards extends HTMLElement {
    */
   addHomeLinkForCard_(link) {
     const url = new URL(link.href, document.location.origin);
-    if (!url.searchParams.has('index')) {
-      url.searchParams.set('index', document.location.pathname);
+    if (!url.searchParams.has("index")) {
+      url.searchParams.set("index", document.location.pathname);
     }
     dom.safe.setAnchorHref(link, url.href);
   }
@@ -404,13 +418,15 @@ class Cards extends HTMLElement {
    * @private
    */
   showProgressForCard_(link) {
-    const id = link.getAttribute('id');
+    const id = link.getAttribute("id");
     if (id) {
       const progress = this.storage_.get(`progress_${id}`);
       const steps = link.getAttribute(STEPS_ATTR);
       if (progress && steps) {
-        link.setAttribute(PROGRESS_ATTR,
-            (parseFloat(progress) / parseFloat(steps) - 1).toFixed(2));
+        link.setAttribute(
+          PROGRESS_ATTR,
+          (parseFloat(progress) / parseFloat(steps) - 1).toFixed(2)
+        );
       }
     }
   }
@@ -422,13 +438,25 @@ class Cards extends HTMLElement {
    */
   prettyDate_(updated) {
     if (!updated) {
-      return '';
+      return "";
     }
-    const mNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
-        'Sep', 'Oct', 'Nov', 'Dec'];
+    const mNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
     const d = new Date(updated);
-    return mNames[d.getMonth()] + ' ' + d.getUTCDate() + ', ' + d.getFullYear();
-  };
+    return mNames[d.getMonth()] + " " + d.getUTCDate() + ", " + d.getFullYear();
+  }
 }
 
 exports = Cards;

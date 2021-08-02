@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../polymer/polymer.html" />
 
 <!--
 app-grid is a helper class useful for creating responsive, fluid grid layouts using custom properties.
@@ -120,7 +120,6 @@ Custom property                               | Description                     
 <dom-module id="app-grid-style">
   <template>
     <style>
-
       :host,
       :host ::content {
         /**
@@ -133,10 +132,22 @@ Custom property                               | Description                     
          * - itemColumn: var(--app-grid-expandible-item-columns)
          */
         --app-grid-expandible-item: {
-          -webkit-flex-basis: calc((100% - 0.1px) / var(--app-grid-columns, 1) * var(--app-grid-expandible-item-columns, 1) - var(--app-grid-gutter, 0px)) !important;
-          flex-basis: calc((100% - 0.1px) / var(--app-grid-columns, 1) * var(--app-grid-expandible-item-columns, 1) - var(--app-grid-gutter, 0px)) !important;
-          max-width: calc((100% - 0.1px) / var(--app-grid-columns, 1) * var(--app-grid-expandible-item-columns, 1) - var(--app-grid-gutter, 0px)) !important;
-        };
+          -webkit-flex-basis: calc(
+            (100% - 0.1px) / var(--app-grid-columns, 1) *
+              var(--app-grid-expandible-item-columns, 1) -
+              var(--app-grid-gutter, 0px)
+          ) !important;
+          flex-basis: calc(
+            (100% - 0.1px) / var(--app-grid-columns, 1) *
+              var(--app-grid-expandible-item-columns, 1) -
+              var(--app-grid-gutter, 0px)
+          ) !important;
+          max-width: calc(
+            (100% - 0.1px) / var(--app-grid-columns, 1) *
+              var(--app-grid-expandible-item-columns, 1) -
+              var(--app-grid-gutter, 0px)
+          ) !important;
+        }
       }
 
       .app-grid,
@@ -166,10 +177,25 @@ Custom property                               | Description                     
         flex: 1;
 
         /* The width for an item is: (100% - subPixelAdjustment - gutter * columns) / columns */
-        -webkit-flex-basis: calc((100% - 0.1px - (var(--app-grid-gutter, 0px) * var(--app-grid-columns, 1))) / var(--app-grid-columns, 1));
-        flex-basis: calc((100% - 0.1px - (var(--app-grid-gutter, 0px) * var(--app-grid-columns, 1))) / var(--app-grid-columns, 1));
+        -webkit-flex-basis: calc(
+          (
+              100% - 0.1px -
+                (var(--app-grid-gutter, 0px) * var(--app-grid-columns, 1))
+            ) / var(--app-grid-columns, 1)
+        );
+        flex-basis: calc(
+          (
+              100% - 0.1px -
+                (var(--app-grid-gutter, 0px) * var(--app-grid-columns, 1))
+            ) / var(--app-grid-columns, 1)
+        );
 
-        max-width: calc((100% - 0.1px - (var(--app-grid-gutter, 0px) * var(--app-grid-columns, 1))) / var(--app-grid-columns, 1));
+        max-width: calc(
+          (
+              100% - 0.1px -
+                (var(--app-grid-gutter, 0px) * var(--app-grid-columns, 1))
+            ) / var(--app-grid-columns, 1)
+        );
         margin-bottom: var(--app-grid-gutter, 0px);
         margin-right: var(--app-grid-gutter, 0px);
         height: var(--app-grid-item-height);
@@ -196,7 +222,6 @@ Custom property                               | Description                     
         bottom: 0;
         left: 0;
       }
-
     </style>
   </template>
 </dom-module>

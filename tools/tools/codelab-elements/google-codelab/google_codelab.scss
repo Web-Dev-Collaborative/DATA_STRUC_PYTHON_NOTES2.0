@@ -21,9 +21,9 @@ google-codelab {
   display: grid;
   grid-template: 64px 1fr 56px/ 256px 1fr;
   grid-template-areas:
-    'title title'
-    'drawer  main'
-    'metadata  main';
+    "title title"
+    "drawer  main"
+    "metadata  main";
 }
 
 // stylelint-disable selector-max-id
@@ -33,14 +33,14 @@ google-codelab #main {
   flex-direction: column;
   grid-area: main;
   position: relative;
-  background: #F8F9FA;
+  background: #f8f9fa;
 }
 
 google-codelab #codelab-title {
-  background: #FFFFFF;
-  box-shadow: 0px 1px 2px 0px rgba(60, 64, 67, .3),
-    0px 2px 6px 2px rgba(60, 64, 67, .15);
-  color: #3C4043;
+  background: #ffffff;
+  box-shadow: 0px 1px 2px 0px rgba(60, 64, 67, 0.3),
+    0px 2px 6px 2px rgba(60, 64, 67, 0.15);
+  color: #3c4043;
   display: flex;
   grid-area: title;
   align-items: center;
@@ -55,7 +55,7 @@ google-codelab #codelab-title h1 {
   font-size: 20px;
   font-weight: 400;
   margin: 0 8px;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: "Roboto", "Noto", sans-serif;
   flex-grow: 1;
   flex-shrink: 1;
   white-space: nowrap;
@@ -66,7 +66,7 @@ google-codelab #codelab-title h1 {
 }
 
 google-codelab #codelab-title h1 a {
-  color: #3C4043;
+  color: #3c4043;
   text-decoration: none;
 }
 
@@ -101,7 +101,7 @@ google-codelab #codelab-nav-buttons #arrow-back,
 google-codelab #codelab-nav-buttons #menu {
   display: flex;
   text-decoration: none;
-  color: #3C4043;
+  color: #3c4043;
   width: 40px;
   height: 40px;
   justify-content: center;
@@ -136,10 +136,10 @@ google-codelab #previous-step,
 google-codelab #next-step,
 google-codelab #done {
   border-radius: 4px;
-  font-family: 'Google Sans', Arial, sans-serif;
+  font-family: "Google Sans", Arial, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: .6px;
+  letter-spacing: 0.6px;
   line-height: 24px;
   padding-bottom: 6px;
   padding-left: 24px;
@@ -147,22 +147,23 @@ google-codelab #done {
   padding-top: 6px;
   pointer-events: initial;
   text-transform: none;
-  background: #FFFFFF;
-  color: #1A73E8;
+  background: #ffffff;
+  color: #1a73e8;
   transform: scale(1, 1);
   transition: transform 300ms ease-in-out;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
 }
 
 google-codelab #next-step {
   color: #fff;
-  background: #1A73E8;
+  background: #1a73e8;
 }
 
 google-codelab #done {
-  background: #1E8E3E;
+  background: #1e8e3e;
   color: #fff;
 }
 
@@ -179,7 +180,7 @@ google-codelab #drawer .codelab-time-container {
 }
 
 google-codelab .metadata {
-  background: #F8F9FA;
+  background: #f8f9fa;
   color: #777;
   font-size: 14px;
   grid-area: metadata;

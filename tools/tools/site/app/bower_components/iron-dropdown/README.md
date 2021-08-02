@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/iron-dropdown.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-dropdown)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-dropdown)_
-
 
 ##&lt;iron-dropdown&gt;
 
@@ -42,5 +40,3 @@ configured.
 In the above example, the `<div>` with class `.dropdown-content` will be
 hidden until the dropdown element has `opened` set to true, or when the `open`
 method is called on the element.
-
-

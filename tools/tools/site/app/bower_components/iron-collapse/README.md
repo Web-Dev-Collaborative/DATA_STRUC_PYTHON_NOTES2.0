@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,11 +15,10 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-collapse)_
 
-
 ##&lt;iron-collapse&gt;
 
-`iron-collapse` creates a collapsible block of content.  By default, the content
-will be collapsed.  Use `opened` or `toggle()` to show/hide the content.
+`iron-collapse` creates a collapsible block of content. By default, the content
+will be collapsed. Use `opened` or `toggle()` to show/hide the content.
 
 ```html
 <button on-click="toggle">toggle collapse</button>
@@ -29,15 +27,11 @@ will be collapsed.  Use `opened` or `toggle()` to show/hide the content.
   <div>Content goes here...</div>
 </iron-collapse>
 
-...
-
-toggle: function() {
-  this.$.collapse.toggle();
-}
+... toggle: function() { this.$.collapse.toggle(); }
 ```
 
 `iron-collapse` adjusts the max-height/max-width of the collapsible element to show/hide
-the content.  So avoid putting padding/margin/border on the collapsible directly,
+the content. So avoid putting padding/margin/border on the collapsible directly,
 and instead put a div inside and style that.
 
 ```html
@@ -59,8 +53,6 @@ and instead put a div inside and style that.
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
+| Custom property                       | Description                   | Default |
+| ------------------------------------- | ----------------------------- | ------- |
 | `--iron-collapse-transition-duration` | Animation transition duration | `300ms` |
-
-

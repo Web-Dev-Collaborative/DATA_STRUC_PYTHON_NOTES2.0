@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/iron-a11y-keys-behavior.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-a11y-keys-behavior)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-a11y-keys-behavior)_
-
 
 ##Polymer.IronA11yKeysBehavior
 
@@ -54,5 +52,3 @@ node.
 
 See the [demo source code](https://github.com/PolymerElements/iron-a11y-keys-behavior/blob/master/demo/x-key-aware.html)
 for an example.
-
-

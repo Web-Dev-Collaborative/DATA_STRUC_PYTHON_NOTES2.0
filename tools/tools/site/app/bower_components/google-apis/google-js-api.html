@@ -7,8 +7,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at https://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-jsonp-library/iron-jsonp-library.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-jsonp-library/iron-jsonp-library.html" />
 
 <!--
 Dynamically loads Google JavaScript API `gapi`, firing the `js-api-load` event when ready.
@@ -27,19 +27,15 @@ Any number of components can use `<google-js-api>` elements, and the library wil
 -->
 <script>
   Polymer({
+    is: "google-js-api",
 
-    is: 'google-js-api',
-
-    behaviors: [
-      Polymer.IronJsonpLibraryBehavior
-    ],
+    behaviors: [Polymer.IronJsonpLibraryBehavior],
 
     properties: {
-
       /** @private */
       libraryUrl: {
         type: String,
-        value: 'https://apis.google.com/js/api.js?onload=%%callback%%'
+        value: "https://apis.google.com/js/api.js?onload=%%callback%%",
       },
 
       /**
@@ -51,13 +47,12 @@ Any number of components can use `<google-js-api>` elements, and the library wil
        */
       notifyEvent: {
         type: String,
-        value: 'js-api-load'
+        value: "js-api-load",
       },
     },
 
     get api() {
       return gapi;
-    }
-
+    },
   });
 </script>

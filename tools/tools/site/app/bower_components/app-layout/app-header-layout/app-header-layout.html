@@ -8,9 +8,12 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../../iron-resizable-behavior/iron-resizable-behavior.html">
+<link rel="import" href="../../polymer/polymer.html" />
+<link rel="import" href="../../iron-flex-layout/iron-flex-layout.html" />
+<link
+  rel="import"
+  href="../../iron-resizable-behavior/iron-resizable-behavior.html"
+/>
 
 <!--
 app-header-layout is a wrapper element that positions an app-header and other content. This
@@ -78,7 +81,7 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
       }
 
       :host > ::content > app-header {
-        @apply(--layout-fixed-top);
+        @apply (--layout-fixed-top);
         z-index: 1;
       }
 
@@ -91,19 +94,19 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
       }
 
       :host([has-scrolling-region]) > #contentContainer {
-        @apply(--layout-fit);
+        @apply (--layout-fit);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
       }
 
       :host([fullbleed]) {
-        @apply(--layout-vertical);
-        @apply(--layout-fit);
+        @apply (--layout-vertical);
+        @apply (--layout-fit);
       }
 
       :host([fullbleed]) > #contentContainer {
-        @apply(--layout-vertical);
-        @apply(--layout-flex);
+        @apply (--layout-vertical);
+        @apply (--layout-flex);
       }
 
       #contentContainer {
@@ -111,7 +114,6 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
         position: relative;
         z-index: 0;
       }
-
     </style>
 
     <content id="header" select="app-header"></content>
@@ -119,16 +121,13 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
     <div id="contentContainer">
       <content></content>
     </div>
-
   </template>
 
   <script>
     Polymer({
-      is: 'app-header-layout',
+      is: "app-header-layout",
 
-      behaviors: [
-        Polymer.IronResizableBehavior
-      ],
+      behaviors: [Polymer.IronResizableBehavior],
 
       properties: {
         /**
@@ -138,18 +137,16 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
         hasScrollingRegion: {
           type: Boolean,
           value: false,
-          reflectToAttribute: true
-        }
+          reflectToAttribute: true,
+        },
       },
 
       listeners: {
-        'iron-resize': '_resizeHandler',
-        'app-header-reset-layout': '_resetLayoutHandler'
+        "iron-resize": "_resizeHandler",
+        "app-header-reset-layout": "_resetLayoutHandler",
       },
 
-      observers: [
-        'resetLayout(isAttached, hasScrollingRegion)'
-      ],
+      observers: ["resetLayout(isAttached, hasScrollingRegion)"],
 
       /**
        * A reference to the app-header element.
@@ -166,12 +163,12 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
        *
        * @method resetLayout
        */
-      resetLayout: function() {
+      resetLayout: function () {
         this._updateScroller();
-        this.debounce('_resetLayout', this._updateContentPosition);
+        this.debounce("_resetLayout", this._updateContentPosition);
       },
 
-      _updateContentPosition: function() {
+      _updateContentPosition: function () {
         var header = this.header;
         if (!this.isAttached || !header) {
           return;
@@ -183,11 +180,11 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
         if (!this.hasScrollingRegion) {
           var rect = this.getBoundingClientRect();
           var rightOffset = document.documentElement.clientWidth - rect.right;
-          header.style.left = rect.left + 'px';
-          header.style.right = rightOffset + 'px';
+          header.style.left = rect.left + "px";
+          header.style.right = rightOffset + "px";
         } else {
-          header.style.left = '';
-          header.style.right = '';
+          header.style.left = "";
+          header.style.right = "";
         }
         // Update the content container position.
         var containerStyle = this.$.contentContainer.style;
@@ -195,34 +192,34 @@ Add the `fullbleed` attribute to app-header-layout to make it fit the size of it
           // If the header size does not change and we're using a scrolling region, exclude
           // the header area from the scrolling region so that the header doesn't overlap
           // the scrollbar.
-          containerStyle.marginTop = headerHeight + 'px';
-          containerStyle.paddingTop = '';
+          containerStyle.marginTop = headerHeight + "px";
+          containerStyle.paddingTop = "";
         } else {
-          containerStyle.paddingTop = headerHeight + 'px';
-          containerStyle.marginTop = '';
+          containerStyle.paddingTop = headerHeight + "px";
+          containerStyle.marginTop = "";
         }
       },
 
-      _updateScroller: function() {
+      _updateScroller: function () {
         if (!this.isAttached) {
           return;
         }
         var header = this.header;
         if (header) {
-          header.scrollTarget = this.hasScrollingRegion ?
-              this.$.contentContainer : this.ownerDocument.documentElement;
+          header.scrollTarget = this.hasScrollingRegion
+            ? this.$.contentContainer
+            : this.ownerDocument.documentElement;
         }
       },
 
-      _resizeHandler: function() {
+      _resizeHandler: function () {
         this.resetLayout();
       },
 
-      _resetLayoutHandler: function(e) {
+      _resetLayoutHandler: function (e) {
         this.resetLayout();
         e.stopPropagation();
-      }
-
+      },
     });
   </script>
 </dom-module>

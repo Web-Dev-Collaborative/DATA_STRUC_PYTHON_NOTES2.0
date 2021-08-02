@@ -12,9 +12,7 @@ Using the document scroll:
       <div main-title>App name</div>
     </app-toolbar>
   </app-header>
-  <div>
-    main content
-  </div>
+  <div>main content</div>
 </app-header-layout>
 ```
 
@@ -27,16 +25,12 @@ Using an own scrolling region:
       <div main-title>App name</div>
     </app-toolbar>
   </app-header>
-  <div>
-    main content
-  </div>
+  <div>main content</div>
 </app-header-layout>
 ```
 
 Add the `fullbleed` attribute to app-header-layout to make it fit the size of its container:
 
 ```html
-<app-header-layout fullbleed>
- ...
-</app-header-layout>
+<app-header-layout fullbleed> ... </app-header-layout>
 ```

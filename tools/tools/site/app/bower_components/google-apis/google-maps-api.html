@@ -7,8 +7,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at https://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-jsonp-library/iron-jsonp-library.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-jsonp-library/iron-jsonp-library.html" />
 
 <!--
 Dynamically loads the Google Maps JavaScript API, firing the `api-load` event when ready.
@@ -29,19 +29,15 @@ Any number of components can use `<google-maps-api>` elements, and the library w
 -->
 <script>
   Polymer({
+    is: "google-maps-api",
 
-    is: 'google-maps-api',
-
-    behaviors: [
-      Polymer.IronJsonpLibraryBehavior
-    ],
+    behaviors: [Polymer.IronJsonpLibraryBehavior],
 
     properties: {
-
       /** @private */
       mapsUrl: {
         type: String,
-        value: 'https://maps.googleapis.com/maps/api/js?callback=%%callback%%'
+        value: "https://maps.googleapis.com/maps/api/js?callback=%%callback%%",
       },
 
       /**
@@ -49,7 +45,7 @@ Any number of components can use `<google-maps-api>` elements, and the library w
        */
       apiKey: {
         type: String,
-        value: ''
+        value: "",
       },
 
       /**
@@ -58,7 +54,7 @@ Any number of components can use `<google-maps-api>` elements, and the library w
        */
       clientId: {
         type: String,
-        value: ''
+        value: "",
       },
 
       /**
@@ -66,7 +62,7 @@ Any number of components can use `<google-maps-api>` elements, and the library w
        */
       version: {
         type: String,
-        value: '3.exp'
+        value: "3.exp",
       },
 
       /**
@@ -78,7 +74,7 @@ Any number of components can use `<google-maps-api>` elements, and the library w
        */
       language: {
         type: String,
-        value: ''
+        value: "",
       },
       /**
        * If true, sign-in is enabled.
@@ -86,7 +82,7 @@ Any number of components can use `<google-maps-api>` elements, and the library w
        */
       signedIn: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -98,44 +94,53 @@ Any number of components can use `<google-maps-api>` elements, and the library w
        */
       notifyEvent: {
         type: String,
-        value: 'api-load'
+        value: "api-load",
       },
 
       /** @private */
       libraryUrl: {
         type: String,
-        computed: '_computeUrl(mapsUrl, version, apiKey, clientId, language, signedIn)'
-      }
+        computed:
+          "_computeUrl(mapsUrl, version, apiKey, clientId, language, signedIn)",
+      },
     },
 
-    _computeUrl: function(mapsUrl, version, apiKey, clientId, language, signedIn) {
-      var url = mapsUrl + '&v=' + version;
+    _computeUrl: function (
+      mapsUrl,
+      version,
+      apiKey,
+      clientId,
+      language,
+      signedIn
+    ) {
+      var url = mapsUrl + "&v=" + version;
 
       // Always load all Maps API libraries.
-      url += '&libraries=drawing,geometry,places,visualization';
+      url += "&libraries=drawing,geometry,places,visualization";
 
       if (apiKey && !clientId) {
-        url += '&key=' + apiKey;
+        url += "&key=" + apiKey;
       }
 
       if (clientId) {
-        url += '&client=' + clientId;
+        url += "&client=" + clientId;
       }
 
       // Log a warning if the user is not using an API Key or Client ID.
       if (!apiKey && !clientId) {
-        var warning = 'No Google Maps API Key or Client ID specified. ' +
-            'See https://developers.google.com/maps/documentation/javascript/get-api-key ' +
-            'for instructions to get started with a key or client id.';
+        var warning =
+          "No Google Maps API Key or Client ID specified. " +
+          "See https://developers.google.com/maps/documentation/javascript/get-api-key " +
+          "for instructions to get started with a key or client id.";
         console.warn(warning);
       }
 
       if (language) {
-        url += '&language=' + language;
+        url += "&language=" + language;
       }
 
       if (signedIn) {
-        url += '&signed_in=' + signedIn;
+        url += "&signed_in=" + signedIn;
       }
       return url;
     },
@@ -145,6 +150,6 @@ Any number of components can use `<google-maps-api>` elements, and the library w
      */
     get api() {
       return google.maps;
-    }
+    },
   });
 </script>

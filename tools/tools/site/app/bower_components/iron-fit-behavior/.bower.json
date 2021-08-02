@@ -5,14 +5,8 @@
   "description": "Fits an element inside another element",
   "private": true,
   "main": "iron-fit-behavior.html",
-  "keywords": [
-    "web-components",
-    "polymer",
-    "behavior"
-  ],
-  "authors": [
-    "The Polymer Authors"
-  ],
+  "keywords": ["web-components", "polymer", "behavior"],
+  "authors": ["The Polymer Authors"],
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/iron-fit-behavior.git"

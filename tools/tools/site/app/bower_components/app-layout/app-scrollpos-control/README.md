@@ -9,7 +9,6 @@ Example:
 <app-scrollpos-control selected="{{page}}"></app-scrollpos-control>
 
 <app-drawer-layout>
-
   <app-drawer>
     <paper-menu selected="{{page}}">
       <paper-item>Home</paper-item>
@@ -30,6 +29,5 @@ Example:
       <sample-content size="100"></sample-content>
     </iron-pages>
   </div>
-
 </app-drawer-layout>
 ```

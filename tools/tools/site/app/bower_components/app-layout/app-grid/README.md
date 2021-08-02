@@ -12,7 +12,6 @@ Then, add the class `app-grid` to a container such as `ul` or `div`:
 ```html
 <template>
   <style include="app-grid-style">
-
     :host {
       --app-grid-columns: 3;
       --app-grid-item-height: 100px;
@@ -32,7 +31,6 @@ Then, add the class `app-grid` to a container such as `ul` or `div`:
         --app-grid-columns: 1;
       }
     }
-
   </style>
   <ul class="app-grid">
     <li class="item">1</li>
@@ -42,7 +40,7 @@ Then, add the class `app-grid` to a container such as `ul` or `div`:
 </template>
 ```
 
-In this example, the grid  will take 3 columns per row and only 1 column if the viewport width is
+In this example, the grid will take 3 columns per row and only 1 column if the viewport width is
 smaller than 640px.
 
 ### Expandible items
@@ -68,7 +66,7 @@ you can specify the number of columns the item should expand to by setting the c
 
     /* Only the first item should expand */
     .item:first-child {
-      @apply(--app-grid-expandible-item);
+      @apply (--app-grid-expandible-item);
     }
   </style>
 </template>
@@ -83,7 +81,6 @@ the item content. For example:
 ```html
 <template>
   <style include="app-grid-style">
-
     :host {
       --app-grid-columns: 3;
       /* 50% the width of the item is equivalent to 2:1 aspect ratio*/
@@ -98,7 +95,6 @@ the item content. For example:
     .item {
       background-color: white;
     }
-
   </style>
   <ul class="app-grid" has-aspect-ratio>
     <li class="item">
@@ -116,9 +112,9 @@ the item content. For example:
 
 ### Styling
 
-Custom property                               | Description                                                | Default
-----------------------------------------------|------------------------------------------------------------|------------------
-`--app-grid-columns`                          | The number of columns per row.                             | 1
-`--app-grid-gutter`                           | The space between two items.                               | 0px
-`--app-grid-item-height`                      | The height of the items.                                   | auto
-`--app-grid-expandible-item-columns`          | The number of columns an expandible item should expand to. | 1
+| Custom property                      | Description                                                | Default |
+| ------------------------------------ | ---------------------------------------------------------- | ------- |
+| `--app-grid-columns`                 | The number of columns per row.                             | 1       |
+| `--app-grid-gutter`                  | The space between two items.                               | 0px     |
+| `--app-grid-item-height`             | The height of the items.                                   | auto    |
+| `--app-grid-expandible-item-columns` | The number of columns an expandible item should expand to. | 1       |

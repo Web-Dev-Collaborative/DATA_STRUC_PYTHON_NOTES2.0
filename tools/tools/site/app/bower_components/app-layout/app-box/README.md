@@ -6,21 +6,21 @@ rate than the foreground.
 
 ```html
 <app-box style="height: 100px;" effects="parallax-background">
-  <img background src="picture.png" style="width: 100%; height: 600px;">
+  <img background src="picture.png" style="width: 100%; height: 600px;" />
 </app-box>
 ```
 
 Notice the `background` attribute in the `img` element; this attribute specifies that that
 image is used as the background. By adding the background to the light dom, you can compose
 backgrounds that can change dynamically. Alternatively, the mixin `--app-box-background-front-layer`
- allows to style the background. For example:
+allows to style the background. For example:
 
 ```css
-  .parallaxAppBox {
-    --app-box-background-front-layer: {
-      background-image: url(picture.png);
-    };
+.parallaxAppBox {
+  --app-box-background-front-layer: {
+    background-image: url(picture.png);
   }
+}
 ```
 
 Finally, app-box can have content inside. For example:
@@ -36,22 +36,26 @@ Finally, app-box can have content inside. For example:
 To use the scroll effects, you must explicitly import them in addition to `app-box`:
 
 ```html
-<link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link
+  rel="import"
+  href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"
+/>
 ```
 
 #### List of effects
 
-* **parallax-background**
-A simple parallax effect that vertically translates the backgrounds based on a fraction
-of the scroll position. For example:
+- **parallax-background**
+  A simple parallax effect that vertically translates the backgrounds based on a fraction
+  of the scroll position. For example:
 
 ```css
 app-header {
   --app-header-background-front-layer: {
     background-image: url(...);
-  };
+  }
 }
 ```
+
 ```html
 <app-header style="height: 300px;" effects="parallax-background">
   <app-toolbar>App name</app-toolbar>
@@ -64,6 +68,6 @@ between 0 and 1 inclusive. If `scalar=0`, the background doesn't move away from 
 
 ## Styling
 
-Mixin | Description | Default
-----------------|-------------|----------
-`--app-box-background-front-layer` | Applies to the front layer of the background | {}
+| Mixin                              | Description                                  | Default |
+| ---------------------------------- | -------------------------------------------- | ------- |
+| `--app-box-background-front-layer` | Applies to the front layer of the background | {}      |

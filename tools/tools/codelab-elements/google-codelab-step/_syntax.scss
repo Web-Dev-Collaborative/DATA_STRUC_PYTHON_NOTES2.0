@@ -15,15 +15,16 @@
  * limitations under the License.
  */
 
-pre, code {
-  font-family: 'Source Code Pro', Helvetica, Arial;
+pre,
+code {
+  font-family: "Source Code Pro", Helvetica, Arial;
   font-size: inherit;
   border-radius: 4px;
   overflow-x: auto;
   overflow-y: visible;
 }
 code {
-  background-color: #E8EAEd;
+  background-color: #e8eaed;
   padding: 0.1em 0.3em;
 }
 pre {
@@ -39,19 +40,52 @@ pre > code {
   background-color: transparent;
 }
 code em {
-  color: #97C8F2;
+  color: #97c8f2;
 }
-pre .str, code .str { color: #34A853; } /* string  - green */
-pre .kwd, code .kwd { color: #F538A0; } /* keyword - dark pink */
-pre .com, code .com { color: #BDC1C6; } /* comment - gray */
-pre .typ, code .typ { color: #24C1E0; } /* type - light blue */
-pre .lit, code .lit { color: #4285F4; } /* literal - blue */
-pre .pun, code .pun { color: #F8F9FA; } /* punctuation - white */
-pre .pln, code .pln { color: #F8F9FA; } /* plaintext - white */
-pre .tag, code .tag { color: #24C1E0; } /* html/xml tag    - light blue */
-pre .atn, code .atn { color: #EDA912; } /* html/xml attribute name  - khaki */
-pre .atv, code .atv { color: #34A853; } /* html/xml attribute value - green */
-pre .dec, code .dec { color: #5195EA; } /* decimal - blue */
+pre .str,
+code .str {
+  color: #34a853;
+} /* string  - green */
+pre .kwd,
+code .kwd {
+  color: #f538a0;
+} /* keyword - dark pink */
+pre .com,
+code .com {
+  color: #bdc1c6;
+} /* comment - gray */
+pre .typ,
+code .typ {
+  color: #24c1e0;
+} /* type - light blue */
+pre .lit,
+code .lit {
+  color: #4285f4;
+} /* literal - blue */
+pre .pun,
+code .pun {
+  color: #f8f9fa;
+} /* punctuation - white */
+pre .pln,
+code .pln {
+  color: #f8f9fa;
+} /* plaintext - white */
+pre .tag,
+code .tag {
+  color: #24c1e0;
+} /* html/xml tag    - light blue */
+pre .atn,
+code .atn {
+  color: #eda912;
+} /* html/xml attribute name  - khaki */
+pre .atv,
+code .atv {
+  color: #34a853;
+} /* html/xml attribute value - green */
+pre .dec,
+code .dec {
+  color: #5195ea;
+} /* decimal - blue */
 
 paper-button {
   display: inline-flex;
@@ -71,7 +105,8 @@ paper-button {
   cursor: pointer;
   z-index: 0;
   padding: 0.7em 0.57em;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: "Roboto", "Noto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }

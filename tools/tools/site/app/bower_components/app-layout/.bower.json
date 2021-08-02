@@ -2,9 +2,7 @@
   "name": "app-layout",
   "version": "0.10.7",
   "description": "A set of layout elements for your app",
-  "authors": [
-    "The Polymer Authors"
-  ],
+  "authors": ["The Polymer Authors"],
   "license": "https://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/PolymerElements/app-layout",
   "repository": {

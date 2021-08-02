@@ -8,26 +8,35 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/app-route/app-location.html">
-<link rel="import" href="../bower_components/app-route/app-route.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="../bower_components/app-layout/app-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
-<link rel="import" href="shrine-list.html">
-<link rel="import" href="shrine-detail.html">
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link rel="import" href="../bower_components/app-route/app-location.html" />
+<link rel="import" href="../bower_components/app-route/app-route.html" />
+<link
+  rel="import"
+  href="../bower_components/iron-flex-layout/iron-flex-layout.html"
+/>
+<link
+  rel="import"
+  href="../bower_components/iron-media-query/iron-media-query.html"
+/>
+<link
+  rel="import"
+  href="../bower_components/paper-icon-button/paper-icon-button.html"
+/>
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html" />
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html" />
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html" />
+<link rel="import" href="../bower_components/app-layout/app-layout.html" />
+<link
+  rel="import"
+  href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"
+/>
+<link rel="import" href="shrine-list.html" />
+<link rel="import" href="shrine-detail.html" />
 
 <dom-module id="shrine-app">
-
   <template>
-
     <style>
-
       :host {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
@@ -38,7 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.2);
           height: 10px;
           bottom: -10px;
-        };
+        }
       }
 
       app-header:not([shadow]) {
@@ -48,7 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app-drawer {
         --app-drawer-content-container: {
           background-color: #f3f3f3;
-        };
+        }
       }
 
       #mainToolbar {
@@ -61,15 +70,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .navItem {
-        @apply(--layout-self-start);
+        @apply (--layout-self-start);
         margin-top: 13px;
         width: 88px;
       }
 
       .spacer {
-        @apply(--layout);
-        @apply(--layout-flex-auto);
-        @apply(--layout-center-center);
+        @apply (--layout);
+        @apply (--layout-flex-auto);
+        @apply (--layout-center-center);
       }
 
       .logo {
@@ -82,24 +91,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: none;
       }
 
-
       shrine-detail {
         height: calc(100vh - 65px);
       }
 
-      :host([page=detail]) #mainToolbar {
+      :host([page="detail"]) #mainToolbar {
         height: 64px;
       }
 
-      :host([page=detail]) paper-tabs {
+      :host([page="detail"]) paper-tabs {
         display: none;
       }
 
-      :host([page=detail]) .leftItem [icon=arrow-back] {
+      :host([page="detail"]) .leftItem [icon="arrow-back"] {
         display: block;
       }
 
-      :host([page=detail]) .leftItem [icon=menu] {
+      :host([page="detail"]) .leftItem [icon="menu"] {
         display: none;
       }
 
@@ -111,14 +119,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       paper-tab {
-        @apply(--layout-flex-none);
+        @apply (--layout-flex-none);
         padding: 0;
         --paper-tab-ink: #31f0ef;
       }
 
       paper-tab a {
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
+        @apply (--layout-horizontal);
+        @apply (--layout-center-center);
         text-decoration: none;
         text-transform: uppercase;
         color: #7c7c7c;
@@ -154,14 +162,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .profileName {
-        @apply(--layout-flex);
+        @apply (--layout-flex);
         margin-left: 20px;
         font-size: 14px;
         font-weight: 500;
         color: #0a3142;
       }
 
-      [icon=settings] {
+      [icon="settings"] {
         width: 35px;
         height: 35px;
         color: #0a3142;
@@ -189,7 +197,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * Phone
        */
       @media (max-width: 400px) {
-        .leftItem [icon=menu] {
+        .leftItem [icon="menu"] {
           display: block;
         }
 
@@ -197,35 +205,56 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           display: none;
         }
       }
-
     </style>
 
     <app-location route="{{route}}" use-hash-as-path></app-location>
     <app-route
-        route="{{route}}"
-        pattern=":section"
-        data="{{sectionData}}"
-        tail="{{subRoute}}"></app-route>
+      route="{{route}}"
+      pattern=":section"
+      data="{{sectionData}}"
+      tail="{{subRoute}}"
+    ></app-route>
     <app-route
-        route="{{subRoute}}"
-        pattern="/:id"
-        data="{{idData}}"
-        active="{{onDetailPage}}"></app-route>
+      route="{{subRoute}}"
+      pattern="/:id"
+      data="{{idData}}"
+      active="{{onDetailPage}}"
+    ></app-route>
 
-    <iron-media-query query="max-width: 400px" query-matches="{{smallScreen}}"></iron-media-query>
+    <iron-media-query
+      query="max-width: 400px"
+      query-matches="{{smallScreen}}"
+    ></iron-media-query>
 
     <app-drawer-layout drawer-width="288px" force-narrow>
       <!-- navigation drawer for small screen sizes -->
       <app-drawer id="drawer" swipe-open>
         <template is="dom-if" if="[[smallScreen]]">
           <app-toolbar class="profileBar">
-            <img class="profilePic" src="//app-layout-assets.appspot.com/assets/shrine/profile_pic.jpg"  width="30" height="30">
+            <img
+              class="profilePic"
+              src="//app-layout-assets.appspot.com/assets/shrine/profile_pic.jpg"
+              width="30"
+              height="30"
+            />
             <div class="profileName">Stella</div>
-            <paper-icon-button icon="settings" aria-label="Settings"></paper-icon-button>
+            <paper-icon-button
+              icon="settings"
+              aria-label="Settings"
+            ></paper-icon-button>
           </app-toolbar>
           <div class="list">
-            <template is="dom-repeat" items="[[sections]]" as="section" initial-count="1">
-              <a href="#[[section]]" class$="[[_getSectionClass(index, selectedTab)]]">[[section]]</a>
+            <template
+              is="dom-repeat"
+              items="[[sections]]"
+              as="section"
+              initial-count="1"
+            >
+              <a
+                href="#[[section]]"
+                class$="[[_getSectionClass(index, selectedTab)]]"
+                >[[section]]</a
+              >
             </template>
           </div>
         </template>
@@ -233,22 +262,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <app-header-layout>
         <!-- main header -->
-        <app-header id="header" effects="waterfall" fixed="[[smallScreen]]" condenses="[[!smallScreen]]" reveals="[[!smallScreen]]">
+        <app-header
+          id="header"
+          effects="waterfall"
+          fixed="[[smallScreen]]"
+          condenses="[[!smallScreen]]"
+          reveals="[[!smallScreen]]"
+        >
           <app-toolbar id="mainToolbar">
             <div class="navItem leftItem">
-              <paper-icon-button icon="menu" drawer-toggle alt="Toogle navigation menu"></paper-icon-button>
-              <a href="#[[sectionData.section]]" tabindex="-1"><paper-icon-button icon="arrow-back"  alt="Back to the home"></paper-icon-button></a>
+              <paper-icon-button
+                icon="menu"
+                drawer-toggle
+                alt="Toogle navigation menu"
+              ></paper-icon-button>
+              <a href="#[[sectionData.section]]" tabindex="-1"
+                ><paper-icon-button
+                  icon="arrow-back"
+                  alt="Back to the home"
+                ></paper-icon-button
+              ></a>
             </div>
             <div class="spacer">
-              <img src="//app-layout-assets.appspot.com/assets/shrine/shrine_logo.svg" class="logo" alt="SHRINE">
+              <img
+                src="//app-layout-assets.appspot.com/assets/shrine/shrine_logo.svg"
+                class="logo"
+                alt="SHRINE"
+              />
             </div>
             <div class="navItem">
-              <paper-icon-button icon="shopping-cart" aria-label="Shopping cart"></paper-icon-button>
-              <paper-icon-button icon="more-vert" aria-label="More options"></paper-icon-button>
+              <paper-icon-button
+                icon="shopping-cart"
+                aria-label="Shopping cart"
+              ></paper-icon-button>
+              <paper-icon-button
+                icon="more-vert"
+                aria-label="More options"
+              ></paper-icon-button>
             </div>
           </app-toolbar>
-          <template is="dom-if" if="[[_shouldShowTabs(onDetailPage, smallScreen)]]">
-            <paper-tabs selected="[[selectedTab]]" scrollable sticky$="[[_shouldShowTabs(onDetailPage, smallScreen)]]">
+          <template
+            is="dom-if"
+            if="[[_shouldShowTabs(onDetailPage, smallScreen)]]"
+          >
+            <paper-tabs
+              selected="[[selectedTab]]"
+              scrollable
+              sticky$="[[_shouldShowTabs(onDetailPage, smallScreen)]]"
+            >
               <template is="dom-repeat" items="[[sections]]" as="section">
                 <paper-tab>
                   <a href="#[[section]]">[[section]]</a>
@@ -262,136 +323,130 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <!-- detail of item -->
           <template is="dom-if" if="[[_equal(page, 'detail')]]">
             <shrine-detail
-                name="detail"
-                section="[[sectionData.section]]"
-                related-items="[[items]]"
-                item="[[_getDetailItem(items, idData.id)]]">
+              name="detail"
+              section="[[sectionData.section]]"
+              related-items="[[items]]"
+              item="[[_getDetailItem(items, idData.id)]]"
+            >
             </shrine-detail>
           </template>
           <!-- list of items -->
           <template is="dom-if" if="[[_equal(page, 'list')]]">
             <shrine-list
-                name="list"
-                section="[[sectionData.section]]"
-                items="[[_getItemsCopy(items, sectionData.section)]]"
-                featured-item="[[_getFeaturedItem(featuredItems, sectionData.section)]]">
+              name="list"
+              section="[[sectionData.section]]"
+              items="[[_getItemsCopy(items, sectionData.section)]]"
+              featured-item="[[_getFeaturedItem(featuredItems, sectionData.section)]]"
+            >
             </shrine-list>
           </template>
         </iron-pages>
-
       </app-header-layout>
     </app-drawer-layout>
-
   </template>
 
   <script>
+    Polymer({
+      is: "shrine-app",
 
-  Polymer({
+      properties: {
+        sections: {
+          type: Array,
+          value: function () {
+            return [
+              "feature",
+              "latest",
+              "fashion",
+              "furniture",
+              "beauty",
+              "food",
+              "travel",
+            ];
+          },
+        },
 
-    is: 'shrine-app',
+        selectedTab: {
+          type: Number,
+          computed: "_computeSelectedTab(sections, sectionData.section)",
+        },
 
-    properties: {
+        items: {
+          type: Array,
+        },
 
-      sections: {
-        type: Array,
-        value: function() {
-          return [
-            'feature',
-            'latest',
-            'fashion',
-            'furniture',
-            'beauty',
-            'food',
-            'travel'
-          ];
-        }
+        featuredItems: {
+          type: Array,
+        },
+
+        page: {
+          type: String,
+          computed: "_computePage(onDetailPage)",
+          reflectToAttribute: true,
+        },
+
+        route: Object,
+
+        subRoute: Object,
+
+        sectionData: Object,
+
+        idData: Object,
+
+        onDetailPage: Boolean,
       },
 
-      selectedTab: {
-        type: Number,
-        computed: '_computeSelectedTab(sections, sectionData.section)'
+      observers: ["_hashDidChange(route.path, items, featuredItems)"],
+
+      ready: function () {
+        this.async(function () {
+          if (!this.route.path) {
+            this.set("route.path", "feature");
+          }
+        });
       },
 
-      items: {
-        type: Array
+      _computeSelectedTab: function (sections, section) {
+        return sections.indexOf(section);
       },
 
-      featuredItems: {
-        type: Array
+      _getItemsCopy: function (items) {
+        return items.slice();
       },
 
-      page: {
-        type: String,
-        computed: '_computePage(onDetailPage)',
-        reflectToAttribute: true
+      _getFeaturedItem: function (featuredItems, section) {
+        return featuredItems
+          .filter(function (item) {
+            return item.category.toLowerCase() === section;
+          })
+          .pop();
       },
 
-      route: Object,
+      _getDetailItem: function (items, id) {
+        return items[id];
+      },
 
-      subRoute: Object,
+      _computePage: function (onDetailPage) {
+        return onDetailPage ? "detail" : "list";
+      },
 
-      sectionData: Object,
+      _hashDidChange: function () {
+        // TODO(blasten) Polymer.AppScrollEffects(0);
+        this.$.header._scrollTop = 0;
+        this.$.header.resetLayout();
+        this.$.drawer.close();
+      },
 
-      idData: Object,
+      _equal: function (a, b) {
+        return a === b;
+      },
 
-      onDetailPage: Boolean
-    },
+      _getSectionClass: function (index, selectedTab) {
+        return index === selectedTab ? "active" : "";
+      },
 
-    observers: [
-      '_hashDidChange(route.path, items, featuredItems)'
-    ],
-
-    ready: function() {
-      this.async(function() {
-        if (!this.route.path) {
-          this.set('route.path', 'feature');
-        }
-      });
-    },
-
-    _computeSelectedTab: function(sections, section) {
-      return sections.indexOf(section);
-    },
-
-    _getItemsCopy: function(items) {
-      return items.slice();
-    },
-
-    _getFeaturedItem: function(featuredItems, section) {
-      return featuredItems.filter(function(item) {
-        return item.category.toLowerCase() === section;
-      }).pop();
-    },
-
-    _getDetailItem: function(items, id) {
-      return items[id];
-    },
-
-    _computePage: function(onDetailPage) {
-      return onDetailPage ? 'detail' : 'list';
-    },
-
-    _hashDidChange: function() {
-      // TODO(blasten) Polymer.AppScrollEffects(0);
-      this.$.header._scrollTop = 0;
-      this.$.header.resetLayout();
-      this.$.drawer.close();
-    },
-
-    _equal: function(a, b) {
-      return a === b;
-    },
-
-    _getSectionClass: function(index, selectedTab) {
-      return index === selectedTab ? 'active' : '';
-    },
-
-    _shouldShowTabs: function(onDetailPage, smallScreen) {
-      return !onDetailPage && !smallScreen;
-    }
-
-  });
-
+      _shouldShowTabs: function (onDetailPage, smallScreen) {
+        return !onDetailPage && !smallScreen;
+      },
+    });
   </script>
-
 </dom-module>

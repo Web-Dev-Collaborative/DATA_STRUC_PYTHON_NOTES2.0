@@ -15,11 +15,14 @@
  * limitations under the License.
  */
 
-goog.module('googlecodelabs.CodelabIndex.CardsDef');
-const CodelabIndexCards = goog.require('googlecodelabs.CodelabIndex.Cards');
+goog.module("googlecodelabs.CodelabIndex.CardsDef");
+const CodelabIndexCards = goog.require("googlecodelabs.CodelabIndex.Cards");
 
 try {
-  window.customElements.define(CodelabIndexCards.getTagName(), CodelabIndexCards);
+  window.customElements.define(
+    CodelabIndexCards.getTagName(),
+    CodelabIndexCards
+  );
 } catch (e) {
-  console.warn('googlecodelabs.CodelabIndex.Cards', e);
+  console.warn("googlecodelabs.CodelabIndex.Cards", e);
 }

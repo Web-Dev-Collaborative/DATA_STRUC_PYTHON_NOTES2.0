@@ -8,14 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer.html" />
 
 <dom-module id="shrine-featured-item">
-
   <template>
-
     <style>
-
       :host {
         display: block;
         background-color: white;
@@ -56,7 +53,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       h1 {
-        font-family: 'Abril Fatface', cursive;
+        font-family: "Abril Fatface", cursive;
         font-size: 6em;
         font-weight: 300;
         color: #0a3142;
@@ -162,49 +159,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           top: -3px;
         }
       }
-
     </style>
 
     <div class="price">[[item.price]]</div>
     <div class="pic">
-      <img id="img">
+      <img id="img" />
     </div>
     <div class="detail">
       <h1>[[item.title]]</h1>
       <div class="desc">
         <p>[[item.quote]]</p>
         <div class="author">
-          <img src="[[item.storeAvatarUrl]]">
+          <img src="[[item.storeAvatarUrl]]" />
           [[item.storeName]]
         </div>
       </div>
     </div>
-
   </template>
 
   <script>
+    Polymer({
+      is: "shrine-featured-item",
 
-  Polymer({
+      properties: {
+        item: {
+          type: Object,
+          observer: "_itemChanged",
+        },
+      },
 
-    is: 'shrine-featured-item',
-
-    properties: {
-
-      item: {
-        type: Object,
-        observer: '_itemChanged'
-      }
-
-    },
-
-    _itemChanged: function(item) {
-      this.style.visibility = item && item.title ? 'visible' : 'hidden';
-      this.$.img.src = '';
-      this.$.img.src = item ? item.imageUrl : '';
-    }
-
-  });
-
+      _itemChanged: function (item) {
+        this.style.visibility = item && item.title ? "visible" : "hidden";
+        this.$.img.src = "";
+        this.$.img.src = item ? item.imageUrl : "";
+      },
+    });
   </script>
-
 </dom-module>

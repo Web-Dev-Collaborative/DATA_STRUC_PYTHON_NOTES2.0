@@ -28,16 +28,16 @@ to the top or bottom of the toolbar respectively.
 
 ### Content attributes
 
-Attribute            | Description 
----------------------|---------------------------------------------------------
-`main-title`         | The main title element.
-`condensed-title`    | The title element if used inside a condensed app-header.
-`spacer`             | Adds a left margin of `64px`.
-`bottom-item`        | Sticks the element to the bottom of the toolbar.
-`top-item`           | Sticks the element to the top of the toolbar.
+| Attribute         | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| `main-title`      | The main title element.                                  |
+| `condensed-title` | The title element if used inside a condensed app-header. |
+| `spacer`          | Adds a left margin of `64px`.                            |
+| `bottom-item`     | Sticks the element to the bottom of the toolbar.         |
+| `top-item`        | Sticks the element to the top of the toolbar.            |
 
 ### Styling
 
-Custom property              | Description                  | Default
------------------------------|------------------------------|-----------------------
-`--app-toolbar-font-size`    | Toolbar font size            | 20px
+| Custom property           | Description       | Default |
+| ------------------------- | ----------------- | ------- |
+| `--app-toolbar-font-size` | Toolbar font size | 20px    |

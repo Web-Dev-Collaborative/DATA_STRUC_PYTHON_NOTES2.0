@@ -9,17 +9,8 @@
     "Eric Bidelman <ebidel@gmail.com>"
   ],
   "license": "Apache-2.0",
-  "ignore": [
-    "/.*",
-    "/test/"
-  ],
-  "keywords": [
-    "web-component",
-    "web-components",
-    "polymer",
-    "google",
-    "apis"
-  ],
+  "ignore": ["/.*", "/test/"],
+  "keywords": ["web-component", "web-components", "polymer", "google", "apis"],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0.0",
     "iron-jsonp-library": "PolymerElements/iron-jsonp-library#^1.0.0"

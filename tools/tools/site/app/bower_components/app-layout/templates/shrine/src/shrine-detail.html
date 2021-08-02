@@ -8,21 +8,24 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
-<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="shrine-simple-item.html">
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link
+  rel="import"
+  href="../bower_components/iron-flex-layout/iron-flex-layout.html"
+/>
+<link
+  rel="import"
+  href="../bower_components/paper-icon-button/paper-icon-button.html"
+/>
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html" />
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html" />
+<link rel="import" href="shrine-simple-item.html" />
 
 <dom-module id="shrine-detail">
-
   <template>
-
     <style>
-
       :host {
-        @apply(--layout-horizontal);
+        @apply (--layout-horizontal);
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
 
@@ -38,9 +41,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .itemsGrid {
-        @apply(--layout-horizontal);
-        @apply(--layout-wrap);
-        @apply(--layout-center-justified);
+        @apply (--layout-horizontal);
+        @apply (--layout-wrap);
+        @apply (--layout-center-justified);
         margin-top: 10px;
       }
 
@@ -56,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .detailSection {
-        @apply(--layout);
+        @apply (--layout);
         width: 65%;
         -webkit-flex: 1 1 65%;
         flex: 1 1 65%;
@@ -65,9 +68,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .detailGrid {
         width: 100%;
         padding: 128px 0 64px;
-        @apply(--layout-horizontal);
-        @apply(--layout-wrap);
-        @apply(--layout-center-justified);
+        @apply (--layout-horizontal);
+        @apply (--layout-wrap);
+        @apply (--layout-center-justified);
       }
 
       .image {
@@ -109,13 +112,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .quantitySelector::after {
         display: block;
-        content: '\25BC';
+        content: "\25BC";
         position: absolute;
         top: calc(50% - 8px);
         right: 10px;
         speak: none;
-        -webkit-transform: scaleY(.6) scaleX(1);
-        transform: scaleY(.6) scaleX(1);
+        -webkit-transform: scaleY(0.6) scaleX(1);
+        transform: scaleY(0.6) scaleX(1);
         color: #666;
         pointer-events: none;
       }
@@ -125,7 +128,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         -moz-appearance: none;
         appearance: none;
         padding: 10px 20px;
-        border: 1px solid rgba(0, 0, 0, .2);
+        border: 1px solid rgba(0, 0, 0, 0.2);
         background-color: white;
         border-radius: 0;
         position: relative;
@@ -135,11 +138,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .quantitySelector select:focus {
         outline: 0;
-        border-color: rgba(0, 0, 0, .5);
+        border-color: rgba(0, 0, 0, 0.5);
       }
 
       h1 {
-        font-family: 'Abril Fatface', cursive;
+        font-family: "Abril Fatface", cursive;
         font-size: 2.5em;
         font-weight: 300;
         color: #0a3142;
@@ -162,7 +165,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --paper-fab-iron-icon: {
           width: 20px;
           height: 20px;
-        };
+        }
       }
 
       /**
@@ -170,12 +173,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       @media (max-width: 1200px) {
         :host {
-          @apply(--layout-center);
-          @apply(--layout-vertical-reverse);
+          @apply (--layout-center);
+          @apply (--layout-vertical-reverse);
         }
 
         .items {
-          @apply(--layout-flex-none);
+          @apply (--layout-flex-none);
           width: 100vw;
         }
 
@@ -187,7 +190,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
 
         .detailSection {
-          @apply(--layout-flex-none);
+          @apply (--layout-flex-none);
           width: 90vw;
           margin-left: 10px;
           margin-right: 10px;
@@ -199,7 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       @media (max-width: 400px) {
         .detailSection {
-          @apply(--layout-flex-none);
+          @apply (--layout-flex-none);
         }
 
         .itemsGrid > .item {
@@ -217,13 +220,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           padding: 32px 0 64px;
         }
       }
-
     </style>
 
     <div class="items">
       <div class="itemsGrid">
         <template is="dom-repeat" items="[[relatedItems]]">
-          <a href$="#[[section]]/[[item.id]]" title$="[[item.title]]" class="item">
+          <a
+            href$="#[[section]]/[[item.id]]"
+            title$="[[item.title]]"
+            class="item"
+          >
             <shrine-simple-item item="[[item]]"></shrine-simple-item>
           </a>
         </template>
@@ -233,12 +239,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="detailSection">
       <div class="detailGrid">
         <div class="image">
-          <img id="img">
+          <img id="img" />
           <div class="info">
-            <paper-icon-button icon="info-outline" aria-label="More information about the item"></paper-icon-button>
+            <paper-icon-button
+              icon="info-outline"
+              aria-label="More information about the item"
+            ></paper-icon-button>
           </div>
         </div>
-    
+
         <div class="content">
           <h1>[[item.title]]</h1>
           <p>[[item.description]]</p>
@@ -251,7 +260,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <option value="5">Quantity 5</option>
             </select>
           </div>
-          <paper-fab mini icon="add-shopping-cart" aria-label="add to the shopping cart"></paper-fab>
+          <paper-fab
+            mini
+            icon="add-shopping-cart"
+            aria-label="add to the shopping cart"
+          ></paper-fab>
           <div class="store">
             <h3>[[item.storeName]]</h3>
             <p>[[item.storeDescription]]</p>
@@ -259,39 +272,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
       </div>
     </div>
-
   </template>
 
   <script>
+    Polymer({
+      is: "shrine-detail",
 
-  Polymer({
+      properties: {
+        item: {
+          type: Object,
+          observer: "_itemChanged",
+        },
 
-    is: 'shrine-detail',
+        section: {
+          type: String,
+        },
 
-    properties: {
-
-      item: {
-        type: Object,
-        observer: '_itemChanged'
+        relatedItems: {
+          type: Array,
+        },
       },
 
-      section: {
-        type: String
+      _itemChanged: function (item) {
+        this.$.img.src = "";
+        this.$.img.src = item.imageUrl;
       },
-
-      relatedItems: {
-        type: Array
-      }
-
-    },
-
-    _itemChanged: function(item) {
-      this.$.img.src = '';
-      this.$.img.src = item.imageUrl;
-    }
-
-  });
-
+    });
   </script>
-
 </dom-module>

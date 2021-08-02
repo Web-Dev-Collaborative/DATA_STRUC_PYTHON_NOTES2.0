@@ -7,8 +7,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at https://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-jsonp-library/iron-jsonp-library.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-jsonp-library/iron-jsonp-library.html" />
 
 <!--
 Dynamically loads the Google+ JavaScript API, firing the `api-load` event when ready.
@@ -17,19 +17,15 @@ Any number of components can use `<google-plusone-api>` elements, and the librar
 -->
 <script>
   Polymer({
+    is: "google-plusone-api",
 
-    is: 'google-plusone-api',
-
-    behaviors: [
-      Polymer.IronJsonpLibraryBehavior
-    ],
+    behaviors: [Polymer.IronJsonpLibraryBehavior],
 
     properties: {
-
       /** @private */
-      libraryUrl:  {
+      libraryUrl: {
         type: String,
-        value: 'https://apis.google.com/js/plusone.js?onload=%%callback%%'
+        value: "https://apis.google.com/js/plusone.js?onload=%%callback%%",
       },
 
       /**
@@ -39,16 +35,14 @@ Any number of components can use `<google-plusone-api>` elements, and the librar
       /**
        * Name of event fired when library is loaded and available.
        */
-      notifyEvent:  {
+      notifyEvent: {
         type: String,
-        value: 'api-load'
-      }
-
+        value: "api-load",
+      },
     },
 
     get api() {
       return gapi;
-    }
-
+    },
   });
 </script>

@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-a11y-announcer)_
 
-
 ##&lt;iron-a11y-announcer&gt;
 
 `iron-a11y-announcer` is a singleton element that is intended to add a11y
@@ -28,14 +26,13 @@ Example:
 
 ```javascript
 Polymer({
+  is: "x-chatty",
 
-  is: 'x-chatty',
-
-  attached: function() {
+  attached: function () {
     // This will create the singleton element if it has not
     // been created yet:
     Polymer.IronA11yAnnouncer.requestAvailability();
-  }
+  },
 });
 ```
 
@@ -45,11 +42,13 @@ make announces by firing bubbling `iron-announce` events.
 Example:
 
 ```javascript
-this.fire('iron-announce', {
-  text: 'This is an announcement!'
-}, { bubbles: true });
+this.fire(
+  "iron-announce",
+  {
+    text: "This is an announcement!",
+  },
+  { bubbles: true }
+);
 ```
 
 Note: announcements are only audible if you have a screen reader enabled.
-
-

@@ -2,30 +2,32 @@
 
 An embeddable script that makes source-code snippets in HTML prettier.
 
-* Works on HTML pages.
-* Works even if code contains embedded links, line numbers, etc.
-* Simple API: include some JS & CSS and add an onload handler.
-* Lightweights: small download and does not block page from loading while
+- Works on HTML pages.
+- Works even if code contains embedded links, line numbers, etc.
+- Simple API: include some JS & CSS and add an onload handler.
+- Lightweights: small download and does not block page from loading while
   running.
-* Customizable styles via CSS. See the [themes gallery][1].
-* Supports all C-like, Bash-like, and XML-like languages. No need to specify
+- Customizable styles via CSS. See the [themes gallery][1].
+- Supports all C-like, Bash-like, and XML-like languages. No need to specify
   the language.
-* Extensible language handlers for other languages. You can specify the
+- Extensible language handlers for other languages. You can specify the
   language.
-* Widely used with good cross-browser support. Powers https://code.google.com/
+- Widely used with good cross-browser support. Powers https://code.google.com/
   and http://stackoverflow.com/
 
 [See an example][2].
 
 ## Setup
 
- * Include the script tag below in your document:
+- Include the script tag below in your document:
+
 ```HTML
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 ```
- * See [Getting Started](docs/getting_started.md) to configure that URL with
-   options you need.
- * Look at the [skin gallery][1] and pick styles that suit you.
+
+- See [Getting Started](docs/getting_started.md) to configure that URL with
+  options you need.
+- Look at the [skin gallery][1] and pick styles that suit you.
 
 ## Usage
 
@@ -132,16 +134,16 @@ See the [changelog](CHANGES.md).
 
 ### Why doesn't Prettyprinting of strings work on WordPress?
 
-Apparently wordpress does "smart quoting" which changes close quotes.  This
+Apparently wordpress does "smart quoting" which changes close quotes. This
 causes end quotes to not match up with open quotes.
 
-This breaks prettifying as well as copying and pasting of code samples.  See
+This breaks prettifying as well as copying and pasting of code samples. See
 [WordPress's help center][5] for info on how to stop smart quoting of code
 snippets.
 
 ### How do I put line numbers in my code?
 
-You can use the `linenums` class to turn on line numbering.  If your code
+You can use the `linenums` class to turn on line numbering. If your code
 doesn't start at line number `1`, you can add a colon and a line number to the
 end of that class as in `linenums:52`. For example:
 
@@ -191,7 +193,7 @@ which will confuse it.
 
 ### How can I customize the colors and styles of my code?
 
-Prettify adds `<span>` with `class`es describing the kind of code.  You can
+Prettify adds `<span>` with `class`es describing the kind of code. You can
 create CSS styles to matches these classes.
 
 See the [theme gallery][1] for examples.
@@ -227,7 +229,6 @@ general feedback.
 ## License
 
 [Apache License 2.0](COPYING)
-
 
 [1]: https://rawgit.com/google/code-prettify/master/styles/index.html
 [2]: https://rawgit.com/google/code-prettify/master/examples/quine.html

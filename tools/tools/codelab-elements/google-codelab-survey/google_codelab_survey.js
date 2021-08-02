@@ -15,52 +15,52 @@
  * limitations under the License.
  */
 
-goog.module('googlecodelabs.CodelabSurvey');
+goog.module("googlecodelabs.CodelabSurvey");
 
-const EventHandler = goog.require('goog.events.EventHandler');
-const HTML5LocalStorage =
-    goog.require('goog.storage.mechanism.HTML5LocalStorage');
-const Templates = goog.require('googlecodelabs.CodelabSurvey.Templates');
-const dom = goog.require('goog.dom');
-const events = goog.require('goog.events');
-const soy = goog.require('goog.soy');
-
+const EventHandler = goog.require("goog.events.EventHandler");
+const HTML5LocalStorage = goog.require(
+  "goog.storage.mechanism.HTML5LocalStorage"
+);
+const Templates = goog.require("googlecodelabs.CodelabSurvey.Templates");
+const dom = goog.require("goog.dom");
+const events = goog.require("goog.events");
+const soy = goog.require("goog.soy");
 
 /**
  * The prefix for all survey keys in local storage.
  * @const {string}
  */
-const STORAGE_KEY_PREFIX = 'codelab-survey-';
+const STORAGE_KEY_PREFIX = "codelab-survey-";
 
 /**
  * The id for the current survey.
  * @const {string}
  */
-const SURVEY_ID_ATTR = 'survey-id';
-
+const SURVEY_ID_ATTR = "survey-id";
 
 /**
  * The upgraded id (to prevent FUOC).
  * @const {string}
  */
-const SURVEY_UPGRADED_ATTR = 'upgraded';
-
-
-/** @const {string} */
-const DEFAULT_SURVEY_NAME = 'default-codelabs-survey';
+const SURVEY_UPGRADED_ATTR = "upgraded";
 
 /** @const {string} */
-const OPTION_WRAPPER_CLASS = 'survey-option-wrapper';
+const DEFAULT_SURVEY_NAME = "default-codelabs-survey";
 
 /** @const {string} */
-const RADIO_TEXT_CLASS = 'option-text';
+const OPTION_WRAPPER_CLASS = "survey-option-wrapper";
+
+/** @const {string} */
+const RADIO_TEXT_CLASS = "option-text";
 
 /**
  * @extends {HTMLElement}
  */
 class CodelabSurvey extends HTMLElement {
   /** @return {string} */
-  static getTagName() { return 'google-codelab-survey'; }
+  static getTagName() {
+    return "google-codelab-survey";
+  }
 
   constructor() {
     super();
@@ -109,8 +109,9 @@ class CodelabSurvey extends HTMLElement {
 
   /** @private */
   bindEvents_() {
-    this.eventHandler_.listen(this, events.EventType.CHANGE,
-      (event) => this.handleOptionSelected_(event));
+    this.eventHandler_.listen(this, events.EventType.CHANGE, (event) =>
+      this.handleOptionSelected_(event)
+    );
   }
 
   /**
@@ -122,14 +123,17 @@ class CodelabSurvey extends HTMLElement {
       return;
     }
     const inputElement = event.target;
-    const optionWrapperElement =
-        dom.getAncestorByClass(inputElement, OPTION_WRAPPER_CLASS);
+    const optionWrapperElement = dom.getAncestorByClass(
+      inputElement,
+      OPTION_WRAPPER_CLASS
+    );
     if (!(optionWrapperElement instanceof Element)) {
       return;
     }
-    const optionTextElement =
-        optionWrapperElement.querySelector(`.${RADIO_TEXT_CLASS}`);
-    let answer = '';
+    const optionTextElement = optionWrapperElement.querySelector(
+      `.${RADIO_TEXT_CLASS}`
+    );
+    let answer = "";
     if (optionTextElement) {
       answer = optionTextElement.textContent;
     }
@@ -137,13 +141,15 @@ class CodelabSurvey extends HTMLElement {
     const question = inputElement.name;
     this.storedData_[this.surveyName_][question] = answer;
     this.storage_.set(
-      this.storageKey_, JSON.stringify(this.storedData_[this.surveyName_]));
-    const codelabEvent = new CustomEvent('google-codelab-action', {
+      this.storageKey_,
+      JSON.stringify(this.storedData_[this.surveyName_])
+    );
+    const codelabEvent = new CustomEvent("google-codelab-action", {
       detail: {
-        'category': 'survey',
-        'action': question.substring(0, 500),
-        'label': answer.substring(0, 500)
-      }
+        category: "survey",
+        action: question.substring(0, 500),
+        label: answer.substring(0, 500),
+      },
     });
     document.body.dispatchEvent(codelabEvent);
   }
@@ -153,7 +159,8 @@ class CodelabSurvey extends HTMLElement {
     const storedData = this.storage_.get(this.storageKey_);
     if (storedData) {
       this.storedData_[this.surveyName_] = /** @type {!Object} */ (
-        JSON.parse(storedData));
+        JSON.parse(storedData)
+      );
     } else {
       this.storedData_[this.surveyName_] = {};
     }
@@ -161,47 +168,51 @@ class CodelabSurvey extends HTMLElement {
 
   /** @private */
   updateDom_() {
-    const radioGroupEls = this.querySelectorAll('paper-radio-group');
-    const questionEls = this.querySelectorAll('h4');
+    const radioGroupEls = this.querySelectorAll("paper-radio-group");
+    const questionEls = this.querySelectorAll("h4");
     const surveyQuestions = [];
-    if (radioGroupEls.length && (questionEls.length == radioGroupEls.length)) {
+    if (radioGroupEls.length && questionEls.length == radioGroupEls.length) {
       radioGroupEls.forEach((radioGroupEl, index) => {
         const surveyOptions = [];
-        const polymerRadioEls = radioGroupEl.querySelectorAll(
-          'paper-radio-button');
+        const polymerRadioEls =
+          radioGroupEl.querySelectorAll("paper-radio-button");
         dom.removeNode(radioGroupEl);
-        polymerRadioEls.forEach(radioEl => {
+        polymerRadioEls.forEach((radioEl) => {
           const title = radioEl.textContent;
           surveyOptions.push({
-            radioId: this.normalizeIdAttr_(questionEls[index].textContent, title),
-            radioTitle: title
+            radioId: this.normalizeIdAttr_(
+              questionEls[index].textContent,
+              title
+            ),
+            radioTitle: title,
           });
         });
         surveyQuestions.push({
           question: questionEls[index].textContent,
-          options: surveyOptions
+          options: surveyOptions,
         });
         dom.removeNode(questionEls[index]);
       });
       const updatedDom = soy.renderAsElement(Templates.survey, {
         surveyName: this.surveyName_,
-        surveyQuestions: surveyQuestions
+        surveyQuestions: surveyQuestions,
       });
       this.appendChild(updatedDom);
     }
     this.setAnsweredQuestions_();
-    this.setAttribute(SURVEY_UPGRADED_ATTR, '');
+    this.setAttribute(SURVEY_UPGRADED_ATTR, "");
   }
 
   /** @private */
   setAnsweredQuestions_() {
     const surveyData = this.storedData_[this.surveyName_];
     if (surveyData) {
-      Object.keys(surveyData).forEach(key => {
+      Object.keys(surveyData).forEach((key) => {
         const id = this.normalizeIdAttr_(key, surveyData[key]);
         /** @type {?HTMLInputElement} */
         const inp = /** @type {?HTMLInputElement} */ (
-            this.querySelector(`#${id}`));
+          this.querySelector(`#${id}`)
+        );
         if (inp) {
           inp.checked = true;
         }
@@ -216,8 +227,10 @@ class CodelabSurvey extends HTMLElement {
    * @private
    */
   normalizeIdAttr_(question, answer) {
-    return `${question}--${answer}`.replace(/\s+/g, '-')
-        .replace(/[^a-zA-Z0-9 \-]/g, '').toLowerCase();
+    return `${question}--${answer}`
+      .replace(/\s+/g, "-")
+      .replace(/[^a-zA-Z0-9 \-]/g, "")
+      .toLowerCase();
   }
 
   /**

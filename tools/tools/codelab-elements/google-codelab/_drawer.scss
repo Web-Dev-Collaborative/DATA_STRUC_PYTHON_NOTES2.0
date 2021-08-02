@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
- google-codelab #drawer {
+google-codelab #drawer {
   width: 256px;
   grid-area: drawer;
   position: relative;
   z-index: 100;
   display: flex;
   flex-direction: column;
-  background: #F8F9FA;
+  background: #f8f9fa;
   overflow: auto;
 }
 
@@ -57,14 +57,14 @@ google-codelab #drawer ol li a {
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #80868B;
+  color: #80868b;
   padding: 3px 10px;
   min-height: 48px;
   font-weight: 400;
   line-height: 20px;
   box-sizing: content-box;
   position: relative;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: "Roboto", "Noto", sans-serif;
   -webkit-font-smoothing: antialiased;
   transition: all 300ms ease-in-out;
   border: 1px #dadce0 solid;
@@ -93,7 +93,7 @@ google-codelab #drawer ol li .step:before {
   width: 26px;
   min-width: 26px;
   color: #fff;
-  background: #80868B;
+  background: #80868b;
   border-radius: 50%;
   text-align: center;
   height: 26px;
@@ -110,7 +110,8 @@ google-codelab #drawer ol li[selected] a,
 google-codelab #drawer ol li a:focus {
   color: #212121;
   font-weight: 600;
-  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
 }
 
 google-codelab #drawer ol li[selected] a {
@@ -126,7 +127,7 @@ google-codelab #drawer ol li[completed] a {
 }
 
 google-codelab #drawer ol li[completed] .step:before {
-  background-color: #1A73E8;
+  background-color: #1a73e8;
   color: #fff;
 }
 
@@ -141,8 +142,8 @@ google-codelab #drawer ol {
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: rgba(0,0,0,.5);
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -185,7 +186,7 @@ google-codelab #drawer ol {
   }
 
   google-codelab #main::before {
-    content: '';
+    content: "";
     top: 0;
     left: 0;
     right: 0;

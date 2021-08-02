@@ -8,9 +8,15 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link
+  rel="import"
+  href="../bower_components/iron-flex-layout/iron-flex-layout.html"
+/>
+<link
+  rel="import"
+  href="../bower_components/iron-media-query/iron-media-query.html"
+/>
 
 <!--
 This is a simple adaptive 2-columns grid. The first and every 4th item have width:100%, and the
@@ -27,14 +33,11 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
 
 -->
 <dom-module id="two-columns-grid">
-
   <template>
-
     <style>
-
       :host {
-        @apply(--layout-horizontal);
-        @apply(--layout-wrap);
+        @apply (--layout-horizontal);
+        @apply (--layout-wrap);
         max-width: calc(2 * var(--grid-column-width) + 4 * var(--grid-gutter));
         margin: var(--grid-gutter) auto;
         /* item has width/height ratio 4:3 */
@@ -42,7 +45,7 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
       }
 
       :host > ::content > * {
-        @apply(--layout-flex-none);
+        @apply (--layout-flex-none);
         width: var(--grid-column-width);
         height: var(--grid-item-height);
         margin: var(--grid-gutter);
@@ -52,7 +55,7 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
       :host > ::content > *:nth-of-type(3n - 2) {
         width: calc(100% - 2 * var(--grid-gutter));
         /* large item has widht/height ratio 2:1 */
-        height: calc(var(--grid-column-width)  + 2 * var(--grid-gutter));
+        height: calc(var(--grid-column-width) + 2 * var(--grid-gutter));
       }
 
       :host([narrow-layout]) {
@@ -69,29 +72,27 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
       iron-media-query {
         display: none;
       }
-
     </style>
 
     <content></content>
 
-    <iron-media-query query="{{query}}" query-matches="{{narrowLayout}}"></iron-media-query>
-
+    <iron-media-query
+      query="{{query}}"
+      query-matches="{{narrowLayout}}"
+    ></iron-media-query>
   </template>
 
   <script>
-
     Polymer({
-
-      is: 'two-columns-grid',
+      is: "two-columns-grid",
 
       properties: {
-
         /**
          * The width of the column in px.
          */
         columnWidth: {
           type: Number,
-          value: 300
+          value: 300,
         },
 
         /**
@@ -99,7 +100,7 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
          */
         gutter: {
           type: Number,
-          value: 8
+          value: 8,
         },
 
         /**
@@ -108,35 +109,29 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
         narrowLayout: {
           type: Boolean,
           notify: true,
-          reflectToAttribute: true
-        }
-
+          reflectToAttribute: true,
+        },
       },
 
-      observers: [
-        '_updateLayout(columnWidth, gutter)'
-      ],
+      observers: ["_updateLayout(columnWidth, gutter)"],
 
-      attached: function() {
+      attached: function () {
         // observers may run before attached, and updateStyles() will skip if it is not attached.
         // So we need to make sure updateStyles() is called after it's attached.
         this._updateCustomStyles();
       },
 
-      _updateLayout: function(columnWidth, gutter) {
-        this.query = '(max-width:' + (2 * columnWidth + 4 * gutter) + 'px)';
+      _updateLayout: function (columnWidth, gutter) {
+        this.query = "(max-width:" + (2 * columnWidth + 4 * gutter) + "px)";
         this._updateCustomStyles();
       },
 
-      _updateCustomStyles: function() {
+      _updateCustomStyles: function () {
         this.updateStyles({
-          '--grid-column-width': this.columnWidth + 'px',
-          '--grid-gutter': this.gutter + 'px'
+          "--grid-column-width": this.columnWidth + "px",
+          "--grid-gutter": this.gutter + "px",
         });
-      }
-
+      },
     });
-
   </script>
-
 </dom-module>

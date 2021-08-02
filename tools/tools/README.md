@@ -7,16 +7,16 @@ using some simple formatting conventions. You can also author codelabs using mar
 This repo contains all the tools and documentation you’ll need for building and publishing
 your own codelabs.
 
-If you're interested in authoring codelabs, create a doc following the [Codelab Formatting Guide](FORMAT-GUIDE.md). 
+If you're interested in authoring codelabs, create a doc following the [Codelab Formatting Guide](FORMAT-GUIDE.md).
 and see the [claat](claat) directory for a detailed description of the `claat` command line tool.
 
 Also, consider joining the [codelab-authors Google Group](https://groups.google.com/forum/#!forum/codelab-authors),
-which connects you with other authors and provides updates on new releases. 
+which connects you with other authors and provides updates on new releases.
 
 ## What is this?
 
 For the past 3+ years, the CLaaT (Codelabs as a Thing) project has given developers around the
-world a hands-on experience with Google products and tools.  We’ve accumulated over 500 high quality
+world a hands-on experience with Google products and tools. We’ve accumulated over 500 high quality
 codelabs, served millions of web visitors, and supported over 100 events, from local meetups
 all the way up to Google I/O.
 
@@ -25,16 +25,16 @@ who care deeply about this kind of “learning by doing” approach to education
 
 ## What's special about this tool?
 
-* Powerful and flexible authoring flow via Google Docs
-* Optional support for authoring in Markdown text
-* Ability to produce interactive web or markdown tutorials without writing any code
-* Easy interactive previewing
-* Usage monitoring via Google Analytics
-* Support for multiple target environments (kiosk, web, markdown, offline, etc.)
-* Support for anonymous use - ideal for public computers at developer events
-* Looks great, with a responsive web implementation
-* Remembers where the student left off when returning to a codelab
-* Mobile friendly user experience
+- Powerful and flexible authoring flow via Google Docs
+- Optional support for authoring in Markdown text
+- Ability to produce interactive web or markdown tutorials without writing any code
+- Easy interactive previewing
+- Usage monitoring via Google Analytics
+- Support for multiple target environments (kiosk, web, markdown, offline, etc.)
+- Support for anonymous use - ideal for public computers at developer events
+- Looks great, with a responsive web implementation
+- Remembers where the student left off when returning to a codelab
+- Mobile friendly user experience
 
 ## Can I use this to create my own codelabs and serve my own codelabs online?
 
@@ -51,15 +51,15 @@ which connects you with other authors and provides access to the
 
 Check out this [excellent tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd).
 
-1. Create a doc following the syntax conventions described in the [Codelab Formatting Guide](FORMAT-GUIDE.md). Here’s an [example doc](https://docs.google.com/document/d/1E6XMcdTexh5O8JwGy42SY3Ehzi8gOfUGiqTiUX6N04o/). Feel free to copy that doc as a starter template. Once you have your own source doc, note its DocId, which is the long string near the end of the URL (right after docs.google.com/document/d/).
+1.  Create a doc following the syntax conventions described in the [Codelab Formatting Guide](FORMAT-GUIDE.md). Here’s an [example doc](https://docs.google.com/document/d/1E6XMcdTexh5O8JwGy42SY3Ehzi8gOfUGiqTiUX6N04o/). Feel free to copy that doc as a starter template. Once you have your own source doc, note its DocId, which is the long string near the end of the URL (right after docs.google.com/document/d/).
 
-1. Make one or more changes and preview your codelab, using the preview app provided by Google. To preview a codelab, install the [Preview Codelab Chrome extension](https://chrome.google.com/webstore/detail/preview-codelab/lhojjnijnkiglhkggagbapfonpdlinji) in your browser. Now you can preview a codelab directly from the Google Doc view by clicking the Chrome extension’s button, which will open a new tab to display the preview. Alternatively, navigate manually to https://codelabs-preview.appspot.com/?file_id=<google-doc-id>
+1.  Make one or more changes and preview your codelab, using the preview app provided by Google. To preview a codelab, install the [Preview Codelab Chrome extension](https://chrome.google.com/webstore/detail/preview-codelab/lhojjnijnkiglhkggagbapfonpdlinji) in your browser. Now you can preview a codelab directly from the Google Doc view by clicking the Chrome extension’s button, which will open a new tab to display the preview. Alternatively, navigate manually to https://codelabs-preview.appspot.com/?file_id=<google-doc-id>
 
-1. Install the claat command -- see the [README in the claat directory](https://github.com/googlecodelabs/tools/blob/master/claat/README.md) of this repo for instructions..
+1.  Install the claat command -- see the [README in the claat directory](https://github.com/googlecodelabs/tools/blob/master/claat/README.md) of this repo for instructions..
 
-1. Run the claat command to transform the doc contents into one of the supported output formats. The default supported formats are html and markdown but the claat tool supports adding additional formats by specifying a path to a Go template. For example, using the example document above:
+1.  Run the claat command to transform the doc contents into one of the supported output formats. The default supported formats are html and markdown but the claat tool supports adding additional formats by specifying a path to a Go template. For example, using the example document above:
 
-        $ claat export 1rpHleSSeY-MJZ8JvncvYA8CFqlnlcrW8-a4uEaqizPY  
+        $ claat export 1rpHleSSeY-MJZ8JvncvYA8CFqlnlcrW8-a4uEaqizPY
         ok      your-first-pwapp
 
     You can also specify a markdown document (.md file) as input. It has to adhere to the syntax conventions described [here](https://github.com/googlecodelabs/tools/tree/master/claat/parser/md)
@@ -67,7 +67,7 @@ Check out this [excellent tutorial](https://medium.com/@zarinlo/publish-technica
         $ claat export document.md
         ok      your-md-based-codelab
 
-1. Run the claat serve command.
+1.  Run the claat serve command.
 
         $ claat serve
 
@@ -88,15 +88,15 @@ tag and rebuild the codelabs you want included, and then generate your view.
 The output generated by `claat` is a purely static set of HTML or Markdown code. As such,
 it can be served by any web serving mechanism, including any of the following options:
 
-* Github Pages (`*.github.io`)
-* [Google App Engine](https://cloud.google.com/appengine)
-* [Firebase Static Serving](https://firebase.google.com/products/hosting)
-* [Google Cloud Storage](https://cloud.google.com/storage)
-* Amazon Web Services S3
-* Netlify
-* Any open source web server (Nginx, Apache)
-* `python -m SimpleHTTPServer` (Python 2)
-* `python3 -m http.server` (Python 3)
+- Github Pages (`*.github.io`)
+- [Google App Engine](https://cloud.google.com/appengine)
+- [Firebase Static Serving](https://firebase.google.com/products/hosting)
+- [Google Cloud Storage](https://cloud.google.com/storage)
+- Amazon Web Services S3
+- Netlify
+- Any open source web server (Nginx, Apache)
+- `python -m SimpleHTTPServer` (Python 2)
+- `python3 -m http.server` (Python 3)
 
 Simply commit the artifacts generated by the claat command into your preferred serving vehicle
 and you should be ready to go.
@@ -124,15 +124,15 @@ for disaster.
 
 ## What are the supported input formats?
 
-* Google Docs (following FORMAT-GUIDE.md formatting conventions)
-* Markdown
+- Google Docs (following FORMAT-GUIDE.md formatting conventions)
+- Markdown
 
 ## What are the supported output formats?
 
-* Google Codelabs - HTML and Markdown
-* Qwiklabs - Markdown
-* Cloud Shell Tutorials - Markdown with special directives
-* Jupyter, Kaggle Kernels, Colaboratory, et. al. - Markdown with format specific cells
+- Google Codelabs - HTML and Markdown
+- Qwiklabs - Markdown
+- Cloud Shell Tutorials - Markdown with special directives
+- Jupyter, Kaggle Kernels, Colaboratory, et. al. - Markdown with format specific cells
 
 There’s no one “best” publication format. Each format has its own advantages,
 disadvantages, community, and application domain. For example, Jupyter has a very strong

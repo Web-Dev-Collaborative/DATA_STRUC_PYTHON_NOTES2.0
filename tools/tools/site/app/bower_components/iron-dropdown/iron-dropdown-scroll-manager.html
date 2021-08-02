@@ -8,18 +8,18 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <script>
-  (function() {
-    'use strict';
+  (function () {
+    "use strict";
     /**
      * Used to calculate the scroll direction during touch events.
      * @type {!Object}
      */
     var lastTouchPosition = {
       pageX: 0,
-      pageY: 0
+      pageY: 0,
     };
     /**
      * Used to avoid computing event.path and filter scrollable nodes (better perf).
@@ -38,7 +38,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
 
     Polymer.IronDropdownScrollManager = {
-
       /**
        * The current element that defines the DOM boundaries of the
        * scroll lock. This is always the most recently locking element.
@@ -54,11 +53,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {HTMLElement} element An HTML element instance which may or may
        * not be scroll locked.
        */
-      elementIsScrollLocked: function(element) {
+      elementIsScrollLocked: function (element) {
         var currentLockingElement = this.currentLockingElement;
 
-        if (currentLockingElement === undefined)
-          return false;
+        if (currentLockingElement === undefined) return false;
 
         var scrollLocked;
 
@@ -70,7 +68,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return false;
         }
 
-        scrollLocked = !!currentLockingElement &&
+        scrollLocked =
+          !!currentLockingElement &&
           currentLockingElement !== element &&
           !this._composedTreeContains(currentLockingElement, element);
 
@@ -93,7 +92,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *
        * @param {HTMLElement} element The element that should lock scroll.
        */
-      pushScrollLock: function(element) {
+      pushScrollLock: function (element) {
         // Prevent pushing the same element twice
         if (this._lockingElements.indexOf(element) >= 0) {
           return;
@@ -118,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {HTMLElement} element The element to remove from the scroll
        * lock stack.
        */
-      removeScrollLock: function(element) {
+      removeScrollLock: function (element) {
         var index = this._lockingElements.indexOf(element);
 
         if (index === -1) {
@@ -141,15 +140,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _unlockedElementCache: null,
 
-      _hasCachedLockedElement: function(element) {
+      _hasCachedLockedElement: function (element) {
         return this._lockedElementCache.indexOf(element) > -1;
       },
 
-      _hasCachedUnlockedElement: function(element) {
+      _hasCachedUnlockedElement: function (element) {
         return this._unlockedElementCache.indexOf(element) > -1;
       },
 
-      _composedTreeContains: function(element, child) {
+      _composedTreeContains: function (element, child) {
         // NOTE(cdata): This method iterates over content elements and their
         // corresponding distributed nodes to implement a contains-like method
         // that pierces through the composed tree of the ShadowDOM. Results of
@@ -165,15 +164,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return true;
         }
 
-        contentElements = Polymer.dom(element).querySelectorAll('content');
+        contentElements = Polymer.dom(element).querySelectorAll("content");
 
-        for (contentIndex = 0; contentIndex < contentElements.length; ++contentIndex) {
+        for (
+          contentIndex = 0;
+          contentIndex < contentElements.length;
+          ++contentIndex
+        ) {
+          distributedNodes = Polymer.dom(
+            contentElements[contentIndex]
+          ).getDistributedNodes();
 
-          distributedNodes = Polymer.dom(contentElements[contentIndex]).getDistributedNodes();
-
-          for (nodeIndex = 0; nodeIndex < distributedNodes.length; ++nodeIndex) {
-
-            if (this._composedTreeContains(distributedNodes[nodeIndex], child)) {
+          for (
+            nodeIndex = 0;
+            nodeIndex < distributedNodes.length;
+            ++nodeIndex
+          ) {
+            if (
+              this._composedTreeContains(distributedNodes[nodeIndex], child)
+            ) {
               return true;
             }
           }
@@ -182,7 +191,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return false;
       },
 
-      _scrollInteractionHandler: function(event) {
+      _scrollInteractionHandler: function (event) {
         // Avoid canceling an event with cancelable=false, e.g. scrolling is in
         // progress and cannot be interrupted.
         if (event.cancelable && this._shouldPreventScrolling(event)) {
@@ -196,27 +205,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _lockScrollInteractions: function() {
-        this._boundScrollHandler = this._boundScrollHandler ||
-          this._scrollInteractionHandler.bind(this);
+      _lockScrollInteractions: function () {
+        this._boundScrollHandler =
+          this._boundScrollHandler || this._scrollInteractionHandler.bind(this);
         // Modern `wheel` event for mouse wheel scrolling:
-        document.addEventListener('wheel', this._boundScrollHandler, true);
+        document.addEventListener("wheel", this._boundScrollHandler, true);
         // Older, non-standard `mousewheel` event for some FF:
-        document.addEventListener('mousewheel', this._boundScrollHandler, true);
+        document.addEventListener("mousewheel", this._boundScrollHandler, true);
         // IE:
-        document.addEventListener('DOMMouseScroll', this._boundScrollHandler, true);
+        document.addEventListener(
+          "DOMMouseScroll",
+          this._boundScrollHandler,
+          true
+        );
         // Save the lastScrollableNodes on touchstart, to be used on touchmove.
-        document.addEventListener('touchstart', this._boundScrollHandler, true);
+        document.addEventListener("touchstart", this._boundScrollHandler, true);
         // Mobile devices can scroll on touch move:
-        document.addEventListener('touchmove', this._boundScrollHandler, true);
+        document.addEventListener("touchmove", this._boundScrollHandler, true);
       },
 
-      _unlockScrollInteractions: function() {
-        document.removeEventListener('wheel', this._boundScrollHandler, true);
-        document.removeEventListener('mousewheel', this._boundScrollHandler, true);
-        document.removeEventListener('DOMMouseScroll', this._boundScrollHandler, true);
-        document.removeEventListener('touchstart', this._boundScrollHandler, true);
-        document.removeEventListener('touchmove', this._boundScrollHandler, true);
+      _unlockScrollInteractions: function () {
+        document.removeEventListener("wheel", this._boundScrollHandler, true);
+        document.removeEventListener(
+          "mousewheel",
+          this._boundScrollHandler,
+          true
+        );
+        document.removeEventListener(
+          "DOMMouseScroll",
+          this._boundScrollHandler,
+          true
+        );
+        document.removeEventListener(
+          "touchstart",
+          this._boundScrollHandler,
+          true
+        );
+        document.removeEventListener(
+          "touchmove",
+          this._boundScrollHandler,
+          true
+        );
       },
 
       /**
@@ -227,14 +256,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @return {boolean}
        * @private
        */
-      _shouldPreventScrolling: function(event) {
-
+      _shouldPreventScrolling: function (event) {
         // Update if root target changed. For touch events, ensure we don't
         // update during touchmove.
         var target = Polymer.dom(event).rootTarget;
-        if (event.type !== 'touchmove' && lastRootTarget !== target) {
+        if (event.type !== "touchmove" && lastRootTarget !== target) {
           lastRootTarget = target;
-          lastScrollableNodes = this._getScrollableNodes(Polymer.dom(event).path);
+          lastScrollableNodes = this._getScrollableNodes(
+            Polymer.dom(event).path
+          );
         }
 
         // Prevent event if no scrollable nodes.
@@ -243,13 +273,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         // Don't prevent touchstart event inside the locking element when it has
         // scrollable nodes.
-        if (event.type === 'touchstart') {
+        if (event.type === "touchstart") {
           return false;
         }
         // Get deltaX/Y.
         var info = this._getScrollInfo(event);
         // Prevent if there is no child that can scroll.
-        return !this._getScrollingNode(lastScrollableNodes, info.deltaX, info.deltaY);
+        return !this._getScrollingNode(
+          lastScrollableNodes,
+          info.deltaX,
+          info.deltaY
+        );
       },
 
       /**
@@ -259,7 +293,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @return {Array<Node>} scrollables
        * @private
        */
-      _getScrollableNodes: function(nodes) {
+      _getScrollableNodes: function (nodes) {
         var scrollables = [];
         var lockingIndex = nodes.indexOf(this.currentLockingElement);
         // Loop from root target to locking element (included).
@@ -271,10 +305,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var node = /** @type {!Element} */ (nodes[i]);
           // Check inline style before checking computed style.
           var style = node.style;
-          if (style.overflow !== 'scroll' && style.overflow !== 'auto') {
+          if (style.overflow !== "scroll" && style.overflow !== "auto") {
             style = window.getComputedStyle(node);
           }
-          if (style.overflow === 'scroll' || style.overflow === 'auto') {
+          if (style.overflow === "scroll" || style.overflow === "auto") {
             scrollables.push(node);
           }
         }
@@ -290,7 +324,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @return {Node|undefined}
        * @private
        */
-      _getScrollingNode: function(nodes, deltaX, deltaY) {
+      _getScrollingNode: function (nodes, deltaX, deltaY) {
         // No scroll.
         if (!deltaX && !deltaY) {
           return;
@@ -303,12 +337,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var canScroll = false;
           if (verticalScroll) {
             // delta < 0 is scroll up, delta > 0 is scroll down.
-            canScroll = deltaY < 0 ? node.scrollTop > 0 :
-              node.scrollTop < node.scrollHeight - node.clientHeight;
+            canScroll =
+              deltaY < 0
+                ? node.scrollTop > 0
+                : node.scrollTop < node.scrollHeight - node.clientHeight;
           } else {
             // delta < 0 is scroll left, delta > 0 is scroll right.
-            canScroll = deltaX < 0 ? node.scrollLeft > 0 :
-              node.scrollLeft < node.scrollWidth - node.clientWidth;
+            canScroll =
+              deltaX < 0
+                ? node.scrollLeft > 0
+                : node.scrollLeft < node.scrollWidth - node.clientWidth;
           }
           if (canScroll) {
             return node;
@@ -325,22 +363,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * negative: scroll up, 0: no scroll).
        * @private
        */
-      _getScrollInfo: function(event) {
+      _getScrollInfo: function (event) {
         var info = {
           deltaX: event.deltaX,
-          deltaY: event.deltaY
+          deltaY: event.deltaY,
         };
         // Already available.
-        if ('deltaX' in event) {
+        if ("deltaX" in event) {
           // do nothing, values are already good.
         }
         // Safari has scroll info in `wheelDeltaX/Y`.
-        else if ('wheelDeltaX' in event) {
+        else if ("wheelDeltaX" in event) {
           info.deltaX = -event.wheelDeltaX;
           info.deltaY = -event.wheelDeltaY;
         }
         // Firefox has scroll info in `detail` and `axis`.
-        else if ('axis' in event) {
+        else if ("axis" in event) {
           info.deltaX = event.axis === 1 ? event.detail : 0;
           info.deltaY = event.axis === 2 ? event.detail : 0;
         }
@@ -353,7 +391,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           info.deltaY = lastTouchPosition.pageY - touch.pageY;
         }
         return info;
-      }
+      },
     };
   })();
 </script>

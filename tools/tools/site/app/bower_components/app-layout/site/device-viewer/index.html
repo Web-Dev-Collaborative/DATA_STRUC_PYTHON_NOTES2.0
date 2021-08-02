@@ -8,35 +8,38 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
 
-  <title>Device Viewer</title>
+    <title>Device Viewer</title>
 
-  <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
 
-  <link rel="import" href="device-layout-viewer.html">
+    <link rel="import" href="device-layout-viewer.html" />
 
-  <style>
+    <style>
+      body {
+        margin: 0;
+        background-color: #fafafa;
+      }
 
-    body {
-      margin: 0;
-      background-color: #fafafa;
-    }
-
-    html, body, device-layout-viewer {
-      height: 100%;
-    }
-
-  </style>
-
-</head>
-<body>
-
-  <device-layout-viewer device="all" src="../../templates/publishing"></device-layout-viewer>
-
-</body>
+      html,
+      body,
+      device-layout-viewer {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <device-layout-viewer
+      device="all"
+      src="../../templates/publishing"
+    ></device-layout-viewer>
+  </body>
 </html>
