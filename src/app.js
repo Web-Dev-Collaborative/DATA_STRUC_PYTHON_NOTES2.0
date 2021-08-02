@@ -2,7 +2,7 @@
 
 const search = instantsearch({
   indexName: 'demo_ecommerce',
-  searchClient: algoliasearch('B1G2GM9NG0', 'aadef574be1f9252bb48d4ea09b5cfe5'),
+  searchClient: algoliasearch('THCDY2P71M', '87eeb6e2b5b372f50fadd0bc0b93efe5'),
 });
 
 search.addWidgets([
