@@ -1714,7 +1714,7 @@ var prettyPrint;
     var clock = Date;
     if (!clock["now"]) {
       clock = {
-        now: function () {
+        now() {
           return +new Date();
         },
       };

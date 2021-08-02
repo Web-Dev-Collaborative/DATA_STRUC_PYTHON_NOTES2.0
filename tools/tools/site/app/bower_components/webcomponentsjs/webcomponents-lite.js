@@ -542,7 +542,7 @@
     parse.call(this, input, null, base);
   }
   jURL.prototype = {
-    toString: function () {
+    toString() {
       return this.href;
     },
     get href() {
@@ -671,7 +671,7 @@ if (typeof WeakMap === "undefined") {
       this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
     };
     WeakMap.prototype = {
-      set: function (key, value) {
+      set(key, value) {
         var entry = key[this.name];
         if (entry && entry[0] === key) entry[1] = value;
         else
@@ -681,19 +681,19 @@ if (typeof WeakMap === "undefined") {
           });
         return this;
       },
-      get: function (key) {
+      get(key) {
         var entry;
         return (entry = key[this.name]) && entry[0] === key
           ? entry[1]
           : undefined;
       },
-      delete: function (key) {
+      delete(key) {
         var entry = key[this.name];
         if (!entry || entry[0] !== key) return false;
         entry[0] = entry[1] = undefined;
         return true;
       },
-      has: function (key) {
+      has(key) {
         var entry = key[this.name];
         if (!entry) return false;
         return entry[0] === key;
@@ -796,7 +796,7 @@ if (typeof WeakMap === "undefined") {
     this.uid_ = ++uidCounter;
   }
   JsMutationObserver.prototype = {
-    observe: function (target, options) {
+    observe(target, options) {
       target = wrapIfNeeded(target);
       if (
         (!options.childList && !options.attributes && !options.characterData) ||
@@ -826,7 +826,7 @@ if (typeof WeakMap === "undefined") {
       }
       registration.addListeners();
     },
-    disconnect: function () {
+    disconnect() {
       this.nodes_.forEach(function (node) {
         var registrations = registrationsTable.get(node);
         for (var i = 0; i < registrations.length; i++) {
@@ -840,7 +840,7 @@ if (typeof WeakMap === "undefined") {
       }, this);
       this.records_ = [];
     },
-    takeRecords: function () {
+    takeRecords() {
       var copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
@@ -897,7 +897,7 @@ if (typeof WeakMap === "undefined") {
     this.transientObservedNodes = [];
   }
   Registration.prototype = {
-    enqueue: function (record) {
+    enqueue(record) {
       var records = this.observer.records_;
       var length = records.length;
       if (records.length > 0) {
@@ -912,10 +912,10 @@ if (typeof WeakMap === "undefined") {
       }
       records[length] = record;
     },
-    addListeners: function () {
+    addListeners() {
       this.addListeners_(this.target);
     },
-    addListeners_: function (node) {
+    addListeners_(node) {
       var options = this.options;
       if (options.attributes)
         node.addEventListener("DOMAttrModified", this, true);
@@ -926,10 +926,10 @@ if (typeof WeakMap === "undefined") {
       if (options.childList || options.subtree)
         node.addEventListener("DOMNodeRemoved", this, true);
     },
-    removeListeners: function () {
+    removeListeners() {
       this.removeListeners_(this.target);
     },
-    removeListeners_: function (node) {
+    removeListeners_(node) {
       var options = this.options;
       if (options.attributes)
         node.removeEventListener("DOMAttrModified", this, true);
@@ -940,7 +940,7 @@ if (typeof WeakMap === "undefined") {
       if (options.childList || options.subtree)
         node.removeEventListener("DOMNodeRemoved", this, true);
     },
-    addTransientObserver: function (node) {
+    addTransientObserver(node) {
       if (node === this.target) return;
       this.addListeners_(node);
       this.transientObservedNodes.push(node);
@@ -948,7 +948,7 @@ if (typeof WeakMap === "undefined") {
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
     },
-    removeTransientObservers: function () {
+    removeTransientObservers() {
       var transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
       transientObservedNodes.forEach(function (node) {
@@ -962,7 +962,7 @@ if (typeof WeakMap === "undefined") {
         }
       }, this);
     },
-    handleEvent: function (e) {
+    handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
         case "DOMAttrModified":
@@ -1095,14 +1095,14 @@ if (typeof WeakMap === "undefined") {
       if (canDecorate) {
         try {
           Object.defineProperty(template, "innerHTML", {
-            get: function () {
+            get() {
               var o = "";
               for (var e = this.content.firstChild; e; e = e.nextSibling) {
                 o += e.outerHTML || escapeData(e.data);
               }
               return o;
             },
-            set: function (text) {
+            set(text) {
               contentDoc.body.innerHTML = text;
               TemplateImpl.bootstrap(contentDoc);
               while (this.content.firstChild) {
@@ -1223,7 +1223,7 @@ if (typeof WeakMap === "undefined") {
   if (!(window.performance && window.performance.now)) {
     var start = Date.now();
     window.performance = {
-      now: function () {
+      now() {
         return Date.now() - start;
       },
     };
@@ -1268,7 +1268,7 @@ if (typeof WeakMap === "undefined") {
       }
       origPreventDefault.call(this);
       Object.defineProperty(this, "defaultPrevented", {
-        get: function () {
+        get() {
           return true;
         },
         configurable: true,
@@ -1320,7 +1320,7 @@ window.HTMLImports = window.HTMLImports || {
   };
   var rootDocument = wrap(document);
   var currentScriptDescriptor = {
-    get: function () {
+    get() {
       var script =
         window.HTMLImports.currentScript ||
         document.currentScript ||
@@ -1492,7 +1492,7 @@ window.HTMLImports.addModule(function (scope) {
   var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
   var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
   var path = {
-    resolveUrlsInStyle: function (style, linkUrl) {
+    resolveUrlsInStyle(style, linkUrl) {
       var doc = style.ownerDocument;
       var resolver = doc.createElement("a");
       style.textContent = this.resolveUrlsInCssText(
@@ -1502,12 +1502,12 @@ window.HTMLImports.addModule(function (scope) {
       );
       return style;
     },
-    resolveUrlsInCssText: function (cssText, linkUrl, urlObj) {
+    resolveUrlsInCssText(cssText, linkUrl, urlObj) {
       var r = this.replaceUrls(cssText, urlObj, linkUrl, CSS_URL_REGEXP);
       r = this.replaceUrls(r, urlObj, linkUrl, CSS_IMPORT_REGEXP);
       return r;
     },
-    replaceUrls: function (text, urlObj, linkUrl, regexp) {
+    replaceUrls(text, urlObj, linkUrl, regexp) {
       return text.replace(regexp, function (m, pre, url, post) {
         var urlPath = url.replace(/["']/g, "");
         if (linkUrl) {
@@ -1525,14 +1525,14 @@ window.HTMLImports.addModule(function (scope) {
 window.HTMLImports.addModule(function (scope) {
   var xhr = {
     async: true,
-    ok: function (request) {
+    ok(request) {
       return (
         (request.status >= 200 && request.status < 300) ||
         request.status === 304 ||
         request.status === 0
       );
     },
-    load: function (url, next, nextContext) {
+    load(url, next, nextContext) {
       var request = new XMLHttpRequest();
       if (scope.flags.debug || scope.flags.bust) {
         url += "?" + Math.random();
@@ -1563,7 +1563,7 @@ window.HTMLImports.addModule(function (scope) {
       request.send();
       return request;
     },
-    loadDocument: function (url, next, nextContext) {
+    loadDocument(url, next, nextContext) {
       this.load(url, next, nextContext).responseType = "document";
     },
   };
@@ -1581,26 +1581,26 @@ window.HTMLImports.addModule(function (scope) {
     this.pending = {};
   };
   Loader.prototype = {
-    addNodes: function (nodes) {
+    addNodes(nodes) {
       this.inflight += nodes.length;
       for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         this.require(n);
       }
       this.checkDone();
     },
-    addNode: function (node) {
+    addNode(node) {
       this.inflight++;
       this.require(node);
       this.checkDone();
     },
-    require: function (elt) {
+    require(elt) {
       var url = elt.src || elt.href;
       elt.__nodeUrl = url;
       if (!this.dedupe(url, elt)) {
         this.fetch(url, elt);
       }
     },
-    dedupe: function (url, elt) {
+    dedupe(url, elt) {
       if (this.pending[url]) {
         this.pending[url].push(elt);
         return true;
@@ -1614,7 +1614,7 @@ window.HTMLImports.addModule(function (scope) {
       this.pending[url] = [elt];
       return false;
     },
-    fetch: function (url, elt) {
+    fetch(url, elt) {
       flags.load && console.log("fetch", url, elt);
       if (!url) {
         setTimeout(
@@ -1652,7 +1652,7 @@ window.HTMLImports.addModule(function (scope) {
         xhr.load(url, receiveXhr);
       }
     },
-    receive: function (url, elt, err, resource, redirectedUrl) {
+    receive(url, elt, err, resource, redirectedUrl) {
       this.cache[url] = resource;
       var $p = this.pending[url];
       for (var i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
@@ -1661,11 +1661,11 @@ window.HTMLImports.addModule(function (scope) {
       }
       this.pending[url] = null;
     },
-    tail: function () {
+    tail() {
       --this.inflight;
       this.checkDone();
     },
-    checkDone: function () {
+    checkDone() {
       if (!this.inflight) {
         this.oncomplete();
       }
@@ -1680,7 +1680,7 @@ window.HTMLImports.addModule(function (scope) {
     this.mo = new MutationObserver(this.handler.bind(this));
   };
   Observer.prototype = {
-    handler: function (mutations) {
+    handler(mutations) {
       for (
         var i = 0, l = mutations.length, m;
         i < l && (m = mutations[i]);
@@ -1691,7 +1691,7 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    addedNodes: function (nodes) {
+    addedNodes(nodes) {
       if (this.addCallback) {
         this.addCallback(nodes);
       }
@@ -1705,7 +1705,7 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    observe: function (root) {
+    observe(root) {
       this.mo.observe(root, {
         childList: true,
         subtree: true,
@@ -1738,13 +1738,13 @@ window.HTMLImports.addModule(function (scope) {
       style: "parseStyle",
     },
     dynamicElements: [],
-    parseNext: function () {
+    parseNext() {
       var next = this.nextToParse();
       if (next) {
         this.parse(next);
       }
     },
-    parse: function (elt) {
+    parse(elt) {
       if (this.isParsed(elt)) {
         flags.parse && console.log("[%s] is already parsed", elt.localName);
         return;
@@ -1755,17 +1755,17 @@ window.HTMLImports.addModule(function (scope) {
         fn.call(this, elt);
       }
     },
-    parseDynamic: function (elt, quiet) {
+    parseDynamic(elt, quiet) {
       this.dynamicElements.push(elt);
       if (!quiet) {
         this.parseNext();
       }
     },
-    markParsing: function (elt) {
+    markParsing(elt) {
       flags.parse && console.log("parsing", elt);
       this.parsingElement = elt;
     },
-    markParsingComplete: function (elt) {
+    markParsingComplete(elt) {
       elt.__importParsed = true;
       this.markDynamicParsingComplete(elt);
       if (elt.__importElement) {
@@ -1775,13 +1775,13 @@ window.HTMLImports.addModule(function (scope) {
       this.parsingElement = null;
       flags.parse && console.log("completed", elt);
     },
-    markDynamicParsingComplete: function (elt) {
+    markDynamicParsingComplete(elt) {
       var i = this.dynamicElements.indexOf(elt);
       if (i >= 0) {
         this.dynamicElements.splice(i, 1);
       }
     },
-    parseImport: function (elt) {
+    parseImport(elt) {
       elt.import = elt.__doc;
       if (window.HTMLImports.__importsParsingHook) {
         window.HTMLImports.__importsParsingHook(elt);
@@ -1816,7 +1816,7 @@ window.HTMLImports.addModule(function (scope) {
       }
       this.parseNext();
     },
-    parseLink: function (linkElt) {
+    parseLink(linkElt) {
       if (nodeIsImport(linkElt)) {
         this.parseImport(linkElt);
       } else {
@@ -1824,29 +1824,29 @@ window.HTMLImports.addModule(function (scope) {
         this.parseGeneric(linkElt);
       }
     },
-    parseStyle: function (elt) {
+    parseStyle(elt) {
       var src = elt;
       elt = cloneStyle(elt);
       src.__appliedElement = elt;
       elt.__importElement = src;
       this.parseGeneric(elt);
     },
-    parseGeneric: function (elt) {
+    parseGeneric(elt) {
       this.trackElement(elt);
       this.addElementToDocument(elt);
     },
-    rootImportForElement: function (elt) {
+    rootImportForElement(elt) {
       var n = elt;
       while (n.ownerDocument.__importLink) {
         n = n.ownerDocument.__importLink;
       }
       return n;
     },
-    addElementToDocument: function (elt) {
+    addElementToDocument(elt) {
       var port = this.rootImportForElement(elt.__importElement || elt);
       port.parentNode.insertBefore(elt, port);
     },
-    trackElement: function (elt, callback) {
+    trackElement(elt, callback) {
       var self = this;
       var done = function (e) {
         elt.removeEventListener("load", done);
@@ -1884,7 +1884,7 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    parseScript: function (scriptElt) {
+    parseScript(scriptElt) {
       var script = document.createElement("script");
       script.__importElement = scriptElt;
       script.src = scriptElt.src
@@ -1899,14 +1899,14 @@ window.HTMLImports.addModule(function (scope) {
       });
       this.addElementToDocument(script);
     },
-    nextToParse: function () {
+    nextToParse() {
       this._mayParse = [];
       return (
         !this.parsingElement &&
         (this.nextToParseInDoc(rootDocument) || this.nextToParseDynamic())
       );
     },
-    nextToParseInDoc: function (doc, link) {
+    nextToParseInDoc(doc, link) {
       if (doc && this._mayParse.indexOf(doc) < 0) {
         this._mayParse.push(doc);
         var nodes = doc.querySelectorAll(this.parseSelectorsForNode(doc));
@@ -1922,22 +1922,22 @@ window.HTMLImports.addModule(function (scope) {
       }
       return link;
     },
-    nextToParseDynamic: function () {
+    nextToParseDynamic() {
       return this.dynamicElements[0];
     },
-    parseSelectorsForNode: function (node) {
+    parseSelectorsForNode(node) {
       var doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentSelectors
         : this.importsSelectors;
     },
-    isParsed: function (node) {
+    isParsed(node) {
       return node.__importParsed;
     },
-    needsDynamicParsing: function (elt) {
+    needsDynamicParsing(elt) {
       return this.dynamicElements.indexOf(elt) >= 0;
     },
-    hasResource: function (node) {
+    hasResource(node) {
       if (nodeIsImport(node) && node.__doc === undefined) {
         return false;
       }
@@ -1986,23 +1986,23 @@ window.HTMLImports.addModule(function (scope) {
     documents: {},
     documentPreloadSelectors: IMPORT_SELECTOR,
     importsPreloadSelectors: [IMPORT_SELECTOR].join(","),
-    loadNode: function (node) {
+    loadNode(node) {
       importLoader.addNode(node);
     },
-    loadSubtree: function (parent) {
+    loadSubtree(parent) {
       var nodes = this.marshalNodes(parent);
       importLoader.addNodes(nodes);
     },
-    marshalNodes: function (parent) {
+    marshalNodes(parent) {
       return parent.querySelectorAll(this.loadSelectorsForNode(parent));
     },
-    loadSelectorsForNode: function (node) {
+    loadSelectorsForNode(node) {
       var doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentPreloadSelectors
         : this.importsPreloadSelectors;
     },
-    loaded: function (url, elt, resource, err, redirectedUrl) {
+    loaded(url, elt, resource, err, redirectedUrl) {
       flags.load && console.log("loaded", url, elt);
       elt.__resource = resource;
       elt.__error = err;
@@ -2020,12 +2020,12 @@ window.HTMLImports.addModule(function (scope) {
       }
       parser.parseNext();
     },
-    bootDocument: function (doc) {
+    bootDocument(doc) {
       this.loadSubtree(doc);
       this.observer.observe(doc);
       parser.parseNext();
     },
-    loadedAll: function () {
+    loadedAll() {
       parser.parseNext();
     },
   };
@@ -2065,7 +2065,7 @@ window.HTMLImports.addModule(function (scope) {
   }
   if (!document.baseURI) {
     var baseURIDescriptor = {
-      get: function () {
+      get() {
         var base = document.querySelector("base");
         return base ? base.href : window.location.href;
       },
@@ -2082,7 +2082,7 @@ window.HTMLImports.addModule(function (scope) {
   var parser = scope.parser;
   var importer = scope.importer;
   var dynamic = {
-    added: function (nodes) {
+    added(nodes) {
       var owner, parsed, loading;
       for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         if (!owner) {
@@ -2098,13 +2098,13 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    shouldLoadNode: function (node) {
+    shouldLoadNode(node) {
       return (
         node.nodeType === 1 &&
         matches.call(node, importer.loadSelectorsForNode(node))
       );
     },
-    shouldParseNode: function (node) {
+    shouldParseNode(node) {
       return (
         node.nodeType === 1 &&
         matches.call(node, parser.parseSelectorsForNode(node))

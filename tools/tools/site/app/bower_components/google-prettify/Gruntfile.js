@@ -43,7 +43,7 @@ module.exports = function (grunt) {
     copy: {
       prettify: {
         options: {
-          process: function (content) {
+          process(content) {
             // trim trailing whitespaces in blank lines added by preprocess
             return content.replace(/[ \f\t\v]+$/gm, "");
           },
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
       },
       langs: {
         options: {
-          process: function (content) {
+          process(content) {
             // replace PR.PR_* token names with inlined strings
             return content
               .replace(/\bPR\.PR_ATTRIB_NAME\b/g, '"atn"')
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
     aliases: {
       langs: {
         src: "loader/lang-*.js",
-        filter: function (src) {
+        filter(src) {
           // skip files that are themselves aliases created in previous runs
           return grunt.file.exists(src.replace(/^loader/, "src"));
         },

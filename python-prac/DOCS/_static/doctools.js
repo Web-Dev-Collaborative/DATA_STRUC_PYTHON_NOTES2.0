@@ -157,7 +157,7 @@ if (!jQuery.browser) {
  * Small JavaScript module for the documentation.
  */
 var Documentation = {
-  init: function () {
+  init() {
     this.fixFirefoxAnchorBug();
     this.highlightSearchWords();
     this.initIndexTable();
@@ -170,26 +170,26 @@ var Documentation = {
    * i18n support
    */
   TRANSLATIONS: {},
-  PLURAL_EXPR: function (n) {
+  PLURAL_EXPR(n) {
     return n === 1 ? 0 : 1;
   },
   LOCALE: "unknown",
 
   // gettext and ngettext don't access this so that the functions
   // can safely bound to a different name (_ = Documentation.gettext)
-  gettext: function (string) {
+  gettext(string) {
     var translated = Documentation.TRANSLATIONS[string];
     if (typeof translated === "undefined") return string;
     return typeof translated === "string" ? translated : translated[0];
   },
 
-  ngettext: function (singular, plural, n) {
+  ngettext(singular, plural, n) {
     var translated = Documentation.TRANSLATIONS[singular];
     if (typeof translated === "undefined") return n == 1 ? singular : plural;
     return translated[Documentation.PLURALEXPR(n)];
   },
 
-  addTranslations: function (catalog) {
+  addTranslations(catalog) {
     for (var key in catalog.messages)
       this.TRANSLATIONS[key] = catalog.messages[key];
     this.PLURAL_EXPR = new Function(
@@ -202,7 +202,7 @@ var Documentation = {
   /**
    * add context elements like header anchor links
    */
-  addContextElements: function () {
+  addContextElements() {
     $("div[id] > :header:first").each(function () {
       $('<a class="headerlink">\u00B6</a>')
         .attr("href", "#" + this.id)
@@ -221,7 +221,7 @@ var Documentation = {
    * workaround a firefox stupidity
    * see: https://bugzilla.mozilla.org/show_bug.cgi?id=645075
    */
-  fixFirefoxAnchorBug: function () {
+  fixFirefoxAnchorBug() {
     if (document.location.hash && $.browser.mozilla)
       window.setTimeout(function () {
         document.location.href += "";
@@ -231,7 +231,7 @@ var Documentation = {
   /**
    * highlight the search words provided in the url in the text
    */
-  highlightSearchWords: function () {
+  highlightSearchWords() {
     var params = $.getQueryParameters();
     var terms = params.highlight ? params.highlight[0].split(/\s+/) : [];
     if (terms.length) {
@@ -256,7 +256,7 @@ var Documentation = {
   /**
    * init the domain index toggle buttons
    */
-  initIndexTable: function () {
+  initIndexTable() {
     var togglers = $("img.toggler")
       .click(function () {
         var src = $(this).attr("src");
@@ -275,7 +275,7 @@ var Documentation = {
   /**
    * helper function to hide the search marks again
    */
-  hideSearchWords: function () {
+  hideSearchWords() {
     $("#searchbox .highlight-link").fadeOut(300);
     $("span.highlighted").removeClass("highlighted");
   },
@@ -283,14 +283,14 @@ var Documentation = {
   /**
    * make the url absolute
    */
-  makeURL: function (relativeURL) {
+  makeURL(relativeURL) {
     return DOCUMENTATION_OPTIONS.URL_ROOT + "/" + relativeURL;
   },
 
   /**
    * get the current relative url
    */
-  getCurrentURL: function () {
+  getCurrentURL() {
     var path = document.location.pathname;
     var parts = path.split(/\//);
     $.each(DOCUMENTATION_OPTIONS.URL_ROOT.split(/\//), function () {
@@ -300,7 +300,7 @@ var Documentation = {
     return path.substring(url.lastIndexOf("/") + 1, path.length - 1);
   },
 
-  initOnKeyListeners: function () {
+  initOnKeyListeners() {
     $(document).keydown(function (event) {
       var activeElementType = document.activeElement.tagName;
       // don't navigate when in search box or textarea

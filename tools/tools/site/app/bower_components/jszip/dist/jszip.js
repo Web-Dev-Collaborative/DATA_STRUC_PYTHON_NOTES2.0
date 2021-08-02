@@ -216,7 +216,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * The format will depend on the decompressor.
              * @return {Object} the decompressed content.
              */
-            getContent: function () {
+            getContent() {
               return null; // see implementation
             },
             /**
@@ -224,7 +224,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * The format will depend on the compressed conten source.
              * @return {Object} the compressed content.
              */
-            getCompressedContent: function () {
+            getCompressedContent() {
               return null; // see implementation
             },
           };
@@ -237,10 +237,10 @@ https://github.com/nodeca/pako/blob/master/LICENSE
           "use strict";
           exports.STORE = {
             magic: "\x00\x00",
-            compress: function (content, compressionOptions) {
+            compress(content, compressionOptions) {
               return content; // no compression
             },
-            uncompress: function (content) {
+            uncompress(content) {
               return content; // no compression
             },
             compressInputType: null,
@@ -362,7 +362,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {string} offset the additional offset to check.
              * @throws {Error} an Error if the offset is out of bounds.
              */
-            checkOffset: function (offset) {
+            checkOffset(offset) {
               this.checkIndex(this.index + offset);
             },
             /**
@@ -370,7 +370,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {string} newIndex the index to check.
              * @throws {Error} an Error if the index is out of bounds.
              */
-            checkIndex: function (newIndex) {
+            checkIndex(newIndex) {
               if (this.length < this.zero + newIndex || newIndex < 0) {
                 throw new Error(
                   "End of data reached (data length = " +
@@ -386,7 +386,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {number} newIndex The new index.
              * @throws {Error} if the new index is out of the data.
              */
-            setIndex: function (newIndex) {
+            setIndex(newIndex) {
               this.checkIndex(newIndex);
               this.index = newIndex;
             },
@@ -395,7 +395,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {number} n the number of bytes to skip.
              * @throws {Error} if the new index is out of the data.
              */
-            skip: function (n) {
+            skip(n) {
               this.setIndex(this.index + n);
             },
             /**
@@ -403,7 +403,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {number} i the index to use.
              * @return {number} a byte.
              */
-            byteAt: function (i) {
+            byteAt(i) {
               // see implementations
             },
             /**
@@ -411,7 +411,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {number} size the number of bytes to read.
              * @return {number} the corresponding number.
              */
-            readInt: function (size) {
+            readInt(size) {
               var result = 0,
                 i;
               this.checkOffset(size);
@@ -426,7 +426,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {number} size the number of bytes to read.
              * @return {string} the corresponding string.
              */
-            readString: function (size) {
+            readString(size) {
               return utils.transformTo("string", this.readData(size));
             },
             /**
@@ -434,7 +434,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {number} size the number of bytes to read.
              * @return {Object} the raw data, implementation specific.
              */
-            readData: function (size) {
+            readData(size) {
               // see implementations
             },
             /**
@@ -442,14 +442,14 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @param {string} sig the signature to find.
              * @return {number} the index of the last occurence, -1 if not found.
              */
-            lastIndexOfSignature: function (sig) {
+            lastIndexOfSignature(sig) {
               // see implementations
             },
             /**
              * Get the next date.
              * @return {Date} the date.
              */
-            readDate: function () {
+            readDate() {
               var dostime = this.readInt(4);
               return new Date(
                 ((dostime >> 25) & 0x7f) + 1980, // year
@@ -681,14 +681,14 @@ Usage:
              * @deprecated
              * This method will be removed in a future version without replacement.
              */
-            encode: function (input) {
+            encode(input) {
               return base64.encode(input);
             },
             /**
              * @deprecated
              * This method will be removed in a future version without replacement.
              */
-            decode: function (input) {
+            decode(input) {
               return base64.decode(input);
             },
           };
@@ -918,21 +918,21 @@ Usage:
              * Return the content as UTF8 string.
              * @return {string} the UTF8 string.
              */
-            asText: function () {
+            asText() {
               return dataToString.call(this, true);
             },
             /**
              * Returns the binary content.
              * @return {string} the content as binary.
              */
-            asBinary: function () {
+            asBinary() {
               return dataToString.call(this, false);
             },
             /**
              * Returns the content as a nodejs Buffer.
              * @return {Buffer} the content as a Buffer.
              */
-            asNodeBuffer: function () {
+            asNodeBuffer() {
               var result = getBinaryData(this);
               return utils.transformTo("nodebuffer", result);
             },
@@ -940,7 +940,7 @@ Usage:
              * Returns the content as an Uint8Array.
              * @return {Uint8Array} the content as an Uint8Array.
              */
-            asUint8Array: function () {
+            asUint8Array() {
               var result = getBinaryData(this);
               return utils.transformTo("uint8array", result);
             },
@@ -948,7 +948,7 @@ Usage:
              * Returns the content as an ArrayBuffer.
              * @return {ArrayBuffer} the content as an ArrayBufer.
              */
-            asArrayBuffer: function () {
+            asArrayBuffer() {
               return this.asUint8Array().buffer;
             },
           };
@@ -1436,7 +1436,7 @@ Usage:
              *  options.base64 : is the stream in base64 ? default : false
              * @return {JSZip} the current JSZip object
              */
-            load: function (stream, options) {
+            load(stream, options) {
               throw new Error(
                 "Load method is not defined. Is the file jszip-load.js included ?"
               );
@@ -1449,7 +1449,7 @@ Usage:
              * It takes 2 arguments : the relative path and the file.
              * @return {Array} An array of matching elements.
              */
-            filter: function (search) {
+            filter(search) {
               var result = [],
                 filename,
                 relativePath,
@@ -1490,7 +1490,7 @@ Usage:
              * @return  {JSZip|Object|Array} this JSZip object (when adding a file),
              * a file (when searching by string) or an array of files (when searching by regex).
              */
-            file: function (name, data, o) {
+            file(name, data, o) {
               if (arguments.length === 1) {
                 if (utils.isRegExp(name)) {
                   var regexp = name;
@@ -1518,7 +1518,7 @@ Usage:
              * @param   {String|RegExp} arg The name of the directory to add, or a regex to search folders.
              * @return  {JSZip} an object with the new directory as the root, or an array containing matching folders.
              */
-            folder: function (arg) {
+            folder(arg) {
               if (!arg) {
                 return this;
               }
@@ -1544,7 +1544,7 @@ Usage:
              * @param {string} name the name of the file to delete
              * @return {JSZip} this JSZip object
              */
-            remove: function (name) {
+            remove(name) {
               name = this.root + name;
               var file = this.files[name];
               if (!file) {
@@ -1579,7 +1579,7 @@ Usage:
              * - type, "base64" by default. Values are : string, base64, uint8array, arraybuffer, blob.
              * @return {String|Uint8Array|ArrayBuffer|Buffer|Blob} the zip file
              */
-            generate: function (options) {
+            generate(options) {
               options = utils.extend(options || {}, {
                 base64: true,
                 compression: "STORE",
@@ -1734,7 +1734,7 @@ Usage:
              * @deprecated
              * This method will be removed in a future version without replacement.
              */
-            crc32: function (input, crc) {
+            crc32(input, crc) {
               return crc32(input, crc);
             },
 
@@ -1742,7 +1742,7 @@ Usage:
              * @deprecated
              * This method will be removed in a future version without replacement.
              */
-            utf8encode: function (string) {
+            utf8encode(string) {
               return utils.transformTo("string", utf8.utf8encode(string));
             },
 
@@ -1750,7 +1750,7 @@ Usage:
              * @deprecated
              * This method will be removed in a future version without replacement.
              */
-            utf8decode: function (input) {
+            utf8decode(input) {
               return utf8.utf8decode(input);
             },
           };
@@ -1846,7 +1846,7 @@ Usage:
              * Append any content to the current string.
              * @param {Object} input the content to add.
              */
-            append: function (input) {
+            append(input) {
               input = utils.transformTo("string", input);
               this.data.push(input);
             },
@@ -1854,7 +1854,7 @@ Usage:
              * Finalize the construction an return the result.
              * @return {string} the generated string.
              */
-            finalize: function () {
+            finalize() {
               return this.data.join("");
             },
           };
@@ -1962,7 +1962,7 @@ Usage:
              * Append any content to the current array.
              * @param {Object} input the content to add.
              */
-            append: function (input) {
+            append(input) {
               if (input.length !== 0) {
                 // with an empty Uint8Array, Opera fails with a "Offset larger than array size"
                 input = utils.transformTo("uint8array", input);
@@ -1974,7 +1974,7 @@ Usage:
              * Finalize the construction an return the result.
              * @return {Uint8Array} the generated array.
              */
-            finalize: function () {
+            finalize() {
               return this.data;
             },
           };
@@ -2387,16 +2387,16 @@ Usage:
           // string to ?
           transform["string"] = {
             string: identity,
-            array: function (input) {
+            array(input) {
               return stringToArrayLike(input, new Array(input.length));
             },
-            arraybuffer: function (input) {
+            arraybuffer(input) {
               return transform["string"]["uint8array"](input).buffer;
             },
-            uint8array: function (input) {
+            uint8array(input) {
               return stringToArrayLike(input, new Uint8Array(input.length));
             },
-            nodebuffer: function (input) {
+            nodebuffer(input) {
               return stringToArrayLike(input, nodeBuffer(input.length));
             },
           };
@@ -2405,33 +2405,33 @@ Usage:
           transform["array"] = {
             string: arrayLikeToString,
             array: identity,
-            arraybuffer: function (input) {
+            arraybuffer(input) {
               return new Uint8Array(input).buffer;
             },
-            uint8array: function (input) {
+            uint8array(input) {
               return new Uint8Array(input);
             },
-            nodebuffer: function (input) {
+            nodebuffer(input) {
               return nodeBuffer(input);
             },
           };
 
           // arraybuffer to ?
           transform["arraybuffer"] = {
-            string: function (input) {
+            string(input) {
               return arrayLikeToString(new Uint8Array(input));
             },
-            array: function (input) {
+            array(input) {
               return arrayLikeToArrayLike(
                 new Uint8Array(input),
                 new Array(input.byteLength)
               );
             },
             arraybuffer: identity,
-            uint8array: function (input) {
+            uint8array(input) {
               return new Uint8Array(input);
             },
-            nodebuffer: function (input) {
+            nodebuffer(input) {
               return nodeBuffer(new Uint8Array(input));
             },
           };
@@ -2439,14 +2439,14 @@ Usage:
           // uint8array to ?
           transform["uint8array"] = {
             string: arrayLikeToString,
-            array: function (input) {
+            array(input) {
               return arrayLikeToArrayLike(input, new Array(input.length));
             },
-            arraybuffer: function (input) {
+            arraybuffer(input) {
               return input.buffer;
             },
             uint8array: identity,
-            nodebuffer: function (input) {
+            nodebuffer(input) {
               return nodeBuffer(input);
             },
           };
@@ -2454,13 +2454,13 @@ Usage:
           // nodebuffer to ?
           transform["nodebuffer"] = {
             string: arrayLikeToString,
-            array: function (input) {
+            array(input) {
               return arrayLikeToArrayLike(input, new Array(input.length));
             },
-            arraybuffer: function (input) {
+            arraybuffer(input) {
               return transform["nodebuffer"]["uint8array"](input).buffer;
             },
-            uint8array: function (input) {
+            uint8array(input) {
               return arrayLikeToArrayLike(input, new Uint8Array(input.length));
             },
             nodebuffer: identity,
@@ -2630,7 +2630,7 @@ Usage:
              * @param {string} expectedSignature the expected signature.
              * @throws {Error} if it is an other signature.
              */
-            checkSignature: function (expectedSignature) {
+            checkSignature(expectedSignature) {
               var signature = this.reader.readString(4);
               if (signature !== expectedSignature) {
                 throw new Error(
@@ -2649,7 +2649,7 @@ Usage:
              * @param {string} expectedSignature the signature to expect.
              * @return {boolean} true if the signature is here, false otherwise.
              */
-            isSignature: function (askedIndex, expectedSignature) {
+            isSignature(askedIndex, expectedSignature) {
               var currentIndex = this.reader.index;
               this.reader.setIndex(askedIndex);
               var signature = this.reader.readString(4);
@@ -2660,7 +2660,7 @@ Usage:
             /**
              * Read the end of the central directory.
              */
-            readBlockEndOfCentral: function () {
+            readBlockEndOfCentral() {
               this.diskNumber = this.reader.readInt(2);
               this.diskWithCentralDirStart = this.reader.readInt(2);
               this.centralDirRecordsOnThisDisk = this.reader.readInt(2);
@@ -2688,7 +2688,7 @@ Usage:
              * The end of central can coexist with its Zip64 brother,
              * I don't want to read the wrong number of bytes !
              */
-            readBlockZip64EndOfCentral: function () {
+            readBlockZip64EndOfCentral() {
               this.zip64EndOfCentralSize = this.reader.readInt(8);
               this.versionMadeBy = this.reader.readString(2);
               this.versionNeeded = this.reader.readInt(2);
@@ -2719,7 +2719,7 @@ Usage:
             /**
              * Read the end of the Zip 64 central directory locator.
              */
-            readBlockZip64EndOfCentralLocator: function () {
+            readBlockZip64EndOfCentralLocator() {
               this.diskWithZip64CentralDirStart = this.reader.readInt(4);
               this.relativeOffsetEndOfZip64CentralDir = this.reader.readInt(8);
               this.disksCount = this.reader.readInt(4);
@@ -2730,7 +2730,7 @@ Usage:
             /**
              * Read the local files, based on the offset read in the central part.
              */
-            readLocalFiles: function () {
+            readLocalFiles() {
               var i, file;
               for (i = 0; i < this.files.length; i++) {
                 file = this.files[i];
@@ -2744,7 +2744,7 @@ Usage:
             /**
              * Read the central directory.
              */
-            readCentralDir: function () {
+            readCentralDir() {
               var file;
 
               this.reader.setIndex(this.centralDirOffset);
@@ -2779,7 +2779,7 @@ Usage:
             /**
              * Read the end of central directory.
              */
-            readEndOfCentral: function () {
+            readEndOfCentral() {
               var offset = this.reader.lastIndexOfSignature(
                 sig.CENTRAL_DIRECTORY_END
               );
@@ -2905,7 +2905,7 @@ Usage:
                 );
               }
             },
-            prepareReader: function (data) {
+            prepareReader(data) {
               var type = utils.getTypeOf(data);
               utils.checkSupport(type);
               if (type === "string" && !support.uint8array) {
@@ -2931,7 +2931,7 @@ Usage:
              * Read a zip file and create ZipEntries.
              * @param {String|ArrayBuffer|Uint8Array|Buffer} data the binary string representing a zip file.
              */
-            load: function (data) {
+            load(data) {
               this.prepareReader(data);
               this.readEndOfCentral();
               this.readCentralDir();
@@ -2981,7 +2981,7 @@ Usage:
              * say if the file is encrypted.
              * @return {boolean} true if the file is encrypted, false otherwise.
              */
-            isEncrypted: function () {
+            isEncrypted() {
               // bit 1 is set
               return (this.bitFlag & 0x0001) === 0x0001;
             },
@@ -2989,7 +2989,7 @@ Usage:
              * say if the file has utf-8 filename/comment.
              * @return {boolean} true if the filename/comment is in utf-8, false otherwise.
              */
-            useUTF8: function () {
+            useUTF8() {
               // bit 11 is set
               return (this.bitFlag & 0x0800) === 0x0800;
             },
@@ -3000,7 +3000,7 @@ Usage:
              * @param {number} length the length of the data to read.
              * @return {Function} the callback to get the compressed content (the type depends of the DataReader class).
              */
-            prepareCompressedContent: function (reader, from, length) {
+            prepareCompressedContent(reader, from, length) {
               return function () {
                 var previousIndex = reader.index;
                 reader.setIndex(from);
@@ -3019,13 +3019,7 @@ Usage:
              * @param {number} uncompressedSize the uncompressed size to expect.
              * @return {Function} the callback to get the uncompressed content (the type depends of the DataReader class).
              */
-            prepareContent: function (
-              reader,
-              from,
-              length,
-              compression,
-              uncompressedSize
-            ) {
+            prepareContent(reader, from, length, compression, uncompressedSize) {
               return function () {
                 var compressedFileData = utils.transformTo(
                   compression.uncompressInputType,
@@ -3045,7 +3039,7 @@ Usage:
              * Read the local part of a zip file and add the info in this object.
              * @param {DataReader} reader the reader to use.
              */
-            readLocalPart: function (reader) {
+            readLocalPart(reader) {
               var compression, localExtraFieldsLength;
 
               // we already know everything from the central dir !
@@ -3124,7 +3118,7 @@ Usage:
              * Read the central part of a zip file and add the info in this object.
              * @param {DataReader} reader the reader to use.
              */
-            readCentralPart: function (reader) {
+            readCentralPart(reader) {
               this.versionMadeBy = reader.readInt(2);
               this.versionNeeded = reader.readInt(2);
               this.bitFlag = reader.readInt(2);
@@ -3154,7 +3148,7 @@ Usage:
             /**
              * Parse the external file attributes and get the unix/dos permissions.
              */
-            processAttributes: function () {
+            processAttributes() {
               this.unixPermissions = null;
               this.dosPermissions = null;
               var madeBy = this.versionMadeBy >> 8;
@@ -3185,7 +3179,7 @@ Usage:
              * Parse the ZIP64 extra field and merge the info in the current ZipEntry.
              * @param {DataReader} reader the reader to use.
              */
-            parseZIP64ExtraField: function (reader) {
+            parseZIP64ExtraField(reader) {
               if (!this.extraFields[0x0001]) {
                 return;
               }
@@ -3214,7 +3208,7 @@ Usage:
              * Read the central part of a zip file and add the info in this object.
              * @param {DataReader} reader the reader to use.
              */
-            readExtraFields: function (reader) {
+            readExtraFields(reader) {
               var start = reader.index,
                 extraFieldId,
                 extraFieldLength,
@@ -3237,7 +3231,7 @@ Usage:
             /**
              * Apply an UTF8 transformation if needed.
              */
-            handleUTF8: function () {
+            handleUTF8() {
               var decodeParamType = support.uint8array ? "uint8array" : "array";
               if (this.useUTF8()) {
                 this.fileNameStr = jszipProto.utf8decode(this.fileName);
@@ -3273,7 +3267,7 @@ Usage:
              * Find the unicode path declared in the extra field, if any.
              * @return {String} the unicode path, null otherwise.
              */
-            findExtraFieldUnicodePath: function () {
+            findExtraFieldUnicodePath() {
               var upathField = this.extraFields[0x7075];
               if (upathField) {
                 var extraReader = new StringReader(upathField.value);
@@ -3301,7 +3295,7 @@ Usage:
              * Find the unicode comment declared in the extra field, if any.
              * @return {String} the unicode comment, null otherwise.
              */
-            findExtraFieldUnicodeComment: function () {
+            findExtraFieldUnicodeComment() {
               var ucommentField = this.extraFields[0x6375];
               if (ucommentField) {
                 var extraReader = new StringReader(ucommentField.value);
@@ -4283,7 +4277,7 @@ Usage:
           };
 
           var fnTyped = {
-            arraySet: function (dest, src, src_offs, len, dest_offs) {
+            arraySet(dest, src, src_offs, len, dest_offs) {
               if (src.subarray && dest.subarray) {
                 dest.set(src.subarray(src_offs, src_offs + len), dest_offs);
                 return;
@@ -4294,7 +4288,7 @@ Usage:
               }
             },
             // Join array of chunks to single array.
-            flattenChunks: function (chunks) {
+            flattenChunks(chunks) {
               var i, l, len, pos, chunk, result;
 
               // calculate data length
@@ -4317,13 +4311,13 @@ Usage:
           };
 
           var fnUntyped = {
-            arraySet: function (dest, src, src_offs, len, dest_offs) {
+            arraySet(dest, src, src_offs, len, dest_offs) {
               for (var i = 0; i < len; i++) {
                 dest[dest_offs + i] = src[src_offs + i];
               }
             },
             // Join array of chunks to single array.
-            flattenChunks: function (chunks) {
+            flattenChunks(chunks) {
               return [].concat.apply([], chunks);
             },
           };

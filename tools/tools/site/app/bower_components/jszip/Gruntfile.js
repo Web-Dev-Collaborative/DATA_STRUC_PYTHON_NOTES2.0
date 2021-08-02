@@ -137,14 +137,14 @@ module.exports = function (grunt) {
           browserifyOptions: {
             standalone: "JSZip",
             insertGlobalVars: {
-              Buffer: function () {
+              Buffer() {
                 // instead of the full polyfill, we just use the raw value
                 // (or undefined).
                 return '(typeof Buffer !== "undefined" ? Buffer : undefined)';
               },
             },
           },
-          postBundleCB: function (err, src, done) {
+          postBundleCB(err, src, done) {
             // add the license
             var license = require("fs").readFileSync("lib/license_header.js");
             // remove the source mapping of zlib.js, see #75

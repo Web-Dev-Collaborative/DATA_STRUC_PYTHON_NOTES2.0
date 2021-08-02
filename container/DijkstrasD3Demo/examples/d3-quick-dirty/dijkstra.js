@@ -68,7 +68,7 @@
   };
 
   const Dijkstra = {
-    dijkstra: function (graph, source, dest) {
+    dijkstra(graph, source, dest) {
       let Q = [];
       let dist = Array(Object.keys(graph).length).fill(Number.MAX_VALUE);
       let prev = Array(Object.keys(graph).length).fill(Number.MAX_VALUE);

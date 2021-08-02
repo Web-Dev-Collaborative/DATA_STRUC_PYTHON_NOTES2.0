@@ -64,27 +64,27 @@ var dP = Object.defineProperty,
       );
       Object.defineProperties(ClassProto, {
         href: {
-          get: function () {
+          get() {
             return href.get.call(this);
           },
-          set: function (value) {
+          set(value) {
             var sp = this._searchParams;
             href.set.call(this, value);
             if (sp) updateSearchParams(sp);
           },
         },
         search: {
-          get: function () {
+          get() {
             return search.get.call(this);
           },
-          set: function (value) {
+          set(value) {
             var sp = this._searchParams;
             search.set.call(this, value);
             if (sp) updateSearchParams(sp);
           },
         },
         searchParams: {
-          get: function () {
+          get() {
             verifySearchParams(this, Class);
             return (
               this._searchParams ||
@@ -94,7 +94,7 @@ var dP = Object.defineProperty,
               )
             );
           },
-          set: function (sp) {
+          set(sp) {
             verifySearchParams(this, Class);
             createSearchParams(this, sp);
           },

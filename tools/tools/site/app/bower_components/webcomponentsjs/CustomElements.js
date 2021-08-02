@@ -16,7 +16,7 @@ if (typeof WeakMap === "undefined") {
       this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
     };
     WeakMap.prototype = {
-      set: function (key, value) {
+      set(key, value) {
         var entry = key[this.name];
         if (entry && entry[0] === key) entry[1] = value;
         else
@@ -26,19 +26,19 @@ if (typeof WeakMap === "undefined") {
           });
         return this;
       },
-      get: function (key) {
+      get(key) {
         var entry;
         return (entry = key[this.name]) && entry[0] === key
           ? entry[1]
           : undefined;
       },
-      delete: function (key) {
+      delete(key) {
         var entry = key[this.name];
         if (!entry || entry[0] !== key) return false;
         entry[0] = entry[1] = undefined;
         return true;
       },
-      has: function (key) {
+      has(key) {
         var entry = key[this.name];
         if (!entry) return false;
         return entry[0] === key;
@@ -141,7 +141,7 @@ if (typeof WeakMap === "undefined") {
     this.uid_ = ++uidCounter;
   }
   JsMutationObserver.prototype = {
-    observe: function (target, options) {
+    observe(target, options) {
       target = wrapIfNeeded(target);
       if (
         (!options.childList && !options.attributes && !options.characterData) ||
@@ -171,7 +171,7 @@ if (typeof WeakMap === "undefined") {
       }
       registration.addListeners();
     },
-    disconnect: function () {
+    disconnect() {
       this.nodes_.forEach(function (node) {
         var registrations = registrationsTable.get(node);
         for (var i = 0; i < registrations.length; i++) {
@@ -185,7 +185,7 @@ if (typeof WeakMap === "undefined") {
       }, this);
       this.records_ = [];
     },
-    takeRecords: function () {
+    takeRecords() {
       var copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
@@ -242,7 +242,7 @@ if (typeof WeakMap === "undefined") {
     this.transientObservedNodes = [];
   }
   Registration.prototype = {
-    enqueue: function (record) {
+    enqueue(record) {
       var records = this.observer.records_;
       var length = records.length;
       if (records.length > 0) {
@@ -257,10 +257,10 @@ if (typeof WeakMap === "undefined") {
       }
       records[length] = record;
     },
-    addListeners: function () {
+    addListeners() {
       this.addListeners_(this.target);
     },
-    addListeners_: function (node) {
+    addListeners_(node) {
       var options = this.options;
       if (options.attributes)
         node.addEventListener("DOMAttrModified", this, true);
@@ -271,10 +271,10 @@ if (typeof WeakMap === "undefined") {
       if (options.childList || options.subtree)
         node.addEventListener("DOMNodeRemoved", this, true);
     },
-    removeListeners: function () {
+    removeListeners() {
       this.removeListeners_(this.target);
     },
-    removeListeners_: function (node) {
+    removeListeners_(node) {
       var options = this.options;
       if (options.attributes)
         node.removeEventListener("DOMAttrModified", this, true);
@@ -285,7 +285,7 @@ if (typeof WeakMap === "undefined") {
       if (options.childList || options.subtree)
         node.removeEventListener("DOMNodeRemoved", this, true);
     },
-    addTransientObserver: function (node) {
+    addTransientObserver(node) {
       if (node === this.target) return;
       this.addListeners_(node);
       this.transientObservedNodes.push(node);
@@ -293,7 +293,7 @@ if (typeof WeakMap === "undefined") {
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
     },
-    removeTransientObservers: function () {
+    removeTransientObservers() {
       var transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
       transientObservedNodes.forEach(function (node) {
@@ -307,7 +307,7 @@ if (typeof WeakMap === "undefined") {
         }
       }, this);
     },
-    handleEvent: function (e) {
+    handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
         case "DOMAttrModified":
@@ -390,7 +390,7 @@ if (typeof WeakMap === "undefined") {
   if (!(window.performance && window.performance.now)) {
     var start = Date.now();
     window.performance = {
-      now: function () {
+      now() {
         return Date.now() - start;
       },
     };
@@ -435,7 +435,7 @@ if (typeof WeakMap === "undefined") {
       }
       origPreventDefault.call(this);
       Object.defineProperty(this, "defaultPrevented", {
-        get: function () {
+        get() {
           return true;
         },
         configurable: true,

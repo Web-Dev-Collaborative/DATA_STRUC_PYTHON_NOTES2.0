@@ -125,7 +125,7 @@ define(function () {
       items.push(name);
     });
     var iterator = {
-      next: function () {
+      next() {
         var value = items.shift();
         return { done: value === undefined, value: value };
       },
@@ -146,7 +146,7 @@ define(function () {
       items.push(value);
     });
     var iterator = {
-      next: function () {
+      next() {
         var value = items.shift();
         return { done: value === undefined, value: value };
       },
@@ -167,7 +167,7 @@ define(function () {
       items.push([name, value]);
     });
     var iterator = {
-      next: function () {
+      next() {
         var value = items.shift();
         return { done: value === undefined, value: value };
       },
@@ -280,27 +280,27 @@ URLSearchParamsProto.toBody = function() {
         );
         Object.defineProperties(ClassProto, {
           href: {
-            get: function () {
+            get() {
               return href.get.call(this);
             },
-            set: function (value) {
+            set(value) {
               var sp = this._searchParams;
               href.set.call(this, value);
               if (sp) updateSearchParams(sp);
             },
           },
           search: {
-            get: function () {
+            get() {
               return search.get.call(this);
             },
-            set: function (value) {
+            set(value) {
               var sp = this._searchParams;
               search.set.call(this, value);
               if (sp) updateSearchParams(sp);
             },
           },
           searchParams: {
-            get: function () {
+            get() {
               verifySearchParams(this, Class);
               return (
                 this._searchParams ||
@@ -310,7 +310,7 @@ URLSearchParamsProto.toBody = function() {
                 )
               );
             },
-            set: function (sp) {
+            set(sp) {
               verifySearchParams(this, Class);
               createSearchParams(this, sp);
             },

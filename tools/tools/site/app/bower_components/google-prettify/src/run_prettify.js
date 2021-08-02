@@ -1997,7 +1997,7 @@ var IN_GLOBAL_SCOPE = false;
         var clock = Date;
         if (!clock["now"]) {
           clock = {
-            now: function () {
+            now() {
               return +new Date();
             },
           };

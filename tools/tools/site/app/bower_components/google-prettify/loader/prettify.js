@@ -790,7 +790,7 @@
             c = Date;
           c.now ||
             (c = {
-              now: function () {
+              now() {
                 return +new Date();
               },
             });

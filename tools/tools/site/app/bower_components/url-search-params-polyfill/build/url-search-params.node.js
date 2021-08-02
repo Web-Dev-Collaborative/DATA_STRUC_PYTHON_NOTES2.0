@@ -124,7 +124,7 @@ URLSearchParamsProto.keys = function keys() {
     items.push(name);
   });
   var iterator = {
-    next: function () {
+    next() {
       var value = items.shift();
       return { done: value === undefined, value: value };
     },
@@ -145,7 +145,7 @@ URLSearchParamsProto.values = function values() {
     items.push(value);
   });
   var iterator = {
-    next: function () {
+    next() {
       var value = items.shift();
       return { done: value === undefined, value: value };
     },
@@ -166,7 +166,7 @@ URLSearchParamsProto.entries = function entries() {
     items.push([name, value]);
   });
   var iterator = {
-    next: function () {
+    next() {
       var value = items.shift();
       return { done: value === undefined, value: value };
     },

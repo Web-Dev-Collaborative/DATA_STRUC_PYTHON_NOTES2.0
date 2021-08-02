@@ -76,7 +76,7 @@ var URLSearchParams =
           t.push(n);
         });
         var n = {
-          next: function () {
+          next() {
             var e = t.shift();
             return { done: e === undefined, value: e };
           },
@@ -95,7 +95,7 @@ var URLSearchParams =
           t.push(e);
         });
         var n = {
-          next: function () {
+          next() {
             var e = t.shift();
             return { done: e === undefined, value: e };
           },
@@ -114,7 +114,7 @@ var URLSearchParams =
           t.push([n, e]);
         });
         var n = {
-          next: function () {
+          next() {
             var e = t.shift();
             return { done: e === undefined, value: e };
           },
@@ -208,31 +208,31 @@ var URLSearchParams =
           ((o = d(p(s))),
           Object.defineProperties(t, {
             href: {
-              get: function () {
+              get() {
                 return i.get.call(this);
               },
-              set: function (e) {
+              set(e) {
                 var t = this._searchParams;
                 i.set.call(this, e), t && v(t);
               },
             },
             search: {
-              get: function () {
+              get() {
                 return s.get.call(this);
               },
-              set: function (e) {
+              set(e) {
                 var t = this._searchParams;
                 s.set.call(this, e), t && v(t);
               },
             },
             searchParams: {
-              get: function () {
+              get() {
                 return (
                   m(this, e),
                   this._searchParams || o(this, new n(this.search.slice(1)))
                 );
               },
-              set: function (t) {
+              set(t) {
                 m(this, e), o(this, t);
               },
             },

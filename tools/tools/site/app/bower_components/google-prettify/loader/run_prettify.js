@@ -864,7 +864,7 @@
             PR_STRING: "str",
             PR_TAG: "tag",
             PR_TYPE: "typ",
-            prettyPrintOne: function (a, d, f) {
+            prettyPrintOne(a, d, f) {
               f = f || !1;
               d = d || null;
               var b = document.createElement("div");
@@ -989,7 +989,7 @@
                     c = Date;
                   c.now ||
                     (c = {
-                      now: function () {
+                      now() {
                         return +new Date();
                       },
                     });
