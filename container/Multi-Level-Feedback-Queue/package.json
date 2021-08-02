@@ -16,6 +16,7 @@
     "author": "Sean Chen",
     "license": "ISC",
     "devDependencies": {
+
         "babel-jest": "19.0.0",
         "eslint": "^3.17.1",
         "eslint-config-airbnb": "^14.1.0",
