@@ -4,14 +4,16 @@ const nodes = {};
 
 // Compute the distinct nodes from the links.
 // Creates nodes from edges if they don't already exist
-links.forEach(link => {
+links.forEach((link) => {
   link.source =
     nodes[link.source] || (nodes[link.source] = { name: link.source });
   link.target =
     nodes[link.target] || (nodes[link.target] = { name: link.target });
 });
 
-const width = 800, height = 400, radius = 16;
+const width = 800,
+  height = 400,
+  radius = 16;
 
 // This is the d3 force layout - this uses the nodes and links specified
 // to run the d3.layout.force() function, automatically laying them out
@@ -48,7 +50,7 @@ nodes["ROOT"].fixed = true;
 
 // This looks up the "group" id from d3_demo_data.js and appends it to
 // the existing nodes. This is used for coloring and grouping.
-Object.keys(nodes).forEach(key => {
+Object.keys(nodes).forEach((key) => {
   console.log(key);
   console.log(nodes[key]);
   console.log(demo_nodes[key]);
@@ -87,13 +89,13 @@ const path = svg
   .data(force.links())
   .enter()
   .append("path")
-  .attr("class", d => {
+  .attr("class", (d) => {
     return "link";
   })
-  .attr("key", d => {
+  .attr("key", (d) => {
     return `${d.source.name},${d.target.name}`;
   })
-  .attr("marker-end", d => {
+  .attr("marker-end", (d) => {
     return "url(#link)";
   });
 
@@ -105,7 +107,7 @@ const link_text = svg
   .enter()
   .append("text")
   .attr("class", "link-text")
-  .text(d => {
+  .text((d) => {
     return d.label;
   });
 
@@ -124,7 +126,7 @@ const circle = svg
   .enter()
   .append("circle")
   .attr("r", 16)
-  .attr("fill", d => {
+  .attr("fill", (d) => {
     return color(d.group);
   })
   .call(force.drag);
@@ -138,7 +140,7 @@ const text = svg
   .append("text")
   .attr("x", -12)
   .attr("y", ".31em")
-  .text(d => {
+  .text((d) => {
     return d.name;
   });
 
@@ -151,10 +153,10 @@ const text = svg
 function tick() {
   path.attr("d", linkArc);
   circle
-    .attr("cx", d => {
+    .attr("cx", (d) => {
       return (d.x = Math.max(radius, Math.min(width - radius, d.x)));
     })
-    .attr("cy", d => {
+    .attr("cy", (d) => {
       return (d.y = Math.max(radius, Math.min(height - radius, d.y)));
     });
   text.attr("transform", transform);
@@ -163,7 +165,9 @@ function tick() {
 
 // line goes from target to source in x and y, below is an affine matrix
 function linkArc(d) {
-  const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y, dr = 0; //Math.sqrt(dx * dx + dy * dy - 200);
+  const dx = d.target.x - d.source.x,
+    dy = d.target.y - d.source.y,
+    dr = 0; //Math.sqrt(dx * dx + dy * dy - 200);
   return (
     "M" +
     d.source.x +
@@ -182,7 +186,8 @@ function linkArc(d) {
 
 // Put the link text in the middle of each edge
 function placeText(d) {
-  const dx = (d.target.px - d.source.px) / 2 + d.source.px, dy = (d.target.py - d.source.py) / 2 + d.source.py;
+  const dx = (d.target.px - d.source.px) / 2 + d.source.px,
+    dy = (d.target.py - d.source.py) / 2 + d.source.py;
   return "translate(" + dx + "," + dy + ")";
 }
 

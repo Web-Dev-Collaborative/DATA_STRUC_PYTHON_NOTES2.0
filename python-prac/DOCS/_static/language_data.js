@@ -95,7 +95,7 @@ const Stemmer = function () {
   const mgr1 = "^(" + C + ")?" + V + C + V + C; // [C]VCVC... is m>1
   const s_v = "^(" + C + ")?" + v; // vowel in stem
 
-  this.stemWord = w => {
+  this.stemWord = (w) => {
     let stem;
     let suffix;
     let firstch;

@@ -30,7 +30,7 @@ if (!window.console || !console.firebug) {
 /**
  * small helper function to urldecode strings
  */
-jQuery.urldecode = x => {
+jQuery.urldecode = (x) => {
   return decodeURIComponent(x).replace(/\+/g, " ");
 };
 
@@ -44,7 +44,7 @@ jQuery.urlencode = encodeURIComponent;
  * current request. Multiple values per key are supported,
  * it will always return arrays of strings for the value parts.
  */
-jQuery.getQueryParameters = s => {
+jQuery.getQueryParameters = (s) => {
   if (typeof s === "undefined") s = document.location.search;
   const parts = s.substr(s.indexOf("?") + 1).split("&");
   const result = {};
@@ -132,7 +132,7 @@ jQuery.fn.highlightText = function (text, className) {
  * This will be supported until firefox bug is fixed.
  */
 if (!jQuery.browser) {
-  jQuery.uaMatch = ua => {
+  jQuery.uaMatch = (ua) => {
     ua = ua.toLowerCase();
 
     const match =
@@ -301,7 +301,7 @@ const Documentation = {
   },
 
   initOnKeyListeners() {
-    $(document).keydown(event => {
+    $(document).keydown((event) => {
       const activeElementType = document.activeElement.tagName;
       // don't navigate when in search box or textarea
       if (
