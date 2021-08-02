@@ -1,7 +1,7 @@
-# 
-# 
+#
+#
 # """# Challenges"""
-# 
+#
 # """
 # Challenge #1:
 # Create a function that takes two numbers as arguments and return their sum.
@@ -10,11 +10,14 @@
 # - addition(-3, -6) ➞ -9
 # - addition(7, 3) ➞ 10
 # """
-print('example #1:')
+print("example #1:")
+
 
 def add(a, b):
-  return a + b
-print(add(3,2))
+    return a + b
+
+
+print(add(3, 2))
 
 
 # """
@@ -28,7 +31,7 @@ print(add(3,2))
 
 
 # def convert(minutes):
-    # Your code here
+# Your code here
 
 
 # """
@@ -42,7 +45,7 @@ print(add(3,2))
 
 
 # def string_int(txt):
-    # Your code here
+# Your code here
 
 
 # """
@@ -112,8 +115,8 @@ print(add(3,2))
 # - num_args({}) ➞ 1
 # # """
 # def num_args():
-# 
-# 
+#
+#
 # """
 # Challenge #9:
 # Write a function that creates a dictionary with each (key, value) pair being
@@ -127,7 +130,7 @@ print(add(3,2))
 # """
 # def mapping(letters):
 
-# 
+#
 # """
 # Challenge #10:
 # Create a function that applies a discount d to every number in the list.
