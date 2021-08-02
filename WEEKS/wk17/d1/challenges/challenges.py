@@ -28,8 +28,8 @@ print(add(3, 2))
 # - convert(3) ➞ 180
 # - convert(2) ➞ 120
 # """
-
-
+def convert(int)
+  return int*60
 # def convert(minutes):
 # Your code here
 
