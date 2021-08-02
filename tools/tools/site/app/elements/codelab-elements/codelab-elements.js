@@ -564,7 +564,7 @@
     observedAttributes: {
       configurable: !0,
       enumerable: !0,
-      get: function () {
+      get() {
         return ["authors", "last-updated", "codelab-title"];
       },
     },
@@ -607,7 +607,7 @@
       aa(Array.prototype, a, {
         configurable: !0,
         writable: !0,
-        value: function () {
+        value() {
           return da(this);
         },
       });
@@ -1206,7 +1206,7 @@
       if (!v.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
-          get: function () {
+          get() {
             a = !0;
           },
         });
@@ -1706,7 +1706,7 @@
     observedAttributes: {
       configurable: !0,
       enumerable: !0,
-      get: function () {
+      get() {
         return ["codelab-gaid", "environment", "category"];
       },
     },
@@ -1950,7 +1950,7 @@
       if (!m.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
-          get: function () {
+          get() {
             a = !0;
           },
         });
@@ -2449,7 +2449,7 @@
     observedAttributes: {
       configurable: !0,
       enumerable: !0,
-      get: function () {
+      get() {
         return ["label", "step"];
       },
     },
@@ -2692,7 +2692,7 @@
       if (!m.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
-          get: function () {
+          get() {
             a = !0;
           },
         });
@@ -3639,7 +3639,7 @@
       if (!h.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
-          get: function () {
+          get() {
             a = !0;
           },
         });
@@ -5129,14 +5129,14 @@
     eventHandler: {
       configurable: !0,
       enumerable: !0,
-      get: function () {
+      get() {
         return this.i;
       },
     },
     steps: {
       configurable: !0,
       enumerable: !0,
-      get: function () {
+      get() {
         return this.c;
       },
     },
@@ -5145,7 +5145,7 @@
     observedAttributes: {
       configurable: !0,
       enumerable: !0,
-      get: function () {
+      get() {
         return "title codelab-title environment category feedback-link selected last-updated no-toolbar no-arrows anayltics-ready".split(
           " "
         );

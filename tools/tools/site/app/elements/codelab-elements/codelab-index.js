@@ -74,7 +74,7 @@
       fa(Array.prototype, a, {
         configurable: !0,
         writable: !0,
-        value: function () {
+        value() {
           return ja(this);
         },
       });
@@ -700,7 +700,7 @@
     observedAttributes: {
       configurable: !0,
       enumerable: !0,
-      get: function () {
+      get() {
         return ["sort", "filter", "category", "tags"];
       },
     },
@@ -757,7 +757,7 @@
       if (!q.addEventListener || !Object.defineProperty) return !1;
       var a = !1,
         b = Object.defineProperty({}, "passive", {
-          get: function () {
+          get() {
             a = !0;
           },
         });

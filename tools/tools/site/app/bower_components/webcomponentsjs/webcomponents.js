@@ -67,7 +67,7 @@ if (WebComponents.flags.shadow) {
         this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
       };
       WeakMap.prototype = {
-        set: function (key, value) {
+        set(key, value) {
           var entry = key[this.name];
           if (entry && entry[0] === key) entry[1] = value;
           else
@@ -77,19 +77,19 @@ if (WebComponents.flags.shadow) {
             });
           return this;
         },
-        get: function (key) {
+        get(key) {
           var entry;
           return (entry = key[this.name]) && entry[0] === key
             ? entry[1]
             : undefined;
         },
-        delete: function (key) {
+        delete(key) {
           var entry = key[this.name];
           if (!entry || entry[0] !== key) return false;
           entry[0] = entry[1] = undefined;
           return true;
         },
-        has: function (key) {
+        has(key) {
           var entry = key[this.name];
           if (!entry) return false;
           return entry[0] === key;
@@ -190,8 +190,8 @@ if (WebComponents.flags.shadow) {
     }
     var isFirefox = /Firefox/.test(navigator.userAgent);
     var dummyDescriptor = {
-      get: function () {},
-      set: function (v) {},
+      get() {},
+      set(v) {},
       configurable: true,
       enumerable: true,
     };
@@ -430,14 +430,7 @@ if (WebComponents.flags.shadow) {
     var EDIT_DELETE = 3;
     function ArraySplice() {}
     ArraySplice.prototype = {
-      calcEditDistances: function (
-        current,
-        currentStart,
-        currentEnd,
-        old,
-        oldStart,
-        oldEnd
-      ) {
+      calcEditDistances(current, currentStart, currentEnd, old, oldStart, oldEnd) {
         var rowCount = oldEnd - oldStart + 1;
         var columnCount = currentEnd - currentStart + 1;
         var distances = new Array(rowCount);
@@ -461,7 +454,7 @@ if (WebComponents.flags.shadow) {
         }
         return distances;
       },
-      spliceOperationsFromEditDistances: function (distances) {
+      spliceOperationsFromEditDistances(distances) {
         var i = distances.length - 1;
         var j = distances[0].length - 1;
         var current = distances[i][j];
@@ -505,14 +498,7 @@ if (WebComponents.flags.shadow) {
         edits.reverse();
         return edits;
       },
-      calcSplices: function (
-        current,
-        currentStart,
-        currentEnd,
-        old,
-        oldStart,
-        oldEnd
-      ) {
+      calcSplices(current, currentStart, currentEnd, old, oldStart, oldEnd) {
         var prefixCount = 0;
         var suffixCount = 0;
         var minLength = Math.min(currentEnd - currentStart, oldEnd - oldStart);
@@ -586,12 +572,12 @@ if (WebComponents.flags.shadow) {
         }
         return splices;
       },
-      sharedPrefix: function (current, old, searchLength) {
+      sharedPrefix(current, old, searchLength) {
         for (var i = 0; i < searchLength; i++)
           if (!this.equals(current[i], old[i])) return i;
         return searchLength;
       },
-      sharedSuffix: function (current, old, searchLength) {
+      sharedSuffix(current, old, searchLength) {
         var index1 = current.length;
         var index2 = old.length;
         var count = 0;
@@ -602,7 +588,7 @@ if (WebComponents.flags.shadow) {
           count++;
         return count;
       },
-      calculateSplices: function (current, previous) {
+      calculateSplices(current, previous) {
         return this.calcSplices(
           current,
           0,
@@ -612,7 +598,7 @@ if (WebComponents.flags.shadow) {
           previous.length
         );
       },
-      equals: function (currentValue, previousValue) {
+      equals(currentValue, previousValue) {
         return currentValue === previousValue;
       },
     };
@@ -818,7 +804,7 @@ if (WebComponents.flags.shadow) {
     }
     MutationObserver.prototype = {
       constructor: MutationObserver,
-      observe: function (target, options) {
+      observe(target, options) {
         target = wrapIfNeeded(target);
         var newOptions = new MutationObserverOptions(options);
         var registration;
@@ -838,7 +824,7 @@ if (WebComponents.flags.shadow) {
           this.nodes_.push(target);
         }
       },
-      disconnect: function () {
+      disconnect() {
         this.nodes_.forEach(function (node) {
           var registrations = registrationsTable.get(node);
           for (var i = 0; i < registrations.length; i++) {
@@ -851,7 +837,7 @@ if (WebComponents.flags.shadow) {
         }, this);
         this.records_ = [];
       },
-      takeRecords: function () {
+      takeRecords() {
         var copyOfRecords = this.records_;
         this.records_ = [];
         return copyOfRecords;
@@ -864,7 +850,7 @@ if (WebComponents.flags.shadow) {
       this.transientObservedNodes = [];
     }
     Registration.prototype = {
-      addTransientObserver: function (node) {
+      addTransientObserver(node) {
         if (node === this.target) return;
         scheduleCallback(this.observer);
         this.transientObservedNodes.push(node);
@@ -872,7 +858,7 @@ if (WebComponents.flags.shadow) {
         if (!registrations) registrationsTable.set(node, (registrations = []));
         registrations.push(this);
       },
-      removeTransientObservers: function () {
+      removeTransientObservers() {
         var transientObservedNodes = this.transientObservedNodes;
         this.transientObservedNodes = [];
         for (var i = 0; i < transientObservedNodes.length; i++) {
@@ -905,7 +891,7 @@ if (WebComponents.flags.shadow) {
         }
         return null;
       },
-      contains: function (treeScope) {
+      contains(treeScope) {
         for (; treeScope; treeScope = treeScope.parent) {
           if (treeScope === this) return true;
         }
@@ -1258,7 +1244,7 @@ if (WebComponents.flags.shadow) {
       this.capture = Boolean(capture);
     }
     Listener.prototype = {
-      equals: function (that) {
+      equals(that) {
         return (
           this.handler === that.handler &&
           this.type === that.type &&
@@ -1268,7 +1254,7 @@ if (WebComponents.flags.shadow) {
       get removed() {
         return this.handler === null;
       },
-      remove: function () {
+      remove() {
         this.handler = null;
       },
     };
@@ -1307,10 +1293,10 @@ if (WebComponents.flags.shadow) {
         if (!eventPath) return [];
         return eventPath.slice();
       },
-      stopPropagation: function () {
+      stopPropagation() {
         stopPropagationTable.set(this, true);
       },
-      stopImmediatePropagation: function () {
+      stopImmediatePropagation() {
         stopPropagationTable.set(this, true);
         stopImmediatePropagationTable.set(this, true);
       },
@@ -1326,7 +1312,7 @@ if (WebComponents.flags.shadow) {
         if (!this.cancelable) return;
         unsafeUnwrap(this).preventDefault();
         Object.defineProperty(this, "defaultPrevented", {
-          get: function () {
+          get() {
             return true;
           },
           configurable: true,
@@ -1536,7 +1522,7 @@ if (WebComponents.flags.shadow) {
       return unwrap(wrapper);
     }
     EventTarget.prototype = {
-      addEventListener: function (type, fun, capture) {
+      addEventListener(type, fun, capture) {
         if (!isValidListener(fun) || isMutationEvent(type)) return;
         var listener = new Listener(type, fun, capture);
         var listeners = listenersTable.get(this);
@@ -1553,7 +1539,7 @@ if (WebComponents.flags.shadow) {
         var target = getTargetToListenAt(this);
         target.addEventListener_(type, dispatchOriginalEvent, true);
       },
-      removeEventListener: function (type, fun, capture) {
+      removeEventListener(type, fun, capture) {
         capture = Boolean(capture);
         var listeners = listenersTable.get(this);
         if (!listeners) return;
@@ -1573,7 +1559,7 @@ if (WebComponents.flags.shadow) {
           target.removeEventListener_(type, dispatchOriginalEvent, true);
         }
       },
-      dispatchEvent: function (event) {
+      dispatchEvent(event) {
         var nativeEvent = unwrap(event);
         var eventType = nativeEvent.type;
         handledEventsTable.set(nativeEvent, false);
@@ -1729,7 +1715,7 @@ if (WebComponents.flags.shadow) {
       nonEnum(this, "length");
     }
     TouchList.prototype = {
-      item: function (index) {
+      item(index) {
         return this[index];
       },
     };
@@ -1755,7 +1741,7 @@ if (WebComponents.flags.shadow) {
       get changedTouches() {
         return wrapTouchList(unsafeUnwrap(this).changedTouches);
       },
-      initTouchEvent: function () {
+      initTouchEvent() {
         throw new Error("Not implemented");
       },
     });
@@ -1779,7 +1765,7 @@ if (WebComponents.flags.shadow) {
       nonEnum(this, "length");
     }
     NodeList.prototype = {
-      item: function (index) {
+      item(index) {
         return this[index];
       },
     };
@@ -2056,10 +2042,10 @@ if (WebComponents.flags.shadow) {
         };
     Node.prototype = Object.create(EventTarget.prototype);
     mixin(Node.prototype, {
-      appendChild: function (childWrapper) {
+      appendChild(childWrapper) {
         return this.insertBefore(childWrapper, null);
       },
-      insertBefore: function (childWrapper, refWrapper) {
+      insertBefore(childWrapper, refWrapper) {
         assertIsNodeWrapper(childWrapper);
         var refNode;
         if (refWrapper) {
@@ -2116,7 +2102,7 @@ if (WebComponents.flags.shadow) {
         nodesWereAdded(nodes, this);
         return childWrapper;
       },
-      removeChild: function (childWrapper) {
+      removeChild(childWrapper) {
         assertIsNodeWrapper(childWrapper);
         if (childWrapper.parentNode !== this) {
           var found = false;
@@ -2171,7 +2157,7 @@ if (WebComponents.flags.shadow) {
         registerTransientObservers(this, childWrapper);
         return childWrapper;
       },
-      replaceChild: function (newChildWrapper, oldChildWrapper) {
+      replaceChild(newChildWrapper, oldChildWrapper) {
         assertIsNodeWrapper(newChildWrapper);
         var oldChildNode;
         if (isWrapper(oldChildWrapper)) {
@@ -2230,12 +2216,12 @@ if (WebComponents.flags.shadow) {
         nodesWereAdded(nodes, this);
         return oldChildWrapper;
       },
-      nodeIsInserted_: function () {
+      nodeIsInserted_() {
         for (var child = this.firstChild; child; child = child.nextSibling) {
           child.nodeIsInserted_();
         }
       },
-      hasChildNodes: function () {
+      hasChildNodes() {
         return this.firstChild !== null;
       },
       get parentNode() {
@@ -2310,25 +2296,25 @@ if (WebComponents.flags.shadow) {
         wrapperList.length = i;
         return wrapperList;
       },
-      cloneNode: function (deep) {
+      cloneNode(deep) {
         return cloneNode(this, deep);
       },
-      contains: function (child) {
+      contains(child) {
         return contains(this, wrapIfNeeded(child));
       },
-      compareDocumentPosition: function (otherNode) {
+      compareDocumentPosition(otherNode) {
         return originalCompareDocumentPosition.call(
           unsafeUnwrap(this),
           unwrapIfNeeded(otherNode)
         );
       },
-      isEqualNode: function (otherNode) {
+      isEqualNode(otherNode) {
         return originalIsEqualNode.call(
           unsafeUnwrap(this),
           unwrapIfNeeded(otherNode)
         );
       },
-      normalize: function () {
+      normalize() {
         var nodes = snapshotNodeList(this.childNodes);
         var remNodes = [];
         var s = "";
@@ -2484,7 +2470,7 @@ if (WebComponents.flags.shadow) {
       return filterNodeList(list, index, result, deep);
     }
     var SelectorsInterface = {
-      querySelector: function (selector) {
+      querySelector(selector) {
         var shimmed = shimSelector(selector);
         var deep = shimmed !== selector;
         selector = shimmed;
@@ -2513,7 +2499,7 @@ if (WebComponents.flags.shadow) {
         }
         return wrappedItem;
       },
-      querySelectorAll: function (selector) {
+      querySelectorAll(selector) {
         var shimmed = shimSelector(selector);
         var deep = shimmed !== selector;
         selector = shimmed;
@@ -2530,7 +2516,7 @@ if (WebComponents.flags.shadow) {
       },
     };
     var MatchesInterface = {
-      matches: function (selector) {
+      matches(selector) {
         selector = shimMatchesSelector(selector);
         return scope.originalMatches.call(unsafeUnwrap(this), selector);
       },
@@ -2588,7 +2574,7 @@ if (WebComponents.flags.shadow) {
       return filterNodeList(list, index, result, false);
     }
     var GetElementsByInterface = {
-      getElementsByTagName: function (localName) {
+      getElementsByTagName(localName) {
         var result = new HTMLCollection();
         var match = localName === "*" ? matchesEveryThing : matchesTagName;
         result.length = getElementsByTagNameFiltered.call(
@@ -2601,10 +2587,10 @@ if (WebComponents.flags.shadow) {
         );
         return result;
       },
-      getElementsByClassName: function (className) {
+      getElementsByClassName(className) {
         return this.querySelectorAll("." + className);
       },
-      getElementsByTagNameNS: function (ns, localName) {
+      getElementsByTagNameNS(ns, localName) {
         var result = new HTMLCollection();
         var match = null;
         if (ns === "*") {
@@ -2673,7 +2659,7 @@ if (WebComponents.flags.shadow) {
         wrapperList.length = i;
         return wrapperList;
       },
-      remove: function () {
+      remove() {
         var p = this.parentNode;
         if (p) p.removeChild(this);
       },
@@ -2687,7 +2673,7 @@ if (WebComponents.flags.shadow) {
       },
     };
     var NonElementParentNodeInterface = {
-      getElementById: function (id) {
+      getElementById(id) {
         if (/[ \t\n\r\f]/.test(id)) return null;
         return this.querySelector('[id="' + id + '"]');
       },
@@ -2756,7 +2742,7 @@ if (WebComponents.flags.shadow) {
     }
     Text.prototype = Object.create(CharacterData.prototype);
     mixin(Text.prototype, {
-      splitText: function (offset) {
+      splitText(offset) {
         offset = toUInt32(offset);
         var s = this.data;
         if (offset > s.length) throw new Error("IndexSizeError");
@@ -2867,7 +2853,7 @@ if (WebComponents.flags.shadow) {
     }
     Element.prototype = Object.create(Node.prototype);
     mixin(Element.prototype, {
-      createShadowRoot: function () {
+      createShadowRoot() {
         var newShadowRoot = new wrappers.ShadowRoot(this);
         unsafeUnwrap(this).polymerShadowRoot_ = newShadowRoot;
         var renderer = scope.getRendererForHost(this);
@@ -2877,13 +2863,13 @@ if (WebComponents.flags.shadow) {
       get shadowRoot() {
         return unsafeUnwrap(this).polymerShadowRoot_ || null;
       },
-      setAttribute: function (name, value) {
+      setAttribute(name, value) {
         var oldValue = unsafeUnwrap(this).getAttribute(name);
         unsafeUnwrap(this).setAttribute(name, value);
         enqueAttributeChange(this, name, oldValue);
         invalidateRendererBasedOnAttribute(this, name);
       },
-      removeAttribute: function (name) {
+      removeAttribute(name) {
         var oldValue = unsafeUnwrap(this).getAttribute(name);
         unsafeUnwrap(this).removeAttribute(name);
         enqueAttributeChange(this, name, oldValue);
@@ -3114,7 +3100,7 @@ if (WebComponents.flags.shadow) {
           p.replaceChild(df, this);
         }
       },
-      insertAdjacentHTML: function (position, text) {
+      insertAdjacentHTML(position, text) {
         var contextElement, refNode;
         switch (String(position).toLowerCase()) {
           case "beforebegin":
@@ -3188,7 +3174,7 @@ if (WebComponents.flags.shadow) {
     function getterAndSetterRequiresRendering(name) {
       Object.defineProperty(HTMLElement.prototype, name, {
         get: getter(name),
-        set: function (v) {
+        set(v) {
           scope.renderAllPending();
           unsafeUnwrap(this)[name] = v;
         },
@@ -3199,7 +3185,7 @@ if (WebComponents.flags.shadow) {
     ["scrollLeft", "scrollTop"].forEach(getterAndSetterRequiresRendering);
     function methodRequiresRendering(name) {
       Object.defineProperty(HTMLElement.prototype, name, {
-        value: function () {
+        value() {
           scope.renderAllPending();
           return unsafeUnwrap(this)[name].apply(unsafeUnwrap(this), arguments);
         },
@@ -3235,7 +3221,7 @@ if (WebComponents.flags.shadow) {
     }
     HTMLCanvasElement.prototype = Object.create(HTMLElement.prototype);
     mixin(HTMLCanvasElement.prototype, {
-      getContext: function () {
+      getContext() {
         var context = unsafeUnwrap(this).getContext.apply(
           unsafeUnwrap(this),
           arguments
@@ -3268,7 +3254,7 @@ if (WebComponents.flags.shadow) {
       set select(value) {
         this.setAttribute("select", value);
       },
-      setAttribute: function (n, v) {
+      setAttribute(n, v) {
         HTMLElement.prototype.setAttribute.call(this, n, v);
         if (String(n).toLowerCase() === "select")
           this.invalidateShadowRenderer(true);
@@ -3515,11 +3501,11 @@ if (WebComponents.flags.shadow) {
     }
     HTMLSelectElement.prototype = Object.create(HTMLElement.prototype);
     mixin(HTMLSelectElement.prototype, {
-      add: function (element, before) {
+      add(element, before) {
         if (typeof before === "object") before = unwrap(before);
         unwrap(this).add(unwrap(element), before);
       },
-      remove: function (indexOrNode) {
+      remove(indexOrNode) {
         if (indexOrNode === undefined) {
           HTMLElement.prototype.remove.call(this);
           return;
@@ -3555,16 +3541,16 @@ if (WebComponents.flags.shadow) {
       get caption() {
         return wrap(unwrap(this).caption);
       },
-      createCaption: function () {
+      createCaption() {
         return wrap(unwrap(this).createCaption());
       },
       get tHead() {
         return wrap(unwrap(this).tHead);
       },
-      createTHead: function () {
+      createTHead() {
         return wrap(unwrap(this).createTHead());
       },
-      createTFoot: function () {
+      createTFoot() {
         return wrap(unwrap(this).createTFoot());
       },
       get tFoot() {
@@ -3573,13 +3559,13 @@ if (WebComponents.flags.shadow) {
       get tBodies() {
         return wrapHTMLCollection(unwrap(this).tBodies);
       },
-      createTBody: function () {
+      createTBody() {
         return wrap(unwrap(this).createTBody());
       },
       get rows() {
         return wrapHTMLCollection(unwrap(this).rows);
       },
-      insertRow: function (index) {
+      insertRow(index) {
         return wrap(unwrap(this).insertRow(index));
       },
     });
@@ -3608,7 +3594,7 @@ if (WebComponents.flags.shadow) {
       get rows() {
         return wrapHTMLCollection(unwrap(this).rows);
       },
-      insertRow: function (index) {
+      insertRow(index) {
         return wrap(unwrap(this).insertRow(index));
       },
     });
@@ -3636,7 +3622,7 @@ if (WebComponents.flags.shadow) {
       get cells() {
         return wrapHTMLCollection(unwrap(this).cells);
       },
-      insertCell: function (index) {
+      insertCell(index) {
         return wrap(unwrap(this).insertCell(index));
       },
     });
@@ -3798,11 +3784,11 @@ if (WebComponents.flags.shadow) {
       get canvas() {
         return wrap(unsafeUnwrap(this).canvas);
       },
-      drawImage: function () {
+      drawImage() {
         arguments[0] = unwrapIfNeeded(arguments[0]);
         unsafeUnwrap(this).drawImage.apply(unsafeUnwrap(this), arguments);
       },
-      createPattern: function () {
+      createPattern() {
         arguments[0] = unwrap(arguments[0]);
         return unsafeUnwrap(this).createPattern.apply(
           unsafeUnwrap(this),
@@ -3835,11 +3821,11 @@ if (WebComponents.flags.shadow) {
       get canvas() {
         return wrap(unsafeUnwrap(this).canvas);
       },
-      texImage2D: function () {
+      texImage2D() {
         arguments[5] = unwrapIfNeeded(arguments[5]);
         unsafeUnwrap(this).texImage2D.apply(unsafeUnwrap(this), arguments);
       },
-      texSubImage2D: function () {
+      texSubImage2D() {
         arguments[6] = unwrapIfNeeded(arguments[6]);
         unsafeUnwrap(this).texSubImage2D.apply(unsafeUnwrap(this), arguments);
       },
@@ -3939,13 +3925,13 @@ if (WebComponents.flags.shadow) {
       get host() {
         return shadowHostTable.get(this) || null;
       },
-      invalidateShadowRenderer: function () {
+      invalidateShadowRenderer() {
         return shadowHostTable.get(this).invalidateShadowRenderer();
       },
-      elementFromPoint: function (x, y) {
+      elementFromPoint(x, y) {
         return elementFromPoint(this, this.ownerDocument, x, y);
       },
-      getSelection: function () {
+      getSelection() {
         return document.getSelection();
       },
       get activeElement() {
@@ -4019,63 +4005,63 @@ if (WebComponents.flags.shadow) {
       get commonAncestorContainer() {
         return shadowNodeToHostNode(unsafeUnwrap(this).commonAncestorContainer);
       },
-      setStart: function (refNode, offset) {
+      setStart(refNode, offset) {
         refNode = hostNodeToShadowNode(refNode, offset);
         unsafeUnwrap(this).setStart(unwrapIfNeeded(refNode), offset);
       },
-      setEnd: function (refNode, offset) {
+      setEnd(refNode, offset) {
         refNode = hostNodeToShadowNode(refNode, offset);
         unsafeUnwrap(this).setEnd(unwrapIfNeeded(refNode), offset);
       },
-      setStartBefore: function (refNode) {
+      setStartBefore(refNode) {
         unsafeUnwrap(this).setStartBefore(unwrapIfNeeded(refNode));
       },
-      setStartAfter: function (refNode) {
+      setStartAfter(refNode) {
         unsafeUnwrap(this).setStartAfter(unwrapIfNeeded(refNode));
       },
-      setEndBefore: function (refNode) {
+      setEndBefore(refNode) {
         unsafeUnwrap(this).setEndBefore(unwrapIfNeeded(refNode));
       },
-      setEndAfter: function (refNode) {
+      setEndAfter(refNode) {
         unsafeUnwrap(this).setEndAfter(unwrapIfNeeded(refNode));
       },
-      selectNode: function (refNode) {
+      selectNode(refNode) {
         unsafeUnwrap(this).selectNode(unwrapIfNeeded(refNode));
       },
-      selectNodeContents: function (refNode) {
+      selectNodeContents(refNode) {
         unsafeUnwrap(this).selectNodeContents(unwrapIfNeeded(refNode));
       },
-      compareBoundaryPoints: function (how, sourceRange) {
+      compareBoundaryPoints(how, sourceRange) {
         return unsafeUnwrap(this).compareBoundaryPoints(
           how,
           unwrap(sourceRange)
         );
       },
-      extractContents: function () {
+      extractContents() {
         return wrap(unsafeUnwrap(this).extractContents());
       },
-      cloneContents: function () {
+      cloneContents() {
         return wrap(unsafeUnwrap(this).cloneContents());
       },
-      insertNode: function (node) {
+      insertNode(node) {
         unsafeUnwrap(this).insertNode(unwrapIfNeeded(node));
       },
-      surroundContents: function (newParent) {
+      surroundContents(newParent) {
         unsafeUnwrap(this).surroundContents(unwrapIfNeeded(newParent));
       },
-      cloneRange: function () {
+      cloneRange() {
         return wrap(unsafeUnwrap(this).cloneRange());
       },
-      isPointInRange: function (node, offset) {
+      isPointInRange(node, offset) {
         return unsafeUnwrap(this).isPointInRange(unwrapIfNeeded(node), offset);
       },
-      comparePoint: function (node, offset) {
+      comparePoint(node, offset) {
         return unsafeUnwrap(this).comparePoint(unwrapIfNeeded(node), offset);
       },
-      intersectsNode: function (node) {
+      intersectsNode(node) {
         return unsafeUnwrap(this).intersectsNode(unwrapIfNeeded(node));
       },
-      toString: function () {
+      toString() {
         return unsafeUnwrap(this).toString();
       },
     };
@@ -4224,12 +4210,12 @@ if (WebComponents.flags.shadow) {
       this.childNodes = [];
     }
     RenderNode.prototype = {
-      append: function (node) {
+      append(node) {
         var rv = new RenderNode(node);
         this.childNodes.push(rv);
         return rv;
       },
-      sync: function (opt_added) {
+      sync(opt_added) {
         if (this.skip) return;
         var nodeWrapper = this.node;
         var newChildren = this.childNodes;
@@ -4273,7 +4259,7 @@ if (WebComponents.flags.shadow) {
       this.associateNode(host);
     }
     ShadowRenderer.prototype = {
-      render: function (opt_renderNode) {
+      render(opt_renderNode) {
         if (!this.dirty) return;
         this.invalidateAttributes();
         var host = this.host;
@@ -4287,7 +4273,7 @@ if (WebComponents.flags.shadow) {
       get parentRenderer() {
         return getTreeScope(this.host).renderer;
       },
-      invalidate: function () {
+      invalidate() {
         if (!this.dirty) {
           this.dirty = true;
           var parentRenderer = this.parentRenderer;
@@ -4297,23 +4283,23 @@ if (WebComponents.flags.shadow) {
           renderTimer = window[request](handleRequestAnimationFrame, 0);
         }
       },
-      distribution: function (root) {
+      distribution(root) {
         this.resetAllSubtrees(root);
         this.distributionResolution(root);
       },
-      resetAll: function (node) {
+      resetAll(node) {
         if (isInsertionPoint(node)) resetDistributedNodes(node);
         else resetDestinationInsertionPoints(node);
         this.resetAllSubtrees(node);
       },
-      resetAllSubtrees: function (node) {
+      resetAllSubtrees(node) {
         for (var child = node.firstChild; child; child = child.nextSibling) {
           this.resetAll(child);
         }
         if (node.shadowRoot) this.resetAll(node.shadowRoot);
         if (node.olderShadowRoot) this.resetAll(node.olderShadowRoot);
       },
-      distributionResolution: function (node) {
+      distributionResolution(node) {
         if (isShadowHost(node)) {
           var shadowHost = node;
           var pool = poolPopulation(shadowHost);
@@ -4340,7 +4326,7 @@ if (WebComponents.flags.shadow) {
           this.distributionResolution(child);
         }
       },
-      poolDistribution: function (node, pool) {
+      poolDistribution(node, pool) {
         if (node instanceof HTMLShadowElement) return;
         if (node instanceof HTMLContentElement) {
           var content = node;
@@ -4370,7 +4356,7 @@ if (WebComponents.flags.shadow) {
           this.poolDistribution(child, pool);
         }
       },
-      buildRenderTree: function (renderNode, node) {
+      buildRenderTree(renderNode, node) {
         var children = this.compose(node);
         for (var i = 0; i < children.length; i++) {
           var child = children[i];
@@ -4382,7 +4368,7 @@ if (WebComponents.flags.shadow) {
           renderer.dirty = false;
         }
       },
-      compose: function (node) {
+      compose(node) {
         var children = [];
         var p = node.shadowRoot || node;
         for (var child = p.firstChild; child; child = child.nextSibling) {
@@ -4400,10 +4386,10 @@ if (WebComponents.flags.shadow) {
         }
         return children;
       },
-      invalidateAttributes: function () {
+      invalidateAttributes() {
         this.attributes = Object.create(null);
       },
-      updateDependentAttributes: function (selector) {
+      updateDependentAttributes(selector) {
         if (!selector) return;
         var attributes = this.attributes;
         if (/\.\w+/.test(selector)) attributes["class"] = true;
@@ -4412,10 +4398,10 @@ if (WebComponents.flags.shadow) {
           attributes[name] = true;
         });
       },
-      dependsOnAttribute: function (name) {
+      dependsOnAttribute(name) {
         return this.attributes[name];
       },
-      associateNode: function (node) {
+      associateNode(node) {
         unsafeUnwrap(node).polymerShadowRenderer_ = this;
       },
     };
@@ -4581,32 +4567,32 @@ if (WebComponents.flags.shadow) {
       get focusNode() {
         return wrap(unsafeUnwrap(this).focusNode);
       },
-      addRange: function (range) {
+      addRange(range) {
         unsafeUnwrap(this).addRange(unwrapIfNeeded(range));
       },
-      collapse: function (node, index) {
+      collapse(node, index) {
         unsafeUnwrap(this).collapse(unwrapIfNeeded(node), index);
       },
-      containsNode: function (node, allowPartial) {
+      containsNode(node, allowPartial) {
         return unsafeUnwrap(this).containsNode(
           unwrapIfNeeded(node),
           allowPartial
         );
       },
-      getRangeAt: function (index) {
+      getRangeAt(index) {
         return wrap(unsafeUnwrap(this).getRangeAt(index));
       },
-      removeRange: function (range) {
+      removeRange(range) {
         unsafeUnwrap(this).removeRange(unwrap(range));
       },
-      selectAllChildren: function (node) {
+      selectAllChildren(node) {
         unsafeUnwrap(this).selectAllChildren(
           node instanceof ShadowRoot
             ? unsafeUnwrap(node.host)
             : unwrapIfNeeded(node)
         );
       },
-      toString: function () {
+      toString() {
         return unsafeUnwrap(this).toString();
       },
     };
@@ -4642,22 +4628,22 @@ if (WebComponents.flags.shadow) {
       get filter() {
         return unsafeUnwrap(this).filter;
       },
-      parentNode: function () {
+      parentNode() {
         return wrap(unsafeUnwrap(this).parentNode());
       },
-      firstChild: function () {
+      firstChild() {
         return wrap(unsafeUnwrap(this).firstChild());
       },
-      lastChild: function () {
+      lastChild() {
         return wrap(unsafeUnwrap(this).lastChild());
       },
-      previousSibling: function () {
+      previousSibling() {
         return wrap(unsafeUnwrap(this).previousSibling());
       },
-      previousNode: function () {
+      previousNode() {
         return wrap(unsafeUnwrap(this).previousNode());
       },
-      nextNode: function () {
+      nextNode() {
         return wrap(unsafeUnwrap(this).nextNode());
       },
     };
@@ -4750,22 +4736,22 @@ if (WebComponents.flags.shadow) {
     }
     var originalGetSelection = document.getSelection;
     mixin(Document.prototype, {
-      adoptNode: function (node) {
+      adoptNode(node) {
         if (node.parentNode) node.parentNode.removeChild(node);
         adoptNodeNoRemove(node, this);
         return node;
       },
-      elementFromPoint: function (x, y) {
+      elementFromPoint(x, y) {
         return elementFromPoint(this, this, x, y);
       },
-      importNode: function (node, deep) {
+      importNode(node, deep) {
         return cloneNode(node, deep, unsafeUnwrap(this));
       },
-      getSelection: function () {
+      getSelection() {
         renderAllPending();
         return new Selection(originalGetSelection.call(unwrap(this)));
       },
-      getElementsByName: function (name) {
+      getElementsByName(name) {
         return SelectorsInterface.querySelectorAll.call(
           this,
           "[name=" + JSON.stringify(String(name)) + "]"
@@ -4784,7 +4770,7 @@ if (WebComponents.flags.shadow) {
       if (filter) {
         if (filter.acceptNode && typeof filter.acceptNode === "function") {
           newFilter = {
-            acceptNode: function (node) {
+            acceptNode(node) {
               return filter.acceptNode(wrap(node));
             },
           };
@@ -5033,7 +5019,7 @@ if (WebComponents.flags.shadow) {
       }
     );
     mixin(Window.prototype, {
-      getComputedStyle: function (el, pseudo) {
+      getComputedStyle(el, pseudo) {
         renderAllPending();
         return originalGetComputedStyle.call(
           unwrap(this),
@@ -5041,7 +5027,7 @@ if (WebComponents.flags.shadow) {
           pseudo
         );
       },
-      getSelection: function () {
+      getSelection() {
         renderAllPending();
         return new Selection(originalGetSelection.call(unwrap(this)));
       },
@@ -5191,7 +5177,7 @@ if (WebComponents.flags.shadow) {
     var ShadowCSS = {
       strictStyling: false,
       registry: {},
-      shimStyling: function (root, name, extendsName) {
+      shimStyling(root, name, extendsName) {
         var scopeStyles = this.prepareRoot(root, name, extendsName);
         var typeExtension = this.isTypeExtension(extendsName);
         var scopeSelector = this.makeScopeSelector(name, typeExtension);
@@ -5202,23 +5188,23 @@ if (WebComponents.flags.shadow) {
         }
         this.addCssToDocument(cssText, name);
       },
-      shimStyle: function (style, selector) {
+      shimStyle(style, selector) {
         return this.shimCssText(style.textContent, selector);
       },
-      shimCssText: function (cssText, selector) {
+      shimCssText(cssText, selector) {
         cssText = this.insertDirectives(cssText);
         return this.scopeCssText(cssText, selector);
       },
-      makeScopeSelector: function (name, typeExtension) {
+      makeScopeSelector(name, typeExtension) {
         if (name) {
           return typeExtension ? "[is=" + name + "]" : name;
         }
         return "";
       },
-      isTypeExtension: function (extendsName) {
+      isTypeExtension(extendsName) {
         return extendsName && extendsName.indexOf("-") < 0;
       },
-      prepareRoot: function (root, name, extendsName) {
+      prepareRoot(root, name, extendsName) {
         var def = this.registerRoot(root, name, extendsName);
         this.replaceTextInStyles(def.rootStyles, this.insertDirectives);
         this.removeStyles(root, def.rootStyles);
@@ -5227,12 +5213,12 @@ if (WebComponents.flags.shadow) {
         }
         return def.scopeStyles;
       },
-      removeStyles: function (root, styles) {
+      removeStyles(root, styles) {
         for (var i = 0, l = styles.length, s; i < l && (s = styles[i]); i++) {
           s.parentNode.removeChild(s);
         }
       },
-      registerRoot: function (root, name, extendsName) {
+      registerRoot(root, name, extendsName) {
         var def = (this.registry[name] = {
           root: root,
           name: name,
@@ -5247,7 +5233,7 @@ if (WebComponents.flags.shadow) {
         }
         return def;
       },
-      findStyles: function (root) {
+      findStyles(root) {
         if (!root) {
           return [];
         }
@@ -5256,7 +5242,7 @@ if (WebComponents.flags.shadow) {
           return !s.hasAttribute(NO_SHIM_ATTRIBUTE);
         });
       },
-      applyScopeToContent: function (root, name) {
+      applyScopeToContent(root, name) {
         if (root) {
           Array.prototype.forEach.call(
             root.querySelectorAll("*"),
@@ -5273,11 +5259,11 @@ if (WebComponents.flags.shadow) {
           );
         }
       },
-      insertDirectives: function (cssText) {
+      insertDirectives(cssText) {
         cssText = this.insertPolyfillDirectivesInCssText(cssText);
         return this.insertPolyfillRulesInCssText(cssText);
       },
-      insertPolyfillDirectivesInCssText: function (cssText) {
+      insertPolyfillDirectivesInCssText(cssText) {
         cssText = cssText.replace(
           cssCommentNextSelectorRe,
           function (match, p1) {
@@ -5288,7 +5274,7 @@ if (WebComponents.flags.shadow) {
           return p1 + " {";
         });
       },
-      insertPolyfillRulesInCssText: function (cssText) {
+      insertPolyfillRulesInCssText(cssText) {
         cssText = cssText.replace(cssCommentRuleRe, function (match, p1) {
           return p1.slice(0, -1);
         });
@@ -5297,7 +5283,7 @@ if (WebComponents.flags.shadow) {
           return p3 + rule;
         });
       },
-      scopeCssText: function (cssText, scopeSelector) {
+      scopeCssText(cssText, scopeSelector) {
         var unscoped = this.extractUnscopedRulesFromCssText(cssText);
         cssText = this.insertPolyfillHostInCssText(cssText);
         cssText = this.convertColonHost(cssText);
@@ -5313,7 +5299,7 @@ if (WebComponents.flags.shadow) {
         cssText = cssText + "\n" + unscoped;
         return cssText.trim();
       },
-      extractUnscopedRulesFromCssText: function (cssText) {
+      extractUnscopedRulesFromCssText(cssText) {
         var r = "",
           m;
         while ((m = cssCommentUnscopedRuleRe.exec(cssText))) {
@@ -5324,21 +5310,21 @@ if (WebComponents.flags.shadow) {
         }
         return r;
       },
-      convertColonHost: function (cssText) {
+      convertColonHost(cssText) {
         return this.convertColonRule(
           cssText,
           cssColonHostRe,
           this.colonHostPartReplacer
         );
       },
-      convertColonHostContext: function (cssText) {
+      convertColonHostContext(cssText) {
         return this.convertColonRule(
           cssText,
           cssColonHostContextRe,
           this.colonHostContextPartReplacer
         );
       },
-      convertColonRule: function (cssText, regExp, partReplacer) {
+      convertColonRule(cssText, regExp, partReplacer) {
         return cssText.replace(regExp, function (m, p1, p2, p3) {
           p1 = polyfillHostNoCombinator;
           if (p2) {
@@ -5354,23 +5340,23 @@ if (WebComponents.flags.shadow) {
           }
         });
       },
-      colonHostContextPartReplacer: function (host, part, suffix) {
+      colonHostContextPartReplacer(host, part, suffix) {
         if (part.match(polyfillHost)) {
           return this.colonHostPartReplacer(host, part, suffix);
         } else {
           return host + part + suffix + ", " + part + " " + host + suffix;
         }
       },
-      colonHostPartReplacer: function (host, part, suffix) {
+      colonHostPartReplacer(host, part, suffix) {
         return host + part.replace(polyfillHost, "") + suffix;
       },
-      convertShadowDOMSelectors: function (cssText) {
+      convertShadowDOMSelectors(cssText) {
         for (var i = 0; i < shadowDOMSelectorsRe.length; i++) {
           cssText = cssText.replace(shadowDOMSelectorsRe[i], " ");
         }
         return cssText;
       },
-      scopeRules: function (cssRules, scopeSelector) {
+      scopeRules(cssRules, scopeSelector) {
         var cssText = "";
         if (cssRules) {
           Array.prototype.forEach.call(
@@ -5409,7 +5395,7 @@ if (WebComponents.flags.shadow) {
         }
         return cssText;
       },
-      ieSafeCssTextFromKeyFrameRule: function (rule) {
+      ieSafeCssTextFromKeyFrameRule(rule) {
         var cssText = "@keyframes " + rule.name + " {";
         Array.prototype.forEach.call(rule.cssRules, function (rule) {
           cssText += " " + rule.keyText + " {" + rule.style.cssText + "}";
@@ -5417,7 +5403,7 @@ if (WebComponents.flags.shadow) {
         cssText += " }";
         return cssText;
       },
-      scopeSelector: function (selector, scopeSelector, strict) {
+      scopeSelector(selector, scopeSelector, strict) {
         var r = [],
           parts = selector.split(",");
         parts.forEach(function (p) {
@@ -5432,32 +5418,32 @@ if (WebComponents.flags.shadow) {
         }, this);
         return r.join(", ");
       },
-      selectorNeedsScoping: function (selector, scopeSelector) {
+      selectorNeedsScoping(selector, scopeSelector) {
         if (Array.isArray(scopeSelector)) {
           return true;
         }
         var re = this.makeScopeMatcher(scopeSelector);
         return !selector.match(re);
       },
-      makeScopeMatcher: function (scopeSelector) {
+      makeScopeMatcher(scopeSelector) {
         scopeSelector = scopeSelector
           .replace(/\[/g, "\\[")
           .replace(/\]/g, "\\]");
         return new RegExp("^(" + scopeSelector + ")" + selectorReSuffix, "m");
       },
-      applySelectorScope: function (selector, selectorScope) {
+      applySelectorScope(selector, selectorScope) {
         return Array.isArray(selectorScope)
           ? this.applySelectorScopeList(selector, selectorScope)
           : this.applySimpleSelectorScope(selector, selectorScope);
       },
-      applySelectorScopeList: function (selector, scopeSelectorList) {
+      applySelectorScopeList(selector, scopeSelectorList) {
         var r = [];
         for (var i = 0, s; (s = scopeSelectorList[i]); i++) {
           r.push(this.applySimpleSelectorScope(selector, s));
         }
         return r.join(", ");
       },
-      applySimpleSelectorScope: function (selector, scopeSelector) {
+      applySimpleSelectorScope(selector, scopeSelector) {
         if (selector.match(polyfillHostRe)) {
           selector = selector.replace(polyfillHostNoCombinator, scopeSelector);
           return selector.replace(polyfillHostRe, scopeSelector + " ");
@@ -5465,7 +5451,7 @@ if (WebComponents.flags.shadow) {
           return scopeSelector + " " + selector;
         }
       },
-      applyStrictSelectorScope: function (selector, scopeSelector) {
+      applyStrictSelectorScope(selector, scopeSelector) {
         scopeSelector = scopeSelector.replace(/\[is=([^\]]*)\]/g, "$1");
         var splits = [" ", ">", "+", "~"],
           scoped = selector,
@@ -5484,12 +5470,12 @@ if (WebComponents.flags.shadow) {
         });
         return scoped;
       },
-      insertPolyfillHostInCssText: function (selector) {
+      insertPolyfillHostInCssText(selector) {
         return selector
           .replace(colonHostContextRe, polyfillHostContext)
           .replace(colonHostRe, polyfillHost);
       },
-      propertiesFromRule: function (rule) {
+      propertiesFromRule(rule) {
         var cssText = rule.style.cssText;
         if (rule.style.content && !rule.style.content.match(/['"]+|attr/)) {
           cssText = cssText.replace(
@@ -5505,7 +5491,7 @@ if (WebComponents.flags.shadow) {
         }
         return cssText;
       },
-      replaceTextInStyles: function (styles, action) {
+      replaceTextInStyles(styles, action) {
         if (styles && action) {
           if (!(styles instanceof Array)) {
             styles = [styles];
@@ -5519,7 +5505,7 @@ if (WebComponents.flags.shadow) {
           );
         }
       },
-      addCssToDocument: function (cssText, name) {
+      addCssToDocument(cssText, name) {
         if (cssText.match("@import")) {
           addOwnSheet(cssText, name);
         } else {
@@ -6230,7 +6216,7 @@ if (WebComponents.flags.shadow) {
     parse.call(this, input, null, base);
   }
   jURL.prototype = {
-    toString: function () {
+    toString() {
       return this.href;
     },
     get href() {
@@ -6444,7 +6430,7 @@ if (WebComponents.flags.shadow) {
     this.uid_ = ++uidCounter;
   }
   JsMutationObserver.prototype = {
-    observe: function (target, options) {
+    observe(target, options) {
       target = wrapIfNeeded(target);
       if (
         (!options.childList && !options.attributes && !options.characterData) ||
@@ -6474,7 +6460,7 @@ if (WebComponents.flags.shadow) {
       }
       registration.addListeners();
     },
-    disconnect: function () {
+    disconnect() {
       this.nodes_.forEach(function (node) {
         var registrations = registrationsTable.get(node);
         for (var i = 0; i < registrations.length; i++) {
@@ -6488,7 +6474,7 @@ if (WebComponents.flags.shadow) {
       }, this);
       this.records_ = [];
     },
-    takeRecords: function () {
+    takeRecords() {
       var copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
@@ -6545,7 +6531,7 @@ if (WebComponents.flags.shadow) {
     this.transientObservedNodes = [];
   }
   Registration.prototype = {
-    enqueue: function (record) {
+    enqueue(record) {
       var records = this.observer.records_;
       var length = records.length;
       if (records.length > 0) {
@@ -6560,10 +6546,10 @@ if (WebComponents.flags.shadow) {
       }
       records[length] = record;
     },
-    addListeners: function () {
+    addListeners() {
       this.addListeners_(this.target);
     },
-    addListeners_: function (node) {
+    addListeners_(node) {
       var options = this.options;
       if (options.attributes)
         node.addEventListener("DOMAttrModified", this, true);
@@ -6574,10 +6560,10 @@ if (WebComponents.flags.shadow) {
       if (options.childList || options.subtree)
         node.addEventListener("DOMNodeRemoved", this, true);
     },
-    removeListeners: function () {
+    removeListeners() {
       this.removeListeners_(this.target);
     },
-    removeListeners_: function (node) {
+    removeListeners_(node) {
       var options = this.options;
       if (options.attributes)
         node.removeEventListener("DOMAttrModified", this, true);
@@ -6588,7 +6574,7 @@ if (WebComponents.flags.shadow) {
       if (options.childList || options.subtree)
         node.removeEventListener("DOMNodeRemoved", this, true);
     },
-    addTransientObserver: function (node) {
+    addTransientObserver(node) {
       if (node === this.target) return;
       this.addListeners_(node);
       this.transientObservedNodes.push(node);
@@ -6596,7 +6582,7 @@ if (WebComponents.flags.shadow) {
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
     },
-    removeTransientObservers: function () {
+    removeTransientObservers() {
       var transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
       transientObservedNodes.forEach(function (node) {
@@ -6610,7 +6596,7 @@ if (WebComponents.flags.shadow) {
         }
       }, this);
     },
-    handleEvent: function (e) {
+    handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
         case "DOMAttrModified":
@@ -6693,7 +6679,7 @@ if (WebComponents.flags.shadow) {
   if (!(window.performance && window.performance.now)) {
     var start = Date.now();
     window.performance = {
-      now: function () {
+      now() {
         return Date.now() - start;
       },
     };
@@ -6738,7 +6724,7 @@ if (WebComponents.flags.shadow) {
       }
       origPreventDefault.call(this);
       Object.defineProperty(this, "defaultPrevented", {
-        get: function () {
+        get() {
           return true;
         },
         configurable: true,
@@ -6790,7 +6776,7 @@ window.HTMLImports = window.HTMLImports || {
   };
   var rootDocument = wrap(document);
   var currentScriptDescriptor = {
-    get: function () {
+    get() {
       var script =
         window.HTMLImports.currentScript ||
         document.currentScript ||
@@ -6962,7 +6948,7 @@ window.HTMLImports.addModule(function (scope) {
   var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
   var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
   var path = {
-    resolveUrlsInStyle: function (style, linkUrl) {
+    resolveUrlsInStyle(style, linkUrl) {
       var doc = style.ownerDocument;
       var resolver = doc.createElement("a");
       style.textContent = this.resolveUrlsInCssText(
@@ -6972,12 +6958,12 @@ window.HTMLImports.addModule(function (scope) {
       );
       return style;
     },
-    resolveUrlsInCssText: function (cssText, linkUrl, urlObj) {
+    resolveUrlsInCssText(cssText, linkUrl, urlObj) {
       var r = this.replaceUrls(cssText, urlObj, linkUrl, CSS_URL_REGEXP);
       r = this.replaceUrls(r, urlObj, linkUrl, CSS_IMPORT_REGEXP);
       return r;
     },
-    replaceUrls: function (text, urlObj, linkUrl, regexp) {
+    replaceUrls(text, urlObj, linkUrl, regexp) {
       return text.replace(regexp, function (m, pre, url, post) {
         var urlPath = url.replace(/["']/g, "");
         if (linkUrl) {
@@ -6995,14 +6981,14 @@ window.HTMLImports.addModule(function (scope) {
 window.HTMLImports.addModule(function (scope) {
   var xhr = {
     async: true,
-    ok: function (request) {
+    ok(request) {
       return (
         (request.status >= 200 && request.status < 300) ||
         request.status === 304 ||
         request.status === 0
       );
     },
-    load: function (url, next, nextContext) {
+    load(url, next, nextContext) {
       var request = new XMLHttpRequest();
       if (scope.flags.debug || scope.flags.bust) {
         url += "?" + Math.random();
@@ -7033,7 +7019,7 @@ window.HTMLImports.addModule(function (scope) {
       request.send();
       return request;
     },
-    loadDocument: function (url, next, nextContext) {
+    loadDocument(url, next, nextContext) {
       this.load(url, next, nextContext).responseType = "document";
     },
   };
@@ -7051,26 +7037,26 @@ window.HTMLImports.addModule(function (scope) {
     this.pending = {};
   };
   Loader.prototype = {
-    addNodes: function (nodes) {
+    addNodes(nodes) {
       this.inflight += nodes.length;
       for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         this.require(n);
       }
       this.checkDone();
     },
-    addNode: function (node) {
+    addNode(node) {
       this.inflight++;
       this.require(node);
       this.checkDone();
     },
-    require: function (elt) {
+    require(elt) {
       var url = elt.src || elt.href;
       elt.__nodeUrl = url;
       if (!this.dedupe(url, elt)) {
         this.fetch(url, elt);
       }
     },
-    dedupe: function (url, elt) {
+    dedupe(url, elt) {
       if (this.pending[url]) {
         this.pending[url].push(elt);
         return true;
@@ -7084,7 +7070,7 @@ window.HTMLImports.addModule(function (scope) {
       this.pending[url] = [elt];
       return false;
     },
-    fetch: function (url, elt) {
+    fetch(url, elt) {
       flags.load && console.log("fetch", url, elt);
       if (!url) {
         setTimeout(
@@ -7122,7 +7108,7 @@ window.HTMLImports.addModule(function (scope) {
         xhr.load(url, receiveXhr);
       }
     },
-    receive: function (url, elt, err, resource, redirectedUrl) {
+    receive(url, elt, err, resource, redirectedUrl) {
       this.cache[url] = resource;
       var $p = this.pending[url];
       for (var i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
@@ -7131,11 +7117,11 @@ window.HTMLImports.addModule(function (scope) {
       }
       this.pending[url] = null;
     },
-    tail: function () {
+    tail() {
       --this.inflight;
       this.checkDone();
     },
-    checkDone: function () {
+    checkDone() {
       if (!this.inflight) {
         this.oncomplete();
       }
@@ -7150,7 +7136,7 @@ window.HTMLImports.addModule(function (scope) {
     this.mo = new MutationObserver(this.handler.bind(this));
   };
   Observer.prototype = {
-    handler: function (mutations) {
+    handler(mutations) {
       for (
         var i = 0, l = mutations.length, m;
         i < l && (m = mutations[i]);
@@ -7161,7 +7147,7 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    addedNodes: function (nodes) {
+    addedNodes(nodes) {
       if (this.addCallback) {
         this.addCallback(nodes);
       }
@@ -7175,7 +7161,7 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    observe: function (root) {
+    observe(root) {
       this.mo.observe(root, {
         childList: true,
         subtree: true,
@@ -7208,13 +7194,13 @@ window.HTMLImports.addModule(function (scope) {
       style: "parseStyle",
     },
     dynamicElements: [],
-    parseNext: function () {
+    parseNext() {
       var next = this.nextToParse();
       if (next) {
         this.parse(next);
       }
     },
-    parse: function (elt) {
+    parse(elt) {
       if (this.isParsed(elt)) {
         flags.parse && console.log("[%s] is already parsed", elt.localName);
         return;
@@ -7225,17 +7211,17 @@ window.HTMLImports.addModule(function (scope) {
         fn.call(this, elt);
       }
     },
-    parseDynamic: function (elt, quiet) {
+    parseDynamic(elt, quiet) {
       this.dynamicElements.push(elt);
       if (!quiet) {
         this.parseNext();
       }
     },
-    markParsing: function (elt) {
+    markParsing(elt) {
       flags.parse && console.log("parsing", elt);
       this.parsingElement = elt;
     },
-    markParsingComplete: function (elt) {
+    markParsingComplete(elt) {
       elt.__importParsed = true;
       this.markDynamicParsingComplete(elt);
       if (elt.__importElement) {
@@ -7245,13 +7231,13 @@ window.HTMLImports.addModule(function (scope) {
       this.parsingElement = null;
       flags.parse && console.log("completed", elt);
     },
-    markDynamicParsingComplete: function (elt) {
+    markDynamicParsingComplete(elt) {
       var i = this.dynamicElements.indexOf(elt);
       if (i >= 0) {
         this.dynamicElements.splice(i, 1);
       }
     },
-    parseImport: function (elt) {
+    parseImport(elt) {
       elt.import = elt.__doc;
       if (window.HTMLImports.__importsParsingHook) {
         window.HTMLImports.__importsParsingHook(elt);
@@ -7286,7 +7272,7 @@ window.HTMLImports.addModule(function (scope) {
       }
       this.parseNext();
     },
-    parseLink: function (linkElt) {
+    parseLink(linkElt) {
       if (nodeIsImport(linkElt)) {
         this.parseImport(linkElt);
       } else {
@@ -7294,29 +7280,29 @@ window.HTMLImports.addModule(function (scope) {
         this.parseGeneric(linkElt);
       }
     },
-    parseStyle: function (elt) {
+    parseStyle(elt) {
       var src = elt;
       elt = cloneStyle(elt);
       src.__appliedElement = elt;
       elt.__importElement = src;
       this.parseGeneric(elt);
     },
-    parseGeneric: function (elt) {
+    parseGeneric(elt) {
       this.trackElement(elt);
       this.addElementToDocument(elt);
     },
-    rootImportForElement: function (elt) {
+    rootImportForElement(elt) {
       var n = elt;
       while (n.ownerDocument.__importLink) {
         n = n.ownerDocument.__importLink;
       }
       return n;
     },
-    addElementToDocument: function (elt) {
+    addElementToDocument(elt) {
       var port = this.rootImportForElement(elt.__importElement || elt);
       port.parentNode.insertBefore(elt, port);
     },
-    trackElement: function (elt, callback) {
+    trackElement(elt, callback) {
       var self = this;
       var done = function (e) {
         elt.removeEventListener("load", done);
@@ -7354,7 +7340,7 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    parseScript: function (scriptElt) {
+    parseScript(scriptElt) {
       var script = document.createElement("script");
       script.__importElement = scriptElt;
       script.src = scriptElt.src
@@ -7369,14 +7355,14 @@ window.HTMLImports.addModule(function (scope) {
       });
       this.addElementToDocument(script);
     },
-    nextToParse: function () {
+    nextToParse() {
       this._mayParse = [];
       return (
         !this.parsingElement &&
         (this.nextToParseInDoc(rootDocument) || this.nextToParseDynamic())
       );
     },
-    nextToParseInDoc: function (doc, link) {
+    nextToParseInDoc(doc, link) {
       if (doc && this._mayParse.indexOf(doc) < 0) {
         this._mayParse.push(doc);
         var nodes = doc.querySelectorAll(this.parseSelectorsForNode(doc));
@@ -7392,22 +7378,22 @@ window.HTMLImports.addModule(function (scope) {
       }
       return link;
     },
-    nextToParseDynamic: function () {
+    nextToParseDynamic() {
       return this.dynamicElements[0];
     },
-    parseSelectorsForNode: function (node) {
+    parseSelectorsForNode(node) {
       var doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentSelectors
         : this.importsSelectors;
     },
-    isParsed: function (node) {
+    isParsed(node) {
       return node.__importParsed;
     },
-    needsDynamicParsing: function (elt) {
+    needsDynamicParsing(elt) {
       return this.dynamicElements.indexOf(elt) >= 0;
     },
-    hasResource: function (node) {
+    hasResource(node) {
       if (nodeIsImport(node) && node.__doc === undefined) {
         return false;
       }
@@ -7456,23 +7442,23 @@ window.HTMLImports.addModule(function (scope) {
     documents: {},
     documentPreloadSelectors: IMPORT_SELECTOR,
     importsPreloadSelectors: [IMPORT_SELECTOR].join(","),
-    loadNode: function (node) {
+    loadNode(node) {
       importLoader.addNode(node);
     },
-    loadSubtree: function (parent) {
+    loadSubtree(parent) {
       var nodes = this.marshalNodes(parent);
       importLoader.addNodes(nodes);
     },
-    marshalNodes: function (parent) {
+    marshalNodes(parent) {
       return parent.querySelectorAll(this.loadSelectorsForNode(parent));
     },
-    loadSelectorsForNode: function (node) {
+    loadSelectorsForNode(node) {
       var doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentPreloadSelectors
         : this.importsPreloadSelectors;
     },
-    loaded: function (url, elt, resource, err, redirectedUrl) {
+    loaded(url, elt, resource, err, redirectedUrl) {
       flags.load && console.log("loaded", url, elt);
       elt.__resource = resource;
       elt.__error = err;
@@ -7490,12 +7476,12 @@ window.HTMLImports.addModule(function (scope) {
       }
       parser.parseNext();
     },
-    bootDocument: function (doc) {
+    bootDocument(doc) {
       this.loadSubtree(doc);
       this.observer.observe(doc);
       parser.parseNext();
     },
-    loadedAll: function () {
+    loadedAll() {
       parser.parseNext();
     },
   };
@@ -7535,7 +7521,7 @@ window.HTMLImports.addModule(function (scope) {
   }
   if (!document.baseURI) {
     var baseURIDescriptor = {
-      get: function () {
+      get() {
         var base = document.querySelector("base");
         return base ? base.href : window.location.href;
       },
@@ -7552,7 +7538,7 @@ window.HTMLImports.addModule(function (scope) {
   var parser = scope.parser;
   var importer = scope.importer;
   var dynamic = {
-    added: function (nodes) {
+    added(nodes) {
       var owner, parsed, loading;
       for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         if (!owner) {
@@ -7568,13 +7554,13 @@ window.HTMLImports.addModule(function (scope) {
         }
       }
     },
-    shouldLoadNode: function (node) {
+    shouldLoadNode(node) {
       return (
         node.nodeType === 1 &&
         matches.call(node, importer.loadSelectorsForNode(node))
       );
     },
-    shouldParseNode: function (node) {
+    shouldParseNode(node) {
       return (
         node.nodeType === 1 &&
         matches.call(node, parser.parseSelectorsForNode(node))

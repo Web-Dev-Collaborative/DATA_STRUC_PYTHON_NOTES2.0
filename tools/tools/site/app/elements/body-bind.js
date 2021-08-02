@@ -31,7 +31,7 @@ upgraded. This approach does not block rendering!.
   Polymer.LightDomBindingBehavior = {
     lazyChildren: true,
 
-    _initFeatures: function () {
+    _initFeatures() {
       // By default, LightDomBindingBehavior becomes the permanent top-level
       // host, so that any lazy-loaded children are automatically hosted by
       // this element, and by virtue of `dataHost.lazyChildren: true` will
