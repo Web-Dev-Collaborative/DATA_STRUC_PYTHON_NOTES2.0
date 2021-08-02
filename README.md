@@ -2,7 +2,10 @@
 
 # [Resources](./ds-resources.md)
 
+###  [notion](https://golden-lobe-519.notion.site/PYTHON-cb857bd3fa4b4940928842a94dce856d)
 
+
+### [codelab](https://colab.research.google.com/gist/bgoonz/e1455a967850983a3d603463885a8026/cs46-python-i.ipynb)
 ```
 .
 ├── ./README.md
