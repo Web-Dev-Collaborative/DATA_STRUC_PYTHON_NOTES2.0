@@ -32,7 +32,7 @@ claat.ui.cards.Sorter.prototype.filterByTags;
 claat.ui.cards.Sorter.prototype.clearFilters;
 
 /** @type {claat.ui.cards.Filter} */
-var f;
+let f;
 /** @export */
 f.cat;
 /** @export */

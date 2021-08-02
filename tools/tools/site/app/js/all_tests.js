@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-var allTests = [
+const allTests = [
   "claat/ui/cards/cardsorter_test.html",
   "claat/uri/params_test.html",
 ];

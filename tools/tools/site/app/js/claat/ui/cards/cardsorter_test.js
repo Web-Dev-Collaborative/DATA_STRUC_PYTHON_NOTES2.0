@@ -24,12 +24,12 @@ goog.require("claat.ui.cards.Sorter");
 goog.require("goog.dom");
 goog.require("goog.testing.jsunit");
 
-var sandbox;
-var container;
-var sorter;
+let sandbox;
+let container;
+let sorter;
 
 function childrenId() {
-  var elems = container.querySelectorAll(".codelab-card");
+  const elems = container.querySelectorAll(".codelab-card");
   return Array.from(elems).map(el => {
     return el.id;
   });
@@ -38,7 +38,7 @@ function childrenId() {
 function setUp() {
   sandbox = goog.dom.getElement("sandbox");
 
-  var cards = goog.dom.getElement("original");
+  const cards = goog.dom.getElement("original");
   container = cards.cloneNode(true);
   container.id = "cards";
 
@@ -61,7 +61,7 @@ function testFilterByWebTag() {
 
 function testFilterByCommonTag() {
   sorter.filterByTags(["common"]);
-  var expected = [
+  const expected = [
     "two", // pinned
     "one",
   ];
@@ -75,13 +75,13 @@ function testFilterByCategory() {
 
 function testFilterByCategoryMultiple() {
   sorter.filterByCategory(" beacons ");
-  var expected = ["three", "four"];
+  const expected = ["three", "four"];
   assertArrayEquals(expected, childrenId());
 }
 
 function testFilterByCategoryMultiple2() {
   sorter.filterByCategory(" android ");
-  var expected = ["two", "four"];
+  const expected = ["two", "four"];
   assertArrayEquals(expected, childrenId());
 }
 
@@ -93,7 +93,7 @@ function testFilterByText() {
 function testFilterReset() {
   sorter.filterByTags(["nonexistent"]);
   sorter.clearFilters();
-  var expected = [
+  const expected = [
     "two", // pinned
     "one",
     "three",
@@ -103,7 +103,7 @@ function testFilterReset() {
 }
 
 function testOrderByAlpha() {
-  var expected = [
+  const expected = [
     "two", // Zzz, pinned
     "one", // Abc
     "three", // Bcd
@@ -114,7 +114,7 @@ function testOrderByAlpha() {
 }
 
 function testOrderByDuration() {
-  var expected = [
+  const expected = [
     "two", // 2, pinned
     "one", // 1
     "three", // 3
@@ -125,7 +125,7 @@ function testOrderByDuration() {
 }
 
 function testOrderByDate() {
-  var expected = [
+  const expected = [
     "two", // 2016-06-21, pinned
     "four", //2016-06-23
     "three", // 2016-06-22
@@ -136,7 +136,7 @@ function testOrderByDate() {
 }
 
 function testFilterAndSort() {
-  var expected = [
+  const expected = [
     "two", // Zzz, pinned
     "one", // Abc
   ];
@@ -146,7 +146,7 @@ function testFilterAndSort() {
 }
 
 function testFilterAndSortNoPin() {
-  var expected = [
+  const expected = [
     "three", // 2016-06-22
     "one", // 2016-06-20
   ];

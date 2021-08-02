@@ -23,21 +23,21 @@ goog.provide("claat.uri.params");
  * @return {Object<string,!Array<string>>} An object.
  */
 claat.uri.params.decode = search => {
-  var obj = /** @dict */ {};
+  const obj = /** @dict */ {};
   if (!search) {
     return obj;
   }
 
-  var parts = search.split("&");
+  const parts = search.split("&");
   while (parts.length > 0) {
-    var name = goog.global.decodeURIComponent(parts.shift());
-    var value = "";
-    var i = name.indexOf("=");
+    let name = goog.global.decodeURIComponent(parts.shift());
+    let value = "";
+    const i = name.indexOf("=");
     if (i > 0) {
       value = name.substring(i + 1);
       name = name.substring(0, i);
     }
-    var a = obj[name];
+    let a = obj[name];
     if (!a) {
       a = [];
       obj[name] = a;

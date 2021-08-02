@@ -1,26 +1,28 @@
 (function () {
   "use strict";
-  var h =
+
+  const h =
       "undefined" != typeof window && window === this
         ? this
         : "undefined" != typeof global && null != global
         ? global
-        : this,
-    aa =
-      "function" == typeof Object.create
-        ? Object.create
-        : a => {
-            function b() {}
-            b.prototype = a;
-            return new b();
-          },
-    k;
+        : this;
+
+  const aa =
+    "function" == typeof Object.create
+      ? Object.create
+      : a => {
+          function b() {}
+          b.prototype = a;
+          return new b();
+        };
+
+  let k;
   if ("function" == typeof Object.setPrototypeOf) k = Object.setPrototypeOf;
   else {
-    var m;
+    let m;
     a: {
-      var ba = { F: !0 },
-        ca = {};
+      const ba = { F: !0 }, ca = {};
       try {
         ca.__proto__ = ba;
         m = ca.F;
@@ -36,21 +38,21 @@
         }
       : null;
   }
-  var da = k;
+  const da = k;
   function ea(a, b) {
     a.prototype = aa(b.prototype);
     a.prototype.constructor = a;
     if (da) da(a, b);
     else
-      for (var c in b)
+      for (const c in b)
         if ("prototype" != c)
           if (Object.defineProperties) {
-            var d = Object.getOwnPropertyDescriptor(b, c);
+            const d = Object.getOwnPropertyDescriptor(b, c);
             d && Object.defineProperty(a, c, d);
           } else a[c] = b[c];
     a.D = b.prototype;
   }
-  var fa =
+  const fa =
     "function" == typeof Object.defineProperties
       ? Object.defineProperty
       : (a, b, c) => {
@@ -61,14 +63,14 @@
     h.Symbol || (h.Symbol = ia);
   }
   var ia = (() => {
-    var a = 0;
+    let a = 0;
     return b => {
       return "jscomp_symbol_" + (b || "") + a++;
     };
   })();
   function n() {
     ha();
-    var a = h.Symbol.iterator;
+    let a = h.Symbol.iterator;
     a || (a = h.Symbol.iterator = h.Symbol("iterator"));
     "function" != typeof Array.prototype[a] &&
       fa(Array.prototype, a, {
@@ -81,7 +83,7 @@
     n = () => {};
   }
   function ja(a) {
-    var b = 0;
+    let b = 0;
     return ka(() => {
       return b < a.length ? { done: !1, value: a[b++] } : { done: !0 };
     });
@@ -97,25 +99,25 @@
   function p(a) {
     if (!(a instanceof Array)) {
       n();
-      var b = a[Symbol.iterator];
+      let b = a[Symbol.iterator];
       a = b ? b.call(a) : ja(a);
       for (var c = []; !(b = a.next()).done; ) c.push(b.value);
       a = c;
     }
     return a;
   }
-  var q = this;
+  const q = this;
   function r(a) {
     return "string" == typeof a;
   }
   function t() {}
   function u(a) {
-    var b = typeof a;
+    const b = typeof a;
     if ("object" == b)
       if (a) {
         if (a instanceof Array) return "array";
         if (a instanceof Object) return b;
-        var c = Object.prototype.toString.call(a);
+        const c = Object.prototype.toString.call(a);
         if ("[object Window]" == c) return "object";
         if (
           "[object Array]" == c ||
@@ -137,20 +139,20 @@
     return b;
   }
   function v(a) {
-    var b = typeof a;
+    const b = typeof a;
     return ("object" == b && null != a) || "function" == b;
   }
-  var la = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
-    ma = 0;
+  const la = "closure_uid_" + ((1e9 * Math.random()) >>> 0);
+  let ma = 0;
   function na(a, b, c) {
     return a.call.apply(a.bind, arguments);
   }
   function oa(a, b, c) {
     if (!a) throw Error();
     if (2 < arguments.length) {
-      var d = Array.prototype.slice.call(arguments, 2);
+      const d = Array.prototype.slice.call(arguments, 2);
       return function () {
-        var c = Array.prototype.slice.call(arguments);
+        const c = Array.prototype.slice.call(arguments);
         Array.prototype.unshift.apply(c, d);
         return a.apply(b, c);
       };
@@ -166,7 +168,7 @@
       : (w = oa);
     return w.apply(null, arguments);
   }
-  var pa =
+  const pa =
     Date.now ||
     (() => {
       return +new Date();
@@ -187,14 +189,14 @@
       return b.prototype[c].apply(a, d);
     };
   }
-  var qa;
-  var ra = Array.prototype.indexOf
+  let qa;
+  const ra = Array.prototype.indexOf
     ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
     : (a, b) => {
         if (r(a)) return r(b) && 1 == b.length ? a.indexOf(b, 0) : -1;
-        for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
+        for (let c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
         return -1;
       };
   function sa() {}
@@ -229,14 +231,14 @@
 
   x(y, ta);
   function ua() {
-    var a = null;
+    let a = null;
     try {
       a = window.localStorage || null;
     } catch (b) {}
     this.j = a;
   }
   x(ua, y);
-  var va = String.prototype.trim
+  const va = String.prototype.trim
     ? a => {
         return a.trim();
       }
@@ -264,7 +266,7 @@
     return a < b ? -1 : a > b ? 1 : 0;
   }
   function Da(a, b, c) {
-    for (var d in a) b.call(c, a[d], d, a);
+    for (const d in a) b.call(c, a[d], d, a);
   }
 
   class B {
@@ -283,19 +285,19 @@
   }
 
   B.prototype.i = !0;
-  var Fa = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i,
-    Ea = {};
+  const Fa = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i;
+  var Ea = {};
   function Ga(a) {
-    var b = new B();
+    const b = new B();
     b.a = a;
     return b;
   }
   Ga("about:blank");
-  var C;
+  let C;
   a: {
-    var Ha = q.navigator;
+    const Ha = q.navigator;
     if (Ha) {
-      var Ia = Ha.userAgent;
+      const Ia = Ha.userAgent;
       if (Ia) {
         C = Ia;
         break a;
@@ -320,8 +322,7 @@
 
   D.prototype.i = !0;
   var Ja = {};
-  var E = {},
-    Ka = {};
+  const E = {}, Ka = {};
 
   class F {
     constructor() {
@@ -344,33 +345,35 @@
     return a;
   }
   H[" "] = t;
-  var La = -1 != C.indexOf("Opera"),
-    I = -1 != C.indexOf("Trident") || -1 != C.indexOf("MSIE"),
-    Ma = -1 != C.indexOf("Edge"),
-    Na =
-      -1 != C.indexOf("Gecko") &&
-      !(-1 != C.toLowerCase().indexOf("webkit") && -1 == C.indexOf("Edge")) &&
-      !(-1 != C.indexOf("Trident") || -1 != C.indexOf("MSIE")) &&
-      -1 == C.indexOf("Edge"),
-    Oa = -1 != C.toLowerCase().indexOf("webkit") && -1 == C.indexOf("Edge");
+  const La = -1 != C.indexOf("Opera"),
+        I = -1 != C.indexOf("Trident") || -1 != C.indexOf("MSIE"),
+        Ma = -1 != C.indexOf("Edge"),
+        Na =
+          -1 != C.indexOf("Gecko") &&
+          !(-1 != C.toLowerCase().indexOf("webkit") && -1 == C.indexOf("Edge")) &&
+          !(-1 != C.indexOf("Trident") || -1 != C.indexOf("MSIE")) &&
+          -1 == C.indexOf("Edge"),
+        Oa = -1 != C.toLowerCase().indexOf("webkit") && -1 == C.indexOf("Edge");
   function Sa() {
-    var a = q.document;
+    const a = q.document;
     return a ? a.documentMode : void 0;
   }
-  var J;
+  let J;
   a: {
-    var K = "",
-      L = (() => {
-        var a = C;
-        if (Na) return /rv:([^\);]+)(\)|;)/.exec(a);
-        if (Ma) return /Edge\/([\d\.]+)/.exec(a);
-        if (I) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
-        if (Oa) return /WebKit\/(\S+)/.exec(a);
-        if (La) return /(?:Version)[ \/]?(\S+)/.exec(a);
-      })();
+    var K = "";
+
+    const L = (() => {
+      const a = C;
+      if (Na) return /rv:([^\);]+)(\)|;)/.exec(a);
+      if (Ma) return /Edge\/([\d\.]+)/.exec(a);
+      if (I) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
+      if (Oa) return /WebKit\/(\S+)/.exec(a);
+      if (La) return /(?:Version)[ \/]?(\S+)/.exec(a);
+    })();
+
     L && (K = L ? L[1] : "");
     if (I) {
-      var Ta = Sa();
+      const Ta = Sa();
       if (null != Ta && Ta > parseFloat(K)) {
         J = String(Ta);
         break a;
@@ -378,9 +381,9 @@
     }
     J = K;
   }
-  var Ua = {},
-    Va;
-  var Wa = q.document;
+  const Ua = {};
+  let Va;
+  const Wa = q.document;
   Va =
     Wa && I
       ? Sa() || ("CSS1Compat" == Wa.compatMode ? parseInt(J, 10) : 5)
@@ -425,7 +428,7 @@
       ? String(String(a.u).replace(Ya, "").replace(Za, "&lt;")).replace($a, ab)
       : z(String(a));
   }
-  var bb = {
+  const bb = {
     "\x00": "&#0;",
     "\t": "&#9;",
     "\n": "&#10;",
@@ -454,7 +457,7 @@
     Ya = /<(?:!|\/?([a-zA-Z][a-zA-Z0-9:\-]*))(?:[^>'"]|"[^"]*"|'[^']*')*>/g,
     Za = /</g;
   function cb(a) {
-    var b = a.sort;
+    let b = a.sort;
     a = a.H;
     b =
       '<div id="sort-by-tabs" class="sort-by-inner"><a href="#" sort="alpha"' +
@@ -464,23 +467,22 @@
       '>Recent</a><a href="#" sort="duration"' +
       ("duration" == b ? " selected" : "") +
       '>Duration</a></div><div class="sort-by-inner"><select id="codelab-categories"><option value="">Category</option>';
-    for (var c = Math.max(0, Math.ceil(a.length)), d = 0; d < c; d++) {
-      var e = d;
+    for (let c = Math.max(0, Math.ceil(a.length)), d = 0; d < c; d++) {
+      const e = d;
       b += '<option value="' + O(a[e]) + '">' + M(a[e]) + "</option>";
     }
     return N(b + "</select></div>");
   }
-  var db = (a => {
-    var b = !1,
-      c;
+  const db = (a => {
+    let b = !1, c;
     return () => {
       b || ((c = a()), (b = !0));
       return c;
     };
   })(() => {
-    var a = document.createElement("div");
+    const a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
-    var b = a.firstChild.firstChild;
+    const b = a.firstChild.firstChild;
     a.innerHTML = "";
     return !b.parentElement;
   });
@@ -527,7 +529,7 @@ limitations under the License.
 */
   class P {
     constructor() {
-      var a = HTMLElement.call(this) || this;
+      const a = HTMLElement.call(this) || this;
       a.j = new ua();
       return a;
     }
@@ -554,15 +556,15 @@ limitations under the License.
 
     i(a, b) {
       if (!a || !b) return 0;
-      var c = parseFloat(a.getAttribute("duration")) || 0,
-        d = parseFloat(b.getAttribute("duration")) || 0;
+      let c = parseFloat(a.getAttribute("duration")) || 0;
+      const d = parseFloat(b.getAttribute("duration")) || 0;
       c -= d;
       return 0 === c ? this.c(a, b) : c;
     }
 
     c(a, b) {
       if (!a || !b) return 0;
-      var c = new Date(a.getAttribute("updated") || 0);
+      let c = new Date(a.getAttribute("updated") || 0);
       c = new Date(b.getAttribute("updated") || 0).getTime() - c.getTime();
       return 0 === c ? this.b(a, b) : c;
     }
@@ -575,16 +577,16 @@ limitations under the License.
     }
 
     G(a) {
-      var b = (a.getAttribute("category") || "")
+      let b = (a.getAttribute("category") || "")
         .toLowerCase()
         .replace(/\s+/g, "-")
         .replace(/--+/g, "-")
         .trim()
         .split(",")
         .shift();
-      var c = a.getAttribute("title") || "",
-        d = parseInt(a.getAttribute("duration"), 10) || 0,
-        e;
+      let c = a.getAttribute("title") || "";
+      const d = parseInt(a.getAttribute("duration"), 10) || 0;
+      let e;
       (e = a.getAttribute("updated"))
         ? ((e = new Date(e)),
           (e =
@@ -598,7 +600,7 @@ limitations under the License.
         : (e = "");
       e = e || "";
       a.getAttribute("tags");
-      var f = a.getAttribute("authors") || "";
+      const f = a.getAttribute("authors") || "";
       b = N(
         '<div class="card-header ' +
           O(b) +
@@ -653,8 +655,7 @@ limitations under the License.
   P.prototype.connectedCallback = P.prototype.connectedCallback;
   P.prototype.attributeChangedCallback = P.prototype.attributeChangedCallback;
   function jb(a) {
-    var b = a.getAttribute("sort") || "alpha",
-      c = [].concat(p(a.querySelectorAll(".card")));
+    let b = a.getAttribute("sort") || "alpha", c = [].concat(p(a.querySelectorAll(".card")));
     if (!(2 > c.length)) {
       switch (b) {
         case "duration":
@@ -682,16 +683,14 @@ limitations under the License.
     a.setAttribute("num", a.querySelectorAll(".card:not([hidden])").length);
   }
   function kb(a) {
-    var b = mb(a.getAttribute("filter")),
-      c = Q((a.getAttribute("tags") || "").split(",")),
-      d = Q((a.getAttribute("category") || "").split(","));
+    const b = mb(a.getAttribute("filter")), c = Q((a.getAttribute("tags") || "").split(",")), d = Q((a.getAttribute("category") || "").split(","));
     [].concat(p(a.querySelectorAll(".card"))).forEach(a => {
-      var e = mb(a.getAttribute("title")),
-        f = Q((a.getAttribute("category") || "").split(",")),
-        Sb = Q((a.getAttribute("tags") || "").split(",")),
-        Pa = !0,
-        Qa = !0,
-        Ra = !0;
+      const e = mb(a.getAttribute("title"));
+      const f = Q((a.getAttribute("category") || "").split(","));
+      const Sb = Q((a.getAttribute("tags") || "").split(","));
+      let Pa = !0;
+      let Qa = !0;
+      let Ra = !0;
       b && (Pa = -1 !== e.indexOf(b));
       c.length && (Qa = nb(Sb, c));
       d.length && (Ra = nb(f, d));
@@ -699,7 +698,7 @@ limitations under the License.
         ? a.removeAttribute("hidden")
         : a.setAttribute("hidden", "");
     });
-    var e = new URL(document.location.toString());
+    const e = new URL(document.location.toString());
     c.length
       ? e.searchParams.set("tags", c.join(","))
       : e.searchParams.delete("tags");
@@ -712,7 +711,7 @@ limitations under the License.
     window.history.replaceState({ path: a }, document.title, a);
   }
   function nb(a, b) {
-    for (var c = 0; c < a.length; c++) if (b.includes(a[c])) return !0;
+    for (let c = 0; c < a.length; c++) if (b.includes(a[c])) return !0;
     return !1;
   }
   function mb(a) {
@@ -724,7 +723,7 @@ limitations under the License.
   }
   function Q(a) {
     a = a || [];
-    var b = [];
+    const b = [];
     a.forEach(a => {
       (a = mb(a)) && b.push(a);
     });
@@ -749,12 +748,12 @@ limitations under the License.
     0 != ob && (this[la] || (this[la] = ++ma));
   }
   var ob = 0;
-  var pb;
+  let pb;
   (pb = !I) || (pb = 9 <= Number(Va));
-  var qb = pb,
-    rb;
+  const qb = pb;
+  let rb;
   if ((rb = I)) {
-    var sb;
+    let sb;
     if (Object.prototype.hasOwnProperty.call(Ua, "9")) sb = Ua["9"];
     else {
       for (
@@ -766,11 +765,9 @@ limitations under the License.
         0 == S && T < vb;
         T++
       ) {
-        var wb = tb[T] || "",
-          xb = ub[T] || "";
+        let wb = tb[T] || "", xb = ub[T] || "";
         do {
-          var U = /(\d*)(\D*)(.*)/.exec(wb) || ["", "", "", ""],
-            V = /(\d*)(\D*)(.*)/.exec(xb) || ["", "", "", ""];
+          const U = /(\d*)(\D*)(.*)/.exec(wb) || ["", "", "", ""], V = /(\d*)(\D*)(.*)/.exec(xb) || ["", "", "", ""];
           if (0 == U[0].length && 0 == V[0].length) break;
           S =
             A(
@@ -787,19 +784,21 @@ limitations under the License.
     }
     rb = !sb;
   }
-  var yb = rb,
-    zb = (() => {
-      if (!q.addEventListener || !Object.defineProperty) return !1;
-      var a = !1,
-        b = Object.defineProperty({}, "passive", {
-          get() {
-            a = !0;
-          },
-        });
-      q.addEventListener("test", t, b);
-      q.removeEventListener("test", t, b);
-      return a;
-    })();
+  const yb = rb,
+        zb = (() => {
+          if (!q.addEventListener || !Object.defineProperty) return !1;
+          let a = !1;
+
+          const b = Object.defineProperty({}, "passive", {
+            get() {
+              a = !0;
+            },
+          });
+
+          q.addEventListener("test", t, b);
+          q.removeEventListener("test", t, b);
+          return a;
+        })();
 
   class Ab {
     constructor(a, b) {
@@ -821,8 +820,7 @@ limitations under the License.
       this.pointerType = "";
       this.b = null;
       if (a) {
-        var c = (this.type = a.type),
-          d = a.changedTouches ? a.changedTouches[0] : null;
+        const c = (this.type = a.type), d = a.changedTouches ? a.changedTouches[0] : null;
         this.target = a.target || a.srcElement;
         this.a = b;
         if ((b = a.relatedTarget)) {
@@ -868,7 +866,7 @@ limitations under the License.
 
     preventDefault() {
       W.D.preventDefault.call(this);
-      var a = this.b;
+      const a = this.b;
       if (a.preventDefault) a.preventDefault();
       else if (((a.returnValue = !1), yb))
         try {
@@ -879,8 +877,8 @@ limitations under the License.
 
   x(W, Ab);
   var Bb = { 2: "touch", 3: "pen", 4: "mouse" };
-  var Cb = "closure_listenable_" + ((1e6 * Math.random()) | 0),
-    Db = 0;
+  const Cb = "closure_listenable_" + ((1e6 * Math.random()) | 0);
+  let Db = 0;
   function Eb(a, b, c, d, e) {
     this.listener = a;
     this.proxy = null;
@@ -907,13 +905,13 @@ limitations under the License.
     }
 
     add(a, b, c, d, e) {
-      var f = a.toString();
+      const f = a.toString();
       a = this.a[f];
       a || ((a = this.a[f] = []), this.b++);
-      var g;
+      let g;
       a: {
         for (g = 0; g < a.length; ++g) {
-          var l = a[g];
+          const l = a[g];
           if (!l.o && l.listener == b && l.capture == !!d && l.a == e) break a;
         }
         g = -1;
@@ -926,22 +924,22 @@ limitations under the License.
   }
 
   function Hb(a, b) {
-    var c = b.type;
+    const c = b.type;
     if (c in a.a) {
-      var d = a.a[c],
-        e = ra(d, b),
-        f;
+      const d = a.a[c];
+      const e = ra(d, b);
+      let f;
       (f = 0 <= e) && Array.prototype.splice.call(d, e, 1);
       f && (Fb(b), 0 == a.a[c].length && (delete a.a[c], a.b--));
     }
   }
-  var Ib = "closure_lm_" + ((1e6 * Math.random()) | 0),
-    Jb = {},
-    Kb = 0;
+  const Ib = "closure_lm_" + ((1e6 * Math.random()) | 0);
+  const Jb = {};
+  let Kb = 0;
   function Lb(a, b, c, d, e) {
     if (d && d.once) return Mb(a, b, c, d, e);
     if ("array" == u(b)) {
-      for (var f = 0; f < b.length; f++) Lb(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) Lb(a, b[f], c, d, e);
       return null;
     }
     c = Nb(c);
@@ -951,8 +949,8 @@ limitations under the License.
   }
   function Ob(a, b, c, d, e, f) {
     if (!b) throw Error("Invalid event type");
-    var g = v(e) ? !!e.capture : !!e,
-      l = Pb(a);
+    const g = v(e) ? !!e.capture : !!e;
+    let l = Pb(a);
     l || (a[Ib] = l = new Gb(a));
     c = l.add(b, c, d, g, f);
     if (c.proxy) return c;
@@ -971,20 +969,20 @@ limitations under the License.
     return c;
   }
   function Qb() {
-    var a = Tb,
-      b = qb
-        ? c => {
-            return a.call(b.src, b.listener, c);
-          }
-        : c => {
-            c = a.call(b.src, b.listener, c);
-            if (!c) return c;
-          };
+    const a = Tb,
+          b = qb
+            ? c => {
+                return a.call(b.src, b.listener, c);
+              }
+            : c => {
+                c = a.call(b.src, b.listener, c);
+                if (!c) return c;
+              };
     return b;
   }
   function Mb(a, b, c, d, e) {
     if ("array" == u(b)) {
-      for (var f = 0; f < b.length; f++) Mb(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) Mb(a, b[f], c, d, e);
       return null;
     }
     c = Nb(c);
@@ -994,11 +992,11 @@ limitations under the License.
   }
   function Ub(a) {
     if ("number" != typeof a && a && !a.o) {
-      var b = a.src;
+      const b = a.src;
       if (b && b[Cb]) Hb(b.a, a);
       else {
-        var c = a.type,
-          d = a.proxy;
+        let c = a.type;
+        const d = a.proxy;
         b.removeEventListener
           ? b.removeEventListener(c, d, a.capture)
           : b.detachEvent
@@ -1015,18 +1013,17 @@ limitations under the License.
     return a in Jb ? Jb[a] : (Jb[a] = "on" + a);
   }
   function Vb(a, b, c, d) {
-    var e = !0;
+    let e = !0;
     if ((a = Pb(a)))
       if ((b = a.a[b.toString()]))
         for (b = b.concat(), a = 0; a < b.length; a++) {
-          var f = b[a];
+          let f = b[a];
           f && f.capture == c && !f.o && ((f = Wb(f, d)), (e = e && !1 !== f));
         }
     return e;
   }
   function Wb(a, b) {
-    var c = a.listener,
-      d = a.a || a.src;
+    const c = a.listener, d = a.a || a.src;
     a.A && Ub(a);
     return c.call(d, b);
   }
@@ -1077,7 +1074,7 @@ limitations under the License.
     a = a[Ib];
     return a instanceof Gb ? a : null;
   }
-  var Xb = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
+  const Xb = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
   function Nb(a) {
     if ("function" == u(a)) return a;
     a[Xb] ||
@@ -1130,11 +1127,11 @@ limitations under the License.
   }
 
   x(Zb, R);
-  var $b = [];
+  const $b = [];
   function Y(a, b, c, d) {
     "array" != u(c) && (c && ($b[0] = c.toString()), (c = $b));
-    for (var e = 0; e < c.length; e++) {
-      var f = Lb(b, c[e], d || a.handleEvent, !1, a.b || a);
+    for (let e = 0; e < c.length; e++) {
+      const f = Lb(b, c[e], d || a.handleEvent, !1, a.b || a);
       if (!f) break;
       a.a[f.key] = f;
     }
@@ -1152,7 +1149,7 @@ limitations under the License.
 
   class Z {
     constructor() {
-      var a = HTMLElement.call(this) || this;
+      const a = HTMLElement.call(this) || this;
       a.m = new Zb();
       a.C = !1;
       a.g = null;
@@ -1161,7 +1158,7 @@ limitations under the License.
       a.l = null;
       a.h = null;
       a.L = new X(() => {
-        var b = a.f.value.trim();
+        const b = a.f.value.trim();
         a.l &&
           ("" === b ? a.l.setAttribute("hide", "") : a.l.removeAttribute("hide"));
         a.g && a.g.setAttribute("filter", b);
@@ -1187,12 +1184,12 @@ limitations under the License.
   Z.prototype.disconnectedCallback = Z.prototype.disconnectedCallback;
   function cc(a) {
     if (a.w) {
-      var b = a.w.querySelector("#sort-by-tabs");
+      const b = a.w.querySelector("#sort-by-tabs");
       b &&
         Y(a.m, b, "click", b => {
           b.preventDefault();
           b = b.target;
-          var c = b.getAttribute("sort");
+          let c = b.getAttribute("sort");
           a.g && a.g.setAttribute("sort", c);
           (c = a.querySelector("[selected]")) && c.removeAttribute("selected");
           b.setAttribute("selected", "");
@@ -1218,16 +1215,16 @@ limitations under the License.
     });
   }
   function bc(a) {
-    var b = a.querySelector("main .main-inner");
+    let b = a.querySelector("main .main-inner");
     if (b) {
       a.f = document.querySelector("#search-field");
       a.l = document.querySelector("#clear-icon");
-      var c = a.querySelector("main ul"),
-        d = document.createElement("google-codelab-index-cards"),
-        e = new URL(document.location.toString());
+      const c = a.querySelector("main ul");
+      let d = document.createElement("google-codelab-index-cards");
+      let e = new URL(document.location.toString());
       e.searchParams.has("tags") &&
         d.setAttribute("tags", e.searchParams.getAll("tags").join(","));
-      var f = "";
+      let f = "";
       if (e.searchParams.has("cat")) {
         var g = e.searchParams.getAll("cat");
         f = g[0].trim().toLowerCase();
@@ -1244,7 +1241,7 @@ limitations under the License.
           b.appendChild(d))
         : (d = b.querySelector("google-codelab-index-cards"));
       if (d) {
-        var l = new Set();
+        const l = new Set();
         [].concat(p(d.querySelectorAll(".card"))).forEach(a => {
           (a = a.getAttribute("category")) &&
             a.split(",").forEach(a => {

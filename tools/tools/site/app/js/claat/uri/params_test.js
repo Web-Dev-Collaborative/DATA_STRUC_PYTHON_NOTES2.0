@@ -21,23 +21,23 @@ goog.require("claat.uri.params");
 goog.require("goog.testing.jsunit");
 
 function testDecodeEmpty() {
-  var obj = claat.uri.params.decode("");
+  const obj = claat.uri.params.decode("");
   assertObjectEquals(obj, {});
 }
 
 function testDecodeEmptyValue() {
-  var obj = claat.uri.params.decode("one=");
+  let obj = claat.uri.params.decode("one=");
   assertObjectEquals(obj, { one: [""] });
   obj = claat.uri.params.decode("one&two=");
   assertObjectEquals(obj, { one: [""], two: [""] });
 }
 
 function testDecodeSingle() {
-  var obj = claat.uri.params.decode("one=1&two=2");
+  const obj = claat.uri.params.decode("one=1&two=2");
   assertObjectEquals(obj, { one: ["1"], two: ["2"] });
 }
 
 function testDecodeMulti() {
-  var obj = claat.uri.params.decode("one=1&two=2&one=11");
+  const obj = claat.uri.params.decode("one=1&two=2&one=11");
   assertObjectEquals(obj, { one: ["1", "11"], two: ["2"] });
 }

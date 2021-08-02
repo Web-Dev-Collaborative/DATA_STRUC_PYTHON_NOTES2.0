@@ -141,9 +141,9 @@ claat.ui.cards.Sorter.prototype.clearFilters = function () {
  * @private
  */
 claat.ui.cards.Sorter.prototype.processCards_ = function () {
-  var pin = 0;
-  for (var i = 0; i < this.cards_.length; i++) {
-    var card = this.cards_[i];
+  let pin = 0;
+  for (let i = 0; i < this.cards_.length; i++) {
+    const card = this.cards_[i];
     // filtering
     card.desc = (card.dataset["title"] || "").trim().toLowerCase();
     card.cats = cleanStrings((card.dataset["category"] || "").split(","));
@@ -164,16 +164,16 @@ claat.ui.cards.Sorter.prototype.processCards_ = function () {
  * @protected
  */
 claat.ui.cards.Sorter.prototype.do_ = function () {
-  var elems = Array.prototype.slice.call(this.cards_, 0);
-  var n = elems.length;
+  const elems = Array.prototype.slice.call(this.cards_, 0);
+  let n = elems.length;
   while (n--) {
     if (!this.match_(elems[n])) {
       elems.splice(n, 1);
     }
   }
   this.sort_(elems);
-  for (var i = 0; i < this.cards_.length; i++) {
-    var c = this.cards_[i];
+  for (let i = 0; i < this.cards_.length; i++) {
+    const c = this.cards_[i];
     if (c.parentNode) {
       c.parentNode.removeChild(c);
     }
@@ -190,7 +190,7 @@ claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
   switch (this.order_) {
     case claat.ui.cards.Order.DURATION:
       cards.sort((a, b) => {
-        var n = comparePinned(a, b);
+        const n = comparePinned(a, b);
         if (n !== null) {
           return n;
         }
@@ -199,7 +199,7 @@ claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
       break;
     case claat.ui.cards.Order.RECENT:
       cards.sort((a, b) => {
-        var n = comparePinned(a, b);
+        const n = comparePinned(a, b);
         if (n !== null) {
           return n;
         }
@@ -215,7 +215,7 @@ claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
     default:
       // alphabetical sort
       cards.sort((a, b) => {
-        var n = comparePinned(a, b);
+        const n = comparePinned(a, b);
         if (n !== null) {
           return n;
         }
@@ -249,9 +249,9 @@ claat.ui.cards.Sorter.prototype.match_ = function (card) {
   // category contains exact match
   // If no filter is set, we let everything through. If a filter is set, we
   // assume this card is not a match until proven otherwise.
-  var catMatch = !this.filters_.cat;
+  let catMatch = !this.filters_.cat;
   if (this.filters_.cat) {
-    for (var i = 0; i < card.cats.length; i++) {
+    for (let i = 0; i < card.cats.length; i++) {
       if (this.filters_.cat === card.cats[i]) {
         catMatch = true;
       }
@@ -293,9 +293,9 @@ function normalizeValue(v) {
  */
 function cleanStrings(strings) {
   strings = strings || [];
-  var a = [];
-  for (var i = 0; i < strings.length; i++) {
-    var v = normalizeValue(strings[i]);
+  const a = [];
+  for (let i = 0; i < strings.length; i++) {
+    const v = normalizeValue(strings[i]);
     if (v) {
       a.push(v);
     }
@@ -331,8 +331,8 @@ function comparePinned(a, b) {
  * @return {boolean}
  */
 function intersect(a, b) {
-  var i = 0;
-  var j = 0;
+  let i = 0;
+  let j = 0;
   while (i < a.length && j < b.length) {
     if (a[i] < b[j]) {
       i++;

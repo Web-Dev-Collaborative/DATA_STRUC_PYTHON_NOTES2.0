@@ -6,7 +6,7 @@ upgraded. This approach does not block rendering!.
 */
 
 (() => {
-  var origTryReady = Polymer.Base._tryReady;
+  const origTryReady = Polymer.Base._tryReady;
 
   Polymer.Base._tryReady = function () {
     // Configure properties bound from host lazily at startup
@@ -17,9 +17,9 @@ upgraded. This approach does not block rendering!.
       (this.is && this.hasAttribute("lazy-bind")) ||
       (this.dataHost && this.dataHost.lazyChildren)
     ) {
-      for (var p in this._propertyEffects) {
+      for (const p in this._propertyEffects) {
         if (this.hasOwnProperty(p)) {
-          var v = this[p];
+          const v = this[p];
           delete this[p];
           this._config[p] = v;
         }

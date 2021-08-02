@@ -22,9 +22,9 @@
       }
 
       // Calculate category offsets.
-      var cards = document.querySelectorAll(".codelab-card");
+      const cards = document.querySelectorAll(".codelab-card");
       Array.prototype.forEach.call(cards, (card, i) => {
-        var category = card.getAttribute("data-category");
+        const category = card.getAttribute("data-category");
         if (app.categoryStartCards[category] === undefined) {
           app.categoryStartCards[category] = card;
         }
@@ -32,7 +32,7 @@
     });
 
     app.codelabUrl = (view, codelab) => {
-      var codelabUrlParams = "index=" + encodeURIComponent("../.." + view.url);
+      let codelabUrlParams = "index=" + encodeURIComponent("../.." + view.url);
       if (view.ga) {
         codelabUrlParams += "&viewga=" + view.ga;
       }
@@ -40,7 +40,7 @@
     };
 
     app.sortBy = function (e, detail) {
-      var order = detail.item.textContent.trim().toLowerCase();
+      const order = detail.item.textContent.trim().toLowerCase();
       this.$.cards.sort(order);
     };
 
@@ -54,7 +54,7 @@
     };
 
     app.onCategoryActivate = function (e, detail) {
-      var item = e.target.selectedItem;
+      const item = e.target.selectedItem;
       if (item && item.getAttribute("filter") === detail.selected) {
         detail.selected = null;
       }
@@ -66,15 +66,15 @@
       this.filterBy(e, { selected: detail.selected });
 
       // Update URL deep link to filter.
-      var params = new URLSearchParams(window.location.search.slice(1));
+      const params = new URLSearchParams(window.location.search.slice(1));
       params.delete("cat"); // delete all cat params
       if (detail.selected) {
         params.set("cat", detail.selected);
       }
 
       // record in browser history to make the back button work
-      var url = window.location.pathname;
-      var search = "?" + params;
+      let url = window.location.pathname;
+      const search = "?" + params;
       if (search !== "?") {
         url += search;
       }
@@ -84,22 +84,22 @@
     };
 
     function updateLuckyLink() {
-      var luckyLink = document.querySelector(".js-lucky-link");
+      const luckyLink = document.querySelector(".js-lucky-link");
       if (!luckyLink) {
         return;
       }
-      var cards = app.$.cards.querySelectorAll(".codelab-card");
+      const cards = app.$.cards.querySelectorAll(".codelab-card");
       if (cards.length < 2) {
         luckyLink.href = "#";
         luckyLink.parentNode.style.display = "none";
         return;
       }
-      var i = Math.floor(Math.random() * cards.length);
+      const i = Math.floor(Math.random() * cards.length);
       luckyLink.href = cards[i].href;
       luckyLink.parentNode.style.display = null;
     }
 
-    var chips = document.querySelector("#chips");
+    const chips = document.querySelector("#chips");
 
     /**
      * Highlights selected chips identified by tags.
@@ -110,9 +110,9 @@
         return;
       }
       tags = Array.isArray(tags) ? tags : [tags];
-      var chipElems = chips.querySelectorAll(".js-chips__item");
-      for (var i = 0; i < chipElems.length; i++) {
-        var el = chipElems[i];
+      const chipElems = chips.querySelectorAll(".js-chips__item");
+      for (let i = 0; i < chipElems.length; i++) {
+        const el = chipElems[i];
         if (tags.indexOf(el.getAttribute("filter")) != -1) {
           el.classList.add("selected");
         } else {
@@ -127,17 +127,17 @@
         e.stopPropagation();
 
         // Make sure the click was on a chip.
-        var tag = e.target.getAttribute("filter");
+        const tag = e.target.getAttribute("filter");
         if (!tag) {
           return;
         }
         // Remove or add the selected class.
         e.target.classList.toggle("selected");
         // Collect all selected chips.
-        var tags = [];
-        var chipElems = chips.querySelectorAll(".js-chips__item.selected");
-        for (var i = 0; i < chipElems.length; i++) {
-          var t = chipElems[i].getAttribute("filter");
+        const tags = [];
+        const chipElems = chips.querySelectorAll(".js-chips__item.selected");
+        for (let i = 0; i < chipElems.length; i++) {
+          const t = chipElems[i].getAttribute("filter");
           if (t) {
             tags.push(t);
           }
@@ -150,11 +150,11 @@
     }
 
     app.reconstructFromURL = function () {
-      var params = new URLSearchParams(window.location.search.slice(1));
-      var cat = params.get("cat");
-      var tags = params.getAll("tags");
-      var filter = params.get("filter");
-      var i = tags.length;
+      const params = new URLSearchParams(window.location.search.slice(1));
+      const cat = params.get("cat");
+      const tags = params.getAll("tags");
+      const filter = params.get("filter");
+      let i = tags.length;
       while (i--) {
         if (tags[i] === "kiosk" || tags[i].substr(0, 6) === "kiosk-") {
           app.kioskTags.push(tags[i]);
@@ -183,12 +183,12 @@
     app.navigate = event => {
       event.preventDefault();
 
-      var go = href => {
+      const go = href => {
         window.location.href = href;
       };
 
-      var target = event.currentTarget;
-      var wait = target.hasAttribute("data-wait-for-ripple");
+      const target = event.currentTarget;
+      const wait = target.hasAttribute("data-wait-for-ripple");
       if (wait) {
         target.addEventListener("transitionend", go.bind(target, target.href));
       } else {

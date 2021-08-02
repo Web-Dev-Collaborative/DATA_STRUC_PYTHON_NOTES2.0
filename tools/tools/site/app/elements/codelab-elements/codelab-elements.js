@@ -1,26 +1,28 @@
 (function () {
   "use strict";
-  var g =
+
+  const g =
       "undefined" != typeof window && window === this
         ? this
         : "undefined" != typeof global && null != global
         ? global
-        : this,
-    h =
-      "function" == typeof Object.create
-        ? Object.create
-        : a => {
-            function c() {}
-            c.prototype = a;
-            return new c();
-          },
-    k;
+        : this;
+
+  const h =
+    "function" == typeof Object.create
+      ? Object.create
+      : a => {
+          function c() {}
+          c.prototype = a;
+          return new c();
+        };
+
+  let k;
   if ("function" == typeof Object.setPrototypeOf) k = Object.setPrototypeOf;
   else {
-    var l;
+    let l;
     a: {
-      var m = { V: !0 },
-        n = {};
+      const m = { V: !0 }, n = {};
       try {
         n.__proto__ = m;
         l = n.V;
@@ -36,7 +38,7 @@
         }
       : null;
   }
-  var p = k;
+  const p = k;
   function q(a, c) {
     function b() {}
     b.prototype = c.prototype;
@@ -53,7 +55,8 @@
       return c.prototype[b].apply(a, e);
     };
   }
-  var r = {
+
+  const r = {
       F: ["BC", "AD"],
       D: ["Before Christ", "Anno Domini"],
       H: "JFMAMJJASOND".split(""),
@@ -81,8 +84,9 @@
       j: 6,
       fa: [5, 6],
       l: 5,
-    },
-    t = r;
+    };
+
+  let t = r;
   t = r;
   function u(a) {
     if (!v.test(a)) return a;
@@ -94,23 +98,25 @@
     -1 != a.indexOf("\x00") && (a = a.replace(C, "&#0;"));
     return a;
   }
-  var x = /&/g,
-    y = /</g,
-    z = />/g,
-    A = /"/g,
-    B = /'/g,
-    C = /\x00/g,
-    v = /[\x00&<>"']/,
-    aa = String.prototype.repeat
-      ? (a, c) => {
-          return a.repeat(c);
-        }
-      : (a, c) => {
-          return Array(c + 1).join(a);
-        };
+  var x = /&/g;
+  var y = /</g;
+  var z = />/g;
+  var A = /"/g;
+  var B = /'/g;
+  var C = /\x00/g;
+  var v = /[\x00&<>"']/;
+
+  const aa = String.prototype.repeat
+    ? (a, c) => {
+        return a.repeat(c);
+      }
+    : (a, c) => {
+        return Array(c + 1).join(a);
+      };
+
   function D(a, c) {
     a = String(a);
-    var b = a.indexOf(".");
+    let b = a.indexOf(".");
     -1 == b && (b = a.length);
     return aa("0", Math.max(0, c - b)) + a;
   }
@@ -129,7 +135,7 @@
     if ("number" == typeof a) {
       var c = new F();
       c.f = a;
-      var b = a;
+      let b = a;
       if (0 == b) b = "Etc/GMT";
       else {
         var f = ["Etc/GMT", 0 > b ? "-" : "+"];
@@ -164,7 +170,7 @@
     return c;
   }
   function H(a) {
-    var c = ["GMT"];
+    const c = ["GMT"];
     c.push(0 >= a ? "+" : "-");
     a = Math.abs(a);
     c.push(D(Math.floor(a / 60) % 100, 2), ":", D(a % 60, 2));
@@ -185,12 +191,12 @@
   function ba() {
     this.b = [];
     this.a = t;
-    var a = "MMM d, yyyy";
+    let a = "MMM d, yyyy";
     for (ca && (a = a.replace(/\u200f/g, "")); a; ) {
       for (var c = a, b = 0; b < J.length; ++b) {
-        var f = a.match(J[b]);
+        const f = a.match(J[b]);
         if (f) {
-          var e = f[0];
+          let e = f[0];
           a = a.substring(e.length);
           0 == b &&
             ("''" == e
@@ -217,7 +223,7 @@
     a = a.a || t;
     if (void 0 !== a.U) {
       for (var b = [], f = 0; f < c.length; f++) {
-        var e = c.charCodeAt(f);
+        const e = c.charCodeAt(f);
         b.push(
           48 <= e && 57 >= e ? String.fromCharCode(a.U + e - 48) : c.charAt(f)
         );
@@ -234,7 +240,7 @@
       );
   }
   function da(a, c, b, f, e) {
-    var d = c.length;
+    let d = c.length;
     switch (c.charAt(0)) {
       case "G":
         return (b = 0 < f.getFullYear() ? 1 : 0), 4 <= d ? a.a.D[b] : a.a.F[b];
@@ -381,8 +387,7 @@
     this.a = O;
   }
   var O = {};
-  var P = {},
-    ea = {};
+  const P = {}, ea = {};
   function Q() {
     throw Error("Do not instantiate directly");
   }
@@ -430,37 +435,36 @@
       return a;
     };
   })(R);
-  var ha = (a => {
-    var c = !1,
-      b;
+  const ha = (a => {
+    let c = !1, b;
     return () => {
       c || ((b = a()), (c = !0));
       return b;
     };
   })(() => {
-    var a = document.createElement("div");
+    const a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
-    var c = a.firstChild.firstChild;
+    const c = a.firstChild.firstChild;
     a.innerHTML = "";
     return !c.parentElement;
-  }); /*
+  });/*
 
- Copyright 2018 Google Inc.
+Copyright 2018 Google Inc.
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+  http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
   function V() {
-    var a = HTMLElement.call(this) || this;
+    const a = HTMLElement.call(this) || this;
     a.o = null;
     a.u = null;
     a.w = !1;
@@ -468,15 +472,15 @@
     a.s = null;
     return a;
   }
-  var W = HTMLElement;
+  const W = HTMLElement;
   V.prototype = h(W.prototype);
   V.prototype.constructor = V;
   if (p) p(V, W);
   else
-    for (var X in W)
+    for (const X in W)
       if ("prototype" != X)
         if (Object.defineProperties) {
-          var Y = Object.getOwnPropertyDescriptor(W, X);
+          const Y = Object.getOwnPropertyDescriptor(W, X);
           Y && Object.defineProperty(V, X, Y);
         } else V[X] = W[X];
   V.$ = W.prototype;
@@ -505,7 +509,7 @@
   };
   V.prototype.attributeChangedCallback = V.prototype.attributeChangedCallback;
   function Z(a) {
-    var c = a.A;
+    let c = a.A;
     if (c) {
       c = new Date(c);
       var b = new ba();
@@ -524,7 +528,7 @@
     d = "";
     if (c) {
       d += '<div class="codelab-title">';
-      for (var S = c.length, w = 0; w < S; w++)
+      for (let S = c.length, w = 0; w < S; w++)
         d += '<div class="token">' + T(c[w]) + "</div>";
       d += "</div>";
     }
@@ -577,31 +581,31 @@
 }.call(this));
 (function () {
   "use strict";
-  var aa =
-      "function" == typeof Object.defineProperties
-        ? Object.defineProperty
-        : (a, b, c) => {
-            a != Array.prototype && a != Object.prototype && (a[b] = c.value);
-          },
-    h =
-      "undefined" != typeof window && window === this
-        ? this
-        : "undefined" != typeof global && null != global
-        ? global
-        : this;
+  const aa =
+            "function" == typeof Object.defineProperties
+              ? Object.defineProperty
+              : (a, b, c) => {
+                  a != Array.prototype && a != Object.prototype && (a[b] = c.value);
+                },
+        h =
+          "undefined" != typeof window && window === this
+            ? this
+            : "undefined" != typeof global && null != global
+            ? global
+            : this;
   function ba() {
     ba = () => {};
     h.Symbol || (h.Symbol = ca);
   }
   var ca = (() => {
-    var a = 0;
+    let a = 0;
     return b => {
       return "jscomp_symbol_" + (b || "") + a++;
     };
   })();
   function k() {
     ba();
-    var a = h.Symbol.iterator;
+    let a = h.Symbol.iterator;
     a || (a = h.Symbol.iterator = h.Symbol("iterator"));
     "function" != typeof Array.prototype[a] &&
       aa(Array.prototype, a, {
@@ -614,7 +618,7 @@
     k = () => {};
   }
   function da(a) {
-    var b = 0;
+    let b = 0;
     return ea(() => {
       return b < a.length ? { done: !1, value: a[b++] } : { done: !0 };
     });
@@ -629,15 +633,15 @@
   }
   function fa(a) {
     k();
-    var b = a[Symbol.iterator];
+    const b = a[Symbol.iterator];
     return b ? b.call(a) : da(a);
   }
   function ha(a, b) {
     if (b) {
-      var c = h;
+      let c = h;
       a = a.split(".");
       for (var d = 0; d < a.length - 1; d++) {
-        var e = a[d];
+        const e = a[d];
         e in c || (c[e] = {});
         c = c[e];
       }
@@ -654,7 +658,7 @@
       this.b = 0;
       this.g = void 0;
       this.a = [];
-      var b = this.c();
+      const b = this.c();
       try {
         a(b.resolve, b.reject);
       } catch (G) {
@@ -677,21 +681,21 @@
       this.a.push(a);
     };
     c.prototype.f = function () {
-      var a = this;
+      const a = this;
       this.c(() => {
         a.h();
       });
     };
-    var e = h.setTimeout;
+    const e = h.setTimeout;
     c.prototype.c = a => {
       e(a, 0);
     };
     c.prototype.h = function () {
       for (; this.a && this.a.length; ) {
-        var a = this.a;
+        const a = this.a;
         this.a = [];
-        for (var b = 0; b < a.length; ++b) {
-          var c = a[b];
+        for (let b = 0; b < a.length; ++b) {
+          const c = a[b];
           a[b] = null;
           try {
             c();
@@ -776,7 +780,7 @@
       else {
         a: switch (typeof a) {
           case "object":
-            var c = null != a;
+            let c = null != a;
             break a;
           case "function":
             c = !0;
@@ -788,7 +792,7 @@
       }
     };
     b.prototype.H = function (a) {
-      var b = void 0;
+      let b = void 0;
       try {
         b = a.then;
       } catch (G) {
@@ -819,17 +823,17 @@
     };
     b.prototype.u = function () {
       if (null != this.a) {
-        for (var a = 0; a < this.a.length; ++a) f.b(this.a[a]);
+        for (let a = 0; a < this.a.length; ++a) f.b(this.a[a]);
         this.a = null;
       }
     };
     var f = new c();
     b.prototype.K = function (a) {
-      var b = this.c();
+      const b = this.c();
       a.m(b.resolve, b.reject);
     };
     b.prototype.L = function (a, b) {
-      var c = this.c();
+      const c = this.c();
       try {
         a.call(b, c.resolve, c.reject);
       } catch (H) {
@@ -848,12 +852,14 @@
             }
           : b;
       }
-      var e,
-        f,
-        g = new b((a, b) => {
-          e = a;
-          f = b;
-        });
+      var e;
+      var f;
+
+      const g = new b((a, b) => {
+        e = a;
+        f = b;
+      });
+
       this.m(d(a, e), d(c, f));
       return g;
     };
@@ -884,13 +890,13 @@
     };
     b.race = a => {
       return new b((b, c) => {
-        for (var e = fa(a), f = e.next(); !f.done; f = e.next())
+        for (let e = fa(a), f = e.next(); !f.done; f = e.next())
           d(f.value).m(b, c);
       });
     };
     b.all = a => {
-      var c = fa(a),
-        e = c.next();
+      const c = fa(a);
+      let e = c.next();
       return e.done
         ? d([])
         : new b((a, b) => {
@@ -931,13 +937,12 @@
           );
         };
   });
-  var m;
+  let m;
   if ("function" == typeof Object.setPrototypeOf) m = Object.setPrototypeOf;
   else {
-    var n;
+    let n;
     a: {
-      var ia = { D: !0 },
-        ja = {};
+      const ia = { D: !0 }, ja = {};
       try {
         ja.__proto__ = ia;
         n = ja.D;
@@ -953,7 +958,7 @@
         }
       : null;
   }
-  var ka = m;
+  const ka = m;
   function p() {
     this.f = !1;
     this.a = null;
@@ -978,7 +983,7 @@
     this.c = this.u;
   };
   function la(a) {
-    var b = ma();
+    const b = ma();
     a.c = 4;
     return { value: b };
   }
@@ -992,7 +997,7 @@
   }
   function pa(a, b) {
     q(a.a);
-    var c = a.a.a;
+    const c = a.a.a;
     if (c)
       return t(
         a,
@@ -1009,7 +1014,7 @@
   }
   function t(a, b, c, d) {
     try {
-      var e = b.call(a.a.a, c);
+      const e = b.call(a.a.a, c);
       if (!(e instanceof Object))
         throw new TypeError("Iterator result " + e + " is not an object");
       if (!e.done) return (a.a.f = !1), e;
@@ -1071,23 +1076,23 @@
       f(a.next());
     });
   }
-  var sa =
-      "function" == typeof Object.create
-        ? Object.create
-        : a => {
-            function b() {}
-            b.prototype = a;
-            return new b();
-          },
-    v = this;
+  const sa =
+            "function" == typeof Object.create
+              ? Object.create
+              : a => {
+                  function b() {}
+                  b.prototype = a;
+                  return new b();
+                },
+        v = this;
   function w() {}
   function x(a) {
-    var b = typeof a;
+    const b = typeof a;
     if ("object" == b)
       if (a) {
         if (a instanceof Array) return "array";
         if (a instanceof Object) return b;
-        var c = Object.prototype.toString.call(a);
+        const c = Object.prototype.toString.call(a);
         if ("[object Window]" == c) return "object";
         if (
           "[object Array]" == c ||
@@ -1109,11 +1114,11 @@
     return b;
   }
   function y(a) {
-    var b = typeof a;
+    const b = typeof a;
     return ("object" == b && null != a) || "function" == b;
   }
-  var ta = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
-    ua = 0;
+  const ta = "closure_uid_" + ((1e9 * Math.random()) >>> 0);
+  let ua = 0;
   function va(a, b) {
     function c() {}
     c.prototype = b.prototype;
@@ -1123,17 +1128,17 @@
     0 != xa && (this[ta] || (this[ta] = ++ua));
   }
   var xa = 0;
-  var ya = Array.prototype.indexOf
+  const ya = Array.prototype.indexOf
     ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
     : (a, b) => {
         if ("string" == typeof a)
           return "string" == typeof b && 1 == b.length ? a.indexOf(b, 0) : -1;
-        for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
+        for (let c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
         return -1;
       };
-  var za = String.prototype.trim
+  const za = String.prototype.trim
     ? a => {
         return a.trim();
       }
@@ -1143,11 +1148,11 @@
   function z(a, b) {
     return a < b ? -1 : a > b ? 1 : 0;
   }
-  var A;
+  let A;
   a: {
-    var Aa = v.navigator;
+    const Aa = v.navigator;
     if (Aa) {
-      var Ba = Aa.userAgent;
+      const Ba = Aa.userAgent;
       if (Ba) {
         A = Ba;
         break a;
@@ -1156,40 +1161,42 @@
     A = "";
   }
   function Ca(a, b, c) {
-    for (var d in a) b.call(c, a[d], d, a);
+    for (const d in a) b.call(c, a[d], d, a);
   }
   function B(a) {
     B[" "](a);
     return a;
   }
   B[" "] = w;
-  var Da = -1 != A.indexOf("Opera"),
-    C = -1 != A.indexOf("Trident") || -1 != A.indexOf("MSIE"),
-    Ea = -1 != A.indexOf("Edge"),
-    Fa =
-      -1 != A.indexOf("Gecko") &&
-      !(-1 != A.toLowerCase().indexOf("webkit") && -1 == A.indexOf("Edge")) &&
-      !(-1 != A.indexOf("Trident") || -1 != A.indexOf("MSIE")) &&
-      -1 == A.indexOf("Edge"),
-    Ga = -1 != A.toLowerCase().indexOf("webkit") && -1 == A.indexOf("Edge");
+  const Da = -1 != A.indexOf("Opera"),
+        C = -1 != A.indexOf("Trident") || -1 != A.indexOf("MSIE"),
+        Ea = -1 != A.indexOf("Edge"),
+        Fa =
+          -1 != A.indexOf("Gecko") &&
+          !(-1 != A.toLowerCase().indexOf("webkit") && -1 == A.indexOf("Edge")) &&
+          !(-1 != A.indexOf("Trident") || -1 != A.indexOf("MSIE")) &&
+          -1 == A.indexOf("Edge"),
+        Ga = -1 != A.toLowerCase().indexOf("webkit") && -1 == A.indexOf("Edge");
   function Ha() {
-    var a = v.document;
+    const a = v.document;
     return a ? a.documentMode : void 0;
   }
   var D;
   a: {
-    var E = "",
-      F = (() => {
-        var a = A;
-        if (Fa) return /rv:([^\);]+)(\)|;)/.exec(a);
-        if (Ea) return /Edge\/([\d\.]+)/.exec(a);
-        if (C) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
-        if (Ga) return /WebKit\/(\S+)/.exec(a);
-        if (Da) return /(?:Version)[ \/]?(\S+)/.exec(a);
-      })();
+    let E = "";
+
+    const F = (() => {
+      const a = A;
+      if (Fa) return /rv:([^\);]+)(\)|;)/.exec(a);
+      if (Ea) return /Edge\/([\d\.]+)/.exec(a);
+      if (C) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
+      if (Ga) return /WebKit\/(\S+)/.exec(a);
+      if (Da) return /(?:Version)[ \/]?(\S+)/.exec(a);
+    })();
+
     F && (E = F ? F[1] : "");
     if (C) {
-      var I = Ha();
+      const I = Ha();
       if (null != I && I > parseFloat(E)) {
         D = String(I);
         break a;
@@ -1197,17 +1204,17 @@
     }
     D = E;
   }
-  var J = {},
-    Ia;
-  var Ja = v.document;
+  const J = {};
+  let Ia;
+  const Ja = v.document;
   Ia =
     Ja && C
       ? Ha() || ("CSS1Compat" == Ja.compatMode ? parseInt(D, 10) : 5)
       : void 0;
-  var K;
+  let K;
   (K = !C) || (K = 9 <= Number(Ia));
-  var Ka = K,
-    L;
+  const Ka = K;
+  let L;
   if ((L = C)) {
     var M;
     if (Object.prototype.hasOwnProperty.call(J, "9")) M = J["9"];
@@ -1221,11 +1228,9 @@
         0 == N && O < Na;
         O++
       ) {
-        var Oa = La[O] || "",
-          Pa = Ma[O] || "";
+        let Oa = La[O] || "", Pa = Ma[O] || "";
         do {
-          var P = /(\d*)(\D*)(.*)/.exec(Oa) || ["", "", "", ""],
-            Q = /(\d*)(\D*)(.*)/.exec(Pa) || ["", "", "", ""];
+          const P = /(\d*)(\D*)(.*)/.exec(Oa) || ["", "", "", ""], Q = /(\d*)(\D*)(.*)/.exec(Pa) || ["", "", "", ""];
           if (0 == P[0].length && 0 == Q[0].length) break;
           N =
             z(
@@ -1242,19 +1247,21 @@
     }
     L = !M;
   }
-  var Qa = L,
-    Ra = (() => {
-      if (!v.addEventListener || !Object.defineProperty) return !1;
-      var a = !1,
-        b = Object.defineProperty({}, "passive", {
-          get() {
-            a = !0;
-          },
-        });
-      v.addEventListener("test", w, b);
-      v.removeEventListener("test", w, b);
-      return a;
-    })();
+  const Qa = L,
+        Ra = (() => {
+          if (!v.addEventListener || !Object.defineProperty) return !1;
+          let a = !1;
+
+          const b = Object.defineProperty({}, "passive", {
+            get() {
+              a = !0;
+            },
+          });
+
+          v.addEventListener("test", w, b);
+          v.removeEventListener("test", w, b);
+          return a;
+        })();
   function R(a, b) {
     this.type = a;
     this.a = this.target = b;
@@ -1270,8 +1277,7 @@
     this.pointerType = "";
     this.o = null;
     if (a) {
-      var c = (this.type = a.type),
-        d = a.changedTouches ? a.changedTouches[0] : null;
+      const c = (this.type = a.type), d = a.changedTouches ? a.changedTouches[0] : null;
       this.target = a.target || a.srcElement;
       this.a = b;
       if ((b = a.relatedTarget)) {
@@ -1319,15 +1325,15 @@
   var Sa = { 2: "touch", 3: "pen", 4: "mouse" };
   S.prototype.b = function () {
     S.C.b.call(this);
-    var a = this.o;
+    const a = this.o;
     if (a.preventDefault) a.preventDefault();
     else if (((a.returnValue = !1), Qa))
       try {
         if (a.ctrlKey || (112 <= a.keyCode && 123 >= a.keyCode)) a.keyCode = -1;
       } catch (b) {}
   };
-  var Ta = "closure_listenable_" + ((1e6 * Math.random()) | 0),
-    Ua = 0;
+  const Ta = "closure_listenable_" + ((1e6 * Math.random()) | 0);
+  let Ua = 0;
   function Va(a, b, c, d, e) {
     this.listener = a;
     this.proxy = null;
@@ -1351,13 +1357,13 @@
     this.b = 0;
   }
   Xa.prototype.add = function (a, b, c, d, e) {
-    var f = a.toString();
+    const f = a.toString();
     a = this.a[f];
     a || ((a = this.a[f] = []), this.b++);
-    var g;
+    let g;
     a: {
       for (g = 0; g < a.length; ++g) {
-        var l = a[g];
+        const l = a[g];
         if (!l.j && l.listener == b && l.capture == !!d && l.a == e) break a;
       }
       g = -1;
@@ -1367,13 +1373,13 @@
       : ((b = new Va(b, this.src, f, !!d, e)), (b.v = c), a.push(b));
     return b;
   };
-  var Ya = "closure_lm_" + ((1e6 * Math.random()) | 0),
-    Za = {},
-    ab = 0;
+  const Ya = "closure_lm_" + ((1e6 * Math.random()) | 0);
+  const Za = {};
+  let ab = 0;
   function bb(a, b, c, d, e) {
     if (d && d.once) return cb(a, b, c, d, e);
     if ("array" == x(b)) {
-      for (var f = 0; f < b.length; f++) bb(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) bb(a, b[f], c, d, e);
       return null;
     }
     c = db(c);
@@ -1383,8 +1389,8 @@
   }
   function eb(a, b, c, d, e, f) {
     if (!b) throw Error("Invalid event type");
-    var g = y(e) ? !!e.capture : !!e,
-      l = fb(a);
+    const g = y(e) ? !!e.capture : !!e;
+    let l = fb(a);
     l || (a[Ya] = l = new Xa(a));
     c = l.add(b, c, d, g, f);
     if (c.proxy) return c;
@@ -1403,20 +1409,20 @@
     return c;
   }
   function gb() {
-    var a = ib,
-      b = Ka
-        ? c => {
-            return a.call(b.src, b.listener, c);
-          }
-        : c => {
-            c = a.call(b.src, b.listener, c);
-            if (!c) return c;
-          };
+    const a = ib,
+          b = Ka
+            ? c => {
+                return a.call(b.src, b.listener, c);
+              }
+            : c => {
+                c = a.call(b.src, b.listener, c);
+                if (!c) return c;
+              };
     return b;
   }
   function cb(a, b, c, d, e) {
     if ("array" == x(b)) {
-      for (var f = 0; f < b.length; f++) cb(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) cb(a, b[f], c, d, e);
       return null;
     }
     c = db(c);
@@ -1426,11 +1432,10 @@
   }
   function jb(a) {
     if ("number" != typeof a && a && !a.j) {
-      var b = a.src;
+      const b = a.src;
       if (b && b[Ta]) b.a(a);
       else {
-        var c = a.type,
-          d = a.proxy;
+        let c = a.type, d = a.proxy;
         b.removeEventListener
           ? b.removeEventListener(c, d, a.capture)
           : b.detachEvent
@@ -1440,9 +1445,9 @@
         if ((c = fb(b))) {
           d = a.type;
           if (d in c.a) {
-            var e = c.a[d],
-              f = ya(e, a),
-              g;
+            const e = c.a[d];
+            const f = ya(e, a);
+            let g;
             (g = 0 <= f) && Array.prototype.splice.call(e, f, 1);
             g && (Wa(a), 0 == c.a[d].length && (delete c.a[d], c.b--));
           }
@@ -1455,18 +1460,17 @@
     return a in Za ? Za[a] : (Za[a] = "on" + a);
   }
   function kb(a, b, c, d) {
-    var e = !0;
+    let e = !0;
     if ((a = fb(a)))
       if ((b = a.a[b.toString()]))
         for (b = b.concat(), a = 0; a < b.length; a++) {
-          var f = b[a];
+          let f = b[a];
           f && f.capture == c && !f.j && ((f = lb(f, d)), (e = e && !1 !== f));
         }
     return e;
   }
   function lb(a, b) {
-    var c = a.listener,
-      d = a.a || a.src;
+    const c = a.listener, d = a.a || a.src;
     a.v && jb(a);
     return c.call(d, b);
   }
@@ -1517,7 +1521,7 @@
     a = a[Ya];
     return a instanceof Xa ? a : null;
   }
-  var mb = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
+  const mb = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
   function db(a) {
     if ("function" == x(a)) return a;
     a[mb] ||
@@ -1532,12 +1536,12 @@
     this.a = {};
   }
   va(T, wa);
-  var nb = [];
+  const nb = [];
   function ob(a, b, c) {
-    var d = document.body;
+    const d = document.body;
     "array" != x(b) && (b && (nb[0] = b.toString()), (b = nb));
-    for (var e = 0; e < b.length; e++) {
-      var f = bb(d, b[e], c || a.handleEvent, !1, a.b || a);
+    for (let e = 0; e < b.length; e++) {
+      const f = bb(d, b[e], c || a.handleEvent, !1, a.b || a);
       if (!f) break;
       a.a[f.key] = f;
     }
@@ -1554,25 +1558,25 @@
   }
   T.prototype.handleEvent = () => {
     throw Error("EventHandler.handleEvent not implemented");
-  }; /*
+  };/*
 
- Copyright 2018 Google Inc.
+Copyright 2018 Google Inc.
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
-  var qb = ["google-codelab"];
+  const qb = ["google-codelab"];
   function U() {
-    var a = HTMLElement.call(this) || this;
+    const a = HTMLElement.call(this) || this;
     a.s = !1;
     a.B = new T();
     a.I = new T();
@@ -1580,20 +1584,20 @@
     a.A = a.getAttribute("environment") || "";
     return a;
   }
-  var V = HTMLElement;
+  const V = HTMLElement;
   U.prototype = sa(V.prototype);
   U.prototype.constructor = U;
   if (ka) ka(U, V);
   else
-    for (var W in V)
+    for (const W in V)
       if ("prototype" != W)
         if (Object.defineProperties) {
-          var rb = Object.getOwnPropertyDescriptor(V, W);
+          const rb = Object.getOwnPropertyDescriptor(V, W);
           rb && Object.defineProperty(U, W, rb);
         } else U[W] = V[W];
   U.C = V.prototype;
   U.prototype.connectedCallback = function () {
-    var a = this;
+    const a = this;
     this.a = this.getAttribute("gaid") || "";
     !this.s &&
       this.a &&
@@ -1663,20 +1667,20 @@
   };
   U.prototype.disconnectedCallback = U.prototype.disconnectedCallback;
   function ma() {
-    var a = document.createElement("script");
+    const a = document.createElement("script");
     a.src = "https://www.google-analytics.com/analytics.js";
     a.async = !1;
     return new Promise((b, c) => {
       document.head && document.head.appendChild(a);
     });
   }
-  var yb = ma,
-    X = ["module$exports$googlecodelabs$CodelabAnalytics", "injectGAScript"],
-    Y = v;
+  const yb = ma;
+  const X = ["module$exports$googlecodelabs$CodelabAnalytics", "injectGAScript"];
+  let Y = v;
   X[0] in Y ||
     "undefined" == typeof Y.execScript ||
     Y.execScript("var " + X[0]);
-  for (var Z; X.length && (Z = X.shift()); )
+  for (let Z; X.length && (Z = X.shift()); )
     X.length || void 0 === yb
       ? Y[Z] && Y[Z] !== Object.prototype[Z]
         ? (Y = Y[Z])
@@ -1709,8 +1713,8 @@
     a.a && !zb(a.a) && window.ga("create", a.a, "auto");
     a: {
       var b = location.search.substring(1).split("&");
-      for (var c = 0; c < b.length; c++) {
-        var d = b[c].split("=");
+      for (let c = 0; c < b.length; c++) {
+        const d = b[c].split("=");
         if ("viewga" === d[0]) {
           b = d[1];
           break a;
@@ -1730,7 +1734,7 @@
       window.ga("create", a, "auto", "codelabAccount");
   }
   function zb(a) {
-    var b = !1;
+    let b = !1;
     window.ga.getAll().forEach(c => {
       c.get("trackingId") == a && (b = !0);
     });
@@ -1753,27 +1757,29 @@
 }.call(this));
 (function () {
   "use strict";
-  var aa =
+
+  const aa =
       "undefined" != typeof window && window === this
         ? this
         : "undefined" != typeof global && null != global
         ? global
-        : this,
-    ba =
-      "function" == typeof Object.create
-        ? Object.create
-        : a => {
-            function b() {}
-            b.prototype = a;
-            return new b();
-          },
-    k;
+        : this;
+
+  const ba =
+    "function" == typeof Object.create
+      ? Object.create
+      : a => {
+          function b() {}
+          b.prototype = a;
+          return new b();
+        };
+
+  let k;
   if ("function" == typeof Object.setPrototypeOf) k = Object.setPrototypeOf;
   else {
-    var l;
+    let l;
     a: {
-      var ca = { B: !0 },
-        da = {};
+      const ca = { B: !0 }, da = {};
       try {
         da.__proto__ = ca;
         l = da.B;
@@ -1789,16 +1795,15 @@
         }
       : null;
   }
-  var ea = k,
-    m = this;
+  const ea = k, m = this;
   function n() {}
   function p(a) {
-    var b = typeof a;
+    const b = typeof a;
     if ("object" == b)
       if (a) {
         if (a instanceof Array) return "array";
         if (a instanceof Object) return b;
-        var d = Object.prototype.toString.call(a);
+        const d = Object.prototype.toString.call(a);
         if ("[object Window]" == d) return "object";
         if (
           "[object Array]" == d ||
@@ -1820,11 +1825,11 @@
     return b;
   }
   function q(a) {
-    var b = typeof a;
+    const b = typeof a;
     return ("object" == b && null != a) || "function" == b;
   }
-  var fa = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
-    ha = 0;
+  const fa = "closure_uid_" + ((1e9 * Math.random()) >>> 0);
+  let ha = 0;
   function r(a, b) {
     function d() {}
     d.prototype = b.prototype;
@@ -1834,18 +1839,18 @@
     0 != ja && (this[fa] || (this[fa] = ++ha));
   }
   var ja = 0;
-  var ka;
-  var la = Array.prototype.indexOf
+  let ka;
+  const la = Array.prototype.indexOf
     ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
     : (a, b) => {
         if ("string" == typeof a)
           return "string" == typeof b && 1 == b.length ? a.indexOf(b, 0) : -1;
-        for (var d = 0; d < a.length; d++) if (d in a && a[d] === b) return d;
+        for (let d = 0; d < a.length; d++) if (d in a && a[d] === b) return d;
         return -1;
       };
-  var ma = String.prototype.trim
+  const ma = String.prototype.trim
     ? a => {
         return a.trim();
       }
@@ -1872,11 +1877,11 @@
   function t(a, b) {
     return a < b ? -1 : a > b ? 1 : 0;
   }
-  var u;
+  let u;
   a: {
-    var va = m.navigator;
+    const va = m.navigator;
     if (va) {
-      var wa = va.userAgent;
+      const wa = va.userAgent;
       if (wa) {
         u = wa;
         break a;
@@ -1889,33 +1894,35 @@
     return a;
   }
   v[" "] = n;
-  var xa = -1 != u.indexOf("Opera"),
-    w = -1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE"),
-    ya = -1 != u.indexOf("Edge"),
-    za =
-      -1 != u.indexOf("Gecko") &&
-      !(-1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge")) &&
-      !(-1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE")) &&
-      -1 == u.indexOf("Edge"),
-    Aa = -1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge");
+  const xa = -1 != u.indexOf("Opera"),
+        w = -1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE"),
+        ya = -1 != u.indexOf("Edge"),
+        za =
+          -1 != u.indexOf("Gecko") &&
+          !(-1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge")) &&
+          !(-1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE")) &&
+          -1 == u.indexOf("Edge"),
+        Aa = -1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge");
   function Ba() {
-    var a = m.document;
+    const a = m.document;
     return a ? a.documentMode : void 0;
   }
-  var x;
+  let x;
   a: {
-    var y = "",
-      z = (() => {
-        var a = u;
-        if (za) return /rv:([^\);]+)(\)|;)/.exec(a);
-        if (ya) return /Edge\/([\d\.]+)/.exec(a);
-        if (w) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
-        if (Aa) return /WebKit\/(\S+)/.exec(a);
-        if (xa) return /(?:Version)[ \/]?(\S+)/.exec(a);
-      })();
+    let y = "";
+
+    const z = (() => {
+      const a = u;
+      if (za) return /rv:([^\);]+)(\)|;)/.exec(a);
+      if (ya) return /Edge\/([\d\.]+)/.exec(a);
+      if (w) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
+      if (Aa) return /WebKit\/(\S+)/.exec(a);
+      if (xa) return /(?:Version)[ \/]?(\S+)/.exec(a);
+    })();
+
     z && (y = z ? z[1] : "");
     if (w) {
-      var A = Ba();
+      const A = Ba();
       if (null != A && A > parseFloat(y)) {
         x = String(A);
         break a;
@@ -1923,19 +1930,19 @@
     }
     x = y;
   }
-  var B = {},
-    Ea;
-  var Fa = m.document;
+  const B = {};
+  let Ea;
+  const Fa = m.document;
   Ea =
     Fa && w
       ? Ba() || ("CSS1Compat" == Fa.compatMode ? parseInt(x, 10) : 5)
       : void 0;
-  var C;
+  let C;
   (C = !w) || (C = 9 <= Number(Ea));
-  var Ga = C,
-    D;
+  const Ga = C;
+  let D;
   if ((D = w)) {
-    var E;
+    let E;
     if (Object.prototype.hasOwnProperty.call(B, "9")) E = B["9"];
     else {
       for (
@@ -1947,11 +1954,9 @@
         0 == F && G < Ja;
         G++
       ) {
-        var Ka = Ha[G] || "",
-          La = Ia[G] || "";
+        let Ka = Ha[G] || "", La = Ia[G] || "";
         do {
-          var H = /(\d*)(\D*)(.*)/.exec(Ka) || ["", "", "", ""],
-            I = /(\d*)(\D*)(.*)/.exec(La) || ["", "", "", ""];
+          const H = /(\d*)(\D*)(.*)/.exec(Ka) || ["", "", "", ""], I = /(\d*)(\D*)(.*)/.exec(La) || ["", "", "", ""];
           if (0 == H[0].length && 0 == I[0].length) break;
           F =
             t(
@@ -1968,19 +1973,21 @@
     }
     D = !E;
   }
-  var Ma = D,
-    Na = (() => {
-      if (!m.addEventListener || !Object.defineProperty) return !1;
-      var a = !1,
-        b = Object.defineProperty({}, "passive", {
-          get() {
-            a = !0;
-          },
-        });
-      m.addEventListener("test", n, b);
-      m.removeEventListener("test", n, b);
-      return a;
-    })();
+  const Ma = D,
+        Na = (() => {
+          if (!m.addEventListener || !Object.defineProperty) return !1;
+          let a = !1;
+
+          const b = Object.defineProperty({}, "passive", {
+            get() {
+              a = !0;
+            },
+          });
+
+          m.addEventListener("test", n, b);
+          m.removeEventListener("test", n, b);
+          return a;
+        })();
   function J(a, b) {
     this.type = a;
     this.a = this.target = b;
@@ -1996,8 +2003,7 @@
     this.pointerType = "";
     this.m = null;
     if (a) {
-      var d = (this.type = a.type),
-        c = a.changedTouches ? a.changedTouches[0] : null;
+      const d = (this.type = a.type), c = a.changedTouches ? a.changedTouches[0] : null;
       this.target = a.target || a.srcElement;
       this.a = b;
       if ((b = a.relatedTarget)) {
@@ -2045,15 +2051,15 @@
   var Oa = { 2: "touch", 3: "pen", 4: "mouse" };
   K.prototype.b = function () {
     K.A.b.call(this);
-    var a = this.m;
+    const a = this.m;
     if (a.preventDefault) a.preventDefault();
     else if (((a.returnValue = !1), Ma))
       try {
         if (a.ctrlKey || (112 <= a.keyCode && 123 >= a.keyCode)) a.keyCode = -1;
       } catch (b) {}
   };
-  var L = "closure_listenable_" + ((1e6 * Math.random()) | 0),
-    Pa = 0;
+  const L = "closure_listenable_" + ((1e6 * Math.random()) | 0);
+  let Pa = 0;
   function Qa(a, b, d, c, e) {
     this.listener = a;
     this.proxy = null;
@@ -2077,13 +2083,13 @@
     this.b = 0;
   }
   M.prototype.add = function (a, b, d, c, e) {
-    var f = a.toString();
+    const f = a.toString();
     a = this.a[f];
     a || ((a = this.a[f] = []), this.b++);
-    var g;
+    let g;
     a: {
       for (g = 0; g < a.length; ++g) {
-        var h = a[g];
+        const h = a[g];
         if (!h.g && h.listener == b && h.capture == !!c && h.a == e) break a;
       }
       g = -1;
@@ -2093,13 +2099,13 @@
       : ((b = new Qa(b, this.src, f, !!c, e)), (b.j = d), a.push(b));
     return b;
   };
-  var N = "closure_lm_" + ((1e6 * Math.random()) | 0),
-    O = {},
-    Sa = 0;
+  const N = "closure_lm_" + ((1e6 * Math.random()) | 0);
+  const O = {};
+  let Sa = 0;
   function Ta(a, b, d, c, e) {
     if (c && c.once) return Ua(a, b, d, c, e);
     if ("array" == p(b)) {
-      for (var f = 0; f < b.length; f++) Ta(a, b[f], d, c, e);
+      for (let f = 0; f < b.length; f++) Ta(a, b[f], d, c, e);
       return null;
     }
     d = Va(d);
@@ -2109,8 +2115,8 @@
   }
   function Wa(a, b, d, c, e, f) {
     if (!b) throw Error("Invalid event type");
-    var g = q(e) ? !!e.capture : !!e,
-      h = P(a);
+    const g = q(e) ? !!e.capture : !!e;
+    let h = P(a);
     h || (a[N] = h = new M(a));
     d = h.add(b, d, c, g, f);
     if (d.proxy) return d;
@@ -2129,20 +2135,20 @@
     return d;
   }
   function Xa() {
-    var a = Za,
-      b = Ga
-        ? d => {
-            return a.call(b.src, b.listener, d);
-          }
-        : d => {
-            d = a.call(b.src, b.listener, d);
-            if (!d) return d;
-          };
+    const a = Za,
+          b = Ga
+            ? d => {
+                return a.call(b.src, b.listener, d);
+              }
+            : d => {
+                d = a.call(b.src, b.listener, d);
+                if (!d) return d;
+              };
     return b;
   }
   function Ua(a, b, d, c, e) {
     if ("array" == p(b)) {
-      for (var f = 0; f < b.length; f++) Ua(a, b[f], d, c, e);
+      for (let f = 0; f < b.length; f++) Ua(a, b[f], d, c, e);
       return null;
     }
     d = Va(d);
@@ -2154,24 +2160,22 @@
     return a in O ? O[a] : (O[a] = "on" + a);
   }
   function $a(a, b, d, c) {
-    var e = !0;
+    let e = !0;
     if ((a = P(a)))
       if ((b = a.a[b.toString()]))
         for (b = b.concat(), a = 0; a < b.length; a++) {
-          var f = b[a];
+          let f = b[a];
           f && f.capture == d && !f.g && ((f = ab(f, c)), (e = e && !1 !== f));
         }
     return e;
   }
   function ab(a, b) {
-    var d = a.listener,
-      c = a.a || a.src;
+    const d = a.listener, c = a.a || a.src;
     if (a.j && "number" != typeof a && a && !a.g) {
-      var e = a.src;
+      const e = a.src;
       if (e && e[L]) e.m(a);
       else {
-        var f = a.type,
-          g = a.proxy;
+        let f = a.type, g = a.proxy;
         e.removeEventListener
           ? e.removeEventListener(f, g, a.capture)
           : e.detachEvent
@@ -2180,11 +2184,11 @@
         Sa--;
         if ((f = P(e))) {
           g = a.type;
-          var h;
+          let h;
           if ((h = g in f.a)) {
             h = f.a[g];
-            var Ca = la(h, a),
-              Da;
+            const Ca = la(h, a);
+            let Da;
             (Da = 0 <= Ca) && Array.prototype.splice.call(h, Ca, 1);
             h = Da;
           }
@@ -2242,7 +2246,7 @@
     a = a[N];
     return a instanceof M ? a : null;
   }
-  var Q = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
+  const Q = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
   function Va(a) {
     if ("function" == p(a)) return a;
     a[Q] ||
@@ -2265,12 +2269,12 @@
   }
 
   r(R, ia);
-  var bb = [];
+  const bb = [];
   function cb(a, b, d) {
-    var c = "copy";
+    let c = "copy";
     "array" != p(c) && (c && (bb[0] = c.toString()), (c = bb));
-    for (var e = 0; e < c.length; e++) {
-      var f = Ta(b, c[e], d || a.handleEvent, !1, a.a || a);
+    for (let e = 0; e < c.length; e++) {
+      const f = Ta(b, c[e], d || a.handleEvent, !1, a.a || a);
       if (!f) break;
       a.b[f.key] = f;
     }
@@ -2279,8 +2283,7 @@
     this.a = db;
   }
   var db = {};
-  var T = {},
-    eb = {};
+  const T = {}, eb = {};
   function U() {
     throw Error("Do not instantiate directly");
   }
@@ -2328,22 +2331,21 @@
       return a;
     };
   })(V);
-  var hb = (a => {
-    var b = !1,
-      d;
+  const hb = (a => {
+    let b = !1, d;
     return () => {
       b || ((d = a()), (b = !0));
       return d;
     };
   })(() => {
-    var a = document.createElement("div");
+    const a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
-    var b = a.firstChild.firstChild;
+    const b = a.firstChild.firstChild;
     a.innerHTML = "";
     return !b.parentElement;
   });
   function ib(a) {
-    for (var b; (b = a.firstChild); ) a.removeChild(b);
+    for (let b; (b = a.firstChild); ) a.removeChild(b);
   }
   function jb(a, b) {
     a.insertBefore(b, a.childNodes[0] || null);
@@ -2353,7 +2355,7 @@
   }
   function lb(a) {
     a = a || mb;
-    var b = a.label;
+    let b = a.label;
     b = W(
       '<h2 is-upgraded class="step-title">' +
         gb(a.step) +
@@ -2398,7 +2400,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
   function X() {
-    var a = HTMLElement.call(this) || this;
+    const a = HTMLElement.call(this) || this;
     a.h = null;
     a.c = null;
     a.w = !1;
@@ -2409,15 +2411,15 @@ limitations under the License.
     a.C = new R();
     return a;
   }
-  var Y = HTMLElement;
+  const Y = HTMLElement;
   X.prototype = ba(Y.prototype);
   X.prototype.constructor = X;
   if (ea) ea(X, Y);
   else
-    for (var Z in Y)
+    for (const Z in Y)
       if ("prototype" != Z)
         if (Object.defineProperties) {
-          var nb = Object.getOwnPropertyDescriptor(Y, Z);
+          const nb = Object.getOwnPropertyDescriptor(Y, Z);
           nb && Object.defineProperty(X, Z, nb);
         } else X[Z] = Y[Z];
   X.A = Y.prototype;
@@ -2433,8 +2435,7 @@ limitations under the License.
         this.i)
       ) {
         a = lb({ step: this.u, label: this.s });
-        var b = this.i,
-          d = b.parentNode;
+        const b = this.i, d = b.parentNode;
         d && d.replaceChild(a, b);
         this.i = a;
       }
@@ -2442,7 +2443,7 @@ limitations under the License.
   X.prototype.attributeChangedCallback = X.prototype.attributeChangedCallback;
   function ob(a) {
     if (!a.w) {
-      var b = a.getElementsByTagName("google-codelab-about");
+      let b = a.getElementsByTagName("google-codelab-about");
       0 < b.length && ((a.f = b[0]), a.f.parentNode.removeChild(a.f));
       a.h = document.createElement("div");
       a.h.classList.add("instructions");
@@ -2455,10 +2456,10 @@ limitations under the License.
       a.i = b;
       jb(a.c, b);
       a.c.querySelectorAll("pre code").forEach(b => {
-        var c = window.prettyPrintOne(b.innerHTML);
+        const c = window.prettyPrintOne(b.innerHTML);
         b.innerHTML = c;
         cb(a.C, b, () => {
-          var a = new CustomEvent("google-codelab-action", {
+          const a = new CustomEvent("google-codelab-action", {
             detail: {
               category: "snippet",
               action: "copy",
@@ -2490,21 +2491,22 @@ limitations under the License.
 }.call(this));
 (function () {
   "use strict";
-  var aa =
+
+  const aa =
       "function" == typeof Object.create
         ? Object.create
         : a => {
             function b() {}
             b.prototype = a;
             return new b();
-          },
-    h;
+          };
+
+  let h;
   if ("function" == typeof Object.setPrototypeOf) h = Object.setPrototypeOf;
   else {
-    var k;
+    let k;
     a: {
-      var ba = { B: !0 },
-        ca = {};
+      const ba = { B: !0 }, ca = {};
       try {
         ca.__proto__ = ba;
         k = ca.B;
@@ -2520,19 +2522,18 @@ limitations under the License.
         }
       : null;
   }
-  var da = h,
-    m = this;
+  const da = h, m = this;
   function n(a) {
     return "string" == typeof a;
   }
   function p() {}
   function q(a) {
-    var b = typeof a;
+    const b = typeof a;
     if ("object" == b)
       if (a) {
         if (a instanceof Array) return "array";
         if (a instanceof Object) return b;
-        var c = Object.prototype.toString.call(a);
+        const c = Object.prototype.toString.call(a);
         if ("[object Window]" == c) return "object";
         if (
           "[object Array]" == c ||
@@ -2554,11 +2555,11 @@ limitations under the License.
     return b;
   }
   function r(a) {
-    var b = typeof a;
+    const b = typeof a;
     return ("object" == b && null != a) || "function" == b;
   }
-  var ea = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
-    fa = 0;
+  const ea = "closure_uid_" + ((1e9 * Math.random()) >>> 0);
+  let fa = 0;
   function t(a, b) {
     function c() {}
     c.prototype = b.prototype;
@@ -2568,17 +2569,17 @@ limitations under the License.
     0 != ia && (this[ea] || (this[ea] = ++fa));
   }
   var ia = 0;
-  var ja;
-  var ka = Array.prototype.indexOf
+  let ja;
+  const ka = Array.prototype.indexOf
     ? (a, b) => {
         return Array.prototype.indexOf.call(a, b, void 0);
       }
     : (a, b) => {
         if (n(a)) return n(b) && 1 == b.length ? a.indexOf(b, 0) : -1;
-        for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
+        for (let c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
         return -1;
       };
-  var la = String.prototype.trim
+  const la = String.prototype.trim
     ? a => {
         return a.trim();
       }
@@ -2605,11 +2606,11 @@ limitations under the License.
   function v(a, b) {
     return a < b ? -1 : a > b ? 1 : 0;
   }
-  var w;
+  let w;
   a: {
-    var ta = m.navigator;
+    const ta = m.navigator;
     if (ta) {
-      var ua = ta.userAgent;
+      const ua = ta.userAgent;
       if (ua) {
         w = ua;
         break a;
@@ -2618,40 +2619,42 @@ limitations under the License.
     w = "";
   }
   function va(a, b, c) {
-    for (var d in a) b.call(c, a[d], d, a);
+    for (const d in a) b.call(c, a[d], d, a);
   }
   function x(a) {
     x[" "](a);
     return a;
   }
   x[" "] = p;
-  var wa = -1 != w.indexOf("Opera"),
-    y = -1 != w.indexOf("Trident") || -1 != w.indexOf("MSIE"),
-    xa = -1 != w.indexOf("Edge"),
-    ya =
-      -1 != w.indexOf("Gecko") &&
-      !(-1 != w.toLowerCase().indexOf("webkit") && -1 == w.indexOf("Edge")) &&
-      !(-1 != w.indexOf("Trident") || -1 != w.indexOf("MSIE")) &&
-      -1 == w.indexOf("Edge"),
-    za = -1 != w.toLowerCase().indexOf("webkit") && -1 == w.indexOf("Edge");
+  const wa = -1 != w.indexOf("Opera"),
+        y = -1 != w.indexOf("Trident") || -1 != w.indexOf("MSIE"),
+        xa = -1 != w.indexOf("Edge"),
+        ya =
+          -1 != w.indexOf("Gecko") &&
+          !(-1 != w.toLowerCase().indexOf("webkit") && -1 == w.indexOf("Edge")) &&
+          !(-1 != w.indexOf("Trident") || -1 != w.indexOf("MSIE")) &&
+          -1 == w.indexOf("Edge"),
+        za = -1 != w.toLowerCase().indexOf("webkit") && -1 == w.indexOf("Edge");
   function Aa() {
-    var a = m.document;
+    const a = m.document;
     return a ? a.documentMode : void 0;
   }
-  var z;
+  let z;
   a: {
-    var A = "",
-      B = (() => {
-        var a = w;
-        if (ya) return /rv:([^\);]+)(\)|;)/.exec(a);
-        if (xa) return /Edge\/([\d\.]+)/.exec(a);
-        if (y) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
-        if (za) return /WebKit\/(\S+)/.exec(a);
-        if (wa) return /(?:Version)[ \/]?(\S+)/.exec(a);
-      })();
+    let A = "";
+
+    const B = (() => {
+      const a = w;
+      if (ya) return /rv:([^\);]+)(\)|;)/.exec(a);
+      if (xa) return /Edge\/([\d\.]+)/.exec(a);
+      if (y) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
+      if (za) return /WebKit\/(\S+)/.exec(a);
+      if (wa) return /(?:Version)[ \/]?(\S+)/.exec(a);
+    })();
+
     B && (A = B ? B[1] : "");
     if (y) {
-      var C = Aa();
+      const C = Aa();
       if (null != C && C > parseFloat(A)) {
         z = String(C);
         break a;
@@ -2659,19 +2662,19 @@ limitations under the License.
     }
     z = A;
   }
-  var D = {},
-    Ba;
-  var Ca = m.document;
+  const D = {};
+  let Ba;
+  const Ca = m.document;
   Ba =
     Ca && y
       ? Aa() || ("CSS1Compat" == Ca.compatMode ? parseInt(z, 10) : 5)
       : void 0;
-  var E;
+  let E;
   (E = !y) || (E = 9 <= Number(Ba));
-  var Da = E,
-    G;
+  const Da = E;
+  let G;
   if ((G = y)) {
-    var H;
+    let H;
     if (Object.prototype.hasOwnProperty.call(D, "9")) H = D["9"];
     else {
       for (
@@ -2683,11 +2686,9 @@ limitations under the License.
         0 == I && J < Ga;
         J++
       ) {
-        var Ha = Ea[J] || "",
-          Ia = Fa[J] || "";
+        let Ha = Ea[J] || "", Ia = Fa[J] || "";
         do {
-          var K = /(\d*)(\D*)(.*)/.exec(Ha) || ["", "", "", ""],
-            L = /(\d*)(\D*)(.*)/.exec(Ia) || ["", "", "", ""];
+          const K = /(\d*)(\D*)(.*)/.exec(Ha) || ["", "", "", ""], L = /(\d*)(\D*)(.*)/.exec(Ia) || ["", "", "", ""];
           if (0 == K[0].length && 0 == L[0].length) break;
           I =
             v(
@@ -2704,19 +2705,21 @@ limitations under the License.
     }
     G = !H;
   }
-  var Ja = G,
-    Ka = (() => {
-      if (!m.addEventListener || !Object.defineProperty) return !1;
-      var a = !1,
-        b = Object.defineProperty({}, "passive", {
-          get() {
-            a = !0;
-          },
-        });
-      m.addEventListener("test", p, b);
-      m.removeEventListener("test", p, b);
-      return a;
-    })();
+  const Ja = G,
+        Ka = (() => {
+          if (!m.addEventListener || !Object.defineProperty) return !1;
+          let a = !1;
+
+          const b = Object.defineProperty({}, "passive", {
+            get() {
+              a = !0;
+            },
+          });
+
+          m.addEventListener("test", p, b);
+          m.removeEventListener("test", p, b);
+          return a;
+        })();
   function M(a, b) {
     this.type = a;
     this.a = this.target = b;
@@ -2732,8 +2735,7 @@ limitations under the License.
     this.pointerType = "";
     this.m = null;
     if (a) {
-      var c = (this.type = a.type),
-        d = a.changedTouches ? a.changedTouches[0] : null;
+      const c = (this.type = a.type), d = a.changedTouches ? a.changedTouches[0] : null;
       this.target = a.target || a.srcElement;
       this.a = b;
       if ((b = a.relatedTarget)) {
@@ -2780,15 +2782,15 @@ limitations under the License.
   var La = { 2: "touch", 3: "pen", 4: "mouse" };
   N.prototype.b = function () {
     N.A.b.call(this);
-    var a = this.m;
+    const a = this.m;
     if (a.preventDefault) a.preventDefault();
     else if (((a.returnValue = !1), Ja))
       try {
         if (a.ctrlKey || (112 <= a.keyCode && 123 >= a.keyCode)) a.keyCode = -1;
       } catch (b) {}
   };
-  var O = "closure_listenable_" + ((1e6 * Math.random()) | 0),
-    Ma = 0;
+  const O = "closure_listenable_" + ((1e6 * Math.random()) | 0);
+  let Ma = 0;
   function Na(a, b, c, d, e) {
     this.listener = a;
     this.proxy = null;
@@ -2812,13 +2814,13 @@ limitations under the License.
     this.b = 0;
   }
   P.prototype.add = function (a, b, c, d, e) {
-    var f = a.toString();
+    const f = a.toString();
     a = this.a[f];
     a || ((a = this.a[f] = []), this.b++);
-    var g;
+    let g;
     a: {
       for (g = 0; g < a.length; ++g) {
-        var l = a[g];
+        const l = a[g];
         if (!l.i && l.listener == b && l.capture == !!d && l.a == e) break a;
       }
       g = -1;
@@ -2828,13 +2830,13 @@ limitations under the License.
       : ((b = new Na(b, this.src, f, !!d, e)), (b.l = c), a.push(b));
     return b;
   };
-  var Q = "closure_lm_" + ((1e6 * Math.random()) | 0),
-    R = {},
-    Pa = 0;
+  const Q = "closure_lm_" + ((1e6 * Math.random()) | 0);
+  const R = {};
+  let Pa = 0;
   function Qa(a, b, c, d, e) {
     if (d && d.once) return Ra(a, b, c, d, e);
     if ("array" == q(b)) {
-      for (var f = 0; f < b.length; f++) Qa(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) Qa(a, b[f], c, d, e);
       return null;
     }
     c = Sa(c);
@@ -2844,8 +2846,8 @@ limitations under the License.
   }
   function Ta(a, b, c, d, e, f) {
     if (!b) throw Error("Invalid event type");
-    var g = r(e) ? !!e.capture : !!e,
-      l = S(a);
+    const g = r(e) ? !!e.capture : !!e;
+    let l = S(a);
     l || (a[Q] = l = new P(a));
     c = l.add(b, c, d, g, f);
     if (c.proxy) return c;
@@ -2864,20 +2866,20 @@ limitations under the License.
     return c;
   }
   function Ua() {
-    var a = Wa,
-      b = Da
-        ? c => {
-            return a.call(b.src, b.listener, c);
-          }
-        : c => {
-            c = a.call(b.src, b.listener, c);
-            if (!c) return c;
-          };
+    const a = Wa,
+          b = Da
+            ? c => {
+                return a.call(b.src, b.listener, c);
+              }
+            : c => {
+                c = a.call(b.src, b.listener, c);
+                if (!c) return c;
+              };
     return b;
   }
   function Ra(a, b, c, d, e) {
     if ("array" == q(b)) {
-      for (var f = 0; f < b.length; f++) Ra(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) Ra(a, b[f], c, d, e);
       return null;
     }
     c = Sa(c);
@@ -2887,11 +2889,10 @@ limitations under the License.
   }
   function Xa(a) {
     if ("number" != typeof a && a && !a.i) {
-      var b = a.src;
+      const b = a.src;
       if (b && b[O]) b.m(a);
       else {
-        var c = a.type,
-          d = a.proxy;
+        let c = a.type, d = a.proxy;
         b.removeEventListener
           ? b.removeEventListener(c, d, a.capture)
           : b.detachEvent
@@ -2901,9 +2902,9 @@ limitations under the License.
         if ((c = S(b))) {
           d = a.type;
           if (d in c.a) {
-            var e = c.a[d],
-              f = ka(e, a),
-              g;
+            const e = c.a[d];
+            const f = ka(e, a);
+            let g;
             (g = 0 <= f) && Array.prototype.splice.call(e, f, 1);
             g && (Oa(a), 0 == c.a[d].length && (delete c.a[d], c.b--));
           }
@@ -2916,18 +2917,17 @@ limitations under the License.
     return a in R ? R[a] : (R[a] = "on" + a);
   }
   function Ya(a, b, c, d) {
-    var e = !0;
+    let e = !0;
     if ((a = S(a)))
       if ((b = a.a[b.toString()]))
         for (b = b.concat(), a = 0; a < b.length; a++) {
-          var f = b[a];
+          let f = b[a];
           f && f.capture == c && !f.i && ((f = Za(f, d)), (e = e && !1 !== f));
         }
     return e;
   }
   function Za(a, b) {
-    var c = a.listener,
-      d = a.a || a.src;
+    const c = a.listener, d = a.a || a.src;
     a.l && Xa(a);
     return c.call(d, b);
   }
@@ -2978,7 +2978,7 @@ limitations under the License.
     a = a[Q];
     return a instanceof P ? a : null;
   }
-  var $a = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
+  const $a = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
   function Sa(a) {
     if ("function" == q(a)) return a;
     a[$a] ||
@@ -3001,13 +3001,13 @@ limitations under the License.
   }
 
   t(ab, ha);
-  var bb = [];
+  const bb = [];
   function cb(a, b) {
-    var c = document.body,
-      d = "click";
+    const c = document.body;
+    let d = "click";
     "array" != q(d) && (d && (bb[0] = d.toString()), (d = bb));
-    for (var e = 0; e < d.length; e++) {
-      var f = Qa(c, d[e], b || a.handleEvent, !1, a.b || a);
+    for (let e = 0; e < d.length; e++) {
+      const f = Qa(c, d[e], b || a.handleEvent, !1, a.b || a);
       if (!f) break;
       a.a[f.key] = f;
     }
@@ -3047,7 +3047,7 @@ limitations under the License.
     return this.c.key(a);
   };
   function gb() {
-    var a = null;
+    let a = null;
     try {
       a = window.localStorage || null;
     } catch (b) {}
@@ -3058,8 +3058,7 @@ limitations under the License.
     this.a = ib;
   }
   var ib = {};
-  var U = {},
-    jb = {};
+  const U = {}, jb = {};
   function V() {
     throw Error("Do not instantiate directly");
   }
@@ -3112,7 +3111,7 @@ limitations under the License.
       ? String(String(a.h).replace(ob, "").replace(pb, "&lt;")).replace(qb, rb)
       : u(String(a));
   }
-  var sb = {
+  const sb = {
     "\x00": "&#0;",
     "\t": "&#9;",
     "\n": "&#10;",
@@ -3137,22 +3136,21 @@ limitations under the License.
   function rb(a) {
     return sb[a];
   }
-  var qb = /[\x00\x22\x27\x3c\x3e]/g,
-    tb = /[\x00\x09-\x0d \x22\x26\x27\x2d\/\x3c-\x3e`\x85\xa0\u2028\u2029]/g,
-    ub = /[\x00\x09-\x0d \x22\x27\x2d\/\x3c-\x3e`\x85\xa0\u2028\u2029]/g,
-    ob = /<(?:!|\/?([a-zA-Z][a-zA-Z0-9:\-]*))(?:[^>'"]|"[^"]*"|'[^']*')*>/g,
-    pb = /</g;
-  var vb = (a => {
-    var b = !1,
-      c;
+  var qb = /[\x00\x22\x27\x3c\x3e]/g;
+  const tb = /[\x00\x09-\x0d \x22\x26\x27\x2d\/\x3c-\x3e`\x85\xa0\u2028\u2029]/g;
+  const ub = /[\x00\x09-\x0d \x22\x27\x2d\/\x3c-\x3e`\x85\xa0\u2028\u2029]/g;
+  var ob = /<(?:!|\/?([a-zA-Z][a-zA-Z0-9:\-]*))(?:[^>'"]|"[^"]*"|'[^']*')*>/g;
+  var pb = /</g;
+  const vb = (a => {
+    let b = !1, c;
     return () => {
       b || ((c = a()), (b = !0));
       return c;
     };
   })(() => {
-    var a = document.createElement("div");
+    const a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
-    var b = a.firstChild.firstChild;
+    const b = a.firstChild.firstChild;
     a.innerHTML = "";
     return !b.parentElement;
   });
@@ -3163,7 +3161,7 @@ limitations under the License.
     this.a = m.document || document;
   }
   function yb(a) {
-    var b = a || zb;
+    let b = a || zb;
     a = b.F;
     b = b.D;
     b =
@@ -3175,13 +3173,13 @@ limitations under the License.
           )
         : String(b).replace(tb, rb)) +
       ">";
-    for (var c = a.length, d = 0; d < c; d++) {
-      var e = a[d];
+    for (let c = a.length, d = 0; d < c; d++) {
+      const e = a[d];
       b += '<div class="survey-question-wrapper"><h4>' + mb(e.v) + "</h4>";
       if (e.options.length) {
         b += '<div class="survey-question-options">';
-        for (var f = e.options, g = f.length, l = 0; l < g; l++) {
-          var F = f[l];
+        for (let f = e.options, g = f.length, l = 0; l < g; l++) {
+          const F = f[l];
           b +=
             '<label class="survey-option-wrapper" id="' +
             W(F.o) +
@@ -3240,7 +3238,7 @@ limitations under the License.
 */
   class X {
     constructor() {
-      var a = HTMLElement.call(this) || this;
+      const a = HTMLElement.call(this) || this;
       a.f = a.getAttribute("survey-id") || "default-codelabs-survey";
       a.c = new gb();
       a.w = "codelab-survey-" + a.f;
@@ -3250,7 +3248,7 @@ limitations under the License.
     }
 
     connectedCallback() {
-      var a = this.c.get(this.w);
+      const a = this.c.get(this.w);
       this.j[this.f] = a ? JSON.parse(a) : {};
       Bb(this);
       Cb(this);
@@ -3261,25 +3259,25 @@ limitations under the License.
     }
   }
 
-  var Y = HTMLElement;
+  const Y = HTMLElement;
   X.prototype = aa(Y.prototype);
   X.prototype.constructor = X;
   if (da) da(X, Y);
   else
-    for (var Z in Y)
+    for (const Z in Y)
       if ("prototype" != Z)
         if (Object.defineProperties) {
-          var Ab = Object.getOwnPropertyDescriptor(Y, Z);
+          const Ab = Object.getOwnPropertyDescriptor(Y, Z);
           Ab && Object.defineProperty(X, Z, Ab);
         } else X[Z] = Y[Z];
   X.A = Y.prototype;
   X.prototype.connectedCallback = X.prototype.connectedCallback;
   function Cb(a) {
     cb(a.u, b => {
-      var c = b.target,
-        d = c.classList.contains("survey-option-wrapper");
+      let c = b.target;
+      const d = c.classList.contains("survey-option-wrapper");
       b = c.parentElement;
-      var e = !1;
+      let e = !1;
       b && (e = b.classList.contains("survey-option-wrapper"));
       if (d || e)
         if (
@@ -3305,14 +3303,13 @@ limitations under the License.
     });
   }
   function Bb(a) {
-    var b = a.querySelectorAll("paper-radio-group"),
-      c = a.querySelectorAll("h4"),
-      d = [];
+    let b = a.querySelectorAll("paper-radio-group");
+    const c = a.querySelectorAll("h4");
+    const d = [];
     b.length &&
       c.length == b.length &&
       (b.forEach((a, b) => {
-        var e = [],
-          f = a.querySelectorAll("paper-radio-button");
+        const e = [], f = a.querySelectorAll("paper-radio-button");
         wb(a);
         f.forEach(a => {
           a = a.textContent;
@@ -3327,7 +3324,7 @@ limitations under the License.
     a.setAttribute("upgraded", "");
   }
   function Eb(a) {
-    var b = a.j[a.f];
+    const b = a.j[a.f];
     b &&
       Object.keys(b).forEach(c => {
         if ((c = a.querySelector("#" + Db(c, b[c])))) c.checked = !0;
@@ -3348,27 +3345,29 @@ limitations under the License.
 }.call(this));
 (function () {
   "use strict";
-  var aa =
+
+  const aa =
       "undefined" != typeof window && window === this
         ? this
         : "undefined" != typeof global && null != global
         ? global
-        : this,
-    ba =
-      "function" == typeof Object.create
-        ? Object.create
-        : a => {
-            function b() {}
-            b.prototype = a;
-            return new b();
-          },
-    ca;
+        : this;
+
+  const ba =
+    "function" == typeof Object.create
+      ? Object.create
+      : a => {
+          function b() {}
+          b.prototype = a;
+          return new b();
+        };
+
+  let ca;
   if ("function" == typeof Object.setPrototypeOf) ca = Object.setPrototypeOf;
   else {
-    var da;
+    let da;
     a: {
-      var ea = { da: !0 },
-        fa = {};
+      const ea = { da: !0 }, fa = {};
       try {
         fa.__proto__ = ea;
         da = fa.da;
@@ -3384,19 +3383,18 @@ limitations under the License.
         }
       : null;
   }
-  var ha = ca,
-    h = this;
+  const ha = ca, h = this;
   function l(a) {
     return "string" == typeof a;
   }
   function ia() {}
   function ja(a) {
-    var b = typeof a;
+    const b = typeof a;
     if ("object" == b)
       if (a) {
         if (a instanceof Array) return "array";
         if (a instanceof Object) return b;
-        var c = Object.prototype.toString.call(a);
+        const c = Object.prototype.toString.call(a);
         if ("[object Window]" == c) return "object";
         if (
           "[object Array]" == c ||
@@ -3421,20 +3419,20 @@ limitations under the License.
     return "array" == ja(a);
   }
   function n(a) {
-    var b = typeof a;
+    const b = typeof a;
     return ("object" == b && null != a) || "function" == b;
   }
-  var ka = "closure_uid_" + ((1e9 * Math.random()) >>> 0),
-    la = 0;
+  const ka = "closure_uid_" + ((1e9 * Math.random()) >>> 0);
+  let la = 0;
   function ma(a, b, c) {
     return a.call.apply(a.bind, arguments);
   }
   function na(a, b, c) {
     if (!a) throw Error();
     if (2 < arguments.length) {
-      var d = Array.prototype.slice.call(arguments, 2);
+      const d = Array.prototype.slice.call(arguments, 2);
       return function () {
-        var c = Array.prototype.slice.call(arguments);
+        const c = Array.prototype.slice.call(arguments);
         Array.prototype.unshift.apply(c, d);
         return a.apply(b, c);
       };
@@ -3450,7 +3448,7 @@ limitations under the License.
       : (p = na);
     return p.apply(null, arguments);
   }
-  var oa =
+  const oa =
     Date.now ||
     (() => {
       return +new Date();
@@ -3464,38 +3462,38 @@ limitations under the License.
     0 != pa && (this[ka] || (this[ka] = ++la));
   }
   var pa = 0;
-  var qa;
-  var ra = Array.prototype.indexOf
-      ? (a, b) => {
-          return Array.prototype.indexOf.call(a, b, void 0);
-        }
-      : (a, b) => {
-          if (l(a)) return l(b) && 1 == b.length ? a.indexOf(b, 0) : -1;
-          for (var c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
-          return -1;
-        },
-    sa = Array.prototype.forEach
-      ? (a, b) => {
-          Array.prototype.forEach.call(a, b, void 0);
-        }
-      : (a, b) => {
-          for (var c = a.length, d = l(a) ? a.split("") : a, e = 0; e < c; e++)
-            e in d && b.call(void 0, d[e], e, a);
-        },
-    ta = Array.prototype.map
-      ? (a, b) => {
-          return Array.prototype.map.call(a, b, void 0);
-        }
-      : (a, b) => {
-          for (
-            var c = a.length, d = Array(c), e = l(a) ? a.split("") : a, f = 0;
-            f < c;
-            f++
-          )
-            f in e && (d[f] = b.call(void 0, e[f], f, a));
-          return d;
-        };
-  var ua = String.prototype.trim
+  let qa;
+  const ra = Array.prototype.indexOf
+            ? (a, b) => {
+                return Array.prototype.indexOf.call(a, b, void 0);
+              }
+            : (a, b) => {
+                if (l(a)) return l(b) && 1 == b.length ? a.indexOf(b, 0) : -1;
+                for (let c = 0; c < a.length; c++) if (c in a && a[c] === b) return c;
+                return -1;
+              },
+        sa = Array.prototype.forEach
+          ? (a, b) => {
+              Array.prototype.forEach.call(a, b, void 0);
+            }
+          : (a, b) => {
+              for (let c = a.length, d = l(a) ? a.split("") : a, e = 0; e < c; e++)
+                e in d && b.call(void 0, d[e], e, a);
+            },
+        ta = Array.prototype.map
+          ? (a, b) => {
+              return Array.prototype.map.call(a, b, void 0);
+            }
+          : (a, b) => {
+              for (
+                var c = a.length, d = Array(c), e = l(a) ? a.split("") : a, f = 0;
+                f < c;
+                f++
+              )
+                f in e && (d[f] = b.call(void 0, e[f], f, a));
+              return d;
+            };
+  const ua = String.prototype.trim
     ? a => {
         return a.trim();
       }
@@ -3528,7 +3526,7 @@ limitations under the License.
     });
   }
   function Ea(a) {
-    var b = l(void 0)
+    const b = l(void 0)
       ? "undefined"
           .replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, "\\$1")
           .replace(/\x08/g, "\\x08")
@@ -3540,11 +3538,11 @@ limitations under the License.
       }
     );
   }
-  var u;
+  let u;
   a: {
-    var Fa = h.navigator;
+    const Fa = h.navigator;
     if (Fa) {
-      var Ga = Fa.userAgent;
+      const Ga = Fa.userAgent;
       if (Ga) {
         u = Ga;
         break a;
@@ -3553,17 +3551,17 @@ limitations under the License.
     u = "";
   }
   function Ha(a, b, c) {
-    for (var d in a) b.call(c, a[d], d, a);
+    for (const d in a) b.call(c, a[d], d, a);
   }
-  var Ia =
+  const Ia =
     "constructor hasOwnProperty isPrototypeOf propertyIsEnumerable toLocaleString toString valueOf".split(
       " "
     );
   function Ja(a, b) {
-    for (var c, d, e = 1; e < arguments.length; e++) {
+    for (let c, d, e = 1; e < arguments.length; e++) {
       d = arguments[e];
       for (c in d) a[c] = d[c];
-      for (var f = 0; f < Ia.length; f++)
+      for (let f = 0; f < Ia.length; f++)
         (c = Ia[f]),
           Object.prototype.hasOwnProperty.call(d, c) && (a[c] = d[c]);
     }
@@ -3574,36 +3572,38 @@ limitations under the License.
   }
   Ka[" "] = ia;
   function La(a, b) {
-    var c = Ma;
+    const c = Ma;
     return Object.prototype.hasOwnProperty.call(c, a) ? c[a] : (c[a] = b(a));
   }
-  var Na = -1 != u.indexOf("Opera"),
-    v = -1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE"),
-    Oa = -1 != u.indexOf("Edge"),
-    w =
-      -1 != u.indexOf("Gecko") &&
-      !(-1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge")) &&
-      !(-1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE")) &&
-      -1 == u.indexOf("Edge"),
-    z = -1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge");
+  const Na = -1 != u.indexOf("Opera"),
+        v = -1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE"),
+        Oa = -1 != u.indexOf("Edge"),
+        w =
+          -1 != u.indexOf("Gecko") &&
+          !(-1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge")) &&
+          !(-1 != u.indexOf("Trident") || -1 != u.indexOf("MSIE")) &&
+          -1 == u.indexOf("Edge"),
+        z = -1 != u.toLowerCase().indexOf("webkit") && -1 == u.indexOf("Edge");
   function Pa() {
-    var a = h.document;
+    const a = h.document;
     return a ? a.documentMode : void 0;
   }
-  var A;
+  let A;
   a: {
-    var Qa = "",
-      Ra = (() => {
-        var a = u;
-        if (w) return /rv:([^\);]+)(\)|;)/.exec(a);
-        if (Oa) return /Edge\/([\d\.]+)/.exec(a);
-        if (v) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
-        if (z) return /WebKit\/(\S+)/.exec(a);
-        if (Na) return /(?:Version)[ \/]?(\S+)/.exec(a);
-      })();
+    let Qa = "";
+
+    const Ra = (() => {
+      const a = u;
+      if (w) return /rv:([^\);]+)(\)|;)/.exec(a);
+      if (Oa) return /Edge\/([\d\.]+)/.exec(a);
+      if (v) return /\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);
+      if (z) return /WebKit\/(\S+)/.exec(a);
+      if (Na) return /(?:Version)[ \/]?(\S+)/.exec(a);
+    })();
+
     Ra && (Qa = Ra ? Ra[1] : "");
     if (v) {
-      var Sa = Pa();
+      const Sa = Pa();
       if (null != Sa && Sa > parseFloat(Qa)) {
         A = String(Sa);
         break a;
@@ -3623,8 +3623,7 @@ limitations under the License.
         0 == b && f < e;
         f++
       ) {
-        var g = c[f] || "",
-          k = d[f] || "";
+        let g = c[f] || "", k = d[f] || "";
         do {
           g = /(\d*)(\D*)(.*)/.exec(g) || ["", "", "", ""];
           k = /(\d*)(\D*)(.*)/.exec(k) || ["", "", "", ""];
@@ -3643,28 +3642,30 @@ limitations under the License.
       return 0 <= b;
     });
   }
-  var Ua;
-  var Va = h.document;
+  let Ua;
+  const Va = h.document;
   Ua =
     Va && v
       ? Pa() || ("CSS1Compat" == Va.compatMode ? parseInt(A, 10) : 5)
       : void 0;
-  var Wa;
+  let Wa;
   (Wa = !v) || (Wa = 9 <= Number(Ua));
-  var Xa = Wa,
-    Ya = v && !Ta("9"),
-    Za = (() => {
-      if (!h.addEventListener || !Object.defineProperty) return !1;
-      var a = !1,
-        b = Object.defineProperty({}, "passive", {
-          get() {
-            a = !0;
-          },
-        });
-      h.addEventListener("test", ia, b);
-      h.removeEventListener("test", ia, b);
-      return a;
-    })();
+  const Xa = Wa,
+        Ya = v && !Ta("9"),
+        Za = (() => {
+          if (!h.addEventListener || !Object.defineProperty) return !1;
+          let a = !1;
+
+          const b = Object.defineProperty({}, "passive", {
+            get() {
+              a = !0;
+            },
+          });
+
+          h.addEventListener("test", ia, b);
+          h.removeEventListener("test", ia, b);
+          return a;
+        })();
 
   class B {
     constructor(a, b) {
@@ -3695,8 +3696,7 @@ limitations under the License.
       this.pointerType = "";
       this.b = null;
       if (a) {
-        var c = (this.type = a.type),
-          d = a.changedTouches ? a.changedTouches[0] : null;
+        const c = (this.type = a.type), d = a.changedTouches ? a.changedTouches[0] : null;
         this.target = a.target || a.srcElement;
         this.a = b;
         if ((b = a.relatedTarget)) {
@@ -3750,7 +3750,7 @@ limitations under the License.
 
     preventDefault() {
       C.V.preventDefault.call(this);
-      var a = this.b;
+      const a = this.b;
       if (a.preventDefault) a.preventDefault();
       else if (((a.returnValue = !1), Ya))
         try {
@@ -3761,8 +3761,8 @@ limitations under the License.
 
   q(C, B);
   var $a = { 2: "touch", 3: "pen", 4: "mouse" };
-  var D = "closure_listenable_" + ((1e6 * Math.random()) | 0),
-    ab = 0;
+  const D = "closure_listenable_" + ((1e6 * Math.random()) | 0);
+  let ab = 0;
   function bb(a, b, c, d, e) {
     this.listener = a;
     this.proxy = null;
@@ -3789,10 +3789,10 @@ limitations under the License.
     }
 
     add(a, b, c, d, e) {
-      var f = a.toString();
+      const f = a.toString();
       a = this.a[f];
       a || ((a = this.a[f] = []), this.b++);
-      var g = db(a, b, d, e);
+      const g = db(a, b, d, e);
       -1 < g
         ? ((b = a[g]), c || (b.G = !1))
         : ((b = new bb(b, this.src, f, !!d, e)), (b.G = c), a.push(b));
@@ -3801,29 +3801,29 @@ limitations under the License.
   }
 
   function eb(a, b) {
-    var c = b.type;
+    const c = b.type;
     if (c in a.a) {
-      var d = a.a[c],
-        e = ra(d, b),
-        f;
+      const d = a.a[c];
+      const e = ra(d, b);
+      let f;
       (f = 0 <= e) && Array.prototype.splice.call(d, e, 1);
       f && (cb(b), 0 == a.a[c].length && (delete a.a[c], a.b--));
     }
   }
   function db(a, b, c, d) {
-    for (var e = 0; e < a.length; ++e) {
-      var f = a[e];
+    for (let e = 0; e < a.length; ++e) {
+      const f = a[e];
       if (!f.B && f.listener == b && f.capture == !!c && f.L == d) return e;
     }
     return -1;
   }
-  var fb = "closure_lm_" + ((1e6 * Math.random()) | 0),
-    gb = {},
-    hb = 0;
+  const fb = "closure_lm_" + ((1e6 * Math.random()) | 0);
+  const gb = {};
+  let hb = 0;
   function ib(a, b, c, d, e) {
     if (d && d.once) return jb(a, b, c, d, e);
     if (m(b)) {
-      for (var f = 0; f < b.length; f++) ib(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) ib(a, b[f], c, d, e);
       return null;
     }
     c = kb(c);
@@ -3833,8 +3833,8 @@ limitations under the License.
   }
   function lb(a, b, c, d, e, f) {
     if (!b) throw Error("Invalid event type");
-    var g = n(e) ? !!e.capture : !!e,
-      k = F(a);
+    const g = n(e) ? !!e.capture : !!e;
+    let k = F(a);
     k || (a[fb] = k = new E(a));
     c = k.add(b, c, d, g, f);
     if (c.proxy) return c;
@@ -3853,20 +3853,20 @@ limitations under the License.
     return c;
   }
   function mb() {
-    var a = ob,
-      b = Xa
-        ? c => {
-            return a.call(b.src, b.listener, c);
-          }
-        : c => {
-            c = a.call(b.src, b.listener, c);
-            if (!c) return c;
-          };
+    const a = ob,
+          b = Xa
+            ? c => {
+                return a.call(b.src, b.listener, c);
+              }
+            : c => {
+                c = a.call(b.src, b.listener, c);
+                if (!c) return c;
+              };
     return b;
   }
   function jb(a, b, c, d, e) {
     if (m(b)) {
-      for (var f = 0; f < b.length; f++) jb(a, b[f], c, d, e);
+      for (let f = 0; f < b.length; f++) jb(a, b[f], c, d, e);
       return null;
     }
     c = kb(c);
@@ -3896,11 +3896,11 @@ limitations under the License.
   }
   function qb(a) {
     if ("number" != typeof a && a && !a.B) {
-      var b = a.src;
+      const b = a.src;
       if (b && b[D]) eb(b.b, a);
       else {
-        var c = a.type,
-          d = a.proxy;
+        let c = a.type;
+        const d = a.proxy;
         b.removeEventListener
           ? b.removeEventListener(c, d, a.capture)
           : b.detachEvent
@@ -3917,18 +3917,17 @@ limitations under the License.
     return a in gb ? gb[a] : (gb[a] = "on" + a);
   }
   function rb(a, b, c, d) {
-    var e = !0;
+    let e = !0;
     if ((a = F(a)))
       if ((b = a.a[b.toString()]))
         for (b = b.concat(), a = 0; a < b.length; a++) {
-          var f = b[a];
+          let f = b[a];
           f && f.capture == c && !f.B && ((f = sb(f, d)), (e = e && !1 !== f));
         }
     return e;
   }
   function sb(a, b) {
-    var c = a.listener,
-      d = a.L || a.src;
+    const c = a.listener, d = a.L || a.src;
     a.G && qb(a);
     return c.call(d, b);
   }
@@ -3979,7 +3978,7 @@ limitations under the License.
     a = a[fb];
     return a instanceof E ? a : null;
   }
-  var tb = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
+  const tb = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
   function kb(a) {
     if ("function" == ja(a)) return a;
     a[tb] ||
@@ -4002,11 +4001,11 @@ limitations under the License.
   }
 
   q(G, r);
-  var ub = [];
+  const ub = [];
   function H(a, b, c, d) {
     m(c) || (c && (ub[0] = c.toString()), (c = ub));
-    for (var e = 0; e < c.length; e++) {
-      var f = ib(b, c[e], d || a.handleEvent, !1, a.b || a);
+    for (let e = 0; e < c.length; e++) {
+      const f = ib(b, c[e], d || a.handleEvent, !1, a.b || a);
       if (!f) break;
       a.a[f.key] = f;
     }
@@ -4015,7 +4014,7 @@ limitations under the License.
     wb(a, b, ["finish", "stop"], c, void 0);
   }
   function wb(a, b, c, d, e, f) {
-    if (m(c)) for (var g = 0; g < c.length; g++) wb(a, b, c[g], d, e, f);
+    if (m(c)) for (let g = 0; g < c.length; g++) wb(a, b, c[g], d, e, f);
     else
       (b = jb(b, c, d || a.handleEvent, e, f || a.b || a)) && (a.a[b.key] = b);
   }
@@ -4030,8 +4029,7 @@ limitations under the License.
     a.a = {};
   }
   function yb(a) {
-    var b = !1,
-      c;
+    let b = !1, c;
     return () => {
       b || ((c = a()), (b = !0));
       return c;
@@ -4069,14 +4067,14 @@ limitations under the License.
 
   q(I, Ab);
   function Bb() {
-    var a = null;
+    let a = null;
     try {
       a = window.localStorage || null;
     } catch (b) {}
     this.m = a;
   }
   q(Bb, I);
-  var Cb = {
+  const Cb = {
     area: !0,
     base: !0,
     br: !0,
@@ -4162,7 +4160,7 @@ limitations under the License.
       ? a.a
       : "type_error:SafeUrl";
   }
-  var Jb = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i;
+  const Jb = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i;
   function Kb(a) {
     if (a instanceof L) return a;
     a = "object" == typeof a && a.o ? a.j() : String(a);
@@ -4171,7 +4169,7 @@ limitations under the License.
   }
   var Hb = {};
   function Lb(a) {
-    var b = new L();
+    const b = new L();
     b.a = a;
     return b;
   }
@@ -4191,22 +4189,22 @@ limitations under the License.
   M.prototype.o = !0;
   var Mb = {};
   function Nb(a) {
-    var b = new M();
+    const b = new M();
     b.a = a;
     return b;
   }
-  var Ob = Nb("");
+  const Ob = Nb("");
   function Pb(a) {
     if (a instanceof L)
       a = 'url("' + Ib(a).replace(/</g, "%3c").replace(/[\\"]/g, "\\$&") + '")';
     else if (a instanceof J) a = Eb(a);
     else {
       a = String(a);
-      var b = a.replace(Qb, "$1").replace(Qb, "$1").replace(Rb, "url");
+      let b = a.replace(Qb, "$1").replace(Qb, "$1").replace(Rb, "url");
       if (Sb.test(b)) {
         if ((b = !Tb.test(a))) {
           for (var c = (b = !0), d = 0; d < a.length; d++) {
-            var e = a.charAt(d);
+            const e = a.charAt(d);
             "'" == e && c ? (b = !b) : '"' == e && b && (c = !c);
           }
           b = b && c && Ub(a);
@@ -4218,7 +4216,7 @@ limitations under the License.
   }
   function Ub(a) {
     for (var b = !0, c = /^[-_a-zA-Z0-9]$/, d = 0; d < a.length; d++) {
-      var e = a.charAt(d);
+      const e = a.charAt(d);
       if ("]" == e) {
         if (b) return !1;
         b = !0;
@@ -4237,7 +4235,7 @@ limitations under the License.
     Tb = /\/\*/;
   function Vb(a) {
     return a.replace(Rb, (a, c, d, e) => {
-      var b = "";
+      let b = "";
       d = d.replace(/^(['"])(.*)\1$/, (a, c, d) => {
         b = c;
         return d;
@@ -4270,38 +4268,38 @@ limitations under the License.
       ? a.a
       : "type_error:SafeHtml";
   }
-  var Xb = /^[a-zA-Z0-9-]+$/,
-    Yb = {
-      action: !0,
-      cite: !0,
-      data: !0,
-      formaction: !0,
-      href: !0,
-      manifest: !0,
-      poster: !0,
-      src: !0,
-    },
-    Zb = {
-      APPLET: !0,
-      BASE: !0,
-      EMBED: !0,
-      IFRAME: !0,
-      LINK: !0,
-      MATH: !0,
-      META: !0,
-      OBJECT: !0,
-      SCRIPT: !0,
-      STYLE: !0,
-      SVG: !0,
-      TEMPLATE: !0,
-    };
+  const Xb = /^[a-zA-Z0-9-]+$/,
+        Yb = {
+          action: !0,
+          cite: !0,
+          data: !0,
+          formaction: !0,
+          href: !0,
+          manifest: !0,
+          poster: !0,
+          src: !0,
+        },
+        Zb = {
+          APPLET: !0,
+          BASE: !0,
+          EMBED: !0,
+          IFRAME: !0,
+          LINK: !0,
+          MATH: !0,
+          META: !0,
+          OBJECT: !0,
+          SCRIPT: !0,
+          STYLE: !0,
+          SVG: !0,
+          TEMPLATE: !0,
+        };
   function $b(a) {
     function b(a) {
       if (m(a)) sa(a, b);
       else {
-        if (a instanceof N) var e = a;
+        if (a instanceof N) let e = a;
         else {
-          var g = "object" == typeof a;
+          const g = "object" == typeof a;
           e = null;
           g && a.R && (e = a.v());
           a = t(g && a.o ? a.j() : String(a));
@@ -4319,7 +4317,7 @@ limitations under the License.
   }
   var Wb = {};
   function P(a, b) {
-    var c = new N();
+    const c = new N();
     c.a = a;
     c.b = b;
     return c;
@@ -4327,10 +4325,7 @@ limitations under the License.
   P("<!DOCTYPE html>", 0);
   P("", 0);
   P("<br>", 0);
-  var ac = {},
-    bc = {},
-    cc = {},
-    dc = {};
+  const ac = {}, bc = {}, cc = {}, dc = {};
 
   class Q {
     constructor() {
@@ -4394,7 +4389,7 @@ limitations under the License.
         (a = pc.test(a) ? a.replace(nc, oc) : "about:invalid#zSoyz"));
     return a;
   }
-  var qc = {
+  const qc = {
     "\x00": "&#0;",
     "\t": "&#9;",
     "\n": "&#10;",
@@ -4419,7 +4414,7 @@ limitations under the License.
   function lc(a) {
     return qc[a];
   }
-  var rc = {
+  const rc = {
     "\x00": "%00",
     "\u0001": "%01",
     "\u0002": "%02",
@@ -4518,10 +4513,10 @@ limitations under the License.
     );
   }
   function vc(a) {
-    var b = a.steps;
+    const b = a.steps;
     a = a.fa;
     for (var c = '<div class="steps"><ol>', d = b.length, e = 0; e < d; e++) {
-      var f = b[e];
+      const f = b[e];
       c +=
         '<li><a href="#' +
         hc(e) +
@@ -4558,10 +4553,9 @@ limitations under the License.
     if (!b) return !0;
     b = b.concat();
     for (var e = !0, f = 0; f < b.length; ++f) {
-      var g = b[f];
+      const g = b[f];
       if (g && !g.B && g.capture == c) {
-        var k = g.listener,
-          x = g.L || g.src;
+        const k = g.listener, x = g.L || g.src;
         g.G && eb(a.b, g);
         e = !1 !== k.call(x, d) && e;
       }
@@ -4569,11 +4563,11 @@ limitations under the License.
     return e && 0 != d.aa;
   }
   function T(a, b) {
-    var c = b.type || b;
+    const c = b.type || b;
     if (l(b)) b = new B(b, a);
     else if (b instanceof B) b.target = b.target || a;
     else {
-      var d = b;
+      const d = b;
       b = new B(c, a);
       Ja(b, d);
     }
@@ -4591,10 +4585,10 @@ limitations under the License.
   }
   q(yc, S);
   var zc = 0;
-  var Ac = yb(() => {
-    var a = document.createElement("div");
+  const Ac = yb(() => {
+    const a = document.createElement("div");
     a.innerHTML = "<div><div></div></div>";
-    var b = a.firstChild.firstChild;
+    const b = a.firstChild.firstChild;
     a.innerHTML = "";
     return !b.parentElement;
   });
@@ -4612,18 +4606,17 @@ limitations under the License.
   function U(a, b, c) {
     if (l(b)) (b = Ec(a, b)) && (a.style[b] = c);
     else
-      for (var d in b) {
+      for (const d in b) {
         c = a;
-        var e = b[d],
-          f = Ec(c, d);
+        const e = b[d], f = Ec(c, d);
         f && (c.style[f] = e);
       }
   }
-  var Fc = {};
+  const Fc = {};
   function Ec(a, b) {
-    var c = Fc[b];
+    let c = Fc[b];
     if (!c) {
-      var d = Da(b);
+      let d = Da(b);
       c = d;
       void 0 === a.style[d] &&
         ((d = (z ? "Webkit" : w ? "Moz" : v ? "ms" : Na ? "O" : null) + Ea(d)),
@@ -4633,8 +4626,8 @@ limitations under the License.
     return c;
   }
   function Gc(a) {
-    var b = a.offsetWidth,
-      c = a.offsetHeight;
+    const b = a.offsetWidth;
+    let c = a.offsetHeight;
     c = z && !b && !c;
     if ((void 0 === b || c) && a.getBoundingClientRect)
       a: {
@@ -4659,24 +4652,23 @@ limitations under the License.
     });
     U(a, "transition", b.join(","));
   }
-  var Ic = yb(() => {
+  const Ic = yb(() => {
     if (v) return Ta("10.0");
-    var a = document.createElement("DIV");
-    var b = z ? "-webkit" : w ? "-moz" : v ? "-ms" : Na ? "-o" : null,
-      c = { transition: "opacity 1s linear" };
+    let a = document.createElement("DIV");
+    let b = z ? "-webkit" : w ? "-moz" : v ? "-ms" : Na ? "-o" : null, c = { transition: "opacity 1s linear" };
     b && (c[b + "-transition"] = "opacity 1s linear");
     b = { style: c };
     if (!Xb.test("div")) throw Error("Invalid tag name <div>.");
     if ("DIV" in Zb) throw Error("Tag name <div> is not allowed for SafeHtml.");
     c = null;
-    var d = "";
+    let d = "";
     if (b)
       for (y in b) {
         if (!Xb.test(y)) throw Error('Invalid attribute name "' + y + '".');
-        var e = b[y];
+        let e = b[y];
         if (null != e) {
-          var f = y;
-          var g = e;
+          let f = y;
+          let g = e;
           if (g instanceof J) g = Eb(g);
           else if ("style" == f.toLowerCase()) {
             e = void 0;
@@ -4688,11 +4680,11 @@ limitations under the License.
                   g
               );
             if (!(g instanceof M)) {
-              var k = "";
+              let k = "";
               for (e in g) {
                 if (!/^[-_a-zA-Z0-9]+$/.test(e))
                   throw Error("Name allows only [-_a-zA-Z0-9], got: " + e);
-                var x = g[e];
+                let x = g[e];
                 null != x &&
                   ((x = m(x) ? ta(x, Pb).join(" ") : Pb(x)),
                   (k += e + ":" + x + ";"));
@@ -4757,7 +4749,7 @@ limitations under the License.
     }
 
     ja() {
-      var a = this.a;
+      const a = this.a;
       b: {
         var b = 9 == a.nodeType ? a : a.ownerDocument || a.document;
         if (
@@ -4779,9 +4771,7 @@ limitations under the License.
         Gc(a);
       else {
         b = a.style;
-        var c = b.display,
-          d = b.visibility,
-          e = b.position;
+        const c = b.display, d = b.visibility, e = b.position;
         b.visibility = "hidden";
         b.position = "absolute";
         b.display = "inline";
@@ -4857,7 +4847,7 @@ limitations under the License.
 */
   class W {
     constructor() {
-      var a = HTMLElement.call(this) || this;
+      const a = HTMLElement.call(this) || this;
       a.g = null;
       a.ba = null;
       a.N = null;
@@ -4884,9 +4874,9 @@ limitations under the License.
     connectedCallback() {
       this.X || Qc(this);
       Rc(this);
-      var a = document.querySelector("google-codelab-analytics");
+      const a = document.querySelector("google-codelab-analytics");
       if (a) {
-        var b = this.getAttribute("codelab-gaid");
+        const b = this.getAttribute("codelab-gaid");
         b && a.setAttribute("codelab-gaid", b);
         a.setAttribute("environment", this.getAttribute("environment"));
         a.setAttribute("category", this.getAttribute("category"));
@@ -4908,7 +4898,7 @@ limitations under the License.
     }
 
     attributeChangedCallback(a) {
-      var b = this;
+      const b = this;
       switch (a) {
         case "title":
           this.hasAttribute("title") &&
@@ -4958,15 +4948,15 @@ limitations under the License.
     }
   }
 
-  var X = HTMLElement;
+  const X = HTMLElement;
   W.prototype = ba(X.prototype);
   W.prototype.constructor = W;
   if (ha) ha(W, X);
   else
-    for (var Y in X)
+    for (const Y in X)
       if ("prototype" != Y)
         if (Object.defineProperties) {
-          var Pc = Object.getOwnPropertyDescriptor(X, Y);
+          const Pc = Object.getOwnPropertyDescriptor(X, Y);
           Pc && Object.defineProperty(W, Y, Pc);
         } else W[Y] = X[Y];
   W.V = X.prototype;
@@ -5002,11 +4992,11 @@ limitations under the License.
       }),
       H(a.i, a.g, "keydown", b => {
         if (a.g) {
-          var c = a.g.querySelector(":focus"),
-            e;
+          const c = a.g.querySelector(":focus");
+          let e;
           c ? (e = c.parentNode) : (e = a.g.querySelector("[selected]"));
           if (e) {
-            var f;
+            let f;
             38 == b.C
               ? (f =
                   void 0 !== e.previousElementSibling
@@ -5022,7 +5012,7 @@ limitations under the License.
         }
       }));
     if (a.l) {
-      var b = a.l.querySelector("#menu");
+      const b = a.l.querySelector("#menu");
       b &&
         (H(a.i, b, "click", b => {
           b.preventDefault();
@@ -5063,9 +5053,9 @@ limitations under the License.
   W.prototype.updateHistoryState = W.prototype.ca;
   function Tc(a) {
     if (a.s && a.l) {
-      var b = Oc(tc, { title: a.s });
+      const b = Oc(tc, { title: a.s });
       document.title = a.s;
-      var c = a.l.querySelector("h1");
+      const c = a.l.querySelector("h1");
       a = a.l.querySelector("#codelab-nav-buttons");
       c
         ? (a = c.parentNode) && a.replaceChild(b, c)
@@ -5075,7 +5065,7 @@ limitations under the License.
   function Xc(a) {
     if (a.N) {
       for (var b = 0, c = a.h; c < a.c.length; c++) {
-        var d = parseInt(a.c[c].getAttribute("duration"), 10);
+        const d = parseInt(a.c[c].getAttribute("duration"), 10);
         d && (b += d);
       }
       b = Oc(uc, { time: b });
@@ -5090,14 +5080,14 @@ limitations under the License.
     });
   }
   function Sc(a) {
-    var b = 0;
+    let b = 0;
     if (a.hasAttribute("selected")) {
       if (
         ((b = parseInt(a.getAttribute("selected"), 0)),
         (b = Math.min(Math.max(0, parseInt(b, 10)), a.c.length - 1)),
         a.h !== b && !isNaN(b))
       ) {
-        var c = a.c[b].querySelector(".step-title");
+        let c = a.c[b].querySelector(".step-title");
         Z(a, "google-codelab-pageview", {
           page: location.pathname + "#" + b,
           title: (c ? c.textContent : "")
@@ -5110,16 +5100,14 @@ limitations under the License.
           a.F && Kc(a.F);
           xb(a.O);
           c = {};
-          var d = {},
-            e = a.c[b],
-            f = a.c[a.h];
+          const d = {}, e = a.c[b], f = a.c[a.h];
           e.setAttribute("animating", "");
           a.h < b
             ? ((c.transform = "translate3d(110%, 0, 0)"),
               (d.transform = "translate3d(-110%, 0, 0)"))
             : ((c.transform = "translate3d(-110%, 0, 0)"),
               (d.transform = "translate3d(110%, 0, 0)"));
-          var g = [
+          const g = [
             {
               ka: "transform",
               duration: 0.5,
@@ -5171,14 +5159,14 @@ limitations under the License.
     } else a.setAttribute("selected", b);
   }
   function Zc(a) {
-    var b = a.getAttribute("feedback-link"),
-      c = a.c.map(a => {
-        return a.getAttribute("label");
-      });
+    const b = a.getAttribute("feedback-link"),
+          c = a.c.map(a => {
+            return a.getAttribute("label");
+          });
     Lc(a.g, vc, { steps: c, fa: b });
   }
   function $c() {
-    var a = new URL(document.location.toString()).searchParams.get("index");
+    let a = new URL(document.location.toString()).searchParams.get("index");
     if (!a) return "/";
     a = a.replace(/[^a-z0-9\-]+/gi, "");
     if (!a || "" === a.trim()) return "/";

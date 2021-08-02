@@ -429,7 +429,7 @@ const parseViewMetadata = (filepath) => {
 
 // parseCodelabMetadata parses the codelab metadata at the given path.
 const parseCodelabMetadata = (filepath) => {
-  var meta = JSON.parse(fs.readFileSync(filepath));
+  const meta = JSON.parse(fs.readFileSync(filepath));
 
   meta.category = meta.category || [];
   if (!Array.isArray(meta.category)) {
@@ -720,7 +720,7 @@ const levelledCategory = (codelab, level) => {
 
 // categoryClass converts the codelab to its corresponding CSS class.
 const categoryClass = (codelab, level) => {
-  var name = codelab.mainCategory;
+  let name = codelab.mainCategory;
   if (level > 0) {
     name += " " + codelab.category[level];
   }
@@ -735,17 +735,17 @@ const categoryClass = (codelab, level) => {
 // Additionally, each codelab is tested against view.exclude exclusion filters,
 // matching codelab ID, status, tags and categories.
 const filterCodelabs = (view, codelabs) => {
-  var vtags = cleanStringList(view.tags);
-  var vcats = cleanStringList(view.categories);
+  const vtags = cleanStringList(view.tags);
+  const vcats = cleanStringList(view.categories);
 
   // Filter out codelabs with tags that don't intersect with view.tags
   // unless view.tags is empty - equivalent to any tag.
   // Same for categories.
   codelabs = codelabs.filter(codelab => {
     // Matches by default if both tags and cats are empty.
-    var match = !vtags.length && !vcats.length;
-    var ctags = cleanStringList(codelab.tags);
-    var ccats = cleanStringList(codelab.category);
+    let match = !vtags.length && !vcats.length;
+    const ctags = cleanStringList(codelab.tags);
+    const ccats = cleanStringList(codelab.category);
     // Match by tags.
     if (vtags.length) {
       for (var i = 0; i < ctags.length; i++) {
@@ -768,9 +768,9 @@ const filterCodelabs = (view, codelabs) => {
       return match;
     }
     // Tag or category matches. Test the exclusion filter.
-    var cstatus = cleanStringList(codelab.status);
+    const cstatus = cleanStringList(codelab.status);
     for (var i = 0; i < view.exclude.length; i++) {
-      var rex = view.exclude[i];
+      const rex = view.exclude[i];
       if (codelab.id.match(rex)) {
         return false;
       }
@@ -794,9 +794,9 @@ const filterCodelabs = (view, codelabs) => {
   });
 
   // Compute distinct categories.
-  var categories = {};
-  for (var i in codelabs) {
-    var cat = levelledCategory(codelabs[i], view.catLevel);
+  const categories = {};
+  for (const i in codelabs) {
+    const cat = levelledCategory(codelabs[i], view.catLevel);
     categories[cat.name] = true;
   }
 
@@ -841,8 +841,8 @@ const sortCodelabs = (codelabs, view) => {
 
   codelabs.sort((a, b) => {
     // Move pinned codelabs to the top.
-    var ia = view.pins.indexOf(a.id);
-    var ib = view.pins.indexOf(b.id);
+    const ia = view.pins.indexOf(a.id);
+    const ib = view.pins.indexOf(b.id);
     if (ia >= 0 && ib < 0) {
       return -1;
     }
@@ -853,8 +853,8 @@ const sortCodelabs = (codelabs, view) => {
       return ia - ib;
     }
     // Regular sorting.
-    var aa = attr(a);
-    var ba = attr(b);
+    const aa = attr(a);
+    const ba = attr(b);
     if (aa < ba) {
       return -1;
     }
