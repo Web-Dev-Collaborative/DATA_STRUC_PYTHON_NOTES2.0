@@ -15,7 +15,6 @@ perfectly isolating each process from one another - if a process is able
 to gain access to memory other than what has been assigned to it it will
 be able to hijack the system.
 
-
 ## Drivers
 
 Drivers combine, assembly language, C code, and interrupt-driven
@@ -44,7 +43,6 @@ and can be written to any degree of specificity.
 How to write drivers on the PCIx bus or on a parallel bus is a lesson in
 Computer Engineering, not covered here at Lambda School.
 
-
 ## File System
 
 [File systems at The Linux Documentation Project.org](http://www.tldp.org/LDP/sag/html/filesystems.html)
@@ -56,15 +54,13 @@ of all of the files in the system, called the File Table.
 You've probably heard of the FAT and vFAT filesystems. Linux users are
 more familiar with the _ext4_ filesystem.
 
-
 ### File table features:
 
-* Contiguity
-* Redundancy
-* Small overhead
+- Contiguity
+- Redundancy
+- Small overhead
 
 Dozens of specific file systems exist for specialized tasks, as well as dozens of general-purpose filesystems.
-
 
 ## Exercises
 
@@ -73,11 +69,11 @@ phone. If no one is available, any house plant will do.
 
 (The answers to the below questions aren't necessarily in the above text.)
 
-* If a malicious process had access to the data of another process
+- If a malicious process had access to the data of another process
   without permission, what are some bad things that could happen?
 
-* If we didn't have drivers, what would programmers have to do if they
+- If we didn't have drivers, what would programmers have to do if they
   wanted to communicate with different brands of USB cards?
 
-* What are some of the book-keeping tasks you can imagine a filesystem
+- What are some of the book-keeping tasks you can imagine a filesystem
   needs to keep track of when it comes to storing files?

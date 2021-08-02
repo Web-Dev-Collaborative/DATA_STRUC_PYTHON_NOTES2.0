@@ -45,6 +45,7 @@ O(n) notation describes _asymptotic complexity_, that is, the difficulty of a pr
 [Algorithms Visualization](https://www.lucidchart.com/invitations/accept/fddf57b9-9ca0-4956-b97a-832c96aded5b)
 
 Transforming an algorithm from one complexity class to another:
+
 - O(x^n) n fully connected lists of length x
 - O(n^4) is n cubes
 - O(n^3) is a cube
@@ -55,7 +56,7 @@ Transforming an algorithm from one complexity class to another:
 - O(1) computes the answer immediately
 
 [Big O](https://www.lucidchart.com/documents/view/fb7a5e50-8340-46b4-be62-69c7fe24c472)
-   
+
 # Assignment
 
 ## Travelling Salesman Problem (TSP)
@@ -66,7 +67,7 @@ TSP is one of the most popular benchmark problems and a great many algorithms ha
 
 ### Solution Methods:
 
-#### Exhaustive search (Breadth-first or Depth-first search) 
+#### Exhaustive search (Breadth-first or Depth-first search)
 
 Exhaustive search is fundamentally the most difficult case: calculate the length of every possible path, keeping the shortest. This method is guaranteed to return the shortest path, but is intractable for lists of cities greater than ~20, as this algorithm is NP-Complete and O(n!). The algorithm to exhaustively search involves starting from the first ordered list of all cities as integers, then swapping a pair, calculating the length of that trip, storing it if `l(x) < B`, and repeating until all swaps have been performed:
 
@@ -78,9 +79,9 @@ Exhaustive search is fundamentally the most difficult case: calculate the length
     ]
 
 The distance between two cities is:
-    distance_between = (city1, city2) -> {
-      return Math.sqrt((city1.x - city2.x)^2 + (city.1.y - city2.y)^2))
-    }
+distance_between = (city1, city2) -> {
+return Math.sqrt((city1.x - city2.x)^2 + (city.1.y - city2.y)^2))
+}
 
 All 4! permutations of `Cities`:
 
@@ -124,7 +125,7 @@ Exhaustive Algorithm Psuedo Code:
         best_trip_length = current_trip_length
         best_trip = ordering
 
-#### Nearest Neighbor search   
+#### Nearest Neighbor search
 
 Nearest neighbor search (Choose only the nearest neighbor from a given city). This algorithm takes a decidedly different approach than exhaustive and is only O(n^2). It doesn't produce the _best_ result, but it tends to produce a result that is within 25% of the best result. It is neither the fastest nor the "most optimal" of the decideable algorithms, but it is easy to implement and understand.
 
@@ -140,8 +141,4 @@ Nearest neighbor search (Choose only the nearest neighbor from a given city). Th
             best_nearest = city
         path.add(best_nearest)
 
-
 Implement the above two algorithms. Use the short and long city datasets provided in this assignment and compare their running times and the length and shapes of the paths they return.
-
-
-

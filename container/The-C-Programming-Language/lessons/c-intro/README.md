@@ -13,12 +13,12 @@ Listed at the top of the program:
 Each `#include`d _header file_ gives access to the functionality declared in
 that header file.
 
-* Only `#include` the files you need
-* Consult the `man` page for the function to see what you want to `#include`
-    * If the `man` page doesn't look right, like it's for another language, try
-      other manual sections, especially 2 and 3:
-        * `man 2 fork`
-        * `man 3 printf`
+- Only `#include` the files you need
+- Consult the `man` page for the function to see what you want to `#include`
+  - If the `man` page doesn't look right, like it's for another language, try
+    other manual sections, especially 2 and 3:
+    - `man 2 fork`
+    - `man 3 printf`
 
 ## Types
 

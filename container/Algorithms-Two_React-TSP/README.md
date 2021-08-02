@@ -1,4 +1,3 @@
-
 # Algorithms Circle the Wagons
 
 # Terms
@@ -43,7 +42,7 @@ You are going to begin integrating all of your skills into a complete Computer S
         super(props);
         this.state = {
         };
-      } 
+      }
       updateTSPVertices() {
         // when the TSP has a set of vertices (cities), draw them as small
         // circles here.
@@ -72,21 +71,20 @@ You are going to begin integrating all of your skills into a complete Computer S
 
 First, think about what your component should be able to do:
 
-* Heading - Realtime Travelling Salesman Problem (TSP)
-* Text - Describe the Travelling Salesman Problem in your own words. Be sure to remind the reader that this is a fundamental problem in the area of Computer Science. It is NP-Complete, O(n!), and not tractable. Explain anything you think is interesting about the problem and this assignment containing it.
-* Inner React component - TSPRunner
-  * TSPRunner Title
-  * TSPRunner configuration buttons
-    * Number of cities
-    * Algorithm: Heap's Algorithm (O(n!) !) or k-NN
-      * Number of k if k-NN
-      * Number of city starts if k-NN
-    * Maximum run time (for either algorithm).
-  * RUN button
-  * Component to display results - a realtime report of the current best path and its length.
-  * Final report: How long, how many results, analysis of results
+- Heading - Realtime Travelling Salesman Problem (TSP)
+- Text - Describe the Travelling Salesman Problem in your own words. Be sure to remind the reader that this is a fundamental problem in the area of Computer Science. It is NP-Complete, O(n!), and not tractable. Explain anything you think is interesting about the problem and this assignment containing it.
+- Inner React component - TSPRunner
+  - TSPRunner Title
+  - TSPRunner configuration buttons
+    - Number of cities
+    - Algorithm: Heap's Algorithm (O(n!) !) or k-NN
+      - Number of k if k-NN
+      - Number of city starts if k-NN
+    - Maximum run time (for either algorithm).
+  - RUN button
+  - Component to display results - a realtime report of the current best path and its length.
+  - Final report: How long, how many results, analysis of results
 
 ## Next:
 
 Another react component: Draw it!
-

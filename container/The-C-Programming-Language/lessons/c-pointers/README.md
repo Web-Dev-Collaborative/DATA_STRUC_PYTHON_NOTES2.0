@@ -1,7 +1,7 @@
 # Pointers in C
 
-*Pointers are a hard concept. Once they click, they're easy. But they are really
-the only conceptually difficult thing in C.*
+_Pointers are a hard concept. Once they click, they're easy. But they are really
+the only conceptually difficult thing in C._
 
 ## The Main Problems
 
@@ -42,7 +42,7 @@ address is.
 
 ## Getting the Address of a Variable
 
-*AKA getting the pointer to an object from the object.*
+_AKA getting the pointer to an object from the object._
 
 Use the _address-of_ operator, and store the result in a variable of
 _pointer-type_:
@@ -63,7 +63,7 @@ in the array":
 
 ## Dereferencing
 
-*AKA getting the object from a pointer to that object.*
+_AKA getting the object from a pointer to that object._
 
 If you have a pointer to an object, you can refer to the original object by
 _dereferencing_ the pointer with the `*` operator.
@@ -99,7 +99,7 @@ Check this out:
 void add(int a, int b, int *result)
 {
 	// result is the local name for the &sum argument that got passed in.
-	
+
 	// >> result points to sum back out in main()!! <<
 
 	// We use the dereference operator '*' to manipulate the thing
@@ -222,8 +222,8 @@ if (p == NULL) {
 
 ## References
 
-* [Pointers in Beej's Guide to C](http://beej.us/guide/bgc/output/html/multipage/pointers.html)
-* [Beej's Blog entry on pointers in C](http://beej.us/blog/data/c-pointers/)
+- [Pointers in Beej's Guide to C](http://beej.us/guide/bgc/output/html/multipage/pointers.html)
+- [Beej's Blog entry on pointers in C](http://beej.us/blog/data/c-pointers/)
 
 ## Let's Hack!
 

@@ -13,10 +13,7 @@ All programs are built from collections of system calls, and a program stack pro
 
 [System calls](https://en.wikipedia.org/wiki/System_call)
 
-
 # User space
 
 Your program
 [User space](https://en.wikipedia.org/wiki/User_space)
-
-

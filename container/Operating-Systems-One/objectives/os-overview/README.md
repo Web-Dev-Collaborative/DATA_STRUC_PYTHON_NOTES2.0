@@ -1,7 +1,7 @@
 # Operating Systems Overview
 
 There are three operating systems that are primarily popular on general
-purpose computers - Windows, Mac OS X, and Linux. 
+purpose computers - Windows, Mac OS X, and Linux.
 
 There are two operating systems that are essential for popular
 handhelds--Android and iOS.
@@ -44,23 +44,22 @@ basic access controls applied to every component of the system.
 
 Development paradigms:
 
-* C and C++ native development.
+- C and C++ native development.
 
-* Management of symbolic and dynamic links via /usr/lib and
+- Management of symbolic and dynamic links via /usr/lib and
   /usr/local/lib and /usr/include and many more. Dependencies in linux
   are stored in files with specific paths, and can either be built
   natively using `gcc` or loaded using package management.
 
 Technologies you should familiar with:
 
-* Bash and shell scripting
-* SSH
-* System calls
+- Bash and shell scripting
+- SSH
+- System calls
 
 Technologies to be secondarily familiar with
 
-* Network programming
-
+- Network programming
 
 ## macOS (previously Mac OS X)
 
@@ -76,10 +75,9 @@ development in Objective-C and Swift.
 
 Technologies you need to be familiar with:
 
-* XCode
-* Objective-C
-* Interface builder
-
+- XCode
+- Objective-C
+- Interface builder
 
 ## Exercises
 
@@ -88,9 +86,10 @@ phone. If no one is available, any house plant will do.
 
 (The answers to the below questions aren't necessarily in the above text.)
 
-* Which of the Big Three is your favorite OS? Why?
+- Which of the Big Three is your favorite OS? Why?
 
-* What did the Macintosh computer run as an OS before it ran macOS/OS X?
-	* What were some of the drawbacks to this old OS?
+- What did the Macintosh computer run as an OS before it ran macOS/OS X?
 
-* Why is C a popular language for writing operating systems?
+  - What were some of the drawbacks to this old OS?
+
+- Why is C a popular language for writing operating systems?

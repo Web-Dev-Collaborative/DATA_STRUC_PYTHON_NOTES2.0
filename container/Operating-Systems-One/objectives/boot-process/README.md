@@ -16,7 +16,6 @@ sector to execute first in order to activate the real operating system.
 In Windows, the Boot Loader is called the Master Boot Record. In Linux,
 it is GRUB or LILO. OS Xs Boot Loader is entirely proprietary.
 
-
 ## Boot-loader
 
 The first-stage boot loader is stored in the BIOS and generally reads
@@ -39,7 +38,6 @@ has configured, e.g. MongoDB, sshd, etc.
 
 And finally a login prompt is presented.
 
-
 ## Exercises
 
 Explain the following to someone in class, or in your house, or on the
@@ -47,7 +45,7 @@ phone. If no one is available, any house plant will do.
 
 (The answers to the below questions aren't necessarily in the above text.)
 
-* Why is a first-stage boot loaded necessary? Why not just load the
+- Why is a first-stage boot loaded necessary? Why not just load the
   entire secondary bootloader from the start?
 
-* Why is a boot loader necessary at all? Why not just load the kernel directly?
+- Why is a boot loader necessary at all? Why not just load the kernel directly?

@@ -44,7 +44,6 @@ After the process exits normally, it exists in a _zombie_ state until
 the parent calls `wait()` to get exit status information from the child
 process.
 
-
 ## Threads
 
 At the OS level, threads are processes that share an address space.
@@ -55,7 +54,6 @@ in the process.
 
 Synchronizing access to shared data across multiple threads (so they
 don't step on each others toes) is a tricky problem.
-
 
 ## Scheduling
 
@@ -81,7 +79,6 @@ a round-robin fashion.
 Each time a process is paused, its entire execution state is saved into
 main memory. The next processes stack frame is loaded from main memory,
 and execution is resumed.
-
 
 ## Exercises
 

@@ -4,17 +4,16 @@ Write a C program that stamps images.
 
 ## Suggested runtime process
 
-* Create 3 or more template structs with an image contained within that are
+- Create 3 or more template structs with an image contained within that are
   created in their own separate file.
-* These templates can be manually programmed, or you can load them from a file.
+- These templates can be manually programmed, or you can load them from a file.
   Consider writing a C program that reads the image to be stamped and writes out
   C code with the data in it. This is called a _code generator_.
-* Create an array of r,g,b values that is 1024x768.
-* Using the templates you created in the other files, copy the templates into
+- Create an array of r,g,b values that is 1024x768.
+- Using the templates you created in the other files, copy the templates into
   your large array.
-* Write the array to a file according to the .PPM file specification, then
+- Write the array to a file according to the .PPM file specification, then
   convert it to .png using GIMP or another tool such as ImageMagick, below.
-
 
 ## Invocation
 
@@ -30,21 +29,21 @@ simple_image_machine -o outputfile.ppm duck 40 100 circle 90  500 turkey 600 600
 
 Start breaking it down into pieces.
 
-* Whole program
-    * Parse Command Line
-    * Stamp images on main image
-    * Write out final PPM image
+- Whole program
+  - Parse Command Line
+  - Stamp images on main image
+  - Write out final PPM image
 
 If any of those ideas are still unclear on how to implement, break _them_ down:
 
-* Whole Program
-    * Parse Command Line
-        * Get arg count from argc
-        * Get args from argv
-            * Write a while loop to loop over all arguments
-                * look for -o, if so, get next argument and save as output file name
-                * otherwise it's the name of an image followed by two numbers
-                    * convert number argument to int
+- Whole Program
+  - Parse Command Line
+    - Get arg count from argc
+    - Get args from argv
+      - Write a while loop to loop over all arguments
+        - look for -o, if so, get next argument and save as output file name
+        - otherwise it's the name of an image followed by two numbers
+          - convert number argument to int
 
 Keep breaking it down until you get down to something that you can code up.
 

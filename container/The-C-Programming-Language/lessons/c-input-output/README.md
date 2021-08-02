@@ -70,9 +70,9 @@ keyboard).
 
 There are three standard files that are already open for you when you use the `stdio` routines.
 
-* `stdin`: standard input (the keyboard, typically)
-* `stdout`: standard output (the screen, typically)
-* `stderr`: standard error (also the screen, but used for error messages)
+- `stdin`: standard input (the keyboard, typically)
+- `stdout`: standard output (the screen, typically)
+- `stderr`: standard error (also the screen, but used for error messages)
 
 These two lines are equivalent:
 
@@ -89,8 +89,8 @@ fprintf(stderr, "Oh, man... something awful happened.\n");
 
 ## References
 
-* [Beej's Guide to C `printf` reference](http://beej.us/guide/bgc/output/html/multipage/printf.html)
-* [`printf` `man` page](https://linux.die.net/man/3/printf)
+- [Beej's Guide to C `printf` reference](http://beej.us/guide/bgc/output/html/multipage/printf.html)
+- [`printf` `man` page](https://linux.die.net/man/3/printf)
 
 ## Let's Hack!
 

@@ -2,10 +2,10 @@
 
 ## Objectives
 
-* [Operating Systems Overview](objectives/os-overview)
-* [Boot Process](objectives/boot-process)
-* [Kernel, Processes, Threads](objectives/kernel-proc)
-* [Memory Management, Drivers, File Systems](objectives/mm-drv-fs)
+- [Operating Systems Overview](objectives/os-overview)
+- [Boot Process](objectives/boot-process)
+- [Kernel, Processes, Threads](objectives/kernel-proc)
+- [Memory Management, Drivers, File Systems](objectives/mm-drv-fs)
 
 ## Guided Demo
 

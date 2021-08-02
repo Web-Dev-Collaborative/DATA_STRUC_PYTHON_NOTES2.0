@@ -9,13 +9,13 @@
 
 ### Secondary Objectives
 
-* [The C Build Process](lessons/c-build-process/)
+- [The C Build Process](lessons/c-build-process/)
 
 ## Assignments
 
-* [Intro Project](src/intro-project/)
-* [Hangman Game](src/hangman/)
+- [Intro Project](src/intro-project/)
+- [Hangman Game](src/hangman/)
 
 ### Stretch Goal Project
 
-* [Image stamper](src/image-stamper/)
+- [Image stamper](src/image-stamper/)

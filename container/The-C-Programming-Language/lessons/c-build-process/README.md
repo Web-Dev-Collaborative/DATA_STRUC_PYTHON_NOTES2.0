@@ -11,7 +11,7 @@ Normally these steps are hidden in a single command:
 
 `gcc -o foo foo.c`
 
-or 
+or
 
 `clang -o foo foo.c`
 

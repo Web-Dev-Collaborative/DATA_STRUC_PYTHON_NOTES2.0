@@ -1,13 +1,13 @@
 /**
  * Dijkstra's shortest part algorithm
- * 
+ *
  * https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
- * 
+ *
  * Consider Dijkstra's original description of the nature of the problem:
- * 
+ *
  * "Find the path of minimum total length between two given nodes P￼ and
  * Q￼.
- * 
+ *
  * "We use the fact that, if R￼ is a node on the minimal path from P￼ to
  * Q￼, knowledge of the latter implies the knowledge of the minimal path
  * from P￼ to R￼."
@@ -23,15 +23,15 @@ let V = [0, 1, 2, 3, 4, 5];
 // s = starting node (from)
 // t = target node (to)
 let E = [
-  {s: 0, t: 1, len: 7}, // len is the "weight"
-  {s: 0, t: 2, len: 9},
-  {s: 0, t: 5, len: 14},
-  {s: 1, t: 2, len: 10},
-  {s: 1, t: 3, len: 15},
-  {s: 2, t: 5, len: 2},
-  {s: 2, t: 3, len: 11},
-  {s: 3, t: 4, len: 6},
-  {s: 4, t: 5, len: 9}
+  { s: 0, t: 1, len: 7 }, // len is the "weight"
+  { s: 0, t: 2, len: 9 },
+  { s: 0, t: 5, len: 14 },
+  { s: 1, t: 2, len: 10 },
+  { s: 1, t: 3, len: 15 },
+  { s: 2, t: 5, len: 2 },
+  { s: 2, t: 3, len: 11 },
+  { s: 3, t: 4, len: 6 },
+  { s: 4, t: 5, len: 9 },
 ];
 
 /**
@@ -42,25 +42,24 @@ function make_graph() {
 
   // Add all verts to graph
   for (let v of V) {
-  graph[v] = {
-    edges: []
-  };
+    graph[v] = {
+      edges: [],
+    };
   }
 
   // Add all edges
   for (let e of E) {
-  graph[e.s].edges.push({ target:e.t, length: e.len});
-  graph[e.t].edges.push({ target:e.s, length: e.len});
+    graph[e.s].edges.push({ target: e.t, length: e.len });
+    graph[e.t].edges.push({ target: e.s, length: e.len });
   }
 
   return graph;
 }
 
 /**
- * Shortest path 
+ * Shortest path
  */
 function Dijkstra(graph, source, destination) {
-
   /**
    * Search the set of unvisited cities, Q, to find the one with the
    * minimum distance
@@ -88,7 +87,7 @@ function Dijkstra(graph, source, destination) {
   let foundDest = false;
 
   // Initialize all dist to infinity, and all prev pointers to null
-  let verts = Object.keys(graph).map(n => +n); // n => +n to convert to int
+  let verts = Object.keys(graph).map((n) => +n); // n => +n to convert to int
 
   for (let v in verts) {
     dist[v] = Number.MAX_VALUE;
@@ -111,7 +110,6 @@ function Dijkstra(graph, source, destination) {
       // If so, we're done
       foundDest = true;
       break;
-     
     }
 
     // Remove current from set
@@ -168,8 +166,8 @@ function Dijkstra(graph, source, destination) {
     // And give the caller back the path and total distance
     return {
       path: path,
-      distance: dist[destination]
-    }
+      distance: dist[destination],
+    };
   }
 
   // Not found, or not reachable
@@ -185,5 +183,7 @@ const destination = 3;
 
 const path = Dijkstra(graph, source, destination);
 
-console.log(`Shortest path from ${source} to ${destination}: ${JSON.stringify(path.path)}`);
-console.log(`Distance: ${path.distance}`)
+console.log(
+  `Shortest path from ${source} to ${destination}: ${JSON.stringify(path.path)}`
+);
+console.log(`Distance: ${path.distance}`);
