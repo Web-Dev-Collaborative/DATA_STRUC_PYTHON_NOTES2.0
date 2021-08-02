@@ -262,7 +262,7 @@ class CodelabAnalytics extends HTMLElement {
 
   /** @private */
   gaSend_(params) {
-    window["ga"](function () {
+    window["ga"](() => {
       if (window["ga"].getAll) {
         const trackers = window["ga"].getAll();
         trackers.forEach((tracker) => {

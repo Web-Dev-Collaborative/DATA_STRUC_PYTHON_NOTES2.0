@@ -32,7 +32,7 @@
  *
  * @see https://github.com/amroamroamro/prettify-matlab
  */
-(function (PR) {
+(PR => {
   /*
     PR_PLAIN: plain text
     PR_STRING: string literals

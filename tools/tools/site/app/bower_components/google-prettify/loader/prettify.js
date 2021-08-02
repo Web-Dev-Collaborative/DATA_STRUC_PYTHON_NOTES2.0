@@ -1,4 +1,4 @@
-!(function () {
+!(() => {
   /*
 
  Copyright (C) 2006 Google Inc.
@@ -16,7 +16,7 @@
  limitations under the License.
 */
   window.PR_SHOULD_USE_CONTINUATION = !0;
-  (function () {
+  (() => {
     function T(a) {
       function d(e) {
         var b = e.charCodeAt(0);
@@ -65,7 +65,7 @@
                 e.push([Math.max(97, h) & -33, Math.min(k, 122) & -33]));
           }
         }
-        e.sort(function (e, a) {
+        e.sort((e, a) => {
           return e[0] - a[0] || a[1] - e[1];
         });
         b = [];
@@ -116,7 +116,7 @@
               2 <= k.length && "[" === e
                 ? (a[g] = b(k))
                 : "\\" !== e &&
-                  (a[g] = k.replace(/[a-zA-Z]/g, function (a) {
+                  (a[g] = k.replace(/[a-zA-Z]/g, a => {
                     a = a.charCodeAt(0);
                     return "[" + String.fromCharCode(a & -33, a | 32) + "]";
                   }));
@@ -243,7 +243,7 @@
       }
       var b = {},
         v;
-      (function () {
+      (() => {
         for (
           var f = a.concat(d), l = [], m = {}, c = 0, p = f.length;
           c < p;
@@ -681,7 +681,7 @@
         PR_STRING: "str",
         PR_TAG: "tag",
         PR_TYPE: "typ",
-        prettyPrintOne: (E.prettyPrintOne = function (a, d, f) {
+        prettyPrintOne: (E.prettyPrintOne = (a, d, f) => {
           f = f || !1;
           d = d || null;
           var b = document.createElement("div");
@@ -691,7 +691,7 @@
           M({ j: d, m: f, h: b, l: 1, a: null, i: null, c: null, g: null });
           return b.innerHTML;
         }),
-        prettyPrint: (E.prettyPrint = function (a, d) {
+        prettyPrint: (E.prettyPrint = (a, d) => {
           function f() {
             for (
               var b = E.PR_SHOULD_USE_CONTINUATION ? c.now() + 250 : Infinity;
@@ -709,7 +709,7 @@
                   break;
                 if (u) {
                   l = {};
-                  u.replace(/\b(\w+)=([\w:.%+-]+)/g, function (a, b, c) {
+                  u.replace(/\b(\w+)=([\w:.%+-]+)/g, (a, b, c) => {
                     l[b] = c;
                   });
                   break;
@@ -808,7 +808,7 @@
       H = E.define;
     "function" === typeof H &&
       H.amd &&
-      H("google-code-prettify", [], function () {
+      H("google-code-prettify", [], () => {
         return Y;
       });
   })();

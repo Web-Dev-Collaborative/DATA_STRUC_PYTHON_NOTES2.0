@@ -1,4 +1,4 @@
-(function () {
+(() => {
   "use strict";
 
   if (!String.prototype.startsWith) {
@@ -48,7 +48,7 @@
     var buf = ['<select id="version_select">'];
     var major_minor = release.split(".").slice(0, 2).join(".");
 
-    $.each(all_versions, function (version, title) {
+    $.each(all_versions, (version, title) => {
       if (version == major_minor)
         buf.push(
           "<option value=" +
@@ -70,7 +70,7 @@
   function build_language_select(current_language) {
     var buf = ['<select id="language_select">'];
 
-    $.each(all_languages, function (language, title) {
+    $.each(all_languages, (language, title) => {
       if (language == current_language)
         buf.push(
           '<option value="' +
@@ -206,7 +206,7 @@
     }
   }
 
-  $(document).ready(function () {
+  $(document).ready(() => {
     var language_segment = language_segment_from_url();
     var current_language = language_segment.replace(/\/+$/g, "") || "en";
     var version_select = build_version_select(DOCUMENTATION_OPTIONS.VERSION);

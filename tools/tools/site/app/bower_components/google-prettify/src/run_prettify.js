@@ -112,7 +112,7 @@ var SourceSpansT;
 /** @define {boolean} */
 var IN_GLOBAL_SCOPE = false;
 
-(function () {
+(() => {
   "use strict";
 
   var win = window;
@@ -133,7 +133,7 @@ var IN_GLOBAL_SCOPE = false;
       add = addEventListener ? "addEventListener" : "attachEvent",
       rem = addEventListener ? "removeEventListener" : "detachEvent",
       pre = addEventListener ? "" : "on",
-      init = function (e) {
+      init = e => {
         if (e.type == "readystatechange" && doc.readyState != "complete") {
           return;
         }
@@ -142,7 +142,7 @@ var IN_GLOBAL_SCOPE = false;
           callback.call(win, e.type || e);
         }
       },
-      poll = function () {
+      poll = () => {
         try {
           root.doScroll("left");
         } catch (e) {
@@ -185,7 +185,7 @@ var IN_GLOBAL_SCOPE = false;
         // versions of IE do not support onerror on <link>s, though
         // http://msdn.microsoft.com/en-us/library/ie/ms535848(v=vs.85).aspx
         // indicates that recent IEs do support error.
-        link.error = link.onerror = function () {
+        link.error = link.onerror = () => {
           load(i + 1);
         };
       }
@@ -221,7 +221,7 @@ var IN_GLOBAL_SCOPE = false;
   var langs = [];
   var skins = [];
   var callbacks = [];
-  scriptQuery.replace(/[?&]([^&=]+)=([^&]+)/g, function (_, name, value) {
+  scriptQuery.replace(/[?&]([^&=]+)=([^&]+)/g, (_, name, value) => {
     value = decodeURIComponent(value);
     name = decodeURIComponent(name);
     if (name == "autorun") {
@@ -243,7 +243,7 @@ var IN_GLOBAL_SCOPE = false;
     "https://cdn.rawgit.com/google/code-prettify/master/loader";
 
   for (var i = 0, n = langs.length; i < n; ++i)
-    (function (lang) {
+    (lang => {
       var script = doc.createElement("script");
 
       // Excerpted from jQuery.ajaxTransport("script") to fire events when
@@ -252,7 +252,7 @@ var IN_GLOBAL_SCOPE = false;
       script.onload =
         script.onerror =
         script.onreadystatechange =
-          function () {
+          () => {
             if (
               script &&
               (!script.readyState || /loaded|complete/.test(script.readyState))
@@ -296,7 +296,7 @@ var IN_GLOBAL_SCOPE = false;
   skinUrls.push(LOADER_BASE_URL + "/prettify.css");
   loadStylesheetsFallingBack(skinUrls);
 
-  var prettyPrint = (function () {
+  var prettyPrint = (() => {
     /**
      * @license
      * Copyright (C) 2006 Google Inc.
@@ -411,7 +411,7 @@ var IN_GLOBAL_SCOPE = false;
      */
     var prettyPrint;
 
-    (function () {
+    (() => {
       var win = window;
       // Keyword lists for various languages.
       // We use things that coerce to strings to make them compact when minified
@@ -724,7 +724,7 @@ var IN_GLOBAL_SCOPE = false;
 
           // [[1, 10], [3, 4], [8, 12], [14, 14], [16, 16], [17, 17]]
           // -> [[1, 12], [14, 14], [16, 17]]
-          ranges.sort(function (a, b) {
+          ranges.sort((a, b) => {
             return a[0] - b[0] || b[1] - a[1];
           });
           var consolidatedRanges = [];
@@ -840,7 +840,7 @@ var IN_GLOBAL_SCOPE = false;
                 parts[i] = caseFoldCharset(p);
               } else if (ch0 !== "\\") {
                 // TODO: handle letters in numeric escapes.
-                parts[i] = p.replace(/[a-zA-Z]/g, function (ch) {
+                parts[i] = p.replace(/[a-zA-Z]/g, ch => {
                   var cc = ch.charCodeAt(0);
                   return "[" + String.fromCharCode(cc & ~32, cc | 32) + "]";
                 });
@@ -1082,7 +1082,7 @@ var IN_GLOBAL_SCOPE = false;
       ) {
         var shortcuts = {};
         var tokenizer;
-        (function () {
+        (() => {
           var allPatterns = shortcutStylePatterns.concat(
             fallthroughStylePatterns
           );
@@ -1116,7 +1116,7 @@ var IN_GLOBAL_SCOPE = false;
          *
          * @type{function (JobT)}
          */
-        var decorate = function (job) {
+        var decorate = job => {
           var sourceCode = job.sourceCode,
             basePos = job.basePos;
           var sourceNode = job.sourceNode;
@@ -2043,7 +2043,7 @@ var IN_GLOBAL_SCOPE = false;
                   attrs = {};
                   value.replace(
                     /\b(\w+)=([\w:.%+-]+)/g,
-                    function (_, name, value) {
+                    (_, name, value) => {
                       attrs[name] = value;
                     }
                   );
@@ -2205,7 +2205,7 @@ var IN_GLOBAL_SCOPE = false;
       // function that does not conform to the AMD API.
       var define = win["define"];
       if (typeof define === "function" && define["amd"]) {
-        define("google-code-prettify", [], function () {
+        define("google-code-prettify", [], () => {
           return PR;
         });
       }
@@ -2218,12 +2218,12 @@ var IN_GLOBAL_SCOPE = false;
   // any autorun.
   function onLangsLoaded() {
     if (autorun) {
-      contentLoaded(function () {
+      contentLoaded(() => {
         var n = callbacks.length;
         var callback = n
-          ? function () {
+          ? () => {
               for (var i = 0; i < n; ++i) {
-                (function (i) {
+                (i => {
                   win.setTimeout(function () {
                     win["exports"][callbacks[i]].apply(win, arguments);
                   }, 0);

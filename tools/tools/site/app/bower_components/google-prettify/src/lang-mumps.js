@@ -35,7 +35,7 @@
  * - m file are already used for MatLab hence using mumps.
  */
 
-(function () {
+(() => {
   var commands =
     "B|BREAK|" +
     "C|CLOSE|" +

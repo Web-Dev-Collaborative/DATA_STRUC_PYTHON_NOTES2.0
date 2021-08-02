@@ -1,7 +1,6 @@
 /*! (C) WebReflection Mit Style License */
 var URLSearchParams =
-  URLSearchParams ||
-  (function () {
+  URLSearchParams || (() => {
     "use strict";
     function e(e) {
       return encodeURIComponent(e).replace(i, u);
@@ -36,7 +35,7 @@ var URLSearchParams =
         "%20": "+",
         "%00": "\0",
       },
-      u = function (e) {
+      u = e => {
         return o[e];
       },
       a = l(),
@@ -72,7 +71,7 @@ var URLSearchParams =
       }),
       (r.keys = function () {
         var t = [];
-        this.forEach(function (e, n) {
+        this.forEach((e, n) => {
           t.push(n);
         });
         var n = {
@@ -81,17 +80,16 @@ var URLSearchParams =
             return { done: e === undefined, value: e };
           },
         };
-        return (
-          a &&
-            (n[Symbol.iterator] = function () {
-              return n;
-            }),
-          n
-        );
+        return a &&
+          (n[Symbol.iterator] = () => {
+            return n;
+          }),
+        n
+      ;
       }),
       (r.values = function () {
         var t = [];
-        this.forEach(function (e) {
+        this.forEach(e => {
           t.push(e);
         });
         var n = {
@@ -100,17 +98,16 @@ var URLSearchParams =
             return { done: e === undefined, value: e };
           },
         };
-        return (
-          a &&
-            (n[Symbol.iterator] = function () {
-              return n;
-            }),
-          n
-        );
+        return a &&
+          (n[Symbol.iterator] = () => {
+            return n;
+          }),
+        n
+      ;
       }),
       (r.entries = function () {
         var t = [];
-        this.forEach(function (e, n) {
+        this.forEach((e, n) => {
           t.push([n, e]);
         });
         var n = {
@@ -119,16 +116,15 @@ var URLSearchParams =
             return { done: e === undefined, value: e };
           },
         };
-        return (
-          a &&
-            (n[Symbol.iterator] = function () {
-              return n;
-            }),
-          n
-        );
+        return a &&
+          (n[Symbol.iterator] = () => {
+            return n;
+          }),
+        n
+      ;
       }),
       a && (r[Symbol.iterator] = r.entries),
-      (r.toJSON = function () {
+      (r.toJSON = () => {
         return {};
       }),
       (r.toString = function y() {
@@ -146,7 +142,7 @@ var URLSearchParams =
       });
     var c = Object.defineProperty,
       h = Object.getOwnPropertyDescriptor,
-      p = function (e) {
+      p = e => {
         function t(t, n) {
           r.append.call(this, t, n),
             (t = this.toString()),
@@ -162,7 +158,7 @@ var URLSearchParams =
             (t = this.toString()),
             e.set.call(this._usp, t ? "?" + t : "");
         }
-        return function (e, r) {
+        return (e, r) => {
           return (
             (e.append = t),
             (e.delete = n),
@@ -171,8 +167,8 @@ var URLSearchParams =
           );
         };
       },
-      d = function (e) {
-        return function (t, n) {
+      d = e => {
+        return (t, n) => {
           return (
             c(t, "_searchParams", {
               configurable: !0,
@@ -183,20 +179,20 @@ var URLSearchParams =
           );
         };
       },
-      v = function (e) {
+      v = e => {
         var t = e.append;
         (e.append = r.append),
           n.call(e, e._usp.search.slice(1)),
           (e.append = t);
       },
-      m = function (e, t) {
+      m = (e, t) => {
         if (!(e instanceof t))
           throw new TypeError(
             "'searchParams' accessed on an object that does not implement interface " +
               t.name
           );
       },
-      g = function (e) {
+      g = e => {
         var t = e.prototype,
           r = h(t, "searchParams"),
           i = h(t, "href"),

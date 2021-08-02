@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(() => {
   /* Add a [>>>] button on the top-right corner of code samples to hide
    * the >>> and ... prompts and the output and thus make the code
    * copyable. */

@@ -9,7 +9,7 @@
  */
 // @version 0.7.24
 if (typeof WeakMap === "undefined") {
-  (function () {
+  (() => {
     var defineProperty = Object.defineProperty;
     var counter = Date.now() % 1e9;
 
@@ -54,7 +54,7 @@ if (typeof WeakMap === "undefined") {
   })();
 }
 
-(function (global) {
+(global => {
   if (global.JsMutationObserver) {
     return;
   }
@@ -67,16 +67,16 @@ if (typeof WeakMap === "undefined") {
   } else {
     var setImmediateQueue = [];
     var sentinel = String(Math.random());
-    window.addEventListener("message", function (e) {
+    window.addEventListener("message", e => {
       if (e.data === sentinel) {
         var queue = setImmediateQueue;
         setImmediateQueue = [];
-        queue.forEach(function (func) {
+        queue.forEach(func => {
           func();
         });
       }
     });
-    setImmediate = function (func) {
+    setImmediate = func => {
       setImmediateQueue.push(func);
       window.postMessage(sentinel, "*");
     };
@@ -101,11 +101,11 @@ if (typeof WeakMap === "undefined") {
     isScheduled = false;
     var observers = scheduledObservers;
     scheduledObservers = [];
-    observers.sort(function (o1, o2) {
+    observers.sort((o1, o2) => {
       return o1.uid_ - o2.uid_;
     });
     var anyNonEmpty = false;
-    observers.forEach(function (observer) {
+    observers.forEach(observer => {
       var queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
@@ -116,10 +116,10 @@ if (typeof WeakMap === "undefined") {
     if (anyNonEmpty) dispatchCallbacks();
   }
   function removeTransientObserversFor(observer) {
-    observer.nodes_.forEach(function (node) {
+    observer.nodes_.forEach(node => {
       var registrations = registrationsTable.get(node);
       if (!registrations) return;
-      registrations.forEach(function (registration) {
+      registrations.forEach(registration => {
         if (registration.observer === observer)
           registration.removeTransientObservers();
       });
@@ -339,7 +339,7 @@ if (typeof WeakMap === "undefined") {
           record.attributeNamespace = namespace;
           var oldValue =
             e.attrChange === MutationEvent.ADDITION ? null : e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.attributes) return;
             if (
               options.attributeFilter &&
@@ -359,7 +359,7 @@ if (typeof WeakMap === "undefined") {
           var target = e.target;
           var record = getRecord("characterData", target);
           var oldValue = e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.characterData) return;
             if (options.characterDataOldValue)
               return getRecordWithOldValue(oldValue);
@@ -389,7 +389,7 @@ if (typeof WeakMap === "undefined") {
           record.nextSibling = nextSibling;
           forEachAncestorAndObserverEnqueueRecord(
             e.relatedNode,
-            function (options) {
+            options => {
               if (!options.childList) return;
               return record;
             }
@@ -406,7 +406,7 @@ if (typeof WeakMap === "undefined") {
   }
 })(self);
 
-(function (scope) {
+(scope => {
   "use strict";
   if (!(window.performance && window.performance.now)) {
     var start = Date.now();
@@ -417,32 +417,30 @@ if (typeof WeakMap === "undefined") {
     };
   }
   if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = (function () {
+    window.requestAnimationFrame = (() => {
       var nativeRaf =
         window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
       return nativeRaf
-        ? function (callback) {
-            return nativeRaf(function () {
+        ? callback => {
+            return nativeRaf(() => {
               callback(performance.now());
             });
           }
-        : function (callback) {
+        : callback => {
             return window.setTimeout(callback, 1e3 / 60);
           };
     })();
   }
   if (!window.cancelAnimationFrame) {
-    window.cancelAnimationFrame = (function () {
-      return (
-        window.webkitCancelAnimationFrame ||
-        window.mozCancelAnimationFrame ||
-        function (id) {
-          clearTimeout(id);
-        }
-      );
+    window.cancelAnimationFrame = (() => {
+      return window.webkitCancelAnimationFrame ||
+      window.mozCancelAnimationFrame ||
+      (id => {
+        clearTimeout(id);
+      });
     })();
   }
-  var workingDefaultPrevented = (function () {
+  var workingDefaultPrevented = (() => {
     var e = document.createEvent("Event");
     e.initEvent("foo", true, true);
     e.preventDefault();
@@ -468,7 +466,7 @@ if (typeof WeakMap === "undefined") {
     !window.CustomEvent ||
     (isIE && typeof window.CustomEvent !== "function")
   ) {
-    window.CustomEvent = function (inType, params) {
+    window.CustomEvent = (inType, params) => {
       params = params || {};
       var e = document.createEvent("CustomEvent");
       e.initCustomEvent(
@@ -483,7 +481,7 @@ if (typeof WeakMap === "undefined") {
   }
   if (!window.Event || (isIE && typeof window.Event !== "function")) {
     var origEvent = window.Event;
-    window.Event = function (inType, params) {
+    window.Event = (inType, params) => {
       params = params || {};
       var e = document.createEvent("Event");
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
@@ -497,14 +495,14 @@ window.CustomElements = window.CustomElements || {
   flags: {},
 };
 
-(function (scope) {
+(scope => {
   var flags = scope.flags;
   var modules = [];
-  var addModule = function (module) {
+  var addModule = module => {
     modules.push(module);
   };
-  var initializeModules = function () {
-    modules.forEach(function (module) {
+  var initializeModules = () => {
+    modules.forEach(module => {
       module(scope);
     });
   };
@@ -519,12 +517,12 @@ window.CustomElements = window.CustomElements || {
     (!window.HTMLImports || window.HTMLImports.useNative);
 })(window.CustomElements);
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var IMPORT_LINK_TYPE = window.HTMLImports
     ? window.HTMLImports.IMPORT_LINK_TYPE
     : "none";
   function forSubtree(node, cb) {
-    findAllElements(node, function (e) {
+    findAllElements(node, e => {
       if (cb(e)) {
         return true;
       }
@@ -576,7 +574,7 @@ window.CustomElements.addModule(function (scope) {
   scope.forSubtree = forSubtree;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var flags = scope.flags;
   var forSubtree = scope.forSubtree;
   var forDocumentTree = scope.forDocumentTree;
@@ -592,7 +590,7 @@ window.CustomElements.addModule(function (scope) {
     }
   }
   function addedSubtree(node, isAttached) {
-    forSubtree(node, function (e) {
+    forSubtree(node, e => {
       if (added(e, isAttached)) {
         return true;
       }
@@ -621,7 +619,7 @@ window.CustomElements.addModule(function (scope) {
   }
   function attached(element) {
     if (hasThrottledAttached) {
-      deferMutation(function () {
+      deferMutation(() => {
         _attached(element);
       });
     } else {
@@ -638,13 +636,13 @@ window.CustomElements.addModule(function (scope) {
   }
   function detachedNode(node) {
     detached(node);
-    forSubtree(node, function (e) {
+    forSubtree(node, e => {
       detached(e);
     });
   }
   function detached(element) {
     if (hasThrottledAttached) {
-      deferMutation(function () {
+      deferMutation(() => {
         _detached(element);
       });
     } else {
@@ -697,15 +695,15 @@ window.CustomElements.addModule(function (scope) {
       console.group("mutations (%d) [%s]", mutations.length, u || "");
     }
     var isAttached = inDocument(root);
-    mutations.forEach(function (mx) {
+    mutations.forEach(mx => {
       if (mx.type === "childList") {
-        forEach(mx.addedNodes, function (n) {
+        forEach(mx.addedNodes, n => {
           if (!n.localName) {
             return;
           }
           addedNode(n, isAttached);
         });
-        forEach(mx.removedNodes, function (n) {
+        forEach(mx.removedNodes, n => {
           if (!n.localName) {
             return;
           }
@@ -770,7 +768,7 @@ window.CustomElements.addModule(function (scope) {
   scope.takeRecords = takeRecords;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var flags = scope.flags;
   function upgrade(node, isAttached) {
     if (node.localName === "template") {
@@ -844,7 +842,7 @@ window.CustomElements.addModule(function (scope) {
   scope.implementPrototype = implementPrototype;
 });
 
-window.CustomElements.addModule(function (scope) {
+window.CustomElements.addModule(scope => {
   var isIE = scope.isIE;
   var upgradeDocumentTree = scope.upgradeDocumentTree;
   var upgradeAll = scope.upgradeAll;
@@ -1000,7 +998,7 @@ window.CustomElements.addModule(function (scope) {
     registry[name] = definition;
   }
   function generateConstructor(definition) {
-    return function () {
+    return () => {
       return instantiate(definition);
     };
   }
@@ -1044,7 +1042,7 @@ window.CustomElements.addModule(function (scope) {
   var domCreateElementNS = document.createElementNS.bind(document);
   var isInstance;
   if (!Object.__proto__ && !useNative) {
-    isInstance = function (obj, ctor) {
+    isInstance = (obj, ctor) => {
       if (obj instanceof ctor) {
         return true;
       }
@@ -1058,7 +1056,7 @@ window.CustomElements.addModule(function (scope) {
       return false;
     };
   } else {
-    isInstance = function (obj, base) {
+    isInstance = (obj, base) => {
       return obj instanceof base;
     };
   }
@@ -1082,19 +1080,19 @@ window.CustomElements.addModule(function (scope) {
   document.register = document.registerElement;
 });
 
-(function (scope) {
+(scope => {
   var useNative = scope.useNative;
   var initializeModules = scope.initializeModules;
   var isIE = scope.isIE;
   if (useNative) {
-    var nop = function () {};
+    var nop = () => {};
     scope.watchShadow = nop;
     scope.upgrade = nop;
     scope.upgradeAll = nop;
     scope.upgradeDocumentTree = nop;
     scope.upgradeSubtree = nop;
     scope.takeRecords = nop;
-    scope.instanceof = function (obj, base) {
+    scope.instanceof = (obj, base) => {
       return obj instanceof base;
     };
   } else {
@@ -1107,13 +1105,13 @@ window.CustomElements.addModule(function (scope) {
       window.wrap = window.ShadowDOMPolyfill.wrapIfNeeded;
       window.unwrap = window.ShadowDOMPolyfill.unwrapIfNeeded;
     } else {
-      window.wrap = window.unwrap = function (node) {
+      window.wrap = window.unwrap = node => {
         return node;
       };
     }
   }
   if (window.HTMLImports) {
-    window.HTMLImports.__importsParsingHook = function (elt) {
+    window.HTMLImports.__importsParsingHook = elt => {
       if (elt.import) {
         upgradeDocument(wrap(elt.import));
       }
@@ -1124,11 +1122,11 @@ window.CustomElements.addModule(function (scope) {
     window.CustomElements.ready = true;
     var requestAnimationFrame =
       window.requestAnimationFrame ||
-      function (f) {
+      (f => {
         setTimeout(f, 16);
-      };
-    requestAnimationFrame(function () {
-      setTimeout(function () {
+      });
+    requestAnimationFrame(() => {
+      setTimeout(() => {
         window.CustomElements.readyTime = Date.now();
         if (window.HTMLImports) {
           window.CustomElements.elapsed =

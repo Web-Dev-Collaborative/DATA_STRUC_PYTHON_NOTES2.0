@@ -1,4 +1,4 @@
-!(function () {
+!(() => {
   /*
 
  Copyright (C) 2013 Google Inc.
@@ -29,7 +29,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 */
-  (function () {
+  (() => {
     function ba(g) {
       function k() {
         try {
@@ -66,13 +66,13 @@
     }
     function U() {
       V &&
-        ba(function () {
+        ba(() => {
           var g = N.length;
           ca(
             g
-              ? function () {
+              ? () => {
                   for (var k = 0; k < g; ++k)
-                    (function (g) {
+                    (g => {
                       t.setTimeout(function () {
                         t.exports[N[g]].apply(t, arguments);
                       }, 0);
@@ -105,7 +105,7 @@
       H = [],
       Q = [],
       N = [];
-    B.replace(/[?&]([^&=]+)=([^&]+)/g, function (g, k, z) {
+    B.replace(/[?&]([^&=]+)=([^&]+)/g, (g, k, z) => {
       z = decodeURIComponent(z);
       k = decodeURIComponent(k);
       "autorun" == k
@@ -118,12 +118,12 @@
     });
     q = 0;
     for (B = H.length; q < B; ++q)
-      (function () {
+      (() => {
         var g = A.createElement("script");
         g.onload =
           g.onerror =
           g.onreadystatechange =
-            function () {
+            () => {
               !g ||
                 (g.readyState && !/loaded|complete/.test(g.readyState)) ||
                 ((g.onerror = g.onload = g.onreadystatechange = null),
@@ -148,7 +148,7 @@
     F.push(
       "https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css"
     );
-    (function (g) {
+    (g => {
       function k(q) {
         if (q !== z) {
           var t = A.createElement("link");
@@ -156,7 +156,7 @@
           t.type = "text/css";
           q + 1 < z &&
             (t.error = t.onerror =
-              function () {
+              () => {
                 k(q + 1);
               });
           t.href = g[q];
@@ -166,10 +166,10 @@
       var z = g.length;
       k(0);
     })(F);
-    var ca = (function () {
+    var ca = (() => {
       window.PR_SHOULD_USE_CONTINUATION = !0;
       var g;
-      (function () {
+      (() => {
         function k(a) {
           function d(e) {
             var b = e.charCodeAt(0);
@@ -220,7 +220,7 @@
                     e.push([Math.max(97, l) & -33, Math.min(n, 122) & -33]));
               }
             }
-            e.sort(function (e, a) {
+            e.sort((e, a) => {
               return e[0] - a[0] || a[1] - e[1];
             });
             b = [];
@@ -275,7 +275,7 @@
                   2 <= n.length && "[" === e
                     ? (a[h] = b(n))
                     : "\\" !== e &&
-                      (a[h] = n.replace(/[a-zA-Z]/g, function (a) {
+                      (a[h] = n.replace(/[a-zA-Z]/g, a => {
                         a = a.charCodeAt(0);
                         return "[" + String.fromCharCode(a & -33, a | 32) + "]";
                       }));
@@ -419,7 +419,7 @@
           }
           var b = {},
             g;
-          (function () {
+          (() => {
             for (
               var f = a.concat(d), m = [], p = {}, c = 0, r = f.length;
               c < r;
@@ -876,7 +876,7 @@
             },
             prettyPrint:
               (g = g =
-                function (a, d) {
+                (a, d) => {
                   function f() {
                     for (
                       var b = R.PR_SHOULD_USE_CONTINUATION
@@ -902,7 +902,7 @@
                           k = {};
                           v.replace(
                             /\b(\w+)=([\w:.%+-]+)/g,
-                            function (a, b, c) {
+                            (a, b, c) => {
                               k[b] = c;
                             }
                           );
@@ -1007,7 +1007,7 @@
           S = R.define;
         "function" === typeof S &&
           S.amd &&
-          S("google-code-prettify", [], function () {
+          S("google-code-prettify", [], () => {
             return V;
           });
       })();

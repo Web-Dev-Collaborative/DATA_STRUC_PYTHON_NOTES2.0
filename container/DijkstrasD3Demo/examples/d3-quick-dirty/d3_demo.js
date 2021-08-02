@@ -4,7 +4,7 @@ var nodes = {};
 
 // Compute the distinct nodes from the links.
 // Creates nodes from edges if they don't already exist
-links.forEach(function (link) {
+links.forEach(link => {
   link.source =
     nodes[link.source] || (nodes[link.source] = { name: link.source });
   link.target =
@@ -50,7 +50,7 @@ nodes["ROOT"].fixed = true;
 
 // This looks up the "group" id from d3_demo_data.js and appends it to
 // the existing nodes. This is used for coloring and grouping.
-Object.keys(nodes).forEach(function (key) {
+Object.keys(nodes).forEach(key => {
   console.log(key);
   console.log(nodes[key]);
   console.log(demo_nodes[key]);
@@ -89,13 +89,13 @@ var path = svg
   .data(force.links())
   .enter()
   .append("path")
-  .attr("class", function (d) {
+  .attr("class", d => {
     return "link";
   })
-  .attr("key", function (d) {
+  .attr("key", d => {
     return `${d.source.name},${d.target.name}`;
   })
-  .attr("marker-end", function (d) {
+  .attr("marker-end", d => {
     return "url(#link)";
   });
 
@@ -107,7 +107,7 @@ var link_text = svg
   .enter()
   .append("text")
   .attr("class", "link-text")
-  .text(function (d) {
+  .text(d => {
     return d.label;
   });
 
@@ -126,7 +126,7 @@ var circle = svg
   .enter()
   .append("circle")
   .attr("r", 16)
-  .attr("fill", function (d) {
+  .attr("fill", d => {
     return color(d.group);
   })
   .call(force.drag);
@@ -140,7 +140,7 @@ var text = svg
   .append("text")
   .attr("x", -12)
   .attr("y", ".31em")
-  .text(function (d) {
+  .text(d => {
     return d.name;
   });
 
@@ -153,10 +153,10 @@ var text = svg
 function tick() {
   path.attr("d", linkArc);
   circle
-    .attr("cx", function (d) {
+    .attr("cx", d => {
       return (d.x = Math.max(radius, Math.min(width - radius, d.x)));
     })
-    .attr("cy", function (d) {
+    .attr("cy", d => {
       return (d.y = Math.max(radius, Math.min(height - radius, d.y)));
     });
   text.attr("transform", transform);
@@ -198,7 +198,7 @@ function transform(d) {
 
 // This reloads the data from d3_demo_data.js, then reruns the force code.
 // This would be fly for redrawing new Dijkstra's nodes.
-var updateData = function () {
+var updateData = () => {
   //links = d3.json('d3_demo_data.js');
   let [path, distance] = Dijkstra.run();
 

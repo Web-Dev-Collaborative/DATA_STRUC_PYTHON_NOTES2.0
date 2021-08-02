@@ -9,7 +9,7 @@
  */
 // @version 0.7.24
 if (typeof WeakMap === "undefined") {
-  (function () {
+  (() => {
     var defineProperty = Object.defineProperty;
     var counter = Date.now() % 1e9;
 
@@ -54,7 +54,7 @@ if (typeof WeakMap === "undefined") {
   })();
 }
 
-(function (global) {
+(global => {
   if (global.JsMutationObserver) {
     return;
   }
@@ -67,16 +67,16 @@ if (typeof WeakMap === "undefined") {
   } else {
     var setImmediateQueue = [];
     var sentinel = String(Math.random());
-    window.addEventListener("message", function (e) {
+    window.addEventListener("message", e => {
       if (e.data === sentinel) {
         var queue = setImmediateQueue;
         setImmediateQueue = [];
-        queue.forEach(function (func) {
+        queue.forEach(func => {
           func();
         });
       }
     });
-    setImmediate = function (func) {
+    setImmediate = func => {
       setImmediateQueue.push(func);
       window.postMessage(sentinel, "*");
     };
@@ -101,11 +101,11 @@ if (typeof WeakMap === "undefined") {
     isScheduled = false;
     var observers = scheduledObservers;
     scheduledObservers = [];
-    observers.sort(function (o1, o2) {
+    observers.sort((o1, o2) => {
       return o1.uid_ - o2.uid_;
     });
     var anyNonEmpty = false;
-    observers.forEach(function (observer) {
+    observers.forEach(observer => {
       var queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
@@ -116,10 +116,10 @@ if (typeof WeakMap === "undefined") {
     if (anyNonEmpty) dispatchCallbacks();
   }
   function removeTransientObserversFor(observer) {
-    observer.nodes_.forEach(function (node) {
+    observer.nodes_.forEach(node => {
       var registrations = registrationsTable.get(node);
       if (!registrations) return;
-      registrations.forEach(function (registration) {
+      registrations.forEach(registration => {
         if (registration.observer === observer)
           registration.removeTransientObservers();
       });
@@ -339,7 +339,7 @@ if (typeof WeakMap === "undefined") {
           record.attributeNamespace = namespace;
           var oldValue =
             e.attrChange === MutationEvent.ADDITION ? null : e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.attributes) return;
             if (
               options.attributeFilter &&
@@ -359,7 +359,7 @@ if (typeof WeakMap === "undefined") {
           var target = e.target;
           var record = getRecord("characterData", target);
           var oldValue = e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, function (options) {
+          forEachAncestorAndObserverEnqueueRecord(target, options => {
             if (!options.characterData) return;
             if (options.characterDataOldValue)
               return getRecordWithOldValue(oldValue);
@@ -389,7 +389,7 @@ if (typeof WeakMap === "undefined") {
           record.nextSibling = nextSibling;
           forEachAncestorAndObserverEnqueueRecord(
             e.relatedNode,
-            function (options) {
+            options => {
               if (!options.childList) return;
               return record;
             }

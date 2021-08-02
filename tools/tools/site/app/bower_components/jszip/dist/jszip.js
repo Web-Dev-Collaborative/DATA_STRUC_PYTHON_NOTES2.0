@@ -27,7 +27,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
     }
     g.JSZip = f();
   }
-})(function () {
+})(() => {
   var define, module, exports;
   return (function e(t, n, r) {
     function s(o, u) {
@@ -42,7 +42,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         var l = (n[o] = { exports: {} });
         t[o][0].call(
           l.exports,
-          function (e) {
+          e => {
             var n = t[o][1][e];
             return s(n ? n : e);
           },
@@ -62,7 +62,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
   })(
     {
       1: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var DataReader = require("./dataReader");
 
@@ -131,14 +131,14 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         { "./dataReader": 6 },
       ],
       2: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           // private property
           var _keyStr =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
           // public method for encoding
-          exports.encode = function (input, utf8) {
+          exports.encode = (input, utf8) => {
             var output = "";
             var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
             var i = 0;
@@ -171,7 +171,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
           };
 
           // public method for decoding
-          exports.decode = function (input, utf8) {
+          exports.decode = (input, utf8) => {
             var output = "";
             var chr1, chr2, chr3;
             var enc1, enc2, enc3, enc4;
@@ -205,7 +205,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         {},
       ],
       3: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           class CompressedObject {
@@ -241,7 +241,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         {},
       ],
       4: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           exports.STORE = {
             magic: "\x00\x00",
@@ -259,7 +259,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         { "./flate": 9 },
       ],
       5: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("./utils");
@@ -354,7 +354,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         { "./utils": 22 },
       ],
       6: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var utils = require("./utils");
 
@@ -485,7 +485,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         { "./utils": 22 },
       ],
       7: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           exports.base64 = false;
           exports.binary = false;
@@ -501,7 +501,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         {},
       ],
       8: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var utils = require("./utils");
 
@@ -509,7 +509,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.string2binary = function (str) {
+          exports.string2binary = str => {
             return utils.string2binary(str);
           };
 
@@ -517,7 +517,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.string2Uint8Array = function (str) {
+          exports.string2Uint8Array = str => {
             return utils.transformTo("uint8array", str);
           };
 
@@ -525,7 +525,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.uint8Array2String = function (array) {
+          exports.uint8Array2String = array => {
             return utils.transformTo("string", array);
           };
 
@@ -533,7 +533,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.string2Blob = function (str) {
+          exports.string2Blob = str => {
             var buffer = utils.transformTo("arraybuffer", str);
             return utils.arrayBuffer2Blob(buffer);
           };
@@ -542,7 +542,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.arrayBuffer2Blob = function (buffer) {
+          exports.arrayBuffer2Blob = buffer => {
             return utils.arrayBuffer2Blob(buffer);
           };
 
@@ -550,7 +550,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.transformTo = function (outputType, input) {
+          exports.transformTo = (outputType, input) => {
             return utils.transformTo(outputType, input);
           };
 
@@ -558,7 +558,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.getTypeOf = function (input) {
+          exports.getTypeOf = input => {
             return utils.getTypeOf(input);
           };
 
@@ -566,7 +566,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.checkSupport = function (type) {
+          exports.checkSupport = type => {
             return utils.checkSupport(type);
           };
 
@@ -586,7 +586,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.pretty = function (str) {
+          exports.pretty = str => {
             return utils.pretty(str);
           };
 
@@ -594,7 +594,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.findCompression = function (compressionMethod) {
+          exports.findCompression = compressionMethod => {
             return utils.findCompression(compressionMethod);
           };
 
@@ -602,14 +602,14 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.isRegExp = function (object) {
+          exports.isRegExp = object => {
             return utils.isRegExp(object);
           };
         },
         { "./utils": 22 },
       ],
       9: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var USE_TYPEDARRAY =
             typeof Uint8Array !== "undefined" &&
@@ -621,19 +621,19 @@ https://github.com/nodeca/pako/blob/master/LICENSE
           exports.compressInputType = USE_TYPEDARRAY ? "uint8array" : "array";
 
           exports.magic = "\x08\x00";
-          exports.compress = function (input, compressionOptions) {
+          exports.compress = (input, compressionOptions) => {
             return pako.deflateRaw(input, {
               level: compressionOptions.level || -1, // default compression
             });
           };
-          exports.uncompress = function (input) {
+          exports.uncompress = input => {
             return pako.inflateRaw(input);
           };
         },
         { pako: 25 },
       ],
       10: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var base64 = require("./base64");
@@ -725,7 +725,7 @@ Usage:
         },
       ],
       11: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var base64 = require("./base64");
           var utf8 = require("./utf8");
@@ -772,20 +772,20 @@ Usage:
       ],
       12: [
         function (require, module, exports) {
-          (function (Buffer) {
+          ((Buffer => {
             "use strict";
-            module.exports = function (data, encoding) {
+            module.exports = (data, encoding) => {
               return new Buffer(data, encoding);
             };
-            module.exports.test = function (b) {
+            module.exports.test = b => {
               return Buffer.isBuffer(b);
             };
-          }.call(this, typeof Buffer !== "undefined" ? Buffer : undefined));
+          }).call(this, typeof Buffer !== "undefined" ? Buffer : undefined));
         },
         {},
       ],
       13: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var Uint8ArrayReader = require("./uint8ArrayReader");
 
@@ -816,7 +816,7 @@ Usage:
         { "./uint8ArrayReader": 19 },
       ],
       14: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var support = require("./support");
           var utils = require("./utils");
@@ -836,7 +836,7 @@ Usage:
            * @param {ZipObject} file the file to use.
            * @return {String|ArrayBuffer|Uint8Array|Buffer} the data.
            */
-          var getRawData = function (file) {
+          var getRawData = file => {
             if (file._data instanceof CompressedObject) {
               file._data = file._data.getContent();
               file.options.binary = true;
@@ -861,7 +861,7 @@ Usage:
            * @param {ZipObject} file the file to use.
            * @return {String|ArrayBuffer|Uint8Array|Buffer} the data.
            */
-          var getBinaryData = function (file) {
+          var getBinaryData = file => {
             var result = getRawData(file),
               type = utils.getTypeOf(result);
             if (type === "string") {
@@ -986,7 +986,7 @@ Usage:
            * @param {number} bytes the number of bytes to generate.
            * @returns {string} the result.
            */
-          var decToHex = function (dec, bytes) {
+          var decToHex = (dec, bytes) => {
             var hex = "",
               i;
             for (i = 0; i < bytes; i++) {
@@ -1003,7 +1003,7 @@ Usage:
            * @param {Object} o the options from the user.
            * @return {Object} the complete set of options.
            */
-          var prepareFileAttrs = function (o) {
+          var prepareFileAttrs = o => {
             o = o || {};
             if (
               o.base64 === true &&
@@ -1097,7 +1097,7 @@ Usage:
            * @param {string} path the path to use
            * @return {string} the parent folder, or ""
            */
-          var parentFolder = function (path) {
+          var parentFolder = path => {
             if (path.slice(-1) == "/") {
               path = path.substring(0, path.length - 1);
             }
@@ -1111,7 +1111,7 @@ Usage:
            * @param {String} path the path to check.
            * @return {String} the path with a trailing slash.
            */
-          var forceTrailingSlash = function (path) {
+          var forceTrailingSlash = path => {
             // Check the name ends with a /
             if (path.slice(-1) != "/") {
               path += "/"; // IE doesn't like substr(-1)
@@ -1149,11 +1149,7 @@ Usage:
            * @param {Object} compressionOptions the options to use when compressing.
            * @return {JSZip.CompressedObject} the compressed result.
            */
-          var generateCompressedObjectFrom = function (
-            file,
-            compression,
-            compressionOptions
-          ) {
+          var generateCompressedObjectFrom = (file, compression, compressionOptions) => {
             var result = new CompressedObject(),
               content;
 
@@ -1212,7 +1208,7 @@ Usage:
            *                 ^^^^^^^^^^______ not used ?
            *                           ^^^^^^ DOS attribute bits : Archive, Directory, Volume label, System file, Hidden, Read only
            */
-          var generateUnixExternalFileAttr = function (unixPermissions, isDir) {
+          var generateUnixExternalFileAttr = (unixPermissions, isDir) => {
             var result = unixPermissions;
             if (!unixPermissions) {
               // I can't use octal values in strict mode, hence the hexa.
@@ -1237,7 +1233,7 @@ Usage:
            * Bit 4     Directory
            * Bit 5     Archive
            */
-          var generateDosExternalFileAttr = function (dosPermissions, isDir) {
+          var generateDosExternalFileAttr = (dosPermissions, isDir) => {
             // the dir flag is already set for compatibility
 
             return (dosPermissions || 0) & 0x3f;
@@ -1520,16 +1516,14 @@ Usage:
               if (arguments.length === 1) {
                 if (utils.isRegExp(name)) {
                   var regexp = name;
-                  return this.filter(function (relativePath, file) {
+                  return this.filter((relativePath, file) => {
                     return !file.dir && regexp.test(relativePath);
                   });
                 } else {
                   // text
-                  return (
-                    this.filter(function (relativePath, file) {
-                      return !file.dir && relativePath === name;
-                    })[0] || null
-                  );
+                  return this.filter((relativePath, file) => {
+                    return !file.dir && relativePath === name;
+                  })[0] || null;
                 }
               } else {
                 // more than one argument : we have data !
@@ -1550,7 +1544,7 @@ Usage:
               }
 
               if (utils.isRegExp(arg)) {
-                return this.filter(function (relativePath, file) {
+                return this.filter((relativePath, file) => {
                   return file.dir && arg.test(relativePath);
                 });
               }
@@ -1586,7 +1580,7 @@ Usage:
                 delete this.files[name];
               } else {
                 // maybe a folder, delete recursively
-                var kids = this.filter(function (relativePath, file) {
+                var kids = this.filter((relativePath, file) => {
                   return file.name.slice(0, name.length) === name;
                 });
                 for (var i = 0; i < kids.length; i++) {
@@ -1798,7 +1792,7 @@ Usage:
         },
       ],
       15: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           exports.LOCAL_FILE_HEADER = "PK\x03\x04";
           exports.CENTRAL_FILE_HEADER = "PK\x01\x02";
@@ -1810,7 +1804,7 @@ Usage:
         {},
       ],
       16: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var DataReader = require("./dataReader");
           var utils = require("./utils");
@@ -1860,7 +1854,7 @@ Usage:
         { "./dataReader": 6, "./utils": 22 },
       ],
       17: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("./utils");
@@ -1898,7 +1892,7 @@ Usage:
       ],
       18: [
         function (require, module, exports) {
-          (function (Buffer) {
+          ((Buffer => {
             "use strict";
             exports.base64 = true;
             exports.array = true;
@@ -1937,12 +1931,12 @@ Usage:
                 }
               }
             }
-          }.call(this, typeof Buffer !== "undefined" ? Buffer : undefined));
+          }).call(this, typeof Buffer !== "undefined" ? Buffer : undefined));
         },
         {},
       ],
       19: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var ArrayReader = require("./arrayReader");
 
@@ -1979,7 +1973,7 @@ Usage:
         { "./arrayReader": 1 },
       ],
       20: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("./utils");
@@ -2022,7 +2016,7 @@ Usage:
         { "./utils": 22 },
       ],
       21: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("./utils");
@@ -2055,7 +2049,7 @@ Usage:
           _utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
 
           // convert string to array (typed, when possible)
-          var string2buf = function (str) {
+          var string2buf = str => {
             var buf,
               c,
               c2,
@@ -2124,7 +2118,7 @@ Usage:
           //
           // buf[] - utf8 bytes array
           // max   - length limit (mandatory);
-          var utf8border = function (buf, max) {
+          var utf8border = (buf, max) => {
             var pos;
 
             max = max || buf.length;
@@ -2154,7 +2148,7 @@ Usage:
           };
 
           // convert array to string
-          var buf2string = function (buf) {
+          var buf2string = buf => {
             var str, i, out, c, c_len;
             var len = buf.length;
 
@@ -2271,7 +2265,7 @@ Usage:
         { "./nodeBuffer": 12, "./support": 18, "./utils": 22 },
       ],
       22: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var support = require("./support");
           var compressions = require("./compressions");
@@ -2281,14 +2275,14 @@ Usage:
            * @param {string} str the string to transform.
            * @return {String} the binary string.
            */
-          exports.string2binary = function (str) {
+          exports.string2binary = str => {
             var result = "";
             for (var i = 0; i < str.length; i++) {
               result += String.fromCharCode(str.charCodeAt(i) & 0xff);
             }
             return result;
           };
-          exports.arrayBuffer2Blob = function (buffer, mimeType) {
+          exports.arrayBuffer2Blob = (buffer, mimeType) => {
             exports.checkSupport("blob");
             mimeType = mimeType || "application/zip";
 
@@ -2512,7 +2506,7 @@ Usage:
            * @param {String|Array|ArrayBuffer|Uint8Array|Buffer} input the input to convert.
            * @throws {Error} an Error if the browser doesn't support the requested output type.
            */
-          exports.transformTo = function (outputType, input) {
+          exports.transformTo = (outputType, input) => {
             if (!input) {
               // undefined, null, etc
               // an empty string won't harm.
@@ -2533,7 +2527,7 @@ Usage:
            * @param {Object} input the input to identify.
            * @return {String} the (lowercase) type of the input.
            */
-          exports.getTypeOf = function (input) {
+          exports.getTypeOf = input => {
             if (typeof input === "string") {
               return "string";
             }
@@ -2556,7 +2550,7 @@ Usage:
            * @param {String} type the type to check.
            * @throws {Error} an Error if the browser doesn't support the requested type.
            */
-          exports.checkSupport = function (type) {
+          exports.checkSupport = type => {
             var supported = support[type.toLowerCase()];
             if (!supported) {
               throw new Error(type + " is not supported by this browser");
@@ -2570,7 +2564,7 @@ Usage:
            * @param {string} str the string to prettify.
            * @return {string} a pretty string.
            */
-          exports.pretty = function (str) {
+          exports.pretty = str => {
             var res = "",
               code,
               i;
@@ -2589,7 +2583,7 @@ Usage:
            * @param {string} compressionMethod the method magic to find.
            * @return {Object|null} the JSZip compression object, null if none found.
            */
-          exports.findCompression = function (compressionMethod) {
+          exports.findCompression = compressionMethod => {
             for (var method in compressions) {
               if (!compressions.hasOwnProperty(method)) {
                 continue;
@@ -2606,7 +2600,7 @@ Usage:
            * @return {Boolean}        true if the object is a regular expression,
            * false otherwise
            */
-          exports.isRegExp = function (object) {
+          exports.isRegExp = object => {
             return Object.prototype.toString.call(object) === "[object RegExp]";
           };
 
@@ -2637,7 +2631,7 @@ Usage:
         { "./compressions": 4, "./nodeBuffer": 12, "./support": 18 },
       ],
       23: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var StringReader = require("./stringReader");
           var NodeBufferReader = require("./nodeBufferReader");
@@ -3004,7 +2998,7 @@ Usage:
         },
       ],
       24: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
           var StringReader = require("./stringReader");
           var utils = require("./utils");
@@ -3054,7 +3048,7 @@ Usage:
              * @return {Function} the callback to get the compressed content (the type depends of the DataReader class).
              */
             prepareCompressedContent(reader, from, length) {
-              return function () {
+              return () => {
                 var previousIndex = reader.index;
                 reader.setIndex(from);
                 var compressedFileData = reader.readData(length);
@@ -3388,7 +3382,7 @@ Usage:
         },
       ],
       25: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           // Top level file is just a mixin of submodules & constants
           "use strict";
 
@@ -3412,7 +3406,7 @@ Usage:
         },
       ],
       26: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var zlib_deflate = require("./zlib/deflate");
@@ -3838,7 +3832,7 @@ Usage:
         },
       ],
       27: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var zlib_inflate = require("./zlib/inflate");
@@ -4296,7 +4290,7 @@ Usage:
         },
       ],
       28: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var TYPED_OK =
@@ -4327,7 +4321,7 @@ Usage:
           };
 
           // reduce buffer size, avoiding mem copy
-          exports.shrinkBuf = function (buf, size) {
+          exports.shrinkBuf = (buf, size) => {
             if (buf.length === size) {
               return buf;
             }
@@ -4386,7 +4380,7 @@ Usage:
 
           // Enable/Disable typed arrays use, for testing
           //
-          exports.setTyped = function (on) {
+          exports.setTyped = on => {
             if (on) {
               exports.Buf8 = Uint8Array;
               exports.Buf16 = Uint16Array;
@@ -4405,7 +4399,7 @@ Usage:
         {},
       ],
       29: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           // String encode/decode helpers
           "use strict";
 
@@ -4451,7 +4445,7 @@ Usage:
           _utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
 
           // convert string to array (typed, when possible)
-          exports.string2buf = function (str) {
+          exports.string2buf = str => {
             var buf,
               c,
               c2,
@@ -4533,12 +4527,12 @@ Usage:
           }
 
           // Convert byte array to binary string
-          exports.buf2binstring = function (buf) {
+          exports.buf2binstring = buf => {
             return buf2binstring(buf, buf.length);
           };
 
           // Convert binary string (typed, when possible)
-          exports.binstring2buf = function (str) {
+          exports.binstring2buf = str => {
             var buf = new utils.Buf8(str.length);
             for (var i = 0, len = buf.length; i < len; i++) {
               buf[i] = str.charCodeAt(i);
@@ -4547,7 +4541,7 @@ Usage:
           };
 
           // convert array to string
-          exports.buf2string = function (buf, max) {
+          exports.buf2string = (buf, max) => {
             var i, out, c, c_len;
             var len = max || buf.length;
 
@@ -4604,7 +4598,7 @@ Usage:
           //
           // buf[] - utf8 bytes array
           // max   - length limit (mandatory);
-          exports.utf8border = function (buf, max) {
+          exports.utf8border = (buf, max) => {
             var pos;
 
             max = max || buf.length;
@@ -4636,7 +4630,7 @@ Usage:
         { "./common": 28 },
       ],
       30: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           // Note: adler32 takes 12% for level 0 and 2% for level 6.
@@ -4672,7 +4666,7 @@ Usage:
         {},
       ],
       31: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           module.exports = {
@@ -4724,7 +4718,7 @@ Usage:
         {},
       ],
       32: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           // Note: we can't get significant speed boost here.
@@ -4768,7 +4762,7 @@ Usage:
         {},
       ],
       33: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("../utils/common");
@@ -6802,7 +6796,7 @@ exports.deflateTune = deflateTune;
         },
       ],
       34: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           function GZheader() {
@@ -6846,7 +6840,7 @@ exports.deflateTune = deflateTune;
         {},
       ],
       35: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           // See state defs from inflate.js
@@ -7188,7 +7182,7 @@ exports.deflateTune = deflateTune;
         {},
       ],
       36: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("../utils/common");
@@ -8942,7 +8936,7 @@ exports.inflateUndermine = inflateUndermine;
         },
       ],
       37: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("../utils/common");
@@ -9295,7 +9289,7 @@ exports.inflateUndermine = inflateUndermine;
         { "../utils/common": 28 },
       ],
       38: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           module.exports = {
@@ -9313,7 +9307,7 @@ exports.inflateUndermine = inflateUndermine;
         {},
       ],
       39: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           var utils = require("../utils/common");
@@ -10560,7 +10554,7 @@ exports.inflateUndermine = inflateUndermine;
         { "../utils/common": 28 },
       ],
       40: [
-        function (require, module, exports) {
+        (require, module, exports) => {
           "use strict";
 
           function ZStream() {

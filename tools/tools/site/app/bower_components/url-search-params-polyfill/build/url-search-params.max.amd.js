@@ -20,7 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-define(function () {
+define(() => {
   "use strict";
 
   function encode(str) {
@@ -66,7 +66,7 @@ define(function () {
       "%20": "+",
       "%00": "\x00",
     },
-    replacer = function (match) {
+    replacer = match => {
       return replace[match];
     },
     iterable = isIterable(),
@@ -121,7 +121,7 @@ define(function () {
 
   URLSearchParamsProto.keys = function keys() {
     var items = [];
-    this.forEach(function (value, name) {
+    this.forEach((value, name) => {
       items.push(name);
     });
     var iterator = {
@@ -132,7 +132,7 @@ define(function () {
     };
 
     if (iterable) {
-      iterator[Symbol.iterator] = function () {
+      iterator[Symbol.iterator] = () => {
         return iterator;
       };
     }
@@ -142,7 +142,7 @@ define(function () {
 
   URLSearchParamsProto.values = function values() {
     var items = [];
-    this.forEach(function (value) {
+    this.forEach(value => {
       items.push(value);
     });
     var iterator = {
@@ -153,7 +153,7 @@ define(function () {
     };
 
     if (iterable) {
-      iterator[Symbol.iterator] = function () {
+      iterator[Symbol.iterator] = () => {
         return iterator;
       };
     }
@@ -163,7 +163,7 @@ define(function () {
 
   URLSearchParamsProto.entries = function entries() {
     var items = [];
-    this.forEach(function (value, name) {
+    this.forEach((value, name) => {
       items.push([name, value]);
     });
     var iterator = {
@@ -174,7 +174,7 @@ define(function () {
     };
 
     if (iterable) {
-      iterator[Symbol.iterator] = function () {
+      iterator[Symbol.iterator] = () => {
         return iterator;
       };
     }
@@ -216,7 +216,7 @@ URLSearchParamsProto.toBody = function() {
   };
   var dP = Object.defineProperty,
     gOPD = Object.getOwnPropertyDescriptor,
-    createSearchParamsPollute = function (search) {
+    createSearchParamsPollute = search => {
       /*jshint validthis:true */
       function append(name, value) {
         URLSearchParamsProto.append.call(this, name, value);
@@ -233,7 +233,7 @@ URLSearchParamsProto.toBody = function() {
         name = this.toString();
         search.set.call(this._usp, name ? "?" + name : "");
       }
-      return function (sp, value) {
+      return (sp, value) => {
         sp.append = append;
         sp.delete = del;
         sp.set = set;
@@ -244,8 +244,8 @@ URLSearchParamsProto.toBody = function() {
         });
       };
     },
-    createSearchParamsCreate = function (polluteSearchParams) {
-      return function (obj, sp) {
+    createSearchParamsCreate = polluteSearchParams => {
+      return (obj, sp) => {
         dP(obj, "_searchParams", {
           configurable: true,
           writable: true,
@@ -254,13 +254,13 @@ URLSearchParamsProto.toBody = function() {
         return sp;
       };
     },
-    updateSearchParams = function (sp) {
+    updateSearchParams = sp => {
       var append = sp.append;
       sp.append = URLSearchParamsProto.append;
       URLSearchParams.call(sp, sp._usp.search.slice(1));
       sp.append = append;
     },
-    verifySearchParams = function (obj, Class) {
+    verifySearchParams = (obj, Class) => {
       if (!(obj instanceof Class))
         throw new TypeError(
           "'searchParams' accessed on an object that " +
@@ -268,7 +268,7 @@ URLSearchParamsProto.toBody = function() {
             Class.name
         );
     },
-    upgradeClass = function (Class) {
+    upgradeClass = Class => {
       var ClassProto = Class.prototype,
         searchParams = gOPD(ClassProto, "searchParams"),
         href = gOPD(ClassProto, "href"),

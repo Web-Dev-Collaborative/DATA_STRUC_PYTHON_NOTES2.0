@@ -28,7 +28,7 @@
  * @version 2010-09-28
  */
 
-(function () {
+(() => {
   // Falls back to plain for stylesheets that don't style fun.
   var PR_FUNCTION = "fun pln";
   // Falls back to plaiin for stylesheets that don't style var.

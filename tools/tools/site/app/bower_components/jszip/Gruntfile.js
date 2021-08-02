@@ -1,5 +1,5 @@
 /*jshint node: true */
-module.exports = function (grunt) {
+module.exports = grunt => {
   // see https://saucelabs.com/rest/v1/info/browsers/webdriver
   var browsers = [
     {

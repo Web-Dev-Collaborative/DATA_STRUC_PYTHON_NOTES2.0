@@ -21,7 +21,7 @@
  * http://nemerle.org
  * @author Zimin A.V.
  */
-(function () {
+(() => {
   // http://nemerle.org/wiki/index.php?title=Base_keywords
   var keywords =
     "abstract|and|as|base|catch|class|def|delegate|enum|event|extern|false|finally|" +

@@ -43,7 +43,7 @@ var URLSearchParamsProto = URLSearchParams.prototype,
     "%20": "+",
     "%00": "\x00",
   },
-  replacer = function (match) {
+  replacer = match => {
     return replace[match];
   },
   iterable = isIterable(),
@@ -98,7 +98,7 @@ URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
 
 URLSearchParamsProto.keys = function keys() {
   var items = [];
-  this.forEach(function (value, name) {
+  this.forEach((value, name) => {
     items.push(name);
   });
   var iterator = {
@@ -109,7 +109,7 @@ URLSearchParamsProto.keys = function keys() {
   };
 
   if (iterable) {
-    iterator[Symbol.iterator] = function () {
+    iterator[Symbol.iterator] = () => {
       return iterator;
     };
   }
@@ -119,7 +119,7 @@ URLSearchParamsProto.keys = function keys() {
 
 URLSearchParamsProto.values = function values() {
   var items = [];
-  this.forEach(function (value) {
+  this.forEach(value => {
     items.push(value);
   });
   var iterator = {
@@ -130,7 +130,7 @@ URLSearchParamsProto.values = function values() {
   };
 
   if (iterable) {
-    iterator[Symbol.iterator] = function () {
+    iterator[Symbol.iterator] = () => {
       return iterator;
     };
   }
@@ -140,7 +140,7 @@ URLSearchParamsProto.values = function values() {
 
 URLSearchParamsProto.entries = function entries() {
   var items = [];
-  this.forEach(function (value, name) {
+  this.forEach((value, name) => {
     items.push([name, value]);
   });
   var iterator = {
@@ -151,7 +151,7 @@ URLSearchParamsProto.entries = function entries() {
   };
 
   if (iterable) {
-    iterator[Symbol.iterator] = function () {
+    iterator[Symbol.iterator] = () => {
       return iterator;
     };
   }

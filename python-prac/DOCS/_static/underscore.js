@@ -76,7 +76,7 @@
     o = Array.isArray,
     J = Object.keys,
     s = Function.prototype.bind,
-    b = function (a) {
+    b = a => {
       return new m(a);
     };
   if (typeof exports !== "undefined") {
@@ -88,7 +88,7 @@
   var j =
     (b.each =
     b.forEach =
-      function (a, c, d) {
+      (a, c, d) => {
         if (a != null)
           if (w && a.forEach === w) a.forEach(c, d);
           else if (a.length === +a.length)
@@ -98,11 +98,11 @@
           else
             for (e in a) if (b.has(a, e) && c.call(d, a[e], e, a) === n) break;
       });
-  b.map = b.collect = function (a, c, b) {
+  b.map = b.collect = (a, c, b) => {
     var e = [];
     if (a == null) return e;
     if (x && a.map === x) return a.map(c, b);
-    j(a, function (a, g, h) {
+    j(a, (a, g, h) => {
       e[e.length] = c.call(b, a, g, h);
     });
     if (a.length === +a.length) e.length = a.length;
@@ -116,7 +116,7 @@
         a == null && (a = []);
         if (y && a.reduce === y)
           return e && (c = b.bind(c, e)), f ? a.reduce(c, d) : a.reduce(c);
-        j(a, function (a, b, i) {
+        j(a, (a, b, i) => {
           f ? (d = c.call(e, d, a, b, i)) : ((d = a), (f = true));
         });
         if (!f)
@@ -134,35 +134,35 @@
     e && !f && (c = b.bind(c, e));
     return f ? b.reduce(g, c, d, e) : b.reduce(g, c);
   };
-  b.find = b.detect = function (a, c, b) {
+  b.find = b.detect = (a, c, b) => {
     var e;
-    E(a, function (a, g, h) {
+    E(a, (a, g, h) => {
       if (c.call(b, a, g, h)) return (e = a), true;
     });
     return e;
   };
-  b.filter = b.select = function (a, c, b) {
+  b.filter = b.select = (a, c, b) => {
     var e = [];
     if (a == null) return e;
     if (A && a.filter === A) return a.filter(c, b);
-    j(a, function (a, g, h) {
+    j(a, (a, g, h) => {
       c.call(b, a, g, h) && (e[e.length] = a);
     });
     return e;
   };
-  b.reject = function (a, c, b) {
+  b.reject = (a, c, b) => {
     var e = [];
     if (a == null) return e;
-    j(a, function (a, g, h) {
+    j(a, (a, g, h) => {
       c.call(b, a, g, h) || (e[e.length] = a);
     });
     return e;
   };
-  b.every = b.all = function (a, c, b) {
+  b.every = b.all = (a, c, b) => {
     var e = true;
     if (a == null) return e;
     if (B && a.every === B) return a.every(c, b);
-    j(a, function (a, g, h) {
+    j(a, (a, g, h) => {
       if (!(e = e && c.call(b, a, g, h))) return n;
     });
     return e;
@@ -170,60 +170,60 @@
   var E =
     (b.some =
     b.any =
-      function (a, c, d) {
+      (a, c, d) => {
         c || (c = b.identity);
         var e = false;
         if (a == null) return e;
         if (C && a.some === C) return a.some(c, d);
-        j(a, function (a, b, h) {
+        j(a, (a, b, h) => {
           if (e || (e = c.call(d, a, b, h))) return n;
         });
         return !!e;
       });
-  b.include = b.contains = function (a, c) {
+  b.include = b.contains = (a, c) => {
     var b = false;
     if (a == null) return b;
     return p && a.indexOf === p
       ? a.indexOf(c) != -1
-      : (b = E(a, function (a) {
+      : (b = E(a, a => {
           return a === c;
         }));
   };
   b.invoke = function (a, c) {
     var d = i.call(arguments, 2);
-    return b.map(a, function (a) {
+    return b.map(a, a => {
       return (b.isFunction(c) ? c || a : a[c]).apply(a, d);
     });
   };
-  b.pluck = function (a, c) {
-    return b.map(a, function (a) {
+  b.pluck = (a, c) => {
+    return b.map(a, a => {
       return a[c];
     });
   };
-  b.max = function (a, c, d) {
+  b.max = (a, c, d) => {
     if (!c && b.isArray(a)) return Math.max.apply(Math, a);
     if (!c && b.isEmpty(a)) return -Infinity;
     var e = { computed: -Infinity };
-    j(a, function (a, b, h) {
+    j(a, (a, b, h) => {
       b = c ? c.call(d, a, b, h) : a;
       b >= e.computed && (e = { value: a, computed: b });
     });
     return e.value;
   };
-  b.min = function (a, c, d) {
+  b.min = (a, c, d) => {
     if (!c && b.isArray(a)) return Math.min.apply(Math, a);
     if (!c && b.isEmpty(a)) return Infinity;
     var e = { computed: Infinity };
-    j(a, function (a, b, h) {
+    j(a, (a, b, h) => {
       b = c ? c.call(d, a, b, h) : a;
       b < e.computed && (e = { value: a, computed: b });
     });
     return e.value;
   };
-  b.shuffle = function (a) {
+  b.shuffle = a => {
     var b = [],
       d;
-    j(a, function (a, f) {
+    j(a, (a, f) => {
       f == 0
         ? (b[0] = a)
         : ((d = Math.floor(Math.random() * (f + 1))),
@@ -232,13 +232,13 @@
     });
     return b;
   };
-  b.sortBy = function (a, c, d) {
+  b.sortBy = (a, c, d) => {
     return b.pluck(
       b
-        .map(a, function (a, b, g) {
+        .map(a, (a, b, g) => {
           return { value: a, criteria: c.call(d, a, b, g) };
         })
-        .sort(function (a, b) {
+        .sort((a, b) => {
           var c = a.criteria,
             d = b.criteria;
           return c < d ? -1 : c > d ? 1 : 0;
@@ -246,20 +246,20 @@
       "value"
     );
   };
-  b.groupBy = function (a, c) {
+  b.groupBy = (a, c) => {
     var d = {},
       e = b.isFunction(c)
         ? c
-        : function (a) {
+        : a => {
             return a[c];
           };
-    j(a, function (a, b) {
+    j(a, (a, b) => {
       var c = e(a, b);
       (d[c] || (d[c] = [])).push(a);
     });
     return d;
   };
-  b.sortedIndex = function (a, c, d) {
+  b.sortedIndex = (a, c, d) => {
     d || (d = b.identity);
     for (var e = 0, f = a.length; e < f; ) {
       var g = (e + f) >> 1;
@@ -267,7 +267,7 @@
     }
     return e;
   };
-  b.toArray = function (a) {
+  b.toArray = a => {
     return !a
       ? []
       : a.toArray
@@ -278,32 +278,32 @@
       ? i.call(a)
       : b.values(a);
   };
-  b.size = function (a) {
+  b.size = a => {
     return b.toArray(a).length;
   };
-  b.first = b.head = function (a, b, d) {
+  b.first = b.head = (a, b, d) => {
     return b != null && !d ? i.call(a, 0, b) : a[0];
   };
-  b.initial = function (a, b, d) {
+  b.initial = (a, b, d) => {
     return i.call(a, 0, a.length - (b == null || d ? 1 : b));
   };
-  b.last = function (a, b, d) {
+  b.last = (a, b, d) => {
     return b != null && !d
       ? i.call(a, Math.max(a.length - b, 0))
       : a[a.length - 1];
   };
-  b.rest = b.tail = function (a, b, d) {
+  b.rest = b.tail = (a, b, d) => {
     return i.call(a, b == null || d ? 1 : b);
   };
-  b.compact = function (a) {
-    return b.filter(a, function (a) {
+  b.compact = a => {
+    return b.filter(a, a => {
       return !!a;
     });
   };
-  b.flatten = function (a, c) {
+  b.flatten = (a, c) => {
     return b.reduce(
       a,
-      function (a, e) {
+      (a, e) => {
         if (b.isArray(e)) return a.concat(c ? e : b.flatten(e));
         a[a.length] = e;
         return a;
@@ -314,12 +314,12 @@
   b.without = function (a) {
     return b.difference(a, i.call(arguments, 1));
   };
-  b.uniq = b.unique = function (a, c, d) {
+  b.uniq = b.unique = (a, c, d) => {
     var d = d ? b.map(a, d) : a,
       e = [];
     b.reduce(
       d,
-      function (d, g, h) {
+      (d, g, h) => {
         if (0 == h || (c === true ? b.last(d) != g : !b.include(d, g)))
           (d[d.length] = g), (e[e.length] = a[h]);
         return d;
@@ -333,15 +333,15 @@
   };
   b.intersection = b.intersect = function (a) {
     var c = i.call(arguments, 1);
-    return b.filter(b.uniq(a), function (a) {
-      return b.every(c, function (c) {
+    return b.filter(b.uniq(a), a => {
+      return b.every(c, c => {
         return b.indexOf(c, a) >= 0;
       });
     });
   };
   b.difference = function (a) {
     var c = b.flatten(i.call(arguments, 1));
-    return b.filter(a, function (a) {
+    return b.filter(a, a => {
       return !b.include(c, a);
     });
   };
@@ -357,7 +357,7 @@
       d[e] = b.pluck(a, "" + e);
     return d;
   };
-  b.indexOf = function (a, c, d) {
+  b.indexOf = (a, c, d) => {
     if (a == null) return -1;
     var e;
     if (d) return (d = b.sortedIndex(a, c)), a[d] === c ? d : -1;
@@ -365,7 +365,7 @@
     for (d = 0, e = a.length; d < e; d++) if (d in a && a[d] === c) return d;
     return -1;
   };
-  b.lastIndexOf = function (a, b) {
+  b.lastIndexOf = (a, b) => {
     if (a == null) return -1;
     if (D && a.lastIndexOf === D) return a.lastIndexOf(b);
     for (var d = a.length; d--; ) if (d in a && a[d] === b) return d;
@@ -384,7 +384,7 @@
       (g[f++] = a), (a += d);
     return g;
   };
-  var F = function () {};
+  var F = () => {};
   b.bind = function (a, c) {
     var d, e;
     if (a.bind === s && s) return s.apply(a, i.call(arguments, 1));
@@ -401,12 +401,12 @@
   b.bindAll = function (a) {
     var c = i.call(arguments, 1);
     c.length == 0 && (c = b.functions(a));
-    j(c, function (c) {
+    j(c, c => {
       a[c] = b.bind(a[c], a);
     });
     return a;
   };
-  b.memoize = function (a, c) {
+  b.memoize = (a, c) => {
     var d = {};
     c || (c = b.identity);
     return function () {
@@ -416,20 +416,20 @@
   };
   b.delay = function (a, b) {
     var d = i.call(arguments, 2);
-    return setTimeout(function () {
+    return setTimeout(() => {
       return a.apply(a, d);
     }, b);
   };
   b.defer = function (a) {
     return b.delay.apply(b, [a, 1].concat(i.call(arguments, 1)));
   };
-  b.throttle = function (a, c) {
+  b.throttle = (a, c) => {
     var d,
       e,
       f,
       g,
       h,
-      i = b.debounce(function () {
+      i = b.debounce(() => {
         h = g = false;
       }, c);
     return function () {
@@ -437,7 +437,7 @@
       e = arguments;
       var b;
       f ||
-        (f = setTimeout(function () {
+        (f = setTimeout(() => {
           f = null;
           h && a.apply(d, e);
           i();
@@ -447,19 +447,19 @@
       g = true;
     };
   };
-  b.debounce = function (a, b) {
+  b.debounce = (a, b) => {
     var d;
     return function () {
       var e = this,
         f = arguments;
       clearTimeout(d);
-      d = setTimeout(function () {
+      d = setTimeout(() => {
         d = null;
         a.apply(e, f);
       }, b);
     };
   };
-  b.once = function (a) {
+  b.once = a => {
     var b = false,
       d;
     return function () {
@@ -468,7 +468,7 @@
       return (d = a.apply(this, arguments));
     };
   };
-  b.wrap = function (a, b) {
+  b.wrap = (a, b) => {
     return function () {
       var d = [a].concat(i.call(arguments, 0));
       return b.apply(this, d);
@@ -482,7 +482,7 @@
       return b[0];
     };
   };
-  b.after = function (a, b) {
+  b.after = (a, b) => {
     return a <= 0
       ? b()
       : function () {
@@ -491,108 +491,108 @@
   };
   b.keys =
     J ||
-    function (a) {
+    (a => {
       if (a !== Object(a)) throw new TypeError("Invalid object");
       var c = [],
         d;
       for (d in a) b.has(a, d) && (c[c.length] = d);
       return c;
-    };
-  b.values = function (a) {
+    });
+  b.values = a => {
     return b.map(a, b.identity);
   };
-  b.functions = b.methods = function (a) {
+  b.functions = b.methods = a => {
     var c = [],
       d;
     for (d in a) b.isFunction(a[d]) && c.push(d);
     return c.sort();
   };
   b.extend = function (a) {
-    j(i.call(arguments, 1), function (b) {
+    j(i.call(arguments, 1), b => {
       for (var d in b) a[d] = b[d];
     });
     return a;
   };
   b.defaults = function (a) {
-    j(i.call(arguments, 1), function (b) {
+    j(i.call(arguments, 1), b => {
       for (var d in b) a[d] == null && (a[d] = b[d]);
     });
     return a;
   };
-  b.clone = function (a) {
+  b.clone = a => {
     return !b.isObject(a) ? a : b.isArray(a) ? a.slice() : b.extend({}, a);
   };
-  b.tap = function (a, b) {
+  b.tap = (a, b) => {
     b(a);
     return a;
   };
-  b.isEqual = function (a, b) {
+  b.isEqual = (a, b) => {
     return q(a, b, []);
   };
-  b.isEmpty = function (a) {
+  b.isEmpty = a => {
     if (b.isArray(a) || b.isString(a)) return a.length === 0;
     for (var c in a) if (b.has(a, c)) return false;
     return true;
   };
-  b.isElement = function (a) {
+  b.isElement = a => {
     return !!(a && a.nodeType == 1);
   };
   b.isArray =
     o ||
-    function (a) {
+    (a => {
       return l.call(a) == "[object Array]";
-    };
-  b.isObject = function (a) {
+    });
+  b.isObject = a => {
     return a === Object(a);
   };
-  b.isArguments = function (a) {
+  b.isArguments = a => {
     return l.call(a) == "[object Arguments]";
   };
   if (!b.isArguments(arguments))
-    b.isArguments = function (a) {
+    b.isArguments = a => {
       return !(!a || !b.has(a, "callee"));
     };
-  b.isFunction = function (a) {
+  b.isFunction = a => {
     return l.call(a) == "[object Function]";
   };
-  b.isString = function (a) {
+  b.isString = a => {
     return l.call(a) == "[object String]";
   };
-  b.isNumber = function (a) {
+  b.isNumber = a => {
     return l.call(a) == "[object Number]";
   };
-  b.isNaN = function (a) {
+  b.isNaN = a => {
     return a !== a;
   };
-  b.isBoolean = function (a) {
+  b.isBoolean = a => {
     return a === true || a === false || l.call(a) == "[object Boolean]";
   };
-  b.isDate = function (a) {
+  b.isDate = a => {
     return l.call(a) == "[object Date]";
   };
-  b.isRegExp = function (a) {
+  b.isRegExp = a => {
     return l.call(a) == "[object RegExp]";
   };
-  b.isNull = function (a) {
+  b.isNull = a => {
     return a === null;
   };
-  b.isUndefined = function (a) {
+  b.isUndefined = a => {
     return a === void 0;
   };
-  b.has = function (a, b) {
+  b.has = (a, b) => {
     return I.call(a, b);
   };
   b.noConflict = function () {
     r._ = G;
     return this;
   };
-  b.identity = function (a) {
+  b.identity = a => {
     return a;
   };
-  b.times = function (a, b, d) {
+  b.times = (a, b, d) => {
     for (var e = 0; e < a; e++) b.call(d, e);
   };
-  b.escape = function (a) {
+  b.escape = a => {
     return ("" + a)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
@@ -601,13 +601,13 @@
       .replace(/'/g, "&#x27;")
       .replace(/\//g, "&#x2F;");
   };
-  b.mixin = function (a) {
-    j(b.functions(a), function (c) {
+  b.mixin = a => {
+    j(b.functions(a), c => {
       K(c, (b[c] = a[c]));
     });
   };
   var L = 0;
-  b.uniqueId = function (a) {
+  b.uniqueId = a => {
     var b = L++;
     return a ? a + b : b;
   };
@@ -617,23 +617,23 @@
     escape: /<%-([\s\S]+?)%>/g,
   };
   var t = /.^/,
-    u = function (a) {
+    u = a => {
       return a.replace(/\\\\/g, "\\").replace(/\\'/g, "'");
     };
-  b.template = function (a, c) {
+  b.template = (a, c) => {
     var d = b.templateSettings,
       d =
         "var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('" +
         a
           .replace(/\\/g, "\\\\")
           .replace(/'/g, "\\'")
-          .replace(d.escape || t, function (a, b) {
+          .replace(d.escape || t, (a, b) => {
             return "',_.escape(" + u(b) + "),'";
           })
-          .replace(d.interpolate || t, function (a, b) {
+          .replace(d.interpolate || t, (a, b) => {
             return "'," + u(b) + ",'";
           })
-          .replace(d.evaluate || t, function (a, b) {
+          .replace(d.evaluate || t, (a, b) => {
             return "');" + u(b).replace(/[\r\n\t]/g, " ") + ";__p.push('";
           })
           .replace(/\r/g, "\\r")
@@ -647,7 +647,7 @@
           return e.call(this, a, b);
         };
   };
-  b.chain = function (a) {
+  b.chain = a => {
     return b(a).chain();
   };
 
@@ -667,10 +667,10 @@
   }
 
   b.prototype = m.prototype;
-  var v = function (a, c) {
+  var v = (a, c) => {
       return c ? b(a).chain() : a;
     },
-    K = function (a, c) {
+    K = (a, c) => {
       m.prototype[a] = function () {
         var a = i.call(arguments);
         H.call(a, this._wrapped);
@@ -678,7 +678,7 @@
       };
     };
   b.mixin(b);
-  j("pop,push,reverse,shift,sort,splice,unshift".split(","), function (a) {
+  j("pop,push,reverse,shift,sort,splice,unshift".split(","), a => {
     var b = k[a];
     m.prototype[a] = function () {
       var d = this._wrapped;
@@ -688,7 +688,7 @@
       return v(d, this._chain);
     };
   });
-  j(["concat", "join", "slice"], function (a) {
+  j(["concat", "join", "slice"], a => {
     var b = k[a];
     m.prototype[a] = function () {
       return v(b.apply(this._wrapped, arguments), this._chain);
