@@ -28,10 +28,10 @@ print(add(3, 2))
 # - convert(3) ➞ 180
 # - convert(2) ➞ 120
 # """
-def convert(int)
-  return int*60
-# def convert(minutes):
-# Your code here
+def convert(minutes):
+  return minutes*60
+print(convert(5))
+
 
 
 # """
@@ -44,8 +44,11 @@ def convert(int)
 # """
 
 
-# def string_int(txt):
-# Your code here
+def string_int(txt):
+  return int(txt)
+print(string_int("6"))
+print(string_int("1000"))
+print(string_int("12"))
 
 
 # """
