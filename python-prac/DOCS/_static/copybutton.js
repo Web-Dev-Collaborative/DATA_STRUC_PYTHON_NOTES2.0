@@ -2,22 +2,22 @@ $(document).ready(() => {
   /* Add a [>>>] button on the top-right corner of code samples to hide
    * the >>> and ... prompts and the output and thus make the code
    * copyable. */
-  var div = $(
+  const div = $(
     ".highlight-python .highlight," +
       ".highlight-python3 .highlight," +
       ".highlight-pycon .highlight," +
       ".highlight-default .highlight"
   );
-  var pre = div.find("pre");
+  const pre = div.find("pre");
 
   // get the styles from the current theme
   pre.parent().parent().css("position", "relative");
-  var hide_text = "Hide the prompts and output";
-  var show_text = "Show the prompts and output";
-  var border_width = pre.css("border-top-width");
-  var border_style = pre.css("border-top-style");
-  var border_color = pre.css("border-top-color");
-  var button_styles = {
+  const hide_text = "Hide the prompts and output";
+  const show_text = "Show the prompts and output";
+  const border_width = pre.css("border-top-width");
+  const border_style = pre.css("border-top-style");
+  const border_color = pre.css("border-top-color");
+  const button_styles = {
     cursor: "pointer",
     position: "absolute",
     top: "0",
@@ -35,9 +35,9 @@ $(document).ready(() => {
 
   // create and add the button to all the code blocks that contain >>>
   div.each(function (index) {
-    var jthis = $(this);
+    const jthis = $(this);
     if (jthis.find(".gp").length > 0) {
-      var button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
+      const button = $('<span class="copybutton">&gt;&gt;&gt;</span>');
       button.css(button_styles);
       button.attr("title", hide_text);
       button.data("hidden", "false");
@@ -57,7 +57,7 @@ $(document).ready(() => {
   // define the behavior of the button when it's clicked
   $(".copybutton").click(function (e) {
     e.preventDefault();
-    var button = $(this);
+    const button = $(this);
     if (button.data("hidden") === "false") {
       // hide the code output
       button.parent().find(".go, .gp, .gt").hide();

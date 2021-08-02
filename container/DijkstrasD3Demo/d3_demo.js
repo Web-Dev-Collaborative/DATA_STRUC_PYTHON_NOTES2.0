@@ -1,4 +1,4 @@
-var nodes = {};
+const nodes = {};
 
 // Compute the distinct nodes from the links.
 // Creates nodes from edges if they don't already exist
@@ -9,16 +9,14 @@ links.forEach(link => {
     nodes[link.target] || (nodes[link.target] = { name: link.target });
 });
 
-var width = 800,
-  height = 400,
-  radius = 16;
+const width = 800, height = 400, radius = 16;
 
 // This is the d3 force layout - this uses the nodes and links specified
 // to run the d3.layout.force() function, automatically laying them out
 // visually and separating them.
 // The various parameters linkDistance, charge, chargeDistance, and gravity
 // change the spacing and speed with which the layout settles.
-var force = d3.layout
+const force = d3.layout
   .force()
   .nodes(d3.values(nodes))
   .links(links)
@@ -30,7 +28,7 @@ var force = d3.layout
   .on("tick", tick);
 
 // Connect to the html document
-var svg = d3
+const svg = d3
   .select("body")
   .append("svg")
   .attr("width", width)
@@ -82,7 +80,7 @@ svg
 
 // Seems like this enables link clicking on the edges - it doesn't seem
 // to do anything and can probably be stripped.
-var path = svg
+const path = svg
   .append("g")
   .selectAll("path")
   .data(force.links())
@@ -96,7 +94,7 @@ var path = svg
   });
 
 // This draws the edge label, great for displaying the weight
-var link_text = svg
+const link_text = svg
   .append("g")
   .selectAll("text")
   .data(force.links())
@@ -109,13 +107,13 @@ var link_text = svg
 
 // This color object allows the circle fill function below to fill
 // each circle based on their group number.
-var color = d3.scale.category20();
+const color = d3.scale.category20();
 console.log(color);
 console.log(color(0));
 console.log(color(1));
 
 // Drawing code for each node
-var circle = svg
+const circle = svg
   .append("g")
   .selectAll("circle")
   .data(force.nodes())
@@ -128,7 +126,7 @@ var circle = svg
   .call(force.drag);
 
 // Text labelling code for each node
-var text = svg
+const text = svg
   .append("g")
   .selectAll("text")
   .data(force.nodes())
@@ -161,9 +159,7 @@ function tick() {
 
 // line goes from target to source in x and y, below is an affine matrix
 function linkArc(d) {
-  var dx = d.target.x - d.source.x,
-    dy = d.target.y - d.source.y,
-    dr = 0; //Math.sqrt(dx * dx + dy * dy - 200);
+  const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y, dr = 0; //Math.sqrt(dx * dx + dy * dy - 200);
   return (
     "M" +
     d.source.x +
@@ -182,8 +178,7 @@ function linkArc(d) {
 
 // Put the link text in the middle of each edge
 function placeText(d) {
-  var dx = (d.target.px - d.source.px) / 2 + d.source.px,
-    dy = (d.target.py - d.source.py) / 2 + d.source.py;
+  const dx = (d.target.px - d.source.px) / 2 + d.source.px, dy = (d.target.py - d.source.py) / 2 + d.source.py;
   return "translate(" + dx + "," + dy + ")";
 }
 
@@ -194,7 +189,7 @@ function transform(d) {
 
 // This reloads the data from d3_demo_data.js, then reruns the force code.
 // This would be fly for redrawing new Dijkstra's nodes.
-var updateData = () => {
+const updateData = () => {
   links = d3.json("d3_demo_data.js");
   force.resume();
 };

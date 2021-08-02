@@ -74,7 +74,7 @@ testSuite({
     analytics.setAttribute("gaid", "UA-123");
 
     const loc = window.location;
-    var newurl =
+    const newurl =
       loc.protocol +
       "//" +
       loc.host +

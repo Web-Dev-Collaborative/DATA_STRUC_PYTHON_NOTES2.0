@@ -1,4 +1,4 @@
-var demo_nodes = {
+const demo_nodes = {
   CONFIRM: {
     group: 14,
   },
@@ -39,7 +39,7 @@ var demo_nodes = {
     group: 14,
   },
 };
-var links = [
+const links = [
   {
     source: "CHECK",
     target: "CONFIRM",

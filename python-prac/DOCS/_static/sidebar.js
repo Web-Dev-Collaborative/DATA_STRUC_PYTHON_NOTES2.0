@@ -25,26 +25,26 @@ $(() => {
   // global elements used by the functions.
   // the 'sidebarbutton' element is defined as global after its
   // creation, in the add_sidebar_button function
-  var jwindow = $(window);
-  var jdocument = $(document);
-  var bodywrapper = $(".bodywrapper");
-  var documentwrapper = $(".documentwrapper");
-  var sidebar = $(".sphinxsidebar");
-  var sidebarwrapper = $(".sphinxsidebarwrapper");
+  const jwindow = $(window);
+  const jdocument = $(document);
+  const bodywrapper = $(".bodywrapper");
+  const documentwrapper = $(".documentwrapper");
+  const sidebar = $(".sphinxsidebar");
+  const sidebarwrapper = $(".sphinxsidebarwrapper");
 
   // original margin-left of the bodywrapper and width of the sidebar
   // with the sidebar expanded
-  var bw_margin_expanded = bodywrapper.css("margin-left");
-  var ssb_width_expanded = sidebar.width();
+  const bw_margin_expanded = bodywrapper.css("margin-left");
+  const ssb_width_expanded = sidebar.width();
 
   // margin-left of the bodywrapper and width of the sidebar
   // with the sidebar collapsed
-  var bw_margin_collapsed = ".8em";
-  var ssb_width_collapsed = ".8em";
+  const bw_margin_collapsed = ".8em";
+  const ssb_width_collapsed = ".8em";
 
   // colors used by the current theme
-  var dark_color = "#AAAAAA";
-  var light_color = "#CCCCCC";
+  const dark_color = "#AAAAAA";
+  const light_color = "#CCCCCC";
 
   function get_viewport_height() {
     if (window.innerHeight) return window.innerHeight;
@@ -100,11 +100,11 @@ $(() => {
     });
     // create the button
     sidebar.append('<div id="sidebarbutton"><span>&laquo;</span></div>');
-    var sidebarbutton = $("#sidebarbutton");
+    const sidebarbutton = $("#sidebarbutton");
     // find the height of the viewport to center the '<<' in the page
-    var viewport_height = get_viewport_height();
-    var sidebar_offset = sidebar.offset().top;
-    var sidebar_height = Math.max(documentwrapper.height(), sidebar.height());
+    const viewport_height = get_viewport_height();
+    const sidebar_offset = sidebar.offset().top;
+    const sidebar_height = Math.max(documentwrapper.height(), sidebar.height());
     sidebarbutton.find("span").css({
       display: "block",
       position: "fixed",
@@ -138,12 +138,12 @@ $(() => {
 
   function set_position_from_cookie() {
     if (!document.cookie) return;
-    var items = document.cookie.split(";");
-    for (var k = 0; k < items.length; k++) {
-      var key_val = items[k].split("=");
-      var key = key_val[0];
+    const items = document.cookie.split(";");
+    for (let k = 0; k < items.length; k++) {
+      const key_val = items[k].split("=");
+      const key = key_val[0];
       if (key == "sidebar") {
-        var value = key_val[1];
+        const value = key_val[1];
         if (value == "collapsed" && !sidebar_is_collapsed()) collapse_sidebar();
         else if (value == "expanded" && sidebar_is_collapsed())
           expand_sidebar();
@@ -157,13 +157,13 @@ $(() => {
 
   /* intelligent scrolling */
   function scroll_sidebar() {
-    var sidebar_height = sidebarwrapper.height();
-    var viewport_height = get_viewport_height();
-    var offset = sidebar.position()["top"];
-    var wintop = jwindow.scrollTop();
-    var winbot = wintop + viewport_height;
-    var curtop = sidebarwrapper.position()["top"];
-    var curbot = curtop + sidebar_height;
+    const sidebar_height = sidebarwrapper.height();
+    const viewport_height = get_viewport_height();
+    const offset = sidebar.position()["top"];
+    const wintop = jwindow.scrollTop();
+    const winbot = wintop + viewport_height;
+    const curtop = sidebarwrapper.position()["top"];
+    const curbot = curtop + sidebar_height;
     // does sidebar fit in window?
     if (sidebar_height < viewport_height) {
       // yes: easy case -- always keep at the top

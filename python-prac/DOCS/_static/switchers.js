@@ -4,7 +4,7 @@
   if (!String.prototype.startsWith) {
     Object.defineProperty(String.prototype, "startsWith", {
       value(search, rawPos) {
-        var pos = rawPos > 0 ? rawPos | 0 : 0;
+        const pos = rawPos > 0 ? rawPos | 0 : 0;
         return this.substring(pos, pos + search.length) === search;
       },
     });
@@ -12,14 +12,14 @@
 
   // Parses versions in URL segments like:
   // "3", "dev", "release/2.7" or "3.6rc2"
-  var version_regexs = [
+  const version_regexs = [
     "(?:\\d)",
     "(?:\\d\\.\\d[\\w\\d\\.]*)",
     "(?:dev)",
     "(?:release/\\d.\\d[\\x\\d\\.]*)",
   ];
 
-  var all_versions = {
+  const all_versions = {
     3.11: "dev (3.11)",
     "3.10": "pre (3.10)",
     3.9: "3.9",
@@ -29,7 +29,7 @@
     3.5: "3.5",
     2.7: "2.7",
   };
-  var all_languages = {
+  const all_languages = {
     en: "English",
     es: "Spanish",
     fr: "French",
@@ -45,8 +45,8 @@
   }
 
   function build_version_select(release) {
-    var buf = ['<select id="version_select">'];
-    var major_minor = release.split(".").slice(0, 2).join(".");
+    const buf = ['<select id="version_select">'];
+    const major_minor = release.split(".").slice(0, 2).join(".");
 
     $.each(all_versions, (version, title) => {
       if (version == major_minor)
@@ -68,7 +68,7 @@
   }
 
   function build_language_select(current_language) {
-    var buf = ['<select id="language_select">'];
+    const buf = ['<select id="language_select">'];
 
     $.each(all_languages, (language, title) => {
       if (language == current_language)
@@ -98,7 +98,7 @@
 
   function navigate_to_first_existing(urls) {
     // Navigate to the first existing URL in urls.
-    var url = urls.shift();
+    const url = urls.shift();
     if (urls.length == 0 || url.startsWith("file:///")) {
       window.location.href = url;
       return;
@@ -115,12 +115,12 @@
   }
 
   function on_version_switch() {
-    var selected_version =
+    const selected_version =
       $(this).children("option:selected").attr("value") + "/";
-    var url = window.location.href;
-    var current_language = language_segment_from_url();
-    var current_version = version_segment_from_url();
-    var new_url = url.replace(
+    const url = window.location.href;
+    const current_language = language_segment_from_url();
+    const current_version = version_segment_from_url();
+    const new_url = url.replace(
       "/" + current_language + current_version,
       "/" + current_language + selected_version
     );
@@ -139,15 +139,15 @@
   }
 
   function on_language_switch() {
-    var selected_language =
+    let selected_language =
       $(this).children("option:selected").attr("value") + "/";
-    var url = window.location.href;
-    var current_language = language_segment_from_url();
-    var current_version = version_segment_from_url();
+    const url = window.location.href;
+    const current_language = language_segment_from_url();
+    const current_version = version_segment_from_url();
     if (selected_language == "en/")
       // Special 'default' case for english.
       selected_language = "";
-    var new_url = url.replace(
+    const new_url = url.replace(
       "/" + current_language + current_version,
       "/" + selected_language + current_version
     );
@@ -159,10 +159,10 @@
   // Returns the path segment of the language as a string, like 'fr/'
   // or '' if not found.
   function language_segment_from_url() {
-    var path = window.location.pathname;
-    var language_regexp =
+    const path = window.location.pathname;
+    const language_regexp =
       "/((?:" + Object.keys(all_languages).join("|") + ")/)";
-    var match = path.match(language_regexp);
+    const match = path.match(language_regexp);
     if (match !== null) return match[1];
     return "";
   }
@@ -170,34 +170,34 @@
   // Returns the path segment of the version as a string, like '3.6/'
   // or '' if not found.
   function version_segment_from_url() {
-    var path = window.location.pathname;
-    var language_segment = language_segment_from_url();
-    var version_segment = "(?:(?:" + version_regexs.join("|") + ")/)";
-    var version_regexp = language_segment + "(" + version_segment + ")";
-    var match = path.match(version_regexp);
+    const path = window.location.pathname;
+    const language_segment = language_segment_from_url();
+    const version_segment = "(?:(?:" + version_regexs.join("|") + ")/)";
+    const version_regexp = language_segment + "(" + version_segment + ")";
+    const match = path.match(version_regexp);
     if (match !== null) return match[1];
     return "";
   }
 
   function create_placeholders_if_missing() {
-    var version_segment = version_segment_from_url();
-    var language_segment = language_segment_from_url();
-    var index = "/" + language_segment + version_segment;
+    const version_segment = version_segment_from_url();
+    const language_segment = language_segment_from_url();
+    const index = "/" + language_segment + version_segment;
 
     if ($(".version_switcher_placeholder").length) return;
 
-    var html =
+    const html =
       '<span class="language_switcher_placeholder"></span> \
 <span class="version_switcher_placeholder"></span> \
 <a href="/" id="indexlink">Documentation</a> &#187;';
 
-    var probable_places = [
+    const probable_places = [
       "body>div.related>ul>li:not(.right):contains('Documentation'):first",
       "body>div.related>ul>li:not(.right):contains('documentation'):first",
     ];
 
-    for (var i = 0; i < probable_places.length; i++) {
-      var probable_place = $(probable_places[i]);
+    for (let i = 0; i < probable_places.length; i++) {
+      const probable_place = $(probable_places[i]);
       if (probable_place.length == 1) {
         probable_place.html(html);
         document.getElementById("indexlink").href = index;
@@ -207,15 +207,15 @@
   }
 
   $(document).ready(() => {
-    var language_segment = language_segment_from_url();
-    var current_language = language_segment.replace(/\/+$/g, "") || "en";
-    var version_select = build_version_select(DOCUMENTATION_OPTIONS.VERSION);
+    const language_segment = language_segment_from_url();
+    const current_language = language_segment.replace(/\/+$/g, "") || "en";
+    const version_select = build_version_select(DOCUMENTATION_OPTIONS.VERSION);
 
     create_placeholders_if_missing();
     $(".version_switcher_placeholder").html(version_select);
     $(".version_switcher_placeholder select").bind("change", on_version_switch);
 
-    var language_select = build_language_select(current_language);
+    const language_select = build_language_select(current_language);
 
     $(".language_switcher_placeholder").html(language_select);
     $(".language_switcher_placeholder select").bind(
