@@ -12,29 +12,29 @@
   window.WebComponents = window.WebComponents || {
     flags: {},
   };
-  var file = "webcomponents-lite.js";
-  var script = document.querySelector('script[src*="' + file + '"]');
-  var flags = {};
+  const file = "webcomponents-lite.js";
+  const script = document.querySelector('script[src*="' + file + '"]');
+  const flags = {};
   if (!flags.noOpts) {
     location.search
       .slice(1)
       .split("&")
       .forEach(option => {
-        var parts = option.split("=");
-        var match;
+        const parts = option.split("=");
+        let match;
         if (parts[0] && (match = parts[0].match(/wc-(.+)/))) {
           flags[match[1]] = parts[1] || true;
         }
       });
     if (script) {
-      for (var i = 0, a; (a = script.attributes[i]); i++) {
+      for (let i = 0, a; (a = script.attributes[i]); i++) {
         if (a.name !== "src") {
           flags[a.name] = a.value || true;
         }
       }
     }
     if (flags.log && flags.log.split) {
-      var parts = flags.log.split(",");
+      const parts = flags.log.split(",");
       flags.log = {};
       parts.forEach(f => {
         flags.log[f] = true;
@@ -54,16 +54,16 @@
 
 (scope => {
   "use strict";
-  var hasWorkingUrl = false;
+  let hasWorkingUrl = false;
   if (!scope.forceJURL) {
     try {
-      var u = new URL("b", "http://a");
+      const u = new URL("b", "http://a");
       u.pathname = "c%20d";
       hasWorkingUrl = u.href === "http://a/c%20d";
     } catch (e) {}
   }
   if (hasWorkingUrl) return;
-  var relative = Object.create(null);
+  const relative = Object.create(null);
   relative["ftp"] = 21;
   relative["file"] = 0;
   relative["gopher"] = 70;
@@ -71,7 +71,7 @@
   relative["https"] = 443;
   relative["ws"] = 80;
   relative["wss"] = 443;
-  var relativePathDotMapping = Object.create(null);
+  const relativePathDotMapping = Object.create(null);
   relativePathDotMapping["%2e"] = ".";
   relativePathDotMapping[".%2e"] = "..";
   relativePathDotMapping["%2e."] = "..";
@@ -90,7 +90,7 @@
     return h.toLowerCase();
   }
   function percentEscape(c) {
-    var unicode = c.charCodeAt(0);
+    const unicode = c.charCodeAt(0);
     if (
       unicode > 32 &&
       unicode < 127 &&
@@ -101,7 +101,7 @@
     return encodeURIComponent(c);
   }
   function percentEscapeQuery(c) {
-    var unicode = c.charCodeAt(0);
+    const unicode = c.charCodeAt(0);
     if (
       unicode > 32 &&
       unicode < 127 &&
@@ -111,24 +111,22 @@
     }
     return encodeURIComponent(c);
   }
-  var EOF = undefined,
-    ALPHA = /[a-zA-Z]/,
-    ALPHANUMERIC = /[a-zA-Z0-9\+\-\.]/;
+  const EOF = undefined, ALPHA = /[a-zA-Z]/, ALPHANUMERIC = /[a-zA-Z0-9\+\-\.]/;
   function parse(input, stateOverride, base) {
     function err(message) {
       errors.push(message);
     }
-    var state = stateOverride || "scheme start",
-      cursor = 0,
-      buffer = "",
-      seenAt = false,
-      seenBracket = false,
-      errors = [];
+    let state = stateOverride || "scheme start";
+    let cursor = 0;
+    let buffer = "";
+    let seenAt = false;
+    let seenBracket = false;
+    var errors = [];
     loop: while (
       (input[cursor - 1] != EOF || cursor == 0) &&
       !this._isInvalid
     ) {
-      var c = input[cursor];
+      const c = input[cursor];
       switch (state) {
         case "scheme start":
           if (c && ALPHA.test(c)) {
@@ -248,8 +246,8 @@
             this._password = base._password;
             state = "fragment";
           } else {
-            var nextC = input[cursor + 1];
-            var nextNextC = input[cursor + 2];
+            const nextC = input[cursor + 1];
+            const nextNextC = input[cursor + 2];
             if (
               "file" != this._scheme ||
               !ALPHA.test(c) ||
@@ -328,8 +326,8 @@
               buffer += "%40";
             }
             seenAt = true;
-            for (var i = 0; i < buffer.length; i++) {
-              var cp = buffer[i];
+            for (let i = 0; i < buffer.length; i++) {
+              const cp = buffer[i];
               if ("\t" == cp || "\n" == cp || "\r" == cp) {
                 err("Invalid whitespace in authority.");
                 continue;
@@ -338,7 +336,7 @@
                 this._password = "";
                 continue;
               }
-              var tempC = percentEscape(cp);
+              const tempC = percentEscape(cp);
               null !== this._password
                 ? (this._password += tempC)
                 : (this._username += tempC);
@@ -430,7 +428,7 @@
             stateOverride
           ) {
             if ("" != buffer) {
-              var temp = parseInt(buffer, 10);
+              const temp = parseInt(buffer, 10);
               if (temp != relative[this._scheme]) {
                 this._port = temp + "";
               }
@@ -466,7 +464,7 @@
             if ("\\" == c) {
               err("\\ not allowed in relative path.");
             }
-            var tmp;
+            let tmp;
             if ((tmp = relativePathDotMapping[buffer.toLowerCase()])) {
               buffer = tmp;
             }
@@ -540,7 +538,7 @@
         base = new jURL(String(base));
       this._url = url;
       clear.call(this);
-      var input = url.replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, "");
+      const input = url.replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, "");
       parse.call(this, input, null, base);
     }
 
@@ -550,7 +548,7 @@
 
     get href() {
       if (this._isInvalid) return this._url;
-      var authority = "";
+      let authority = "";
       if ("" != this._username || null != this._password) {
         authority =
           this._username +
@@ -652,7 +650,7 @@
     }
 
     get origin() {
-      var host;
+      let host;
       if (this._isInvalid || !this._scheme) {
         return "";
       }
@@ -686,8 +684,8 @@
 
 if (typeof WeakMap === "undefined") {
   (() => {
-    var defineProperty = Object.defineProperty;
-    var counter = Date.now() % 1e9;
+    const defineProperty = Object.defineProperty;
+    let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
@@ -695,7 +693,7 @@ if (typeof WeakMap === "undefined") {
       }
 
       set(key, value) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (entry && entry[0] === key) entry[1] = value;
         else
           defineProperty(key, this.name, {
@@ -706,21 +704,21 @@ if (typeof WeakMap === "undefined") {
       }
 
       get(key) {
-        var entry;
+        let entry;
         return (entry = key[this.name]) && entry[0] === key
           ? entry[1]
           : undefined;
       }
 
       delete(key) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (!entry || entry[0] !== key) return false;
         entry[0] = entry[1] = undefined;
         return true;
       }
 
       has(key) {
-        var entry = key[this.name];
+        const entry = key[this.name];
         if (!entry) return false;
         return entry[0] === key;
       }
@@ -734,18 +732,18 @@ if (typeof WeakMap === "undefined") {
   if (global.JsMutationObserver) {
     return;
   }
-  var registrationsTable = new WeakMap();
-  var setImmediate;
+  const registrationsTable = new WeakMap();
+  let setImmediate;
   if (/Trident|Edge/.test(navigator.userAgent)) {
     setImmediate = setTimeout;
   } else if (window.setImmediate) {
     setImmediate = window.setImmediate;
   } else {
-    var setImmediateQueue = [];
-    var sentinel = String(Math.random());
+    let setImmediateQueue = [];
+    const sentinel = String(Math.random());
     window.addEventListener("message", e => {
       if (e.data === sentinel) {
-        var queue = setImmediateQueue;
+        const queue = setImmediateQueue;
         setImmediateQueue = [];
         queue.forEach(func => {
           func();
@@ -757,8 +755,8 @@ if (typeof WeakMap === "undefined") {
       window.postMessage(sentinel, "*");
     };
   }
-  var isScheduled = false;
-  var scheduledObservers = [];
+  let isScheduled = false;
+  let scheduledObservers = [];
   function scheduleCallback(observer) {
     scheduledObservers.push(observer);
     if (!isScheduled) {
@@ -775,14 +773,14 @@ if (typeof WeakMap === "undefined") {
   }
   function dispatchCallbacks() {
     isScheduled = false;
-    var observers = scheduledObservers;
+    const observers = scheduledObservers;
     scheduledObservers = [];
     observers.sort((o1, o2) => {
       return o1.uid_ - o2.uid_;
     });
-    var anyNonEmpty = false;
+    let anyNonEmpty = false;
     observers.forEach(observer => {
-      var queue = observer.takeRecords();
+      const queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
         observer.callback_(queue, observer);
@@ -793,7 +791,7 @@ if (typeof WeakMap === "undefined") {
   }
   function removeTransientObserversFor(observer) {
     observer.nodes_.forEach(node => {
-      var registrations = registrationsTable.get(node);
+      const registrations = registrationsTable.get(node);
       if (!registrations) return;
       registrations.forEach(registration => {
         if (registration.observer === observer)
@@ -802,20 +800,20 @@ if (typeof WeakMap === "undefined") {
     });
   }
   function forEachAncestorAndObserverEnqueueRecord(target, callback) {
-    for (var node = target; node; node = node.parentNode) {
-      var registrations = registrationsTable.get(node);
+    for (let node = target; node; node = node.parentNode) {
+      const registrations = registrationsTable.get(node);
       if (registrations) {
-        for (var j = 0; j < registrations.length; j++) {
-          var registration = registrations[j];
-          var options = registration.options;
+        for (let j = 0; j < registrations.length; j++) {
+          const registration = registrations[j];
+          const options = registration.options;
           if (node !== target && !options.subtree) continue;
-          var record = callback(options);
+          const record = callback(options);
           if (record) registration.enqueue(record);
         }
       }
     }
   }
-  var uidCounter = 0;
+  let uidCounter = 0;
 
   class JsMutationObserver {
     constructor(callback) {
@@ -837,10 +835,10 @@ if (typeof WeakMap === "undefined") {
       ) {
         throw new SyntaxError();
       }
-      var registrations = registrationsTable.get(target);
+      let registrations = registrationsTable.get(target);
       if (!registrations) registrationsTable.set(target, (registrations = []));
-      var registration;
-      for (var i = 0; i < registrations.length; i++) {
+      let registration;
+      for (let i = 0; i < registrations.length; i++) {
         if (registrations[i].observer === this) {
           registration = registrations[i];
           registration.removeListeners();
@@ -858,9 +856,9 @@ if (typeof WeakMap === "undefined") {
 
     disconnect() {
       this.nodes_.forEach(function (node) {
-        var registrations = registrationsTable.get(node);
-        for (var i = 0; i < registrations.length; i++) {
-          var registration = registrations[i];
+        const registrations = registrationsTable.get(node);
+        for (let i = 0; i < registrations.length; i++) {
+          const registration = registrations[i];
           if (registration.observer === this) {
             registration.removeListeners();
             registrations.splice(i, 1);
@@ -872,7 +870,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     takeRecords() {
-      var copyOfRecords = this.records_;
+      const copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
     }
@@ -890,7 +888,7 @@ if (typeof WeakMap === "undefined") {
     this.oldValue = null;
   }
   function copyMutationRecord(original) {
-    var record = new MutationRecord(original.type, original.target);
+    const record = new MutationRecord(original.type, original.target);
     record.addedNodes = original.addedNodes.slice();
     record.removedNodes = original.removedNodes.slice();
     record.previousSibling = original.previousSibling;
@@ -900,7 +898,7 @@ if (typeof WeakMap === "undefined") {
     record.oldValue = original.oldValue;
     return record;
   }
-  var currentRecord, recordWithOldValue;
+  let currentRecord, recordWithOldValue;
   function getRecord(type, target) {
     return (currentRecord = new MutationRecord(type, target));
   }
@@ -932,11 +930,11 @@ if (typeof WeakMap === "undefined") {
     }
 
     enqueue(record) {
-      var records = this.observer.records_;
-      var length = records.length;
+      const records = this.observer.records_;
+      const length = records.length;
       if (records.length > 0) {
-        var lastRecord = records[length - 1];
-        var recordToReplaceLast = selectRecord(lastRecord, record);
+        const lastRecord = records[length - 1];
+        const recordToReplaceLast = selectRecord(lastRecord, record);
         if (recordToReplaceLast) {
           records[length - 1] = recordToReplaceLast;
           return;
@@ -952,7 +950,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     addListeners_(node) {
-      var options = this.options;
+      const options = this.options;
       if (options.attributes)
         node.addEventListener("DOMAttrModified", this, true);
       if (options.characterData)
@@ -968,7 +966,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     removeListeners_(node) {
-      var options = this.options;
+      const options = this.options;
       if (options.attributes)
         node.removeEventListener("DOMAttrModified", this, true);
       if (options.characterData)
@@ -983,18 +981,18 @@ if (typeof WeakMap === "undefined") {
       if (node === this.target) return;
       this.addListeners_(node);
       this.transientObservedNodes.push(node);
-      var registrations = registrationsTable.get(node);
+      let registrations = registrationsTable.get(node);
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
     }
 
     removeTransientObservers() {
-      var transientObservedNodes = this.transientObservedNodes;
+      const transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
       transientObservedNodes.forEach(function (node) {
         this.removeListeners_(node);
-        var registrations = registrationsTable.get(node);
-        for (var i = 0; i < registrations.length; i++) {
+        const registrations = registrationsTable.get(node);
+        for (let i = 0; i < registrations.length; i++) {
           if (registrations[i] === this) {
             registrations.splice(i, 1);
             break;
@@ -1007,8 +1005,8 @@ if (typeof WeakMap === "undefined") {
       e.stopImmediatePropagation();
       switch (e.type) {
         case "DOMAttrModified":
-          var name = e.attrName;
-          var namespace = e.relatedNode.namespaceURI;
+          const name = e.attrName;
+          const namespace = e.relatedNode.namespaceURI;
           var target = e.target;
           var record = new getRecord("attributes", target);
           record.attributeName = name;
@@ -1047,8 +1045,8 @@ if (typeof WeakMap === "undefined") {
           this.addTransientObserver(e.target);
 
         case "DOMNodeInserted":
-          var changedNode = e.target;
-          var addedNodes, removedNodes;
+          const changedNode = e.target;
+          let addedNodes, removedNodes;
           if (e.type === "DOMNodeInserted") {
             addedNodes = [changedNode];
             removedNodes = [];
@@ -1056,8 +1054,8 @@ if (typeof WeakMap === "undefined") {
             addedNodes = [];
             removedNodes = [changedNode];
           }
-          var previousSibling = changedNode.previousSibling;
-          var nextSibling = changedNode.nextSibling;
+          const previousSibling = changedNode.previousSibling;
+          const nextSibling = changedNode.nextSibling;
           var record = getRecord("childList", e.target.parentNode);
           record.addedNodes = addedNodes;
           record.removedNodes = removedNodes;
@@ -1083,14 +1081,14 @@ if (typeof WeakMap === "undefined") {
 })(self);
 
 (() => {
-  var needsTemplate = typeof HTMLTemplateElement === "undefined";
+  const needsTemplate = typeof HTMLTemplateElement === "undefined";
   if (/Trident/.test(navigator.userAgent)) {
     (() => {
-      var importNode = document.importNode;
+      const importNode = document.importNode;
       document.importNode = function () {
-        var n = importNode.apply(document, arguments);
+        const n = importNode.apply(document, arguments);
         if (n.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
-          var f = document.createDocumentFragment();
+          const f = document.createDocumentFragment();
           f.appendChild(n);
           return f;
         } else {
@@ -1099,20 +1097,20 @@ if (typeof WeakMap === "undefined") {
       };
     })();
   }
-  var needsCloning = (() => {
+  const needsCloning = (() => {
     if (!needsTemplate) {
-      var t = document.createElement("template");
-      var t2 = document.createElement("template");
+      const t = document.createElement("template");
+      const t2 = document.createElement("template");
       t2.content.appendChild(document.createElement("div"));
       t.content.appendChild(t2);
-      var clone = t.cloneNode(true);
+      const clone = t.cloneNode(true);
       return (
         clone.content.childNodes.length === 0 ||
         clone.content.firstChild.content.childNodes.length === 0
       );
     }
   })();
-  var TEMPLATE_TAG = "template";
+  const TEMPLATE_TAG = "template";
 
   class TemplateImpl extends HTMLElement {
     static decorate(template) {
@@ -1120,7 +1118,7 @@ if (typeof WeakMap === "undefined") {
         return;
       }
       template.content = contentDoc.createDocumentFragment();
-      var child;
+      let child;
       while ((child = template.firstChild)) {
         template.content.appendChild(child);
       }
@@ -1131,8 +1129,8 @@ if (typeof WeakMap === "undefined") {
         try {
           Object.defineProperty(template, "innerHTML", {
             get() {
-              var o = "";
-              for (var e = this.content.firstChild; e; e = e.nextSibling) {
+              let o = "";
+              for (let e = this.content.firstChild; e; e = e.nextSibling) {
                 o += e.outerHTML || escapeData(e.data);
               }
               return o;
@@ -1157,9 +1155,9 @@ if (typeof WeakMap === "undefined") {
     }
 
     static bootstrap(doc) {
-      var templates = doc.querySelectorAll(TEMPLATE_TAG);
+      const templates = doc.querySelectorAll(TEMPLATE_TAG);
       for (
-        var i = 0, l = templates.length, t;
+        let i = 0, l = templates.length, t;
         i < l && (t = templates[i]);
         i++
       ) {
@@ -1168,7 +1166,7 @@ if (typeof WeakMap === "undefined") {
     }
 
     static cloneNode(template, deep) {
-      var clone = nativeCloneNode.call(template, false);
+      const clone = nativeCloneNode.call(template, false);
       if (this.decorate) {
         this.decorate(clone);
       }
@@ -1181,9 +1179,9 @@ if (typeof WeakMap === "undefined") {
 
     static fixClonedDom(clone, source) {
       if (!source.querySelectorAll) return;
-      var s$ = source.querySelectorAll(TEMPLATE_TAG);
-      var t$ = clone.querySelectorAll(TEMPLATE_TAG);
-      for (var i = 0, l = t$.length, t, s; i < l; i++) {
+      const s$ = source.querySelectorAll(TEMPLATE_TAG);
+      const t$ = clone.querySelectorAll(TEMPLATE_TAG);
+      for (let i = 0, l = t$.length, t, s; i < l; i++) {
         s = s$[i];
         t = t$[i];
         if (this.decorate) {
@@ -1197,23 +1195,23 @@ if (typeof WeakMap === "undefined") {
   if (needsTemplate) {
     var contentDoc = document.implementation.createHTMLDocument("template");
     var canDecorate = true;
-    var templateStyle = document.createElement("style");
+    const templateStyle = document.createElement("style");
     templateStyle.textContent = TEMPLATE_TAG + "{display:none;}";
-    var head = document.head;
+    const head = document.head;
     head.insertBefore(templateStyle, head.firstElementChild);
     document.addEventListener("DOMContentLoaded", () => {
       TemplateImpl.bootstrap(document);
     });
-    var createElement = document.createElement;
+    const createElement = document.createElement;
     document.createElement = function () {
       "use strict";
-      var el = createElement.apply(document, arguments);
+      const el = createElement.apply(document, arguments);
       if (el.localName === "template") {
         TemplateImpl.decorate(el);
       }
       return el;
     };
-    var escapeDataRegExp = /[&\u00A0<>]/g;
+    const escapeDataRegExp = /[&\u00A0<>]/g;
     function escapeReplace(c) {
       switch (c) {
         case "&":
@@ -1235,9 +1233,9 @@ if (typeof WeakMap === "undefined") {
   }
   if (needsTemplate || needsCloning) {
     var nativeCloneNode = Node.prototype.cloneNode;
-    var originalImportNode = document.importNode;
+    const originalImportNode = document.importNode;
     Node.prototype.cloneNode = function (deep) {
-      var dom = nativeCloneNode.call(this, deep);
+      const dom = nativeCloneNode.call(this, deep);
       if (deep) {
         TemplateImpl.fixClonedDom(dom, this);
       }
@@ -1247,7 +1245,7 @@ if (typeof WeakMap === "undefined") {
       if (element.localName === TEMPLATE_TAG) {
         return TemplateImpl.cloneNode(element, deep);
       } else {
-        var dom = originalImportNode.call(document, element, deep);
+        const dom = originalImportNode.call(document, element, deep);
         if (deep) {
           TemplateImpl.fixClonedDom(dom, element);
         }
@@ -1268,7 +1266,7 @@ if (typeof WeakMap === "undefined") {
 (scope => {
   "use strict";
   if (!(window.performance && window.performance.now)) {
-    var start = Date.now();
+    const start = Date.now();
     window.performance = {
       now() {
         return Date.now() - start;
@@ -1277,7 +1275,7 @@ if (typeof WeakMap === "undefined") {
   }
   if (!window.requestAnimationFrame) {
     window.requestAnimationFrame = (() => {
-      var nativeRaf =
+      const nativeRaf =
         window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
       return nativeRaf
         ? callback => {
@@ -1299,14 +1297,14 @@ if (typeof WeakMap === "undefined") {
       });
     })();
   }
-  var workingDefaultPrevented = (() => {
-    var e = document.createEvent("Event");
+  const workingDefaultPrevented = (() => {
+    const e = document.createEvent("Event");
     e.initEvent("foo", true, true);
     e.preventDefault();
     return e.defaultPrevented;
   })();
   if (!workingDefaultPrevented) {
-    var origPreventDefault = Event.prototype.preventDefault;
+    const origPreventDefault = Event.prototype.preventDefault;
     Event.prototype.preventDefault = function () {
       if (!this.cancelable) {
         return;
@@ -1320,14 +1318,14 @@ if (typeof WeakMap === "undefined") {
       });
     };
   }
-  var isIE = /Trident/.test(navigator.userAgent);
+  const isIE = /Trident/.test(navigator.userAgent);
   if (
     !window.CustomEvent ||
     (isIE && typeof window.CustomEvent !== "function")
   ) {
     window.CustomEvent = (inType, params) => {
       params = params || {};
-      var e = document.createEvent("CustomEvent");
+      const e = document.createEvent("CustomEvent");
       e.initCustomEvent(
         inType,
         Boolean(params.bubbles),
@@ -1339,10 +1337,10 @@ if (typeof WeakMap === "undefined") {
     window.CustomEvent.prototype = window.Event.prototype;
   }
   if (!window.Event || (isIE && typeof window.Event !== "function")) {
-    var origEvent = window.Event;
+    const origEvent = window.Event;
     window.Event = (inType, params) => {
       params = params || {};
-      var e = document.createEvent("Event");
+      const e = document.createEvent("Event");
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
       return e;
     };
@@ -1355,18 +1353,18 @@ window.HTMLImports = window.HTMLImports || {
 };
 
 (scope => {
-  var IMPORT_LINK_TYPE = "import";
-  var useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
-  var hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
-  var wrap = node => {
+  const IMPORT_LINK_TYPE = "import";
+  const useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
+  const hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
+  const wrap = node => {
     return hasShadowDOMPolyfill
       ? window.ShadowDOMPolyfill.wrapIfNeeded(node)
       : node;
   };
-  var rootDocument = wrap(document);
-  var currentScriptDescriptor = {
+  const rootDocument = wrap(document);
+  const currentScriptDescriptor = {
     get() {
-      var script =
+      const script =
         window.HTMLImports.currentScript ||
         document.currentScript ||
         (document.readyState !== "complete"
@@ -1382,15 +1380,15 @@ window.HTMLImports = window.HTMLImports || {
     "_currentScript",
     currentScriptDescriptor
   );
-  var isIE = /Trident/.test(navigator.userAgent);
+  const isIE = /Trident/.test(navigator.userAgent);
   function whenReady(callback, doc) {
     doc = doc || rootDocument;
     whenDocumentReady(() => {
       watchImportsLoad(callback, doc);
     }, doc);
   }
-  var requiredReadyState = isIE ? "complete" : "interactive";
-  var READY_EVENT = "readystatechange";
+  const requiredReadyState = isIE ? "complete" : "interactive";
+  const READY_EVENT = "readystatechange";
   function isDocumentReady(doc) {
     return (
       doc.readyState === "complete" || doc.readyState === requiredReadyState
@@ -1398,7 +1396,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   function whenDocumentReady(callback, doc) {
     if (!isDocumentReady(doc)) {
-      var checkReady = () => {
+      const checkReady = () => {
         if (
           doc.readyState === "complete" ||
           doc.readyState === requiredReadyState
@@ -1416,11 +1414,11 @@ window.HTMLImports = window.HTMLImports || {
     event.target.__loaded = true;
   }
   function watchImportsLoad(callback, doc) {
-    var imports = doc.querySelectorAll("link[rel=import]");
-    var parsedCount = 0,
-      importCount = imports.length,
-      newImports = [],
-      errorImports = [];
+    const imports = doc.querySelectorAll("link[rel=import]");
+    let parsedCount = 0;
+    const importCount = imports.length;
+    const newImports = [];
+    const errorImports = [];
     function checkDone() {
       if (parsedCount == importCount && callback) {
         callback({
@@ -1442,7 +1440,7 @@ window.HTMLImports = window.HTMLImports || {
       checkDone();
     }
     if (importCount) {
-      for (var i = 0, imp; i < importCount && (imp = imports[i]); i++) {
+      for (let i = 0, imp; i < importCount && (imp = imports[i]); i++) {
         if (isImportLoaded(imp)) {
           newImports.push(this);
           parsedCount++;
@@ -1463,7 +1461,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   if (useNative) {
     new MutationObserver(mxns => {
-      for (var i = 0, l = mxns.length, m; i < l && (m = mxns[i]); i++) {
+      for (let i = 0, l = mxns.length, m; i < l && (m = mxns[i]); i++) {
         if (m.addedNodes) {
           handleImports(m.addedNodes);
         }
@@ -1472,7 +1470,7 @@ window.HTMLImports = window.HTMLImports || {
       childList: true,
     });
     function handleImports(nodes) {
-      for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+      for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         if (isImport(n)) {
           handleImport(n);
         }
@@ -1482,7 +1480,7 @@ window.HTMLImports = window.HTMLImports || {
       return element.localName === "link" && element.rel === "import";
     }
     function handleImport(element) {
-      var loaded = element.import;
+      const loaded = element.import;
       if (loaded) {
         markTargetLoaded({
           target: element,
@@ -1494,9 +1492,9 @@ window.HTMLImports = window.HTMLImports || {
     }
     (() => {
       if (document.readyState === "loading") {
-        var imports = document.querySelectorAll("link[rel=import]");
+        const imports = document.querySelectorAll("link[rel=import]");
         for (
-          var i = 0, l = imports.length, imp;
+          let i = 0, l = imports.length, imp;
           i < l && (imp = imports[i]);
           i++
         ) {
@@ -1508,7 +1506,7 @@ window.HTMLImports = window.HTMLImports || {
   whenReady(detail => {
     window.HTMLImports.ready = true;
     window.HTMLImports.readyTime = new Date().getTime();
-    var evt = rootDocument.createEvent("CustomEvent");
+    const evt = rootDocument.createEvent("CustomEvent");
     evt.initCustomEvent("HTMLImportsLoaded", true, true, detail);
     rootDocument.dispatchEvent(evt);
   });
@@ -1520,11 +1518,11 @@ window.HTMLImports = window.HTMLImports || {
 })(window.HTMLImports);
 
 (scope => {
-  var modules = [];
-  var addModule = module => {
+  const modules = [];
+  const addModule = module => {
     modules.push(module);
   };
-  var initializeModules = () => {
+  const initializeModules = () => {
     modules.forEach(module => {
       module(scope);
     });
@@ -1534,12 +1532,12 @@ window.HTMLImports = window.HTMLImports || {
 })(window.HTMLImports);
 
 window.HTMLImports.addModule(scope => {
-  var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
-  var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
-  var path = {
+  const CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
+  const CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
+  const path = {
     resolveUrlsInStyle(style, linkUrl) {
-      var doc = style.ownerDocument;
-      var resolver = doc.createElement("a");
+      const doc = style.ownerDocument;
+      const resolver = doc.createElement("a");
       style.textContent = this.resolveUrlsInCssText(
         style.textContent,
         linkUrl,
@@ -1548,13 +1546,13 @@ window.HTMLImports.addModule(scope => {
       return style;
     },
     resolveUrlsInCssText(cssText, linkUrl, urlObj) {
-      var r = this.replaceUrls(cssText, urlObj, linkUrl, CSS_URL_REGEXP);
+      let r = this.replaceUrls(cssText, urlObj, linkUrl, CSS_URL_REGEXP);
       r = this.replaceUrls(r, urlObj, linkUrl, CSS_IMPORT_REGEXP);
       return r;
     },
     replaceUrls(text, urlObj, linkUrl, regexp) {
       return text.replace(regexp, (m, pre, url, post) => {
-        var urlPath = url.replace(/["']/g, "");
+        let urlPath = url.replace(/["']/g, "");
         if (linkUrl) {
           urlPath = new URL(urlPath, linkUrl).href;
         }
@@ -1568,7 +1566,7 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var xhr = {
+  const xhr = {
     async: true,
     ok(request) {
       return (
@@ -1578,16 +1576,16 @@ window.HTMLImports.addModule(scope => {
       );
     },
     load(url, next, nextContext) {
-      var request = new XMLHttpRequest();
+      const request = new XMLHttpRequest();
       if (scope.flags.debug || scope.flags.bust) {
         url += "?" + Math.random();
       }
       request.open("GET", url, xhr.async);
       request.addEventListener("readystatechange", e => {
         if (request.readyState === 4) {
-          var redirectedUrl = null;
+          let redirectedUrl = null;
           try {
-            var locationHeader = request.getResponseHeader("Location");
+            const locationHeader = request.getResponseHeader("Location");
             if (locationHeader) {
               redirectedUrl =
                 locationHeader.substr(0, 1) === "/"
@@ -1616,8 +1614,8 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var xhr = scope.xhr;
-  var flags = scope.flags;
+  const xhr = scope.xhr;
+  const flags = scope.flags;
 
   class Loader {
     constructor(onLoad, onComplete) {
@@ -1630,7 +1628,7 @@ window.HTMLImports.addModule(scope => {
 
     addNodes(nodes) {
       this.inflight += nodes.length;
-      for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+      for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         this.require(n);
       }
       this.checkDone();
@@ -1643,7 +1641,7 @@ window.HTMLImports.addModule(scope => {
     }
 
     require(elt) {
-      var url = elt.src || elt.href;
+      const url = elt.src || elt.href;
       elt.__nodeUrl = url;
       if (!this.dedupe(url, elt)) {
         this.fetch(url, elt);
@@ -1655,7 +1653,7 @@ window.HTMLImports.addModule(scope => {
         this.pending[url].push(elt);
         return true;
       }
-      var resource;
+      let resource;
       if (this.cache[url]) {
         this.onload(url, elt, this.cache[url]);
         this.tail();
@@ -1682,9 +1680,9 @@ window.HTMLImports.addModule(scope => {
           0
         );
       } else if (url.match(/^data:/)) {
-        var pieces = url.split(",");
-        var header = pieces[0];
-        var body = pieces[1];
+        const pieces = url.split(",");
+        const header = pieces[0];
+        let body = pieces[1];
         if (header.indexOf(";base64") > -1) {
           body = atob(body);
         } else {
@@ -1697,7 +1695,7 @@ window.HTMLImports.addModule(scope => {
           0
         );
       } else {
-        var receiveXhr = (err, resource, redirectedUrl) => {
+        const receiveXhr = (err, resource, redirectedUrl) => {
           this.receive(url, elt, err, resource, redirectedUrl);
         };
         xhr.load(url, receiveXhr);
@@ -1706,8 +1704,8 @@ window.HTMLImports.addModule(scope => {
 
     receive(url, elt, err, resource, redirectedUrl) {
       this.cache[url] = resource;
-      var $p = this.pending[url];
-      for (var i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
+      const $p = this.pending[url];
+      for (let i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
         this.onload(url, p, resource, err, redirectedUrl);
         this.tail();
       }
@@ -1738,7 +1736,7 @@ window.HTMLImports.addModule(scope => {
 
     handler(mutations) {
       for (
-        var i = 0, l = mutations.length, m;
+        let i = 0, l = mutations.length, m;
         i < l && (m = mutations[i]);
         i++
       ) {
@@ -1753,7 +1751,7 @@ window.HTMLImports.addModule(scope => {
         this.addCallback(nodes);
       }
       for (
-        var i = 0, l = nodes.length, n, loading;
+        let i = 0, l = nodes.length, n, loading;
         i < l && (n = nodes[i]);
         i++
       ) {
@@ -1775,13 +1773,13 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var path = scope.path;
-  var rootDocument = scope.rootDocument;
-  var flags = scope.flags;
-  var isIE = scope.isIE;
-  var IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
-  var IMPORT_SELECTOR = "link[rel=" + IMPORT_LINK_TYPE + "]";
-  var importParser = {
+  const path = scope.path;
+  const rootDocument = scope.rootDocument;
+  const flags = scope.flags;
+  const isIE = scope.isIE;
+  const IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
+  const IMPORT_SELECTOR = "link[rel=" + IMPORT_LINK_TYPE + "]";
+  const importParser = {
     documentSelectors: IMPORT_SELECTOR,
     importsSelectors: [
       IMPORT_SELECTOR,
@@ -1798,7 +1796,7 @@ window.HTMLImports.addModule(scope => {
     },
     dynamicElements: [],
     parseNext() {
-      var next = this.nextToParse();
+      const next = this.nextToParse();
       if (next) {
         this.parse(next);
       }
@@ -1808,7 +1806,7 @@ window.HTMLImports.addModule(scope => {
         flags.parse && console.log("[%s] is already parsed", elt.localName);
         return;
       }
-      var fn = this[this.map[elt.localName]];
+      const fn = this[this.map[elt.localName]];
       if (fn) {
         this.markParsing(elt);
         fn.call(this, elt);
@@ -1835,7 +1833,7 @@ window.HTMLImports.addModule(scope => {
       flags.parse && console.log("completed", elt);
     },
     markDynamicParsingComplete(elt) {
-      var i = this.dynamicElements.indexOf(elt);
+      const i = this.dynamicElements.indexOf(elt);
       if (i >= 0) {
         this.dynamicElements.splice(i, 1);
       }
@@ -1863,7 +1861,7 @@ window.HTMLImports.addModule(scope => {
         );
       }
       if (elt.__pending) {
-        var fn;
+        let fn;
         while (elt.__pending.length) {
           fn = elt.__pending.shift();
           if (fn) {
@@ -1884,7 +1882,7 @@ window.HTMLImports.addModule(scope => {
       }
     },
     parseStyle(elt) {
-      var src = elt;
+      const src = elt;
       elt = cloneStyle(elt);
       src.__appliedElement = elt;
       elt.__importElement = src;
@@ -1895,19 +1893,19 @@ window.HTMLImports.addModule(scope => {
       this.addElementToDocument(elt);
     },
     rootImportForElement(elt) {
-      var n = elt;
+      let n = elt;
       while (n.ownerDocument.__importLink) {
         n = n.ownerDocument.__importLink;
       }
       return n;
     },
     addElementToDocument(elt) {
-      var port = this.rootImportForElement(elt.__importElement || elt);
+      const port = this.rootImportForElement(elt.__importElement || elt);
       port.parentNode.insertBefore(elt, port);
     },
     trackElement(elt, callback) {
-      var self = this;
-      var done = e => {
+      const self = this;
+      const done = e => {
         elt.removeEventListener("load", done);
         elt.removeEventListener("error", done);
         if (callback) {
@@ -1919,14 +1917,14 @@ window.HTMLImports.addModule(scope => {
       elt.addEventListener("load", done);
       elt.addEventListener("error", done);
       if (isIE && elt.localName === "style") {
-        var fakeLoad = false;
+        let fakeLoad = false;
         if (elt.textContent.indexOf("@import") == -1) {
           fakeLoad = true;
         } else if (elt.sheet) {
           fakeLoad = true;
-          var csr = elt.sheet.cssRules;
-          var len = csr ? csr.length : 0;
-          for (var i = 0, r; i < len && (r = csr[i]); i++) {
+          const csr = elt.sheet.cssRules;
+          const len = csr ? csr.length : 0;
+          for (let i = 0, r; i < len && (r = csr[i]); i++) {
             if (r.type === CSSRule.IMPORT_RULE) {
               fakeLoad = fakeLoad && Boolean(r.styleSheet);
             }
@@ -1944,7 +1942,7 @@ window.HTMLImports.addModule(scope => {
       }
     },
     parseScript(scriptElt) {
-      var script = document.createElement("script");
+      const script = document.createElement("script");
       script.__importElement = scriptElt;
       script.src = scriptElt.src
         ? scriptElt.src
@@ -1968,8 +1966,8 @@ window.HTMLImports.addModule(scope => {
     nextToParseInDoc(doc, link) {
       if (doc && this._mayParse.indexOf(doc) < 0) {
         this._mayParse.push(doc);
-        var nodes = doc.querySelectorAll(this.parseSelectorsForNode(doc));
-        for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+        const nodes = doc.querySelectorAll(this.parseSelectorsForNode(doc));
+        for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
           if (!this.isParsed(n)) {
             if (this.hasResource(n)) {
               return nodeIsImport(n) ? this.nextToParseInDoc(n.__doc, n) : n;
@@ -1985,7 +1983,7 @@ window.HTMLImports.addModule(scope => {
       return this.dynamicElements[0];
     },
     parseSelectorsForNode(node) {
-      var doc = node.ownerDocument || node;
+      const doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentSelectors
         : this.importsSelectors;
@@ -2007,7 +2005,7 @@ window.HTMLImports.addModule(scope => {
     return elt.localName === "link" && elt.rel === IMPORT_LINK_TYPE;
   }
   function generateScriptDataUrl(script) {
-    var scriptContent = generateScriptContent(script);
+    const scriptContent = generateScriptContent(script);
     return (
       "data:text/javascript;charset=utf-8," + encodeURIComponent(scriptContent)
     );
@@ -2016,15 +2014,15 @@ window.HTMLImports.addModule(scope => {
     return script.textContent + generateSourceMapHint(script);
   }
   function generateSourceMapHint(script) {
-    var owner = script.ownerDocument;
+    const owner = script.ownerDocument;
     owner.__importedScripts = owner.__importedScripts || 0;
-    var moniker = script.ownerDocument.baseURI;
-    var num = owner.__importedScripts ? "-" + owner.__importedScripts : "";
+    const moniker = script.ownerDocument.baseURI;
+    const num = owner.__importedScripts ? "-" + owner.__importedScripts : "";
     owner.__importedScripts++;
     return "\n//# sourceURL=" + moniker + num + ".js\n";
   }
   function cloneStyle(style) {
-    var clone = style.ownerDocument.createElement("style");
+    const clone = style.ownerDocument.createElement("style");
     clone.textContent = style.textContent;
     path.resolveUrlsInStyle(clone);
     return clone;
@@ -2034,14 +2032,14 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var flags = scope.flags;
-  var IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
-  var IMPORT_SELECTOR = scope.IMPORT_SELECTOR;
-  var rootDocument = scope.rootDocument;
-  var Loader = scope.Loader;
-  var Observer = scope.Observer;
-  var parser = scope.parser;
-  var importer = {
+  const flags = scope.flags;
+  const IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
+  const IMPORT_SELECTOR = scope.IMPORT_SELECTOR;
+  const rootDocument = scope.rootDocument;
+  const Loader = scope.Loader;
+  const Observer = scope.Observer;
+  const parser = scope.parser;
+  const importer = {
     documents: {},
     documentPreloadSelectors: IMPORT_SELECTOR,
     importsPreloadSelectors: [IMPORT_SELECTOR].join(","),
@@ -2049,14 +2047,14 @@ window.HTMLImports.addModule(scope => {
       importLoader.addNode(node);
     },
     loadSubtree(parent) {
-      var nodes = this.marshalNodes(parent);
+      const nodes = this.marshalNodes(parent);
       importLoader.addNodes(nodes);
     },
     marshalNodes(parent) {
       return parent.querySelectorAll(this.loadSelectorsForNode(parent));
     },
     loadSelectorsForNode(node) {
-      var doc = node.ownerDocument || node;
+      const doc = node.ownerDocument || node;
       return doc === rootDocument
         ? this.documentPreloadSelectors
         : this.importsPreloadSelectors;
@@ -2066,7 +2064,7 @@ window.HTMLImports.addModule(scope => {
       elt.__resource = resource;
       elt.__error = err;
       if (isImportLink(elt)) {
-        var doc = this.documents[url];
+        let doc = this.documents[url];
         if (doc === undefined) {
           doc = err ? null : makeDocument(resource, redirectedUrl || url);
           if (doc) {
@@ -2103,16 +2101,16 @@ window.HTMLImports.addModule(scope => {
     return !!Object.getOwnPropertyDescriptor(doc, "baseURI");
   }
   function makeDocument(resource, url) {
-    var doc = document.implementation.createHTMLDocument(IMPORT_LINK_TYPE);
+    const doc = document.implementation.createHTMLDocument(IMPORT_LINK_TYPE);
     doc._URL = url;
-    var base = doc.createElement("base");
+    const base = doc.createElement("base");
     base.setAttribute("href", url);
     if (!doc.baseURI && !hasBaseURIAccessor(doc)) {
       Object.defineProperty(doc, "baseURI", {
         value: url,
       });
     }
-    var meta = doc.createElement("meta");
+    const meta = doc.createElement("meta");
     meta.setAttribute("charset", "utf-8");
     doc.head.appendChild(meta);
     doc.head.appendChild(base);
@@ -2123,9 +2121,9 @@ window.HTMLImports.addModule(scope => {
     return doc;
   }
   if (!document.baseURI) {
-    var baseURIDescriptor = {
+    const baseURIDescriptor = {
       get() {
-        var base = document.querySelector("base");
+        const base = document.querySelector("base");
         return base ? base.href : window.location.href;
       },
       configurable: true,
@@ -2138,12 +2136,12 @@ window.HTMLImports.addModule(scope => {
 });
 
 window.HTMLImports.addModule(scope => {
-  var parser = scope.parser;
-  var importer = scope.importer;
-  var dynamic = {
+  const parser = scope.parser;
+  const importer = scope.importer;
+  const dynamic = {
     added(nodes) {
-      var owner, parsed, loading;
-      for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
+      let owner, parsed, loading;
+      for (let i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         if (!owner) {
           owner = n.ownerDocument;
           parsed = parser.isParsed(owner);
@@ -2180,13 +2178,13 @@ window.HTMLImports.addModule(scope => {
 });
 
 (scope => {
-  var initializeModules = scope.initializeModules;
-  var isIE = scope.isIE;
+  const initializeModules = scope.initializeModules;
+  const isIE = scope.isIE;
   if (scope.useNative) {
     return;
   }
   initializeModules();
-  var rootDocument = scope.rootDocument;
+  const rootDocument = scope.rootDocument;
   function bootstrap() {
     window.HTMLImports.importer.bootDocument(rootDocument);
   }
@@ -2205,12 +2203,12 @@ window.CustomElements = window.CustomElements || {
 };
 
 (scope => {
-  var flags = scope.flags;
-  var modules = [];
-  var addModule = module => {
+  const flags = scope.flags;
+  const modules = [];
+  const addModule = module => {
     modules.push(module);
   };
-  var initializeModules = () => {
+  const initializeModules = () => {
     modules.forEach(module => {
       module(scope);
     });
@@ -2227,7 +2225,7 @@ window.CustomElements = window.CustomElements || {
 })(window.CustomElements);
 
 window.CustomElements.addModule(scope => {
-  var IMPORT_LINK_TYPE = window.HTMLImports
+  const IMPORT_LINK_TYPE = window.HTMLImports
     ? window.HTMLImports.IMPORT_LINK_TYPE
     : "none";
   function forSubtree(node, cb) {
@@ -2240,7 +2238,7 @@ window.CustomElements.addModule(scope => {
     forRoots(node, cb);
   }
   function findAllElements(node, find, data) {
-    var e = node.firstElementChild;
+    let e = node.firstElementChild;
     if (!e) {
       e = node.firstChild;
       while (e && e.nodeType !== Node.ELEMENT_NODE) {
@@ -2256,7 +2254,7 @@ window.CustomElements.addModule(scope => {
     return null;
   }
   function forRoots(node, cb) {
-    var root = node.shadowRoot;
+    let root = node.shadowRoot;
     while (root) {
       forSubtree(root, cb);
       root = root.olderShadowRoot;
@@ -2271,8 +2269,8 @@ window.CustomElements.addModule(scope => {
       return;
     }
     processingDocuments.push(doc);
-    var imports = doc.querySelectorAll("link[rel=" + IMPORT_LINK_TYPE + "]");
-    for (var i = 0, l = imports.length, n; i < l && (n = imports[i]); i++) {
+    const imports = doc.querySelectorAll("link[rel=" + IMPORT_LINK_TYPE + "]");
+    for (let i = 0, l = imports.length, n; i < l && (n = imports[i]); i++) {
       if (n.import) {
         _forDocumentTree(n.import, cb, processingDocuments);
       }
@@ -2284,9 +2282,9 @@ window.CustomElements.addModule(scope => {
 });
 
 window.CustomElements.addModule(scope => {
-  var flags = scope.flags;
-  var forSubtree = scope.forSubtree;
-  var forDocumentTree = scope.forDocumentTree;
+  const flags = scope.flags;
+  const forSubtree = scope.forSubtree;
+  const forDocumentTree = scope.forDocumentTree;
   function addedNode(node, isAttached) {
     return added(node, isAttached) || addedSubtree(node, isAttached);
   }
@@ -2305,12 +2303,12 @@ window.CustomElements.addModule(scope => {
       }
     });
   }
-  var hasThrottledAttached =
+  const hasThrottledAttached =
     window.MutationObserver._isPolyfilled && flags["throttle-attached"];
   scope.hasPolyfillMutations = hasThrottledAttached;
   scope.hasThrottledAttached = hasThrottledAttached;
-  var isPendingMutations = false;
-  var pendingMutations = [];
+  let isPendingMutations = false;
+  let pendingMutations = [];
   function deferMutation(fn) {
     pendingMutations.push(fn);
     if (!isPendingMutations) {
@@ -2320,8 +2318,8 @@ window.CustomElements.addModule(scope => {
   }
   function takeMutations() {
     isPendingMutations = false;
-    var $p = pendingMutations;
-    for (var i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
+    const $p = pendingMutations;
+    for (let i = 0, l = $p.length, p; i < l && (p = $p[i]); i++) {
       p();
     }
     pendingMutations = [];
@@ -2367,8 +2365,8 @@ window.CustomElements.addModule(scope => {
     }
   }
   function inDocument(element) {
-    var p = element;
-    var doc = window.wrap(document);
+    let p = element;
+    const doc = window.wrap(document);
     while (p) {
       if (p == doc) {
         return true;
@@ -2380,7 +2378,7 @@ window.CustomElements.addModule(scope => {
   function watchShadow(node) {
     if (node.shadowRoot && !node.shadowRoot.__watched) {
       flags.dom && console.log("watching shadow-root for: ", node.localName);
-      var root = node.shadowRoot;
+      let root = node.shadowRoot;
       while (root) {
         observe(root);
         root = root.olderShadowRoot;
@@ -2389,10 +2387,10 @@ window.CustomElements.addModule(scope => {
   }
   function handler(root, mutations) {
     if (flags.dom) {
-      var mx = mutations[0];
+      const mx = mutations[0];
       if (mx && mx.type === "childList" && mx.addedNodes) {
         if (mx.addedNodes) {
-          var d = mx.addedNodes[0];
+          let d = mx.addedNodes[0];
           while (d && d !== document && !d.host) {
             d = d.parentNode;
           }
@@ -2403,7 +2401,7 @@ window.CustomElements.addModule(scope => {
       }
       console.group("mutations (%d) [%s]", mutations.length, u || "");
     }
-    var isAttached = inDocument(root);
+    const isAttached = inDocument(root);
     mutations.forEach(mx => {
       if (mx.type === "childList") {
         forEach(mx.addedNodes, n => {
@@ -2430,7 +2428,7 @@ window.CustomElements.addModule(scope => {
     while (node.parentNode) {
       node = node.parentNode;
     }
-    var observer = node.__observer;
+    const observer = node.__observer;
     if (observer) {
       handler(node, observer.takeRecords());
       takeMutations();
@@ -2441,7 +2439,7 @@ window.CustomElements.addModule(scope => {
     if (inRoot.__observer) {
       return;
     }
-    var observer = new MutationObserver(handler.bind(this, inRoot));
+    const observer = new MutationObserver(handler.bind(this, inRoot));
     observer.observe(inRoot, {
       childList: true,
       subtree: true,
@@ -2452,7 +2450,7 @@ window.CustomElements.addModule(scope => {
     doc = window.wrap(doc);
     flags.dom &&
       console.group("upgradeDocument: ", doc.baseURI.split("/").pop());
-    var isMainDocument = doc === window.wrap(document);
+    const isMainDocument = doc === window.wrap(document);
     addedNode(doc, isMainDocument);
     observe(doc);
     flags.dom && console.groupEnd();
@@ -2460,10 +2458,10 @@ window.CustomElements.addModule(scope => {
   function upgradeDocumentTree(doc) {
     forDocumentTree(doc, upgradeDocument);
   }
-  var originalCreateShadowRoot = Element.prototype.createShadowRoot;
+  const originalCreateShadowRoot = Element.prototype.createShadowRoot;
   if (originalCreateShadowRoot) {
     Element.prototype.createShadowRoot = function () {
-      var root = originalCreateShadowRoot.call(this);
+      const root = originalCreateShadowRoot.call(this);
       window.CustomElements.watchShadow(this);
       return root;
     };
@@ -2478,7 +2476,7 @@ window.CustomElements.addModule(scope => {
 });
 
 window.CustomElements.addModule(scope => {
-  var flags = scope.flags;
+  const flags = scope.flags;
   function upgrade(node, isAttached) {
     if (node.localName === "template") {
       if (window.HTMLTemplateElement && HTMLTemplateElement.decorate) {
@@ -2486,8 +2484,8 @@ window.CustomElements.addModule(scope => {
       }
     }
     if (!node.__upgraded__ && node.nodeType === Node.ELEMENT_NODE) {
-      var is = node.getAttribute("is");
-      var definition =
+      const is = node.getAttribute("is");
+      const definition =
         scope.getRegisteredDefinition(node.localName) ||
         scope.getRegisteredDefinition(is);
       if (definition) {
@@ -2524,11 +2522,11 @@ window.CustomElements.addModule(scope => {
     }
   }
   function customMixin(inTarget, inSrc, inNative) {
-    var used = {};
-    var p = inSrc;
+    const used = {};
+    let p = inSrc;
     while (p !== inNative && p !== HTMLElement.prototype) {
-      var keys = Object.getOwnPropertyNames(p);
-      for (var i = 0, k; (k = keys[i]); i++) {
+      const keys = Object.getOwnPropertyNames(p);
+      for (let i = 0, k; (k = keys[i]); i++) {
         if (!used[k]) {
           Object.defineProperty(
             inTarget,
@@ -2552,14 +2550,14 @@ window.CustomElements.addModule(scope => {
 });
 
 window.CustomElements.addModule(scope => {
-  var isIE = scope.isIE;
-  var upgradeDocumentTree = scope.upgradeDocumentTree;
-  var upgradeAll = scope.upgradeAll;
-  var upgradeWithDefinition = scope.upgradeWithDefinition;
-  var implementPrototype = scope.implementPrototype;
-  var useNative = scope.useNative;
+  const isIE = scope.isIE;
+  const upgradeDocumentTree = scope.upgradeDocumentTree;
+  const upgradeAll = scope.upgradeAll;
+  const upgradeWithDefinition = scope.upgradeWithDefinition;
+  const implementPrototype = scope.implementPrototype;
+  const useNative = scope.useNative;
   function register(name, options) {
-    var definition = options || {};
+    const definition = options || {};
     if (!name) {
       throw new Error(
         "document.registerElement: first argument `name` must not be empty"
@@ -2611,11 +2609,11 @@ window.CustomElements.addModule(scope => {
     if (prototype.setAttribute._polyfilled) {
       return;
     }
-    var setAttribute = prototype.setAttribute;
+    const setAttribute = prototype.setAttribute;
     prototype.setAttribute = function (name, value) {
       changeAttribute.call(this, name, value, setAttribute);
     };
-    var removeAttribute = prototype.removeAttribute;
+    const removeAttribute = prototype.removeAttribute;
     prototype.removeAttribute = function (name) {
       changeAttribute.call(this, name, null, removeAttribute);
     };
@@ -2623,15 +2621,15 @@ window.CustomElements.addModule(scope => {
   }
   function changeAttribute(name, value, operation) {
     name = name.toLowerCase();
-    var oldValue = this.getAttribute(name);
+    const oldValue = this.getAttribute(name);
     operation.apply(this, arguments);
-    var newValue = this.getAttribute(name);
+    const newValue = this.getAttribute(name);
     if (this.attributeChangedCallback && newValue !== oldValue) {
       this.attributeChangedCallback(name, oldValue, newValue);
     }
   }
   function isReservedTag(name) {
-    for (var i = 0; i < reservedTagList.length; i++) {
+    for (let i = 0; i < reservedTagList.length; i++) {
       if (name === reservedTagList[i]) {
         return true;
       }
@@ -2648,15 +2646,15 @@ window.CustomElements.addModule(scope => {
     "missing-glyph",
   ];
   function ancestry(extnds) {
-    var extendee = getRegisteredDefinition(extnds);
+    const extendee = getRegisteredDefinition(extnds);
     if (extendee) {
       return ancestry(extendee.extends).concat([extendee]);
     }
     return [];
   }
   function resolveTagName(definition) {
-    var baseTag = definition.extends;
-    for (var i = 0, a; (a = definition.ancestry[i]); i++) {
+    let baseTag = definition.extends;
+    for (let i = 0, a; (a = definition.ancestry[i]); i++) {
       baseTag = a.is && a.tag;
     }
     definition.tag = baseTag || definition.__name;
@@ -2666,14 +2664,13 @@ window.CustomElements.addModule(scope => {
   }
   function resolvePrototypeChain(definition) {
     if (!Object.__proto__) {
-      var nativePrototype = HTMLElement.prototype;
+      let nativePrototype = HTMLElement.prototype;
       if (definition.is) {
-        var inst = document.createElement(definition.tag);
+        const inst = document.createElement(definition.tag);
         nativePrototype = Object.getPrototypeOf(inst);
       }
-      var proto = definition.prototype,
-        ancestor;
-      var foundPrototype = false;
+      let proto = definition.prototype, ancestor;
+      let foundPrototype = false;
       while (proto) {
         if (proto == nativePrototype) {
           foundPrototype = true;
@@ -2697,7 +2694,7 @@ window.CustomElements.addModule(scope => {
   function instantiate(definition) {
     return upgradeWithDefinition(domCreateElement(definition.tag), definition);
   }
-  var registry = {};
+  const registry = {};
   function getRegisteredDefinition(name) {
     if (name) {
       return registry[name.toLowerCase()];
@@ -2711,7 +2708,7 @@ window.CustomElements.addModule(scope => {
       return instantiate(definition);
     };
   }
-  var HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
+  const HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
   function createElementNS(namespace, tag, typeExtension) {
     if (namespace === HTML_NAMESPACE) {
       return createElement(tag, typeExtension);
@@ -2726,7 +2723,7 @@ window.CustomElements.addModule(scope => {
     if (typeExtension) {
       typeExtension = typeExtension.toLowerCase();
     }
-    var definition = getRegisteredDefinition(typeExtension || tag);
+    const definition = getRegisteredDefinition(typeExtension || tag);
     if (definition) {
       if (tag == definition.tag && typeExtension == definition.is) {
         return new definition.ctor();
@@ -2735,7 +2732,7 @@ window.CustomElements.addModule(scope => {
         return new definition.ctor();
       }
     }
-    var element;
+    let element;
     if (typeExtension) {
       element = createElement(tag);
       element.setAttribute("is", typeExtension);
@@ -2749,13 +2746,13 @@ window.CustomElements.addModule(scope => {
   }
   var domCreateElement = document.createElement.bind(document);
   var domCreateElementNS = document.createElementNS.bind(document);
-  var isInstance;
+  let isInstance;
   if (!Object.__proto__ && !useNative) {
     isInstance = (obj, ctor) => {
       if (obj instanceof ctor) {
         return true;
       }
-      var p = obj;
+      let p = obj;
       while (p) {
         if (p === ctor.prototype) {
           return true;
@@ -2770,9 +2767,9 @@ window.CustomElements.addModule(scope => {
     };
   }
   function wrapDomMethodToForceUpgrade(obj, methodName) {
-    var orig = obj[methodName];
+    const orig = obj[methodName];
     obj[methodName] = function () {
-      var n = orig.apply(this, arguments);
+      const n = orig.apply(this, arguments);
       upgradeAll(n);
       return n;
     };
@@ -2790,11 +2787,11 @@ window.CustomElements.addModule(scope => {
 });
 
 (scope => {
-  var useNative = scope.useNative;
-  var initializeModules = scope.initializeModules;
-  var isIE = scope.isIE;
+  const useNative = scope.useNative;
+  const initializeModules = scope.initializeModules;
+  const isIE = scope.isIE;
   if (useNative) {
-    var nop = () => {};
+    const nop = () => {};
     scope.watchShadow = nop;
     scope.upgrade = nop;
     scope.upgradeAll = nop;
@@ -2807,8 +2804,8 @@ window.CustomElements.addModule(scope => {
   } else {
     initializeModules();
   }
-  var upgradeDocumentTree = scope.upgradeDocumentTree;
-  var upgradeDocument = scope.upgradeDocument;
+  const upgradeDocumentTree = scope.upgradeDocumentTree;
+  const upgradeDocument = scope.upgradeDocument;
   if (!window.wrap) {
     if (window.ShadowDOMPolyfill) {
       window.wrap = window.ShadowDOMPolyfill.wrapIfNeeded;
@@ -2829,7 +2826,7 @@ window.CustomElements.addModule(scope => {
   function bootstrap() {
     upgradeDocumentTree(window.wrap(document));
     window.CustomElements.ready = true;
-    var requestAnimationFrame =
+    const requestAnimationFrame =
       window.requestAnimationFrame ||
       (f => {
         setTimeout(f, 16);
@@ -2858,7 +2855,7 @@ window.CustomElements.addModule(scope => {
   ) {
     bootstrap();
   } else {
-    var loadEvent =
+    const loadEvent =
       window.HTMLImports && !window.HTMLImports.ready
         ? "HTMLImportsLoaded"
         : "DOMContentLoaded";
@@ -2867,7 +2864,7 @@ window.CustomElements.addModule(scope => {
 })(window.CustomElements);
 
 (scope => {
-  var style = document.createElement("style");
+  const style = document.createElement("style");
   style.textContent =
     "" +
     "body {" +
@@ -2876,6 +2873,6 @@ window.CustomElements.addModule(scope => {
     "body[unresolved] {" +
     "opacity: 0; display: block; overflow: hidden; position: relative;" +
     " } \n";
-  var head = document.querySelector("head");
+  const head = document.querySelector("head");
   head.insertBefore(style, head.firstChild);
 })(window.WebComponents);
