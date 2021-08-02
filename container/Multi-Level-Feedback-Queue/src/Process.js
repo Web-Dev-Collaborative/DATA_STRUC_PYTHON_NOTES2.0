@@ -1,4 +1,4 @@
-const { SchedulerInterrupt } = require("./constants/index");
+import {SchedulerInterrupt} from "./constants/index";
 
 // A class representation of a process that may be blocking
 // or non-blocking. We can specify how much CPU time a process
@@ -45,4 +45,4 @@ class Process {
   }
 }
 
-module.exports = Process;
+export default Process;

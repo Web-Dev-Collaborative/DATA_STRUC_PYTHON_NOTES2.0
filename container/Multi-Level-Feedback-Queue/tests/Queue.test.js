@@ -1,8 +1,8 @@
-const sinon = require("sinon");
-const Queue = require("../src/Queue");
-const Process = require("../src/Process");
-const Scheduler = require("../src/Scheduler");
-const { SchedulerInterrupt, QueueType } = require("../src/constants/index");
+import sinon from "sinon";
+import Queue from "../src/Queue";
+import Process from "../src/Process";
+import Scheduler from "../src/Scheduler";
+import {SchedulerInterrupt, QueueType} from "../src/constants/index";
 
 let queue, scheduler;
 

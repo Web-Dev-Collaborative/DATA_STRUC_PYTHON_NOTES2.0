@@ -54,7 +54,7 @@ if (typeof WeakMap === "undefined") {
   })();
 }
 
-(global => {
+((global) => {
   if (global.JsMutationObserver) {
     return;
   }
@@ -67,16 +67,16 @@ if (typeof WeakMap === "undefined") {
   } else {
     let setImmediateQueue = [];
     const sentinel = String(Math.random());
-    window.addEventListener("message", e => {
+    window.addEventListener("message", (e) => {
       if (e.data === sentinel) {
         const queue = setImmediateQueue;
         setImmediateQueue = [];
-        queue.forEach(func => {
+        queue.forEach((func) => {
           func();
         });
       }
     });
-    setImmediate = func => {
+    setImmediate = (func) => {
       setImmediateQueue.push(func);
       window.postMessage(sentinel, "*");
     };
@@ -105,7 +105,7 @@ if (typeof WeakMap === "undefined") {
       return o1.uid_ - o2.uid_;
     });
     let anyNonEmpty = false;
-    observers.forEach(observer => {
+    observers.forEach((observer) => {
       const queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
@@ -116,10 +116,10 @@ if (typeof WeakMap === "undefined") {
     if (anyNonEmpty) dispatchCallbacks();
   }
   function removeTransientObserversFor(observer) {
-    observer.nodes_.forEach(node => {
+    observer.nodes_.forEach((node) => {
       const registrations = registrationsTable.get(node);
       if (!registrations) return;
-      registrations.forEach(registration => {
+      registrations.forEach((registration) => {
         if (registration.observer === observer)
           registration.removeTransientObservers();
       });
@@ -339,7 +339,7 @@ if (typeof WeakMap === "undefined") {
           record.attributeNamespace = namespace;
           var oldValue =
             e.attrChange === MutationEvent.ADDITION ? null : e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, options => {
+          forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.attributes) return;
             if (
               options.attributeFilter &&
@@ -359,7 +359,7 @@ if (typeof WeakMap === "undefined") {
           var target = e.target;
           var record = getRecord("characterData", target);
           var oldValue = e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, options => {
+          forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.characterData) return;
             if (options.characterDataOldValue)
               return getRecordWithOldValue(oldValue);
@@ -387,13 +387,10 @@ if (typeof WeakMap === "undefined") {
           record.removedNodes = removedNodes;
           record.previousSibling = previousSibling;
           record.nextSibling = nextSibling;
-          forEachAncestorAndObserverEnqueueRecord(
-            e.relatedNode,
-            options => {
-              if (!options.childList) return;
-              return record;
-            }
-          );
+          forEachAncestorAndObserverEnqueueRecord(e.relatedNode, (options) => {
+            if (!options.childList) return;
+            return record;
+          });
       }
       clearRecords();
     }

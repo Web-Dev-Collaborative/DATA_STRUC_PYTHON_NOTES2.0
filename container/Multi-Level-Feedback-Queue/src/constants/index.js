@@ -11,7 +11,7 @@ const QueueType = {
 
 const PRIORITY_LEVELS = 3;
 
-module.exports = {
+export default {
   SchedulerInterrupt,
   QueueType,
   PRIORITY_LEVELS,

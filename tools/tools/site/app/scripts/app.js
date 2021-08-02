@@ -14,7 +14,7 @@
     app.kioskTags = [];
 
     // template is="dom-bind" has stamped its content.
-    app.addEventListener("dom-change", e => {
+    app.addEventListener("dom-change", (e) => {
       // Use element's protected _readied property to signal if a dom-change
       // has already happened.
       if (app._readied) {
@@ -122,7 +122,7 @@
     }
 
     if (chips) {
-      chips.addEventListener("click", e => {
+      chips.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
 
@@ -180,10 +180,10 @@
     };
 
     // Prevent immediate link navigation.
-    app.navigate = event => {
+    app.navigate = (event) => {
       event.preventDefault();
 
-      const go = href => {
+      const go = (href) => {
         window.location.href = href;
       };
 

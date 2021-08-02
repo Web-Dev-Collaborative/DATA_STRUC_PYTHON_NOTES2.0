@@ -1,5 +1,5 @@
-const Queue = require("./Queue");
-const { QueueType, PRIORITY_LEVELS } = require("./constants/index");
+import Queue from "./Queue";
+import {QueueType, PRIORITY_LEVELS} from "./constants/index";
 
 // A class representing the scheduler
 // It holds a single blocking queue for blocking processes and three running queues
@@ -46,4 +46,4 @@ class Scheduler {
   }
 }
 
-module.exports = Scheduler;
+export default Scheduler;

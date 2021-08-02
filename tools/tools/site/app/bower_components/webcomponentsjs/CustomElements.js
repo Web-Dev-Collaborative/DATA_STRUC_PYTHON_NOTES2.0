@@ -54,7 +54,7 @@ if (typeof WeakMap === "undefined") {
   })();
 }
 
-(global => {
+((global) => {
   if (global.JsMutationObserver) {
     return;
   }
@@ -67,16 +67,16 @@ if (typeof WeakMap === "undefined") {
   } else {
     let setImmediateQueue = [];
     const sentinel = String(Math.random());
-    window.addEventListener("message", e => {
+    window.addEventListener("message", (e) => {
       if (e.data === sentinel) {
         const queue = setImmediateQueue;
         setImmediateQueue = [];
-        queue.forEach(func => {
+        queue.forEach((func) => {
           func();
         });
       }
     });
-    setImmediate = func => {
+    setImmediate = (func) => {
       setImmediateQueue.push(func);
       window.postMessage(sentinel, "*");
     };
@@ -105,7 +105,7 @@ if (typeof WeakMap === "undefined") {
       return o1.uid_ - o2.uid_;
     });
     let anyNonEmpty = false;
-    observers.forEach(observer => {
+    observers.forEach((observer) => {
       const queue = observer.takeRecords();
       removeTransientObserversFor(observer);
       if (queue.length) {
@@ -116,10 +116,10 @@ if (typeof WeakMap === "undefined") {
     if (anyNonEmpty) dispatchCallbacks();
   }
   function removeTransientObserversFor(observer) {
-    observer.nodes_.forEach(node => {
+    observer.nodes_.forEach((node) => {
       const registrations = registrationsTable.get(node);
       if (!registrations) return;
-      registrations.forEach(registration => {
+      registrations.forEach((registration) => {
         if (registration.observer === observer)
           registration.removeTransientObservers();
       });
@@ -339,7 +339,7 @@ if (typeof WeakMap === "undefined") {
           record.attributeNamespace = namespace;
           var oldValue =
             e.attrChange === MutationEvent.ADDITION ? null : e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, options => {
+          forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.attributes) return;
             if (
               options.attributeFilter &&
@@ -359,7 +359,7 @@ if (typeof WeakMap === "undefined") {
           var target = e.target;
           var record = getRecord("characterData", target);
           var oldValue = e.prevValue;
-          forEachAncestorAndObserverEnqueueRecord(target, options => {
+          forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.characterData) return;
             if (options.characterDataOldValue)
               return getRecordWithOldValue(oldValue);
@@ -387,13 +387,10 @@ if (typeof WeakMap === "undefined") {
           record.removedNodes = removedNodes;
           record.previousSibling = previousSibling;
           record.nextSibling = nextSibling;
-          forEachAncestorAndObserverEnqueueRecord(
-            e.relatedNode,
-            options => {
-              if (!options.childList) return;
-              return record;
-            }
-          );
+          forEachAncestorAndObserverEnqueueRecord(e.relatedNode, (options) => {
+            if (!options.childList) return;
+            return record;
+          });
       }
       clearRecords();
     }
@@ -406,7 +403,7 @@ if (typeof WeakMap === "undefined") {
   }
 })(self);
 
-(scope => {
+((scope) => {
   "use strict";
   if (!(window.performance && window.performance.now)) {
     const start = Date.now();
@@ -421,23 +418,25 @@ if (typeof WeakMap === "undefined") {
       const nativeRaf =
         window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
       return nativeRaf
-        ? callback => {
+        ? (callback) => {
             return nativeRaf(() => {
               callback(performance.now());
             });
           }
-        : callback => {
+        : (callback) => {
             return window.setTimeout(callback, 1e3 / 60);
           };
     })();
   }
   if (!window.cancelAnimationFrame) {
     window.cancelAnimationFrame = (() => {
-      return window.webkitCancelAnimationFrame ||
-      window.mozCancelAnimationFrame ||
-      (id => {
-        clearTimeout(id);
-      });
+      return (
+        window.webkitCancelAnimationFrame ||
+        window.mozCancelAnimationFrame ||
+        ((id) => {
+          clearTimeout(id);
+        })
+      );
     })();
   }
   const workingDefaultPrevented = (() => {
@@ -495,14 +494,14 @@ window.CustomElements = window.CustomElements || {
   flags: {},
 };
 
-(scope => {
+((scope) => {
   const flags = scope.flags;
   const modules = [];
-  const addModule = module => {
+  const addModule = (module) => {
     modules.push(module);
   };
   const initializeModules = () => {
-    modules.forEach(module => {
+    modules.forEach((module) => {
       module(scope);
     });
   };
@@ -517,12 +516,12 @@ window.CustomElements = window.CustomElements || {
     (!window.HTMLImports || window.HTMLImports.useNative);
 })(window.CustomElements);
 
-window.CustomElements.addModule(scope => {
+window.CustomElements.addModule((scope) => {
   const IMPORT_LINK_TYPE = window.HTMLImports
     ? window.HTMLImports.IMPORT_LINK_TYPE
     : "none";
   function forSubtree(node, cb) {
-    findAllElements(node, e => {
+    findAllElements(node, (e) => {
       if (cb(e)) {
         return true;
       }
@@ -574,7 +573,7 @@ window.CustomElements.addModule(scope => {
   scope.forSubtree = forSubtree;
 });
 
-window.CustomElements.addModule(scope => {
+window.CustomElements.addModule((scope) => {
   const flags = scope.flags;
   const forSubtree = scope.forSubtree;
   const forDocumentTree = scope.forDocumentTree;
@@ -590,7 +589,7 @@ window.CustomElements.addModule(scope => {
     }
   }
   function addedSubtree(node, isAttached) {
-    forSubtree(node, e => {
+    forSubtree(node, (e) => {
       if (added(e, isAttached)) {
         return true;
       }
@@ -636,7 +635,7 @@ window.CustomElements.addModule(scope => {
   }
   function detachedNode(node) {
     detached(node);
-    forSubtree(node, e => {
+    forSubtree(node, (e) => {
       detached(e);
     });
   }
@@ -695,15 +694,15 @@ window.CustomElements.addModule(scope => {
       console.group("mutations (%d) [%s]", mutations.length, u || "");
     }
     const isAttached = inDocument(root);
-    mutations.forEach(mx => {
+    mutations.forEach((mx) => {
       if (mx.type === "childList") {
-        forEach(mx.addedNodes, n => {
+        forEach(mx.addedNodes, (n) => {
           if (!n.localName) {
             return;
           }
           addedNode(n, isAttached);
         });
-        forEach(mx.removedNodes, n => {
+        forEach(mx.removedNodes, (n) => {
           if (!n.localName) {
             return;
           }
@@ -768,7 +767,7 @@ window.CustomElements.addModule(scope => {
   scope.takeRecords = takeRecords;
 });
 
-window.CustomElements.addModule(scope => {
+window.CustomElements.addModule((scope) => {
   const flags = scope.flags;
   function upgrade(node, isAttached) {
     if (node.localName === "template") {
@@ -842,7 +841,7 @@ window.CustomElements.addModule(scope => {
   scope.implementPrototype = implementPrototype;
 });
 
-window.CustomElements.addModule(scope => {
+window.CustomElements.addModule((scope) => {
   const isIE = scope.isIE;
   const upgradeDocumentTree = scope.upgradeDocumentTree;
   const upgradeAll = scope.upgradeAll;
@@ -962,7 +961,8 @@ window.CustomElements.addModule(scope => {
         const inst = document.createElement(definition.tag);
         nativePrototype = Object.getPrototypeOf(inst);
       }
-      let proto = definition.prototype, ancestor;
+      let proto = definition.prototype,
+        ancestor;
       let foundPrototype = false;
       while (proto) {
         if (proto == nativePrototype) {
@@ -1079,7 +1079,7 @@ window.CustomElements.addModule(scope => {
   document.register = document.registerElement;
 });
 
-(scope => {
+((scope) => {
   const useNative = scope.useNative;
   const initializeModules = scope.initializeModules;
   const isIE = scope.isIE;
@@ -1104,13 +1104,13 @@ window.CustomElements.addModule(scope => {
       window.wrap = window.ShadowDOMPolyfill.wrapIfNeeded;
       window.unwrap = window.ShadowDOMPolyfill.unwrapIfNeeded;
     } else {
-      window.wrap = window.unwrap = node => {
+      window.wrap = window.unwrap = (node) => {
         return node;
       };
     }
   }
   if (window.HTMLImports) {
-    window.HTMLImports.__importsParsingHook = elt => {
+    window.HTMLImports.__importsParsingHook = (elt) => {
       if (elt.import) {
         upgradeDocument(wrap(elt.import));
       }
@@ -1121,7 +1121,7 @@ window.CustomElements.addModule(scope => {
     window.CustomElements.ready = true;
     const requestAnimationFrame =
       window.requestAnimationFrame ||
-      (f => {
+      ((f) => {
         setTimeout(f, 16);
       });
     requestAnimationFrame(() => {

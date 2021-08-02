@@ -30,7 +30,7 @@ let sorter;
 
 function childrenId() {
   const elems = container.querySelectorAll(".codelab-card");
-  return Array.from(elems).map(el => {
+  return Array.from(elems).map((el) => {
     return el.id;
   });
 }

@@ -101,4 +101,4 @@ while (results.prev[u] != undefined) {
 console.log("Path: " + path);
 console.log("Distance: " + results.dist[b]);
 
-module.exports = Dijkstra;
+export default Dijkstra;

@@ -34,7 +34,11 @@ function URLSearchParams(query) {
   this[secret] = Object.create(null);
   if (!query) return;
   for (
-    let index, value, pairs = (query || "").split("&"), i = 0, length = pairs.length;
+    let index,
+      value,
+      pairs = (query || "").split("&"),
+      i = 0,
+      length = pairs.length;
     i < length;
     i++
   ) {
@@ -63,7 +67,7 @@ const replace = {
   "%00": "\x00",
 };
 
-var replacer = match => {
+var replacer = (match) => {
   return replace[match];
 };
 
@@ -140,7 +144,7 @@ URLSearchParamsProto.keys = function keys() {
 
 URLSearchParamsProto.values = function values() {
   const items = [];
-  this.forEach(value => {
+  this.forEach((value) => {
     items.push(value);
   });
   const iterator = {

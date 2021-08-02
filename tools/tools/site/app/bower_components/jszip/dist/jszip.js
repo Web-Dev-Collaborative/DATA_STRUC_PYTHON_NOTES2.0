@@ -42,7 +42,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
         const l = (n[o] = { exports: {} });
         t[o][0].call(
           l.exports,
-          e => {
+          (e) => {
             const n = t[o][1][e];
             return s(n ? n : e);
           },
@@ -91,7 +91,10 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @see DataReader.lastIndexOfSignature
              */
             lastIndexOfSignature(sig) {
-              const sig0 = sig.charCodeAt(0), sig1 = sig.charCodeAt(1), sig2 = sig.charCodeAt(2), sig3 = sig.charCodeAt(3);
+              const sig0 = sig.charCodeAt(0),
+                sig1 = sig.charCodeAt(1),
+                sig2 = sig.charCodeAt(2),
+                sig3 = sig.charCodeAt(3);
               for (let i = this.length - 4; i >= 0; --i) {
                 if (
                   this.data[i] === sig0 &&
@@ -423,7 +426,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              * @return {number} the corresponding number.
              */
             readInt(size) {
-              let result = 0, i;
+              let result = 0,
+                i;
               this.checkOffset(size);
               for (i = this.index + size - 1; i >= this.index; i--) {
                 result = (result << 8) + this.byteAt(i);
@@ -505,7 +509,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.string2binary = str => {
+          exports.string2binary = (str) => {
             return utils.string2binary(str);
           };
 
@@ -513,7 +517,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.string2Uint8Array = str => {
+          exports.string2Uint8Array = (str) => {
             return utils.transformTo("uint8array", str);
           };
 
@@ -521,7 +525,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.uint8Array2String = array => {
+          exports.uint8Array2String = (array) => {
             return utils.transformTo("string", array);
           };
 
@@ -529,7 +533,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.string2Blob = str => {
+          exports.string2Blob = (str) => {
             const buffer = utils.transformTo("arraybuffer", str);
             return utils.arrayBuffer2Blob(buffer);
           };
@@ -538,7 +542,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.arrayBuffer2Blob = buffer => {
+          exports.arrayBuffer2Blob = (buffer) => {
             return utils.arrayBuffer2Blob(buffer);
           };
 
@@ -554,7 +558,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.getTypeOf = input => {
+          exports.getTypeOf = (input) => {
             return utils.getTypeOf(input);
           };
 
@@ -562,7 +566,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.checkSupport = type => {
+          exports.checkSupport = (type) => {
             return utils.checkSupport(type);
           };
 
@@ -582,7 +586,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.pretty = str => {
+          exports.pretty = (str) => {
             return utils.pretty(str);
           };
 
@@ -590,7 +594,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.findCompression = compressionMethod => {
+          exports.findCompression = (compressionMethod) => {
             return utils.findCompression(compressionMethod);
           };
 
@@ -598,7 +602,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
            * @deprecated
            * This function will be removed in a future version without replacement.
            */
-          exports.isRegExp = object => {
+          exports.isRegExp = (object) => {
             return utils.isRegExp(object);
           };
         },
@@ -622,7 +626,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
               level: compressionOptions.level || -1, // default compression
             });
           };
-          exports.uncompress = input => {
+          exports.uncompress = (input) => {
             return pako.inflateRaw(input);
           };
         },
@@ -768,15 +772,15 @@ Usage:
       ],
       12: [
         function (require, module, exports) {
-          ((Buffer => {
+          ((Buffer) => {
             "use strict";
             module.exports = (data, encoding) => {
               return new Buffer(data, encoding);
             };
-            module.exports.test = b => {
+            module.exports.test = (b) => {
               return Buffer.isBuffer(b);
             };
-          }).call(this, typeof Buffer !== "undefined" ? Buffer : undefined));
+          }).call(this, typeof Buffer !== "undefined" ? Buffer : undefined);
         },
         {},
       ],
@@ -832,7 +836,7 @@ Usage:
            * @param {ZipObject} file the file to use.
            * @return {String|ArrayBuffer|Uint8Array|Buffer} the data.
            */
-          const getRawData = file => {
+          const getRawData = (file) => {
             if (file._data instanceof CompressedObject) {
               file._data = file._data.getContent();
               file.options.binary = true;
@@ -857,8 +861,9 @@ Usage:
            * @param {ZipObject} file the file to use.
            * @return {String|ArrayBuffer|Uint8Array|Buffer} the data.
            */
-          const getBinaryData = file => {
-            const result = getRawData(file), type = utils.getTypeOf(result);
+          const getBinaryData = (file) => {
+            const result = getRawData(file),
+              type = utils.getTypeOf(result);
             if (type === "string") {
               if (!file.options.binary) {
                 // unicode text !
@@ -982,7 +987,8 @@ Usage:
            * @returns {string} the result.
            */
           const decToHex = (dec, bytes) => {
-            let hex = "", i;
+            let hex = "",
+              i;
             for (i = 0; i < bytes; i++) {
               hex += String.fromCharCode(dec & 0xff);
               dec = dec >>> 8;
@@ -997,7 +1003,7 @@ Usage:
            * @param {Object} o the options from the user.
            * @return {Object} the complete set of options.
            */
-          const prepareFileAttrs = o => {
+          const prepareFileAttrs = (o) => {
             o = o || {};
             if (
               o.base64 === true &&
@@ -1023,7 +1029,8 @@ Usage:
            */
           const fileAdd = function (name, data, o) {
             // be sure sub folders exist
-            let dataType = utils.getTypeOf(data), parent;
+            let dataType = utils.getTypeOf(data),
+              parent;
 
             o = prepareFileAttrs(o);
 
@@ -1090,7 +1097,7 @@ Usage:
            * @param {string} path the path to use
            * @return {string} the parent folder, or ""
            */
-          var parentFolder = path => {
+          var parentFolder = (path) => {
             if (path.slice(-1) == "/") {
               path = path.substring(0, path.length - 1);
             }
@@ -1104,7 +1111,7 @@ Usage:
            * @param {String} path the path to check.
            * @return {String} the path with a trailing slash.
            */
-          var forceTrailingSlash = path => {
+          var forceTrailingSlash = (path) => {
             // Check the name ends with a /
             if (path.slice(-1) != "/") {
               path += "/"; // IE doesn't like substr(-1)
@@ -1142,7 +1149,11 @@ Usage:
            * @param {Object} compressionOptions the options to use when compressing.
            * @return {JSZip.CompressedObject} the compressed result.
            */
-          const generateCompressedObjectFrom = (file, compression, compressionOptions) => {
+          const generateCompressedObjectFrom = (
+            file,
+            compression,
+            compressionOptions
+          ) => {
             const result = new CompressedObject();
             let content;
 
@@ -1278,7 +1289,8 @@ Usage:
             const useUTF8ForFileName =
               utfEncodedFileName.length !== file.name.length;
 
-            const useUTF8ForComment = utfEncodedComment.length !== comment.length;
+            const useUTF8ForComment =
+              utfEncodedComment.length !== comment.length;
             const o = file.options;
             let dosTime;
             let dosDate;
@@ -1521,9 +1533,11 @@ Usage:
                   });
                 } else {
                   // text
-                  return this.filter((relativePath, file) => {
-                    return !file.dir && relativePath === name;
-                  })[0] || null;
+                  return (
+                    this.filter((relativePath, file) => {
+                      return !file.dir && relativePath === name;
+                    })[0] || null
+                  );
                 }
               } else {
                 // more than one argument : we have data !
@@ -1893,7 +1907,7 @@ Usage:
       ],
       18: [
         function (require, module, exports) {
-          ((Buffer => {
+          ((Buffer) => {
             "use strict";
             exports.base64 = true;
             exports.array = true;
@@ -1932,7 +1946,7 @@ Usage:
                 }
               }
             }
-          }).call(this, typeof Buffer !== "undefined" ? Buffer : undefined));
+          }).call(this, typeof Buffer !== "undefined" ? Buffer : undefined);
         },
         {},
       ],
@@ -2050,7 +2064,7 @@ Usage:
           _utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
 
           // convert string to array (typed, when possible)
-          const string2buf = str => {
+          const string2buf = (str) => {
             let buf;
             let c;
             let c2;
@@ -2149,7 +2163,7 @@ Usage:
           };
 
           // convert array to string
-          const buf2string = buf => {
+          const buf2string = (buf) => {
             let str, i, out, c, c_len;
             const len = buf.length;
 
@@ -2277,7 +2291,7 @@ Usage:
            * @param {string} str the string to transform.
            * @return {String} the binary string.
            */
-          exports.string2binary = str => {
+          exports.string2binary = (str) => {
             let result = "";
             for (let i = 0; i < str.length; i++) {
               result += String.fromCharCode(str.charCodeAt(i) & 0xff);
@@ -2529,7 +2543,7 @@ Usage:
            * @param {Object} input the input to identify.
            * @return {String} the (lowercase) type of the input.
            */
-          exports.getTypeOf = input => {
+          exports.getTypeOf = (input) => {
             if (typeof input === "string") {
               return "string";
             }
@@ -2552,7 +2566,7 @@ Usage:
            * @param {String} type the type to check.
            * @throws {Error} an Error if the browser doesn't support the requested type.
            */
-          exports.checkSupport = type => {
+          exports.checkSupport = (type) => {
             const supported = support[type.toLowerCase()];
             if (!supported) {
               throw new Error(type + " is not supported by this browser");
@@ -2566,8 +2580,10 @@ Usage:
            * @param {string} str the string to prettify.
            * @return {string} a pretty string.
            */
-          exports.pretty = str => {
-            let res = "", code, i;
+          exports.pretty = (str) => {
+            let res = "",
+              code,
+              i;
             for (i = 0; i < (str || "").length; i++) {
               code = str.charCodeAt(i);
               res +=
@@ -2583,7 +2599,7 @@ Usage:
            * @param {string} compressionMethod the method magic to find.
            * @return {Object|null} the JSZip compression object, null if none found.
            */
-          exports.findCompression = compressionMethod => {
+          exports.findCompression = (compressionMethod) => {
             for (const method in compressions) {
               if (!compressions.hasOwnProperty(method)) {
                 continue;
@@ -2600,7 +2616,7 @@ Usage:
            * @return {Boolean}        true if the object is a regular expression,
            * false otherwise
            */
-          exports.isRegExp = object => {
+          exports.isRegExp = (object) => {
             return Object.prototype.toString.call(object) === "[object RegExp]";
           };
 
@@ -2709,7 +2725,9 @@ Usage:
               // On a linux machine with LANG=en_US.utf8, this field is utf8 encoded.
               // On a windows machine, this field is encoded with the localized windows code page.
               const zipComment = this.reader.readData(this.zipCommentLength);
-              const decodeParamType = support.uint8array ? "uint8array" : "array";
+              const decodeParamType = support.uint8array
+                ? "uint8array"
+                : "array";
               // To get consistent behavior with the generation part, we will assume that
               // this is utf8 encoded unless specified otherwise.
               const decodeContent = utils.transformTo(
@@ -3067,7 +3085,13 @@ Usage:
              * @param {number} uncompressedSize the uncompressed size to expect.
              * @return {Function} the callback to get the uncompressed content (the type depends of the DataReader class).
              */
-            prepareContent(reader, from, length, compression, uncompressedSize) {
+            prepareContent(
+              reader,
+              from,
+              length,
+              compression,
+              uncompressedSize
+            ) {
               return function () {
                 const compressedFileData = utils.transformTo(
                   compression.uncompressInputType,
@@ -3283,7 +3307,9 @@ Usage:
              * Apply an UTF8 transformation if needed.
              */
             handleUTF8() {
-              const decodeParamType = support.uint8array ? "uint8array" : "array";
+              const decodeParamType = support.uint8array
+                ? "uint8array"
+                : "array";
               if (this.useUTF8()) {
                 this.fileNameStr = jszipProto.utf8decode(this.fileName);
                 this.fileCommentStr = jszipProto.utf8decode(this.fileComment);
@@ -3544,7 +3570,11 @@ Usage:
 
               if (opt.raw && opt.windowBits > 0) {
                 opt.windowBits = -opt.windowBits;
-              } else if (opt.gzip && opt.windowBits > 0 && opt.windowBits < 16) {
+              } else if (
+                opt.gzip &&
+                opt.windowBits > 0 &&
+                opt.windowBits < 16
+              ) {
                 opt.windowBits += 16;
               }
 
@@ -3974,7 +4004,10 @@ Usage:
               this.strm = new ZStream();
               this.strm.avail_out = 0;
 
-              const status = zlib_inflate.inflateInit2(this.strm, opt.windowBits);
+              const status = zlib_inflate.inflateInit2(
+                this.strm,
+                opt.windowBits
+              );
 
               if (status !== c.Z_OK) {
                 throw new Error(msg[status]);
@@ -4380,7 +4413,7 @@ Usage:
 
           // Enable/Disable typed arrays use, for testing
           //
-          exports.setTyped = on => {
+          exports.setTyped = (on) => {
             if (on) {
               exports.Buf8 = Uint8Array;
               exports.Buf16 = Uint16Array;
@@ -4445,7 +4478,7 @@ Usage:
           _utf8len[254] = _utf8len[254] = 1; // Invalid sequence start
 
           // convert string to array (typed, when possible)
-          exports.string2buf = str => {
+          exports.string2buf = (str) => {
             let buf;
             let c;
             let c2;
@@ -4527,12 +4560,12 @@ Usage:
           }
 
           // Convert byte array to binary string
-          exports.buf2binstring = buf => {
+          exports.buf2binstring = (buf) => {
             return buf2binstring(buf, buf.length);
           };
 
           // Convert binary string (typed, when possible)
-          exports.binstring2buf = str => {
+          exports.binstring2buf = (str) => {
             const buf = new utils.Buf8(str.length);
             for (let i = 0, len = buf.length; i < len; i++) {
               buf[i] = str.charCodeAt(i);
@@ -4638,7 +4671,9 @@ Usage:
           // Small size is preferable.
 
           function adler32(adler, buf, len, pos) {
-            let s1 = (adler & 0xffff) | 0, s2 = ((adler >>> 16) & 0xffff) | 0, n = 0;
+            let s1 = (adler & 0xffff) | 0,
+              s2 = ((adler >>> 16) & 0xffff) | 0,
+              n = 0;
 
             while (len !== 0) {
               // Set limit ~ twice less than 5552, to keep
@@ -4743,7 +4778,8 @@ Usage:
           const crcTable = makeTable();
 
           function crc32(crc, buf, len, pos) {
-            const t = crcTable, end = pos + len;
+            const t = crcTable,
+              end = pos + len;
 
             crc ^= -1;
 
@@ -5563,7 +5599,7 @@ Usage:
                   s.match_length <= 5 &&
                   (s.strategy === Z_FILTERED ||
                     (s.match_length === MIN_MATCH &&
-                      s.strstart - s.match_start > 4096) /*TOO_FAR*/)
+                      s.strstart - s.match_start > 4096)) /*TOO_FAR*/
                 ) {
                   /* If prev_match is also MIN_MATCH, match_start is garbage
                    * but we will ignore the current match anyway.
@@ -8986,7 +9022,8 @@ exports.inflateUndermine = inflateUndermine;
 
             let len = 0; /* a code's length in bits */
             let sym = 0; /* index of code symbols */
-            let min = 0, max = 0; /* minimum and maximum code lengths */
+            let min = 0,
+              max = 0; /* minimum and maximum code lengths */
             let root = 0; /* number of index bits for root table */
             let curr = 0; /* number of index bits for current table */
             let drop = 0; /* code bits to drop for sub-table */

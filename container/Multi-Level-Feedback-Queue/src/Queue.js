@@ -1,4 +1,4 @@
-const { SchedulerInterrupt } = require("./constants/index");
+import {SchedulerInterrupt} from "./constants/index";
 
 // A class representation of a process queue that may hold either a
 // blocking or non-blocking process
@@ -52,4 +52,4 @@ class Queue {
   emitInterrupt(source, interrupt) {}
 }
 
-module.exports = Queue;
+export default Queue;

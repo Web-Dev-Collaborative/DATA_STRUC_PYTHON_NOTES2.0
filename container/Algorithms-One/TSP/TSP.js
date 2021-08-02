@@ -5,10 +5,8 @@ const Cities = [
   { name: "Santa Fe", x: 500, y: 350 },
 ];
 
-const distance_function = (city1, city2) => {
-  return Math.sqrt(
-    Math.pow(city1.x - city2.x, 2) + Math.pow(city1.y - city2.y, 2)
-  );
+const distance_function = ({ x, y }, { x, y }) => {
+  return Math.sqrt((x - x) ** 2 + (y - y) ** 2);
 };
 
 const tsp = {
@@ -70,7 +68,7 @@ const allPermutationsTSP = (set) => {
 //allPermutationsTSP(['corn','turkey','winter','algebra','window']);
 allPermutationsTSP(Cities);
 
-const fs = require("fs");
+import fs from "fs";
 let usaTSP = fs.readFileSync("usa115475.tsp").toString().split("\n");
 
 const HEADER_LENGTH = 7;
