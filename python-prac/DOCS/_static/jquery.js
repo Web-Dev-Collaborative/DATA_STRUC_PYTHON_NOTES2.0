@@ -93,8 +93,8 @@
           })
         );
       },
-      slice() {
-        return this.pushStack(s.apply(this, arguments));
+      slice(...args) {
+        return this.pushStack(s.apply(this, args));
       },
       first() {
         return this.eq(0);
@@ -114,25 +114,25 @@
       splice: t.splice,
     }),
     (k.extend = k.fn.extend =
-      function () {
+      function(...args) {
         let e;
         let t;
         let n;
         let r;
         let i;
         let o;
-        let a = arguments[0] || {};
+        let a = args[0] || {};
         let s = 1;
-        const u = arguments.length;
+        const u = args.length;
         let l = !1;
         for (
-          "boolean" == typeof a && ((l = a), (a = arguments[s] || {}), s++),
+          "boolean" == typeof a && ((l = a), (a = args[s] || {}), s++),
             "object" == typeof a || m(a) || (a = {}),
             s === u && ((a = this), s--);
           s < u;
           s++
         )
-          if (null != (e = arguments[s]))
+          if (null != (e = args[s]))
             for (t in e)
               (r = e[t]),
                 "__proto__" !== t &&
@@ -1779,7 +1779,7 @@
     };
 
     const f = {
-      add() {
+      add(...args) {
         return s &&
           (t && !i && ((l = s.length - 1), u.push(t)),
           (function n(e) {
@@ -1788,13 +1788,12 @@
                 ? (r.unique && f.has(t)) || s.push(t)
                 : t && t.length && "string" !== w(t) && n(t);
             });
-          })(arguments),
+          })(args),
           t && !i && c()),
-        this
-      ;
+        this;
       },
-      remove() {
-        return k.each(arguments, (e, t) => {
+      remove(...args) {
+        return k.each(args, (e, t) => {
           let n;
           while (-1 < (n = k.inArray(t, s, n)))
             s.splice(n, 1), n <= l && l--;
@@ -1828,8 +1827,8 @@
           this
         );
       },
-      fire() {
-        return f.fireWith(this, arguments), this;
+      fire(...args) {
+        return f.fireWith(this, args), this;
       },
       fired() {
         return !!o;
@@ -1872,27 +1871,27 @@
           state() {
             return i;
           },
-          always() {
-            return s.done(arguments).fail(arguments), this;
+          always(...args) {
+            return s.done(args).fail(args), this;
           },
           catch(e) {
             return a.then(null, e);
           },
-          pipe() {
-            let i = arguments;
+          pipe(...args) {
+            let i = args;
             return k
               .Deferred(r => {
                 k.each(o, (e, t) => {
                   const n = m(i[t[4]]) && i[t[4]];
-                  s[t[1]](function () {
-                    const e = n && n.apply(this, arguments);
+                  s[t[1]](function(...args) {
+                    const e = n && n.apply(this, args);
                     e && m(e.promise)
                       ? e
                           .promise()
                           .progress(r.notify)
                           .done(r.resolve)
                           .fail(r.reject)
-                      : r[t[0] + "With"](this, n ? [e] : arguments);
+                      : r[t[0] + "With"](this, n ? [e] : args);
                   });
                 }),
                   (i = null);
@@ -1902,9 +1901,9 @@
           then(t, n, r) {
             let u = 0;
             function l(i, o, a, s) {
-              return function () {
+              return function(...args) {
                 let n = this;
-                let r = arguments;
+                let r = args;
 
                 const e = () => {
                   let e, t;
@@ -1979,10 +1978,9 @@
                 o[0][3].lock
               ),
             n.add(t[3].fire),
-            (s[t[0]] = function () {
-              return (
-                s[t[0] + "With"](this === s ? void 0 : this, arguments), this
-              );
+            (s[t[0]] = function(...args) {
+              return s[t[0] + "With"](this === s ? void 0 : this, args), this
+            ;
             }),
             (s[t[0] + "With"] = n.fireWith);
         }),
@@ -3144,16 +3142,16 @@
           arguments.length
         );
       },
-      append() {
-        return Ie(this, arguments, function (e) {
+      append(...args) {
+        return Ie(this, args, function (e) {
           (1 !== this.nodeType &&
             11 !== this.nodeType &&
             9 !== this.nodeType) ||
             Oe(this, e).appendChild(e);
         });
       },
-      prepend() {
-        return Ie(this, arguments, function (e) {
+      prepend(...args) {
+        return Ie(this, args, function (e) {
           if (
             1 === this.nodeType ||
             11 === this.nodeType ||
@@ -3164,13 +3162,13 @@
           }
         });
       },
-      before() {
-        return Ie(this, arguments, function (e) {
+      before(...args) {
+        return Ie(this, args, function (e) {
           this.parentNode && this.parentNode.insertBefore(e, this);
         });
       },
-      after() {
-        return Ie(this, arguments, function (e) {
+      after(...args) {
+        return Ie(this, args, function (e) {
           this.parentNode && this.parentNode.insertBefore(e, this.nextSibling);
         });
       },
@@ -3216,11 +3214,11 @@
           arguments.length
         );
       },
-      replaceWith() {
+      replaceWith(...args) {
         const n = [];
         return Ie(
           this,
-          arguments,
+          args,
           function (e) {
             const t = this.parentNode;
             k.inArray(this, n) < 0 &&
@@ -3281,8 +3279,8 @@
   }
   function ze(e, t) {
     return {
-      get() {
-        if (!e()) return (this.get = t).apply(this, arguments);
+      get(...args) {
+        if (!e()) return (this.get = t).apply(this, args);
         delete this.get;
       },
     };
@@ -5143,8 +5141,8 @@
         }),
         (e.dataTypes[0] = "json"),
         (i = C[r]),
-        (C[r] = function () {
-          o = arguments;
+        (C[r] = function(...args) {
+          o = args;
         }),
         n.always(() => {
           void 0 === i ? k(C).removeProp(r) : (C[r] = i),
@@ -5152,8 +5150,7 @@
             o && m(i) && i(o[0]),
             (o = i = void 0);
         }),
-        "script"
-      ;
+        "script";
     }),
     (y.createHTMLDocument =
       (((Vt = E.implementation.createHTMLDocument("").body).innerHTML =
@@ -5410,14 +5407,13 @@
     (k.proxy = function (e, t) {
       let n, r, i;
       if (("string" == typeof t && ((n = e[t]), (t = e), (e = n)), m(e)))
-        return (
-          (r = s.call(arguments, 2)),
-          ((i = function () {
-            return e.apply(t || this, r.concat(s.call(arguments)));
-          }).guid = e.guid =
-            e.guid || k.guid++),
-          i
-        );
+        return (r = s.call(arguments, 2)),
+        ((i = function(...args) {
+          return e.apply(t || this, r.concat(s.call(args)));
+        }).guid = e.guid =
+          e.guid || k.guid++),
+        i
+      ;
     }),
     (k.holdReady = e => {
       e ? k.readyWait++ : k.ready(!0);

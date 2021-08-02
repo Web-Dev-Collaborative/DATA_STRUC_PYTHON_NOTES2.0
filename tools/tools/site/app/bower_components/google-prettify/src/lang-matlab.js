@@ -32,7 +32,7 @@
  *
  * @see https://github.com/amroamroamro/prettify-matlab
  */
-(PR => {
+((PR) => {
   /*
     PR_PLAIN: plain text
     PR_STRING: string literals
@@ -47,7 +47,16 @@
     PR_ATTRIB_NAME: sgml attribute name
     PR_ATTRIB_VALUE: sgml attribute value
   */
-  const PR_IDENTIFIER = "ident", PR_CONSTANT = "const", PR_FUNCTION = "fun", PR_FUNCTION_TOOLBOX = "fun_tbx", PR_SYSCMD = "syscmd", PR_CODE_OUTPUT = "codeoutput", PR_ERROR = "err", PR_WARNING = "wrn", PR_TRANSPOSE = "transpose", PR_LINE_CONTINUATION = "linecont";
+  const PR_IDENTIFIER = "ident",
+    PR_CONSTANT = "const",
+    PR_FUNCTION = "fun",
+    PR_FUNCTION_TOOLBOX = "fun_tbx",
+    PR_SYSCMD = "syscmd",
+    PR_CODE_OUTPUT = "codeoutput",
+    PR_ERROR = "err",
+    PR_WARNING = "wrn",
+    PR_TRANSPOSE = "transpose",
+    PR_LINE_CONTINUATION = "linecont";
 
   // Refer to: http://www.mathworks.com/help/matlab/functionlist-alpha.html
   const coreFunctions = [

@@ -21,51 +21,51 @@
  THE SOFTWARE.
 */
 const a = window.PR,
-      b = [
-        [a.PR_PLAIN, /^[ \t\r\n\v\f\xA0]+/, null, " \t\r\n\x0B\f\u00a0"],
-        [a.PR_COMMENT, /^%\{[^%]*%+(?:[^\}%][^%]*%+)*\}/, null],
-        [a.PR_COMMENT, /^%[^\r\n]*/, null, "%"],
-        ["syscmd", /^![^\r\n]*/, null, "!"],
-      ],
-      c = [
-        ["linecont", /^\.\.\.\s*[\r\n]/, null],
-        ["err", /^\?\?\? [^\r\n]*/, null],
-        ["wrn", /^Warning: [^\r\n]*/, null],
-        ["codeoutput", /^>>\s+/, null],
-        ["codeoutput", /^octave:\d+>\s+/, null],
-        [
-          "lang-matlab-operators",
-          /^((?:[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*|\)|\]|\}|\.)')/,
-          null,
-        ],
-        [
-          "lang-matlab-identifiers",
-          /^([a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*)(?!')/,
-          null,
-        ],
-        [a.PR_STRING, /^'(?:[^']|'')*'/, null],
-        [a.PR_LITERAL, /^[+\-]?\.?\d+(?:\.\d*)?(?:[Ee][+\-]?\d+)?[ij]?/, null],
-        [a.PR_TAG, /^(?:\{|\}|\(|\)|\[|\])/, null],
-        [
-          a.PR_PUNCTUATION,
-          /^(?:<|>|=|~|@|&|;|,|:|!|\-|\+|\*|\^|\.|\||\\|\/)/,
-          null,
-        ],
-      ],
-      d = [
-        [
-          "lang-matlab-identifiers",
-          /^([a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*)/,
-          null,
-        ],
-        [a.PR_TAG, /^(?:\{|\}|\(|\)|\[|\])/, null],
-        [
-          a.PR_PUNCTUATION,
-          /^(?:<|>|=|~|@|&|;|,|:|!|\-|\+|\*|\^|\.|\||\\|\/)/,
-          null,
-        ],
-        ["transpose", /^'/, null],
-      ];
+  b = [
+    [a.PR_PLAIN, /^[ \t\r\n\v\f\xA0]+/, null, " \t\r\n\x0B\f\u00a0"],
+    [a.PR_COMMENT, /^%\{[^%]*%+(?:[^\}%][^%]*%+)*\}/, null],
+    [a.PR_COMMENT, /^%[^\r\n]*/, null, "%"],
+    ["syscmd", /^![^\r\n]*/, null, "!"],
+  ],
+  c = [
+    ["linecont", /^\.\.\.\s*[\r\n]/, null],
+    ["err", /^\?\?\? [^\r\n]*/, null],
+    ["wrn", /^Warning: [^\r\n]*/, null],
+    ["codeoutput", /^>>\s+/, null],
+    ["codeoutput", /^octave:\d+>\s+/, null],
+    [
+      "lang-matlab-operators",
+      /^((?:[a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*|\)|\]|\}|\.)')/,
+      null,
+    ],
+    [
+      "lang-matlab-identifiers",
+      /^([a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*)(?!')/,
+      null,
+    ],
+    [a.PR_STRING, /^'(?:[^']|'')*'/, null],
+    [a.PR_LITERAL, /^[+\-]?\.?\d+(?:\.\d*)?(?:[Ee][+\-]?\d+)?[ij]?/, null],
+    [a.PR_TAG, /^(?:\{|\}|\(|\)|\[|\])/, null],
+    [
+      a.PR_PUNCTUATION,
+      /^(?:<|>|=|~|@|&|;|,|:|!|\-|\+|\*|\^|\.|\||\\|\/)/,
+      null,
+    ],
+  ],
+  d = [
+    [
+      "lang-matlab-identifiers",
+      /^([a-zA-Z][a-zA-Z0-9_]*(?:\.[a-zA-Z][a-zA-Z0-9_]*)*)/,
+      null,
+    ],
+    [a.PR_TAG, /^(?:\{|\}|\(|\)|\[|\])/, null],
+    [
+      a.PR_PUNCTUATION,
+      /^(?:<|>|=|~|@|&|;|,|:|!|\-|\+|\*|\^|\.|\||\\|\/)/,
+      null,
+    ],
+    ["transpose", /^'/, null],
+  ];
 a.registerLangHandler(
   a.createSimpleLexer(
     [],

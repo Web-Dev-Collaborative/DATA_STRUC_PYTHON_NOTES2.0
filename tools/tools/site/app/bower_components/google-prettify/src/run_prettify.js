@@ -134,7 +134,7 @@ const IN_GLOBAL_SCOPE = false;
     const rem = addEventListener ? "removeEventListener" : "detachEvent";
     const pre = addEventListener ? "" : "on";
 
-    const init = e => {
+    const init = (e) => {
       if (e.type == "readystatechange" && doc.readyState != "complete") {
         return;
       }
@@ -245,7 +245,7 @@ const IN_GLOBAL_SCOPE = false;
     "https://cdn.rawgit.com/google/code-prettify/master/loader";
 
   for (var i = 0, n = langs.length; i < n; ++i)
-    (lang => {
+    ((lang) => {
       let script = doc.createElement("script");
 
       // Excerpted from jQuery.ajaxTransport("script") to fire events when
@@ -842,7 +842,7 @@ const IN_GLOBAL_SCOPE = false;
                 parts[i] = caseFoldCharset(p);
               } else if (ch0 !== "\\") {
                 // TODO: handle letters in numeric escapes.
-                parts[i] = p.replace(/[a-zA-Z]/g, ch => {
+                parts[i] = p.replace(/[a-zA-Z]/g, (ch) => {
                   const cc = ch.charCodeAt(0);
                   return "[" + String.fromCharCode(cc & ~32, cc | 32) + "]";
                 });
@@ -1118,8 +1118,9 @@ const IN_GLOBAL_SCOPE = false;
          *
          * @type{function (JobT)}
          */
-        const decorate = job => {
-          const sourceCode = job.sourceCode, basePos = job.basePos;
+        const decorate = (job) => {
+          const sourceCode = job.sourceCode,
+            basePos = job.basePos;
           const sourceNode = job.sourceNode;
           /** Even entries are positions in source in ascending order.  Odd enties
            * are style markers (e.g., PR_COMMENT) that run from that position until
@@ -1239,7 +1240,8 @@ const IN_GLOBAL_SCOPE = false;
        *     the job.
        */
       function sourceDecorator(options) {
-        const shortcutStylePatterns = [], fallthroughStylePatterns = [];
+        const shortcutStylePatterns = [],
+          fallthroughStylePatterns = [];
         if (options["tripleQuotedStrings"]) {
           // '''multi-line-string''', 'single-line-string', and double-quoted
           shortcutStylePatterns.push([
@@ -1593,7 +1595,8 @@ const IN_GLOBAL_SCOPE = false;
 
         const ol = document.createElement("ol");
         ol.className = "linenums";
-        const offset = Math.max(0, (startLineNum - 1) /* zero index */ | 0) || 0;
+        const offset =
+          Math.max(0, (startLineNum - 1) /* zero index */ | 0) || 0;
         for (const i = 0, n = listItems.length; i < n; ++i) {
           li = listItems[i];
           // Stick a class on the LIs so that stylesheets can
@@ -2041,12 +2044,9 @@ const IN_GLOBAL_SCOPE = false;
                 }
                 if (value) {
                   attrs = {};
-                  value.replace(
-                    /\b(\w+)=([\w:.%+-]+)/g,
-                    (_, name, value) => {
-                      attrs[name] = value;
-                    }
-                  );
+                  value.replace(/\b(\w+)=([\w:.%+-]+)/g, (_, name, value) => {
+                    attrs[name] = value;
+                  });
                   break;
                 }
               }
@@ -2223,7 +2223,7 @@ const IN_GLOBAL_SCOPE = false;
         const callback = n
           ? () => {
               for (let i = 0; i < n; ++i) {
-                (i => {
+                ((i) => {
                   win.setTimeout(function () {
                     win["exports"][callbacks[i]].apply(win, arguments);
                   }, 0);

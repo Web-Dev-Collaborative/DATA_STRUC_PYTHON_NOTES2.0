@@ -6,7 +6,7 @@
  * Licensed under Apache 2.0 license.
  */
 
-module.exports = grunt => {
+module.exports = (grunt) => {
   "use strict";
 
   // project configuration

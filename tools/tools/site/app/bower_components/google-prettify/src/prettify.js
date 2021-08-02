@@ -584,7 +584,7 @@ let prettyPrint;
             parts[i] = caseFoldCharset(p);
           } else if (ch0 !== "\\") {
             // TODO: handle letters in numeric escapes.
-            parts[i] = p.replace(/[a-zA-Z]/g, ch => {
+            parts[i] = p.replace(/[a-zA-Z]/g, (ch) => {
               const cc = ch.charCodeAt(0);
               return "[" + String.fromCharCode(cc & ~32, cc | 32) + "]";
             });
@@ -820,7 +820,9 @@ let prettyPrint;
     const shortcuts = {};
     let tokenizer;
     (() => {
-      const allPatterns = shortcutStylePatterns.concat(fallthroughStylePatterns);
+      const allPatterns = shortcutStylePatterns.concat(
+        fallthroughStylePatterns
+      );
       const allRegexs = [];
       const regexKeys = {};
       for (let i = 0, n = allPatterns.length; i < n; ++i) {
@@ -851,8 +853,9 @@ let prettyPrint;
      *
      * @type{function (JobT)}
      */
-    const decorate = job => {
-      const sourceCode = job.sourceCode, basePos = job.basePos;
+    const decorate = (job) => {
+      const sourceCode = job.sourceCode,
+        basePos = job.basePos;
       const sourceNode = job.sourceNode;
       /** Even entries are positions in source in ascending order.  Odd enties
        * are style markers (e.g., PR_COMMENT) that run from that position until
@@ -970,7 +973,8 @@ let prettyPrint;
    *     the job.
    */
   function sourceDecorator(options) {
-    const shortcutStylePatterns = [], fallthroughStylePatterns = [];
+    const shortcutStylePatterns = [],
+      fallthroughStylePatterns = [];
     if (options["tripleQuotedStrings"]) {
       // '''multi-line-string''', 'single-line-string', and double-quoted
       shortcutStylePatterns.push([
