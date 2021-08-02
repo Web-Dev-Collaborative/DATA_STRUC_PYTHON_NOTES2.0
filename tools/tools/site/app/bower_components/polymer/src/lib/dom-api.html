@@ -7,33 +7,35 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="settings.html">
-<link rel="import" href="dom-innerHTML.html">
+<link rel="import" href="settings.html" />
+<link rel="import" href="dom-innerHTML.html" />
 <script>
-
   /**
    * DomApi is a dom manipulation library which is compatible with both
    * Shady DOM and Shadow DOM. The general usage is
    * `Polymer.dom(node).method(arguments)` where methods and arguments
    * match native DOM where possible.
    */
-  Polymer.DomApi = (function() {
-    'use strict';
+  Polymer.DomApi = (function () {
+    "use strict";
 
     var Settings = Polymer.Settings;
     var TreeApi = Polymer.TreeApi;
 
-    var DomApi = function(node) {
+    var DomApi = function (node) {
       this.node = needsToWrap ? DomApi.wrap(node) : node;
     };
 
     // ensure nodes are wrapped if SD polyfill is present
     var needsToWrap = Settings.hasShadow && !Settings.nativeShadow;
-    DomApi.wrap = window.wrap ? window.wrap : function(node) { return node; };
+    DomApi.wrap = window.wrap
+      ? window.wrap
+      : function (node) {
+          return node;
+        };
 
     DomApi.prototype = {
-
-      flush: function() {
+      flush: function () {
         Polymer.dom.flush();
       },
 
@@ -43,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {Node} node
        * @return {Boolean} true if `node` is a descendant or equal to `this`
        */
-      deepContains: function(node) {
+      deepContains: function (node) {
         // fast path, use shallow `contains`.
         if (this.node.contains(node)) {
           return true;
@@ -63,12 +65,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         dom children or elements distributed to children that are insertion
         points.
       */
-      queryDistributedElements: function(selector) {
+      queryDistributedElements: function (selector) {
         var c$ = this.getEffectiveChildNodes();
         var list = [];
-        for (var i=0, l=c$.length, c; (i<l) && (c=c$[i]); i++) {
-          if ((c.nodeType === Node.ELEMENT_NODE) &&
-              DomApi.matchesSelector.call(c, selector)) {
+        for (var i = 0, l = c$.length, c; i < l && (c = c$[i]); i++) {
+          if (
+            c.nodeType === Node.ELEMENT_NODE &&
+            DomApi.matchesSelector.call(c, selector)
+          ) {
             list.push(c);
           }
         }
@@ -80,13 +84,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         dom child nodes or elements distributed to children that are insertion
         points.
       */
-      getEffectiveChildNodes: function() {
+      getEffectiveChildNodes: function () {
         var list = [];
         var c$ = this.childNodes;
-        for (var i=0, l=c$.length, c; (i<l) && (c=c$[i]); i++) {
+        for (var i = 0, l = c$.length, c; i < l && (c = c$[i]); i++) {
           if (c.localName === CONTENT) {
             var d$ = dom(c).getDistributedNodes();
-            for (var j=0; j < d$.length; j++) {
+            for (var j = 0; j < d$.length; j++) {
               list.push(d$[j]);
             }
           } else {
@@ -107,12 +111,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @return {object} Returns a handle which is the argument to
        * `unobserveNodes`.
        */
-      observeNodes: function(callback) {
+      observeNodes: function (callback) {
         if (callback) {
           if (!this.observer) {
-            this.observer = this.node.localName === CONTENT ?
-              new DomApi.DistributedNodesObserver(this) :
-              new DomApi.EffectiveNodesObserver(this);
+            this.observer =
+              this.node.localName === CONTENT
+                ? new DomApi.DistributedNodesObserver(this)
+                : new DomApi.EffectiveNodesObserver(this);
           }
           return this.observer.addListener(callback);
         }
@@ -124,13 +129,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * no longer receive notifications. This handle is returned from
        * `observeNodes`.
        */
-      unobserveNodes: function(handle) {
+      unobserveNodes: function (handle) {
         if (this.observer) {
           this.observer.removeListener(handle);
         }
       },
 
-      notifyObserver: function() {
+      notifyObserver: function () {
         if (this.observer) {
           this.observer.notify();
         }
@@ -138,17 +143,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       // NOTE: `_query` is used primarily for ShadyDOM's querySelector impl,
       // but it's also generally useful to recurse through the element tree
-      // and is used by Polymer's styling system. 
-      _query: function(matcher, node, halter) {
+      // and is used by Polymer's styling system.
+      _query: function (matcher, node, halter) {
         node = node || this.node;
         var list = [];
-        this._queryElements(TreeApi.Logical.getChildNodes(node), matcher, 
-          halter, list);
+        this._queryElements(
+          TreeApi.Logical.getChildNodes(node),
+          matcher,
+          halter,
+          list
+        );
         return list;
       },
 
-      _queryElements: function(elements, matcher, halter, list) {
-        for (var i=0, l=elements.length, c; (i<l) && (c=elements[i]); i++) {
+      _queryElements: function (elements, matcher, halter, list) {
+        for (
+          var i = 0, l = elements.length, c;
+          i < l && (c = elements[i]);
+          i++
+        ) {
           if (c.nodeType === Node.ELEMENT_NODE) {
             if (this._queryElement(c, matcher, halter, list)) {
               return true;
@@ -157,7 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _queryElement: function(node, matcher, halter, list) {
+      _queryElement: function (node, matcher, halter, list) {
         var result = matcher(node);
         if (result) {
           list.push(node);
@@ -165,29 +178,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (halter && halter(result)) {
           return result;
         }
-        this._queryElements(TreeApi.Logical.getChildNodes(node), matcher, 
-          halter, list);
-      }
-
+        this._queryElements(
+          TreeApi.Logical.getChildNodes(node),
+          matcher,
+          halter,
+          list
+        );
+      },
     };
 
-    var CONTENT = DomApi.CONTENT = 'content';
+    var CONTENT = (DomApi.CONTENT = "content");
 
-    var dom = DomApi.factory = function(node) {
+    var dom = (DomApi.factory = function (node) {
       node = node || document;
       if (!node.__domApi) {
         node.__domApi = new DomApi.ctor(node);
       }
       return node.__domApi;
-    };
+    });
 
-    DomApi.hasApi = function(node) {
+    DomApi.hasApi = function (node) {
       return Boolean(node.__domApi);
     };
 
     DomApi.ctor = DomApi;
 
-    Polymer.dom = function(obj, patch) {
+    Polymer.dom = function (obj, patch) {
       if (obj instanceof Event) {
         return Polymer.EventApi.factory(obj);
       } else {
@@ -196,12 +212,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     };
 
     var p = Element.prototype;
-    DomApi.matchesSelector = p.matches || p.matchesSelector ||
-      p.mozMatchesSelector || p.msMatchesSelector ||
-      p.oMatchesSelector || p.webkitMatchesSelector;
+    DomApi.matchesSelector =
+      p.matches ||
+      p.matchesSelector ||
+      p.mozMatchesSelector ||
+      p.msMatchesSelector ||
+      p.oMatchesSelector ||
+      p.webkitMatchesSelector;
 
     return DomApi;
-
   })();
-
 </script>

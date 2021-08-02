@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-dialog-behavior)_
 
-
 ##Polymer.PaperDialogBehavior
 
 Use `Polymer.PaperDialogBehavior` and `paper-dialog-shared-styles.html` to implement a Material Design
@@ -26,12 +24,12 @@ For example, if `<paper-dialog-impl>` implements this behavior:
 
 ```html
 <paper-dialog-impl>
-    <h2>Header</h2>
-    <div>Dialog body</div>
-    <div class="buttons">
-        <paper-button dialog-dismiss>Cancel</paper-button>
-        <paper-button dialog-confirm>Accept</paper-button>
-    </div>
+  <h2>Header</h2>
+  <div>Dialog body</div>
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm>Accept</paper-button>
+  </div>
 </paper-dialog-impl>
 ```
 
@@ -50,5 +48,3 @@ to override this attribute with `role="alertdialog"`.
 
 If `modal` is set, the element will set `aria-modal` and prevent the focus from exiting the element.
 It will also ensure that focus remains in the dialog.
-
-

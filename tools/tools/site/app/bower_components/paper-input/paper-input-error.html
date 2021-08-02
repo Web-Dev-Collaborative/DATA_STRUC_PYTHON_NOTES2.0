@@ -8,10 +8,10 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-<link rel="import" href="../paper-styles/typography.html">
-<link rel="import" href="paper-input-addon-behavior.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../paper-styles/default-theme.html" />
+<link rel="import" href="../paper-styles/typography.html" />
+<link rel="import" href="paper-input-addon-behavior.html" />
 
 <!--
 `<paper-input-error>` is an error message for use with `<paper-input-container>`. The error is
@@ -41,16 +41,16 @@ Custom property | Description | Default
 
         color: var(--paper-input-container-invalid-color, --error-color);
 
-        @apply(--paper-font-caption);
-        @apply(--paper-input-error);
+        @apply (--paper-font-caption);
+        @apply (--paper-input-error);
         position: absolute;
-        left:0;
-        right:0;
+        left: 0;
+        right: 0;
       }
 
       :host([invalid]) {
         visibility: visible;
-      };
+      }
     </style>
 
     <content></content>
@@ -59,11 +59,9 @@ Custom property | Description | Default
 
 <script>
   Polymer({
-    is: 'paper-input-error',
+    is: "paper-input-error",
 
-    behaviors: [
-      Polymer.PaperInputAddonBehavior
-    ],
+    behaviors: [Polymer.PaperInputAddonBehavior],
 
     properties: {
       /**
@@ -72,8 +70,8 @@ Custom property | Description | Default
       invalid: {
         readOnly: true,
         reflectToAttribute: true,
-        type: Boolean
-      }
+        type: Boolean,
+      },
     },
 
     /**
@@ -87,8 +85,8 @@ Custom property | Description | Default
      *     value: The input value.
      *     invalid: True if the input value is invalid.
      */
-    update: function(state) {
+    update: function (state) {
       this._setInvalid(state.invalid);
-    }
+    },
   });
 </script>

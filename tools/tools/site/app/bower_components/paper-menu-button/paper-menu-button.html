@@ -8,15 +8,21 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../iron-behaviors/iron-control-state.html">
-<link rel="import" href="../iron-dropdown/iron-dropdown.html">
-<link rel="import" href="../neon-animation/animations/fade-in-animation.html">
-<link rel="import" href="../neon-animation/animations/fade-out-animation.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-<link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="paper-menu-button-animations.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"
+/>
+<link rel="import" href="../iron-behaviors/iron-control-state.html" />
+<link rel="import" href="../iron-dropdown/iron-dropdown.html" />
+<link rel="import" href="../neon-animation/animations/fade-in-animation.html" />
+<link
+  rel="import"
+  href="../neon-animation/animations/fade-out-animation.html"
+/>
+<link rel="import" href="../paper-styles/default-theme.html" />
+<link rel="import" href="../paper-styles/shadow.html" />
+<link rel="import" href="paper-menu-button-animations.html" />
 
 <!--
 Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
@@ -69,28 +75,31 @@ Custom property | Description | Default
         padding: 8px;
         outline: none;
 
-        @apply(--paper-menu-button);
+        @apply (--paper-menu-button);
       }
 
       :host([disabled]) {
         cursor: auto;
         color: var(--disabled-text-color);
 
-        @apply(--paper-menu-button-disabled);
+        @apply (--paper-menu-button-disabled);
       }
 
       iron-dropdown {
-        @apply(--paper-menu-button-dropdown);
+        @apply (--paper-menu-button-dropdown);
       }
 
       .dropdown-content {
-        @apply(--shadow-elevation-2dp);
+        @apply (--shadow-elevation-2dp);
 
         position: relative;
         border-radius: 2px;
-        background-color: var(--paper-menu-button-dropdown-background, --primary-background-color);
+        background-color: var(
+          --paper-menu-button-dropdown-background,
+          --primary-background-color
+        );
 
-        @apply(--paper-menu-button-content);
+        @apply (--paper-menu-button-content);
       }
 
       :host([vertical-align="top"]) .dropdown-content {
@@ -104,7 +113,7 @@ Custom property | Description | Default
         margin-bottom: -10px;
         margin-top: 20px;
       }
-      
+
       #trigger {
         cursor: pointer;
       }
@@ -129,7 +138,8 @@ Custom property | Description | Default
       focus-target="[[_dropdownContent]]"
       allow-outside-scroll="[[allowOutsideScroll]]"
       restore-focus-on-close="[[restoreFocusOnClose]]"
-      on-iron-overlay-canceled="__onIronOverlayCanceled">
+      on-iron-overlay-canceled="__onIronOverlayCanceled"
+    >
       <div class="dropdown-content">
         <content id="content" select=".dropdown-content"></content>
       </div>
@@ -137,16 +147,16 @@ Custom property | Description | Default
   </template>
 
   <script>
-    (function() {
-      'use strict';
+    (function () {
+      "use strict";
 
       var config = {
-        ANIMATION_CUBIC_BEZIER: 'cubic-bezier(.3,.95,.5,1)',
-        MAX_ANIMATION_TIME_MS: 400
+        ANIMATION_CUBIC_BEZIER: "cubic-bezier(.3,.95,.5,1)",
+        MAX_ANIMATION_TIME_MS: 400,
       };
 
       var PaperMenuButton = Polymer({
-        is: 'paper-menu-button',
+        is: "paper-menu-button",
 
         /**
          * Fired when the dropdown opens.
@@ -160,10 +170,7 @@ Custom property | Description | Default
          * @event paper-dropdown-close
          */
 
-        behaviors: [
-          Polymer.IronA11yKeysBehavior,
-          Polymer.IronControlState
-        ],
+        behaviors: [Polymer.IronA11yKeysBehavior, Polymer.IronControlState],
 
         properties: {
           /**
@@ -173,7 +180,7 @@ Custom property | Description | Default
             type: Boolean,
             value: false,
             notify: true,
-            observer: '_openedChanged'
+            observer: "_openedChanged",
           },
 
           /**
@@ -182,8 +189,8 @@ Custom property | Description | Default
            */
           horizontalAlign: {
             type: String,
-            value: 'left',
-            reflectToAttribute: true
+            value: "left",
+            reflectToAttribute: true,
           },
 
           /**
@@ -192,8 +199,8 @@ Custom property | Description | Default
            */
           verticalAlign: {
             type: String,
-            value: 'top',
-            reflectToAttribute: true
+            value: "top",
+            reflectToAttribute: true,
           },
 
           /**
@@ -203,7 +210,7 @@ Custom property | Description | Default
            * the area of the dropdown falling outside of `fitInto`.
            */
           dynamicAlign: {
-            type: Boolean
+            type: Boolean,
           },
 
           /**
@@ -214,7 +221,7 @@ Custom property | Description | Default
           horizontalOffset: {
             type: Number,
             value: 0,
-            notify: true
+            notify: true,
           },
 
           /**
@@ -225,7 +232,7 @@ Custom property | Description | Default
           verticalOffset: {
             type: Number,
             value: 0,
-            notify: true
+            notify: true,
           },
 
           /**
@@ -233,7 +240,7 @@ Custom property | Description | Default
            * the button.
            */
           noOverlap: {
-            type: Boolean
+            type: Boolean,
           },
 
           /**
@@ -242,7 +249,7 @@ Custom property | Description | Default
            */
           noAnimations: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -251,7 +258,7 @@ Custom property | Description | Default
            */
           ignoreSelect: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -260,7 +267,7 @@ Custom property | Description | Default
            */
           closeOnActivate: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -269,29 +276,33 @@ Custom property | Description | Default
            */
           openAnimationConfig: {
             type: Object,
-            value: function() {
-              return [{
-                name: 'fade-in-animation',
-                timing: {
-                  delay: 100,
-                  duration: 200
-                }
-              }, {
-                name: 'paper-menu-grow-width-animation',
-                timing: {
-                  delay: 100,
-                  duration: 150,
-                  easing: config.ANIMATION_CUBIC_BEZIER
-                }
-              }, {
-                name: 'paper-menu-grow-height-animation',
-                timing: {
-                  delay: 100,
-                  duration: 275,
-                  easing: config.ANIMATION_CUBIC_BEZIER
-                }
-              }];
-            }
+            value: function () {
+              return [
+                {
+                  name: "fade-in-animation",
+                  timing: {
+                    delay: 100,
+                    duration: 200,
+                  },
+                },
+                {
+                  name: "paper-menu-grow-width-animation",
+                  timing: {
+                    delay: 100,
+                    duration: 150,
+                    easing: config.ANIMATION_CUBIC_BEZIER,
+                  },
+                },
+                {
+                  name: "paper-menu-grow-height-animation",
+                  timing: {
+                    delay: 100,
+                    duration: 275,
+                    easing: config.ANIMATION_CUBIC_BEZIER,
+                  },
+                },
+              ];
+            },
           },
 
           /**
@@ -300,27 +311,31 @@ Custom property | Description | Default
            */
           closeAnimationConfig: {
             type: Object,
-            value: function() {
-              return [{
-                name: 'fade-out-animation',
-                timing: {
-                  duration: 150
-                }
-              }, {
-                name: 'paper-menu-shrink-width-animation',
-                timing: {
-                  delay: 100,
-                  duration: 50,
-                  easing: config.ANIMATION_CUBIC_BEZIER
-                }
-              }, {
-                name: 'paper-menu-shrink-height-animation',
-                timing: {
-                  duration: 200,
-                  easing: 'ease-in'
-                }
-              }];
-            }
+            value: function () {
+              return [
+                {
+                  name: "fade-out-animation",
+                  timing: {
+                    duration: 150,
+                  },
+                },
+                {
+                  name: "paper-menu-shrink-width-animation",
+                  timing: {
+                    delay: 100,
+                    duration: 50,
+                    easing: config.ANIMATION_CUBIC_BEZIER,
+                  },
+                },
+                {
+                  name: "paper-menu-shrink-height-animation",
+                  timing: {
+                    duration: 200,
+                    easing: "ease-in",
+                  },
+                },
+              ];
+            },
           },
 
           /**
@@ -331,7 +346,7 @@ Custom property | Description | Default
            */
           allowOutsideScroll: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -339,7 +354,7 @@ Custom property | Description | Default
            */
           restoreFocusOnClose: {
             type: Boolean,
-            value: true
+            value: true,
           },
 
           /**
@@ -347,18 +362,18 @@ Custom property | Description | Default
            * for the `iron-dropdown` contained by `paper-menu-button`.
            */
           _dropdownContent: {
-            type: Object
-          }
+            type: Object,
+          },
         },
 
         hostAttributes: {
-          role: 'group',
-          'aria-haspopup': 'true'
+          role: "group",
+          "aria-haspopup": "true",
         },
 
         listeners: {
-          'iron-activate': '_onIronActivate',
-          'iron-select': '_onIronSelect'
+          "iron-activate": "_onIronActivate",
+          "iron-select": "_onIronSelect",
         },
 
         /**
@@ -371,7 +386,7 @@ Custom property | Description | Default
         /**
          * Toggles the drowpdown content between opened and closed.
          */
-        toggle: function() {
+        toggle: function () {
           if (this.opened) {
             this.close();
           } else {
@@ -383,7 +398,7 @@ Custom property | Description | Default
          * Make the dropdown content appear as an overlay positioned relative
          * to the dropdown trigger.
          */
-        open: function() {
+        open: function () {
           if (this.disabled) {
             return;
           }
@@ -394,7 +409,7 @@ Custom property | Description | Default
         /**
          * Hide the dropdown content.
          */
-        close: function() {
+        close: function () {
           this.$.dropdown.close();
         },
 
@@ -405,7 +420,7 @@ Custom property | Description | Default
          * @param {CustomEvent} event A CustomEvent instance with type
          * set to `"iron-select"`.
          */
-        _onIronSelect: function(event) {
+        _onIronSelect: function (event) {
           if (!this.ignoreSelect) {
             this.close();
           }
@@ -417,7 +432,7 @@ Custom property | Description | Default
          *
          * @param {CustomEvent} event A CustomEvent of type 'iron-activate'.
          */
-        _onIronActivate: function(event) {
+        _onIronActivate: function (event) {
           if (this.closeOnActivate) {
             this.close();
           }
@@ -430,7 +445,7 @@ Custom property | Description | Default
          * @param {boolean} opened True if the dropdown is opened, otherwise false.
          * @param {boolean} oldOpened The previous value of `opened`.
          */
-        _openedChanged: function(opened, oldOpened) {
+        _openedChanged: function (opened, oldOpened) {
           if (opened) {
             // TODO(cdata): Update this when we can measure changes in distributed
             // children in an idiomatic way.
@@ -438,9 +453,9 @@ Custom property | Description | Default
             // cause the focus target for the `iron-dropdown` to be updated as
             // necessary:
             this._dropdownContent = this.contentElement;
-            this.fire('paper-dropdown-open');
+            this.fire("paper-dropdown-open");
           } else if (oldOpened != null) {
-            this.fire('paper-dropdown-close');
+            this.fire("paper-dropdown-close");
           }
         },
 
@@ -450,14 +465,14 @@ Custom property | Description | Default
          *
          * @param {boolean} disabled True if disabled, otherwise false.
          */
-        _disabledChanged: function(disabled) {
+        _disabledChanged: function (disabled) {
           Polymer.IronControlState._disabledChanged.apply(this, arguments);
           if (disabled && this.opened) {
             this.close();
           }
         },
 
-        __onIronOverlayCanceled: function(event) {
+        __onIronOverlayCanceled: function (event) {
           var uiEvent = event.detail;
           var target = Polymer.dom(uiEvent).rootTarget;
           var trigger = this.$.trigger;
@@ -466,7 +481,7 @@ Custom property | Description | Default
           if (path.indexOf(trigger) > -1) {
             event.preventDefault();
           }
-        }
+        },
       });
 
       Object.keys(config).forEach(function (key) {

@@ -8,10 +8,10 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-<link rel="import" href="../paper-styles/typography.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../paper-styles/default-theme.html" />
+<link rel="import" href="../paper-styles/typography.html" />
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html" />
 
 <!--
 Material design: [Toolbars](https://www.google.com/design/spec/components/toolbars.html)
@@ -107,7 +107,10 @@ be used as the label of the toolbar via `aria-labelledby`.
     <style>
       :host {
         --calculated-paper-toolbar-height: var(--paper-toolbar-height, 64px);
-        --calculated-paper-toolbar-sm-height: var(--paper-toolbar-sm-height, 56px);
+        --calculated-paper-toolbar-sm-height: var(
+          --paper-toolbar-sm-height,
+          56px
+        );
 
         /* technical */
         display: block;
@@ -121,7 +124,7 @@ be used as the label of the toolbar via `aria-labelledby`.
         background: var(--paper-toolbar-background, --primary-color);
         color: var(--paper-toolbar-color, --dark-theme-text-color);
 
-        @apply(--paper-toolbar);
+        @apply (--paper-toolbar);
       }
 
       :host(.animate) {
@@ -131,12 +134,12 @@ be used as the label of the toolbar via `aria-labelledby`.
 
       :host(.medium-tall) {
         height: calc(var(--calculated-paper-toolbar-height) * 2);
-        @apply(--paper-toolbar-medium);
+        @apply (--paper-toolbar-medium);
       }
 
       :host(.tall) {
         height: calc(var(--calculated-paper-toolbar-height) * 3);
-        @apply(--paper-toolbar-tall);
+        @apply (--paper-toolbar-tall);
       }
 
       .toolbar-tools {
@@ -144,9 +147,9 @@ be used as the label of the toolbar via `aria-labelledby`.
         height: var(--calculated-paper-toolbar-height);
         padding: 0 16px;
         pointer-events: none;
-        @apply(--layout-horizontal);
-        @apply(--layout-center);
-        @apply(--paper-toolbar-content);
+        @apply (--layout-horizontal);
+        @apply (--layout-center);
+        @apply (--paper-toolbar-content);
       }
 
       /*
@@ -209,7 +212,7 @@ be used as the label of the toolbar via `aria-labelledby`.
       }
 
       .toolbar-tools > ::content .title {
-        @apply(--paper-font-common-base);
+        @apply (--paper-font-common-base);
 
         white-space: nowrap;
         overflow: hidden;
@@ -219,7 +222,7 @@ be used as the label of the toolbar via `aria-labelledby`.
         line-height: 1;
         pointer-events: none;
 
-        @apply(--layout-flex);
+        @apply (--layout-flex);
       }
 
       .toolbar-tools > ::content > .title {
@@ -235,10 +238,10 @@ be used as the label of the toolbar via `aria-labelledby`.
        * fix the issue with margin-left being ignored due to css ordering.
        */
       .toolbar-tools > ::content .title {
-        @apply(--paper-toolbar-title);
+        @apply (--paper-toolbar-title);
       }
 
-      .toolbar-tools > ::content paper-icon-button[icon=menu] {
+      .toolbar-tools > ::content paper-icon-button[icon="menu"] {
         margin-right: 24px;
       }
 
@@ -256,45 +259,54 @@ be used as the label of the toolbar via `aria-labelledby`.
        * /deep/ create our own.
        */
       .start-justified {
-        @apply(--layout-start-justified);
+        @apply (--layout-start-justified);
       }
 
       .center-justified {
-        @apply(--layout-center-justified);
+        @apply (--layout-center-justified);
       }
 
       .end-justified {
-        @apply(--layout-end-justified);
+        @apply (--layout-end-justified);
       }
 
       .around-justified {
-        @apply(--layout-around-justified);
+        @apply (--layout-around-justified);
       }
 
       .justified {
-        @apply(--layout-justified);
+        @apply (--layout-justified);
       }
     </style>
 
-    <div id="topBar" class$="toolbar-tools [[_computeBarExtraClasses(justify)]]">
+    <div
+      id="topBar"
+      class$="toolbar-tools [[_computeBarExtraClasses(justify)]]"
+    >
       <content select=":not(.middle):not(.bottom)"></content>
     </div>
 
-    <div id="middleBar" class$="toolbar-tools [[_computeBarExtraClasses(middleJustify)]]">
+    <div
+      id="middleBar"
+      class$="toolbar-tools [[_computeBarExtraClasses(middleJustify)]]"
+    >
       <content select=".middle"></content>
     </div>
 
-    <div id="bottomBar" class$="toolbar-tools [[_computeBarExtraClasses(bottomJustify)]]">
+    <div
+      id="bottomBar"
+      class$="toolbar-tools [[_computeBarExtraClasses(bottomJustify)]]"
+    >
       <content select=".bottom"></content>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'paper-toolbar',
+      is: "paper-toolbar",
 
       hostAttributes: {
-        'role': 'toolbar'
+        role: "toolbar",
       },
 
       properties: {
@@ -305,7 +317,7 @@ be used as the label of the toolbar via `aria-labelledby`.
          */
         bottomJustify: {
           type: String,
-          value: ''
+          value: "",
         },
 
         /**
@@ -314,7 +326,7 @@ be used as the label of the toolbar via `aria-labelledby`.
          */
         justify: {
           type: String,
-          value: ''
+          value: "",
         },
 
         /**
@@ -324,44 +336,46 @@ be used as the label of the toolbar via `aria-labelledby`.
          */
         middleJustify: {
           type: String,
-          value: ''
-        }
-
+          value: "",
+        },
       },
 
-      attached: function() {
+      attached: function () {
         this._observer = this._observe(this);
         this._updateAriaLabelledBy();
       },
 
-      detached: function() {
+      detached: function () {
         if (this._observer) {
           this._observer.disconnect();
         }
       },
 
-      _observe: function(node) {
-        var observer = new MutationObserver(function() {
-          this._updateAriaLabelledBy();
-        }.bind(this));
+      _observe: function (node) {
+        var observer = new MutationObserver(
+          function () {
+            this._updateAriaLabelledBy();
+          }.bind(this)
+        );
         observer.observe(node, {
           childList: true,
-          subtree: true
+          subtree: true,
         });
         return observer;
       },
 
-      _updateAriaLabelledBy: function() {
+      _updateAriaLabelledBy: function () {
         var labelledBy = [];
-        var contents = Polymer.dom(this.root).querySelectorAll('content');
-        for (var content, index = 0; content = contents[index]; index++) {
+        var contents = Polymer.dom(this.root).querySelectorAll("content");
+        for (var content, index = 0; (content = contents[index]); index++) {
           var nodes = Polymer.dom(content).getDistributedNodes();
-          for (var node, jndex = 0; node = nodes[jndex]; jndex++) {
-            if (node.classList && node.classList.contains('title')) {
+          for (var node, jndex = 0; (node = nodes[jndex]); jndex++) {
+            if (node.classList && node.classList.contains("title")) {
               if (node.id) {
                 labelledBy.push(node.id);
               } else {
-                var id = 'paper-toolbar-label-' + Math.floor(Math.random() * 10000);
+                var id =
+                  "paper-toolbar-label-" + Math.floor(Math.random() * 10000);
                 node.id = id;
                 labelledBy.push(id);
               }
@@ -369,15 +383,15 @@ be used as the label of the toolbar via `aria-labelledby`.
           }
         }
         if (labelledBy.length > 0) {
-          this.setAttribute('aria-labelledby', labelledBy.join(' '));
+          this.setAttribute("aria-labelledby", labelledBy.join(" "));
         }
       },
 
-      _computeBarExtraClasses: function(barJustify) {
-        if (!barJustify) return '';
+      _computeBarExtraClasses: function (barJustify) {
+        if (!barJustify) return "";
 
-        return barJustify + (barJustify === 'justified' ? '' : '-justified');
-      }
+        return barJustify + (barJustify === "justified" ? "" : "-justified");
+      },
     });
   </script>
 </dom-module>

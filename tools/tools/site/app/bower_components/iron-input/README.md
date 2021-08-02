@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-input)_
 
-
 ##&lt;iron-input&gt;
 
 `<iron-input>` adds two-way binding and custom validators using `Polymer.IronValidatorBehavior`
@@ -27,14 +25,14 @@ to `<input>`.
 By default you can only get notified of changes to an `input`'s `value` due to user input:
 
 ```html
-<input value="{{myValue::input}}">
+<input value="{{myValue::input}}" />
 ```
 
 `iron-input` adds the `bind-value` property that mirrors the `value` property, and can be used
 for two-way data binding. `bind-value` will notify if it is changed either by user input or by script.
 
 ```html
-<input is="iron-input" bind-value="{{myValue}}">
+<input is="iron-input" bind-value="{{myValue}}" />
 ```
 
 ### Custom validators
@@ -42,7 +40,7 @@ for two-way data binding. `bind-value` will notify if it is changed either by us
 You can use custom validators that implement `Polymer.IronValidatorBehavior` with `<iron-input>`.
 
 ```html
-<input is="iron-input" validator="my-custom-validator">
+<input is="iron-input" validator="my-custom-validator" />
 ```
 
 ### Stopping invalid input
@@ -53,7 +51,5 @@ is separate from validation, and `allowed-pattern` does not affect how the input
 
 ```html
 <!-- only allow characters that match [0-9] -->
-<input is="iron-input" prevent-invalid-input allowed-pattern="[0-9]">
+<input is="iron-input" prevent-invalid-input allowed-pattern="[0-9]" />
 ```
-
-

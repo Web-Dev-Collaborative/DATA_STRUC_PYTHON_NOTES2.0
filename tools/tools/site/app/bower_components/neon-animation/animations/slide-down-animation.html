@@ -8,9 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../neon-animation-behavior.html">
-<link rel="import" href="../web-animations.html">
+<link rel="import" href="../../polymer/polymer.html" />
+<link rel="import" href="../neon-animation-behavior.html" />
+<link rel="import" href="../web-animations.html" />
 
 <!--
 `<slide-down-animation>` animates the transform of an element from `none` `translateY(100%)`.
@@ -28,32 +28,31 @@ Configuration:
 -->
 
 <script>
-
   Polymer({
+    is: "slide-down-animation",
 
-    is: 'slide-down-animation',
+    behaviors: [Polymer.NeonAnimationBehavior],
 
-    behaviors: [
-      Polymer.NeonAnimationBehavior
-    ],
-
-    configure: function(config) {
+    configure: function (config) {
       var node = config.node;
 
-      this._effect = new KeyframeEffect(node, [
-        {'transform': 'translateY(0%)'},
-        {'transform': 'translateY(100%)'}
-      ], this.timingFromConfig(config));
+      this._effect = new KeyframeEffect(
+        node,
+        [{ transform: "translateY(0%)" }, { transform: "translateY(100%)" }],
+        this.timingFromConfig(config)
+      );
 
       if (config.transformOrigin) {
-        this.setPrefixedProperty(node, 'transformOrigin', config.transformOrigin);
+        this.setPrefixedProperty(
+          node,
+          "transformOrigin",
+          config.transformOrigin
+        );
       } else {
-        this.setPrefixedProperty(node, 'transformOrigin', '50% 0');
+        this.setPrefixedProperty(node, "transformOrigin", "50% 0");
       }
 
       return this._effect;
-    }
-
+    },
   });
-
 </script>

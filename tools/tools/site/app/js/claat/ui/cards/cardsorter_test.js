@@ -14,30 +14,31 @@
  * limitations under the License.
  */
 
-goog.provide('claat.ui.cards.SorterTest');
-goog.setTestOnly('claat.ui.cards.SorterTest');
+goog.provide("claat.ui.cards.SorterTest");
+goog.setTestOnly("claat.ui.cards.SorterTest");
 
-goog.require('claat.ui.cards.Filter');
-goog.require('claat.ui.cards.Order');
-goog.require('claat.ui.cards.Sorter');
+goog.require("claat.ui.cards.Filter");
+goog.require("claat.ui.cards.Order");
+goog.require("claat.ui.cards.Sorter");
 
-goog.require('goog.dom');
-goog.require('goog.testing.jsunit');
-
+goog.require("goog.dom");
+goog.require("goog.testing.jsunit");
 
 var sandbox;
 var container;
 var sorter;
 
 function childrenId() {
-  var elems = container.querySelectorAll('.codelab-card');
-  return Array.from(elems).map(function(el) { return el.id });
+  var elems = container.querySelectorAll(".codelab-card");
+  return Array.from(elems).map(function (el) {
+    return el.id;
+  });
 }
 
 function setUp() {
-  sandbox = goog.dom.getElement('sandbox');
+  sandbox = goog.dom.getElement("sandbox");
 
-  var cards = goog.dom.getElement('original');
+  var cards = goog.dom.getElement("original");
   container = cards.cloneNode(true);
   container.id = "cards";
 
@@ -50,69 +51,63 @@ function tearDown() {
 }
 
 function testConstructorNoFilterOrOrder() {
-  assertArrayEquals(['one', 'two', 'three', 'four'], childrenId());
+  assertArrayEquals(["one", "two", "three", "four"], childrenId());
 }
 
 function testFilterByWebTag() {
-  sorter.filterByTags([' weB ']);
-  assertArrayEquals(['three'], childrenId());
+  sorter.filterByTags([" weB "]);
+  assertArrayEquals(["three"], childrenId());
 }
 
 function testFilterByCommonTag() {
-  sorter.filterByTags(['common']);
+  sorter.filterByTags(["common"]);
   var expected = [
-    'two', // pinned
-    'one',
+    "two", // pinned
+    "one",
   ];
   assertArrayEquals(expected, childrenId());
 }
 
 function testFilterByCategory() {
-  sorter.filterByCategory(' clouD ');
-  assertArrayEquals(['one'], childrenId());
+  sorter.filterByCategory(" clouD ");
+  assertArrayEquals(["one"], childrenId());
 }
 
 function testFilterByCategoryMultiple() {
-  sorter.filterByCategory(' beacons ');
-  var expected = [
-    'three',
-    'four',
-  ]
+  sorter.filterByCategory(" beacons ");
+  var expected = ["three", "four"];
   assertArrayEquals(expected, childrenId());
 }
 
 function testFilterByCategoryMultiple2() {
-  sorter.filterByCategory(' android ');
-  var expected = [
-    'two',
-    'four',
-  ]
+  sorter.filterByCategory(" android ");
+  var expected = ["two", "four"];
   assertArrayEquals(expected, childrenId());
 }
 
 function testFilterByText() {
-  sorter.filterByText('some');
-  assertArrayEquals(['three'], childrenId());
+  sorter.filterByText("some");
+  assertArrayEquals(["three"], childrenId());
 }
 
 function testFilterReset() {
-  sorter.filterByTags(['nonexistent']);
+  sorter.filterByTags(["nonexistent"]);
   sorter.clearFilters();
   var expected = [
-    'two', // pinned
-    'one',
-    'three',
-    'four',
+    "two", // pinned
+    "one",
+    "three",
+    "four",
   ];
   assertArrayEquals(expected, childrenId());
 }
 
 function testOrderByAlpha() {
   var expected = [
-    'two',   // Zzz, pinned
-    'one',   // Abc
-    'three', // Bcd
-    'four',
+    "two", // Zzz, pinned
+    "one", // Abc
+    "three", // Bcd
+    "four",
   ];
   sorter.sort(claat.ui.cards.Order.ALPHA);
   assertArrayEquals(expected, childrenId());
@@ -120,10 +115,10 @@ function testOrderByAlpha() {
 
 function testOrderByDuration() {
   var expected = [
-    'two',   // 2, pinned
-    'one',   // 1
-    'three', // 3
-    'four', // 4
+    "two", // 2, pinned
+    "one", // 1
+    "three", // 3
+    "four", // 4
   ];
   sorter.sort(claat.ui.cards.Order.DURATION);
   assertArrayEquals(expected, childrenId());
@@ -131,10 +126,10 @@ function testOrderByDuration() {
 
 function testOrderByDate() {
   var expected = [
-    'two',   // 2016-06-21, pinned
-    'four', //2016-06-23
-    'three', // 2016-06-22
-    'one',   // 2016-06-20
+    "two", // 2016-06-21, pinned
+    "four", //2016-06-23
+    "three", // 2016-06-22
+    "one", // 2016-06-20
   ];
   sorter.sort(claat.ui.cards.Order.RECENT);
   assertArrayEquals(expected, childrenId());
@@ -142,20 +137,20 @@ function testOrderByDate() {
 
 function testFilterAndSort() {
   var expected = [
-    'two', // Zzz, pinned
-    'one', // Abc
+    "two", // Zzz, pinned
+    "one", // Abc
   ];
-  sorter.filter({tags: ['common']});
+  sorter.filter({ tags: ["common"] });
   sorter.sort(claat.ui.cards.Order.ALPHA);
   assertArrayEquals(expected, childrenId());
 }
 
 function testFilterAndSortNoPin() {
   var expected = [
-    'three', // 2016-06-22
-    'one',   // 2016-06-20
+    "three", // 2016-06-22
+    "one", // 2016-06-20
   ];
-  sorter.filter({tags: ['web', 'cloud']});
+  sorter.filter({ tags: ["web", "cloud"] });
   sorter.sort(claat.ui.cards.Order.RECENT);
   assertArrayEquals(expected, childrenId());
 }

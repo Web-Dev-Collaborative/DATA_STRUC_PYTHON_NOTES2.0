@@ -8,12 +8,14 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../iron-behaviors/iron-control-state.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"
+/>
+<link rel="import" href="../iron-behaviors/iron-control-state.html" />
 
 <script>
-
   // Generate unique, monotonically increasing IDs for labels (needed by
   // aria-labelledby) and add-ons.
   Polymer.PaperInputHelper = {};
@@ -31,7 +33,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @polymerBehavior Polymer.PaperInputBehavior
    */
   Polymer.PaperInputBehaviorImpl = {
-
     properties: {
       /**
        * Fired when the input changes due to user interaction.
@@ -46,7 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * `<label hidden$="[[!label]]">[[label]]</label>` in your `template`
        */
       label: {
-        type: String
+        type: String,
       },
 
       /**
@@ -57,7 +58,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       value: {
         notify: true,
-        type: String
+        type: String,
       },
 
       /**
@@ -67,7 +68,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       disabled: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -81,7 +82,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       invalid: {
         type: Boolean,
         value: false,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -90,7 +91,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * bind this to `<input is="iron-input">`'s `preventInvalidInput` property.
        */
       preventInvalidInput: {
-        type: Boolean
+        type: Boolean,
       },
 
       /**
@@ -100,7 +101,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * property.
        */
       allowedPattern: {
-        type: String
+        type: String,
       },
 
       /**
@@ -109,7 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * bind this to the `<input is="iron-input">`'s `type` property.
        */
       type: {
-        type: String
+        type: String,
       },
 
       /**
@@ -118,7 +119,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `list` property.
        */
       list: {
-        type: String
+        type: String,
       },
 
       /**
@@ -127,7 +128,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * the `<input is="iron-input">`'s `pattern` property.
        */
       pattern: {
-        type: String
+        type: String,
       },
 
       /**
@@ -137,7 +138,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       required: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -146,7 +147,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * bind this to the `<paper-input-error>`'s content, if using.
        */
       errorMessage: {
-        type: String
+        type: String,
       },
 
       /**
@@ -154,7 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       charCounter: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -164,7 +165,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       noLabelFloat: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -174,7 +175,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       alwaysFloatLabel: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -184,7 +185,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autoValidate: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -193,7 +194,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * the `<input is="iron-input">`'s `validator` property.
        */
       validator: {
-        type: String
+        type: String,
       },
 
       // HTMLInputElement attributes for binding if needed
@@ -204,7 +205,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autocomplete: {
         type: String,
-        value: 'off'
+        value: "off",
       },
 
       /**
@@ -213,7 +214,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autofocus: {
         type: Boolean,
-        observer: '_autofocusChanged'
+        observer: "_autofocusChanged",
       },
 
       /**
@@ -221,7 +222,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `inputmode` property.
        */
       inputmode: {
-        type: String
+        type: String,
       },
 
       /**
@@ -230,7 +231,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `minlength` property.
        */
       minlength: {
-        type: Number
+        type: Number,
       },
 
       /**
@@ -239,7 +240,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `maxlength` property.
        */
       maxlength: {
-        type: Number
+        type: Number,
       },
 
       /**
@@ -248,7 +249,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `min` property.
        */
       min: {
-        type: String
+        type: String,
       },
 
       /**
@@ -258,7 +259,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `max` property.
        */
       max: {
-        type: String
+        type: String,
       },
 
       /**
@@ -267,7 +268,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `step` property.
        */
       step: {
-        type: String
+        type: String,
       },
 
       /**
@@ -275,7 +276,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `name` property.
        */
       name: {
-        type: String
+        type: String,
       },
 
       /**
@@ -284,7 +285,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       placeholder: {
         type: String,
         // need to set a default so _computeAlwaysFloatLabel is run
-        value: ''
+        value: "",
       },
 
       /**
@@ -293,7 +294,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       readonly: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -301,7 +302,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * element, bind this to the `<input is="iron-input">`'s `size` property.
        */
       size: {
-        type: Number
+        type: Number,
       },
 
       // Nonstandard attributes for binding if needed
@@ -312,7 +313,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autocapitalize: {
         type: String,
-        value: 'none'
+        value: "none",
       },
 
       /**
@@ -321,7 +322,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autocorrect: {
         type: String,
-        value: 'off'
+        value: "off",
       },
 
       /**
@@ -330,7 +331,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * used with type=search.
        */
       autosave: {
-        type: String
+        type: String,
       },
 
       /**
@@ -339,7 +340,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * used with type=search.
        */
       results: {
-        type: Number
+        type: Number,
       },
 
       /**
@@ -348,7 +349,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * used with type=file.
        */
       accept: {
-        type: String
+        type: String,
       },
 
       /**
@@ -357,31 +358,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * used with type=file.
        */
       multiple: {
-        type: Boolean
+        type: Boolean,
       },
 
       _ariaDescribedBy: {
         type: String,
-        value: ''
+        value: "",
       },
 
       _ariaLabelledBy: {
         type: String,
-        value: ''
-      }
-
+        value: "",
+      },
     },
 
     listeners: {
-      'addon-attached': '_onAddonAttached',
+      "addon-attached": "_onAddonAttached",
     },
 
     keyBindings: {
-      'shift+tab:keydown': '_onShiftTabDown'
+      "shift+tab:keydown": "_onShiftTabDown",
     },
 
     hostAttributes: {
-      tabindex: 0
+      tabindex: 0,
     },
 
     /**
@@ -398,39 +398,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return this.inputElement;
     },
 
-    registered: function() {
+    registered: function () {
       // These types have some default placeholder text; overlapping
       // the label on top of it looks terrible. Auto-float the label in this case.
-      this._typesThatHaveText = ["date", "datetime", "datetime-local", "month",
-          "time", "week", "file"];
+      this._typesThatHaveText = [
+        "date",
+        "datetime",
+        "datetime-local",
+        "month",
+        "time",
+        "week",
+        "file",
+      ];
     },
 
-    attached: function() {
+    attached: function () {
       this._updateAriaLabelledBy();
 
-      if (this.inputElement &&
-          this._typesThatHaveText.indexOf(this.inputElement.type) !== -1) {
+      if (
+        this.inputElement &&
+        this._typesThatHaveText.indexOf(this.inputElement.type) !== -1
+      ) {
         this.alwaysFloatLabel = true;
       }
     },
 
-    _appendStringWithSpace: function(str, more) {
+    _appendStringWithSpace: function (str, more) {
       if (str) {
-        str = str + ' ' + more;
+        str = str + " " + more;
       } else {
         str = more;
       }
       return str;
     },
 
-    _onAddonAttached: function(event) {
+    _onAddonAttached: function (event) {
       var target = event.path ? event.path[0] : event.target;
       if (target.id) {
-        this._ariaDescribedBy = this._appendStringWithSpace(this._ariaDescribedBy, target.id);
+        this._ariaDescribedBy = this._appendStringWithSpace(
+          this._ariaDescribedBy,
+          target.id
+        );
       } else {
-        var id = 'paper-input-add-on-' + Polymer.PaperInputHelper.NextAddonID++;
+        var id = "paper-input-add-on-" + Polymer.PaperInputHelper.NextAddonID++;
         target.id = id;
-        this._ariaDescribedBy = this._appendStringWithSpace(this._ariaDescribedBy, id);
+        this._ariaDescribedBy = this._appendStringWithSpace(
+          this._ariaDescribedBy,
+          id
+        );
       }
     },
 
@@ -439,14 +454,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @return {boolean}
      */
-    validate: function() {
+    validate: function () {
       return this.inputElement.validate();
     },
 
     /**
      * Forward focus to inputElement. Overriden from IronControlState.
      */
-    _focusBlurHandler: function(event) {
+    _focusBlurHandler: function (event) {
       Polymer.IronControlState._focusBlurHandler.call(this, event);
 
       // Forward the focus to the nested input.
@@ -459,12 +474,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @param {CustomEvent} event A key combination event.
      */
-    _onShiftTabDown: function(event) {
-      var oldTabIndex = this.getAttribute('tabindex');
+    _onShiftTabDown: function (event) {
+      var oldTabIndex = this.getAttribute("tabindex");
       this._shiftTabPressed = true;
-      this.setAttribute('tabindex', '-1');
-      this.async(function() {
-        this.setAttribute('tabindex', oldTabIndex);
+      this.setAttribute("tabindex", "-1");
+      this.async(function () {
+        this.setAttribute("tabindex", oldTabIndex);
         this._shiftTabPressed = false;
       }, 1);
     },
@@ -472,16 +487,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /**
      * If `autoValidate` is true, then validates the element.
      */
-    _handleAutoValidate: function() {
-      if (this.autoValidate)
-        this.validate();
+    _handleAutoValidate: function () {
+      if (this.autoValidate) this.validate();
     },
 
     /**
      * Restores the cursor to its original position after updating the value.
      * @param {string} newValue The value that should be saved.
      */
-    updateValueAndPreserveCaret: function(newValue) {
+    updateValueAndPreserveCaret: function (newValue) {
       // Not all elements might have selection, and even if they have the
       // right properties, accessing them might throw an exception (like for
       // <input type=number>)
@@ -499,47 +513,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _computeAlwaysFloatLabel: function(alwaysFloatLabel, placeholder) {
+    _computeAlwaysFloatLabel: function (alwaysFloatLabel, placeholder) {
       return placeholder || alwaysFloatLabel;
     },
 
-    _updateAriaLabelledBy: function() {
-      var label = Polymer.dom(this.root).querySelector('label');
+    _updateAriaLabelledBy: function () {
+      var label = Polymer.dom(this.root).querySelector("label");
       if (!label) {
-        this._ariaLabelledBy = '';
+        this._ariaLabelledBy = "";
         return;
       }
       var labelledBy;
       if (label.id) {
         labelledBy = label.id;
       } else {
-        labelledBy = 'paper-input-label-' + Polymer.PaperInputHelper.NextLabelID++;
+        labelledBy =
+          "paper-input-label-" + Polymer.PaperInputHelper.NextLabelID++;
         label.id = labelledBy;
       }
       this._ariaLabelledBy = labelledBy;
     },
 
-    _onChange:function(event) {
+    _onChange: function (event) {
       // In the Shadow DOM, the `change` event is not leaked into the
       // ancestor tree, so we must do this manually.
       // See https://w3c.github.io/webcomponents/spec/shadow/#events-that-are-not-leaked-into-ancestor-trees.
       if (this.shadowRoot) {
-        this.fire(event.type, {sourceEvent: event}, {
-          node: this,
-          bubbles: event.bubbles,
-          cancelable: event.cancelable
-        });
+        this.fire(
+          event.type,
+          { sourceEvent: event },
+          {
+            node: this,
+            bubbles: event.bubbles,
+            cancelable: event.cancelable,
+          }
+        );
       }
     },
 
-    _autofocusChanged: function() {
+    _autofocusChanged: function () {
       // Firefox doesn't respect the autofocus attribute if it's applied after
       // the page is loaded (Chrome/WebKit do respect it), preventing an
       // autofocus attribute specified in markup from taking effect when the
       // element is upgraded. As a workaround, if the autofocus property is set,
       // and the focus hasn't already been moved elsewhere, we take focus.
       if (this.autofocus && this._focusableElement) {
-
         // In IE 11, the default document.activeElement can be the page's
         // outermost html element, but there are also cases (under the
         // polyfill?) in which the activeElement is not a real HTMLElement, but
@@ -549,21 +567,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var isActiveElementValid = activeElement instanceof HTMLElement;
 
         // Has some other element has already taken the focus?
-        var isSomeElementActive = isActiveElementValid &&
-            activeElement !== document.body &&
-            activeElement !== document.documentElement; /* IE 11 */
+        var isSomeElementActive =
+          isActiveElementValid &&
+          activeElement !== document.body &&
+          activeElement !== document.documentElement; /* IE 11 */
         if (!isSomeElementActive) {
           // No specific element has taken the focus yet, so we can take it.
           this._focusableElement.focus();
         }
       }
-    }
+    },
   };
 
   /** @polymerBehavior */
   Polymer.PaperInputBehavior = [
     Polymer.IronControlState,
     Polymer.IronA11yKeysBehavior,
-    Polymer.PaperInputBehaviorImpl
+    Polymer.PaperInputBehaviorImpl,
   ];
 </script>

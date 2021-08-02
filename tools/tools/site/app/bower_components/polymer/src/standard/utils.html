@@ -8,13 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../lib/async.html">
-<link rel="import" href="../lib/debounce.html">
+<link rel="import" href="../lib/async.html" />
+<link rel="import" href="../lib/debounce.html" />
 
 <script>
-
   Polymer.Base._addFeature({
-
     /**
      * Convenience method to run `querySelector` on this local DOM scope.
      *
@@ -24,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {string} slctr Selector to run on this local DOM scope
      * @return {Element} Element found by the selector, or null if not found.
      */
-    $$: function(slctr) {
+    $$: function (slctr) {
       return Polymer.dom(this.root).querySelector(slctr);
     },
 
@@ -37,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *    When unspecified, the state of the class will be reversed.
      * @param {HTMLElement=} node Node to target.  Defaults to `this`.
      */
-    toggleClass: function(name, bool, node) {
+    toggleClass: function (name, bool, node) {
       node = node || this;
       if (arguments.length == 1) {
         bool = !node.classList.contains(name);
@@ -58,13 +56,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *    When unspecified, the state of the attribute will be reversed.
      * @param {HTMLElement=} node Node to target.  Defaults to `this`.
      */
-    toggleAttribute: function(name, bool, node) {
+    toggleAttribute: function (name, bool, node) {
       node = node || this;
       if (arguments.length == 1) {
         bool = !node.hasAttribute(name);
       }
       if (bool) {
-        Polymer.dom(node).setAttribute(name, '');
+        Polymer.dom(node).setAttribute(name, "");
       } else {
         Polymer.dom(node).removeAttribute(name);
       }
@@ -78,7 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {HTMLElement} toElement New element to add the class to.
      * @param {HTMLElement} fromElement Old element to remove the class from.
      */
-    classFollows: function(name, toElement, fromElement) {
+    classFollows: function (name, toElement, fromElement) {
       if (fromElement) {
         Polymer.dom(fromElement).classList.remove(name);
       }
@@ -95,12 +93,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {HTMLElement} toElement New element to add the attribute to.
      * @param {HTMLElement} fromElement Old element to remove the attribute from.
      */
-    attributeFollows: function(name, toElement, fromElement) {
+    attributeFollows: function (name, toElement, fromElement) {
       if (fromElement) {
         Polymer.dom(fromElement).removeAttribute(name);
       }
       if (toElement) {
-        Polymer.dom(toElement).setAttribute(name, '');
+        Polymer.dom(toElement).setAttribute(name, "");
       }
     },
 
@@ -113,7 +111,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method getEffectiveChildNodes
      * @return {Array<Node>} List of effctive child nodes.
      */
-    getEffectiveChildNodes: function() {
+    getEffectiveChildNodes: function () {
       return Polymer.dom(this).getEffectiveChildNodes();
     },
 
@@ -126,10 +124,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method getEffectiveChildren
      * @return {Array<Node>} List of effctive children.
      */
-    getEffectiveChildren: function() {
+    getEffectiveChildren: function () {
       var list = Polymer.dom(this).getEffectiveChildNodes();
-      return list.filter(function(n) {
-        return (n.nodeType === Node.ELEMENT_NODE);
+      return list.filter(function (n) {
+        return n.nodeType === Node.ELEMENT_NODE;
       });
     },
 
@@ -141,23 +139,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method getEffectiveTextContent
      * @return {Array<Node>} List of effctive children.
      */
-    getEffectiveTextContent: function() {
+    getEffectiveTextContent: function () {
       var cn = this.getEffectiveChildNodes();
       var tc = [];
-      for (var i=0, c; (c = cn[i]); i++) {
+      for (var i = 0, c; (c = cn[i]); i++) {
         if (c.nodeType !== Node.COMMENT_NODE) {
           tc.push(Polymer.dom(c).textContent);
         }
       }
-      return tc.join('');
+      return tc.join("");
     },
 
-    queryEffectiveChildren: function(slctr) {
+    queryEffectiveChildren: function (slctr) {
       var e$ = Polymer.dom(this).queryDistributedElements(slctr);
       return e$ && e$[0];
     },
 
-    queryAllEffectiveChildren: function(slctr) {
+    queryAllEffectiveChildren: function (slctr) {
       return Polymer.dom(this).queryDistributedElements(slctr);
     },
 
@@ -172,8 +170,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *   `<content>`.  Defaults to `content`.
      * @return {Array<Node>} List of distributed nodes for the `<content>`.
      */
-    getContentChildNodes: function(slctr) {
-      var content = Polymer.dom(this.root).querySelector(slctr || 'content');
+    getContentChildNodes: function (slctr) {
+      var content = Polymer.dom(this.root).querySelector(slctr || "content");
       return content ? Polymer.dom(content).getDistributedNodes() : [];
     },
 
@@ -192,12 +190,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {Array<HTMLElement>} List of distributed nodes for the
      *   `<content>`.
      */
-    getContentChildren: function(slctr) {
-      return this.getContentChildNodes(slctr).filter(function(n) {
-        return (n.nodeType === Node.ELEMENT_NODE);
+    getContentChildren: function (slctr) {
+      return this.getContentChildNodes(slctr).filter(function (n) {
+        return n.nodeType === Node.ELEMENT_NODE;
       });
     },
-
 
     /**
      * Dispatches a custom event with an optional detail value.
@@ -212,10 +209,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *  `node` on which to fire the event (HTMLElement, defaults to `this`).
      * @return {CustomEvent} The new event that was fired.
      */
-    fire: function(type, detail, options) {
+    fire: function (type, detail, options) {
       options = options || Polymer.nob;
       var node = options.node || this;
-      detail = (detail === null || detail === undefined) ? {} : detail;
+      detail = detail === null || detail === undefined ? {} : detail;
       var bubbles = options.bubbles === undefined ? true : options.bubbles;
       var cancelable = Boolean(options.cancelable);
       var useCache = options._useCache;
@@ -238,18 +235,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // `stopPropagation` called on them. On Chrome and Safari (but not FF)
     // if `stopPropagation` is called, the event cannot be reused. It does not
     // dispatch again.
-    _getEvent: function(type, bubbles, cancelable, useCache) {
+    _getEvent: function (type, bubbles, cancelable, useCache) {
       var event = useCache && this.__eventCache[type];
-      if (!event || ((event.bubbles != bubbles) ||
-          (event.cancelable != cancelable))) {
+      if (
+        !event ||
+        event.bubbles != bubbles ||
+        event.cancelable != cancelable
+      ) {
         event = new Event(type, {
           bubbles: Boolean(bubbles),
-          cancelable: cancelable
+          cancelable: cancelable,
         });
       }
       return event;
     },
-
 
     /**
      * Runs a callback function asyncronously.
@@ -264,9 +263,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *   timing (before paint).
      * @return {number} Handle that may be used to cancel the async job.
      */
-    async: function(callback, waitTime) {
+    async: function (callback, waitTime) {
       var self = this;
-      return Polymer.Async.run(function() {
+      return Polymer.Async.run(function () {
         callback.call(self);
       }, waitTime);
     },
@@ -278,7 +277,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {number} handle Handle returned from original `async` call to
      *   cancel.
      */
-    cancelAsync: function(handle) {
+    cancelAsync: function (handle) {
       Polymer.Async.cancel(handle);
     },
 
@@ -298,7 +297,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {any} item Item to remove.
      * @return {Array} Array containing item removed.
      */
-    arrayDelete: function(path, item) {
+    arrayDelete: function (path, item) {
       var index;
       if (Array.isArray(path)) {
         index = path.indexOf(item);
@@ -322,7 +321,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {HTMLElement=} node Element to apply the transform to.
      * Defaults to `this`
      */
-    transform: function(transform, node) {
+    transform: function (transform, node) {
       node = node || this;
       node.style.webkitTransform = transform;
       node.style.transform = transform;
@@ -339,9 +338,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {HTMLElement=} node Element to apply the transform to.
      * Defaults to `this`.
      */
-    translate3d: function(x, y, z, node) {
+    translate3d: function (x, y, z, node) {
       node = node || this;
-      this.transform('translate3d(' + x + ',' + y + ',' + z + ')', node);
+      this.transform("translate3d(" + x + "," + y + "," + z + ")", node);
     },
 
     /**
@@ -362,26 +361,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *   Defaults to `false`.
      * @return {HTMLLinkElement} The link element for the URL to be loaded.
      */
-    importHref: function(href, onload, onerror, optAsync) {
-      var l = document.createElement('link');
-      l.rel = 'import';
+    importHref: function (href, onload, onerror, optAsync) {
+      var l = document.createElement("link");
+      l.rel = "import";
       l.href = href;
 
       optAsync = Boolean(optAsync);
       if (optAsync) {
-        l.setAttribute('async', '');
+        l.setAttribute("async", "");
       }
 
       var self = this;
       if (onload) {
-        l.onload = function(e) {
+        l.onload = function (e) {
           return onload.call(self, e);
-        }
+        };
       }
       if (onerror) {
-        l.onerror = function(e) {
+        l.onerror = function (e) {
           return onerror.call(self, e);
-        }
+        };
       }
       document.head.appendChild(l);
       return l;
@@ -396,7 +395,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *    instance.
      * @return {Element} Newly created and configured element.
      */
-    create: function(tag, props) {
+    create: function (tag, props) {
       var elt = document.createElement(tag);
       if (props) {
         for (var n in props) {
@@ -413,9 +412,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {?Node} node The element to be checked.
      * @return {Boolean} true if node is in this element's light DOM tree.
      */
-    isLightDescendant: function(node) {
-      return this !== node && this.contains(node) &&
-          Polymer.dom(this).getOwnerRoot() === Polymer.dom(node).getOwnerRoot();
+    isLightDescendant: function (node) {
+      return (
+        this !== node &&
+        this.contains(node) &&
+        Polymer.dom(this).getOwnerRoot() === Polymer.dom(node).getOwnerRoot()
+      );
     },
 
     /**
@@ -425,10 +427,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {HTMLElement=} node The element to be checked.
      * @return {Boolean} true if node is in this element's local DOM tree.
      */
-    isLocalDescendant: function(node) {
+    isLocalDescendant: function (node) {
       return this.root === Polymer.dom(node).getOwnerRoot();
-    }
-
+    },
   });
-
 </script>

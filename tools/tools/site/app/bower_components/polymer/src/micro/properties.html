@@ -8,7 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   /**
    * Define property metadata.
    *
@@ -57,7 +56,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   Polymer.nob = Object.create(null);
 
   Polymer.Base._addFeature({
-
     /*
      * Object containing property configuration data, where keys are property
      * names and values are descriptor objects that configure Polymer features
@@ -91,8 +89,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Note: a shorthand may be used for the object descriptor when only the
      * type needs to be specified by using the type as the descriptor directly.
      */
-    properties: {
-    },
+    properties: {},
 
     /**
      * Returns a property descriptor object for the property specified.
@@ -104,14 +101,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method getPropertyInfo
      * @param {string} property Name of property to introspect.
      * @return {Object} Property descriptor for specified property.
-    */
+     */
     // TODO(sorvell): This function returns the first property object found
     // and this is not the property info Polymer acts on for readOnly or type
     // This api should be combined with _propertyInfo.
-    getPropertyInfo: function(property) {
+    getPropertyInfo: function (property) {
       var info = this._getPropertyInfo(property, this.properties);
       if (!info) {
-        for (var i=0; i < this.behaviors.length; i++) {
+        for (var i = 0; i < this.behaviors.length; i++) {
           info = this._getPropertyInfo(property, this.behaviors[i].properties);
           if (info) {
             return info;
@@ -121,11 +118,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return info || Polymer.nob;
     },
 
-    _getPropertyInfo: function(property, properties) {
+    _getPropertyInfo: function (property, properties) {
       var p = properties && properties[property];
-      if (typeof(p) === 'function') {
+      if (typeof p === "function") {
         p = properties[property] = {
-          type: p
+          type: p,
         };
       }
       // Let users determine whether property was defined without null check
@@ -136,9 +133,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     // union properties, behaviors.properties, and propertyEffects
-    _prepPropertyInfo: function() {
+    _prepPropertyInfo: function () {
       this._propertyInfo = {};
-      for (var i=0; i < this.behaviors.length; i++) {
+      for (var i = 0; i < this.behaviors.length; i++) {
         this._addPropertyInfo(this._propertyInfo, this.behaviors[i].properties);
       }
       this._addPropertyInfo(this._propertyInfo, this.properties);
@@ -146,7 +143,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     // list of propertyInfo with {readOnly, type, attribute}
-    _addPropertyInfo: function(target, source) {
+    _addPropertyInfo: function (target, source) {
       if (source) {
         var t, s;
         for (var i in source) {
@@ -155,15 +152,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // optimization: avoid info'ing properties that are protected and
           // not read only since they are not needed for attributes or
           // configuration.
-          if (i[0] === '_' && !s.readOnly) {
+          if (i[0] === "_" && !s.readOnly) {
             continue;
           }
           if (!target[i]) {
             target[i] = {
-              type: typeof(s) === 'function' ? s : s.type,
+              type: typeof s === "function" ? s : s.type,
               readOnly: s.readOnly,
-              attribute: Polymer.CaseMap.camelToDashCase(i)
-            }
+              attribute: Polymer.CaseMap.camelToDashCase(i),
+            };
           } else {
             if (!t.type) {
               t.type = s.type;
@@ -174,8 +171,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
         }
       }
-    }
-
+    },
   });
-
 </script>

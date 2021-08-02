@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/iron-validatable-behavior.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-validatable-behavior)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-validatable-behavior)_
-
 
 ##Polymer.IronValidatableBehavior
 
@@ -38,5 +36,3 @@ for an example.
 
 Changing the `invalid` property, either manually or by calling `validate()` will update the
 `aria-invalid` attribute.
-
-

@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-pages)_
 
-
 ##&lt;iron-pages&gt;
 
 `iron-pages` is used to select one of its children to show. One use is to cycle through a list of
@@ -32,11 +30,9 @@ Example:
 </iron-pages>
 
 <script>
-  document.addEventListener('click', function(e) {
-    var pages = document.querySelector('iron-pages');
+  document.addEventListener("click", function (e) {
+    var pages = document.querySelector("iron-pages");
     pages.selectNext();
   });
 </script>
 ```
-
-

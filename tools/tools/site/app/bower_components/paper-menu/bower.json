@@ -3,15 +3,8 @@
   "version": "1.2.2",
   "description": "Implements an accessible material design menu",
   "authors": "The Polymer Authors",
-  "keywords": [
-    "web-components",
-    "polymer",
-    "menu"
-  ],
-  "main": [
-    "paper-menu.html",
-    "paper-submenu.html"
-  ],
+  "keywords": ["web-components", "polymer", "menu"],
+  "main": ["paper-menu.html", "paper-submenu.html"],
   "private": true,
   "repository": {
     "type": "git",

@@ -8,36 +8,30 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="neon-animatable-behavior.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="neon-animatable-behavior.html" />
 
 <script>
-
   /**
    * Use `Polymer.NeonSharedElementAnimatableBehavior` to implement elements containing shared element
    * animations.
    * @polymerBehavior Polymer.NeonSharedElementAnimatableBehavior
    */
   Polymer.NeonSharedElementAnimatableBehaviorImpl = {
-
     properties: {
-
       /**
        * A map of shared element id to node.
        */
       sharedElements: {
         type: Object,
-        value: {}
-      }
-
-    }
-
+        value: {},
+      },
+    },
   };
 
   /** @polymerBehavior Polymer.NeonSharedElementAnimatableBehavior */
   Polymer.NeonSharedElementAnimatableBehavior = [
     Polymer.NeonAnimatableBehavior,
-    Polymer.NeonSharedElementAnimatableBehaviorImpl
+    Polymer.NeonSharedElementAnimatableBehaviorImpl,
   ];
-
 </script>

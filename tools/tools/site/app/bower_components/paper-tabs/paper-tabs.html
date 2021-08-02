@@ -8,15 +8,18 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-menu-behavior/iron-menubar-behavior.html">
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../paper-styles/color.html">
-<link rel="import" href="paper-tabs-icons.html">
-<link rel="import" href="paper-tab.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../iron-icon/iron-icon.html" />
+<link rel="import" href="../iron-menu-behavior/iron-menubar-behavior.html" />
+<link
+  rel="import"
+  href="../iron-resizable-behavior/iron-resizable-behavior.html"
+/>
+<link rel="import" href="../paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="../paper-styles/color.html" />
+<link rel="import" href="paper-tabs-icons.html" />
+<link rel="import" href="paper-tab.html" />
 
 <!--
 Material design: [Tabs](https://www.google.com/design/spec/components/tabs.html)
@@ -99,8 +102,8 @@ Custom property | Description | Default
   <template>
     <style>
       :host {
-        @apply(--layout);
-        @apply(--layout-center);
+        @apply (--layout);
+        @apply (--layout-center);
 
         height: 48px;
         font-size: 14px;
@@ -115,11 +118,11 @@ Custom property | Description | Default
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-tap-highlight-color: transparent;
 
-        @apply(--paper-tabs);
+        @apply (--paper-tabs);
       }
 
-      :host-context([dir=rtl]) {
-        @apply(--layout-horizontal-reverse);
+      :host-context([dir="rtl"]) {
+        @apply (--layout-horizontal-reverse);
       }
 
       #tabsContainer {
@@ -127,8 +130,8 @@ Custom property | Description | Default
         height: 100%;
         white-space: nowrap;
         overflow: hidden;
-        @apply(--layout-flex-auto);
-        @apply(--paper-tabs-container);
+        @apply (--layout-flex-auto);
+        @apply (--paper-tabs-container);
       }
 
       #tabsContent {
@@ -136,7 +139,7 @@ Custom property | Description | Default
         -moz-flex-basis: auto;
         -ms-flex-basis: auto;
         flex-basis: auto;
-        @apply(--paper-tabs-content);
+        @apply (--paper-tabs-content);
       }
 
       #tabsContent.scrollable {
@@ -146,7 +149,7 @@ Custom property | Description | Default
 
       #tabsContent:not(.scrollable),
       #tabsContent.scrollable.fit-container {
-        @apply(--layout-horizontal);
+        @apply (--layout-horizontal);
       }
 
       #tabsContent.scrollable.fit-container {
@@ -182,15 +185,16 @@ Custom property | Description | Default
         bottom: 0;
         left: 0;
         right: 0;
-        border-bottom: 2px solid var(--paper-tabs-selection-bar-color, --paper-yellow-a100);
-          -webkit-transform: scale(0);
+        border-bottom: 2px solid
+          var(--paper-tabs-selection-bar-color, --paper-yellow-a100);
+        -webkit-transform: scale(0);
         transform: scale(0);
-          -webkit-transform-origin: left center;
+        -webkit-transform-origin: left center;
         transform-origin: left center;
-          transition: -webkit-transform;
+        transition: -webkit-transform;
         transition: transform;
 
-        @apply(--paper-tabs-selection-bar);
+        @apply (--paper-tabs-selection-bar);
       }
 
       #selectionBar.align-bottom {
@@ -200,12 +204,12 @@ Custom property | Description | Default
 
       #selectionBar.expand {
         transition-duration: 0.15s;
-        transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
+        transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
       }
 
       #selectionBar.contract {
         transition-duration: 0.18s;
-        transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+        transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
       }
 
       #tabsContent > ::content > *:not(#selectionBar) {
@@ -213,28 +217,42 @@ Custom property | Description | Default
       }
     </style>
 
-    <paper-icon-button icon="paper-tabs:chevron-left" class$="[[_computeScrollButtonClass(_leftHidden, scrollable, hideScrollButtons)]]" on-up="_onScrollButtonUp" on-down="_onLeftScrollButtonDown" tabindex="-1"></paper-icon-button>
+    <paper-icon-button
+      icon="paper-tabs:chevron-left"
+      class$="[[_computeScrollButtonClass(_leftHidden, scrollable, hideScrollButtons)]]"
+      on-up="_onScrollButtonUp"
+      on-down="_onLeftScrollButtonDown"
+      tabindex="-1"
+    ></paper-icon-button>
 
     <div id="tabsContainer" on-track="_scroll" on-down="_down">
-      <div id="tabsContent" class$="[[_computeTabsContentClass(scrollable, fitContainer)]]">
-        <div id="selectionBar" class$="[[_computeSelectionBarClass(noBar, alignBottom)]]"
-            on-transitionend="_onBarTransitionEnd"></div>
+      <div
+        id="tabsContent"
+        class$="[[_computeTabsContentClass(scrollable, fitContainer)]]"
+      >
+        <div
+          id="selectionBar"
+          class$="[[_computeSelectionBarClass(noBar, alignBottom)]]"
+          on-transitionend="_onBarTransitionEnd"
+        ></div>
         <content select="*"></content>
       </div>
     </div>
 
-    <paper-icon-button icon="paper-tabs:chevron-right" class$="[[_computeScrollButtonClass(_rightHidden, scrollable, hideScrollButtons)]]" on-up="_onScrollButtonUp" on-down="_onRightScrollButtonDown" tabindex="-1"></paper-icon-button>
-
+    <paper-icon-button
+      icon="paper-tabs:chevron-right"
+      class$="[[_computeScrollButtonClass(_rightHidden, scrollable, hideScrollButtons)]]"
+      on-up="_onScrollButtonUp"
+      on-down="_onRightScrollButtonDown"
+      tabindex="-1"
+    ></paper-icon-button>
   </template>
 
   <script>
     Polymer({
-      is: 'paper-tabs',
+      is: "paper-tabs",
 
-      behaviors: [
-        Polymer.IronResizableBehavior,
-        Polymer.IronMenubarBehavior
-      ],
+      behaviors: [Polymer.IronResizableBehavior, Polymer.IronMenubarBehavior],
 
       properties: {
         /**
@@ -245,7 +263,7 @@ Custom property | Description | Default
         noink: {
           type: Boolean,
           value: false,
-          observer: '_noinkChanged'
+          observer: "_noinkChanged",
         },
 
         /**
@@ -253,7 +271,7 @@ Custom property | Description | Default
          */
         noBar: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -261,7 +279,7 @@ Custom property | Description | Default
          */
         noSlide: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -269,7 +287,7 @@ Custom property | Description | Default
          */
         scrollable: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -278,7 +296,7 @@ Custom property | Description | Default
          */
         fitContainer: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -286,7 +304,7 @@ Custom property | Description | Default
          */
         disableDrag: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -294,7 +312,7 @@ Custom property | Description | Default
          */
         hideScrollButtons: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -302,12 +320,12 @@ Custom property | Description | Default
          */
         alignBottom: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         selectable: {
           type: String,
-          value: 'paper-tab'
+          value: "paper-tab",
         },
 
         /**
@@ -316,7 +334,7 @@ Custom property | Description | Default
          */
         autoselect: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         /**
@@ -326,128 +344,145 @@ Custom property | Description | Default
          */
         autoselectDelay: {
           type: Number,
-          value: 0
+          value: 0,
         },
 
         _step: {
           type: Number,
-          value: 10
+          value: 10,
         },
 
         _holdDelay: {
           type: Number,
-          value: 1
+          value: 1,
         },
 
         _leftHidden: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         _rightHidden: {
           type: Boolean,
-          value: false
+          value: false,
         },
 
         _previousTab: {
-          type: Object
-        }
+          type: Object,
+        },
       },
 
       hostAttributes: {
-        role: 'tablist'
+        role: "tablist",
       },
 
       listeners: {
-        'iron-resize': '_onTabSizingChanged',
-        'iron-items-changed': '_onTabSizingChanged',
-        'iron-select': '_onIronSelect',
-        'iron-deselect': '_onIronDeselect'
+        "iron-resize": "_onTabSizingChanged",
+        "iron-items-changed": "_onTabSizingChanged",
+        "iron-select": "_onIronSelect",
+        "iron-deselect": "_onIronDeselect",
       },
 
       keyBindings: {
-        'left:keyup right:keyup': '_onArrowKeyup'
+        "left:keyup right:keyup": "_onArrowKeyup",
       },
 
-      created: function() {
+      created: function () {
         this._holdJob = null;
         this._pendingActivationItem = undefined;
         this._pendingActivationTimeout = undefined;
-        this._bindDelayedActivationHandler = this._delayedActivationHandler.bind(this);
-        this.addEventListener('blur', this._onBlurCapture.bind(this), true);
+        this._bindDelayedActivationHandler =
+          this._delayedActivationHandler.bind(this);
+        this.addEventListener("blur", this._onBlurCapture.bind(this), true);
       },
 
-      ready: function() {
-        this.setScrollDirection('y', this.$.tabsContainer);
+      ready: function () {
+        this.setScrollDirection("y", this.$.tabsContainer);
       },
 
-      detached: function() {
+      detached: function () {
         this._cancelPendingActivation();
       },
 
-      _noinkChanged: function(noink) {
-        var childTabs = Polymer.dom(this).querySelectorAll('paper-tab');
-        childTabs.forEach(noink ? this._setNoinkAttribute : this._removeNoinkAttribute);
+      _noinkChanged: function (noink) {
+        var childTabs = Polymer.dom(this).querySelectorAll("paper-tab");
+        childTabs.forEach(
+          noink ? this._setNoinkAttribute : this._removeNoinkAttribute
+        );
       },
 
-      _setNoinkAttribute: function(element) {
-        element.setAttribute('noink', '');
+      _setNoinkAttribute: function (element) {
+        element.setAttribute("noink", "");
       },
 
-      _removeNoinkAttribute: function(element) {
-        element.removeAttribute('noink');
+      _removeNoinkAttribute: function (element) {
+        element.removeAttribute("noink");
       },
 
-      _computeScrollButtonClass: function(hideThisButton, scrollable, hideScrollButtons) {
+      _computeScrollButtonClass: function (
+        hideThisButton,
+        scrollable,
+        hideScrollButtons
+      ) {
         if (!scrollable || hideScrollButtons) {
-          return 'hidden';
+          return "hidden";
         }
 
         if (hideThisButton) {
-          return 'not-visible';
+          return "not-visible";
         }
 
-        return '';
+        return "";
       },
 
-      _computeTabsContentClass: function(scrollable, fitContainer) {
-        return scrollable ? 'scrollable' + (fitContainer ? ' fit-container' : '') : ' fit-container';
+      _computeTabsContentClass: function (scrollable, fitContainer) {
+        return scrollable
+          ? "scrollable" + (fitContainer ? " fit-container" : "")
+          : " fit-container";
       },
 
-      _computeSelectionBarClass: function(noBar, alignBottom) {
+      _computeSelectionBarClass: function (noBar, alignBottom) {
         if (noBar) {
-          return 'hidden';
+          return "hidden";
         } else if (alignBottom) {
-          return 'align-bottom';
+          return "align-bottom";
         }
 
-        return '';
+        return "";
       },
 
       // TODO(cdata): Add `track` response back in when gesture lands.
 
-      _onTabSizingChanged: function() {
-        this.debounce('_onTabSizingChanged', function() {
-          this._scroll();
-          this._tabChanged(this.selectedItem);
-        }, 10);
+      _onTabSizingChanged: function () {
+        this.debounce(
+          "_onTabSizingChanged",
+          function () {
+            this._scroll();
+            this._tabChanged(this.selectedItem);
+          },
+          10
+        );
       },
 
-      _onIronSelect: function(event) {
+      _onIronSelect: function (event) {
         this._tabChanged(event.detail.item, this._previousTab);
         this._previousTab = event.detail.item;
-        this.cancelDebouncer('tab-changed');
+        this.cancelDebouncer("tab-changed");
       },
 
-      _onIronDeselect: function(event) {
-        this.debounce('tab-changed', function() {
-          this._tabChanged(null, this._previousTab);
-          this._previousTab = null;
-        // See polymer/polymer#1305
-        }, 1);
+      _onIronDeselect: function (event) {
+        this.debounce(
+          "tab-changed",
+          function () {
+            this._tabChanged(null, this._previousTab);
+            this._previousTab = null;
+            // See polymer/polymer#1305
+          },
+          1
+        );
       },
 
-      _activateHandler: function() {
+      _activateHandler: function () {
         // Cancel item activations scheduled by keyboard events when any other
         // action causes an item to be activated (e.g. clicks).
         this._cancelPendingActivation();
@@ -458,22 +493,24 @@ Custom property | Description | Default
       /**
        * Activates an item after a delay (in milliseconds).
        */
-      _scheduleActivation: function(item, delay) {
+      _scheduleActivation: function (item, delay) {
         this._pendingActivationItem = item;
         this._pendingActivationTimeout = this.async(
-            this._bindDelayedActivationHandler, delay);
+          this._bindDelayedActivationHandler,
+          delay
+        );
       },
 
       /**
        * Activates the last item given to `_scheduleActivation`.
        */
-      _delayedActivationHandler: function() {
+      _delayedActivationHandler: function () {
         var item = this._pendingActivationItem;
         this._pendingActivationItem = undefined;
         this._pendingActivationTimeout = undefined;
         item.fire(this.activateEvent, null, {
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         });
       },
 
@@ -481,7 +518,7 @@ Custom property | Description | Default
        * Cancels a previously scheduled item activation made with
        * `_scheduleActivation`.
        */
-      _cancelPendingActivation: function() {
+      _cancelPendingActivation: function () {
         if (this._pendingActivationTimeout !== undefined) {
           this.cancelAsync(this._pendingActivationTimeout);
           this._pendingActivationItem = undefined;
@@ -489,13 +526,13 @@ Custom property | Description | Default
         }
       },
 
-      _onArrowKeyup: function(event) {
+      _onArrowKeyup: function (event) {
         if (this.autoselect) {
           this._scheduleActivation(this.focusedItem, this.autoselectDelay);
         }
       },
 
-      _onBlurCapture: function(event) {
+      _onBlurCapture: function (event) {
         // Cancel a scheduled item activation (if any) when that item is
         // blurred.
         if (event.target === this._pendingActivationItem) {
@@ -503,15 +540,14 @@ Custom property | Description | Default
         }
       },
 
-      get _tabContainerScrollSize () {
+      get _tabContainerScrollSize() {
         return Math.max(
           0,
-          this.$.tabsContainer.scrollWidth -
-            this.$.tabsContainer.offsetWidth
+          this.$.tabsContainer.scrollWidth - this.$.tabsContainer.offsetWidth
         );
       },
 
-      _scroll: function(e, detail) {
+      _scroll: function (e, detail) {
         if (!this.scrollable) {
           return;
         }
@@ -520,10 +556,10 @@ Custom property | Description | Default
         this._affectScroll(ddx);
       },
 
-      _down: function(e) {
+      _down: function (e) {
         // go one beat async to defeat IronMenuBehavior
         // autorefocus-on-no-selection timeout
-        this.async(function() {
+        this.async(function () {
           if (this._defaultFocusAsync) {
             this.cancelAsync(this._defaultFocusAsync);
             this._defaultFocusAsync = null;
@@ -531,7 +567,7 @@ Custom property | Description | Default
         }, 1);
       },
 
-      _affectScroll: function(dx) {
+      _affectScroll: function (dx) {
         this.$.tabsContainer.scrollLeft += dx;
 
         var scrollLeft = this.$.tabsContainer.scrollLeft;
@@ -540,34 +576,40 @@ Custom property | Description | Default
         this._rightHidden = scrollLeft === this._tabContainerScrollSize;
       },
 
-      _onLeftScrollButtonDown: function() {
+      _onLeftScrollButtonDown: function () {
         this._scrollToLeft();
-        this._holdJob = setInterval(this._scrollToLeft.bind(this), this._holdDelay);
+        this._holdJob = setInterval(
+          this._scrollToLeft.bind(this),
+          this._holdDelay
+        );
       },
 
-      _onRightScrollButtonDown: function() {
+      _onRightScrollButtonDown: function () {
         this._scrollToRight();
-        this._holdJob = setInterval(this._scrollToRight.bind(this), this._holdDelay);
+        this._holdJob = setInterval(
+          this._scrollToRight.bind(this),
+          this._holdDelay
+        );
       },
 
-      _onScrollButtonUp: function() {
+      _onScrollButtonUp: function () {
         clearInterval(this._holdJob);
         this._holdJob = null;
       },
 
-      _scrollToLeft: function() {
+      _scrollToLeft: function () {
         this._affectScroll(-this._step);
       },
 
-      _scrollToRight: function() {
+      _scrollToRight: function () {
         this._affectScroll(this._step);
       },
 
-      _tabChanged: function(tab, old) {
+      _tabChanged: function (tab, old) {
         if (!tab) {
           // Remove the bar without animation.
-          this.$.selectionBar.classList.remove('expand');
-          this.$.selectionBar.classList.remove('contract');
+          this.$.selectionBar.classList.remove("expand");
+          this.$.selectionBar.classList.remove("contract");
           this._positionBar(0, 0);
           return;
         }
@@ -579,13 +621,13 @@ Custom property | Description | Default
 
         this._pos = {
           width: this._calcPercent(tabRect.width, w),
-          left: this._calcPercent(tabOffsetLeft, w)
+          left: this._calcPercent(tabOffsetLeft, w),
         };
 
         if (this.noSlide || old == null) {
           // Position the bar without animation.
-          this.$.selectionBar.classList.remove('expand');
-          this.$.selectionBar.classList.remove('contract');
+          this.$.selectionBar.classList.remove("expand");
+          this.$.selectionBar.classList.remove("contract");
           this._positionBar(this._pos.width, this._pos.left);
           return;
         }
@@ -596,7 +638,7 @@ Custom property | Description | Default
         var m = 5;
 
         // bar animation: expand
-        this.$.selectionBar.classList.add('expand');
+        this.$.selectionBar.classList.add("expand");
 
         var moveRight = oldIndex < index;
         var isRTL = this._isRTL;
@@ -605,11 +647,17 @@ Custom property | Description | Default
         }
 
         if (moveRight) {
-          this._positionBar(this._calcPercent(tabRect.left + tabRect.width - oldRect.left, w) - m,
-              this._left);
+          this._positionBar(
+            this._calcPercent(tabRect.left + tabRect.width - oldRect.left, w) -
+              m,
+            this._left
+          );
         } else {
-          this._positionBar(this._calcPercent(oldRect.left + oldRect.width - tabRect.left, w) - m,
-              this._calcPercent(tabOffsetLeft, w) + m);
+          this._positionBar(
+            this._calcPercent(oldRect.left + oldRect.width - tabRect.left, w) -
+              m,
+            this._calcPercent(tabOffsetLeft, w) + m
+          );
         }
 
         if (this.scrollable) {
@@ -617,45 +665,46 @@ Custom property | Description | Default
         }
       },
 
-      _scrollToSelectedIfNeeded: function(tabWidth, tabOffsetLeft) {
+      _scrollToSelectedIfNeeded: function (tabWidth, tabOffsetLeft) {
         var l = tabOffsetLeft - this.$.tabsContainer.scrollLeft;
         if (l < 0) {
           this.$.tabsContainer.scrollLeft += l;
         } else {
-          l += (tabWidth - this.$.tabsContainer.offsetWidth);
+          l += tabWidth - this.$.tabsContainer.offsetWidth;
           if (l > 0) {
             this.$.tabsContainer.scrollLeft += l;
           }
         }
       },
 
-      _calcPercent: function(w, w0) {
-        return 100 * w / w0;
+      _calcPercent: function (w, w0) {
+        return (100 * w) / w0;
       },
 
-      _positionBar: function(width, left) {
+      _positionBar: function (width, left) {
         width = width || 0;
         left = left || 0;
 
         this._width = width;
         this._left = left;
         this.transform(
-            'translateX(' + left + '%) scaleX(' + (width / 100) + ')',
-            this.$.selectionBar);
+          "translateX(" + left + "%) scaleX(" + width / 100 + ")",
+          this.$.selectionBar
+        );
       },
 
-      _onBarTransitionEnd: function(e) {
+      _onBarTransitionEnd: function (e) {
         var cl = this.$.selectionBar.classList;
         // bar animation: expand -> contract
-        if (cl.contains('expand')) {
-          cl.remove('expand');
-          cl.add('contract');
+        if (cl.contains("expand")) {
+          cl.remove("expand");
+          cl.add("contract");
           this._positionBar(this._pos.width, this._pos.left);
-        // bar animation done
-        } else if (cl.contains('contract')) {
-          cl.remove('contract');
+          // bar animation done
+        } else if (cl.contains("contract")) {
+          cl.remove("contract");
         }
-      }
+      },
     });
   </script>
 </dom-module>

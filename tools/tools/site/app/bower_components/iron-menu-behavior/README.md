@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,15 +15,10 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-menu-behavior)_
 
-
 ##Polymer.IronMenuBehavior
 
 `Polymer.IronMenuBehavior` implements accessible menu behavior.
 
-
-
 ##Polymer.IronMenubarBehavior
 
 `Polymer.IronMenubarBehavior` implements accessible menubar behavior.
-
-

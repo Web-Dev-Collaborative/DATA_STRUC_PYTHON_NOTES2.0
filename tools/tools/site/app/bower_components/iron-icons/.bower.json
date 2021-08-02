@@ -2,14 +2,8 @@
   "name": "iron-icons",
   "version": "1.2.0",
   "description": "A set of icons for use with iron-icon",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "icon"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "icon"],
   "main": "iron-icons.html",
   "private": true,
   "repository": {
@@ -31,10 +25,7 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "web-component-tester": "^4.0.0"
   },
-  "ignore": [
-    "util",
-    "update-icons.sh"
-  ],
+  "ignore": ["util", "update-icons.sh"],
   "_release": "1.2.0",
   "_resolution": {
     "type": "version",

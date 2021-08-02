@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-goog.provide('claat.ui.cards.Filter');
-goog.provide('claat.ui.cards.Order');
-goog.provide('claat.ui.cards.Sorter');
+goog.provide("claat.ui.cards.Filter");
+goog.provide("claat.ui.cards.Order");
+goog.provide("claat.ui.cards.Sorter");
 
 /**
  * Kiosk tags have special meaning in that the filtering result
@@ -35,11 +35,10 @@ claat.ui.cards.Filter;
  * @enum {string}
  */
 claat.ui.cards.Order = {
-  ALPHA: 'a-z',
-  DURATION: 'duration',
-  RECENT: 'recent',
+  ALPHA: "a-z",
+  DURATION: "duration",
+  RECENT: "recent",
 };
-
 
 /**
  * Cards sorter for index pages.
@@ -47,7 +46,7 @@ claat.ui.cards.Order = {
  * @param {!Element} container Card elements parent.
  * @constructor
  */
-claat.ui.cards.Sorter = function(container) {
+claat.ui.cards.Sorter = function (container) {
   /**
    * Cards sorting order.
    * @private {!claat.ui.cards.Order}
@@ -64,7 +63,7 @@ claat.ui.cards.Sorter = function(container) {
    *
    * @private {claat.ui.cards.Filter}
    */
-  this.filters_ = {tags: []};
+  this.filters_ = { tags: [] };
 
   /**
    * Card elements parent node.
@@ -76,7 +75,7 @@ claat.ui.cards.Sorter = function(container) {
    * Card elements.
    * @private {NodeList}
    */
-  this.cards_ = container.querySelectorAll('.codelab-card');
+  this.cards_ = container.querySelectorAll(".codelab-card");
   this.processCards_();
 };
 
@@ -84,7 +83,7 @@ claat.ui.cards.Sorter = function(container) {
  * Set order mode to o and do the sorting.
  * @param {claat.ui.cards.Order} o
  */
-claat.ui.cards.Sorter.prototype.sort = function(o) {
+claat.ui.cards.Sorter.prototype.sort = function (o) {
   this.order_ = o;
   this.do_();
 };
@@ -93,7 +92,7 @@ claat.ui.cards.Sorter.prototype.sort = function(o) {
  * Resets filters to f.
  * @param {claat.ui.cards.Filter} f
  */
-claat.ui.cards.Sorter.prototype.filter = function(f) {
+claat.ui.cards.Sorter.prototype.filter = function (f) {
   this.filters_.cat = normalizeValue(f.cat);
   this.filters_.text = normalizeValue(f.text);
   this.filters_.tags = cleanStrings(f.tags);
@@ -105,7 +104,7 @@ claat.ui.cards.Sorter.prototype.filter = function(f) {
  * Set category filter.
  * @param {string} cat Category, case-insensitive.
  */
-claat.ui.cards.Sorter.prototype.filterByCategory = function(cat) {
+claat.ui.cards.Sorter.prototype.filterByCategory = function (cat) {
   this.filters_.cat = normalizeValue(cat);
   this.do_();
 };
@@ -114,7 +113,7 @@ claat.ui.cards.Sorter.prototype.filterByCategory = function(cat) {
  * Set description substring filter.
  * @param {string} text A description substring, case-insensitive.
  */
-claat.ui.cards.Sorter.prototype.filterByText = function(text) {
+claat.ui.cards.Sorter.prototype.filterByText = function (text) {
   this.filters_.text = normalizeValue(text);
   this.do_();
 };
@@ -124,7 +123,7 @@ claat.ui.cards.Sorter.prototype.filterByText = function(text) {
  * @param {Array<string>} tags Case-insensitive tags.
  * @param {Array<string>=} opt_kioskTags Case-insensitive kiosk tags.
  */
-claat.ui.cards.Sorter.prototype.filterByTags = function(tags, opt_kioskTags) {
+claat.ui.cards.Sorter.prototype.filterByTags = function (tags, opt_kioskTags) {
   this.filters_.tags = cleanStrings(tags);
   this.filters_.kioskTags = cleanStrings(opt_kioskTags);
   this.do_();
@@ -133,26 +132,26 @@ claat.ui.cards.Sorter.prototype.filterByTags = function(tags, opt_kioskTags) {
 /**
  * Remove all filters.
  */
-claat.ui.cards.Sorter.prototype.clearFilters = function() {
-  this.filter({tags: [], kioskTags: []});
+claat.ui.cards.Sorter.prototype.clearFilters = function () {
+  this.filter({ tags: [], kioskTags: [] });
 };
 
 /**
  * Pre-compute cards properties for faster matching.
  * @private
  */
-claat.ui.cards.Sorter.prototype.processCards_ = function() {
+claat.ui.cards.Sorter.prototype.processCards_ = function () {
   var pin = 0;
   for (var i = 0; i < this.cards_.length; i++) {
     var card = this.cards_[i];
     // filtering
-    card.desc = (card.dataset['title'] || '').trim().toLowerCase();
-    card.cats = cleanStrings((card.dataset['category'] || '').split(','));
-    card.tags = cleanStrings((card.dataset['tags'] || '').split(','));
+    card.desc = (card.dataset["title"] || "").trim().toLowerCase();
+    card.cats = cleanStrings((card.dataset["category"] || "").split(","));
+    card.tags = cleanStrings((card.dataset["tags"] || "").split(","));
     // sorting
-    card.updated = new Date(card.dataset['updated']);
-    card.duration = parseInt(card.dataset['duration'], 10);
-    if (card.dataset['pin']) {
+    card.updated = new Date(card.dataset["updated"]);
+    card.duration = parseInt(card.dataset["duration"], 10);
+    if (card.dataset["pin"]) {
       pin += 1;
       card.pin = pin;
     }
@@ -164,10 +163,10 @@ claat.ui.cards.Sorter.prototype.processCards_ = function() {
  * to the current filters.
  * @protected
  */
-claat.ui.cards.Sorter.prototype.do_ = function() {
+claat.ui.cards.Sorter.prototype.do_ = function () {
   var elems = Array.prototype.slice.call(this.cards_, 0);
   var n = elems.length;
-  while(n--) {
+  while (n--) {
     if (!this.match_(elems[n])) {
       elems.splice(n, 1);
     }
@@ -187,10 +186,10 @@ claat.ui.cards.Sorter.prototype.do_ = function() {
  * @param {Array.<Element>} cards Card elements to sort.
  * @protected
  */
-claat.ui.cards.Sorter.prototype.sort_ = function(cards) {
+claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
   switch (this.order_) {
     case claat.ui.cards.Order.DURATION:
-      cards.sort(function(a, b) {
+      cards.sort(function (a, b) {
         var n = comparePinned(a, b);
         if (n !== null) {
           return n;
@@ -199,7 +198,7 @@ claat.ui.cards.Sorter.prototype.sort_ = function(cards) {
       });
       break;
     case claat.ui.cards.Order.RECENT:
-      cards.sort(function(a, b) {
+      cards.sort(function (a, b) {
         var n = comparePinned(a, b);
         if (n !== null) {
           return n;
@@ -215,15 +214,15 @@ claat.ui.cards.Sorter.prototype.sort_ = function(cards) {
       break;
     default:
       // alphabetical sort
-      cards.sort(function(a, b) {
+      cards.sort(function (a, b) {
         var n = comparePinned(a, b);
         if (n !== null) {
           return n;
         }
-        if (a.dataset['title'] < b.dataset['title']) {
+        if (a.dataset["title"] < b.dataset["title"]) {
           return -1;
         }
-        if (a.dataset['title'] > b.dataset['title']) {
+        if (a.dataset["title"] > b.dataset["title"]) {
           return 1;
         }
         return 0;
@@ -239,7 +238,7 @@ claat.ui.cards.Sorter.prototype.sort_ = function(cards) {
  * @return {boolean} True if the card matches the filters and should be visible.
  * @protected
  */
-claat.ui.cards.Sorter.prototype.match_ = function(card) {
+claat.ui.cards.Sorter.prototype.match_ = function (card) {
   // Special kiosk tags match goes first, if any.
   if (this.filters_.kioskTags && this.filters_.kioskTags.length > 0) {
     if (!intersect(this.filters_.kioskTags, card.tags)) {
@@ -284,7 +283,7 @@ claat.ui.cards.Sorter.prototype.match_ = function(card) {
  * @return {string}
  */
 function normalizeValue(v) {
-  return (v || '').trim().toLowerCase();
+  return (v || "").trim().toLowerCase();
 }
 
 /**
@@ -293,16 +292,16 @@ function normalizeValue(v) {
  * @return {!Array<string>} Cleaned strings sorted in ascending lexical order.
  */
 function cleanStrings(strings) {
-    strings = strings || [];
-    var a = [];
-    for (var i = 0; i < strings.length; i++) {
-      var v = normalizeValue(strings[i]);
-      if (v) {
-        a.push(v);
-      }
+  strings = strings || [];
+  var a = [];
+  for (var i = 0; i < strings.length; i++) {
+    var v = normalizeValue(strings[i]);
+    if (v) {
+      a.push(v);
     }
-    a.sort();
-    return a;
+  }
+  a.sort();
+  return a;
 }
 
 /**

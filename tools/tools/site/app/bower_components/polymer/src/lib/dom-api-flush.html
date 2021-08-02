@@ -8,7 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   /**
    * `Polymer.dom.flush()` causes any asynchronously queued actions to be
    * flushed synchronously. It should be used sparingly as calling it frequently
@@ -18,7 +17,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * internal or compoased DOM.
    */
   Polymer.Base.extend(Polymer.dom, {
-
     _flushGuard: 0,
     _FLUSH_MAX: 100,
     _needsTakeRecords: !Polymer.Settings.useNativeCustomElements,
@@ -27,7 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _finishDebouncer: null,
 
     // flush and debounce exposed as statics on Polymer.dom
-    flush: function() {
+    flush: function () {
       this._flushGuard = 0;
       this._prepareFlush();
       while (this._debouncers.length && this._flushGuard < this._FLUSH_MAX) {
@@ -44,11 +42,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this._flushGuard++;
       }
       if (this._flushGuard >= this._FLUSH_MAX) {
-        console.warn('Polymer.dom.flush aborted. Flush may not be complete.')
+        console.warn("Polymer.dom.flush aborted. Flush may not be complete.");
       }
     },
 
-    _prepareFlush: function() {
+    _prepareFlush: function () {
       // TODO(sorvell): There is currently not a good way
       // to process all custom elements mutations under SD polyfill because
       // these mutations may be inside shadowRoots.
@@ -57,35 +55,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if (this._needsTakeRecords) {
         CustomElements.takeRecords();
       }
-      for (var i=0; i < this._staticFlushList.length; i++) {
+      for (var i = 0; i < this._staticFlushList.length; i++) {
         this._staticFlushList[i]();
       }
     },
 
     // add to the static list of methods to call when flushing
-    addStaticFlush: function(fn) {
+    addStaticFlush: function (fn) {
       this._staticFlushList.push(fn);
     },
 
     // remove a function from the static list of methods to call when flushing
-    removeStaticFlush: function(fn) {
+    removeStaticFlush: function (fn) {
       var i = this._staticFlushList.indexOf(fn);
       if (i >= 0) {
         this._staticFlushList.splice(i, 1);
       }
     },
 
-    addDebouncer: function(debouncer) {
+    addDebouncer: function (debouncer) {
       this._debouncers.push(debouncer);
       // ensure the list of active debouncers is cleared when done.
-      this._finishDebouncer = Polymer.Debounce(this._finishDebouncer,
-        this._finishFlush);
+      this._finishDebouncer = Polymer.Debounce(
+        this._finishDebouncer,
+        this._finishFlush
+      );
     },
 
-    _finishFlush: function() {
+    _finishFlush: function () {
       Polymer.dom._debouncers = [];
-    }
-
+    },
   });
-
 </script>

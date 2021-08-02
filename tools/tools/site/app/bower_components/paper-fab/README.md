@@ -23,16 +23,16 @@ See `iron-iconset` for more information about how to use a custom icon set.
         display: inline-block;
         margin: 8px;
       }
-      
+
       paper-fab[mini] {
         --paper-fab-background: #FF5722;
       }
-      
+
       paper-fab[label] {
         font-size: 20px;
         --paper-fab-background: #2196F3;
       }
-      
+
       .container {
         display: flex;
         align-items: center;
@@ -45,9 +45,9 @@ See `iron-iconset` for more information about how to use a custom icon set.
 </custom-element-demo>
 ```
 -->
+
 ```html
 <paper-fab icon="favorite"></paper-fab>
 <paper-fab mini icon="reply"></paper-fab>
 <paper-fab label="😻"></paper-fab>
 ```
-

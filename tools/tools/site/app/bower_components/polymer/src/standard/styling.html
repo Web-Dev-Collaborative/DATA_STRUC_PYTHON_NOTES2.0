@@ -8,16 +8,14 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../lib/style-util.html">
-<link rel="import" href="../lib/resolve-url.html">
-<link rel="import" href="../lib/style-transformer.html">
-<link rel="import" href="../lib/style-extends.html">
-<link rel="import" href="../lib/settings.html">
+<link rel="import" href="../lib/style-util.html" />
+<link rel="import" href="../lib/resolve-url.html" />
+<link rel="import" href="../lib/style-transformer.html" />
+<link rel="import" href="../lib/style-extends.html" />
+<link rel="import" href="../lib/settings.html" />
 
 <script>
-
-  (function() {
-
+  (function () {
     var prepElement = Polymer.Base._prepElement;
     var nativeShadow = Polymer.Settings.useNativeShadow;
 
@@ -26,26 +24,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var styleExtends = Polymer.StyleExtends;
 
     Polymer.Base._addFeature({
-
-      _prepElement: function(element) {
+      _prepElement: function (element) {
         if (this._encapsulateStyle) {
-          styleTransformer.element(element, this.is,
-            this._scopeCssViaAttr);
+          styleTransformer.element(element, this.is, this._scopeCssViaAttr);
         }
         prepElement.call(this, element);
       },
 
-      _prepStyles: function() {
-        // under shady dom we always output a shimmed style (which may be 
-        // empty) so that other dynamic stylesheets can always be placed 
-        // after the element's main stylesheet. 
+      _prepStyles: function () {
+        // under shady dom we always output a shimmed style (which may be
+        // empty) so that other dynamic stylesheets can always be placed
+        // after the element's main stylesheet.
         // This helps ensure element styles are always in registration order.
         if (!nativeShadow) {
           this._scopeStyle = styleUtil.applyStylePlaceHolder(this.is);
         }
       },
 
-      _prepShimStyles: function() {
+      _prepShimStyles: function () {
         if (this._template) {
           if (this._encapsulateStyle === undefined) {
             this._encapsulateStyle = !nativeShadow;
@@ -60,8 +56,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // only if no custom properties are used since otherwise
           // styles are applied via property shimming.
           if (!this._needsStyleProperties() && this._styles.length) {
-            styleUtil.applyCss(cssText, this.is,
-              nativeShadow ? this._template.content : null, this._scopeStyle);
+            styleUtil.applyCss(
+              cssText,
+              this.is,
+              nativeShadow ? this._template.content : null,
+              this._scopeStyle
+            );
           }
         } else {
           this._styles = [];
@@ -70,11 +70,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       // search for extra style modules via `styleModules`
       // TODO(sorvell): consider dropping support for `styleModules`
-      _collectStyles: function() {
+      _collectStyles: function () {
         var styles = [];
-        var cssText = '', m$ = this.styleModules;
+        var cssText = "",
+          m$ = this.styleModules;
         if (m$) {
-          for (var i=0, l=m$.length, m; (i<l) && (m=m$[i]); i++) {
+          for (var i = 0, l = m$.length, m; i < l && (m = m$[i]); i++) {
             cssText += styleUtil.cssFromModule(m);
           }
         }
@@ -86,7 +87,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           cssText += styleUtil.cssFromElement(this._template);
         }
         if (cssText) {
-          var style = document.createElement('style');
+          var style = document.createElement("style");
           style.textContent = cssText;
           // extends!!
           if (styleExtends.hasExtends(style.textContent)) {
@@ -100,7 +101,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       // instance-y
       // add scoping class whenever an element is added to localDOM
-      _elementAdd: function(node) {
+      _elementAdd: function (node) {
         if (this._encapsulateStyle) {
           // If __styleScoped is set, this is a one-time optimization to
           // avoid scoping pre-scoped document fragments
@@ -113,7 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       // remove scoping class whenever an element is removed from localDOM
-      _elementRemove: function(node) {
+      _elementRemove: function (node) {
         if (this._encapsulateStyle) {
           styleTransformer.dom(node, this.is, this._scopeCssViaAttr, true);
         }
@@ -134,40 +135,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {boolean} shouldObserve When true, monitors the container
        *   for changes and re-applies scoping for any future changes.
        */
-      scopeSubtree: function(container, shouldObserve) {
+      scopeSubtree: function (container, shouldObserve) {
         if (nativeShadow) {
           return;
         }
         var self = this;
-        var scopify = function(node) {
+        var scopify = function (node) {
           if (node.nodeType === Node.ELEMENT_NODE) {
-            var className = node.getAttribute('class');
-            node.setAttribute('class', self._scopeElementClass(node, className));
-            var n$ = node.querySelectorAll('*');
-            for (var i=0, n; (i<n$.length) && (n=n$[i]); i++) {
-              className = n.getAttribute('class');
-              n.setAttribute('class', self._scopeElementClass(n, className));
+            var className = node.getAttribute("class");
+            node.setAttribute(
+              "class",
+              self._scopeElementClass(node, className)
+            );
+            var n$ = node.querySelectorAll("*");
+            for (var i = 0, n; i < n$.length && (n = n$[i]); i++) {
+              className = n.getAttribute("class");
+              n.setAttribute("class", self._scopeElementClass(n, className));
             }
           }
         };
         scopify(container);
         if (shouldObserve) {
-          var mo = new MutationObserver(function(mxns) {
-            for (var i=0, m; (i<mxns.length) && (m=mxns[i]); i++) {
+          var mo = new MutationObserver(function (mxns) {
+            for (var i = 0, m; i < mxns.length && (m = mxns[i]); i++) {
               if (m.addedNodes) {
-                for (var j=0; j < m.addedNodes.length; j++) {
+                for (var j = 0; j < m.addedNodes.length; j++) {
                   scopify(m.addedNodes[j]);
                 }
               }
             }
           });
-          mo.observe(container, {childList: true, subtree: true});
+          mo.observe(container, { childList: true, subtree: true });
           return mo;
         }
-      }
-
+      },
     });
-
   })();
-
 </script>

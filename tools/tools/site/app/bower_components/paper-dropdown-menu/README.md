@@ -6,7 +6,7 @@
 Material design: [Dropdown menus](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
 
 `paper-dropdown-menu` is similar to a native browser select element.
-`paper-dropdown-menu` works with selectable content. 
+`paper-dropdown-menu` works with selectable content.
 
 <!---
 ```
@@ -32,6 +32,7 @@ Material design: [Dropdown menus](https://www.google.com/design/spec/components/
 </custom-element-demo>
 ```
 -->
+
 ```html
 <paper-dropdown-menu label="Dinosaurs">
   <paper-listbox class="dropdown-content" selected="1">

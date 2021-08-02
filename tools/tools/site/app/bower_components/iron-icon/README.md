@@ -16,6 +16,7 @@ The `iron-icon` element displays an icon. By default an icon renders as a 24px s
 </custom-element-demo>
 ```
 -->
+
 ```html
 <iron-icon icon="menu"></iron-icon>
 <iron-icon src="demo/location.png"></iron-icon>

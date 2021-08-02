@@ -37,7 +37,7 @@ $card-col-height: 200px; // column mode
   background-color: #fff;
   max-width: $card-width;
   border-radius: $radius;
-  box-shadow: 0 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px rgba(0, 0, 0, 0.15);
   border-bottom: 2px solid transparent;
 
   &:nth-of-type(3n) {

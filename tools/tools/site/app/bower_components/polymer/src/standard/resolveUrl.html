@@ -8,9 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   Polymer.Base._addFeature({
-
     /**
      * Rewrites a given URL relative to the original location of the document
      * containing the `dom-module` for this element.  This method will return
@@ -20,17 +18,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {string} url URL to resolve.
      * @return {string} Rewritten URL relative to the import
      */
-    resolveUrl: function(url) {
+    resolveUrl: function (url) {
       // TODO(sorvell): do we want to put the module reference on the prototype?
       var module = Polymer.DomModule.import(this.is);
-      var root = '';
+      var root = "";
       if (module) {
-        var assetPath = module.getAttribute('assetpath') || '';
-        root = Polymer.ResolveUrl.resolveUrl(assetPath, module.ownerDocument.baseURI);
+        var assetPath = module.getAttribute("assetpath") || "";
+        root = Polymer.ResolveUrl.resolveUrl(
+          assetPath,
+          module.ownerDocument.baseURI
+        );
       }
       return Polymer.ResolveUrl.resolveUrl(url, root);
-    }
-
+    },
   });
-
 </script>

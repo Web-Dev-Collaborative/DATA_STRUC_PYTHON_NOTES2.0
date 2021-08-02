@@ -8,13 +8,13 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../paper-behaviors/paper-button-behavior.html">
-<link rel="import" href="../paper-material/paper-material-shared-styles.html">
-<link rel="import" href="../paper-styles/color.html">
-<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../iron-icon/iron-icon.html" />
+<link rel="import" href="../paper-behaviors/paper-button-behavior.html" />
+<link rel="import" href="../paper-material/paper-material-shared-styles.html" />
+<link rel="import" href="../paper-styles/color.html" />
+<link rel="import" href="../paper-styles/default-theme.html" />
 
 <!--
 Material design: [Floating Action Button](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
@@ -59,8 +59,8 @@ Custom property | Description | Default
   <template strip-whitespace>
     <style include="paper-material-shared-styles">
       :host {
-        @apply(--layout-vertical);
-        @apply(--layout-center-center);
+        @apply (--layout-vertical);
+        @apply (--layout-center-center);
 
         background: var(--paper-fab-background, --accent-color);
         border-radius: 50%;
@@ -80,10 +80,10 @@ Custom property | Description | Default
         z-index: 0;
 
         /* NOTE: Both values are needed, since some phones require the value `transparent`. */
-        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-tap-highlight-color: transparent;
 
-        @apply(--paper-fab);
+        @apply (--paper-fab);
       }
 
       [hidden] {
@@ -95,18 +95,18 @@ Custom property | Description | Default
         height: 40px;
         padding: 8px;
 
-        @apply(--paper-fab-mini);
+        @apply (--paper-fab-mini);
       }
 
       :host([disabled]) {
         color: var(--paper-fab-disabled-text, --paper-grey-500);
         background: var(--paper-fab-disabled-background, --paper-grey-300);
 
-        @apply(--paper-fab-disabled);
+        @apply (--paper-fab-disabled);
       }
 
       iron-icon {
-        @apply(--paper-fab-iron-icon);
+        @apply (--paper-fab-iron-icon);
       }
 
       span {
@@ -116,25 +116,31 @@ Custom property | Description | Default
         text-overflow: ellipsis;
         text-align: center;
 
-        @apply(--paper-fab-label);
+        @apply (--paper-fab-label);
       }
 
       :host(.keyboard-focus) {
-        background: var(--paper-fab-keyboard-focus-background, --paper-pink-900);
+        background: var(
+          --paper-fab-keyboard-focus-background,
+          --paper-pink-900
+        );
       }
     </style>
 
-    <iron-icon id="icon" hidden$="{{!_computeIsIconFab(icon, src)}}" src="[[src]]" icon="[[icon]]"></iron-icon>
+    <iron-icon
+      id="icon"
+      hidden$="{{!_computeIsIconFab(icon, src)}}"
+      src="[[src]]"
+      icon="[[icon]]"
+    ></iron-icon>
     <span hidden$="{{_computeIsIconFab(icon, src)}}">{{label}}</span>
   </template>
 
   <script>
     Polymer({
-      is: 'paper-fab',
+      is: "paper-fab",
 
-      behaviors: [
-        Polymer.PaperButtonBehavior
-      ],
+      behaviors: [Polymer.PaperButtonBehavior],
 
       properties: {
         /**
@@ -143,7 +149,7 @@ Custom property | Description | Default
          */
         src: {
           type: String,
-          value: ''
+          value: "",
         },
 
         /**
@@ -153,7 +159,7 @@ Custom property | Description | Default
          */
         icon: {
           type: String,
-          value: ''
+          value: "",
         },
 
         /**
@@ -162,7 +168,7 @@ Custom property | Description | Default
         mini: {
           type: Boolean,
           value: false,
-          reflectToAttribute: true
+          reflectToAttribute: true,
         },
 
         /**
@@ -171,17 +177,17 @@ Custom property | Description | Default
          */
         label: {
           type: String,
-          observer: '_labelChanged'
-        }
+          observer: "_labelChanged",
+        },
       },
 
-      _labelChanged: function() {
-        this.setAttribute('aria-label', this.label);
+      _labelChanged: function () {
+        this.setAttribute("aria-label", this.label);
       },
 
-      _computeIsIconFab: function(icon, src) {
-        return (icon.length > 0) || (src.length > 0);
-      }
+      _computeIsIconFab: function (icon, src) {
+        return icon.length > 0 || src.length > 0;
+      },
     });
   </script>
 </dom-module>

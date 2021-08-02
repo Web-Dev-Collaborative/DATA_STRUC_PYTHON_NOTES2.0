@@ -8,7 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   /**
    * Support `extends` property (for type-extension only).
    *
@@ -46,14 +45,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
 
   Polymer.Base._addFeature({
-
-    _getExtendedPrototype: function(tag) {
+    _getExtendedPrototype: function (tag) {
       return this._getExtendedNativePrototype(tag);
     },
 
     _nativePrototypes: {}, // static
 
-    _getExtendedNativePrototype: function(tag) {
+    _getExtendedNativePrototype: function (tag) {
       var p = this._nativePrototypes[tag];
       if (!p) {
         var np = this.getNativePrototype(tag);
@@ -69,12 +67,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method getNativePrototype
      * @param {string} tag  HTML tag name.
      * @return {Object} Native prototype for specified tag.
-    */
-    getNativePrototype: function(tag) {
+     */
+    getNativePrototype: function (tag) {
       // TODO(sjmiles): sad necessity
       return Object.getPrototypeOf(document.createElement(tag));
-    }
-
+    },
   });
-
 </script>

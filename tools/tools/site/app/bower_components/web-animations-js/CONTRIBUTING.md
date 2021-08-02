@@ -8,7 +8,6 @@
 1. Run `grunt` to build the polyfill.
 1. Run `grunt test` to run polyfill and web-platform-tests tests.
 
-
 ## Debugging tests
 
 You can run the tests in an interactive mode with `grunt debug`. This starts the
@@ -23,19 +22,17 @@ Example: `grunt debug:web-animations-next:test/web-platform-tests/web-animations
 Multiple test files may be listed with comma separation. Specifying files will output their URL in the command line.  
 Example: `http://localhost:9876/base/test/web-platform-tests/web-animations/animation/pause.html`
 
-
 ## Design notes
 
 [Design diagrams](https://drive.google.com/folderview?id=0B9rpPoIDv3vTNlZxOVp6a2tNa1E&usp=sharing)
-
 
 ## Publishing a release
 
 1.  Determine the version number for the release
 
-    * Increment the first number and reset others to 0 when there are large breaking changes
-    * Increment the second number and reset the third to 0 when there are significant new, but backwards compatible features
-    * Otherwise, increment the third number
+    - Increment the first number and reset others to 0 when there are large breaking changes
+    - Increment the second number and reset the third to 0 when there are significant new, but backwards compatible features
+    - Otherwise, increment the third number
 
 1.  Add versioned release notes to `History.md`, for example:
 
@@ -62,13 +59,13 @@ Example: `http://localhost:9876/base/test/web-platform-tests/web-animations/anim
     commit pushed to web-animations-js in step #4. Copy the release notes from `History.md`
     added in step #2.
 
-1. Once you've pushed to web-animations-js, run `npm publish` from that checked-out folder
+1.  Once you've pushed to web-animations-js, run `npm publish` from that checked-out folder
 
-   To do this, you'll need to be a collaborator [on the NPM project](https://www.npmjs.com/package/web-animations-js), or have a collaborator help you.
+    To do this, you'll need to be a collaborator [on the NPM project](https://www.npmjs.com/package/web-animations-js), or have a collaborator help you.
 
-1. If there are any breaking changes to the API in this release you must notify web-animations-changes@googlegroups.com.
+1.  If there are any breaking changes to the API in this release you must notify web-animations-changes@googlegroups.com.
 
-   Only owners of the group may post to it so you may need to request ownership or ask someone to post it for you.
+    Only owners of the group may post to it so you may need to request ownership or ask someone to post it for you.
 
 ## Pushing from web-animations-next to web-animations-js
 
@@ -89,17 +86,16 @@ Example: `http://localhost:9876/base/test/web-platform-tests/web-animations/anim
 This is an overview of what happens when `grunt test` is run.
 
 1. Polyfill tests written in mocha and chai are run.
-    1. grunt creates a karma config with mocha and chai adapters.
-    1. grunt adds the test/js files as includes to the karma config.
-    1. grunt starts the karma server with the config and waits for the result.
-    1. The mocha adaptor runs the included tests and reports the results to karma.
-    1. karma outputs results to the console and returns the final pass/fail result to grunt.
+   1. grunt creates a karma config with mocha and chai adapters.
+   1. grunt adds the test/js files as includes to the karma config.
+   1. grunt starts the karma server with the config and waits for the result.
+   1. The mocha adaptor runs the included tests and reports the results to karma.
+   1. karma outputs results to the console and returns the final pass/fail result to grunt.
 1. web-platform-tests/web-animations tests written in testtharness.js are run.
-    1. grunt creates a karma config with karma-testharness-adaptor.js included.
-    1. grunt adds the web-platform-tests/web-animations files to the custom testharnessTests config in the karma config.
-    1. grunt adds failure expectations to the custom testharnessTests config in the karma config.
-    1. grunt starts the karma server with the config and waits for the result.
-    1. The testharness.js adaptor runs the included tests (ignoring expected failures) and reports the results to karma.
-    1. karma outputs results to the console and returns the final pass/fail result to grunt.
+   1. grunt creates a karma config with karma-testharness-adaptor.js included.
+   1. grunt adds the web-platform-tests/web-animations files to the custom testharnessTests config in the karma config.
+   1. grunt adds failure expectations to the custom testharnessTests config in the karma config.
+   1. grunt starts the karma server with the config and waits for the result.
+   1. The testharness.js adaptor runs the included tests (ignoring expected failures) and reports the results to karma.
+   1. karma outputs results to the console and returns the final pass/fail result to grunt.
 1. grunt exits successfully if both test runs passed.
-

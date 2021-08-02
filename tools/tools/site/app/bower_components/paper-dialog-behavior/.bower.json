@@ -3,13 +3,7 @@
   "version": "1.2.7",
   "description": "Implements a behavior used for material design dialogs",
   "authors": "The Polymer Authors",
-  "keywords": [
-    "web-components",
-    "polymer",
-    "dialog",
-    "overlay",
-    "behavior"
-  ],
+  "keywords": ["web-components", "polymer", "dialog", "overlay", "behavior"],
   "main": "paper-dialog-behavior.html",
   "private": true,
   "repository": {

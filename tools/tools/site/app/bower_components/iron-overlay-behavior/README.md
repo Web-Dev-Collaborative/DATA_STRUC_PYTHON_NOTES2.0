@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/iron-overlay-behavior.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-overlay-behavior)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-overlay-behavior)_
-
 
 ##Polymer.IronOverlayBehavior
 
@@ -57,8 +55,6 @@ The element is styled to appear on top of other content by setting its `z-index`
 must ensure no element has a stacking context with a higher `z-index` than its parent stacking
 context. You should place this element as a child of `<body>` whenever possible.
 
-
-
 ##&lt;iron-overlay-backdrop&gt;
 
 `iron-overlay-backdrop` is a backdrop used by `Polymer.IronOverlayBehavior`. It should be a
@@ -68,11 +64,9 @@ singleton.
 
 The following custom properties and mixins are available for styling.
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--iron-overlay-backdrop-background-color` | Backdrop background color | #000 |
-| `--iron-overlay-backdrop-opacity` | Backdrop opacity | 0.6 |
-| `--iron-overlay-backdrop` | Mixin applied to `iron-overlay-backdrop`. | {} |
-| `--iron-overlay-backdrop-opened` | Mixin applied to `iron-overlay-backdrop` when it is displayed | {} |
-
-
+| Custom property                            | Description                                                   | Default |
+| ------------------------------------------ | ------------------------------------------------------------- | ------- |
+| `--iron-overlay-backdrop-background-color` | Backdrop background color                                     | #000    |
+| `--iron-overlay-backdrop-opacity`          | Backdrop opacity                                              | 0.6     |
+| `--iron-overlay-backdrop`                  | Mixin applied to `iron-overlay-backdrop`.                     | {}      |
+| `--iron-overlay-backdrop-opened`           | Mixin applied to `iron-overlay-backdrop` when it is displayed | {}      |

@@ -7,9 +7,8 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="../lib/case-map.html">
+<link rel="import" href="../lib/case-map.html" />
 <script>
-
   /**
    * Changes to an object sub-field (aka "path") via a binding
    * (e.g. `<x-foo value="{{item.subfield}}"`) will notify other elements bound to
@@ -59,9 +58,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @class data feature: path notification
    */
 
-  (function() {
+  (function () {
     // Using strict here to ensure fast argument manipulation in array methods
-    'use strict';
+    "use strict";
 
     Polymer.Base._addFeature({
       /**
@@ -73,8 +72,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *     this.notifyPath('item.user.name');
        *
        * @param {string} path Path that should be notified.
-      */
-      notifyPath: function(path, value, fromAbove) {
+       */
+      notifyPath: function (path, value, fromAbove) {
         // Convert any array indices to keys before notifying path
         var info = {};
         var v = this._get(path, this, info);
@@ -88,7 +87,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       // Note: this implemetation only accepts key-based array paths
-      _notifyPath: function(path, value, fromAbove) {
+      _notifyPath: function (path, value, fromAbove) {
         var old = this._propertySetter(path, value);
         // manual dirty checking for now...
         // NaN is always not equal to itself,
@@ -116,18 +115,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         as a dotted string or an array of one or more dotted strings (or numbers,
         for number-valued keys).
       */
-      _getPathParts: function(path) {
+      _getPathParts: function (path) {
         if (Array.isArray(path)) {
           var parts = [];
-          for (var i=0; i<path.length; i++) {
-            var args = path[i].toString().split('.');
-            for (var j=0; j<args.length; j++) {
+          for (var i = 0; i < path.length; i++) {
+            var args = path[i].toString().split(".");
+            for (var j = 0; j < args.length; j++) {
               parts.push(args[j]);
             }
           }
           return parts;
         } else {
-          return path.toString().split('.');
+          return path.toString().split(".");
         }
       },
 
@@ -149,23 +148,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *   (e.g. `users.12.name` or `['users', 12, 'name']`).
        * @param {*} value Value to set at the specified path.
        * @param {Object=} root Root object from which the path is evaluated.
-      */
-      set: function(path, value, root) {
+       */
+      set: function (path, value, root) {
         var prop = root || this;
         var parts = this._getPathParts(path);
         var array;
-        var last = parts[parts.length-1];
+        var last = parts[parts.length - 1];
         if (parts.length > 1) {
           // Loop over path parts[0..n-2] and dereference
-          for (var i=0; i<parts.length-1; i++) {
+          for (var i = 0; i < parts.length - 1; i++) {
             var part = parts[i];
-            if (array && part[0] == '#') {
+            if (array && part[0] == "#") {
               // Part was key; lookup item in collection
               prop = Polymer.Collection.get(array).getItem(part);
             } else {
               // Get item from simple property dereference
               prop = prop[part];
-              if (array && (parseInt(part, 10) == part)) {
+              if (array && parseInt(part, 10) == part) {
                 // Translate array indices to collection keys for path notificaiton
                 parts[i] = Polymer.Collection.get(array).getKey(prop);
               }
@@ -181,7 +180,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (array) {
             var coll = Polymer.Collection.get(array);
             var old, key;
-            if (last[0] == '#') {
+            if (last[0] == "#") {
               // Part was key; lookup item in collection
               key = last;
               old = coll.getItem(key);
@@ -203,7 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           prop[last] = value;
           // Notify observers of path change
           if (!root) {
-            this._notifyPath(parts.join('.'), value);
+            this._notifyPath(parts.join("."), value);
           }
         } else {
           // Simple property set
@@ -230,30 +229,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @return {*} Value at the path, or `undefined` if any part of the path
        *   is undefined.
        */
-      get: function(path, root) {
+      get: function (path, root) {
         return this._get(path, root);
       },
 
       // If `info` object is supplied, a `path` property will be added to it
       // containing the path with array indices converted to keys, for use
       // by the private _notifyPath / _notifySplice implementations
-      _get: function(path, root, info) {
+      _get: function (path, root, info) {
         var prop = root || this;
         var parts = this._getPathParts(path);
         var array;
         // Loop over path parts[0..n-1] and dereference
-        for (var i=0; i<parts.length; i++) {
+        for (var i = 0; i < parts.length; i++) {
           if (!prop) {
             return;
           }
           var part = parts[i];
-          if (array && part[0] == '#') {
+          if (array && part[0] == "#") {
             // Part was key; lookup item in collection
             prop = Polymer.Collection.get(array).getItem(part);
           } else {
             // Get item from simple property dereference
             prop = prop[part];
-            if (info && array && (parseInt(part, 10) == part)) {
+            if (info && array && parseInt(part, 10) == part) {
               // Translate array indices to collection keys for path notificaiton
               parts[i] = Polymer.Collection.get(array).getKey(prop);
             }
@@ -262,18 +261,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           array = Array.isArray(prop) ? prop : null;
         }
         if (info) {
-          info.path = parts.join('.');
+          info.path = parts.join(".");
         }
         return prop;
       },
 
-      _pathEffector: function(path, value) {
+      _pathEffector: function (path, value) {
         // get root property
         var model = this._modelForPath(path);
         // search property effects of the root property for 'annotation' effects
         var fx$ = this._propertyEffects && this._propertyEffects[model];
         if (fx$) {
-          for (var i=0, fx; (i<fx$.length) && (fx=fx$[i]); i++) {
+          for (var i = 0, fx; i < fx$.length && (fx = fx$[i]); i++) {
             // use memoized path functions
             var fxFn = fx.pathFn;
             if (fxFn) {
@@ -287,44 +286,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _annotationPathEffect: function(path, value, effect) {
-        if (effect.value === path || effect.value.indexOf(path + '.') === 0) {
+      _annotationPathEffect: function (path, value, effect) {
+        if (effect.value === path || effect.value.indexOf(path + ".") === 0) {
           // TODO(sorvell): ideally the effect function is on this prototype
           // so we don't have to call it like this.
           Polymer.Bind._annotationEffect.call(this, path, value, effect);
-        } else if ((path.indexOf(effect.value + '.') === 0) && !effect.negate) {
+        } else if (path.indexOf(effect.value + ".") === 0 && !effect.negate) {
           // locate the bound node
           var node = this._nodes[effect.index];
           if (node && node._notifyPath) {
-            var p = this._fixPath(effect.name , effect.value, path);
+            var p = this._fixPath(effect.name, effect.value, path);
             node._notifyPath(p, value, true);
           }
         }
       },
 
-      _complexObserverPathEffect: function(path, value, effect) {
+      _complexObserverPathEffect: function (path, value, effect) {
         if (this._pathMatchesEffect(path, effect)) {
           Polymer.Bind._complexObserverEffect.call(this, path, value, effect);
         }
       },
 
-      _computePathEffect: function(path, value, effect) {
+      _computePathEffect: function (path, value, effect) {
         if (this._pathMatchesEffect(path, effect)) {
           Polymer.Bind._computeEffect.call(this, path, value, effect);
         }
       },
 
-      _annotatedComputationPathEffect: function(path, value, effect) {
+      _annotatedComputationPathEffect: function (path, value, effect) {
         if (this._pathMatchesEffect(path, effect)) {
-          Polymer.Bind._annotatedComputationEffect.call(this, path, value, effect);
+          Polymer.Bind._annotatedComputationEffect.call(
+            this,
+            path,
+            value,
+            effect
+          );
         }
       },
 
-      _pathMatchesEffect: function(path, effect) {
+      _pathMatchesEffect: function (path, effect) {
         var effectArg = effect.trigger.name;
-        return (effectArg == path) ||
-          (effectArg.indexOf(path + '.') === 0) ||
-          (effect.trigger.wildcard && path.indexOf(effectArg) === 0);
+        return (
+          effectArg == path ||
+          effectArg.indexOf(path + ".") === 0 ||
+          (effect.trigger.wildcard && path.indexOf(effectArg) === 0)
+        );
       },
 
       /**
@@ -335,7 +341,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {string} to Target path to link.
        * @param {string} from Source path to link.
        */
-      linkPaths: function(to, from) {
+      linkPaths: function (to, from) {
         this._boundPaths = this._boundPaths || {};
         if (from) {
           this._boundPaths[to] = from;
@@ -355,44 +361,48 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @method unlinkPaths
        * @param {string} path Target path to unlink.
        */
-      unlinkPaths: function(path) {
+      unlinkPaths: function (path) {
         if (this._boundPaths) {
           delete this._boundPaths[path];
         }
       },
 
-      _notifyBoundPaths: function(path, value) {
+      _notifyBoundPaths: function (path, value) {
         for (var a in this._boundPaths) {
           var b = this._boundPaths[a];
-          if (path.indexOf(a + '.') == 0) {
+          if (path.indexOf(a + ".") == 0) {
             this._notifyPath(this._fixPath(b, a, path), value);
-          } else if (path.indexOf(b + '.') == 0) {
+          } else if (path.indexOf(b + ".") == 0) {
             this._notifyPath(this._fixPath(a, b, path), value);
           }
         }
       },
 
-      _fixPath: function(property, root, path) {
+      _fixPath: function (property, root, path) {
         return property + path.slice(root.length);
       },
 
-      _notifyPathUp: function(path, value) {
+      _notifyPathUp: function (path, value) {
         var rootName = this._modelForPath(path);
         var dashCaseName = Polymer.CaseMap.camelToDashCase(rootName);
         var eventName = dashCaseName + this._EVENT_CHANGED;
         // use a cached event here (_useCache: true) for efficiency
-        this.fire(eventName, {
-          path: path,
-          value: value
-        }, {bubbles: false, _useCache: true});
+        this.fire(
+          eventName,
+          {
+            path: path,
+            value: value,
+          },
+          { bubbles: false, _useCache: true }
+        );
       },
 
-      _modelForPath: function(path) {
-        var dot = path.indexOf('.');
-        return (dot < 0) ? path : path.slice(0, dot);
+      _modelForPath: function (path) {
+        var dot = path.indexOf(".");
+        return dot < 0 ? path : path.slice(0, dot);
       },
 
-      _EVENT_CHANGED: '-changed',
+      _EVENT_CHANGED: "-changed",
 
       /**
        * Notify that an array has changed.
@@ -421,8 +431,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *   Note that splice records _must_ be normalized such that they are
        *   reported in index order (raw results from `Object.observe` are not
        *   ordered and must be normalized/merged before notifying).
-      */
-      notifySplices: function(path, splices) {
+       */
+      notifySplices: function (path, splices) {
         var info = {};
         var array = this._get(path, this, info);
         // Notify change to key-based path
@@ -430,27 +440,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       // Note: this implemetation only accepts key-based array paths
-      _notifySplices: function(array, path, splices) {
+      _notifySplices: function (array, path, splices) {
         var change = {
           keySplices: Polymer.Collection.applySplices(array, splices),
-          indexSplices: splices
+          indexSplices: splices,
         };
-        var splicesPath = path + '.splices';
+        var splicesPath = path + ".splices";
         this._notifyPath(splicesPath, change);
-        this._notifyPath(path + '.length', array.length);
+        this._notifyPath(path + ".length", array.length);
         // All path notification values are cached on `this.__data__`.
         // Null here to allow potentially large splice records to be GC'ed.
-        this.__data__[splicesPath] = {keySplices: null, indexSplices: null};
+        this.__data__[splicesPath] = { keySplices: null, indexSplices: null };
       },
 
-      _notifySplice: function(array, path, index, added, removed) {
-        this._notifySplices(array, path, [{
-          index: index,
-          addedCount: added,
-          removed: removed,
-          object: array,
-          type: 'splice'
-        }]);
+      _notifySplice: function (array, path, index, added, removed) {
+        this._notifySplices(array, path, [
+          {
+            index: index,
+            addedCount: added,
+            removed: removed,
+            object: array,
+            type: "splice",
+          },
+        ]);
       },
 
       /**
@@ -467,7 +479,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {...any} var_args Items to push onto array
        * @return {number} New length of the array.
        */
-      push: function(path) {
+      push: function (path) {
         var info = {};
         var array = this._get(path, this, info);
         var args = Array.prototype.slice.call(arguments, 1);
@@ -492,7 +504,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {String} path Path to array.
        * @return {any} Item that was removed.
        */
-      pop: function(path) {
+      pop: function (path) {
         var info = {};
         var array = this._get(path, this, info);
         var hadLength = Boolean(array.length);
@@ -521,7 +533,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {...any} var_args Items to insert into array.
        * @return {Array} Array of removed items.
        */
-      splice: function(path, start) {
+      splice: function (path, start) {
         var info = {};
         var array = this._get(path, this, info);
         // Normalize fancy native splice handling of crazy start values
@@ -555,7 +567,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {String} path Path to array.
        * @return {any} Item that was removed.
        */
-      shift: function(path) {
+      shift: function (path) {
         var info = {};
         var array = this._get(path, this, info);
         var hadLength = Boolean(array.length);
@@ -581,7 +593,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {...any} var_args Items to insert info array
        * @return {number} New length of the array.
        */
-      unshift: function(path) {
+      unshift: function (path) {
         var info = {};
         var array = this._get(path, this, info);
         var args = Array.prototype.slice.call(arguments, 1);
@@ -596,7 +608,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // which provides API for path-based notification on elements with property
       // effects; this should be re-factored along with the Bind lib, either all on
       // Base or all in Bind (see issue https://github.com/Polymer/polymer/issues/2547).
-      prepareModelNotifyPath: function(model) {
+      prepareModelNotifyPath: function (model) {
         this.mixin(model, {
           fire: Polymer.Base.fire,
           _getEvent: Polymer.Base._getEvent,
@@ -609,18 +621,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           _pathEffector: Polymer.Base._pathEffector,
           _annotationPathEffect: Polymer.Base._annotationPathEffect,
           _complexObserverPathEffect: Polymer.Base._complexObserverPathEffect,
-          _annotatedComputationPathEffect: Polymer.Base._annotatedComputationPathEffect,
+          _annotatedComputationPathEffect:
+            Polymer.Base._annotatedComputationPathEffect,
           _computePathEffect: Polymer.Base._computePathEffect,
           _modelForPath: Polymer.Base._modelForPath,
           _pathMatchesEffect: Polymer.Base._pathMatchesEffect,
           _notifyBoundPaths: Polymer.Base._notifyBoundPaths,
-          _getPathParts: Polymer.Base._getPathParts
+          _getPathParts: Polymer.Base._getPathParts,
         });
-      }
-
+      },
     });
-
   })();
-
-
 </script>

@@ -20,4 +20,7 @@ function csRemoveTheVowels(input_str) {
 }
 
 csRemoveTheVowels("Lambda School is awesome!");
-console.log("🚀 ~ file: remove-vowel.js ~ line 22 ~ csRemoveTheVowels(Lambda School is awesome!)", csRemoveTheVowels("Lambda School is awesome!"))
+console.log(
+  "🚀 ~ file: remove-vowel.js ~ line 22 ~ csRemoveTheVowels(Lambda School is awesome!)",
+  csRemoveTheVowels("Lambda School is awesome!")
+);

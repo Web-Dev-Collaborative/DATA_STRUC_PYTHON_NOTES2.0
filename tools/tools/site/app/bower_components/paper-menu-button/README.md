@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/paper-menu-button.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-menu-button)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-menu-button)_
-
 
 ##&lt;paper-menu-button&gt;
 
@@ -50,15 +48,13 @@ Example:
 
 The following custom properties and mixins are also available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown | `--primary-background-color` |
-| `--paper-menu-button` | Mixin applied to the paper-menu-button | `{}` |
-| `--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}` |
-| `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}` |
-| `--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}` |
-
-
+| Custom property                           | Description                                          | Default                      |
+| ----------------------------------------- | ---------------------------------------------------- | ---------------------------- |
+| `--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown   | `--primary-background-color` |
+| `--paper-menu-button`                     | Mixin applied to the paper-menu-button               | `{}`                         |
+| `--paper-menu-button-disabled`            | Mixin applied to the paper-menu-button when disabled | `{}`                         |
+| `--paper-menu-button-dropdown`            | Mixin applied to the paper-menu-button dropdown      | `{}`                         |
+| `--paper-menu-button-content`             | Mixin applied to the paper-menu-button content       | `{}`                         |
 
 <!-- No docs for <paper-menu-grow-height-animation> found. -->
 

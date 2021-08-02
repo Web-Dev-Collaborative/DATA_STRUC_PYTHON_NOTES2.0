@@ -3,9 +3,7 @@
   "version": "1.0.6",
   "description": "A material design container that looks like a lifted sheet of paper",
   "private": true,
-  "authors": [
-    "The Polymer Authors"
-  ],
+  "authors": ["The Polymer Authors"],
   "keywords": [
     "web-components",
     "web-component",

@@ -29,6 +29,7 @@ Material design: [Text fields](https://www.google.com/design/spec/components/tex
 </custom-element-demo>
 ```
 -->
+
 ```html
 <paper-input always-float-label label="Floating label"></paper-input>
 <paper-input label="username">

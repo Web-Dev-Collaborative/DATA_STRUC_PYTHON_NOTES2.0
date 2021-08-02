@@ -8,9 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-behaviors/iron-button-state.html">
-<link rel="import" href="paper-ripple-behavior.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-behaviors/iron-button-state.html" />
+<link rel="import" href="paper-ripple-behavior.html" />
 
 <script>
   /** @polymerBehavior Polymer.PaperButtonBehavior */
@@ -28,22 +28,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       elevation: {
         type: Number,
         reflectToAttribute: true,
-        readOnly: true
-      }
+        readOnly: true,
+      },
     },
 
     observers: [
-      '_calculateElevation(focused, disabled, active, pressed, receivedFocusFromKeyboard)',
-      '_computeKeyboardClass(receivedFocusFromKeyboard)'
+      "_calculateElevation(focused, disabled, active, pressed, receivedFocusFromKeyboard)",
+      "_computeKeyboardClass(receivedFocusFromKeyboard)",
     ],
 
     hostAttributes: {
-      role: 'button',
-      tabindex: '0',
-      animated: true
+      role: "button",
+      tabindex: "0",
+      animated: true,
     },
 
-    _calculateElevation: function() {
+    _calculateElevation: function () {
       var e = 1;
       if (this.disabled) {
         e = 0;
@@ -55,8 +55,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._setElevation(e);
     },
 
-    _computeKeyboardClass: function(receivedFocusFromKeyboard) {
-      this.toggleClass('keyboard-focus', receivedFocusFromKeyboard);
+    _computeKeyboardClass: function (receivedFocusFromKeyboard) {
+      this.toggleClass("keyboard-focus", receivedFocusFromKeyboard);
     },
 
     /**
@@ -65,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @param {!KeyboardEvent} event .
      */
-    _spaceKeyDownHandler: function(event) {
+    _spaceKeyDownHandler: function (event) {
       Polymer.IronButtonStateImpl._spaceKeyDownHandler.call(this, event);
       // Ensure that there is at most one ripple when the space key is held down.
       if (this.hasRipple() && this.getRipple().ripples.length < 1) {
@@ -79,12 +79,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @param {!KeyboardEvent} event .
      */
-    _spaceKeyUpHandler: function(event) {
+    _spaceKeyUpHandler: function (event) {
       Polymer.IronButtonStateImpl._spaceKeyUpHandler.call(this, event);
       if (this.hasRipple()) {
         this._ripple.uiUpAction();
       }
-    }
+    },
   };
 
   /** @polymerBehavior */
@@ -92,6 +92,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer.IronButtonState,
     Polymer.IronControlState,
     Polymer.PaperRippleBehavior,
-    Polymer.PaperButtonBehaviorImpl
+    Polymer.PaperButtonBehaviorImpl,
   ];
 </script>

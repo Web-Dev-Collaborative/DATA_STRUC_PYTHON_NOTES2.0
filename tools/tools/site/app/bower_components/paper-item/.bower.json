@@ -2,19 +2,9 @@
   "name": "paper-item",
   "version": "1.2.1",
   "description": "A material-design styled list item",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "item"
-  ],
-  "main": [
-    "paper-item.html",
-    "paper-icon-item.html",
-    "paper-item-body.html"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "item"],
+  "main": ["paper-item.html", "paper-icon-item.html", "paper-item-body.html"],
   "private": true,
   "repository": {
     "type": "git",

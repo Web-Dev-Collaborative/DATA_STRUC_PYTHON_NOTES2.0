@@ -8,7 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   /**
    * Automatically extend using objects referenced in `behaviors` array.
    *
@@ -39,7 +38,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
 
   Polymer.Base._addFeature({
-
     /**
      * Array of objects to extend this prototype with.
      *
@@ -58,13 +56,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     behaviors: [],
 
-    _desugarBehaviors: function() {
+    _desugarBehaviors: function () {
       if (this.behaviors.length) {
         this.behaviors = this._desugarSomeBehaviors(this.behaviors);
       }
     },
 
-    _desugarSomeBehaviors: function(behaviors) {
+    _desugarSomeBehaviors: function (behaviors) {
       var behaviorSet = [];
       // iteration 1
       behaviors = this._flattenBehaviorsList(behaviors);
@@ -72,7 +70,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // traverse the behaviors in _reverse_ order (youngest first) because
       // `_mixinBehavior` has _first property wins_ behavior, this is done
       // to optimize # of calls to `_copyOwnProperty`
-      for (var i=behaviors.length-1; i>=0; i--) {
+      for (var i = behaviors.length - 1; i >= 0; i--) {
         var b = behaviors[i];
         if (behaviorSet.indexOf(b) === -1) {
           this._mixinBehavior(b);
@@ -82,9 +80,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return behaviorSet;
     },
 
-    _flattenBehaviorsList: function(behaviors) {
+    _flattenBehaviorsList: function (behaviors) {
       var flat = [];
-      for (var i=0; i < behaviors.length; i++) {
+      for (var i = 0; i < behaviors.length; i++) {
         var b = behaviors[i];
         if (b instanceof Array) {
           flat = flat.concat(this._flattenBehaviorsList(b));
@@ -93,57 +91,61 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         else if (b) {
           flat.push(b);
         } else {
-          this._warn(this._logf('_flattenBehaviorsList', 'behavior is null, check for missing or 404 import'));
+          this._warn(
+            this._logf(
+              "_flattenBehaviorsList",
+              "behavior is null, check for missing or 404 import"
+            )
+          );
         }
       }
       return flat;
     },
 
-    _mixinBehavior: function(b) {
+    _mixinBehavior: function (b) {
       var n$ = Object.getOwnPropertyNames(b);
-      for (var i=0, n; (i<n$.length) && (n=n$[i]); i++) {
+      for (var i = 0, n; i < n$.length && (n = n$[i]); i++) {
         if (!Polymer.Base._behaviorProperties[n] && !this.hasOwnProperty(n)) {
           this.copyOwnProperty(n, b, this);
         }
       }
     },
 
-    _prepBehaviors: function() {
+    _prepBehaviors: function () {
       this._prepFlattenedBehaviors(this.behaviors);
     },
 
-    _prepFlattenedBehaviors: function(behaviors) {
+    _prepFlattenedBehaviors: function (behaviors) {
       // iteration 3
       // `_prepBehavior` goes in natural order
       // otherwise, it's a tricky detail for implementors of `_prepBehavior`
-      for (var i=0, l=behaviors.length; i<l; i++) {
+      for (var i = 0, l = behaviors.length; i < l; i++) {
         this._prepBehavior(behaviors[i]);
       }
       // prep our prototype-as-behavior
       this._prepBehavior(this);
     },
 
-    _doBehavior: function(name, args) {
-      for (var i=0; i < this.behaviors.length; i++) {
+    _doBehavior: function (name, args) {
+      for (var i = 0; i < this.behaviors.length; i++) {
         this._invokeBehavior(this.behaviors[i], name, args);
       }
       this._invokeBehavior(this, name, args);
     },
 
-    _invokeBehavior: function(b, name, args) {
+    _invokeBehavior: function (b, name, args) {
       var fn = b[name];
       if (fn) {
         fn.apply(this, args || Polymer.nar);
       }
     },
 
-    _marshalBehaviors: function() {
-      for (var i=0; i < this.behaviors.length; i++) {
+    _marshalBehaviors: function () {
+      for (var i = 0; i < this.behaviors.length; i++) {
         this._marshalBehavior(this.behaviors[i]);
       }
       this._marshalBehavior(this);
-    }
-
+    },
   });
 
   // special properties on behaviors are not mixed in and are instead
@@ -160,7 +162,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     attached: true,
     detached: true,
     attributeChanged: true,
-    ready: true
-  }
-
+    ready: true,
+  };
 </script>

@@ -7,19 +7,18 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="../lib/array-splice.html">
-<link rel="import" href="../lib/dom-tree-api.html">
-<link rel="import" href="../lib/dom-api.html">
-<link rel="import" href="../lib/dom-api-shady.html">
-<link rel="import" href="../lib/dom-api-shadow.html">
-<link rel="import" href="../lib/dom-api-flush.html">
-<link rel="import" href="../lib/dom-api-event.html">
-<link rel="import" href="../lib/dom-api-classlist.html">
-<link rel="import" href="../lib/dom-api-effective-nodes-observer.html">
-<link rel="import" href="../lib/dom-api-distributed-nodes-observer.html">
+<link rel="import" href="../lib/array-splice.html" />
+<link rel="import" href="../lib/dom-tree-api.html" />
+<link rel="import" href="../lib/dom-api.html" />
+<link rel="import" href="../lib/dom-api-shady.html" />
+<link rel="import" href="../lib/dom-api-shadow.html" />
+<link rel="import" href="../lib/dom-api-flush.html" />
+<link rel="import" href="../lib/dom-api-event.html" />
+<link rel="import" href="../lib/dom-api-classlist.html" />
+<link rel="import" href="../lib/dom-api-effective-nodes-observer.html" />
+<link rel="import" href="../lib/dom-api-distributed-nodes-observer.html" />
 <script>
-
-  (function() {
+  (function () {
     /**
       Implements a pared down version of ShadowDOM's scoping, which is easy to
       polyfill across browsers.
@@ -28,13 +27,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var TreeApi = Polymer.TreeApi;
 
     Polymer.Base._addFeature({
-
-      _prepShady: function() {
+      _prepShady: function () {
         // Use this system iff localDom is needed.
         this._useContent = this._useContent || Boolean(this._template);
       },
 
-      _setupShady: function() {
+      _setupShady: function () {
         // object shaping...
         this.shadyRoot = null;
         if (!this.__domApi) {
@@ -49,7 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       // called as part of content initialization, prior to template stamping
-      _poolContent: function() {
+      _poolContent: function () {
         if (this._useContent) {
           // capture lightChildren to help reify dom scoping
           TreeApi.Logical.saveChildNodes(this);
@@ -57,7 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       // called as part of content initialization, after template stamping
-      _setupRoot: function() {
+      _setupRoot: function () {
         if (this._useContent) {
           this._createLocalRoot();
           // light elements may not be upgraded if they are light children
@@ -70,22 +68,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _createLocalRoot: function() {
+      _createLocalRoot: function () {
         this.shadyRoot = this.root;
         this.shadyRoot._distributionClean = false;
         this.shadyRoot._hasDistributed = false;
         this.shadyRoot._isShadyRoot = true;
         this.shadyRoot._dirtyRoots = [];
         // capture insertion point list
-        var i$ = this.shadyRoot._insertionPoints = !this._notes ||
-          this._notes._hasContent ?
-          this.shadyRoot.querySelectorAll('content') : [];
+        var i$ = (this.shadyRoot._insertionPoints =
+          !this._notes || this._notes._hasContent
+            ? this.shadyRoot.querySelectorAll("content")
+            : []);
         // save logical tree info
         // a. for shadyRoot
         // b. for insertion points (fallback)
         // c. for parents of insertion points
         TreeApi.Logical.saveChildNodes(this.shadyRoot);
-        for (var i=0, c; i < i$.length; i++) {
+        for (var i = 0, c; i < i$.length; i++) {
           c = i$[i];
           TreeApi.Logical.saveChildNodes(c);
           TreeApi.Logical.saveChildNodes(c.parentNode);
@@ -117,7 +116,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *   <content> insertion that is nested in a sub-tree being appended.
        *   Set to true to distribute to newly added nested <content>'s.
        */
-      distributeContent: function(updateInsertionPoints) {
+      distributeContent: function (updateInsertionPoints) {
         if (this.shadyRoot) {
           this.shadyRoot._invalidInsertionPoints =
             this.shadyRoot._invalidInsertionPoints || updateInsertionPoints;
@@ -128,7 +127,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _distributeContent: function() {
+      _distributeContent: function () {
         if (this._useContent && !this.shadyRoot._distributionClean) {
           if (this.shadyRoot._invalidInsertionPoints) {
             Polymer.dom(this)._updateInsertionPoints(this);
@@ -141,7 +140,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _beginDistribute: function() {
+      _beginDistribute: function () {
         if (this._useContent && DomApi.hasInsertionPoint(this.shadyRoot)) {
           // reset distributions
           this._resetDistribution();
@@ -152,15 +151,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _distributeDirtyRoots: function() {
+      _distributeDirtyRoots: function () {
         var c$ = this.shadyRoot._dirtyRoots;
-        for (var i=0, l= c$.length, c; (i<l) && (c=c$[i]); i++) {
+        for (var i = 0, l = c$.length, c; i < l && (c = c$[i]); i++) {
           c._distributeContent();
         }
         this.shadyRoot._dirtyRoots = [];
       },
 
-      _finishDistribute: function() {
+      _finishDistribute: function () {
         // compose self
         if (this._useContent) {
           // note: it's important to mark this clean before distribution
@@ -200,7 +199,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {Element=} node Element to test the selector against.
        * @return {boolean} Whether the element matches the selector.
        */
-      elementMatches: function(selector, node) {
+      elementMatches: function (selector, node) {
         // Alternatively we could just polyfill it somewhere.
         // Note that the arguments are reversed from what you might expect.
         node = node || this;
@@ -210,7 +209,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // Many of the following methods are all conceptually static, but they are
       // included here as "protected" methods to allow overriding.
 
-      _resetDistribution: function() {
+      _resetDistribution: function () {
         // light children
         var children = TreeApi.Logical.getChildNodes(this);
         for (var i = 0; i < children.length; i++) {
@@ -232,7 +231,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       // Gather the pool of nodes that should be distributed. We will combine
       // these with the "content root" to arrive at the composed tree.
-      _collectPool: function() {
+      _collectPool: function () {
         var pool = [];
         var children = TreeApi.Logical.getChildNodes(this);
         for (var i = 0; i < children.length; i++) {
@@ -249,9 +248,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // perform "logical" distribution; note, no actual dom is moved here,
       // instead elements are distributed into a `content._distributedNodes`
       // array where applicable.
-      _distributePool: function(node, pool) {
+      _distributePool: function (node, pool) {
         var p$ = node._insertionPoints;
-        for (var i=0, l=p$.length, p; (i<l) && (p=p$[i]); i++) {
+        for (var i = 0, l = p$.length, p; i < l && (p = p$[i]); i++) {
           this._distributeInsertionPoint(p, pool);
           // provoke redistribution on insertion point parents
           // must do this on all candidate hosts since distribution in this
@@ -260,11 +259,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _distributeInsertionPoint: function(content, pool) {
+      _distributeInsertionPoint: function (content, pool) {
         // distribute nodes from the pool that this selector matches
         var anyDistributed = false;
-        for (var i=0, l=pool.length, node; i < l; i++) {
-          node=pool[i];
+        for (var i = 0, l = pool.length, node; i < l; i++) {
+          node = pool[i];
           // skip nodes that were already used
           if (!node) {
             continue;
@@ -289,20 +288,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       // Reify dom such that it is at its correct rendering position
       // based on logical distribution.
-      _composeTree: function() {
+      _composeTree: function () {
         this._updateChildNodes(this, this._composeNode(this));
         var p$ = this.shadyRoot._insertionPoints;
-        for (var i=0, l=p$.length, p, parent; (i<l) && (p=p$[i]); i++) {
+        for (var i = 0, l = p$.length, p, parent; i < l && (p = p$[i]); i++) {
           parent = TreeApi.Logical.getParentNode(p);
-          if (!parent._useContent && (parent !== this) &&
-            (parent !== this.shadyRoot)) {
+          if (
+            !parent._useContent &&
+            parent !== this &&
+            parent !== this.shadyRoot
+          ) {
             this._updateChildNodes(parent, this._composeNode(parent));
           }
         }
       },
 
       // Returns the list of nodes which should be rendered inside `node`.
-      _composeNode: function(node) {
+      _composeNode: function (node) {
         var children = [];
         var c$ = TreeApi.Logical.getChildNodes(node.shadyRoot || node);
         for (var i = 0; i < c$.length; i++) {
@@ -323,13 +325,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       // Ensures that the rendered node list inside `container` is `children`.
-      _updateChildNodes: function(container, children) {
+      _updateChildNodes: function (container, children) {
         var composed = TreeApi.Composed.getChildNodes(container);
-        var splices =
-          Polymer.ArraySplice.calculateSplices(children, composed);
+        var splices = Polymer.ArraySplice.calculateSplices(children, composed);
         // process removals
-        for (var i=0, d=0, s; (i<splices.length) && (s=splices[i]); i++) {
-          for (var j=0, n; (j < s.removed.length) && (n=s.removed[j]); j++) {
+        for (var i = 0, d = 0, s; i < splices.length && (s = splices[i]); i++) {
+          for (var j = 0, n; j < s.removed.length && (n = s.removed[j]); j++) {
             // check if the node is still where we expect it is before trying
             // to remove it; this can happen if Polymer.dom moves a node and
             // then schedules its previous host for distribution resulting in
@@ -342,9 +343,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           d -= s.addedCount;
         }
         // process adds
-        for (var i=0, s, next; (i<splices.length) && (s=splices[i]); i++) { //eslint-disable-line no-redeclare
+        for (var i = 0, s, next; i < splices.length && (s = splices[i]); i++) {
+          //eslint-disable-line no-redeclare
           next = composed[s.index];
-          for (j=s.index, n; j < s.index + s.addedCount; j++) {
+          for (j = s.index, n; j < s.index + s.addedCount; j++) {
             n = children[j];
             TreeApi.Composed.insertBefore(container, n, next);
             // TODO(sorvell): is this splice strictly needed?
@@ -353,8 +355,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _matchesContentSelect: function(node, contentElement) {
-        var select = contentElement.getAttribute('select');
+      _matchesContentSelect: function (node, contentElement) {
+        var select = contentElement.getAttribute("select");
         // no selector matches all nodes (including text)
         if (!select) {
           return true;
@@ -383,11 +385,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       // system override point
-      _elementAdd: function() {},
+      _elementAdd: function () {},
 
       // system override point
-      _elementRemove: function() {}
-
+      _elementRemove: function () {},
     });
 
     function distributeNodeInto(child, insertionPoint) {
@@ -403,11 +404,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function clearDistributedDestinationInsertionPoints(content) {
       var e$ = content._distributedNodes;
       if (e$) {
-        for (var i=0; i < e$.length; i++) {
+        for (var i = 0; i < e$.length; i++) {
           var d = e$[i]._destinationInsertionPoints;
           if (d) {
             // this is +1 because these insertion points are *not* in this scope
-            d.splice(d.indexOf(content)+1, d.length);
+            d.splice(d.indexOf(content) + 1, d.length);
           }
         }
       }
@@ -417,9 +418,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function maybeRedistributeParent(content, host) {
       // only get logical parent.
       var parent = TreeApi.Logical.getParentNode(content);
-      if (parent && parent.shadyRoot &&
-          DomApi.hasInsertionPoint(parent.shadyRoot) &&
-          parent.shadyRoot._distributionClean) {
+      if (
+        parent &&
+        parent.shadyRoot &&
+        DomApi.hasInsertionPoint(parent.shadyRoot) &&
+        parent.shadyRoot._distributionClean
+      ) {
         parent.shadyRoot._distributionClean = false;
         host.shadyRoot._dirtyRoots.push(parent);
       }
@@ -432,7 +436,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     function isInsertionPoint(node) {
       // TODO(jmesserly): we could add back 'shadow' support here.
-      return node.localName == 'content';
+      return node.localName == "content";
     }
 
     // returns the host that's the top of this host's distribution tree
@@ -447,16 +451,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // an insertion point that selects selectively
     function hostNeedsRedistribution(host) {
       var c$ = TreeApi.Logical.getChildNodes(host);
-      for (var i=0, c; i < c$.length; i++) {
+      for (var i = 0, c; i < c$.length; i++) {
         c = c$[i];
-        if (c.localName && c.localName === 'content') {
+        if (c.localName && c.localName === "content") {
           return host.domHost;
         }
       }
     }
 
     function notifyContentObservers(root) {
-      for (var i=0, c; i < root._insertionPoints.length; i++) {
+      for (var i = 0, c; i < root._insertionPoints.length; i++) {
         c = root._insertionPoints[i];
         if (DomApi.hasApi(c)) {
           Polymer.dom(c).notifyObserver();
@@ -474,11 +478,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     function upgradeLogicalChildren(children) {
       if (needsUpgrade && children) {
-        for (var i=0; i < children.length; i++) {
+        for (var i = 0; i < children.length; i++) {
           CustomElements.upgrade(children[i]);
         }
       }
     }
   })();
-
 </script>

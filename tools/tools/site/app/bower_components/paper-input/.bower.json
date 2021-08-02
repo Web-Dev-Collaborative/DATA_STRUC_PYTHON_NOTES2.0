@@ -2,14 +2,8 @@
   "name": "paper-input",
   "version": "1.1.23",
   "description": "Material design text fields",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "input"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "input"],
   "main": [
     "paper-input.html",
     "paper-textarea.html",

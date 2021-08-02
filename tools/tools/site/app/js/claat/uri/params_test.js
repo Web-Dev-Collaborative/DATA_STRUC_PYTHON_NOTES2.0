@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-goog.provide('claat.uri.paramsTest');
-goog.setTestOnly('claat.uri.paramsTest');
+goog.provide("claat.uri.paramsTest");
+goog.setTestOnly("claat.uri.paramsTest");
 
-goog.require('claat.uri.params');
-goog.require('goog.testing.jsunit');
+goog.require("claat.uri.params");
+goog.require("goog.testing.jsunit");
 
 function testDecodeEmpty() {
-  var obj = claat.uri.params.decode('');
+  var obj = claat.uri.params.decode("");
   assertObjectEquals(obj, {});
 }
 
 function testDecodeEmptyValue() {
-  var obj = claat.uri.params.decode('one=');
-  assertObjectEquals(obj, {'one': ['']});
-  obj = claat.uri.params.decode('one&two=');
-  assertObjectEquals(obj, {'one': [''], 'two': ['']});
+  var obj = claat.uri.params.decode("one=");
+  assertObjectEquals(obj, { one: [""] });
+  obj = claat.uri.params.decode("one&two=");
+  assertObjectEquals(obj, { one: [""], two: [""] });
 }
 
 function testDecodeSingle() {
-  var obj = claat.uri.params.decode('one=1&two=2');
-  assertObjectEquals(obj, {'one': ['1'], 'two': ['2']});
+  var obj = claat.uri.params.decode("one=1&two=2");
+  assertObjectEquals(obj, { one: ["1"], two: ["2"] });
 }
 
 function testDecodeMulti() {
-  var obj = claat.uri.params.decode('one=1&two=2&one=11');
-  assertObjectEquals(obj, {'one': ['1','11'], 'two': ['2']});
+  var obj = claat.uri.params.decode("one=1&two=2&one=11");
+  assertObjectEquals(obj, { one: ["1", "11"], two: ["2"] });
 }

@@ -8,21 +8,19 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="polymer-micro.html">
+<link rel="import" href="polymer-micro.html" />
 
-<link rel="import" href="src/mini/template.html">
-<link rel="import" href="src/mini/ready.html">
-<link rel="import" href="src/mini/shady.html">
-<link rel="import" href="src/mini/shadow.html">
-<link rel="import" href="src/mini/debouncer.html">
+<link rel="import" href="src/mini/template.html" />
+<link rel="import" href="src/mini/ready.html" />
+<link rel="import" href="src/mini/shady.html" />
+<link rel="import" href="src/mini/shadow.html" />
+<link rel="import" href="src/mini/debouncer.html" />
 
 <script>
-
-  Polymer.DomModule = document.createElement('dom-module');
+  Polymer.DomModule = document.createElement("dom-module");
 
   Polymer.Base._addFeature({
-
-    _registerFeatures: function() {
+    _registerFeatures: function () {
       // identity
       this._prepIs();
       // shared behaviors
@@ -37,11 +35,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._prepPropertyInfo();
     },
 
-    _prepBehavior: function(b) {
+    _prepBehavior: function (b) {
       this._addHostAttributes(b.hostAttributes);
     },
 
-    _initFeatures: function() {
+    _initFeatures: function () {
       this._registerHost();
       if (this._template) {
         // manage local dom
@@ -63,10 +61,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._tryReady();
     },
 
-    _marshalBehavior: function(b) {
-    }
-
+    _marshalBehavior: function (b) {},
   });
-
 </script>
-

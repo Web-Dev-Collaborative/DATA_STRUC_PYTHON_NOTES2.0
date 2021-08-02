@@ -8,9 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-behaviors/iron-button-state.html">
-<link rel="import" href="paper-ripple-behavior.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-behaviors/iron-button-state.html" />
+<link rel="import" href="paper-ripple-behavior.html" />
 
 <script>
   /**
@@ -19,11 +19,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @polymerBehavior Polymer.PaperInkyFocusBehavior
    */
   Polymer.PaperInkyFocusBehaviorImpl = {
-    observers: [
-      '_focusedChanged(receivedFocusFromKeyboard)'
-    ],
+    observers: ["_focusedChanged(receivedFocusFromKeyboard)"],
 
-    _focusedChanged: function(receivedFocusFromKeyboard) {
+    _focusedChanged: function (receivedFocusFromKeyboard) {
       if (receivedFocusFromKeyboard) {
         this.ensureRipple();
       }
@@ -32,13 +30,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _createRipple: function() {
+    _createRipple: function () {
       var ripple = Polymer.PaperRippleBehavior._createRipple();
-      ripple.id = 'ink';
-      ripple.setAttribute('center', '');
-      ripple.classList.add('circle');
+      ripple.id = "ink";
+      ripple.setAttribute("center", "");
+      ripple.classList.add("circle");
       return ripple;
-    }
+    },
   };
 
   /** @polymerBehavior Polymer.PaperInkyFocusBehavior */
@@ -46,6 +44,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer.IronButtonState,
     Polymer.IronControlState,
     Polymer.PaperRippleBehavior,
-    Polymer.PaperInkyFocusBehaviorImpl
+    Polymer.PaperInkyFocusBehaviorImpl,
   ];
 </script>

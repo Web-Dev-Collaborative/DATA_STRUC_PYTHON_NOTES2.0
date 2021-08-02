@@ -8,19 +8,28 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../iron-behaviors/iron-button-state.html">
-<link rel="import" href="../iron-behaviors/iron-control-state.html">
-<link rel="import" href="../iron-form-element-behavior/iron-form-element-behavior.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-validatable-behavior/iron-validatable-behavior.html">
-<link rel="import" href="../paper-behaviors/paper-ripple-behavior.html">
-<link rel="import" href="../paper-menu-button/paper-menu-button.html">
-<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"
+/>
+<link rel="import" href="../iron-behaviors/iron-button-state.html" />
+<link rel="import" href="../iron-behaviors/iron-control-state.html" />
+<link
+  rel="import"
+  href="../iron-form-element-behavior/iron-form-element-behavior.html"
+/>
+<link rel="import" href="../iron-icon/iron-icon.html" />
+<link
+  rel="import"
+  href="../iron-validatable-behavior/iron-validatable-behavior.html"
+/>
+<link rel="import" href="../paper-behaviors/paper-ripple-behavior.html" />
+<link rel="import" href="../paper-menu-button/paper-menu-button.html" />
+<link rel="import" href="../paper-styles/default-theme.html" />
 
-<link rel="import" href="paper-dropdown-menu-icons.html">
-<link rel="import" href="paper-dropdown-menu-shared-styles.html">
+<link rel="import" href="paper-dropdown-menu-icons.html" />
+<link rel="import" href="paper-dropdown-menu-shared-styles.html" />
 
 <!--
 Material design: [Dropdown menus](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
@@ -104,7 +113,7 @@ To style it:
       }
 
       :host {
-        width: 200px;  /* Default size of an <input> */
+        width: 200px; /* Default size of an <input> */
       }
 
       /**
@@ -123,20 +132,21 @@ To style it:
       }
 
       :host([no-label-float]) .dropdown-trigger {
-        padding-top: 8px;   /* If there's no label, we need less space up top. */
+        padding-top: 8px; /* If there's no label, we need less space up top. */
       }
 
       #input {
-        @apply(--paper-font-subhead);
-        @apply(--paper-font-common-nowrap);
+        @apply (--paper-font-subhead);
+        @apply (--paper-font-common-nowrap);
         line-height: 1.5;
-        border-bottom: 1px solid var(--paper-dropdown-menu-color, --secondary-text-color);
+        border-bottom: 1px solid
+          var(--paper-dropdown-menu-color, --secondary-text-color);
         color: var(--paper-dropdown-menu-color, --primary-text-color);
         width: 100%;
         box-sizing: border-box;
-        padding: 12px 20px 0 0;   /* Right padding so that text doesn't overlap the icon */
+        padding: 12px 20px 0 0; /* Right padding so that text doesn't overlap the icon */
         outline: none;
-        @apply(--paper-dropdown-menu-input);
+        @apply (--paper-dropdown-menu-input);
       }
 
       :host-context([dir="rtl"]) #input {
@@ -145,20 +155,22 @@ To style it:
       }
 
       :host([disabled]) #input {
-        border-bottom: 1px dashed var(--paper-dropdown-menu-color, --secondary-text-color);
+        border-bottom: 1px dashed
+          var(--paper-dropdown-menu-color, --secondary-text-color);
       }
 
       :host([invalid]) #input {
-        border-bottom: 2px solid var(--paper-dropdown-error-color, --error-color);
+        border-bottom: 2px solid
+          var(--paper-dropdown-error-color, --error-color);
       }
 
       :host([no-label-float]) #input {
-        padding-top: 0;   /* If there's no label, we need less space up top. */
+        padding-top: 0; /* If there's no label, we need less space up top. */
       }
 
       label {
-        @apply(--paper-font-subhead);
-        @apply(--paper-font-common-nowrap);
+        @apply (--paper-font-subhead);
+        @apply (--paper-font-common-nowrap);
         display: block;
         position: absolute;
         bottom: 0;
@@ -171,12 +183,12 @@ To style it:
         top: 28px;
         box-sizing: border-box;
         width: 100%;
-        padding-right: 20px;    /* Right padding so that text doesn't overlap the icon */
+        padding-right: 20px; /* Right padding so that text doesn't overlap the icon */
         text-align: left;
-        transition-duration: .2s;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         color: var(--paper-dropdown-menu-color, --secondary-text-color);
-        @apply(--paper-dropdown-menu-label);
+        @apply (--paper-dropdown-menu-label);
       }
 
       :host-context([dir="rtl"]) label {
@@ -213,14 +225,17 @@ To style it:
        * visible when it's focused.
        */
       label:after {
-        background-color: var(--paper-dropdown-menu-focus-color, --primary-color);
-        bottom: 7px;    /* The container has an 8px bottom padding */
-        content: '';
+        background-color: var(
+          --paper-dropdown-menu-focus-color,
+          --primary-color
+        );
+        bottom: 7px; /* The container has an 8px bottom padding */
+        content: "";
         height: 2px;
         left: 45%;
         position: absolute;
-        transition-duration: .2s;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         visibility: hidden;
         width: 8px;
         z-index: 10;
@@ -231,7 +246,7 @@ To style it:
       }
 
       :host([no-label-float]) label:after {
-        bottom: 7px;    /* The container has a 8px bottom padding */
+        bottom: 7px; /* The container has a 8px bottom padding */
       }
 
       :host([focused]:not([disabled])) label:after {
@@ -243,10 +258,10 @@ To style it:
       iron-icon {
         position: absolute;
         right: 0px;
-        bottom: 8px;    /* The container has an 8px bottom padding */
-        @apply(--paper-font-subhead);
+        bottom: 8px; /* The container has an 8px bottom padding */
+        @apply (--paper-font-subhead);
         color: var(--disabled-text-color);
-        @apply(--paper-dropdown-menu-icon);
+        @apply (--paper-dropdown-menu-icon);
       }
 
       :host-context([dir="rtl"]) iron-icon {
@@ -262,10 +277,10 @@ To style it:
         display: inline-block;
         visibility: hidden;
         color: var(--paper-dropdown-error-color, --error-color);
-        @apply(--paper-font-caption);
+        @apply (--paper-font-caption);
         position: absolute;
-        left:0;
-        right:0;
+        left: 0;
+        right: 0;
         bottom: -12px;
       }
 
@@ -287,9 +302,12 @@ To style it:
       on-iron-deselect="_onIronDeselect"
       opened="{{opened}}"
       close-on-activate
-      allow-outside-scroll="[[allowOutsideScroll]]">
+      allow-outside-scroll="[[allowOutsideScroll]]"
+    >
       <div class="dropdown-trigger">
-        <label class$="[[_computeLabelClass(noLabelFloat,alwaysFloatLabel,hasContent)]]">
+        <label
+          class$="[[_computeLabelClass(noLabelFloat,alwaysFloatLabel,hasContent)]]"
+        >
           [[label]]
         </label>
         <div id="input" tabindex="-1">&nbsp;</div>
@@ -301,18 +319,18 @@ To style it:
   </template>
 
   <script>
-    (function() {
-      'use strict';
+    (function () {
+      "use strict";
 
       Polymer({
-        is: 'paper-dropdown-menu-light',
+        is: "paper-dropdown-menu-light",
 
         behaviors: [
           Polymer.IronButtonState,
           Polymer.IronControlState,
           Polymer.PaperRippleBehavior,
           Polymer.IronFormElementBehavior,
-          Polymer.IronValidatableBehavior
+          Polymer.IronValidatableBehavior,
         ],
 
         properties: {
@@ -324,7 +342,7 @@ To style it:
           selectedItemLabel: {
             type: String,
             notify: true,
-            readOnly: true
+            readOnly: true,
           },
 
           /**
@@ -337,7 +355,7 @@ To style it:
           selectedItem: {
             type: Object,
             notify: true,
-            readOnly: true
+            readOnly: true,
           },
 
           /**
@@ -349,21 +367,21 @@ To style it:
             type: String,
             notify: true,
             readOnly: true,
-            observer: '_valueChanged',
+            observer: "_valueChanged",
           },
 
           /**
            * The label for the dropdown.
            */
           label: {
-            type: String
+            type: String,
           },
 
           /**
            * The placeholder for the dropdown.
            */
           placeholder: {
-            type: String
+            type: String,
           },
 
           /**
@@ -373,7 +391,7 @@ To style it:
             type: Boolean,
             notify: true,
             value: false,
-            observer: '_openedChanged'
+            observer: "_openedChanged",
           },
 
           /**
@@ -384,7 +402,7 @@ To style it:
            */
           allowOutsideScroll: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -392,9 +410,9 @@ To style it:
            * `<paper-input-container>`'s `noLabelFloat` property.
            */
           noLabelFloat: {
-              type: Boolean,
-              value: false,
-              reflectToAttribute: true
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true,
           },
 
           /**
@@ -403,7 +421,7 @@ To style it:
            */
           alwaysFloatLabel: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -412,7 +430,7 @@ To style it:
            */
           noAnimations: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -421,7 +439,7 @@ To style it:
            */
           horizontalAlign: {
             type: String,
-            value: 'right'
+            value: "right",
           },
 
           /**
@@ -430,36 +448,34 @@ To style it:
            */
           verticalAlign: {
             type: String,
-            value: 'top'
+            value: "top",
           },
 
           hasContent: {
             type: Boolean,
-            readOnly: true
-          }
+            readOnly: true,
+          },
         },
 
         listeners: {
-          'tap': '_onTap'
+          tap: "_onTap",
         },
 
         keyBindings: {
-          'up down': 'open',
-          'esc': 'close'
+          "up down": "open",
+          esc: "close",
         },
 
         hostAttributes: {
           tabindex: 0,
-          role: 'combobox',
-          'aria-autocomplete': 'none',
-          'aria-haspopup': 'true'
+          role: "combobox",
+          "aria-autocomplete": "none",
+          "aria-haspopup": "true",
         },
 
-        observers: [
-          '_selectedItemChanged(selectedItem)'
-        ],
+        observers: ["_selectedItemChanged(selectedItem)"],
 
-        attached: function() {
+        attached: function () {
           // NOTE(cdata): Due to timing, a preselected value in a `IronSelectable`
           // child will cause an `iron-select` event to fire while the element is
           // still in a `DocumentFragment`. This has the effect of causing
@@ -480,14 +496,14 @@ To style it:
         /**
          * Show the dropdown content.
          */
-        open: function() {
+        open: function () {
           this.$.menuButton.open();
         },
 
         /**
          * Hide the dropdown content.
          */
-        close: function() {
+        close: function () {
           this.$.menuButton.close();
         },
 
@@ -496,7 +512,7 @@ To style it:
          *
          * @param {CustomEvent} event An `iron-select` event.
          */
-        _onIronSelect: function(event) {
+        _onIronSelect: function (event) {
           this._setSelectedItem(event.detail.item);
         },
 
@@ -505,7 +521,7 @@ To style it:
          *
          * @param {CustomEvent} event An `iron-deselect` event.
          */
-        _onIronDeselect: function(event) {
+        _onIronDeselect: function (event) {
           this._setSelectedItem(null);
         },
 
@@ -514,7 +530,7 @@ To style it:
          *
          * @param {CustomEvent} event A tap event.
          */
-        _onTap: function(event) {
+        _onTap: function (event) {
           if (Polymer.Gestures.findOriginalTarget(event) === this) {
             this.open();
           }
@@ -526,12 +542,15 @@ To style it:
          * @param {Element} selectedItem A selected Element item, with an
          * optional `label` property.
          */
-        _selectedItemChanged: function(selectedItem) {
-          var value = '';
+        _selectedItemChanged: function (selectedItem) {
+          var value = "";
           if (!selectedItem) {
-            value = '';
+            value = "";
           } else {
-            value = selectedItem.label || selectedItem.getAttribute('label') || selectedItem.textContent.trim();
+            value =
+              selectedItem.label ||
+              selectedItem.getAttribute("label") ||
+              selectedItem.textContent.trim();
           }
 
           this._setValue(value);
@@ -545,7 +564,7 @@ To style it:
          * @param {boolean} noLabelFloat True if the label should not float
          * above the input, otherwise false.
          */
-        _computeMenuVerticalOffset: function(noLabelFloat) {
+        _computeMenuVerticalOffset: function (noLabelFloat) {
           // NOTE(cdata): These numbers are somewhat magical because they are
           // derived from the metrics of elements internal to `paper-input`'s
           // template. The metrics will change depending on whether or not the
@@ -560,31 +579,37 @@ To style it:
          * @return {boolean} true if `required` is false, or if `required` is true
          * and the element has a valid selection.
          */
-        _getValidity: function(_value) {
-          return this.disabled || !this.required || (this.required && !!this.value);
+        _getValidity: function (_value) {
+          return (
+            this.disabled || !this.required || (this.required && !!this.value)
+          );
         },
 
-        _openedChanged: function() {
-          var openState = this.opened ? 'true' : 'false';
+        _openedChanged: function () {
+          var openState = this.opened ? "true" : "false";
           var e = this.contentElement;
           if (e) {
-            e.setAttribute('aria-expanded', openState);
+            e.setAttribute("aria-expanded", openState);
           }
         },
 
-        _computeLabelClass: function(noLabelFloat, alwaysFloatLabel, hasContent) {
-          var cls = '';
+        _computeLabelClass: function (
+          noLabelFloat,
+          alwaysFloatLabel,
+          hasContent
+        ) {
+          var cls = "";
           if (noLabelFloat === true) {
-            return hasContent ? 'label-is-hidden' : '';
+            return hasContent ? "label-is-hidden" : "";
           }
 
           if (hasContent || alwaysFloatLabel === true) {
-            cls += ' label-is-floating';
+            cls += " label-is-floating";
           }
           return cls;
         },
 
-        _valueChanged: function() {
+        _valueChanged: function () {
           // Only update if it's actually different.
           if (this.$.input && this.$.input.textContent !== this.value) {
             this.$.input.textContent = this.value;

@@ -9,7 +9,7 @@ Polymer lets you build encapsulated, re-usable elements that work just like stan
 <script src="webcomponentsjs/webcomponents-lite.min.js"></script>
 
 <!-- Import element -->
-<link rel="import" href="google-map.html">
+<link rel="import" href="google-map.html" />
 
 <!-- Use element -->
 <google-map latitude="37.790" longitude="-122.390"></google-map>
@@ -34,7 +34,7 @@ Polymer also provides optional two-way data-binding, meaning:
 
 Polymer is designed to be flexible, lightweight, and close to the web platform - the library doesn't invent complex new abstractions and magic, but uses the best features of the web platform in straightforward ways to simply sugar the creation of custom elements.
 
-In addition to the Polymer library for building your own custom elements, the Polymer project includes a collection of [pre-built elements](https://elements.polymer-project.org) that you can  drop on a page and use immediately, or use as starting points for your own custom elements.
+In addition to the Polymer library for building your own custom elements, the Polymer project includes a collection of [pre-built elements](https://elements.polymer-project.org) that you can drop on a page and use immediately, or use as starting points for your own custom elements.
 
 ## Polymer in 1 Minute
 
@@ -47,7 +47,7 @@ Polymer adds convenient features to make it easy to build complex elements:
  * A not-very-useful inline element
  */
 Polymer({
-    is: 'my-element'
+  is: "my-element",
 });
 ```
 
@@ -62,14 +62,12 @@ Polymer({
 <!-- define the markup that your element will use -->
 <dom-module id="my-simple-namecard">
   <template>
-    <div>
-      Hi! My name is <span>Jane</span>
-    </div>
+    <div>Hi! My name is <span>Jane</span></div>
   </template>
 
   <script>
     Polymer({
-        is: 'my-simple-namecard'
+      is: "my-simple-namecard",
     });
   </script>
 </dom-module>
@@ -80,15 +78,15 @@ Polymer({
 ```js
 // Create an element that takes a property
 Polymer({
-    is: 'my-property-namecard',
-    properties: {
-      myName: {
-        type: String
-      }
+  is: "my-property-namecard",
+  properties: {
+    myName: {
+      type: String,
     },
-    ready: function() {
-      this.textContent = 'Hi! My name is ' + this.myName;
-    }
+  },
+  ready: function () {
+    this.textContent = "Hi! My name is " + this.myName;
+  },
 });
 ```
 
@@ -107,19 +105,17 @@ Polymer({
 <!-- define markup with bindings -->
 <dom-module id="my-bound-namecard">
   <template>
-    <div>
-      Hi! My name is <span>{{myName}}</span>
-    </div>
+    <div>Hi! My name is <span>{{myName}}</span></div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-bound-namecard',
+      is: "my-bound-namecard",
       properties: {
         myName: {
-          type: String
-        }
-      }
+          type: String,
+        },
+      },
     });
   </script>
 </dom-module>
@@ -145,19 +141,17 @@ Polymer({
       }
     </style>
 
-    <div>
-      Hi! My name is <span>{{myName}}</span>
-    </div>
+    <div>Hi! My name is <span>{{myName}}</span></div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-styled-namecard',
+      is: "my-styled-namecard",
       properties: {
         myName: {
-          type: String
-        }
-      }
+          type: String,
+        },
+      },
     });
   </script>
 </dom-module>
@@ -176,10 +170,10 @@ Web components are an incredibly powerful new set of primitives baked into the w
 
 By being based on Web Components, elements built with Polymer are:
 
-* Built from the platform up
-* Self-contained
-* Don't require an overarching framework - are interoperable across frameworks
-* Re-usable
+- Built from the platform up
+- Self-contained
+- Don't require an overarching framework - are interoperable across frameworks
+- Re-usable
 
 ## Contributing
 
@@ -189,11 +183,11 @@ The Polymer team loves contributions from the community! Take a look at our [con
 
 Beyond GitHub, we try to have a variety of different lines of communication available:
 
-* [Blog](https://blog.polymer-project.org/)
-* [Twitter](https://twitter.com/polymer)
-* [Google+ community](https://plus.google.com/communities/115626364525706131031)
-* [Mailing list](https://groups.google.com/forum/#!forum/polymer-dev)
-* [Slack channel](https://bit.ly/polymerslack)
+- [Blog](https://blog.polymer-project.org/)
+- [Twitter](https://twitter.com/polymer)
+- [Google+ community](https://plus.google.com/communities/115626364525706131031)
+- [Mailing list](https://groups.google.com/forum/#!forum/polymer-dev)
+- [Slack channel](https://bit.ly/polymerslack)
 
 # License
 

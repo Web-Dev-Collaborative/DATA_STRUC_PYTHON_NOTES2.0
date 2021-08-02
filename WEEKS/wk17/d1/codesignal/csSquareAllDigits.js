@@ -17,9 +17,8 @@ function csSquareAllDigits(n) {
   return +Array.from(n.toString(), (num) => num * num).join("");
 }
 
-
 // //------------------------Alternative Solution------------------------
-// 
+//
 // /**
 //  * Returns a new number with squared digits
 //  * Time complexity: O(n), space complexity: O(n)
@@ -29,16 +28,16 @@ function csSquareAllDigits(n) {
 // const squareDigits = n => {
 //     // Get an array of digits
 //     const digits = n.toString().split('')
-// 
-//     // Square each digit. Because JavaScript has 
+//
+//     // Square each digit. Because JavaScript has
 //     // automatic type coercion, it will quietly convert each string
 //     // into a number to perform multiplication
 //     const squaredDigits = digits.map(n => n * n)
-// 
-//     // Join each digit together, then use the + operator 
+//
+//     // Join each digit together, then use the + operator
 //     // to convert the string into a number
 //     const squaredNumber = squaredDigits.join('')
-// 
+//
 //     return +squaredNumber
 // }
 // squareDigits(9119) // 811181

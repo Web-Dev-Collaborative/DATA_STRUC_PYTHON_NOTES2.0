@@ -8,8 +8,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-meta/iron-meta.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-meta/iron-meta.html" />
 
 <script>
   /**
@@ -42,14 +42,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @polymerBehavior
    */
   Polymer.IronValidatableBehavior = {
-
     properties: {
-
       /**
        * Name of the validator to use.
        */
       validator: {
-        type: String
+        type: String,
       },
 
       /**
@@ -59,7 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         notify: true,
         reflectToAttribute: true,
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -67,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * validator meta singleton, `Polymer.IronValidatableBehaviorMeta` instead.
        */
       _validatorMeta: {
-        type: Object
+        type: Object,
       },
 
       /**
@@ -77,35 +75,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       validatorType: {
         type: String,
-        value: 'validator'
+        value: "validator",
       },
 
       _validator: {
         type: Object,
-        computed: '__computeValidator(validator)'
-      }
+        computed: "__computeValidator(validator)",
+      },
     },
 
-    observers: [
-      '_invalidChanged(invalid)'
-    ],
+    observers: ["_invalidChanged(invalid)"],
 
-    registered: function() {
-      Polymer.IronValidatableBehaviorMeta = new Polymer.IronMeta({type: 'validator'});
+    registered: function () {
+      Polymer.IronValidatableBehaviorMeta = new Polymer.IronMeta({
+        type: "validator",
+      });
     },
 
-    _invalidChanged: function() {
+    _invalidChanged: function () {
       if (this.invalid) {
-        this.setAttribute('aria-invalid', 'true');
+        this.setAttribute("aria-invalid", "true");
       } else {
-        this.removeAttribute('aria-invalid');
+        this.removeAttribute("aria-invalid");
       }
     },
 
     /**
      * @return {boolean} True if the validator `validator` exists.
      */
-    hasValidator: function() {
+    hasValidator: function () {
       return this._validator != null;
     },
 
@@ -118,7 +116,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * to the validator's `validate()` function, if a validator is set.
      * @return {boolean} True if `value` is valid.
      */
-    validate: function(value) {
+    validate: function (value) {
       this.invalid = !this._getValidity(value);
       return !this.invalid;
     },
@@ -133,17 +131,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {boolean} True if `value` is valid.
      */
 
-    _getValidity: function(value) {
+    _getValidity: function (value) {
       if (this.hasValidator()) {
         return this._validator.validate(value);
       }
       return true;
     },
 
-    __computeValidator: function() {
-      return Polymer.IronValidatableBehaviorMeta &&
-          Polymer.IronValidatableBehaviorMeta.byKey(this.validator);
-    }
+    __computeValidator: function () {
+      return (
+        Polymer.IronValidatableBehaviorMeta &&
+        Polymer.IronValidatableBehaviorMeta.byKey(this.validator)
+      );
+    },
   };
-
 </script>

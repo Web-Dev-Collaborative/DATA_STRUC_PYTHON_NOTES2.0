@@ -5,12 +5,7 @@
   "license": "http://polymer.github.io/LICENSE.txt",
   "private": true,
   "authors": "The Polymer Authors",
-  "keywords": [
-    "web-components",
-    "polymer",
-    "layout",
-    "responsive"
-  ],
+  "keywords": ["web-components", "polymer", "layout", "responsive"],
   "main": "paper-scroll-header-panel.html",
   "repository": {
     "type": "git",

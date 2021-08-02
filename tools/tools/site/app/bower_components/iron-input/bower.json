@@ -2,14 +2,8 @@
   "name": "iron-input",
   "version": "1.0.10",
   "description": "An input element with data binding",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "input"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "input"],
   "main": "iron-input.html",
   "private": true,
   "repository": {

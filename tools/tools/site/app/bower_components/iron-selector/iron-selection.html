@@ -1,4 +1,3 @@
-
 <!--
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -9,21 +8,19 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <script>
-
   /**
    * @param {!Function} selectCallback
    * @constructor
    */
-  Polymer.IronSelection = function(selectCallback) {
+  Polymer.IronSelection = function (selectCallback) {
     this.selection = [];
     this.selectCallback = selectCallback;
   };
 
   Polymer.IronSelection.prototype = {
-
     /**
      * Retrieves the selected item(s).
      *
@@ -32,7 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * `get` will return an array, otherwise it will return
      * the selected item or undefined if there is no selection.
      */
-    get: function() {
+    get: function () {
       return this.multi ? this.selection.slice() : this.selection[0];
     },
 
@@ -42,8 +39,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method clear
      * @param {Array} excludes items to be excluded.
      */
-    clear: function(excludes) {
-      this.selection.slice().forEach(function(item) {
+    clear: function (excludes) {
+      this.selection.slice().forEach(function (item) {
         if (!excludes || excludes.indexOf(item) < 0) {
           this.setItemSelected(item, false);
         }
@@ -57,7 +54,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {*} item The item whose selection state should be checked.
      * @returns Returns true if `item` is selected.
      */
-    isSelected: function(item) {
+    isSelected: function (item) {
       return this.selection.indexOf(item) >= 0;
     },
 
@@ -68,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {*} item The item to select.
      * @param {boolean} isSelected True for selected, false for deselected.
      */
-    setItemSelected: function(item, isSelected) {
+    setItemSelected: function (item, isSelected) {
       if (item != null) {
         if (isSelected !== this.isSelected(item)) {
           // proceed to update selection only if requested state differs from current
@@ -95,7 +92,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method select
      * @param {*} item The item to select.
      */
-    select: function(item) {
+    select: function (item) {
       if (this.multi) {
         this.toggle(item);
       } else if (this.get() !== item) {
@@ -110,10 +107,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method toggle
      * @param {*} item The item to toggle.
      */
-    toggle: function(item) {
+    toggle: function (item) {
       this.setItemSelected(item, !this.isSelected(item));
-    }
-
+    },
   };
-
 </script>

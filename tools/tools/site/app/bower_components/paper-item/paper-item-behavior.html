@@ -8,9 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-behaviors/iron-button-state.html">
-<link rel="import" href="../iron-behaviors/iron-control-state.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-behaviors/iron-button-state.html" />
+<link rel="import" href="../iron-behaviors/iron-control-state.html" />
 
 <!--
 `PaperItemBehavior` is a convenience behavior shared by <paper-item> and
@@ -22,15 +22,15 @@ the items.
   /** @polymerBehavior Polymer.PaperItemBehavior */
   Polymer.PaperItemBehaviorImpl = {
     hostAttributes: {
-      role: 'option',
-      tabindex: '0'
-    }
+      role: "option",
+      tabindex: "0",
+    },
   };
 
   /** @polymerBehavior */
   Polymer.PaperItemBehavior = [
     Polymer.IronButtonState,
     Polymer.IronControlState,
-    Polymer.PaperItemBehaviorImpl
+    Polymer.PaperItemBehaviorImpl,
   ];
 </script>

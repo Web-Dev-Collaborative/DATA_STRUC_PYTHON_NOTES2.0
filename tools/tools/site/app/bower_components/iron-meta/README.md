@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/iron-meta.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-meta)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-meta)_
-
 
 ##&lt;iron-meta&gt;
 
@@ -44,24 +42,20 @@ Now I can access that element (and it's metadata) from any iron-meta instance
 via the byKey method, e.g.
 
 ```javascript
-meta.byKey('info');
+meta.byKey("info");
 ```
 
 Pure imperative form would be like:
 
 ```javascript
-document.createElement('iron-meta').byKey('info');
+document.createElement("iron-meta").byKey("info");
 ```
 
 Or, in a Polymer element, you can include a meta in your template:
 
 ```html
-<iron-meta id="meta"></iron-meta>
-...
-this.$.meta.byKey('info');
+<iron-meta id="meta"></iron-meta> ... this.$.meta.byKey('info');
 ```
-
-
 
 ##&lt;iron-meta-query&gt;
 
@@ -90,21 +84,17 @@ Now I can access that element (and it's metadata) from any iron-meta instance
 via the byKey method, e.g.
 
 ```javascript
-meta.byKey('info');
+meta.byKey("info");
 ```
 
 Pure imperative form would be like:
 
 ```javascript
-document.createElement('iron-meta').byKey('info');
+document.createElement("iron-meta").byKey("info");
 ```
 
 Or, in a Polymer element, you can include a meta in your template:
 
 ```html
-<iron-meta id="meta"></iron-meta>
-...
-this.$.meta.byKey('info');
+<iron-meta id="meta"></iron-meta> ... this.$.meta.byKey('info');
 ```
-
-

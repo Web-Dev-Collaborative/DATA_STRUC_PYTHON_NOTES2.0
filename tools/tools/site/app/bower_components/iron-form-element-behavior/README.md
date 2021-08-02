@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -13,11 +12,7 @@ Edit this file, and the bot will squash your changes :)
 
 _[Demo and API Docs](https://elements.polymer-project.org/elements/iron-form-element-behavior)_
 
-
 ##Polymer.IronFormElementBehavior
 
-
-  Polymer.IronFormElementBehavior enables a custom element to be included
-  in an `iron-form`.
-
-  
+Polymer.IronFormElementBehavior enables a custom element to be included
+in an `iron-form`.

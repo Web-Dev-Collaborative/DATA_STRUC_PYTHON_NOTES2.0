@@ -21,7 +21,8 @@
   font-size: 13px;
   padding: 40px 0;
 
-  ul, li {
+  ul,
+  li {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -38,7 +39,7 @@
   .link-list {
     border-top: 1px solid $grey700;
     flex: 1;
-    margin-right: $keyline*4;
+    margin-right: $keyline * 4;
 
     &:last-child {
       margin-right: 0;
@@ -48,7 +49,7 @@
     label {
       display: block;
       color: #fff;
-      margin: $keyline 0 $keyline*2;
+      margin: $keyline 0 $keyline * 2;
     }
   }
 }
@@ -66,13 +67,13 @@
 
 @media (max-width: $phone-breakpoint-max) {
   #footer {
-    padding: $keyline*3 0;
+    padding: $keyline * 3 0;
 
     .footer-wrapper {
       flex-direction: column;
     }
     .link-list {
-      margin: 0 0 $keyline*3 0;
+      margin: 0 0 $keyline * 3 0;
     }
   }
 }

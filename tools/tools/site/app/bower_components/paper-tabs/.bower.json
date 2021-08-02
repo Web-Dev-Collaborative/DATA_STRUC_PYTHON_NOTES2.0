@@ -5,15 +5,8 @@
   "description": "Material design tabs",
   "private": true,
   "main": "paper-tabs.html",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "tabs",
-    "control"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "tabs", "control"],
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/paper-tabs.git"

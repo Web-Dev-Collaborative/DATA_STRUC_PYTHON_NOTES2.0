@@ -9,7 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <script>
-
   /**
    * Supports `listeners` object.
    *
@@ -33,7 +32,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
 
   Polymer.Base._addFeature({
-
     /**
      * Object containing entries specifying event listeners to create on each
      * instance of this element, where keys specify the event name and values
@@ -58,14 +56,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // TODO(sorvell): need to deprecate listening for a.b.
     // In the interim, we need to keep a map of listeners by node name
     // to avoid these string searches at instance time.
-    _listenListeners: function(listeners) {
+    _listenListeners: function (listeners) {
       var node, name, eventName;
       for (eventName in listeners) {
-        if (eventName.indexOf('.') < 0) {
+        if (eventName.indexOf(".") < 0) {
           node = this;
           name = eventName;
         } else {
-          name = eventName.split('.');
+          name = eventName.split(".");
           node = this.$[name[0]];
           name = name[1];
         }
@@ -82,7 +80,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {string} eventName Name of event to listen for.
      * @param {string} methodName Name of handler method on `this` to call.
      */
-    listen: function(node, eventName, methodName) {
+    listen: function (node, eventName, methodName) {
       var handler = this._recallEventHandler(this, eventName, node, methodName);
       // reuse cache'd handler
       if (!handler) {
@@ -96,11 +94,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       handler._listening = true;
     },
 
-    _boundListenerKey: function(eventName, methodName) {
-      return (eventName + ':' + methodName);
+    _boundListenerKey: function (eventName, methodName) {
+      return eventName + ":" + methodName;
     },
 
-    _recordEventHandler: function(host, eventName, target, methodName, handler) {
+    _recordEventHandler: function (
+      host,
+      eventName,
+      target,
+      methodName,
+      handler
+    ) {
       var hbl = host.__boundListeners;
       if (!hbl) {
         hbl = host.__boundListeners = new WeakMap();
@@ -114,7 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       bl[key] = handler;
     },
 
-    _recallEventHandler: function(host, eventName, target, methodName) {
+    _recallEventHandler: function (host, eventName, target, methodName) {
       var hbl = host.__boundListeners;
       if (!hbl) {
         return;
@@ -127,14 +131,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return bl[key];
     },
 
-    _createEventHandler: function(node, eventName, methodName) {
+    _createEventHandler: function (node, eventName, methodName) {
       var host = this;
-      var handler = function(e) {
+      var handler = function (e) {
         if (host[methodName]) {
           host[methodName](e, e.detail);
         } else {
-          host._warn(host._logf('_createEventHandler', 'listener method `' +
-            methodName + '` not defined'));
+          host._warn(
+            host._logf(
+              "_createEventHandler",
+              "listener method `" + methodName + "` not defined"
+            )
+          );
         }
       };
       handler._listening = false;
@@ -152,7 +160,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {string} methodName Name of handler method on `this` to not call
      anymore.
      */
-    unlisten: function(node, eventName, methodName) {
+    unlisten: function (node, eventName, methodName) {
       // leave handler in map for cache purposes
       var handler = this._recallEventHandler(this, eventName, node, methodName);
       if (handler) {
@@ -161,13 +169,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _listen: function(node, eventName, handler) {
+    _listen: function (node, eventName, handler) {
       node.addEventListener(eventName, handler);
     },
 
-    _unlisten: function(node, eventName, handler) {
+    _unlisten: function (node, eventName, handler) {
       node.removeEventListener(eventName, handler);
-    }
+    },
   });
-
 </script>

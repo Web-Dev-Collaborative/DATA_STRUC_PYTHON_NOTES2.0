@@ -8,44 +8,41 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="iron-selection.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="iron-selection.html" />
 
 <script>
-
   /** @polymerBehavior */
   Polymer.IronSelectableBehavior = {
+    /**
+     * Fired when iron-selector is activated (selected or deselected).
+     * It is fired before the selected items are changed.
+     * Cancel the event to abort selection.
+     *
+     * @event iron-activate
+     */
 
-      /**
-       * Fired when iron-selector is activated (selected or deselected).
-       * It is fired before the selected items are changed.
-       * Cancel the event to abort selection.
-       *
-       * @event iron-activate
-       */
+    /**
+     * Fired when an item is selected
+     *
+     * @event iron-select
+     */
 
-      /**
-       * Fired when an item is selected
-       *
-       * @event iron-select
-       */
+    /**
+     * Fired when an item is deselected
+     *
+     * @event iron-deselect
+     */
 
-      /**
-       * Fired when an item is deselected
-       *
-       * @event iron-deselect
-       */
-
-      /**
-       * Fired when the list of selectable items changes (e.g., items are
-       * added or removed). The detail of the event is a mutation record that
-       * describes what changed.
-       *
-       * @event iron-items-changed
-       */
+    /**
+     * Fired when the list of selectable items changes (e.g., items are
+     * added or removed). The detail of the event is a mutation record that
+     * describes what changed.
+     *
+     * @event iron-items-changed
+     */
 
     properties: {
-
       /**
        * If you want to use an attribute value or property of an element for
        * `selected` instead of the index, set this to the name of the attribute
@@ -58,7 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       attrForSelected: {
         type: String,
-        value: null
+        value: null,
       },
 
       /**
@@ -67,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       selected: {
         type: String,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -78,7 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       selectedItem: {
         type: Object,
         readOnly: true,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -88,8 +85,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       activateEvent: {
         type: String,
-        value: 'tap',
-        observer: '_activateEventChanged'
+        value: "tap",
+        observer: "_activateEventChanged",
       },
 
       /**
@@ -103,7 +100,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       selectedClass: {
         type: String,
-        value: 'iron-selected'
+        value: "iron-selected",
       },
 
       /**
@@ -111,7 +108,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       selectedAttribute: {
         type: String,
-        value: null
+        value: null,
       },
 
       /**
@@ -120,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       fallbackSelection: {
         type: String,
-        value: null
+        value: null,
       },
 
       /**
@@ -130,9 +127,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         type: Array,
         readOnly: true,
         notify: true,
-        value: function() {
+        value: function () {
           return [];
-        }
+        },
       },
 
       /**
@@ -143,26 +140,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       _excludedLocalNames: {
         type: Object,
-        value: function() {
+        value: function () {
           return {
-            'template': 1
+            template: 1,
           };
-        }
-      }
+        },
+      },
     },
 
     observers: [
-      '_updateAttrForSelected(attrForSelected)',
-      '_updateSelected(selected)',
-      '_checkFallback(fallbackSelection)'
+      "_updateAttrForSelected(attrForSelected)",
+      "_updateSelected(selected)",
+      "_checkFallback(fallbackSelection)",
     ],
 
-    created: function() {
+    created: function () {
       this._bindFilterItem = this._filterItem.bind(this);
-      this._selection = new Polymer.IronSelection(this._applySelection.bind(this));
+      this._selection = new Polymer.IronSelection(
+        this._applySelection.bind(this)
+      );
     },
 
-    attached: function() {
+    attached: function () {
       this._observer = this._observeItems(this);
       this._updateItems();
       if (!this._shouldUpdateSelection) {
@@ -171,7 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._addListener(this.activateEvent);
     },
 
-    detached: function() {
+    detached: function () {
       if (this._observer) {
         Polymer.dom(this).unobserveNodes(this._observer);
       }
@@ -185,7 +184,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {Object} item
      * @returns Returns the index of the item
      */
-    indexOf: function(item) {
+    indexOf: function (item) {
       return this.items.indexOf(item);
     },
 
@@ -195,7 +194,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @method select
      * @param {string|number} value the value to select.
      */
-    select: function(value) {
+    select: function (value) {
       this.selected = value;
     },
 
@@ -204,9 +203,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @method selectPrevious
      */
-    selectPrevious: function() {
+    selectPrevious: function () {
       var length = this.items.length;
-      var index = (Number(this._valueToIndex(this.selected)) - 1 + length) % length;
+      var index =
+        (Number(this._valueToIndex(this.selected)) - 1 + length) % length;
       this.selected = this._indexToValue(index);
     },
 
@@ -215,8 +215,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @method selectNext
      */
-    selectNext: function() {
-      var index = (Number(this._valueToIndex(this.selected)) + 1) % this.items.length;
+    selectNext: function () {
+      var index =
+        (Number(this._valueToIndex(this.selected)) + 1) % this.items.length;
       this.selected = this._indexToValue(index);
     },
 
@@ -225,7 +226,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @method selectIndex
      */
-    selectIndex: function(index) {
+    selectIndex: function (index) {
       this.select(this._indexToValue(index));
     },
 
@@ -241,7 +242,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * slow for many use cases. The `items` property will update asynchronously
      * on its own to reflect selectable items in the DOM.
      */
-    forceSynchronousItemUpdate: function() {
+    forceSynchronousItemUpdate: function () {
       this._updateItems();
     },
 
@@ -249,61 +250,67 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return this.selected != null;
     },
 
-    _checkFallback: function() {
+    _checkFallback: function () {
       if (this._shouldUpdateSelection) {
         this._updateSelected();
       }
     },
 
-    _addListener: function(eventName) {
-      this.listen(this, eventName, '_activateHandler');
+    _addListener: function (eventName) {
+      this.listen(this, eventName, "_activateHandler");
     },
 
-    _removeListener: function(eventName) {
-      this.unlisten(this, eventName, '_activateHandler');
+    _removeListener: function (eventName) {
+      this.unlisten(this, eventName, "_activateHandler");
     },
 
-    _activateEventChanged: function(eventName, old) {
+    _activateEventChanged: function (eventName, old) {
       this._removeListener(old);
       this._addListener(eventName);
     },
 
-    _updateItems: function() {
-      var nodes = Polymer.dom(this).queryDistributedElements(this.selectable || '*');
+    _updateItems: function () {
+      var nodes = Polymer.dom(this).queryDistributedElements(
+        this.selectable || "*"
+      );
       nodes = Array.prototype.filter.call(nodes, this._bindFilterItem);
       this._setItems(nodes);
     },
 
-    _updateAttrForSelected: function() {
+    _updateAttrForSelected: function () {
       if (this._shouldUpdateSelection) {
         this.selected = this._indexToValue(this.indexOf(this.selectedItem));
       }
     },
 
-    _updateSelected: function() {
+    _updateSelected: function () {
       this._selectSelected(this.selected);
     },
 
-    _selectSelected: function(selected) {
+    _selectSelected: function (selected) {
       this._selection.select(this._valueToItem(this.selected));
       // Check for items, since this array is populated only when attached
       // Since Number(0) is falsy, explicitly check for undefined
-      if (this.fallbackSelection && this.items.length && (this._selection.get() === undefined)) {
+      if (
+        this.fallbackSelection &&
+        this.items.length &&
+        this._selection.get() === undefined
+      ) {
         this.selected = this.fallbackSelection;
       }
     },
 
-    _filterItem: function(node) {
+    _filterItem: function (node) {
       return !this._excludedLocalNames[node.localName];
     },
 
-    _valueToItem: function(value) {
-      return (value == null) ? null : this.items[this._valueToIndex(value)];
+    _valueToItem: function (value) {
+      return value == null ? null : this.items[this._valueToIndex(value)];
     },
 
-    _valueToIndex: function(value) {
+    _valueToIndex: function (value) {
       if (this.attrForSelected) {
-        for (var i = 0, item; item = this.items[i]; i++) {
+        for (var i = 0, item; (item = this.items[i]); i++) {
           if (this._valueForItem(item) == value) {
             return i;
           }
@@ -313,7 +320,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _indexToValue: function(index) {
+    _indexToValue: function (index) {
       if (this.attrForSelected) {
         var item = this.items[index];
         if (item) {
@@ -324,12 +331,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _valueForItem: function(item) {
-      var propValue = item[Polymer.CaseMap.dashToCamelCase(this.attrForSelected)];
-      return propValue != undefined ? propValue : item.getAttribute(this.attrForSelected);
+    _valueForItem: function (item) {
+      var propValue =
+        item[Polymer.CaseMap.dashToCamelCase(this.attrForSelected)];
+      return propValue != undefined
+        ? propValue
+        : item.getAttribute(this.attrForSelected);
     },
 
-    _applySelection: function(item, isSelected) {
+    _applySelection: function (item, isSelected) {
       if (this.selectedClass) {
         this.toggleClass(this.selectedClass, isSelected, item);
       }
@@ -337,16 +347,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.toggleAttribute(this.selectedAttribute, isSelected, item);
       }
       this._selectionChange();
-      this.fire('iron-' + (isSelected ? 'select' : 'deselect'), {item: item});
+      this.fire("iron-" + (isSelected ? "select" : "deselect"), { item: item });
     },
 
-    _selectionChange: function() {
+    _selectionChange: function () {
       this._setSelectedItem(this._selection.get());
     },
 
     // observe items change under the given node.
-    _observeItems: function(node) {
-      return Polymer.dom(node).observeNodes(function(mutation) {
+    _observeItems: function (node) {
+      return Polymer.dom(node).observeNodes(function (mutation) {
         this._updateItems();
 
         if (this._shouldUpdateSelection) {
@@ -355,14 +365,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         // Let other interested parties know about the change so that
         // we don't have to recreate mutation observers everywhere.
-        this.fire('iron-items-changed', mutation, {
+        this.fire("iron-items-changed", mutation, {
           bubbles: false,
-          cancelable: false
+          cancelable: false,
         });
       });
     },
 
-    _activateHandler: function(e) {
+    _activateHandler: function (e) {
       var t = e.target;
       var items = this.items;
       while (t && t != this) {
@@ -376,13 +386,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _itemActivate: function(value, item) {
-      if (!this.fire('iron-activate',
-          {selected: value, item: item}, {cancelable: true}).defaultPrevented) {
+    _itemActivate: function (value, item) {
+      if (
+        !this.fire(
+          "iron-activate",
+          { selected: value, item: item },
+          { cancelable: true }
+        ).defaultPrevented
+      ) {
         this.select(value);
       }
-    }
-
+    },
   };
-
 </script>

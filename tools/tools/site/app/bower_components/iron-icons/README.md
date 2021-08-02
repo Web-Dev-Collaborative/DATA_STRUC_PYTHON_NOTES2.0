@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-icons)_
 
-
 ##&lt;iron-icons&gt;
 
 `iron-icons` is a utility import that includes the definition for the `iron-icon` element, `iron-iconset-svg` element, as well as an import for the default icon set.
@@ -26,7 +24,7 @@ The `iron-icons` directory also includes imports for additional icon sets that c
 Example loading icon set:
 
 ```html
-<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-icons/maps-icons.html" />
 ```
 
 To use an icon from one of these sets, first prefix your `iron-icon` with the icon set name, followed by a colon, ":", and then the icon id.
@@ -45,5 +43,3 @@ use directly in your elements.
 See [iron-icon](./iron-icon) for more information about working with icons.
 
 See [iron-iconset](./iron-iconset) and [iron-iconset-svg](./iron-iconset-svg) for more information about how to create a custom iconset.
-
-

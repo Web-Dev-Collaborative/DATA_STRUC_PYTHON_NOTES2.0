@@ -8,8 +8,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html" />
 
 <!--
 `paper-header-panel` contains a header section and a content panel section.
@@ -147,16 +147,16 @@ Custom property | Description | Default
   <template>
     <style>
       :host {
-        @apply(--layout-vertical);
+        @apply (--layout-vertical);
 
         position: relative;
         height: 100%;
 
-        @apply(--paper-header-panel);
+        @apply (--paper-header-panel);
       }
 
       #mainContainer {
-        @apply(--layout-flex);
+        @apply (--layout-flex);
 
         position: relative;
         overflow-y: auto;
@@ -165,29 +165,29 @@ Custom property | Description | Default
       }
 
       #mainPanel {
-        @apply(--layout-vertical);
-        @apply(--layout-flex);
+        @apply (--layout-vertical);
+        @apply (--layout-flex);
 
         position: relative;
         min-height: 0;
 
-        @apply(--paper-header-panel-body);
+        @apply (--paper-header-panel-body);
       }
 
       #mainContainer {
-        @apply(--paper-header-panel-container);
+        @apply (--paper-header-panel-container);
       }
 
       /*
        * mode: scroll
        */
-      :host([mode=scroll]) #mainContainer {
-        @apply(--paper-header-panel-scroll-container);
+      :host([mode="scroll"]) #mainContainer {
+        @apply (--paper-header-panel-scroll-container);
 
         overflow: visible;
       }
 
-      :host([mode=scroll]) {
+      :host([mode="scroll"]) {
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
@@ -196,8 +196,8 @@ Custom property | Description | Default
       /*
        * mode: cover
        */
-      :host([mode=cover]) #mainContainer {
-        @apply(--paper-header-panel-cover-container);
+      :host([mode="cover"]) #mainContainer {
+        @apply (--paper-header-panel-cover-container);
 
         position: absolute;
         top: 0;
@@ -206,37 +206,36 @@ Custom property | Description | Default
         left: 0;
       }
 
-      :host([mode=cover]) #mainPanel {
+      :host([mode="cover"]) #mainPanel {
         position: static;
       }
 
       /*
        * mode: standard
        */
-      :host([mode=standard]) #mainContainer {
-        @apply(--paper-header-panel-standard-container);
+      :host([mode="standard"]) #mainContainer {
+        @apply (--paper-header-panel-standard-container);
       }
 
       /*
        * mode: seamed
        */
-      :host([mode=seamed]) #mainContainer {
-        @apply(--paper-header-panel-seamed-container);
+      :host([mode="seamed"]) #mainContainer {
+        @apply (--paper-header-panel-seamed-container);
       }
-
 
       /*
        * mode: waterfall
        */
-      :host([mode=waterfall]) #mainContainer {
-        @apply(--paper-header-panel-waterfall-container);
+      :host([mode="waterfall"]) #mainContainer {
+        @apply (--paper-header-panel-waterfall-container);
       }
 
       /*
        * mode: waterfall-tall
        */
-      :host([mode=waterfall-tall]) #mainContainer {
-        @apply(--paper-header-panel-waterfall-tall-container);
+      :host([mode="waterfall-tall"]) #mainContainer {
+        @apply (--paper-header-panel-waterfall-tall-container);
       }
 
       #dropShadow {
@@ -244,7 +243,7 @@ Custom property | Description | Default
         height: 6px;
         box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
 
-        @apply(--paper-header-panel-shadow);
+        @apply (--paper-header-panel-shadow);
 
         position: absolute;
         top: 0;
@@ -270,29 +269,29 @@ Custom property | Description | Default
   </template>
 
   <script>
-    (function() {
-      'use strict';
+    (function () {
+      "use strict";
 
       var SHADOW_WHEN_SCROLLING = 1;
       var SHADOW_ALWAYS = 2;
       var MODE_CONFIGS = {
         outerScroll: {
-          'scroll': true
+          scroll: true,
         },
 
         shadowMode: {
-          'standard': SHADOW_ALWAYS,
-          'waterfall': SHADOW_WHEN_SCROLLING,
-          'waterfall-tall': SHADOW_WHEN_SCROLLING
+          standard: SHADOW_ALWAYS,
+          waterfall: SHADOW_WHEN_SCROLLING,
+          "waterfall-tall": SHADOW_WHEN_SCROLLING,
         },
 
         tallMode: {
-          'waterfall-tall': true
-        }
+          "waterfall-tall": true,
+        },
       };
 
       Polymer({
-        is: 'paper-header-panel',
+        is: "paper-header-panel",
 
         /**
          * Fired when the content has been scrolled.  `event.detail.target` returns
@@ -346,9 +345,9 @@ Custom property | Description | Default
            */
           mode: {
             type: String,
-            value: 'standard',
-            observer: '_modeChanged',
-            reflectToAttribute: true
+            value: "standard",
+            observer: "_modeChanged",
+            reflectToAttribute: true,
           },
 
           /**
@@ -356,7 +355,7 @@ Custom property | Description | Default
            */
           shadow: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -365,7 +364,7 @@ Custom property | Description | Default
            */
           tallClass: {
             type: String,
-            value: 'tall'
+            value: "tall",
           },
 
           /**
@@ -376,25 +375,23 @@ Custom property | Description | Default
             value: true,
             notify: true,
             readOnly: true,
-            reflectToAttribute: true
-          }
+            reflectToAttribute: true,
+          },
         },
 
-        observers: [
-          '_computeDropShadowHidden(atTop, mode, shadow)'
-        ],
+        observers: ["_computeDropShadowHidden(atTop, mode, shadow)"],
 
-        ready: function() {
+        ready: function () {
           this.scrollHandler = this._scroll.bind(this);
         },
 
-        attached: function() {
+        attached: function () {
           this._addListener();
           // Run `scroll` logic once to initialize class names, etc.
           this._keepScrollingState();
         },
 
-        detached: function() {
+        detached: function () {
           this._removeListener();
         },
 
@@ -425,46 +422,47 @@ Custom property | Description | Default
          * @type Boolean
          */
         get visibleShadow() {
-          return this.$.dropShadow.classList.contains('has-shadow');
+          return this.$.dropShadow.classList.contains("has-shadow");
         },
 
-        _computeDropShadowHidden: function(atTop, mode, shadow) {
+        _computeDropShadowHidden: function (atTop, mode, shadow) {
           var shadowMode = MODE_CONFIGS.shadowMode[mode];
 
           if (this.shadow) {
-            this.toggleClass('has-shadow', true, this.$.dropShadow);
+            this.toggleClass("has-shadow", true, this.$.dropShadow);
           } else if (shadowMode === SHADOW_ALWAYS) {
-            this.toggleClass('has-shadow', true, this.$.dropShadow);
+            this.toggleClass("has-shadow", true, this.$.dropShadow);
           } else if (shadowMode === SHADOW_WHEN_SCROLLING && !atTop) {
-            this.toggleClass('has-shadow', true, this.$.dropShadow);
+            this.toggleClass("has-shadow", true, this.$.dropShadow);
           } else {
-            this.toggleClass('has-shadow', false, this.$.dropShadow);
+            this.toggleClass("has-shadow", false, this.$.dropShadow);
           }
         },
 
-        _computeMainContainerClass: function(mode) {
+        _computeMainContainerClass: function (mode) {
           // TODO:  It will be useful to have a utility for classes
           // e.g. Polymer.Utils.classes({ foo: true });
 
           var classes = {};
 
-          classes['flex'] = mode !== 'cover';
+          classes["flex"] = mode !== "cover";
 
-          return Object.keys(classes).filter(
-            function(className) {
+          return Object.keys(classes)
+            .filter(function (className) {
               return classes[className];
-            }).join(' ');
+            })
+            .join(" ");
         },
 
-        _addListener: function() {
-          this.scroller.addEventListener('scroll', this.scrollHandler, false);
+        _addListener: function () {
+          this.scroller.addEventListener("scroll", this.scrollHandler, false);
         },
 
-        _removeListener: function() {
-          this.scroller.removeEventListener('scroll', this.scrollHandler);
+        _removeListener: function () {
+          this.scroller.removeEventListener("scroll", this.scrollHandler);
         },
 
-        _modeChanged: function(newMode, oldMode) {
+        _modeChanged: function (newMode, oldMode) {
           var configs = MODE_CONFIGS;
           var header = this.header;
           var animateDuration = 200;
@@ -474,38 +472,45 @@ Custom property | Description | Default
             // when mode is changed from tallMode to not tallMode
             if (configs.tallMode[oldMode] && !configs.tallMode[newMode]) {
               header.classList.remove(this.tallClass);
-              this.async(function() {
-                header.classList.remove('animate');
+              this.async(function () {
+                header.classList.remove("animate");
               }, animateDuration);
             } else {
-              this.toggleClass('animate', configs.tallMode[newMode], header);
+              this.toggleClass("animate", configs.tallMode[newMode], header);
             }
           }
           this._keepScrollingState();
         },
 
-        _keepScrollingState: function() {
+        _keepScrollingState: function () {
           var main = this.scroller;
           var header = this.header;
 
           this._setAtTop(main.scrollTop === 0);
 
           if (header && this.tallClass && MODE_CONFIGS.tallMode[this.mode]) {
-            this.toggleClass(this.tallClass, this.atTop ||
-                header.classList.contains(this.tallClass) &&
-                main.scrollHeight < this.offsetHeight, header);
+            this.toggleClass(
+              this.tallClass,
+              this.atTop ||
+                (header.classList.contains(this.tallClass) &&
+                  main.scrollHeight < this.offsetHeight),
+              header
+            );
           }
         },
 
-        _scroll: function() {
+        _scroll: function () {
           this._keepScrollingState();
-          this.fire('content-scroll', {target: this.scroller}, {bubbles: false});
+          this.fire(
+            "content-scroll",
+            { target: this.scroller },
+            { bubbles: false }
+          );
         },
 
-        _getScrollerForMode: function(mode) {
-          return MODE_CONFIGS.outerScroll[mode] ?
-              this : this.$.mainContainer;
-        }
+        _getScrollerForMode: function (mode) {
+          return MODE_CONFIGS.outerScroll[mode] ? this : this.$.mainContainer;
+        },
       });
     })();
   </script>

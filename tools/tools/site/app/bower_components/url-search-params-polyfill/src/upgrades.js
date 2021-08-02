@@ -1,4 +1,3 @@
-
 upgradeClass(HTMLAnchorElement);
 if (/^function|object$/.test(typeof URL)) upgradeClass(URL);
 

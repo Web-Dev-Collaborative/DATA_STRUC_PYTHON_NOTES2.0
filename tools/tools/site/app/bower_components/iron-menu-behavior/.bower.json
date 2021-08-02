@@ -3,16 +3,8 @@
   "version": "1.2.0",
   "description": "Provides accessible menu behavior",
   "authors": "The Polymer Authors",
-  "keywords": [
-    "web-components",
-    "polymer",
-    "behavior",
-    "menu"
-  ],
-  "main": [
-    "iron-menu-behavior.html",
-    "iron-menubar-behavior.html"
-  ],
+  "keywords": ["web-components", "polymer", "behavior", "menu"],
+  "main": ["iron-menu-behavior.html", "iron-menubar-behavior.html"],
   "private": true,
   "repository": {
     "type": "git",

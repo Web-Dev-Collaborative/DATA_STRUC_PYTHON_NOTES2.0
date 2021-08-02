@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-localstorage)_
 
-
 ##&lt;iron-localstorage&gt;
 
 Element access to Web Storage API (window.localStorage).
@@ -31,7 +29,8 @@ Value is saved as json by default.
 
 ```html
 <dom-module id="ls-sample">
-  <iron-localstorage name="my-app-storage"
+  <iron-localstorage
+    name="my-app-storage"
     value="{{cartoon}}"
     on-iron-localstorage-load-empty="initializeDefaultCartoon"
   ></iron-localstorage>
@@ -39,50 +38,43 @@ Value is saved as json by default.
 
 <script>
   Polymer({
-    is: 'ls-sample',
+    is: "ls-sample",
     properties: {
       cartoon: {
-        type: Object
-      }
+        type: Object,
+      },
     },
     // initializes default if nothing has been stored
-    initializeDefaultCartoon: function() {
+    initializeDefaultCartoon: function () {
       this.cartoon = {
         name: "Mickey",
-        hasEars: true
-      }
+        hasEars: true,
+      };
     },
     // use path set api to propagate changes to localstorage
-    makeModifications: function() {
-      this.set('cartoon.name', "Minions");
-      this.set('cartoon.hasEars', false);
-    }
+    makeModifications: function () {
+      this.set("cartoon.name", "Minions");
+      this.set("cartoon.hasEars", false);
+    },
   });
 </script>
 ```
 
 ### Tech notes:
 
-* `value.*` is observed, and saved on modifications. You must use
+- `value.*` is observed, and saved on modifications. You must use
   path change notification methods such as `set()` to modify value
   for changes to be observed.
 
+- Set `auto-save-disabled` to prevent automatic saving.
 
-* Set `auto-save-disabled` to prevent automatic saving.
+- Value is saved as JSON by default.
 
-
-* Value is saved as JSON by default.
-
-
-* To delete a key, set value to null
-
-
+- To delete a key, set value to null
 
 Element listens to StorageAPI `storage` event, and will reload upon receiving it.
 
-__Warning__: do not bind value to sub-properties until Polymer
+**Warning**: do not bind value to sub-properties until Polymer
 [bug 1550](https://github.com/Polymer/polymer/issues/1550)
 is resolved. Local storage will be blown away.
-`<iron-localstorage value="{{foo.bar}}"` will cause __data loss__.
-
-
+`<iron-localstorage value="{{foo.bar}}"` will cause **data loss**.

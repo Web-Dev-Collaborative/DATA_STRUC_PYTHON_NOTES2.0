@@ -7,23 +7,21 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="src/polymer-lib.html">
-<link rel="import" href="src/micro/tag.html">
-<link rel="import" href="src/micro/behaviors.html">
-<link rel="import" href="src/micro/extends.html">
-<link rel="import" href="src/micro/constructor.html">
-<link rel="import" href="src/micro/properties.html">
-<link rel="import" href="src/micro/attributes.html">
+<link rel="import" href="src/polymer-lib.html" />
+<link rel="import" href="src/micro/tag.html" />
+<link rel="import" href="src/micro/behaviors.html" />
+<link rel="import" href="src/micro/extends.html" />
+<link rel="import" href="src/micro/constructor.html" />
+<link rel="import" href="src/micro/properties.html" />
+<link rel="import" href="src/micro/attributes.html" />
 
 <script>
-  Polymer.version = 'master';
+  Polymer.version = "master";
 </script>
 
 <script>
-
   Polymer.Base._addFeature({
-
-    _registerFeatures: function() {
+    _registerFeatures: function () {
       // identity
       this._prepIs();
       // shared behaviors
@@ -34,21 +32,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._prepPropertyInfo();
     },
 
-    _prepBehavior: function(b) {
+    _prepBehavior: function (b) {
       this._addHostAttributes(b.hostAttributes);
     },
 
-    _marshalBehavior: function(b) {
-    },
+    _marshalBehavior: function (b) {},
 
-    _initFeatures: function() {
+    _initFeatures: function () {
       // install host attributes
       this._marshalHostAttributes();
       // acquire behaviors
       this._marshalBehaviors();
-    }
-
+    },
   });
-
 </script>
-

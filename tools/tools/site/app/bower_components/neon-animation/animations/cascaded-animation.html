@@ -8,9 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../neon-animation-behavior.html">
-<link rel="import" href="../web-animations.html">
+<link rel="import" href="../../polymer/polymer.html" />
+<link rel="import" href="../neon-animation-behavior.html" />
+<link rel="import" href="../web-animations.html" />
 
 <!--
 `<cascaded-animation>` applies an animation on an array of elements with a delay between each.
@@ -29,14 +29,10 @@ Configuration:
 -->
 
 <script>
-
   Polymer({
+    is: "cascaded-animation",
 
-    is: 'cascaded-animation',
-
-    behaviors: [
-      Polymer.NeonAnimationBehavior
-    ],
+    behaviors: [Polymer.NeonAnimationBehavior],
 
     /**
      * @param {{
@@ -46,7 +42,7 @@ Configuration:
      *   timing: (Object|undefined)
      *  }} config
      */
-    configure: function(config) {
+    configure: function (config) {
       this._animations = [];
       var nodes = config.nodes;
       var effects = [];
@@ -57,7 +53,7 @@ Configuration:
 
       var oldDelay = config.timing.delay;
       var abortedConfigure;
-      for (var node, index = 0; node = nodes[index]; index++) {
+      for (var node, index = 0; (node = nodes[index]); index++) {
         config.timing.delay += nodeDelay;
         config.node = node;
 
@@ -68,7 +64,7 @@ Configuration:
           this._animations.push(animation);
           effects.push(effect);
         } else {
-          console.warn(this.is + ':', config.animation, 'not found!');
+          console.warn(this.is + ":", config.animation, "not found!");
           abortedConfigure = true;
           break;
         }
@@ -84,12 +80,14 @@ Configuration:
       return this._effect;
     },
 
-    complete: function() {
-      for (var animation, index = 0; animation = this._animations[index]; index++) {
+    complete: function () {
+      for (
+        var animation, index = 0;
+        (animation = this._animations[index]);
+        index++
+      ) {
         animation.complete(animation.config);
       }
-    }
-
+    },
   });
-
 </script>

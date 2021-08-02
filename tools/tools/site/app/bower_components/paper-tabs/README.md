@@ -36,6 +36,7 @@ an app, or to browse categorized data sets.
 </custom-element-demo>
 ```
 -->
+
 ```html
 <paper-tabs selected="0" scrollable>
   <paper-tab>The first tab</paper-tab>

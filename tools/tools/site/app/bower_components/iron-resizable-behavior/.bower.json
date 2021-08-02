@@ -5,15 +5,8 @@
   "description": "Coordinates the flow of resizeable elements",
   "private": true,
   "main": "iron-resizable-behavior.html",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "iron",
-    "behavior"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "iron", "behavior"],
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/iron-resizable-behavior.git"

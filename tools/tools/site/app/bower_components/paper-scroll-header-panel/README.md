@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,18 +15,17 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-scroll-header-panel)_
 
-
 ##&lt;paper-scroll-header-panel&gt;
 
 Material design: [Scrolling techniques](https://www.google.com/design/spec/patterns/scrolling-techniques.html)
 
-`paper-scroll-header-panel` contains a header section and a content section.  The
+`paper-scroll-header-panel` contains a header section and a content section. The
 header is initially on the top part of the view but it scrolls away with the
-rest of the scrollable content.  Upon scrolling slightly up at any point, the
-header scrolls back into view.  This saves screen space and allows users to
+rest of the scrollable content. Upon scrolling slightly up at any point, the
+header scrolls back into view. This saves screen space and allows users to
 access important controls by easily moving them back to the view.
 
-__Important:__ The `paper-scroll-header-panel` will not display if its parent does not have a height.
+**Important:** The `paper-scroll-header-panel` will not display if its parent does not have a height.
 
 Using [layout classes](https://www.polymer-project.org/1.0/docs/migration.html#layout-attributes) or custom properties, you can easily make the `paper-scroll-header-panel` fill the screen
 
@@ -44,7 +42,8 @@ Using [layout classes](https://www.polymer-project.org/1.0/docs/migration.html#l
 or, if you would prefer to do it in CSS, just give `html`, `body`, and `paper-scroll-header-panel` a height of 100%:
 
 ```css
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -77,11 +76,9 @@ Note: If the class `paper-header` is used, the header must be positioned relativ
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| --paper-scroll-header-panel-full-header | To change background for toolbar when it is at its full size | {} |
-| --paper-scroll-header-panel-condensed-header | To change the background for toolbar when it is condensed | {} |
-| --paper-scroll-header-panel-container | To override or add container styles | {} |
-| --paper-scroll-header-panel-header-container | To override or add header styles | {} |
-
-
+| Custom property                              | Description                                                  | Default |
+| -------------------------------------------- | ------------------------------------------------------------ | ------- |
+| --paper-scroll-header-panel-full-header      | To change background for toolbar when it is at its full size | {}      |
+| --paper-scroll-header-panel-condensed-header | To change the background for toolbar when it is condensed    | {}      |
+| --paper-scroll-header-panel-container        | To override or add container styles                          | {}      |
+| --paper-scroll-header-panel-header-container | To override or add header styles                             | {}      |

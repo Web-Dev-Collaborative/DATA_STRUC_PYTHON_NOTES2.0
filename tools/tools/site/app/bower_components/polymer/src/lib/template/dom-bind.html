@@ -49,9 +49,7 @@ elements to the template itself as the binding scope.
 -->
 
 <script>
-
   Polymer({
-
     /**
      * Fired whenever DOM is stamped by this template (rendering
      * will be deferred until all HTML imports have resolved).
@@ -59,55 +57,55 @@ elements to the template itself as the binding scope.
      * @event dom-change
      */
 
-    is: 'dom-bind',
+    is: "dom-bind",
 
-    extends: 'template',
+    extends: "template",
     _template: null,
 
-    created: function() {
+    created: function () {
       // Ensure dom-bind doesn't stamp until all possible dependencies
       // have resolved
       var self = this;
-      Polymer.RenderStatus.whenReady(function() {
-        if (document.readyState == 'loading') {
-          document.addEventListener('DOMContentLoaded', function() {
-            self._markImportsReady(); 
+      Polymer.RenderStatus.whenReady(function () {
+        if (document.readyState == "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            self._markImportsReady();
           });
-        } else {  
+        } else {
           self._markImportsReady();
         }
       });
     },
 
-    _ensureReady: function() {
+    _ensureReady: function () {
       if (!this._readied) {
         this._readySelf();
       }
     },
 
-    _markImportsReady: function() {
+    _markImportsReady: function () {
       this._importsReady = true;
       this._ensureReady();
     },
 
-    _registerFeatures: function() {
+    _registerFeatures: function () {
       this._prepConstructor();
     },
 
-    _insertChildren: function() {
+    _insertChildren: function () {
       var parentDom = Polymer.dom(Polymer.dom(this).parentNode);
       parentDom.insertBefore(this.root, this);
     },
 
-    _removeChildren: function() {
+    _removeChildren: function () {
       if (this._children) {
-        for (var i=0; i<this._children.length; i++) {
+        for (var i = 0; i < this._children.length; i++) {
           this.root.appendChild(this._children[i]);
         }
       }
     },
 
-    _initFeatures: function() {
+    _initFeatures: function () {
       // defer _initFeatures and stamping until after attached, to support
       // document.createElement('template', 'dom-bind') use case,
       // where template content is filled in after creation
@@ -115,7 +113,7 @@ elements to the template itself as the binding scope.
 
     // avoid scoping elements as we expect dom-bind output to be in the main
     // document
-    _scopeElementClass: function(element, selector) {
+    _scopeElementClass: function (element, selector) {
       if (this.dataHost) {
         return this.dataHost._scopeElementClass(element, selector);
       } else {
@@ -123,25 +121,25 @@ elements to the template itself as the binding scope.
       }
     },
 
-    _prepConfigure: function() {
+    _prepConfigure: function () {
       var config = {};
       for (var prop in this._propertyEffects) {
         config[prop] = this[prop];
       }
       // Pass values set before attached as initialConfig to _setupConfigure
       var setupConfigure = this._setupConfigure;
-      this._setupConfigure = function() {
+      this._setupConfigure = function () {
         setupConfigure.call(this, config);
       };
     },
 
-    attached: function() {
+    attached: function () {
       if (this._importsReady) {
         this.render();
       }
     },
 
-    detached: function() {
+    detached: function () {
       this._removeChildren();
     },
 
@@ -149,7 +147,7 @@ elements to the template itself as the binding scope.
      * Forces the element to render its content. This is typically only
      * necessary to call if HTMLImports with the async attribute are used.
      */
-    render: function() {
+    render: function () {
       this._ensureReady();
       if (!this._children) {
         this._template = this;
@@ -163,9 +161,7 @@ elements to the template itself as the binding scope.
         this._children = Polymer.TreeApi.arrayCopyChildNodes(this.root);
       }
       this._insertChildren();
-      this.fire('dom-change');
-    }
-
+      this.fire("dom-change");
+    },
   });
-
 </script>

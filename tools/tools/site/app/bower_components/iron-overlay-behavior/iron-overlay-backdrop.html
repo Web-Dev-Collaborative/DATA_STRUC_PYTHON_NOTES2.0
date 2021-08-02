@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <!--
 `iron-overlay-backdrop` is a backdrop used by `Polymer.IronOverlayBehavior`. It should be a
@@ -27,7 +27,6 @@ Custom property | Description | Default
 -->
 
 <dom-module id="iron-overlay-backdrop">
-
   <template>
     <style>
       :host {
@@ -40,129 +39,125 @@ Custom property | Description | Default
         opacity: 0;
         transition: opacity 0.2s;
         pointer-events: none;
-        @apply(--iron-overlay-backdrop);
+        @apply (--iron-overlay-backdrop);
       }
 
       :host(.opened) {
         opacity: var(--iron-overlay-backdrop-opacity, 0.6);
         pointer-events: auto;
-        @apply(--iron-overlay-backdrop-opened);
+        @apply (--iron-overlay-backdrop-opened);
       }
     </style>
 
     <content></content>
   </template>
-
 </dom-module>
 
 <script>
-(function() {
-'use strict';
+  (function () {
+    "use strict";
 
-  Polymer({
+    Polymer({
+      is: "iron-overlay-backdrop",
 
-    is: 'iron-overlay-backdrop',
+      properties: {
+        /**
+         * Returns true if the backdrop is opened.
+         */
+        opened: {
+          reflectToAttribute: true,
+          type: Boolean,
+          value: false,
+          observer: "_openedChanged",
+        },
+      },
 
-    properties: {
+      listeners: {
+        transitionend: "_onTransitionend",
+      },
+
+      created: function () {
+        // Used to cancel previous requestAnimationFrame calls when opened changes.
+        this.__openedRaf = null;
+      },
+
+      attached: function () {
+        this.opened && this._openedChanged(this.opened);
+      },
 
       /**
-       * Returns true if the backdrop is opened.
+       * Appends the backdrop to document body if needed.
        */
-      opened: {
-        reflectToAttribute: true,
-        type: Boolean,
-        value: false,
-        observer: '_openedChanged'
-      }
+      prepare: function () {
+        if (this.opened && !this.parentNode) {
+          Polymer.dom(document.body).appendChild(this);
+        }
+      },
 
-    },
+      /**
+       * Shows the backdrop.
+       */
+      open: function () {
+        this.opened = true;
+      },
 
-    listeners: {
-      'transitionend': '_onTransitionend'
-    },
+      /**
+       * Hides the backdrop.
+       */
+      close: function () {
+        this.opened = false;
+      },
 
-    created: function() {
-      // Used to cancel previous requestAnimationFrame calls when opened changes.
-      this.__openedRaf = null;
-    },
+      /**
+       * Removes the backdrop from document body if needed.
+       */
+      complete: function () {
+        if (!this.opened && this.parentNode === document.body) {
+          Polymer.dom(this.parentNode).removeChild(this);
+        }
+      },
 
-    attached: function() {
-      this.opened && this._openedChanged(this.opened);
-    },
-
-    /**
-     * Appends the backdrop to document body if needed.
-     */
-    prepare: function() {
-      if (this.opened && !this.parentNode) {
-        Polymer.dom(document.body).appendChild(this);
-      }
-    },
-
-    /**
-     * Shows the backdrop.
-     */
-    open: function() {
-      this.opened = true;
-    },
-
-    /**
-     * Hides the backdrop.
-     */
-    close: function() {
-      this.opened = false;
-    },
-
-    /**
-     * Removes the backdrop from document body if needed.
-     */
-    complete: function() {
-      if (!this.opened && this.parentNode === document.body) {
-        Polymer.dom(this.parentNode).removeChild(this);
-      }
-    },
-
-    _onTransitionend: function(event) {
-      if (event && event.target === this) {
-        this.complete();
-      }
-    },
-
-    /**
-     * @param {boolean} opened
-     * @private
-     */
-    _openedChanged: function(opened) {
-      if (opened) {
-        // Auto-attach.
-        this.prepare();
-      } else {
-        // Animation might be disabled via the mixin or opacity custom property.
-        // If it is disabled in other ways, it's up to the user to call complete.
-        var cs = window.getComputedStyle(this);
-        if (cs.transitionDuration === '0s' || cs.opacity == 0) {
+      _onTransitionend: function (event) {
+        if (event && event.target === this) {
           this.complete();
         }
-      }
+      },
 
-      if (!this.isAttached) {
-        return;
-      }
+      /**
+       * @param {boolean} opened
+       * @private
+       */
+      _openedChanged: function (opened) {
+        if (opened) {
+          // Auto-attach.
+          this.prepare();
+        } else {
+          // Animation might be disabled via the mixin or opacity custom property.
+          // If it is disabled in other ways, it's up to the user to call complete.
+          var cs = window.getComputedStyle(this);
+          if (cs.transitionDuration === "0s" || cs.opacity == 0) {
+            this.complete();
+          }
+        }
 
-      // Always cancel previous requestAnimationFrame.
-      if (this.__openedRaf) {
-        window.cancelAnimationFrame(this.__openedRaf);
-        this.__openedRaf = null;
-      }
-      // Force relayout to ensure proper transitions.
-      this.scrollTop = this.scrollTop;
-      this.__openedRaf = window.requestAnimationFrame(function() {
-        this.__openedRaf = null;
-        this.toggleClass('opened', this.opened);
-      }.bind(this));
-    }
-  });
+        if (!this.isAttached) {
+          return;
+        }
 
-})();
-
+        // Always cancel previous requestAnimationFrame.
+        if (this.__openedRaf) {
+          window.cancelAnimationFrame(this.__openedRaf);
+          this.__openedRaf = null;
+        }
+        // Force relayout to ensure proper transitions.
+        this.scrollTop = this.scrollTop;
+        this.__openedRaf = window.requestAnimationFrame(
+          function () {
+            this.__openedRaf = null;
+            this.toggleClass("opened", this.opened);
+          }.bind(this)
+        );
+      },
+    });
+  })();
 </script>

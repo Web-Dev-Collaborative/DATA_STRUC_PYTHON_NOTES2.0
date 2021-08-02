@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-resizable-behavior)_
 
-
 ##Polymer.IronResizableBehavior
 
 `IronResizableBehavior` is a behavior that can be used in Polymer elements to
@@ -32,5 +30,3 @@ when they are resized explicitly by another resizable, or when the window has be
 resized.
 
 Note, the `iron-resize` event is non-bubbling.
-
-

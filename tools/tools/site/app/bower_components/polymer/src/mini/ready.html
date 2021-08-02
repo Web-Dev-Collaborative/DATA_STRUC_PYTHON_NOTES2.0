@@ -8,7 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   /**
    * Provides `ready` lifecycle callback which is called parent to child.
    *
@@ -29,146 +28,140 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @class standard feature: ready
    */
 
-(function() {
+  (function () {
+    var baseAttachedCallback = Polymer.Base.attachedCallback;
 
-  var baseAttachedCallback = Polymer.Base.attachedCallback;
+    Polymer.Base._addFeature({
+      _hostStack: [],
 
-  Polymer.Base._addFeature({
+      /**
+       * Lifecycle callback invoked when all local DOM children of this element
+       * have been created and "configured" with data bound from this element,
+       * attribute values, or defaults.
+       *
+       * @method ready
+       */
+      ready: function () {},
 
-    _hostStack: [],
-
-    /**
-     * Lifecycle callback invoked when all local DOM children of this element
-     * have been created and "configured" with data bound from this element,
-     * attribute values, or defaults.
-     *
-     * @method ready
-     */
-    ready: function() {
-    },
-
-    // NOTE: The concept of 'host' is overloaded. There are two different
-    // notions:
-    // 1. an element hosts the elements in its local dom root.
-    // 2. an element hosts the elements on which it configures data.
-    // Practially, these notions are almost always coincident.
-    // Some special elements like templates may separate them.
-    // In order not to over-emphaisize this technical difference, we expose
-    // one concept to the user and it maps to the dom-related meaning of host.
-    //
-    // set this element's `host` and push this element onto the `host`'s
-    // list of `client` elements
-    // this.dataHost reflects the parent element who manages
-    // any bindings for the element.  Only elements originally
-    // stamped from Polymer templates have a dataHost, and this
-    // never changes
-    _registerHost: function(host) {
-      // NOTE: The `dataHost` of an element never changes.
-      this.dataHost = host = host || 
-        Polymer.Base._hostStack[Polymer.Base._hostStack.length-1];
-      if (host && host._clients) {
-        host._clients.push(this);
-      }
-      this._clients = null;
-      this._clientsReadied = false;
-    },
-
-    // establish this element as the current hosting element (allows
-    // any elements we stamp to easily set host to us).
-    _beginHosting: function() {
-      Polymer.Base._hostStack.push(this);
-      if (!this._clients) {
-        this._clients = [];
-      }
-    },
-
-    _endHosting: function() {
-      // this element is no longer the current hosting element
-      Polymer.Base._hostStack.pop();
-    },
-
-    _tryReady: function() {
-      this._readied = false;
-      if (this._canReady()) {
-        this._ready();
-      }
-    },
-
-    _canReady: function() {
-      return !this.dataHost || this.dataHost._clientsReadied;
-    },
-
-    _ready: function() {
-      // extension point
-      this._beforeClientsReady();
-      if (this._template) {
-        // prepare root
-        this._setupRoot();
-        this._readyClients();
-      }
-      this._clientsReadied = true;
-      this._clients = null;
-      // extension point
-      this._afterClientsReady();
-      this._readySelf();
-    },
-
-    _readyClients: function() {
-      // logically distribute self
-      this._beginDistribute();
-      // now fully prepare localChildren
-      var c$ = this._clients;
-      if (c$) {
-        for (var i=0, l= c$.length, c; (i<l) && (c=c$[i]); i++) {
-          c._ready();
+      // NOTE: The concept of 'host' is overloaded. There are two different
+      // notions:
+      // 1. an element hosts the elements in its local dom root.
+      // 2. an element hosts the elements on which it configures data.
+      // Practially, these notions are almost always coincident.
+      // Some special elements like templates may separate them.
+      // In order not to over-emphaisize this technical difference, we expose
+      // one concept to the user and it maps to the dom-related meaning of host.
+      //
+      // set this element's `host` and push this element onto the `host`'s
+      // list of `client` elements
+      // this.dataHost reflects the parent element who manages
+      // any bindings for the element.  Only elements originally
+      // stamped from Polymer templates have a dataHost, and this
+      // never changes
+      _registerHost: function (host) {
+        // NOTE: The `dataHost` of an element never changes.
+        this.dataHost = host =
+          host || Polymer.Base._hostStack[Polymer.Base._hostStack.length - 1];
+        if (host && host._clients) {
+          host._clients.push(this);
         }
-      }
-      // perform actual dom composition
-      this._finishDistribute();
-      // ensure elements are attached if they are in the dom at ready time
-      // helps normalize attached ordering between native and polyfill ce.
-      // TODO(sorvell): worth perf cost? ~6%
-      // if (!Polymer.Settings.useNativeCustomElements) {
-      //   CustomElements.takeRecords();
-      // }
-    },
+        this._clients = null;
+        this._clientsReadied = false;
+      },
 
-    // mark readied and call `ready`
-    // note: called localChildren -> host
-    _readySelf: function() {
-      this._doBehavior('ready');
-      this._readied = true;
-      if (this._attachedPending) {
-        this._attachedPending = false;
-        this.attachedCallback();
-      }
-    },
+      // establish this element as the current hosting element (allows
+      // any elements we stamp to easily set host to us).
+      _beginHosting: function () {
+        Polymer.Base._hostStack.push(this);
+        if (!this._clients) {
+          this._clients = [];
+        }
+      },
 
-    // for system overriding
-    _beforeClientsReady: function() {},
-    _afterClientsReady: function() {},
-    _beforeAttached: function() {},
+      _endHosting: function () {
+        // this element is no longer the current hosting element
+        Polymer.Base._hostStack.pop();
+      },
 
-    /**
-     * Polymer library implementation of the Custom Elements `attachedCallback`.
-     *
-     * Note, users should not override `attachedCallback`, and instead should
-     * implement the `attached` method on Polymer elements to receive
-     * attached-time callbacks.
-     *
-     * @protected
-     */
-    attachedCallback: function() {
-      if (this._readied) {
-        this._beforeAttached();
-        baseAttachedCallback.call(this);
-      } else {
-        this._attachedPending = true;
-      }
-    }
+      _tryReady: function () {
+        this._readied = false;
+        if (this._canReady()) {
+          this._ready();
+        }
+      },
 
-  });
+      _canReady: function () {
+        return !this.dataHost || this.dataHost._clientsReadied;
+      },
 
-})();
+      _ready: function () {
+        // extension point
+        this._beforeClientsReady();
+        if (this._template) {
+          // prepare root
+          this._setupRoot();
+          this._readyClients();
+        }
+        this._clientsReadied = true;
+        this._clients = null;
+        // extension point
+        this._afterClientsReady();
+        this._readySelf();
+      },
 
+      _readyClients: function () {
+        // logically distribute self
+        this._beginDistribute();
+        // now fully prepare localChildren
+        var c$ = this._clients;
+        if (c$) {
+          for (var i = 0, l = c$.length, c; i < l && (c = c$[i]); i++) {
+            c._ready();
+          }
+        }
+        // perform actual dom composition
+        this._finishDistribute();
+        // ensure elements are attached if they are in the dom at ready time
+        // helps normalize attached ordering between native and polyfill ce.
+        // TODO(sorvell): worth perf cost? ~6%
+        // if (!Polymer.Settings.useNativeCustomElements) {
+        //   CustomElements.takeRecords();
+        // }
+      },
+
+      // mark readied and call `ready`
+      // note: called localChildren -> host
+      _readySelf: function () {
+        this._doBehavior("ready");
+        this._readied = true;
+        if (this._attachedPending) {
+          this._attachedPending = false;
+          this.attachedCallback();
+        }
+      },
+
+      // for system overriding
+      _beforeClientsReady: function () {},
+      _afterClientsReady: function () {},
+      _beforeAttached: function () {},
+
+      /**
+       * Polymer library implementation of the Custom Elements `attachedCallback`.
+       *
+       * Note, users should not override `attachedCallback`, and instead should
+       * implement the `attached` method on Polymer elements to receive
+       * attached-time callbacks.
+       *
+       * @protected
+       */
+      attachedCallback: function () {
+        if (this._readied) {
+          this._beforeAttached();
+          baseAttachedCallback.call(this);
+        } else {
+          this._attachedPending = true;
+        }
+      },
+    });
+  })();
 </script>

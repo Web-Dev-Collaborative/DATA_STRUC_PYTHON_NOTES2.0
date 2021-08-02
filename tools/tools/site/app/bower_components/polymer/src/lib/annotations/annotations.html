@@ -7,103 +7,104 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-<link rel="import" href="../case-map.html">
+<link rel="import" href="../case-map.html" />
 
 <script>
-/**
- * Scans a template to produce an annotation list that that associates
- * metadata culled from markup with tree locations
- * metadata and information to associate the metadata with nodes in an instance.
- *
- * Supported expressions include:
- *
- * Double-mustache annotations in text content. The annotation must be the only
- * content in the tag, compound expressions are not supported.
- *
- *     <[tag]>{{annotation}}<[tag]>
- *
- * Double-escaped annotations in an attribute, either {{}} or [[]].
- *
- *     <[tag] someAttribute="{{annotation}}" another="[[annotation]]"><[tag]>
- *
- * `on-` style event declarations.
- *
- *     <[tag] on-<event-name>="annotation"><[tag]>
- *
- * Note that the `annotations` feature does not implement any behaviors
- * associated with these expressions, it only captures the data.
- *
- * Generated data-structure:
- *
- *     [
- *       {
- *         id: '<id>',
- *         events: [
- *           {
- *             name: '<name>'
- *             value: '<annotation>'
- *           }, ...
- *         ],
- *         bindings: [
- *           {
- *             kind: ['text'|'attribute'],
- *             mode: ['{'|'['],
- *             name: '<name>'
- *             value: '<annotation>'
- *           }, ...
- *         ],
- *         // TODO(sjmiles): this is annotation-parent, not node-parent
- *         parent: <reference to parent annotation object>,
- *         index: <integer index in parent's childNodes collection>
- *       },
- *       ...
- *     ]
- *
- * @class Template feature
- */
+  /**
+   * Scans a template to produce an annotation list that that associates
+   * metadata culled from markup with tree locations
+   * metadata and information to associate the metadata with nodes in an instance.
+   *
+   * Supported expressions include:
+   *
+   * Double-mustache annotations in text content. The annotation must be the only
+   * content in the tag, compound expressions are not supported.
+   *
+   *     <[tag]>{{annotation}}<[tag]>
+   *
+   * Double-escaped annotations in an attribute, either {{}} or [[]].
+   *
+   *     <[tag] someAttribute="{{annotation}}" another="[[annotation]]"><[tag]>
+   *
+   * `on-` style event declarations.
+   *
+   *     <[tag] on-<event-name>="annotation"><[tag]>
+   *
+   * Note that the `annotations` feature does not implement any behaviors
+   * associated with these expressions, it only captures the data.
+   *
+   * Generated data-structure:
+   *
+   *     [
+   *       {
+   *         id: '<id>',
+   *         events: [
+   *           {
+   *             name: '<name>'
+   *             value: '<annotation>'
+   *           }, ...
+   *         ],
+   *         bindings: [
+   *           {
+   *             kind: ['text'|'attribute'],
+   *             mode: ['{'|'['],
+   *             name: '<name>'
+   *             value: '<annotation>'
+   *           }, ...
+   *         ],
+   *         // TODO(sjmiles): this is annotation-parent, not node-parent
+   *         parent: <reference to parent annotation object>,
+   *         index: <integer index in parent's childNodes collection>
+   *       },
+   *       ...
+   *     ]
+   *
+   * @class Template feature
+   */
 
   // null-array (shared empty array to avoid null-checks)
   Polymer.nar = [];
 
   Polymer.Annotations = {
-
     // preprocess-time
 
     // construct and return a list of annotation records
     // by scanning `template`'s content
     //
-    parseAnnotations: function(template) {
+    parseAnnotations: function (template) {
       var list = [];
       var content = template._content || template.content;
-      this._parseNodeAnnotations(content, list,
-        template.hasAttribute('strip-whitespace'));
+      this._parseNodeAnnotations(
+        content,
+        list,
+        template.hasAttribute("strip-whitespace")
+      );
       return list;
     },
 
     // add annotations gleaned from subtree at `node` to `list`
-    _parseNodeAnnotations: function(node, list, stripWhiteSpace) {
-      return node.nodeType === Node.TEXT_NODE ?
-        this._parseTextNodeAnnotation(node, list) :
-          // TODO(sjmiles): are there other nodes we may encounter
+    _parseNodeAnnotations: function (node, list, stripWhiteSpace) {
+      return node.nodeType === Node.TEXT_NODE
+        ? this._parseTextNodeAnnotation(node, list)
+        : // TODO(sjmiles): are there other nodes we may encounter
           // that are not TEXT_NODE but also not ELEMENT?
           this._parseElementAnnotations(node, list, stripWhiteSpace);
     },
 
-    _bindingRegex: (function() {
-      var IDENT  = '(?:' + '[a-zA-Z_$][\\w.:$\\-*]*' + ')';
-      var NUMBER = '(?:' + '[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?' + ')';
-      var SQUOTE_STRING = '(?:' + '\'(?:[^\'\\\\]|\\\\.)*\'' + ')';
-      var DQUOTE_STRING = '(?:' + '"(?:[^"\\\\]|\\\\.)*"' + ')';
-      var STRING = '(?:' + SQUOTE_STRING + '|' + DQUOTE_STRING + ')';
-      var ARGUMENT = '(?:' + IDENT + '|' + NUMBER + '|' +  STRING + '\\s*' + ')';
-      var ARGUMENTS = '(?:' + ARGUMENT + '(?:,\\s*' + ARGUMENT + ')*' + ')';
-      var ARGUMENT_LIST = '(?:' + '\\(\\s*' +
-                                    '(?:' + ARGUMENTS + '?' + ')' +
-                                  '\\)\\s*' + ')';
-      var BINDING = '(' + IDENT + '\\s*' + ARGUMENT_LIST + '?' + ')'; // Group 3
-      var OPEN_BRACKET = '(\\[\\[|{{)' + '\\s*';
-      var CLOSE_BRACKET = '(?:]]|}})';
-      var NEGATE = '(?:(!)\\s*)?'; // Group 2
+    _bindingRegex: (function () {
+      var IDENT = "(?:" + "[a-zA-Z_$][\\w.:$\\-*]*" + ")";
+      var NUMBER = "(?:" + "[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?" + ")";
+      var SQUOTE_STRING = "(?:" + "'(?:[^'\\\\]|\\\\.)*'" + ")";
+      var DQUOTE_STRING = "(?:" + '"(?:[^"\\\\]|\\\\.)*"' + ")";
+      var STRING = "(?:" + SQUOTE_STRING + "|" + DQUOTE_STRING + ")";
+      var ARGUMENT = "(?:" + IDENT + "|" + NUMBER + "|" + STRING + "\\s*" + ")";
+      var ARGUMENTS = "(?:" + ARGUMENT + "(?:,\\s*" + ARGUMENT + ")*" + ")";
+      var ARGUMENT_LIST =
+        "(?:" + "\\(\\s*" + "(?:" + ARGUMENTS + "?" + ")" + "\\)\\s*" + ")";
+      var BINDING = "(" + IDENT + "\\s*" + ARGUMENT_LIST + "?" + ")"; // Group 3
+      var OPEN_BRACKET = "(\\[\\[|{{)" + "\\s*";
+      var CLOSE_BRACKET = "(?:]]|}})";
+      var NEGATE = "(?:(!)\\s*)?"; // Group 2
       var EXPRESSION = OPEN_BRACKET + NEGATE + BINDING + CLOSE_BRACKET;
       return new RegExp(EXPRESSION, "g");
     })(),
@@ -112,7 +113,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // looking for the escape sequence in each of the matches and converting
     // the part back to a literal type, and then bailing if only literals
     // were found
-    _parseBindings: function(text) {
+    _parseBindings: function (text) {
       var re = this._bindingRegex;
       var parts = [];
       var lastIndex = 0;
@@ -126,7 +127,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       while ((m = re.exec(text)) !== null) {
         // Add literal part
         if (m.index > lastIndex) {
-          parts.push({literal: text.slice(lastIndex, m.index)});
+          parts.push({ literal: text.slice(lastIndex, m.index) });
         }
         // Add binding part
         // Mode (one-way or two)
@@ -134,7 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var negate = Boolean(m[2]);
         var value = m[3].trim();
         var customEvent, notifyEvent, colon;
-        if (mode == '{' && (colon = value.indexOf('::')) > 0) {
+        if (mode == "{" && (colon = value.indexOf("::")) > 0) {
           notifyEvent = value.substring(colon + 2);
           value = value.substring(0, colon);
           customEvent = true;
@@ -145,7 +146,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           mode: mode,
           negate: negate,
           event: notifyEvent,
-          customEvent: customEvent
+          customEvent: customEvent,
         });
         lastIndex = re.lastIndex;
       }
@@ -154,7 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var literal = text.substring(lastIndex);
         if (literal) {
           parts.push({
-            literal: literal
+            literal: literal,
           });
         }
       }
@@ -163,30 +164,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _literalFromParts: function(parts) {
-      var s = '';
-      for (var i=0; i<parts.length; i++) {
+    _literalFromParts: function (parts) {
+      var s = "";
+      for (var i = 0; i < parts.length; i++) {
         var literal = parts[i].literal;
-        s += literal || '';
+        s += literal || "";
       }
       return s;
     },
 
     // add annotations gleaned from TextNode `node` to `list`
-    _parseTextNodeAnnotation: function(node, list) {
+    _parseTextNodeAnnotation: function (node, list) {
       var parts = this._parseBindings(node.textContent);
       if (parts) {
         // Initialize the textContent with any literal parts
         // NOTE: default to a space here so the textNode remains; some browsers
         // (IE) evacipate an empty textNode following cloneNode/importNode.
-        node.textContent = this._literalFromParts(parts) || ' ';
+        node.textContent = this._literalFromParts(parts) || " ";
         var annote = {
-          bindings: [{
-            kind: 'text',
-            name: 'textContent',
-            parts: parts,
-            isCompound: parts.length !== 1
-          }]
+          bindings: [
+            {
+              kind: "text",
+              name: "textContent",
+              parts: parts,
+              isCompound: parts.length !== 1,
+            },
+          ],
         };
         list.push(annote);
         return annote;
@@ -194,12 +197,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     // add annotations gleaned from Element `node` to `list`
-    _parseElementAnnotations: function(element, list, stripWhiteSpace) {
+    _parseElementAnnotations: function (element, list, stripWhiteSpace) {
       var annote = {
         bindings: [],
-        events: []
+        events: [],
       };
-      if (element.localName === 'content') {
+      if (element.localName === "content") {
         list._hasContent = true;
       }
       this._parseChildNodesAnnotations(element, annote, list, stripWhiteSpace);
@@ -223,14 +226,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // add annotations gleaned from children of `root` to `list`, `root`'s
     // `annote` is supplied as it is the annote.parent of added annotations
-    _parseChildNodesAnnotations: function(root, annote, list, stripWhiteSpace) {
+    _parseChildNodesAnnotations: function (
+      root,
+      annote,
+      list,
+      stripWhiteSpace
+    ) {
       if (root.firstChild) {
         var node = root.firstChild;
         var i = 0;
         while (node) {
           var next = node.nextSibling;
-          if (node.localName === 'template' &&
-            !node.hasAttribute('preserve-content')) {
+          if (
+            node.localName === "template" &&
+            !node.hasAttribute("preserve-content")
+          ) {
             this._parseTemplate(node, i, list, annote);
           }
           // collapse adjacent textNodes: fixes an IE issue that can cause
@@ -239,7 +249,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // manually.
           if (node.nodeType === Node.TEXT_NODE) {
             var n = next;
-            while (n && (n.nodeType === Node.TEXT_NODE)) {
+            while (n && n.nodeType === Node.TEXT_NODE) {
               node.textContent += n.textContent;
               next = n.nextSibling;
               root.removeChild(n);
@@ -254,8 +264,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
           // if this node didn't get evacipated, parse it.
           if (node.parentNode) {
-            var childAnnotation = this._parseNodeAnnotations(node, list,
-              stripWhiteSpace);
+            var childAnnotation = this._parseNodeAnnotations(
+              node,
+              list,
+              stripWhiteSpace
+            );
             if (childAnnotation) {
               childAnnotation.parent = annote;
               childAnnotation.index = i;
@@ -274,7 +287,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     //    (this is both an optimization to avoid re-stamping nested template
     //    children and avoids a bug in Chrome where nested template children
     //    upgrade)
-    _parseTemplate: function(node, index, list, parent) {
+    _parseTemplate: function (node, index, list, parent) {
       // TODO(sjmiles): simply altering the .content reference didn't
       // work (there was some confusion, might need verification)
       var content = document.createDocumentFragment();
@@ -288,27 +301,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         events: Polymer.nar,
         templateContent: content,
         parent: parent,
-        index: index
+        index: index,
       });
     },
 
     // add annotation data from attributes to the `annotation` for node `node`
     // TODO(sjmiles): the distinction between an `annotation` and
     // `annotation data` is not as clear as it could be
-    _parseNodeAttributeAnnotations: function(node, annotation) {
+    _parseNodeAttributeAnnotations: function (node, annotation) {
       // Make copy of original attribute list, since the order may change
       // as attributes are added and removed
       var attrs = Array.prototype.slice.call(node.attributes);
-      for (var i=attrs.length-1, a; (a=attrs[i]); i--) {
+      for (var i = attrs.length - 1, a; (a = attrs[i]); i--) {
         var n = a.name;
         var v = a.value;
         var b;
         // events (on-*)
-        if (n.slice(0, 3) === 'on-') {
+        if (n.slice(0, 3) === "on-") {
           node.removeAttribute(n);
           annotation.events.push({
             name: n.slice(3),
-            value: v
+            value: v,
           });
         }
         // bindings (other attributes)
@@ -316,34 +329,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           annotation.bindings.push(b);
         }
         // static id
-        else if (n === 'id') {
+        else if (n === "id") {
           annotation.id = v;
         }
       }
     },
 
     // construct annotation data from a generic attribute, or undefined
-    _parseNodeAttributeAnnotation: function(node, name, value) {
+    _parseNodeAttributeAnnotation: function (node, name, value) {
       var parts = this._parseBindings(value);
       if (parts) {
         // Attribute or property
         var origName = name;
-        var kind = 'property';
-        if (name[name.length-1] == '$') {
+        var kind = "property";
+        if (name[name.length - 1] == "$") {
           name = name.slice(0, -1);
-          kind = 'attribute';
+          kind = "attribute";
         }
         // Initialize attribute bindings with any literal parts
         var literal = this._literalFromParts(parts);
-        if (literal && kind == 'attribute') {
+        if (literal && kind == "attribute") {
           node.setAttribute(name, literal);
         }
         // Clear attribute before removing, since IE won't allow removing
         // `value` attribute if it previously had a value (can't
         // unconditionally set '' before removing since attributes with `$`
         // can't be set using setAttribute)
-        if (node.localName === 'input' && origName === 'value') {
-          node.setAttribute(origName, '');
+        if (node.localName === "input" && origName === "value") {
+          node.setAttribute(origName, "");
         }
         // Remove annotation
         node.removeAttribute(origName);
@@ -352,7 +365,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // camel-case: `foo-bar` becomes `fooBar`.
         // Attribute bindings are excepted.
         var propertyName = Polymer.CaseMap.dashToCamelCase(name);
-        if (kind === 'property') {
+        if (kind === "property") {
           name = propertyName;
         }
         return {
@@ -361,22 +374,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           propertyName: propertyName,
           parts: parts,
           literal: literal,
-          isCompound: parts.length !== 1
+          isCompound: parts.length !== 1,
         };
       }
     },
 
     // instance-time
 
-    findAnnotatedNode: function(root, annote) {
+    findAnnotatedNode: function (root, annote) {
       // recursively ascend tree until we hit root
-      var parent = annote.parent &&
+      var parent =
+        annote.parent &&
         Polymer.Annotations.findAnnotatedNode(root, annote.parent);
       // unwind the stack, returning the indexed node at each level
       if (parent) {
         // note: marginally faster than indexing via childNodes
         // (http://jsperf.com/childnodes-lookup)
-        for (var n=parent.firstChild, i=0; n; n=n.nextSibling) {
+        for (var n = parent.firstChild, i = 0; n; n = n.nextSibling) {
           if (annote.index === i++) {
             return n;
           }
@@ -384,8 +398,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       } else {
         return root;
       }
-    }
-
+    },
   };
-
 </script>

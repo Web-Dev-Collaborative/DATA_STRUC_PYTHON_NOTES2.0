@@ -8,14 +8,12 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   Base._addFeature({
-    log: function() {
+    log: function () {
       var args = Array.prototype.slice.call(arguments, 0);
-      args[0] = '[%s]: ' + args[0];
+      args[0] = "[%s]: " + args[0];
       args.splice(1, 0, this.localName);
       console.log.apply(console, args);
-    }
+    },
   });
-
 </script>

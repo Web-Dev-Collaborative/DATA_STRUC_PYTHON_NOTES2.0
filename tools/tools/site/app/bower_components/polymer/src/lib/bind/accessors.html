@@ -8,21 +8,21 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
   Polymer.Bind = {
-
     // for prototypes (usually)
-    prepareModel: function(model) {
+    prepareModel: function (model) {
       Polymer.Base.mixin(model, this._modelApi);
     },
 
     _modelApi: {
-
-      _notifyChange: function(source, event, value) {
+      _notifyChange: function (source, event, value) {
         value = value === undefined ? this[source] : value;
-        event = event || Polymer.CaseMap.camelToDashCase(source) + '-changed';
-        this.fire(event, {value: value},
-          {bubbles: false, cancelable: false, _useCache: true});
+        event = event || Polymer.CaseMap.camelToDashCase(source) + "-changed";
+        this.fire(
+          event,
+          { value: value },
+          { bubbles: false, cancelable: false, _useCache: true }
+        );
       },
 
       // TODO(sjmiles): removing _notifyListener from here breaks accessors.html
@@ -40,14 +40,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       // Called from accessors, where effects is pre-stored
       // in the closure for the accessor for efficiency
-      _propertySetter: function(property, value, effects, fromAbove) {
+      _propertySetter: function (property, value, effects, fromAbove) {
         var old = this.__data__[property];
         // NaN is always not equal to itself,
         // if old and value are both NaN we treat them as equal
         // x === x is 10x faster, and equivalent to !isNaN(x)
         if (old !== value && (old === old || value === value)) {
           this.__data__[property] = value;
-          if (typeof value == 'object') {
+          if (typeof value == "object") {
             this._clearPath(property);
           }
           if (this._propertyChanged) {
@@ -65,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // TODO(kschaaf): downward bindings (e.g. _applyEffectValue) should also
       // use non-notifying setters but right now that would require looking
       // up readOnly property config in the hot-path
-      __setProperty: function(property, value, quiet, node) {
+      __setProperty: function (property, value, quiet, node) {
         node = node || this;
         var effects = node._propertyEffects && node._propertyEffects[property];
         if (effects) {
@@ -75,25 +75,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      _effectEffects: function(property, value, effects, old, fromAbove) {
-        for (var i=0, l=effects.length, fx; (i<l) && (fx=effects[i]); i++) {
+      _effectEffects: function (property, value, effects, old, fromAbove) {
+        for (
+          var i = 0, l = effects.length, fx;
+          i < l && (fx = effects[i]);
+          i++
+        ) {
           fx.fn.call(this, property, value, fx.effect, old, fromAbove);
         }
       },
 
-      _clearPath: function(path) {
+      _clearPath: function (path) {
         for (var prop in this.__data__) {
-          if (prop.indexOf(path + '.') === 0) {
+          if (prop.indexOf(path + ".") === 0) {
             this.__data__[prop] = undefined;
           }
         }
-      }
-
+      },
     },
 
     // a prepared model can acquire effects
 
-    ensurePropertyEffects: function(model, property) {
+    ensurePropertyEffects: function (model, property) {
       if (!model._propertyEffects) {
         model._propertyEffects = {};
       }
@@ -104,18 +107,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return fx;
     },
 
-    addPropertyEffect: function(model, property, kind, effect) {
+    addPropertyEffect: function (model, property, kind, effect) {
       var fx = this.ensurePropertyEffects(model, property);
       var propEffect = {
         kind: kind,
         effect: effect,
-        fn: Polymer.Bind['_' + kind + 'Effect']
+        fn: Polymer.Bind["_" + kind + "Effect"],
       };
       fx.push(propEffect);
       return propEffect;
     },
 
-    createBindings: function(model) {
+    createBindings: function (model) {
       //console.group(model.is);
       // map of properties to effects
       var fx$ = model._propertyEffects;
@@ -133,36 +136,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       //console.groupEnd();
     },
 
-    _sortPropertyEffects: (function() {
+    _sortPropertyEffects: (function () {
       // TODO(sjmiles): EFFECT_ORDER buried this way is not ideal,
       // but presumably the sort method is going to be a hot path and not
       // have a `this`. There is also a problematic dependency on effect.kind
       // values here, which are otherwise pluggable.
       var EFFECT_ORDER = {
-        'compute': 0,
-        'annotation': 1,
-        'annotatedComputation': 2,
-        'reflect': 3,
-        'notify': 4,
-        'observer': 5,
-        'complexObserver': 6,
-        'function': 7
+        compute: 0,
+        annotation: 1,
+        annotatedComputation: 2,
+        reflect: 3,
+        notify: 4,
+        observer: 5,
+        complexObserver: 6,
+        function: 7,
       };
-      return function(a, b) {
+      return function (a, b) {
         return EFFECT_ORDER[a.kind] - EFFECT_ORDER[b.kind];
       };
     })(),
 
     // create accessors that implement effects
 
-    _createAccessors: function(model, property, effects) {
+    _createAccessors: function (model, property, effects) {
       var defun = {
-        get: function() {
+        get: function () {
           // TODO(sjmiles): elide delegation for performance, good ROI?
           return this.__data__[property];
-        }
+        },
       };
-      var setter = function(value) {
+      var setter = function (value) {
         this._propertySetter(property, value, effects);
       };
       // ReadOnly properties have a private setter only
@@ -175,7 +178,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // Computed properties are read-only (no property setter), but also don't
         // need a private setter since they should not be called by the user
         if (!info.computed) {
-          model['_set' + this.upper(property)] = setter;
+          model["_set" + this.upper(property)] = setter;
         }
       } else {
         defun.set = setter;
@@ -183,37 +186,48 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Object.defineProperty(model, property, defun);
     },
 
-    upper: function(name) {
+    upper: function (name) {
       return name[0].toUpperCase() + name.substring(1);
     },
 
-    _addAnnotatedListener: function(model, index, property, path, event, negated) {
+    _addAnnotatedListener: function (
+      model,
+      index,
+      property,
+      path,
+      event,
+      negated
+    ) {
       if (!model._bindListeners) {
         model._bindListeners = [];
       }
-      var fn = this._notedListenerFactory(property, path,
-        this._isStructured(path), negated);
-      var eventName = event ||
-        (Polymer.CaseMap.camelToDashCase(property) + '-changed');
+      var fn = this._notedListenerFactory(
+        property,
+        path,
+        this._isStructured(path),
+        negated
+      );
+      var eventName =
+        event || Polymer.CaseMap.camelToDashCase(property) + "-changed";
       model._bindListeners.push({
         index: index,
         property: property,
         path: path,
         changedFn: fn,
-        event: eventName
+        event: eventName,
       });
     },
 
-    _isStructured: function(path) {
-      return path.indexOf('.') > 0;
+    _isStructured: function (path) {
+      return path.indexOf(".") > 0;
     },
 
-    _isEventBogus: function(e, target) {
+    _isEventBogus: function (e, target) {
       return e.path && e.path[0] !== target;
     },
 
-    _notedListenerFactory: function(property, path, isStructured, negated) {
-      return function(target, value, targetPath) {
+    _notedListenerFactory: function (property, path, isStructured, negated) {
+      return function (target, value, targetPath) {
         if (targetPath) {
           this._notifyPath(this._fixPath(path, property, targetPath), value);
         } else {
@@ -241,13 +255,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
     // for instances
 
-    prepareInstance: function(inst) {
+    prepareInstance: function (inst) {
       inst.__data__ = Object.create(null);
     },
 
-    setupBindListeners: function(inst) {
+    setupBindListeners: function (inst) {
       var b$ = inst._bindListeners;
-      for (var i=0, l=b$.length, info; (i<l) && (info=b$[i]); i++) {
+      for (var i = 0, l = b$.length, info; i < l && (info = b$[i]); i++) {
         // Property listeners:
         // <node>.on.<property>-changed: <path]> = e.detail.value
         //console.log('[_setupBindListener]: [%s][%s] listening for [%s][%s-changed]', this.localName, info.path, info.id || info.index, info.property);
@@ -257,18 +271,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var node = inst._nodes[info.index];
         //var p = node._propertyInfo && node._propertyInfo[info.property];
         //if (node._prepParentProperties || !node._propertyInfo || (p && p.notify)) {
-          this._addNotifyListener(node, inst, info.event, info.changedFn);
+        this._addNotifyListener(node, inst, info.event, info.changedFn);
         //}
       }
     },
 
     // TODO(sorvell): note, adding these synchronously may impact performance,
     // measure and consider if we can defer until after first paint in some cases at least.
-    _addNotifyListener: function(element, context, event, changedFn) {
-      element.addEventListener(event, function(e) {
+    _addNotifyListener: function (element, context, event, changedFn) {
+      element.addEventListener(event, function (e) {
         return context._notifyListener(changedFn, e);
       });
-    }
+    },
   };
-
 </script>

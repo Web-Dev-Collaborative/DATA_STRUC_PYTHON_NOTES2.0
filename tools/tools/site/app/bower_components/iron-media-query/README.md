@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -13,9 +12,7 @@ Edit this file, and the bot will squash your changes :)
 
 _[Demo and API Docs](https://elements.polymer-project.org/elements/iron-media-query)_
 
-
 ##&lt;iron-media-query&gt;
-
 
 `iron-media-query` can be used to data bind to a CSS media query.
 The `query` property is a bare CSS media query.
@@ -24,5 +21,3 @@ The `query-matches` property is a boolean representing whether the page matches 
 Example:
 
     <iron-media-query query="(min-width: 600px)" query-matches="{{queryMatches}}"></iron-media-query>
-
-

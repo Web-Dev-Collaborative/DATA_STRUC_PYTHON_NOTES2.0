@@ -4,14 +4,8 @@
   "license": "http://polymer.github.io/LICENSE.txt",
   "description": "Adds a material design ripple to any container",
   "private": true,
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "ripple"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "ripple"],
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/paper-ripple.git"

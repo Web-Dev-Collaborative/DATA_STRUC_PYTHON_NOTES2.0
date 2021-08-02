@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-dialog)_
 
-
 ##&lt;paper-dialog&gt;
 
 Material design: [Dialogs](https://www.google.com/design/spec/components/dialogs.html)
@@ -33,9 +31,7 @@ buttons. Focus will be given to the `dialog-confirm` button when the dialog is o
 ```html
 <paper-dialog>
   <h2>Header</h2>
-  <paper-dialog-scrollable>
-    Lorem ipsum...
-  </paper-dialog-scrollable>
+  <paper-dialog-scrollable> Lorem ipsum... </paper-dialog-scrollable>
   <div class="buttons">
     <paper-button dialog-dismiss>Cancel</paper-button>
     <paper-button dialog-confirm autofocus>Accept</paper-button>
@@ -57,11 +53,19 @@ is opened or closed. See the documentation in
 For example:
 
 ```html
-<link rel="import" href="components/neon-animation/animations/scale-up-animation.html">
-<link rel="import" href="components/neon-animation/animations/fade-out-animation.html">
+<link
+  rel="import"
+  href="components/neon-animation/animations/scale-up-animation.html"
+/>
+<link
+  rel="import"
+  href="components/neon-animation/animations/fade-out-animation.html"
+/>
 
-<paper-dialog entry-animation="scale-up-animation"
-              exit-animation="fade-out-animation">
+<paper-dialog
+  entry-animation="scale-up-animation"
+  exit-animation="fade-out-animation"
+>
   <h2>Header</h2>
   <div>Dialog body</div>
 </paper-dialog>
@@ -71,5 +75,3 @@ For example:
 
 See the docs for `Polymer.PaperDialogBehavior` for accessibility features implemented by this
 element.
-
-

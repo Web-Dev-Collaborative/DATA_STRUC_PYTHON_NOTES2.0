@@ -5,15 +5,8 @@
   "description": "A material design toolbar that is easily customizable",
   "private": true,
   "main": "paper-toolbar.html",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "toolbar",
-    "layout"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "toolbar", "layout"],
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/paper-toolbar.git"

@@ -1,4 +1,3 @@
-
 [![Build status](https://travis-ci.org/PolymerElements/paper-button.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-button)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://beta.webcomponents.org/element/PolymerElements/paper-button)
 
@@ -65,6 +64,7 @@ Example:
 </custom-element-demo>
 ```
 -->
+
 ```html
 <paper-button class="pink">link</paper-button>
 <paper-button raised class="indigo">raised</paper-button>

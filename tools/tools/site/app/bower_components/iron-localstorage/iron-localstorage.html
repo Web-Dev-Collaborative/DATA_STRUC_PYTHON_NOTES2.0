@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <!--
 Element access to Web Storage API (window.localStorage).
@@ -75,9 +75,8 @@ is resolved. Local storage will be blown away.
 -->
 <dom-module id="iron-localstorage"></dom-module>
 <script>
-
   Polymer({
-    is: 'iron-localstorage',
+    is: "iron-localstorage",
 
     properties: {
       /**
@@ -85,7 +84,7 @@ is resolved. Local storage will be blown away.
        */
       name: {
         type: String,
-        value: ''
+        value: "",
       },
       /**
        * The data associated with this storage.
@@ -94,7 +93,7 @@ is resolved. Local storage will be blown away.
        */
       value: {
         type: Object,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -102,7 +101,7 @@ is resolved. Local storage will be blown away.
        */
       useRaw: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
@@ -110,58 +109,58 @@ is resolved. Local storage will be blown away.
        */
       autoSaveDisabled: {
         type: Boolean,
-        value: false
+        value: false,
       },
       /**
        * Last error encountered while saving/loading items
        */
       errorMessage: {
         type: String,
-        notify: true
+        notify: true,
       },
 
       /** True if value has been loaded */
       _loaded: {
         type: Boolean,
-        value: false
-      }
+        value: false,
+      },
     },
 
     observers: [
-      '_debounceReload(name,useRaw)',
-      '_trySaveValue(autoSaveDisabled)',
-      '_trySaveValue(value.*)'
+      "_debounceReload(name,useRaw)",
+      "_trySaveValue(autoSaveDisabled)",
+      "_trySaveValue(value.*)",
     ],
 
-    ready: function() {
+    ready: function () {
       this._boundHandleStorage = this._handleStorage.bind(this);
     },
 
-    attached: function() {
-      window.addEventListener('storage', this._boundHandleStorage);
+    attached: function () {
+      window.addEventListener("storage", this._boundHandleStorage);
     },
 
-    detached: function() {
-      window.removeEventListener('storage', this._boundHandleStorage);
+    detached: function () {
+      window.removeEventListener("storage", this._boundHandleStorage);
     },
 
-    _handleStorage: function(ev) {
+    _handleStorage: function (ev) {
       if (ev.key == this.name) {
         this._load(true);
       }
     },
 
-    _trySaveValue: function() {
+    _trySaveValue: function () {
       if (this._doNotSave) {
         return;
       }
       if (this._loaded && !this.autoSaveDisabled) {
-        this.debounce('save', this.save);
+        this.debounce("save", this.save);
       }
     },
 
-    _debounceReload: function() {
-      this.debounce('reload', this.reload);
+    _debounceReload: function () {
+      this.debounce("reload", this.reload);
     },
 
     /**
@@ -169,7 +168,7 @@ is resolved. Local storage will be blown away.
      * localStorage using DOM calls, and want to
      * keep this element in sync.
      */
-    reload: function() {
+    reload: function () {
       this._loaded = false;
       this._load();
     },
@@ -178,26 +177,32 @@ is resolved. Local storage will be blown away.
      * loads value from local storage
      * @param {boolean=} externalChange true if loading changes from a different window
      */
-    _load: function(externalChange) {
+    _load: function (externalChange) {
       try {
         var v = window.localStorage.getItem(this.name);
       } catch (ex) {
         this.errorMessage = ex.message;
 
-        this._error("Could not save to localStorage.  Try enabling cookies for this page.", ex);
-      };
+        this._error(
+          "Could not save to localStorage.  Try enabling cookies for this page.",
+          ex
+        );
+      }
 
       if (v === null) {
         this._loaded = true;
-        this._doNotSave = true;  // guard for save watchers
+        this._doNotSave = true; // guard for save watchers
         this.value = null;
         this._doNotSave = false;
-        this.fire('iron-localstorage-load-empty', { externalChange: externalChange});
+        this.fire("iron-localstorage-load-empty", {
+          externalChange: externalChange,
+        });
       } else {
         if (!this.useRaw) {
-          try { // parse value as JSON
+          try {
+            // parse value as JSON
             v = JSON.parse(v);
-          } catch(x) {
+          } catch (x) {
             this.errorMessage = "Could not parse local storage value";
             Polymer.Base._error("could not parse local storage value", v);
             v = null;
@@ -207,7 +212,7 @@ is resolved. Local storage will be blown away.
         this._doNotSave = true;
         this.value = v;
         this._doNotSave = false;
-        this.fire('iron-localstorage-load', { externalChange: externalChange});
+        this.fire("iron-localstorage-load", { externalChange: externalChange });
       }
     },
 
@@ -215,7 +220,7 @@ is resolved. Local storage will be blown away.
      * Saves the value to localStorage. Call to save if autoSaveDisabled is set.
      * If `value` is null or undefined, deletes localStorage.
      */
-    save: function() {
+    save: function () {
       var v = this.useRaw ? this.value : JSON.stringify(this.value);
       try {
         if (this.value === null || this.value === undefined) {
@@ -223,13 +228,15 @@ is resolved. Local storage will be blown away.
         } else {
           window.localStorage.setItem(this.name, /** @type {string} */ (v));
         }
-      }
-      catch(ex) {
+      } catch (ex) {
         // Happens in Safari incognito mode,
         this.errorMessage = ex.message;
-        Polymer.Base._error("Could not save to localStorage. Incognito mode may be blocking this action", ex);
+        Polymer.Base._error(
+          "Could not save to localStorage. Incognito mode may be blocking this action",
+          ex
+        );
       }
-    }
+    },
 
     /**
      * Fired when value loads from localStorage.
@@ -248,5 +255,4 @@ is resolved. Local storage will be blown away.
      *     externalChange: true if change occured in different window.
      */
   });
-
 </script>

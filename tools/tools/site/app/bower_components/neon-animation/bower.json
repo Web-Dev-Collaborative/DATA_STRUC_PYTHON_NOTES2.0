@@ -2,15 +2,8 @@
   "name": "neon-animation",
   "description": "A system for animating Polymer-based web components",
   "version": "1.2.4",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "web-component",
-    "polymer",
-    "web-animations"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "web-component", "polymer", "web-animations"],
   "main": [
     "neon-animated-pages.html",
     "neon-animatable-behavior.html",

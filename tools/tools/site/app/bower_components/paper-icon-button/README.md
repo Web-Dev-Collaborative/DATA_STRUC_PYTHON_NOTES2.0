@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-icon-button)_
 
-
 ##&lt;paper-icon-button&gt;
 
 Material design: [Icon toggles](https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons)
@@ -24,7 +22,7 @@ Material design: [Icon toggles](https://www.google.com/design/spec/components/bu
 `paper-icon-button` is a button with an image placed at the center. When the user touches
 the button, a ripple effect emanates from the center of the button.
 
-`paper-icon-button` includes a default icon set.  Use `icon` to specify which icon
+`paper-icon-button` includes a default icon set. Use `icon` to specify which icon
 from the icon set to use.
 
 <!---
@@ -39,6 +37,7 @@ from the icon set to use.
 </custom-element-demo>
 ```
 -->
+
 ```html
 <paper-icon-button icon="favorite"></paper-icon-button>
 <paper-icon-button icon="menu"></paper-icon-button>
@@ -51,7 +50,7 @@ how to use a custom icon set.
 Example:
 
 ```html
-<link href="path/to/iron-icons/iron-icons.html" rel="import">
+<link href="path/to/iron-icons/iron-icons.html" rel="import" />
 
 <paper-icon-button icon="favorite"></paper-icon-button>
 <paper-icon-button src="star.png"></paper-icon-button>
@@ -82,14 +81,12 @@ customize the color using the `--paper-icon-button-ink-color` custom property.
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
+| Custom property                     | Description                      | Default                 |
+| ----------------------------------- | -------------------------------- | ----------------------- |
 | `--paper-icon-button-disabled-text` | The color of the disabled button | `--disabled-text-color` |
-| `--paper-icon-button-ink-color` | Selected/focus ripple color | `--primary-text-color` |
-| `--paper-icon-button` | Mixin for a button | `{}` |
-| `--paper-icon-button-disabled` | Mixin for a disabled button | `{}` |
-| `--paper-icon-button-hover` | Mixin for button on hover | `{}` |
-
-
+| `--paper-icon-button-ink-color`     | Selected/focus ripple color      | `--primary-text-color`  |
+| `--paper-icon-button`               | Mixin for a button               | `{}`                    |
+| `--paper-icon-button-disabled`      | Mixin for a disabled button      | `{}`                    |
+| `--paper-icon-button-hover`         | Mixin for button on hover        | `{}`                    |
 
 <!-- No docs for <paper-icon-button-light> found. -->

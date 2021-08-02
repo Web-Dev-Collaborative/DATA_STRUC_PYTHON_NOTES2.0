@@ -8,9 +8,8 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="iron-multi-selectable.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="iron-multi-selectable.html" />
 
 <script>
   /**
@@ -75,13 +74,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   */
 
   Polymer({
+    is: "iron-selector",
 
-    is: 'iron-selector',
-
-    behaviors: [
-      Polymer.IronMultiSelectableBehavior
-    ]
-
+    behaviors: [Polymer.IronMultiSelectableBehavior],
   });
-
 </script>

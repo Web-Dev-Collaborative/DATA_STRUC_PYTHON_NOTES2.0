@@ -3,15 +3,8 @@
   "version": "1.1.2",
   "description": "Implements an accessible material design listbox",
   "authors": "The Polymer Authors",
-  "keywords": [
-    "web-components",
-    "polymer",
-    "listbox"
-  ],
-  "main": [
-    "paper-listbox.html",
-    "paper-sublistbox.html"
-  ],
+  "keywords": ["web-components", "polymer", "listbox"],
+  "main": ["paper-listbox.html", "paper-sublistbox.html"],
   "private": true,
   "repository": {
     "type": "git",

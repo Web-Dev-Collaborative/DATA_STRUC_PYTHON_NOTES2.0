@@ -9,36 +9,40 @@
  */
 // @version 0.7.24
 if (typeof WeakMap === "undefined") {
-  (function() {
+  (function () {
     var defineProperty = Object.defineProperty;
     var counter = Date.now() % 1e9;
-    var WeakMap = function() {
-      this.name = "__st" + (Math.random() * 1e9 >>> 0) + (counter++ + "__");
+    var WeakMap = function () {
+      this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
     };
     WeakMap.prototype = {
-      set: function(key, value) {
+      set: function (key, value) {
         var entry = key[this.name];
-        if (entry && entry[0] === key) entry[1] = value; else defineProperty(key, this.name, {
-          value: [ key, value ],
-          writable: true
-        });
+        if (entry && entry[0] === key) entry[1] = value;
+        else
+          defineProperty(key, this.name, {
+            value: [key, value],
+            writable: true,
+          });
         return this;
       },
-      get: function(key) {
+      get: function (key) {
         var entry;
-        return (entry = key[this.name]) && entry[0] === key ? entry[1] : undefined;
+        return (entry = key[this.name]) && entry[0] === key
+          ? entry[1]
+          : undefined;
       },
-      "delete": function(key) {
+      delete: function (key) {
         var entry = key[this.name];
         if (!entry || entry[0] !== key) return false;
         entry[0] = entry[1] = undefined;
         return true;
       },
-      has: function(key) {
+      has: function (key) {
         var entry = key[this.name];
         if (!entry) return false;
         return entry[0] === key;
-      }
+      },
     };
     window.WeakMap = WeakMap;
   })();
@@ -46,7 +50,7 @@ if (typeof WeakMap === "undefined") {
 
 window.ShadowDOMPolyfill = {};
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var constructorTable = new WeakMap();
   var nativePrototypeTable = new WeakMap();
@@ -85,13 +89,13 @@ window.ShadowDOMPolyfill = {};
     for (var i = 0; i < names.length; i++) {
       var name = names[i];
       switch (name) {
-       case "arguments":
-       case "caller":
-       case "length":
-       case "name":
-       case "prototype":
-       case "toString":
-        continue;
+        case "arguments":
+        case "caller":
+        case "length":
+        case "name":
+        case "prototype":
+        case "toString":
+          continue;
       }
       defineProperty(to, name, getOwnPropertyDescriptor(from, name));
     }
@@ -106,7 +110,7 @@ window.ShadowDOMPolyfill = {};
     value: undefined,
     configurable: true,
     enumerable: false,
-    writable: true
+    writable: true,
   };
   function defineNonEnumerableDataProperty(object, name, value) {
     nonEnumerableDataDescriptor.value = value;
@@ -137,10 +141,10 @@ window.ShadowDOMPolyfill = {};
   }
   var isFirefox = /Firefox/.test(navigator.userAgent);
   var dummyDescriptor = {
-    get: function() {},
-    set: function(v) {},
+    get: function () {},
+    set: function (v) {},
     configurable: true,
-    enumerable: true
+    enumerable: true,
   };
   function isEventHandlerName(name) {
     return /^on[a-z]+$/.test(name);
@@ -149,19 +153,32 @@ window.ShadowDOMPolyfill = {};
     return /^[a-zA-Z_$][a-zA-Z_$0-9]*$/.test(name);
   }
   function getGetter(name) {
-    return hasEval && isIdentifierName(name) ? new Function("return this.__impl4cf1e782hg__." + name) : function() {
-      return this.__impl4cf1e782hg__[name];
-    };
+    return hasEval && isIdentifierName(name)
+      ? new Function("return this.__impl4cf1e782hg__." + name)
+      : function () {
+          return this.__impl4cf1e782hg__[name];
+        };
   }
   function getSetter(name) {
-    return hasEval && isIdentifierName(name) ? new Function("v", "this.__impl4cf1e782hg__." + name + " = v") : function(v) {
-      this.__impl4cf1e782hg__[name] = v;
-    };
+    return hasEval && isIdentifierName(name)
+      ? new Function("v", "this.__impl4cf1e782hg__." + name + " = v")
+      : function (v) {
+          this.__impl4cf1e782hg__[name] = v;
+        };
   }
   function getMethod(name) {
-    return hasEval && isIdentifierName(name) ? new Function("return this.__impl4cf1e782hg__." + name + ".apply(this.__impl4cf1e782hg__, arguments)") : function() {
-      return this.__impl4cf1e782hg__[name].apply(this.__impl4cf1e782hg__, arguments);
-    };
+    return hasEval && isIdentifierName(name)
+      ? new Function(
+          "return this.__impl4cf1e782hg__." +
+            name +
+            ".apply(this.__impl4cf1e782hg__, arguments)"
+        )
+      : function () {
+          return this.__impl4cf1e782hg__[name].apply(
+            this.__impl4cf1e782hg__,
+            arguments
+          );
+        };
   }
   function getDescriptor(source, name) {
     try {
@@ -173,10 +190,10 @@ window.ShadowDOMPolyfill = {};
       return dummyDescriptor;
     }
   }
-  var isBrokenSafari = function() {
+  var isBrokenSafari = (function () {
     var descr = Object.getOwnPropertyDescriptor(Node.prototype, "nodeType");
     return descr && !descr.get && !descr.set;
-  }();
+  })();
   function installProperty(source, target, allowMethod, opt_blacklist) {
     var names = getOwnPropertyNames(source);
     for (var i = 0; i < names.length; i++) {
@@ -196,16 +213,18 @@ window.ShadowDOMPolyfill = {};
         continue;
       }
       var isEvent = isEventHandlerName(name);
-      if (isEvent) getter = scope.getEventHandlerGetter(name); else getter = getGetter(name);
+      if (isEvent) getter = scope.getEventHandlerGetter(name);
+      else getter = getGetter(name);
       if (descriptor.writable || descriptor.set || isBrokenSafari) {
-        if (isEvent) setter = scope.getEventHandlerSetter(name); else setter = getSetter(name);
+        if (isEvent) setter = scope.getEventHandlerSetter(name);
+        else setter = getSetter(name);
       }
       var configurable = isBrokenSafari || descriptor.configurable;
       defineProperty(target, name, {
         get: getter,
         set: setter,
         configurable: configurable,
-        enumerable: descriptor.enumerable
+        enumerable: descriptor.enumerable,
       });
     }
   }
@@ -223,12 +242,19 @@ window.ShadowDOMPolyfill = {};
     constructorTable.set(nativePrototype, wrapperConstructor);
     nativePrototypeTable.set(wrapperPrototype, nativePrototype);
     addForwardingProperties(nativePrototype, wrapperPrototype);
-    if (opt_instance) registerInstanceProperties(wrapperPrototype, opt_instance);
-    defineNonEnumerableDataProperty(wrapperPrototype, "constructor", wrapperConstructor);
+    if (opt_instance)
+      registerInstanceProperties(wrapperPrototype, opt_instance);
+    defineNonEnumerableDataProperty(
+      wrapperPrototype,
+      "constructor",
+      wrapperConstructor
+    );
     wrapperConstructor.prototype = wrapperPrototype;
   }
   function isWrapperFor(wrapperConstructor, nativeConstructor) {
-    return constructorTable.get(nativeConstructor.prototype) === wrapperConstructor;
+    return (
+      constructorTable.get(nativeConstructor.prototype) === wrapperConstructor
+    );
   }
   function registerObject(object) {
     var nativePrototype = Object.getPrototypeOf(object);
@@ -259,7 +285,10 @@ window.ShadowDOMPolyfill = {};
     if (wrapper != null) {
       return wrapper;
     }
-    return impl.__wrapper8e3dd93a60__ = new (getWrapperConstructor(impl, impl))(impl);
+    return (impl.__wrapper8e3dd93a60__ = new (getWrapperConstructor(
+      impl,
+      impl
+    ))(impl));
   }
   function unwrap(wrapper) {
     if (wrapper === null) return null;
@@ -288,21 +317,21 @@ window.ShadowDOMPolyfill = {};
   var getterDescriptor = {
     get: undefined,
     configurable: true,
-    enumerable: true
+    enumerable: true,
   };
   function defineGetter(constructor, name, getter) {
     getterDescriptor.get = getter;
     defineProperty(constructor.prototype, name, getterDescriptor);
   }
   function defineWrapGetter(constructor, name) {
-    defineGetter(constructor, name, function() {
+    defineGetter(constructor, name, function () {
       return wrap(this.__impl4cf1e782hg__[name]);
     });
   }
   function forwardMethodsToWrapper(constructors, names) {
-    constructors.forEach(function(constructor) {
-      names.forEach(function(name) {
-        constructor.prototype[name] = function() {
+    constructors.forEach(function (constructor) {
+      names.forEach(function (name) {
+        constructor.prototype[name] = function () {
           var w = wrapIfNeeded(this);
           return w[name].apply(w, arguments);
         };
@@ -333,13 +362,13 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers = wrappers;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   function newSplice(index, removed, addedCount) {
     return {
       index: index,
       removed: removed,
-      addedCount: addedCount
+      addedCount: addedCount,
     };
   }
   var EDIT_LEAVE = 0;
@@ -348,7 +377,14 @@ window.ShadowDOMPolyfill = {};
   var EDIT_DELETE = 3;
   function ArraySplice() {}
   ArraySplice.prototype = {
-    calcEditDistances: function(current, currentStart, currentEnd, old, oldStart, oldEnd) {
+    calcEditDistances: function (
+      current,
+      currentStart,
+      currentEnd,
+      old,
+      oldStart,
+      oldEnd
+    ) {
       var rowCount = oldEnd - oldStart + 1;
       var columnCount = currentEnd - currentStart + 1;
       var distances = new Array(rowCount);
@@ -359,7 +395,9 @@ window.ShadowDOMPolyfill = {};
       for (var j = 0; j < columnCount; j++) distances[0][j] = j;
       for (var i = 1; i < rowCount; i++) {
         for (var j = 1; j < columnCount; j++) {
-          if (this.equals(current[currentStart + j - 1], old[oldStart + i - 1])) distances[i][j] = distances[i - 1][j - 1]; else {
+          if (this.equals(current[currentStart + j - 1], old[oldStart + i - 1]))
+            distances[i][j] = distances[i - 1][j - 1];
+          else {
             var north = distances[i - 1][j] + 1;
             var west = distances[i][j - 1] + 1;
             distances[i][j] = north < west ? north : west;
@@ -368,7 +406,7 @@ window.ShadowDOMPolyfill = {};
       }
       return distances;
     },
-    spliceOperationsFromEditDistances: function(distances) {
+    spliceOperationsFromEditDistances: function (distances) {
       var i = distances.length - 1;
       var j = distances[0].length - 1;
       var current = distances[i][j];
@@ -388,7 +426,8 @@ window.ShadowDOMPolyfill = {};
         var west = distances[i - 1][j];
         var north = distances[i][j - 1];
         var min;
-        if (west < north) min = west < northWest ? west : northWest; else min = north < northWest ? north : northWest;
+        if (west < north) min = west < northWest ? west : northWest;
+        else min = north < northWest ? north : northWest;
         if (min == northWest) {
           if (northWest == current) {
             edits.push(EDIT_LEAVE);
@@ -411,12 +450,21 @@ window.ShadowDOMPolyfill = {};
       edits.reverse();
       return edits;
     },
-    calcSplices: function(current, currentStart, currentEnd, old, oldStart, oldEnd) {
+    calcSplices: function (
+      current,
+      currentStart,
+      currentEnd,
+      old,
+      oldStart,
+      oldEnd
+    ) {
       var prefixCount = 0;
       var suffixCount = 0;
       var minLength = Math.min(currentEnd - currentStart, oldEnd - oldStart);
-      if (currentStart == 0 && oldStart == 0) prefixCount = this.sharedPrefix(current, old, minLength);
-      if (currentEnd == current.length && oldEnd == old.length) suffixCount = this.sharedSuffix(current, old, minLength - prefixCount);
+      if (currentStart == 0 && oldStart == 0)
+        prefixCount = this.sharedPrefix(current, old, minLength);
+      if (currentEnd == current.length && oldEnd == old.length)
+        suffixCount = this.sharedSuffix(current, old, minLength - prefixCount);
       currentStart += prefixCount;
       oldStart += prefixCount;
       currentEnd -= suffixCount;
@@ -425,43 +473,53 @@ window.ShadowDOMPolyfill = {};
       if (currentStart == currentEnd) {
         var splice = newSplice(currentStart, [], 0);
         while (oldStart < oldEnd) splice.removed.push(old[oldStart++]);
-        return [ splice ];
-      } else if (oldStart == oldEnd) return [ newSplice(currentStart, [], currentEnd - currentStart) ];
-      var ops = this.spliceOperationsFromEditDistances(this.calcEditDistances(current, currentStart, currentEnd, old, oldStart, oldEnd));
+        return [splice];
+      } else if (oldStart == oldEnd)
+        return [newSplice(currentStart, [], currentEnd - currentStart)];
+      var ops = this.spliceOperationsFromEditDistances(
+        this.calcEditDistances(
+          current,
+          currentStart,
+          currentEnd,
+          old,
+          oldStart,
+          oldEnd
+        )
+      );
       var splice = undefined;
       var splices = [];
       var index = currentStart;
       var oldIndex = oldStart;
       for (var i = 0; i < ops.length; i++) {
         switch (ops[i]) {
-         case EDIT_LEAVE:
-          if (splice) {
-            splices.push(splice);
-            splice = undefined;
-          }
-          index++;
-          oldIndex++;
-          break;
+          case EDIT_LEAVE:
+            if (splice) {
+              splices.push(splice);
+              splice = undefined;
+            }
+            index++;
+            oldIndex++;
+            break;
 
-         case EDIT_UPDATE:
-          if (!splice) splice = newSplice(index, [], 0);
-          splice.addedCount++;
-          index++;
-          splice.removed.push(old[oldIndex]);
-          oldIndex++;
-          break;
+          case EDIT_UPDATE:
+            if (!splice) splice = newSplice(index, [], 0);
+            splice.addedCount++;
+            index++;
+            splice.removed.push(old[oldIndex]);
+            oldIndex++;
+            break;
 
-         case EDIT_ADD:
-          if (!splice) splice = newSplice(index, [], 0);
-          splice.addedCount++;
-          index++;
-          break;
+          case EDIT_ADD:
+            if (!splice) splice = newSplice(index, [], 0);
+            splice.addedCount++;
+            index++;
+            break;
 
-         case EDIT_DELETE:
-          if (!splice) splice = newSplice(index, [], 0);
-          splice.removed.push(old[oldIndex]);
-          oldIndex++;
-          break;
+          case EDIT_DELETE:
+            if (!splice) splice = newSplice(index, [], 0);
+            splice.removed.push(old[oldIndex]);
+            oldIndex++;
+            break;
         }
       }
       if (splice) {
@@ -469,28 +527,40 @@ window.ShadowDOMPolyfill = {};
       }
       return splices;
     },
-    sharedPrefix: function(current, old, searchLength) {
-      for (var i = 0; i < searchLength; i++) if (!this.equals(current[i], old[i])) return i;
+    sharedPrefix: function (current, old, searchLength) {
+      for (var i = 0; i < searchLength; i++)
+        if (!this.equals(current[i], old[i])) return i;
       return searchLength;
     },
-    sharedSuffix: function(current, old, searchLength) {
+    sharedSuffix: function (current, old, searchLength) {
       var index1 = current.length;
       var index2 = old.length;
       var count = 0;
-      while (count < searchLength && this.equals(current[--index1], old[--index2])) count++;
+      while (
+        count < searchLength &&
+        this.equals(current[--index1], old[--index2])
+      )
+        count++;
       return count;
     },
-    calculateSplices: function(current, previous) {
-      return this.calcSplices(current, 0, current.length, previous, 0, previous.length);
+    calculateSplices: function (current, previous) {
+      return this.calcSplices(
+        current,
+        0,
+        current.length,
+        previous,
+        0,
+        previous.length
+      );
     },
-    equals: function(currentValue, previousValue) {
+    equals: function (currentValue, previousValue) {
       return currentValue === previousValue;
-    }
+    },
   };
   scope.ArraySplice = ArraySplice;
 })(window.ShadowDOMPolyfill);
 
-(function(context) {
+(function (context) {
   "use strict";
   var OriginalMutationObserver = window.MutationObserver;
   var callbacks = [];
@@ -509,9 +579,9 @@ window.ShadowDOMPolyfill = {};
     var observer = new OriginalMutationObserver(handle);
     var textNode = document.createTextNode(counter);
     observer.observe(textNode, {
-      characterData: true
+      characterData: true,
     });
-    timerFunc = function() {
+    timerFunc = function () {
       counter = (counter + 1) % 2;
       textNode.data = counter;
     };
@@ -527,7 +597,7 @@ window.ShadowDOMPolyfill = {};
   context.setEndOfMicrotask = setEndOfMicrotask;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var setEndOfMicrotask = scope.setEndOfMicrotask;
   var wrapIfNeeded = scope.wrapIfNeeded;
@@ -548,7 +618,7 @@ window.ShadowDOMPolyfill = {};
     while (globalMutationObservers.length) {
       var notifyList = globalMutationObservers;
       globalMutationObservers = [];
-      notifyList.sort(function(x, y) {
+      notifyList.sort(function (x, y) {
         return x.uid_ - y.uid_;
       });
       for (var i = 0; i < notifyList.length; i++) {
@@ -574,12 +644,13 @@ window.ShadowDOMPolyfill = {};
     this.oldValue = null;
   }
   function registerTransientObservers(ancestor, node) {
-    for (;ancestor; ancestor = ancestor.parentNode) {
+    for (; ancestor; ancestor = ancestor.parentNode) {
       var registrations = registrationsTable.get(ancestor);
       if (!registrations) continue;
       for (var i = 0; i < registrations.length; i++) {
         var registration = registrations[i];
-        if (registration.options.subtree) registration.addTransientObserver(node);
+        if (registration.options.subtree)
+          registration.addTransientObserver(node);
       }
     }
   }
@@ -590,7 +661,8 @@ window.ShadowDOMPolyfill = {};
       if (!registrations) return;
       for (var j = 0; j < registrations.length; j++) {
         var registration = registrations[j];
-        if (registration.observer === observer) registration.removeTransientObservers();
+        if (registration.observer === observer)
+          registration.removeTransientObservers();
       }
     }
   }
@@ -605,14 +677,22 @@ window.ShadowDOMPolyfill = {};
         var options = registration.options;
         if (node !== target && !options.subtree) continue;
         if (type === "attributes" && !options.attributes) continue;
-        if (type === "attributes" && options.attributeFilter && (data.namespace !== null || options.attributeFilter.indexOf(data.name) === -1)) {
+        if (
+          type === "attributes" &&
+          options.attributeFilter &&
+          (data.namespace !== null ||
+            options.attributeFilter.indexOf(data.name) === -1)
+        ) {
           continue;
         }
         if (type === "characterData" && !options.characterData) continue;
         if (type === "childList" && !options.childList) continue;
         var observer = registration.observer;
         interestedObservers[observer.uid_] = observer;
-        if (type === "attributes" && options.attributeOldValue || type === "characterData" && options.characterDataOldValue) {
+        if (
+          (type === "attributes" && options.attributeOldValue) ||
+          (type === "characterData" && options.characterDataOldValue)
+        ) {
           associatedStrings[observer.uid_] = data.oldValue;
         }
       }
@@ -628,7 +708,8 @@ window.ShadowDOMPolyfill = {};
       if (data.removedNodes) record.removedNodes = data.removedNodes;
       if (data.previousSibling) record.previousSibling = data.previousSibling;
       if (data.nextSibling) record.nextSibling = data.nextSibling;
-      if (associatedStrings[uid] !== undefined) record.oldValue = associatedStrings[uid];
+      if (associatedStrings[uid] !== undefined)
+        record.oldValue = associatedStrings[uid];
       scheduleCallback(observer);
       observer.records_.push(record);
     }
@@ -637,20 +718,32 @@ window.ShadowDOMPolyfill = {};
   function MutationObserverOptions(options) {
     this.childList = !!options.childList;
     this.subtree = !!options.subtree;
-    if (!("attributes" in options) && ("attributeOldValue" in options || "attributeFilter" in options)) {
+    if (
+      !("attributes" in options) &&
+      ("attributeOldValue" in options || "attributeFilter" in options)
+    ) {
       this.attributes = true;
     } else {
       this.attributes = !!options.attributes;
     }
-    if ("characterDataOldValue" in options && !("characterData" in options)) this.characterData = true; else this.characterData = !!options.characterData;
-    if (!this.attributes && (options.attributeOldValue || "attributeFilter" in options) || !this.characterData && options.characterDataOldValue) {
+    if ("characterDataOldValue" in options && !("characterData" in options))
+      this.characterData = true;
+    else this.characterData = !!options.characterData;
+    if (
+      (!this.attributes &&
+        (options.attributeOldValue || "attributeFilter" in options)) ||
+      (!this.characterData && options.characterDataOldValue)
+    ) {
       throw new TypeError();
     }
     this.characterData = !!options.characterData;
     this.attributeOldValue = !!options.attributeOldValue;
     this.characterDataOldValue = !!options.characterDataOldValue;
     if ("attributeFilter" in options) {
-      if (options.attributeFilter == null || typeof options.attributeFilter !== "object") {
+      if (
+        options.attributeFilter == null ||
+        typeof options.attributeFilter !== "object"
+      ) {
         throw new TypeError();
       }
       this.attributeFilter = slice.call(options.attributeFilter);
@@ -668,12 +761,12 @@ window.ShadowDOMPolyfill = {};
   }
   MutationObserver.prototype = {
     constructor: MutationObserver,
-    observe: function(target, options) {
+    observe: function (target, options) {
       target = wrapIfNeeded(target);
       var newOptions = new MutationObserverOptions(options);
       var registration;
       var registrations = registrationsTable.get(target);
-      if (!registrations) registrationsTable.set(target, registrations = []);
+      if (!registrations) registrationsTable.set(target, (registrations = []));
       for (var i = 0; i < registrations.length; i++) {
         if (registrations[i].observer === this) {
           registration = registrations[i];
@@ -687,8 +780,8 @@ window.ShadowDOMPolyfill = {};
         this.nodes_.push(target);
       }
     },
-    disconnect: function() {
-      this.nodes_.forEach(function(node) {
+    disconnect: function () {
+      this.nodes_.forEach(function (node) {
         var registrations = registrationsTable.get(node);
         for (var i = 0; i < registrations.length; i++) {
           var registration = registrations[i];
@@ -700,11 +793,11 @@ window.ShadowDOMPolyfill = {};
       }, this);
       this.records_ = [];
     },
-    takeRecords: function() {
+    takeRecords: function () {
       var copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
-    }
+    },
   };
   function Registration(observer, target, options) {
     this.observer = observer;
@@ -713,15 +806,15 @@ window.ShadowDOMPolyfill = {};
     this.transientObservedNodes = [];
   }
   Registration.prototype = {
-    addTransientObserver: function(node) {
+    addTransientObserver: function (node) {
       if (node === this.target) return;
       scheduleCallback(this.observer);
       this.transientObservedNodes.push(node);
       var registrations = registrationsTable.get(node);
-      if (!registrations) registrationsTable.set(node, registrations = []);
+      if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
     },
-    removeTransientObservers: function() {
+    removeTransientObservers: function () {
       var transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
       for (var i = 0; i < transientObservedNodes.length; i++) {
@@ -734,7 +827,7 @@ window.ShadowDOMPolyfill = {};
           }
         }
       }
-    }
+    },
   };
   scope.enqueueMutation = enqueueMutation;
   scope.registerTransientObservers = registerTransientObservers;
@@ -742,7 +835,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.MutationRecord = MutationRecord;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   function TreeScope(root, parent) {
     this.root = root;
@@ -755,12 +848,12 @@ window.ShadowDOMPolyfill = {};
       }
       return null;
     },
-    contains: function(treeScope) {
-      for (;treeScope; treeScope = treeScope.parent) {
+    contains: function (treeScope) {
+      for (; treeScope; treeScope = treeScope.parent) {
         if (treeScope === this) return true;
       }
       return false;
-    }
+    },
   };
   function setTreeScope(node, treeScope) {
     if (node.treeScope_ !== treeScope) {
@@ -780,15 +873,16 @@ window.ShadowDOMPolyfill = {};
     if (node.treeScope_) return node.treeScope_;
     var parent = node.parentNode;
     var treeScope;
-    if (parent) treeScope = getTreeScope(parent); else treeScope = new TreeScope(node, null);
-    return node.treeScope_ = treeScope;
+    if (parent) treeScope = getTreeScope(parent);
+    else treeScope = new TreeScope(node, null);
+    return (node.treeScope_ = treeScope);
   }
   scope.TreeScope = TreeScope;
   scope.getTreeScope = getTreeScope;
   scope.setTreeScope = setTreeScope;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var forwardMethodsToWrapper = scope.forwardMethodsToWrapper;
   var getTreeScope = scope.getTreeScope;
@@ -833,7 +927,8 @@ window.ShadowDOMPolyfill = {};
           }
           path.push(insertionPoint);
         }
-        current = destinationInsertionPoints[destinationInsertionPoints.length - 1];
+        current =
+          destinationInsertionPoints[destinationInsertionPoints.length - 1];
       } else {
         if (isShadowRoot(current)) {
           if (inSameTree(node, current) && eventMustBeStopped(event)) {
@@ -852,16 +947,16 @@ window.ShadowDOMPolyfill = {};
   function eventMustBeStopped(event) {
     if (!event) return false;
     switch (event.type) {
-     case "abort":
-     case "error":
-     case "select":
-     case "change":
-     case "load":
-     case "reset":
-     case "resize":
-     case "scroll":
-     case "selectstart":
-      return true;
+      case "abort":
+      case "error":
+      case "select":
+      case "change":
+      case "load":
+      case "reset":
+      case "resize":
+      case "scroll":
+      case "selectstart":
+        return true;
     }
     return false;
   }
@@ -873,11 +968,15 @@ window.ShadowDOMPolyfill = {};
   }
   function eventRetargetting(path, currentTarget) {
     if (path.length === 0) return currentTarget;
-    if (currentTarget instanceof wrappers.Window) currentTarget = currentTarget.document;
+    if (currentTarget instanceof wrappers.Window)
+      currentTarget = currentTarget.document;
     var currentTargetTree = getTreeScope(currentTarget);
     var originalTarget = path[0];
     var originalTargetTree = getTreeScope(originalTarget);
-    var relativeTargetTree = lowestCommonInclusiveAncestor(currentTargetTree, originalTargetTree);
+    var relativeTargetTree = lowestCommonInclusiveAncestor(
+      currentTargetTree,
+      originalTargetTree
+    );
     for (var i = 0; i < path.length; i++) {
       var node = path[i];
       if (getTreeScope(node) === relativeTargetTree) return node;
@@ -886,7 +985,7 @@ window.ShadowDOMPolyfill = {};
   }
   function getTreeScopeAncestors(treeScope) {
     var ancestors = [];
-    for (;treeScope; treeScope = treeScope.parent) {
+    for (; treeScope; treeScope = treeScope.parent) {
       ancestors.push(treeScope);
     }
     return ancestors;
@@ -898,7 +997,8 @@ window.ShadowDOMPolyfill = {};
     while (ancestorsA.length > 0 && ancestorsB.length > 0) {
       var a = ancestorsA.pop();
       var b = ancestorsB.pop();
-      if (a === b) result = a; else break;
+      if (a === b) result = a;
+      else break;
     }
     return result;
   }
@@ -907,14 +1007,23 @@ window.ShadowDOMPolyfill = {};
     return getTreeScopeRoot(ts.parent);
   }
   function relatedTargetResolution(event, currentTarget, relatedTarget) {
-    if (currentTarget instanceof wrappers.Window) currentTarget = currentTarget.document;
+    if (currentTarget instanceof wrappers.Window)
+      currentTarget = currentTarget.document;
     var currentTargetTree = getTreeScope(currentTarget);
     var relatedTargetTree = getTreeScope(relatedTarget);
     var relatedTargetEventPath = getEventPath(relatedTarget, event);
     var lowestCommonAncestorTree;
-    var lowestCommonAncestorTree = lowestCommonInclusiveAncestor(currentTargetTree, relatedTargetTree);
-    if (!lowestCommonAncestorTree) lowestCommonAncestorTree = relatedTargetTree.root;
-    for (var commonAncestorTree = lowestCommonAncestorTree; commonAncestorTree; commonAncestorTree = commonAncestorTree.parent) {
+    var lowestCommonAncestorTree = lowestCommonInclusiveAncestor(
+      currentTargetTree,
+      relatedTargetTree
+    );
+    if (!lowestCommonAncestorTree)
+      lowestCommonAncestorTree = relatedTargetTree.root;
+    for (
+      var commonAncestorTree = lowestCommonAncestorTree;
+      commonAncestorTree;
+      commonAncestorTree = commonAncestorTree.parent
+    ) {
       var adjustedRelatedTarget;
       for (var i = 0; i < relatedTargetEventPath.length; i++) {
         var node = relatedTargetEventPath[i];
@@ -943,15 +1052,16 @@ window.ShadowDOMPolyfill = {};
   }
   function isLoadLikeEvent(event) {
     switch (event.type) {
-     case "load":
-     case "beforeunload":
-     case "unload":
-      return true;
+      case "load":
+      case "beforeunload":
+      case "unload":
+        return true;
     }
     return false;
   }
   function dispatchEvent(event, originalWrapperTarget) {
-    if (currentlyDispatchingEvents.get(event)) throw new Error("InvalidStateError");
+    if (currentlyDispatchingEvents.get(event))
+      throw new Error("InvalidStateError");
     currentlyDispatchingEvents.set(event, true);
     scope.renderAllPending();
     var eventPath;
@@ -993,7 +1103,8 @@ window.ShadowDOMPolyfill = {};
       if (!invoke(win, event, phase, eventPath, overrideTarget)) return false;
     }
     for (var i = eventPath.length - 1; i > 0; i--) {
-      if (!invoke(eventPath[i], event, phase, eventPath, overrideTarget)) return false;
+      if (!invoke(eventPath[i], event, phase, eventPath, overrideTarget))
+        return false;
     }
     return true;
   }
@@ -1005,7 +1116,8 @@ window.ShadowDOMPolyfill = {};
   function dispatchBubbling(event, eventPath, win, overrideTarget) {
     var phase = BUBBLING_PHASE;
     for (var i = 1; i < eventPath.length; i++) {
-      if (!invoke(eventPath[i], event, phase, eventPath, overrideTarget)) return;
+      if (!invoke(eventPath[i], event, phase, eventPath, overrideTarget))
+        return;
     }
     if (win && eventPath.length > 0) {
       invoke(win, event, phase, eventPath, overrideTarget);
@@ -1025,9 +1137,16 @@ window.ShadowDOMPolyfill = {};
       var originalEvent = unwrap(event);
       var unwrappedRelatedTarget = originalEvent.relatedTarget;
       if (unwrappedRelatedTarget) {
-        if (unwrappedRelatedTarget instanceof Object && unwrappedRelatedTarget.addEventListener) {
+        if (
+          unwrappedRelatedTarget instanceof Object &&
+          unwrappedRelatedTarget.addEventListener
+        ) {
           var relatedTarget = wrap(unwrappedRelatedTarget);
-          var adjusted = relatedTargetResolution(event, currentTarget, relatedTarget);
+          var adjusted = relatedTargetResolution(
+            event,
+            currentTarget,
+            relatedTarget
+          );
           if (adjusted === target) return true;
         } else {
           adjusted = null;
@@ -1047,11 +1166,17 @@ window.ShadowDOMPolyfill = {};
         anyRemoved = true;
         continue;
       }
-      if (listener.type !== type || !listener.capture && phase === CAPTURING_PHASE || listener.capture && phase === BUBBLING_PHASE) {
+      if (
+        listener.type !== type ||
+        (!listener.capture && phase === CAPTURING_PHASE) ||
+        (listener.capture && phase === BUBBLING_PHASE)
+      ) {
         continue;
       }
       try {
-        if (typeof listener.handler === "function") listener.handler.call(currentTarget, event); else listener.handler.handleEvent(event);
+        if (typeof listener.handler === "function")
+          listener.handler.call(currentTarget, event);
+        else listener.handler.handleEvent(event);
         if (stopImmediatePropagationTable.get(event)) return false;
       } catch (ex) {
         if (!pendingError) pendingError = ex;
@@ -1073,25 +1198,33 @@ window.ShadowDOMPolyfill = {};
     this.capture = Boolean(capture);
   }
   Listener.prototype = {
-    equals: function(that) {
-      return this.handler === that.handler && this.type === that.type && this.capture === that.capture;
+    equals: function (that) {
+      return (
+        this.handler === that.handler &&
+        this.type === that.type &&
+        this.capture === that.capture
+      );
     },
     get removed() {
       return this.handler === null;
     },
-    remove: function() {
+    remove: function () {
       this.handler = null;
-    }
+    },
   };
   var OriginalEvent = window.Event;
   OriginalEvent.prototype.polymerBlackList_ = {
     returnValue: true,
-    keyLocation: true
+    keyLocation: true,
   };
   function Event(type, options) {
     if (type instanceof OriginalEvent) {
       var impl = type;
-      if (!OriginalBeforeUnloadEvent && impl.type === "beforeunload" && !(this instanceof BeforeUnloadEvent)) {
+      if (
+        !OriginalBeforeUnloadEvent &&
+        impl.type === "beforeunload" &&
+        !(this instanceof BeforeUnloadEvent)
+      ) {
         return new BeforeUnloadEvent(impl);
       }
       setWrapper(impl, this);
@@ -1114,29 +1247,29 @@ window.ShadowDOMPolyfill = {};
       if (!eventPath) return [];
       return eventPath.slice();
     },
-    stopPropagation: function() {
+    stopPropagation: function () {
       stopPropagationTable.set(this, true);
     },
-    stopImmediatePropagation: function() {
+    stopImmediatePropagation: function () {
       stopPropagationTable.set(this, true);
       stopImmediatePropagationTable.set(this, true);
-    }
+    },
   };
-  var supportsDefaultPrevented = function() {
+  var supportsDefaultPrevented = (function () {
     var e = document.createEvent("Event");
     e.initEvent("test", true, true);
     e.preventDefault();
     return e.defaultPrevented;
-  }();
+  })();
   if (!supportsDefaultPrevented) {
-    Event.prototype.preventDefault = function() {
+    Event.prototype.preventDefault = function () {
       if (!this.cancelable) return;
       unsafeUnwrap(this).preventDefault();
       Object.defineProperty(this, "defaultPrevented", {
-        get: function() {
+        get: function () {
           return true;
         },
-        configurable: true
+        configurable: true,
       });
     };
   }
@@ -1145,14 +1278,15 @@ window.ShadowDOMPolyfill = {};
     if (!options || !options.relatedTarget) return options;
     return Object.create(options, {
       relatedTarget: {
-        value: unwrap(options.relatedTarget)
-      }
+        value: unwrap(options.relatedTarget),
+      },
     });
   }
   function registerGenericEvent(name, SuperEvent, prototype) {
     var OriginalEvent = window[name];
-    var GenericEvent = function(type, options) {
-      if (type instanceof OriginalEvent) setWrapper(type, this); else return wrap(constructEvent(OriginalEvent, name, type, options));
+    var GenericEvent = function (type, options) {
+      if (type instanceof OriginalEvent) setWrapper(type, this);
+      else return wrap(constructEvent(OriginalEvent, name, type, options));
     };
     GenericEvent.prototype = Object.create(SuperEvent.prototype);
     if (prototype) mixin(GenericEvent.prototype, prototype);
@@ -1160,7 +1294,11 @@ window.ShadowDOMPolyfill = {};
       try {
         registerWrapper(OriginalEvent, GenericEvent, new OriginalEvent("temp"));
       } catch (ex) {
-        registerWrapper(OriginalEvent, GenericEvent, document.createEvent(name));
+        registerWrapper(
+          OriginalEvent,
+          GenericEvent,
+          document.createEvent(name)
+        );
       }
     }
     return GenericEvent;
@@ -1172,39 +1310,47 @@ window.ShadowDOMPolyfill = {};
       var relatedTarget = relatedTargetTable.get(this);
       if (relatedTarget !== undefined) return relatedTarget;
       return wrap(unwrap(this).relatedTarget);
-    }
+    },
   };
   function getInitFunction(name, relatedTargetIndex) {
-    return function() {
+    return function () {
       arguments[relatedTargetIndex] = unwrap(arguments[relatedTargetIndex]);
       var impl = unwrap(this);
       impl[name].apply(impl, arguments);
     };
   }
-  var mouseEventProto = mixin({
-    initMouseEvent: getInitFunction("initMouseEvent", 14)
-  }, relatedTargetProto);
-  var focusEventProto = mixin({
-    initFocusEvent: getInitFunction("initFocusEvent", 5)
-  }, relatedTargetProto);
+  var mouseEventProto = mixin(
+    {
+      initMouseEvent: getInitFunction("initMouseEvent", 14),
+    },
+    relatedTargetProto
+  );
+  var focusEventProto = mixin(
+    {
+      initFocusEvent: getInitFunction("initFocusEvent", 5),
+    },
+    relatedTargetProto
+  );
   var MouseEvent = registerGenericEvent("MouseEvent", UIEvent, mouseEventProto);
   var FocusEvent = registerGenericEvent("FocusEvent", UIEvent, focusEventProto);
   var defaultInitDicts = Object.create(null);
-  var supportsEventConstructors = function() {
+  var supportsEventConstructors = (function () {
     try {
       new window.FocusEvent("focus");
     } catch (ex) {
       return false;
     }
     return true;
-  }();
+  })();
   function constructEvent(OriginalEvent, name, type, options) {
-    if (supportsEventConstructors) return new OriginalEvent(type, unwrapOptions(options));
+    if (supportsEventConstructors)
+      return new OriginalEvent(type, unwrapOptions(options));
     var event = unwrap(document.createEvent(name));
     var defaultDict = defaultInitDicts[name];
-    var args = [ type ];
-    Object.keys(defaultDict).forEach(function(key) {
-      var v = options != null && key in options ? options[key] : defaultDict[key];
+    var args = [type];
+    Object.keys(defaultDict).forEach(function (key) {
+      var v =
+        options != null && key in options ? options[key] : defaultDict[key];
       if (key === "relatedTarget") v = unwrap(v);
       args.push(v);
     });
@@ -1212,7 +1358,7 @@ window.ShadowDOMPolyfill = {};
     return event;
   }
   if (!supportsEventConstructors) {
-    var configureEventConstructor = function(name, initDict, superName) {
+    var configureEventConstructor = function (name, initDict, superName) {
       if (superName) {
         var superDict = defaultInitDicts[superName];
         initDict = mixin(mixin({}, superDict), initDict);
@@ -1221,30 +1367,46 @@ window.ShadowDOMPolyfill = {};
     };
     configureEventConstructor("Event", {
       bubbles: false,
-      cancelable: false
+      cancelable: false,
     });
-    configureEventConstructor("CustomEvent", {
-      detail: null
-    }, "Event");
-    configureEventConstructor("UIEvent", {
-      view: null,
-      detail: 0
-    }, "Event");
-    configureEventConstructor("MouseEvent", {
-      screenX: 0,
-      screenY: 0,
-      clientX: 0,
-      clientY: 0,
-      ctrlKey: false,
-      altKey: false,
-      shiftKey: false,
-      metaKey: false,
-      button: 0,
-      relatedTarget: null
-    }, "UIEvent");
-    configureEventConstructor("FocusEvent", {
-      relatedTarget: null
-    }, "UIEvent");
+    configureEventConstructor(
+      "CustomEvent",
+      {
+        detail: null,
+      },
+      "Event"
+    );
+    configureEventConstructor(
+      "UIEvent",
+      {
+        view: null,
+        detail: 0,
+      },
+      "Event"
+    );
+    configureEventConstructor(
+      "MouseEvent",
+      {
+        screenX: 0,
+        screenY: 0,
+        clientX: 0,
+        clientY: 0,
+        ctrlKey: false,
+        altKey: false,
+        shiftKey: false,
+        metaKey: false,
+        button: 0,
+        relatedTarget: null,
+      },
+      "UIEvent"
+    );
+    configureEventConstructor(
+      "FocusEvent",
+      {
+        relatedTarget: null,
+      },
+      "UIEvent"
+    );
   }
   var OriginalBeforeUnloadEvent = window.BeforeUnloadEvent;
   function BeforeUnloadEvent(impl) {
@@ -1257,25 +1419,26 @@ window.ShadowDOMPolyfill = {};
     },
     set returnValue(v) {
       unsafeUnwrap(this).returnValue = v;
-    }
+    },
   });
-  if (OriginalBeforeUnloadEvent) registerWrapper(OriginalBeforeUnloadEvent, BeforeUnloadEvent);
+  if (OriginalBeforeUnloadEvent)
+    registerWrapper(OriginalBeforeUnloadEvent, BeforeUnloadEvent);
   function isValidListener(fun) {
     if (typeof fun === "function") return true;
     return fun && fun.handleEvent;
   }
   function isMutationEvent(type) {
     switch (type) {
-     case "DOMAttrModified":
-     case "DOMAttributeNameChanged":
-     case "DOMCharacterDataModified":
-     case "DOMElementNameChanged":
-     case "DOMNodeInserted":
-     case "DOMNodeInsertedIntoDocument":
-     case "DOMNodeRemoved":
-     case "DOMNodeRemovedFromDocument":
-     case "DOMSubtreeModified":
-      return true;
+      case "DOMAttrModified":
+      case "DOMAttributeNameChanged":
+      case "DOMCharacterDataModified":
+      case "DOMElementNameChanged":
+      case "DOMNodeInserted":
+      case "DOMNodeInsertedIntoDocument":
+      case "DOMNodeRemoved":
+      case "DOMNodeRemovedFromDocument":
+      case "DOMSubtreeModified":
+        return true;
     }
     return false;
   }
@@ -1283,12 +1446,16 @@ window.ShadowDOMPolyfill = {};
   function EventTarget(impl) {
     setWrapper(impl, this);
   }
-  var methodNames = [ "addEventListener", "removeEventListener", "dispatchEvent" ];
-  [ Node, Window ].forEach(function(constructor) {
+  var methodNames = [
+    "addEventListener",
+    "removeEventListener",
+    "dispatchEvent",
+  ];
+  [Node, Window].forEach(function (constructor) {
     var p = constructor.prototype;
-    methodNames.forEach(function(name) {
+    methodNames.forEach(function (name) {
       Object.defineProperty(p, name + "_", {
-        value: p[name]
+        value: p[name],
       });
     });
   });
@@ -1297,7 +1464,7 @@ window.ShadowDOMPolyfill = {};
     return unwrap(wrapper);
   }
   EventTarget.prototype = {
-    addEventListener: function(type, fun, capture) {
+    addEventListener: function (type, fun, capture) {
       if (!isValidListener(fun) || isMutationEvent(type)) return;
       var listener = new Listener(type, fun, capture);
       var listeners = listenersTable.get(this);
@@ -1314,11 +1481,12 @@ window.ShadowDOMPolyfill = {};
       var target = getTargetToListenAt(this);
       target.addEventListener_(type, dispatchOriginalEvent, true);
     },
-    removeEventListener: function(type, fun, capture) {
+    removeEventListener: function (type, fun, capture) {
       capture = Boolean(capture);
       var listeners = listenersTable.get(this);
       if (!listeners) return;
-      var count = 0, found = false;
+      var count = 0,
+        found = false;
       for (var i = 0; i < listeners.length; i++) {
         if (listeners[i].type === type && listeners[i].capture === capture) {
           count++;
@@ -1333,22 +1501,23 @@ window.ShadowDOMPolyfill = {};
         target.removeEventListener_(type, dispatchOriginalEvent, true);
       }
     },
-    dispatchEvent: function(event) {
+    dispatchEvent: function (event) {
       var nativeEvent = unwrap(event);
       var eventType = nativeEvent.type;
       handledEventsTable.set(nativeEvent, false);
       scope.renderAllPending();
       var tempListener;
       if (!hasListenerInAncestors(this, eventType)) {
-        tempListener = function() {};
+        tempListener = function () {};
         this.addEventListener(eventType, tempListener, true);
       }
       try {
         return unwrap(this).dispatchEvent_(nativeEvent);
       } finally {
-        if (tempListener) this.removeEventListener(eventType, tempListener, true);
+        if (tempListener)
+          this.removeEventListener(eventType, tempListener, true);
       }
-    }
+    },
   };
   function hasListener(node, type) {
     var listeners = listenersTable.get(node);
@@ -1372,22 +1541,30 @@ window.ShadowDOMPolyfill = {};
   var originalElementFromPoint = document.elementFromPoint;
   function elementFromPoint(self, document, x, y) {
     scope.renderAllPending();
-    var element = wrap(originalElementFromPoint.call(unsafeUnwrap(document), x, y));
+    var element = wrap(
+      originalElementFromPoint.call(unsafeUnwrap(document), x, y)
+    );
     if (!element) return null;
     var path = getEventPath(element, null);
     var idx = path.lastIndexOf(self);
-    if (idx == -1) return null; else path = path.slice(0, idx);
+    if (idx == -1) return null;
+    else path = path.slice(0, idx);
     return eventRetargetting(path, self);
   }
   function getEventHandlerGetter(name) {
-    return function() {
+    return function () {
       var inlineEventHandlers = eventHandlersTable.get(this);
-      return inlineEventHandlers && inlineEventHandlers[name] && inlineEventHandlers[name].value || null;
+      return (
+        (inlineEventHandlers &&
+          inlineEventHandlers[name] &&
+          inlineEventHandlers[name].value) ||
+        null
+      );
     };
   }
   function getEventHandlerSetter(name) {
     var eventType = name.slice(2);
-    return function(value) {
+    return function (value) {
       var inlineEventHandlers = eventHandlersTable.get(this);
       if (!inlineEventHandlers) {
         inlineEventHandlers = Object.create(null);
@@ -1396,14 +1573,16 @@ window.ShadowDOMPolyfill = {};
       var old = inlineEventHandlers[name];
       if (old) this.removeEventListener(eventType, old.wrapped, false);
       if (typeof value === "function") {
-        var wrapped = function(e) {
+        var wrapped = function (e) {
           var rv = value.call(this, e);
-          if (rv === false) e.preventDefault(); else if (name === "onbeforeunload" && typeof rv === "string") e.returnValue = rv;
+          if (rv === false) e.preventDefault();
+          else if (name === "onbeforeunload" && typeof rv === "string")
+            e.returnValue = rv;
         };
         this.addEventListener(eventType, wrapped, false);
         inlineEventHandlers[name] = {
           value: value,
-          wrapped: wrapped
+          wrapped: wrapped,
         };
       }
     };
@@ -1421,7 +1600,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.UIEvent = UIEvent;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var UIEvent = scope.wrappers.UIEvent;
   var mixin = scope.mixin;
@@ -1438,7 +1617,7 @@ window.ShadowDOMPolyfill = {};
     return;
   }
   var nonEnumDescriptor = {
-    enumerable: false
+    enumerable: false,
   };
   function nonEnum(obj, prop) {
     Object.defineProperty(obj, prop, nonEnumDescriptor);
@@ -1449,15 +1628,27 @@ window.ShadowDOMPolyfill = {};
   Touch.prototype = {
     get target() {
       return wrap(unsafeUnwrap(this).target);
-    }
+    },
   };
   var descr = {
     configurable: true,
     enumerable: true,
-    get: null
+    get: null,
   };
-  [ "clientX", "clientY", "screenX", "screenY", "pageX", "pageY", "identifier", "webkitRadiusX", "webkitRadiusY", "webkitRotationAngle", "webkitForce" ].forEach(function(name) {
-    descr.get = function() {
+  [
+    "clientX",
+    "clientY",
+    "screenX",
+    "screenY",
+    "pageX",
+    "pageY",
+    "identifier",
+    "webkitRadiusX",
+    "webkitRadiusY",
+    "webkitRotationAngle",
+    "webkitForce",
+  ].forEach(function (name) {
+    descr.get = function () {
       return unsafeUnwrap(this)[name];
     };
     Object.defineProperty(Touch.prototype, name, descr);
@@ -1467,9 +1658,9 @@ window.ShadowDOMPolyfill = {};
     nonEnum(this, "length");
   }
   TouchList.prototype = {
-    item: function(index) {
+    item: function (index) {
       return this[index];
-    }
+    },
   };
   function wrapTouchList(nativeTouchList) {
     var list = new TouchList();
@@ -1493,9 +1684,9 @@ window.ShadowDOMPolyfill = {};
     get changedTouches() {
       return wrapTouchList(unsafeUnwrap(this).changedTouches);
     },
-    initTouchEvent: function() {
+    initTouchEvent: function () {
       throw new Error("Not implemented");
-    }
+    },
   });
   registerWrapper(OriginalTouchEvent, TouchEvent, nativeEvent);
   scope.wrappers.Touch = Touch;
@@ -1503,12 +1694,12 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.TouchList = TouchList;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var unsafeUnwrap = scope.unsafeUnwrap;
   var wrap = scope.wrap;
   var nonEnumDescriptor = {
-    enumerable: false
+    enumerable: false,
   };
   function nonEnum(obj, prop) {
     Object.defineProperty(obj, prop, nonEnumDescriptor);
@@ -1518,9 +1709,9 @@ window.ShadowDOMPolyfill = {};
     nonEnum(this, "length");
   }
   NodeList.prototype = {
-    item: function(index) {
+    item: function (index) {
       return this[index];
-    }
+    },
   };
   nonEnum(NodeList.prototype, "item");
   function wrapNodeList(list) {
@@ -1533,8 +1724,10 @@ window.ShadowDOMPolyfill = {};
     return wrapperList;
   }
   function addWrapNodeListMethod(wrapperConstructor, name) {
-    wrapperConstructor.prototype[name] = function() {
-      return wrapNodeList(unsafeUnwrap(this)[name].apply(unsafeUnwrap(this), arguments));
+    wrapperConstructor.prototype[name] = function () {
+      return wrapNodeList(
+        unsafeUnwrap(this)[name].apply(unsafeUnwrap(this), arguments)
+      );
     };
   }
   scope.wrappers.NodeList = NodeList;
@@ -1542,13 +1735,13 @@ window.ShadowDOMPolyfill = {};
   scope.wrapNodeList = wrapNodeList;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   scope.wrapHTMLCollection = scope.wrapNodeList;
   scope.wrappers.HTMLCollection = scope.wrappers.NodeList;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var EventTarget = scope.wrappers.EventTarget;
   var NodeList = scope.wrappers.NodeList;
@@ -1582,12 +1775,12 @@ window.ShadowDOMPolyfill = {};
     enqueueMutation(parent, "childList", {
       removedNodes: nodes,
       previousSibling: node.previousSibling,
-      nextSibling: node.nextSibling
+      nextSibling: node.nextSibling,
     });
   }
   function enqueueRemovalForInsertedDocumentFragment(df, nodes) {
     enqueueMutation(df, "childList", {
-      removedNodes: nodes
+      removedNodes: nodes,
     });
   }
   function collectNodes(node, parentNode, previousNode, nextNode) {
@@ -1620,7 +1813,8 @@ window.ShadowDOMPolyfill = {};
     return nodes;
   }
   function collectNodesNative(node) {
-    if (node instanceof DocumentFragment) return collectNodesForDocumentFragment(node);
+    if (node instanceof DocumentFragment)
+      return collectNodesForDocumentFragment(node);
     var nodes = createOneElementNodeList(node);
     var oldParent = node.parentNode;
     if (oldParent) enqueueRemovalForInsertedNodes(node, oldParent, nodes);
@@ -1658,7 +1852,8 @@ window.ShadowDOMPolyfill = {};
     }
   }
   function ensureSameOwnerDocument(parent, child) {
-    var ownerDoc = parent.nodeType === Node.DOCUMENT_NODE ? parent : parent.ownerDocument;
+    var ownerDoc =
+      parent.nodeType === Node.DOCUMENT_NODE ? parent : parent.ownerDocument;
     if (ownerDoc !== child.ownerDocument) ownerDoc.adoptNode(child);
   }
   function adoptNodesIfNeeded(owner, nodes) {
@@ -1699,7 +1894,10 @@ window.ShadowDOMPolyfill = {};
         var childNode = unwrap(childWrapper);
         var parentNode = childNode.parentNode;
         if (parentNode) originalRemoveChild.call(parentNode, childNode);
-        childWrapper.previousSibling_ = childWrapper.nextSibling_ = childWrapper.parentNode_ = null;
+        childWrapper.previousSibling_ =
+          childWrapper.nextSibling_ =
+          childWrapper.parentNode_ =
+            null;
         childWrapper = nextSibling;
       }
       wrapper.firstChild_ = wrapper.lastChild_ = null;
@@ -1728,14 +1926,20 @@ window.ShadowDOMPolyfill = {};
   var originalCloneNode = window.Node.prototype.cloneNode;
   function cloneNode(node, deep, opt_doc) {
     var clone;
-    if (opt_doc) clone = wrap(originalImportNode.call(opt_doc, unsafeUnwrap(node), false)); else clone = wrap(originalCloneNode.call(unsafeUnwrap(node), false));
+    if (opt_doc)
+      clone = wrap(originalImportNode.call(opt_doc, unsafeUnwrap(node), false));
+    else clone = wrap(originalCloneNode.call(unsafeUnwrap(node), false));
     if (deep) {
       for (var child = node.firstChild; child; child = child.nextSibling) {
         clone.appendChild(cloneNode(child, true, opt_doc));
       }
       if (node instanceof wrappers.HTMLTemplateElement) {
         var cloneContent = clone.content;
-        for (var child = node.content.firstChild; child; child = child.nextSibling) {
+        for (
+          var child = node.content.firstChild;
+          child;
+          child = child.nextSibling
+        ) {
           cloneContent.appendChild(cloneNode(child, true, opt_doc));
         }
       }
@@ -1762,27 +1966,30 @@ window.ShadowDOMPolyfill = {};
   }
   var OriginalDocumentFragment = window.DocumentFragment;
   var originalAppendChild = OriginalNode.prototype.appendChild;
-  var originalCompareDocumentPosition = OriginalNode.prototype.compareDocumentPosition;
+  var originalCompareDocumentPosition =
+    OriginalNode.prototype.compareDocumentPosition;
   var originalIsEqualNode = OriginalNode.prototype.isEqualNode;
   var originalInsertBefore = OriginalNode.prototype.insertBefore;
   var originalRemoveChild = OriginalNode.prototype.removeChild;
   var originalReplaceChild = OriginalNode.prototype.replaceChild;
   var isIEOrEdge = /Trident|Edge/.test(navigator.userAgent);
-  var removeChildOriginalHelper = isIEOrEdge ? function(parent, child) {
-    try {
-      originalRemoveChild.call(parent, child);
-    } catch (ex) {
-      if (!(parent instanceof OriginalDocumentFragment)) throw ex;
-    }
-  } : function(parent, child) {
-    originalRemoveChild.call(parent, child);
-  };
+  var removeChildOriginalHelper = isIEOrEdge
+    ? function (parent, child) {
+        try {
+          originalRemoveChild.call(parent, child);
+        } catch (ex) {
+          if (!(parent instanceof OriginalDocumentFragment)) throw ex;
+        }
+      }
+    : function (parent, child) {
+        originalRemoveChild.call(parent, child);
+      };
   Node.prototype = Object.create(EventTarget.prototype);
   mixin(Node.prototype, {
-    appendChild: function(childWrapper) {
+    appendChild: function (childWrapper) {
       return this.insertBefore(childWrapper, null);
     },
-    insertBefore: function(childWrapper, refWrapper) {
+    insertBefore: function (childWrapper, refWrapper) {
       assertIsNodeWrapper(childWrapper);
       var refNode;
       if (refWrapper) {
@@ -1798,22 +2005,35 @@ window.ShadowDOMPolyfill = {};
       }
       refWrapper && assert(refWrapper.parentNode === this);
       var nodes;
-      var previousNode = refWrapper ? refWrapper.previousSibling : this.lastChild;
-      var useNative = !this.invalidateShadowRenderer() && !invalidateParent(childWrapper);
-      if (useNative) nodes = collectNodesNative(childWrapper); else nodes = collectNodes(childWrapper, this, previousNode, refWrapper);
+      var previousNode = refWrapper
+        ? refWrapper.previousSibling
+        : this.lastChild;
+      var useNative =
+        !this.invalidateShadowRenderer() && !invalidateParent(childWrapper);
+      if (useNative) nodes = collectNodesNative(childWrapper);
+      else nodes = collectNodes(childWrapper, this, previousNode, refWrapper);
       if (useNative) {
         ensureSameOwnerDocument(this, childWrapper);
         clearChildNodes(this);
-        originalInsertBefore.call(unsafeUnwrap(this), unwrap(childWrapper), refNode);
+        originalInsertBefore.call(
+          unsafeUnwrap(this),
+          unwrap(childWrapper),
+          refNode
+        );
       } else {
         if (!previousNode) this.firstChild_ = nodes[0];
         if (!refWrapper) {
           this.lastChild_ = nodes[nodes.length - 1];
-          if (this.firstChild_ === undefined) this.firstChild_ = this.firstChild;
+          if (this.firstChild_ === undefined)
+            this.firstChild_ = this.firstChild;
         }
         var parentNode = refNode ? refNode.parentNode : unsafeUnwrap(this);
         if (parentNode) {
-          originalInsertBefore.call(parentNode, unwrapNodesForInsertion(this, nodes), refNode);
+          originalInsertBefore.call(
+            parentNode,
+            unwrapNodesForInsertion(this, nodes),
+            refNode
+          );
         } else {
           adoptNodesIfNeeded(this, nodes);
         }
@@ -1821,17 +2041,21 @@ window.ShadowDOMPolyfill = {};
       enqueueMutation(this, "childList", {
         addedNodes: nodes,
         nextSibling: refWrapper,
-        previousSibling: previousNode
+        previousSibling: previousNode,
       });
       nodesWereAdded(nodes, this);
       return childWrapper;
     },
-    removeChild: function(childWrapper) {
+    removeChild: function (childWrapper) {
       assertIsNodeWrapper(childWrapper);
       if (childWrapper.parentNode !== this) {
         var found = false;
         var childNodes = this.childNodes;
-        for (var ieChild = this.firstChild; ieChild; ieChild = ieChild.nextSibling) {
+        for (
+          var ieChild = this.firstChild;
+          ieChild;
+          ieChild = ieChild.nextSibling
+        ) {
           if (ieChild === childWrapper) {
             found = true;
             break;
@@ -1849,13 +2073,20 @@ window.ShadowDOMPolyfill = {};
         var thisLastChild = this.lastChild;
         var parentNode = childNode.parentNode;
         if (parentNode) removeChildOriginalHelper(parentNode, childNode);
-        if (thisFirstChild === childWrapper) this.firstChild_ = childWrapperNextSibling;
-        if (thisLastChild === childWrapper) this.lastChild_ = childWrapperPreviousSibling;
-        if (childWrapperPreviousSibling) childWrapperPreviousSibling.nextSibling_ = childWrapperNextSibling;
+        if (thisFirstChild === childWrapper)
+          this.firstChild_ = childWrapperNextSibling;
+        if (thisLastChild === childWrapper)
+          this.lastChild_ = childWrapperPreviousSibling;
+        if (childWrapperPreviousSibling)
+          childWrapperPreviousSibling.nextSibling_ = childWrapperNextSibling;
         if (childWrapperNextSibling) {
-          childWrapperNextSibling.previousSibling_ = childWrapperPreviousSibling;
+          childWrapperNextSibling.previousSibling_ =
+            childWrapperPreviousSibling;
         }
-        childWrapper.previousSibling_ = childWrapper.nextSibling_ = childWrapper.parentNode_ = undefined;
+        childWrapper.previousSibling_ =
+          childWrapper.nextSibling_ =
+          childWrapper.parentNode_ =
+            undefined;
       } else {
         clearChildNodes(this);
         removeChildOriginalHelper(unsafeUnwrap(this), childNode);
@@ -1864,13 +2095,13 @@ window.ShadowDOMPolyfill = {};
         enqueueMutation(this, "childList", {
           removedNodes: createOneElementNodeList(childWrapper),
           nextSibling: childWrapperNextSibling,
-          previousSibling: childWrapperPreviousSibling
+          previousSibling: childWrapperPreviousSibling,
         });
       }
       registerTransientObservers(this, childWrapper);
       return childWrapper;
     },
-    replaceChild: function(newChildWrapper, oldChildWrapper) {
+    replaceChild: function (newChildWrapper, oldChildWrapper) {
       assertIsNodeWrapper(newChildWrapper);
       var oldChildNode;
       if (isWrapper(oldChildWrapper)) {
@@ -1885,57 +2116,81 @@ window.ShadowDOMPolyfill = {};
       var nextNode = oldChildWrapper.nextSibling;
       var previousNode = oldChildWrapper.previousSibling;
       var nodes;
-      var useNative = !this.invalidateShadowRenderer() && !invalidateParent(newChildWrapper);
+      var useNative =
+        !this.invalidateShadowRenderer() && !invalidateParent(newChildWrapper);
       if (useNative) {
         nodes = collectNodesNative(newChildWrapper);
       } else {
-        if (nextNode === newChildWrapper) nextNode = newChildWrapper.nextSibling;
+        if (nextNode === newChildWrapper)
+          nextNode = newChildWrapper.nextSibling;
         nodes = collectNodes(newChildWrapper, this, previousNode, nextNode);
       }
       if (!useNative) {
         if (this.firstChild === oldChildWrapper) this.firstChild_ = nodes[0];
-        if (this.lastChild === oldChildWrapper) this.lastChild_ = nodes[nodes.length - 1];
-        oldChildWrapper.previousSibling_ = oldChildWrapper.nextSibling_ = oldChildWrapper.parentNode_ = undefined;
+        if (this.lastChild === oldChildWrapper)
+          this.lastChild_ = nodes[nodes.length - 1];
+        oldChildWrapper.previousSibling_ =
+          oldChildWrapper.nextSibling_ =
+          oldChildWrapper.parentNode_ =
+            undefined;
         if (oldChildNode.parentNode) {
-          originalReplaceChild.call(oldChildNode.parentNode, unwrapNodesForInsertion(this, nodes), oldChildNode);
+          originalReplaceChild.call(
+            oldChildNode.parentNode,
+            unwrapNodesForInsertion(this, nodes),
+            oldChildNode
+          );
         }
       } else {
         ensureSameOwnerDocument(this, newChildWrapper);
         clearChildNodes(this);
-        originalReplaceChild.call(unsafeUnwrap(this), unwrap(newChildWrapper), oldChildNode);
+        originalReplaceChild.call(
+          unsafeUnwrap(this),
+          unwrap(newChildWrapper),
+          oldChildNode
+        );
       }
       enqueueMutation(this, "childList", {
         addedNodes: nodes,
         removedNodes: createOneElementNodeList(oldChildWrapper),
         nextSibling: nextNode,
-        previousSibling: previousNode
+        previousSibling: previousNode,
       });
       nodeWasRemoved(oldChildWrapper);
       nodesWereAdded(nodes, this);
       return oldChildWrapper;
     },
-    nodeIsInserted_: function() {
+    nodeIsInserted_: function () {
       for (var child = this.firstChild; child; child = child.nextSibling) {
         child.nodeIsInserted_();
       }
     },
-    hasChildNodes: function() {
+    hasChildNodes: function () {
       return this.firstChild !== null;
     },
     get parentNode() {
-      return this.parentNode_ !== undefined ? this.parentNode_ : wrap(unsafeUnwrap(this).parentNode);
+      return this.parentNode_ !== undefined
+        ? this.parentNode_
+        : wrap(unsafeUnwrap(this).parentNode);
     },
     get firstChild() {
-      return this.firstChild_ !== undefined ? this.firstChild_ : wrap(unsafeUnwrap(this).firstChild);
+      return this.firstChild_ !== undefined
+        ? this.firstChild_
+        : wrap(unsafeUnwrap(this).firstChild);
     },
     get lastChild() {
-      return this.lastChild_ !== undefined ? this.lastChild_ : wrap(unsafeUnwrap(this).lastChild);
+      return this.lastChild_ !== undefined
+        ? this.lastChild_
+        : wrap(unsafeUnwrap(this).lastChild);
     },
     get nextSibling() {
-      return this.nextSibling_ !== undefined ? this.nextSibling_ : wrap(unsafeUnwrap(this).nextSibling);
+      return this.nextSibling_ !== undefined
+        ? this.nextSibling_
+        : wrap(unsafeUnwrap(this).nextSibling);
     },
     get previousSibling() {
-      return this.previousSibling_ !== undefined ? this.previousSibling_ : wrap(unsafeUnwrap(this).previousSibling);
+      return this.previousSibling_ !== undefined
+        ? this.previousSibling_
+        : wrap(unsafeUnwrap(this).previousSibling);
     },
     get parentElement() {
       var p = this.parentNode;
@@ -1959,7 +2214,8 @@ window.ShadowDOMPolyfill = {};
       if (this.invalidateShadowRenderer()) {
         removeAllChildNodes(this);
         if (textContent !== "") {
-          var textNode = unsafeUnwrap(this).ownerDocument.createTextNode(textContent);
+          var textNode =
+            unsafeUnwrap(this).ownerDocument.createTextNode(textContent);
           this.appendChild(textNode);
         }
       } else {
@@ -1969,7 +2225,7 @@ window.ShadowDOMPolyfill = {};
       var addedNodes = snapshotNodeList(this.childNodes);
       enqueueMutation(this, "childList", {
         addedNodes: addedNodes,
-        removedNodes: removedNodes
+        removedNodes: removedNodes,
       });
       nodesWereRemoved(removedNodes);
       nodesWereAdded(addedNodes, this);
@@ -1983,19 +2239,25 @@ window.ShadowDOMPolyfill = {};
       wrapperList.length = i;
       return wrapperList;
     },
-    cloneNode: function(deep) {
+    cloneNode: function (deep) {
       return cloneNode(this, deep);
     },
-    contains: function(child) {
+    contains: function (child) {
       return contains(this, wrapIfNeeded(child));
     },
-    compareDocumentPosition: function(otherNode) {
-      return originalCompareDocumentPosition.call(unsafeUnwrap(this), unwrapIfNeeded(otherNode));
+    compareDocumentPosition: function (otherNode) {
+      return originalCompareDocumentPosition.call(
+        unsafeUnwrap(this),
+        unwrapIfNeeded(otherNode)
+      );
     },
-    isEqualNode: function(otherNode) {
-      return originalIsEqualNode.call(unsafeUnwrap(this), unwrapIfNeeded(otherNode));
+    isEqualNode: function (otherNode) {
+      return originalIsEqualNode.call(
+        unsafeUnwrap(this),
+        unwrapIfNeeded(otherNode)
+      );
     },
-    normalize: function() {
+    normalize: function () {
       var nodes = snapshotNodeList(this.childNodes);
       var remNodes = [];
       var s = "";
@@ -2003,7 +2265,9 @@ window.ShadowDOMPolyfill = {};
       for (var i = 0, n; i < nodes.length; i++) {
         n = nodes[i];
         if (n.nodeType === Node.TEXT_NODE) {
-          if (!modNode && !n.data.length) this.removeChild(n); else if (!modNode) modNode = n; else {
+          if (!modNode && !n.data.length) this.removeChild(n);
+          else if (!modNode) modNode = n;
+          else {
             s += n.data;
             remNodes.push(n);
           }
@@ -2022,7 +2286,7 @@ window.ShadowDOMPolyfill = {};
         modNode.data += s;
         cleanupNodes(remNodes);
       }
-    }
+    },
   });
   defineWrapGetter(Node, "ownerDocument");
   registerWrapper(OriginalNode, Node, document.createDocumentFragment());
@@ -2040,7 +2304,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.Node = Node;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLCollection = scope.wrappers.HTMLCollection;
   var NodeList = scope.wrappers.NodeList;
@@ -2050,11 +2314,14 @@ window.ShadowDOMPolyfill = {};
   var originalDocumentQuerySelector = document.querySelector;
   var originalElementQuerySelector = document.documentElement.querySelector;
   var originalDocumentQuerySelectorAll = document.querySelectorAll;
-  var originalElementQuerySelectorAll = document.documentElement.querySelectorAll;
+  var originalElementQuerySelectorAll =
+    document.documentElement.querySelectorAll;
   var originalDocumentGetElementsByTagName = document.getElementsByTagName;
-  var originalElementGetElementsByTagName = document.documentElement.getElementsByTagName;
+  var originalElementGetElementsByTagName =
+    document.documentElement.getElementsByTagName;
   var originalDocumentGetElementsByTagNameNS = document.getElementsByTagNameNS;
-  var originalElementGetElementsByTagNameNS = document.documentElement.getElementsByTagNameNS;
+  var originalElementGetElementsByTagNameNS =
+    document.documentElement.getElementsByTagNameNS;
   var OriginalElement = window.Element;
   var OriginalDocument = window.HTMLDocument || window.Document;
   function filterNodeList(list, index, result, deep) {
@@ -2075,10 +2342,18 @@ window.ShadowDOMPolyfill = {};
     return String(selector).replace(/\/deep\/|::shadow|>>>/g, " ");
   }
   function shimMatchesSelector(selector) {
-    return String(selector).replace(/:host\(([^\s]+)\)/g, "$1").replace(/([^\s]):host/g, "$1").replace(":host", "*").replace(/\^|\/shadow\/|\/shadow-deep\/|::shadow|\/deep\/|::content|>>>/g, " ");
+    return String(selector)
+      .replace(/:host\(([^\s]+)\)/g, "$1")
+      .replace(/([^\s]):host/g, "$1")
+      .replace(":host", "*")
+      .replace(
+        /\^|\/shadow\/|\/shadow-deep\/|::shadow|\/deep\/|::content|>>>/g,
+        " "
+      );
   }
   function findOne(node, selector) {
-    var m, el = node.firstElementChild;
+    var m,
+      el = node.firstElementChild;
     while (el) {
       if (el.matches(selector)) return el;
       m = findOne(el, selector);
@@ -2093,7 +2368,10 @@ window.ShadowDOMPolyfill = {};
   var XHTML_NS = "http://www.w3.org/1999/xhtml";
   function matchesTagName(el, localName, localNameLowerCase) {
     var ln = el.localName;
-    return ln === localName || ln === localNameLowerCase && el.namespaceURI === XHTML_NS;
+    return (
+      ln === localName ||
+      (ln === localNameLowerCase && el.namespaceURI === XHTML_NS)
+    );
   }
   function matchesEveryThing() {
     return true;
@@ -2132,7 +2410,7 @@ window.ShadowDOMPolyfill = {};
     return filterNodeList(list, index, result, deep);
   }
   var SelectorsInterface = {
-    querySelector: function(selector) {
+    querySelector: function (selector) {
       var shimmed = shimSelector(selector);
       var deep = shimmed !== selector;
       selector = shimmed;
@@ -2144,7 +2422,9 @@ window.ShadowDOMPolyfill = {};
       } else if (target instanceof OriginalElement) {
         wrappedItem = wrap(originalElementQuerySelector.call(target, selector));
       } else if (target instanceof OriginalDocument) {
-        wrappedItem = wrap(originalDocumentQuerySelector.call(target, selector));
+        wrappedItem = wrap(
+          originalDocumentQuerySelector.call(target, selector)
+        );
       } else {
         return findOne(this, selector);
       }
@@ -2157,31 +2437,52 @@ window.ShadowDOMPolyfill = {};
       }
       return wrappedItem;
     },
-    querySelectorAll: function(selector) {
+    querySelectorAll: function (selector) {
       var shimmed = shimSelector(selector);
       var deep = shimmed !== selector;
       selector = shimmed;
       var result = new NodeList();
-      result.length = querySelectorAllFiltered.call(this, matchesSelector, 0, result, selector, deep);
+      result.length = querySelectorAllFiltered.call(
+        this,
+        matchesSelector,
+        0,
+        result,
+        selector,
+        deep
+      );
       return result;
-    }
+    },
   };
   var MatchesInterface = {
-    matches: function(selector) {
+    matches: function (selector) {
       selector = shimMatchesSelector(selector);
       return scope.originalMatches.call(unsafeUnwrap(this), selector);
-    }
+    },
   };
-  function getElementsByTagNameFiltered(p, index, result, localName, lowercase) {
+  function getElementsByTagNameFiltered(
+    p,
+    index,
+    result,
+    localName,
+    lowercase
+  ) {
     var target = unsafeUnwrap(this);
     var list;
     var root = getTreeScope(this).root;
     if (root instanceof scope.wrappers.ShadowRoot) {
       return findElements(this, index, result, p, localName, lowercase);
     } else if (target instanceof OriginalElement) {
-      list = originalElementGetElementsByTagName.call(target, localName, lowercase);
+      list = originalElementGetElementsByTagName.call(
+        target,
+        localName,
+        lowercase
+      );
     } else if (target instanceof OriginalDocument) {
-      list = originalDocumentGetElementsByTagName.call(target, localName, lowercase);
+      list = originalDocumentGetElementsByTagName.call(
+        target,
+        localName,
+        lowercase
+      );
     } else {
       return findElements(this, index, result, p, localName, lowercase);
     }
@@ -2203,16 +2504,23 @@ window.ShadowDOMPolyfill = {};
     return filterNodeList(list, index, result, false);
   }
   var GetElementsByInterface = {
-    getElementsByTagName: function(localName) {
+    getElementsByTagName: function (localName) {
       var result = new HTMLCollection();
       var match = localName === "*" ? matchesEveryThing : matchesTagName;
-      result.length = getElementsByTagNameFiltered.call(this, match, 0, result, localName, localName.toLowerCase());
+      result.length = getElementsByTagNameFiltered.call(
+        this,
+        match,
+        0,
+        result,
+        localName,
+        localName.toLowerCase()
+      );
       return result;
     },
-    getElementsByClassName: function(className) {
+    getElementsByClassName: function (className) {
       return this.querySelectorAll("." + className);
     },
-    getElementsByTagNameNS: function(ns, localName) {
+    getElementsByTagNameNS: function (ns, localName) {
       var result = new HTMLCollection();
       var match = null;
       if (ns === "*") {
@@ -2220,16 +2528,23 @@ window.ShadowDOMPolyfill = {};
       } else {
         match = localName === "*" ? matchesNameSpace : matchesLocalNameNS;
       }
-      result.length = getElementsByTagNameNSFiltered.call(this, match, 0, result, ns || null, localName);
+      result.length = getElementsByTagNameNSFiltered.call(
+        this,
+        match,
+        0,
+        result,
+        ns || null,
+        localName
+      );
       return result;
-    }
+    },
   };
   scope.GetElementsByInterface = GetElementsByInterface;
   scope.SelectorsInterface = SelectorsInterface;
   scope.MatchesInterface = MatchesInterface;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var NodeList = scope.wrappers.NodeList;
   function forwardElement(node) {
@@ -2253,7 +2568,11 @@ window.ShadowDOMPolyfill = {};
     },
     get childElementCount() {
       var count = 0;
-      for (var child = this.firstElementChild; child; child = child.nextElementSibling) {
+      for (
+        var child = this.firstElementChild;
+        child;
+        child = child.nextElementSibling
+      ) {
         count++;
       }
       return count;
@@ -2261,16 +2580,20 @@ window.ShadowDOMPolyfill = {};
     get children() {
       var wrapperList = new NodeList();
       var i = 0;
-      for (var child = this.firstElementChild; child; child = child.nextElementSibling) {
+      for (
+        var child = this.firstElementChild;
+        child;
+        child = child.nextElementSibling
+      ) {
         wrapperList[i++] = child;
       }
       wrapperList.length = i;
       return wrapperList;
     },
-    remove: function() {
+    remove: function () {
       var p = this.parentNode;
       if (p) p.removeChild(this);
-    }
+    },
   };
   var ChildNodeInterface = {
     get nextElementSibling() {
@@ -2278,20 +2601,20 @@ window.ShadowDOMPolyfill = {};
     },
     get previousElementSibling() {
       return backwardsElement(this.previousSibling);
-    }
+    },
   };
   var NonElementParentNodeInterface = {
-    getElementById: function(id) {
+    getElementById: function (id) {
       if (/[ \t\n\r\f]/.test(id)) return null;
       return this.querySelector('[id="' + id + '"]');
-    }
+    },
   };
   scope.ChildNodeInterface = ChildNodeInterface;
   scope.NonElementParentNodeInterface = NonElementParentNodeInterface;
   scope.ParentNodeInterface = ParentNodeInterface;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var ChildNodeInterface = scope.ChildNodeInterface;
   var Node = scope.wrappers.Node;
@@ -2323,17 +2646,21 @@ window.ShadowDOMPolyfill = {};
     set data(value) {
       var oldValue = unsafeUnwrap(this).data;
       enqueueMutation(this, "characterData", {
-        oldValue: oldValue
+        oldValue: oldValue,
       });
       unsafeUnwrap(this).data = value;
-    }
+    },
   });
   mixin(CharacterData.prototype, ChildNodeInterface);
-  registerWrapper(OriginalCharacterData, CharacterData, document.createTextNode(""));
+  registerWrapper(
+    OriginalCharacterData,
+    CharacterData,
+    document.createTextNode("")
+  );
   scope.wrappers.CharacterData = CharacterData;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var CharacterData = scope.wrappers.CharacterData;
   var enqueueMutation = scope.enqueueMutation;
@@ -2348,7 +2675,7 @@ window.ShadowDOMPolyfill = {};
   }
   Text.prototype = Object.create(CharacterData.prototype);
   mixin(Text.prototype, {
-    splitText: function(offset) {
+    splitText: function (offset) {
       offset = toUInt32(offset);
       var s = this.data;
       if (offset > s.length) throw new Error("IndexSizeError");
@@ -2356,18 +2683,22 @@ window.ShadowDOMPolyfill = {};
       var tail = s.slice(offset);
       this.data = head;
       var newTextNode = this.ownerDocument.createTextNode(tail);
-      if (this.parentNode) this.parentNode.insertBefore(newTextNode, this.nextSibling);
+      if (this.parentNode)
+        this.parentNode.insertBefore(newTextNode, this.nextSibling);
       return newTextNode;
-    }
+    },
   });
   registerWrapper(OriginalText, Text, document.createTextNode(""));
   scope.wrappers.Text = Text;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   if (!window.DOMTokenList) {
-    console.warn("Missing DOMTokenList prototype, please include a " + "compatible classList polyfill such as http://goo.gl/uTcepH.");
+    console.warn(
+      "Missing DOMTokenList prototype, please include a " +
+        "compatible classList polyfill such as http://goo.gl/uTcepH."
+    );
     return;
   }
   var unsafeUnwrap = scope.unsafeUnwrap;
@@ -2379,7 +2710,7 @@ window.ShadowDOMPolyfill = {};
     enqueueMutation(el, "attributes", {
       name: "class",
       namespace: null,
-      oldValue: oldValue
+      oldValue: oldValue,
     });
   }
   function invalidateClass(el) {
@@ -2399,20 +2730,20 @@ window.ShadowDOMPolyfill = {};
     return retv;
   }
   var oldAdd = DOMTokenList.prototype.add;
-  DOMTokenList.prototype.add = function() {
+  DOMTokenList.prototype.add = function () {
     changeClass(this, oldAdd, arguments);
   };
   var oldRemove = DOMTokenList.prototype.remove;
-  DOMTokenList.prototype.remove = function() {
+  DOMTokenList.prototype.remove = function () {
     changeClass(this, oldRemove, arguments);
   };
   var oldToggle = DOMTokenList.prototype.toggle;
-  DOMTokenList.prototype.toggle = function() {
+  DOMTokenList.prototype.toggle = function () {
     return changeClass(this, oldToggle, arguments);
   };
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var ChildNodeInterface = scope.ChildNodeInterface;
   var GetElementsByInterface = scope.GetElementsByInterface;
@@ -2428,7 +2759,12 @@ window.ShadowDOMPolyfill = {};
   var unsafeUnwrap = scope.unsafeUnwrap;
   var wrappers = scope.wrappers;
   var OriginalElement = window.Element;
-  var matchesNames = [ "matches", "mozMatchesSelector", "msMatchesSelector", "webkitMatchesSelector" ].filter(function(name) {
+  var matchesNames = [
+    "matches",
+    "mozMatchesSelector",
+    "msMatchesSelector",
+    "webkitMatchesSelector",
+  ].filter(function (name) {
     return OriginalElement.prototype[name];
   });
   var matchesName = matchesNames[0];
@@ -2443,7 +2779,7 @@ window.ShadowDOMPolyfill = {};
     enqueueMutation(element, "attributes", {
       name: name,
       namespace: null,
-      oldValue: oldValue
+      oldValue: oldValue,
     });
   }
   var classListTable = new WeakMap();
@@ -2452,7 +2788,7 @@ window.ShadowDOMPolyfill = {};
   }
   Element.prototype = Object.create(Node.prototype);
   mixin(Element.prototype, {
-    createShadowRoot: function() {
+    createShadowRoot: function () {
       var newShadowRoot = new wrappers.ShadowRoot(this);
       unsafeUnwrap(this).polymerShadowRoot_ = newShadowRoot;
       var renderer = scope.getRendererForHost(this);
@@ -2462,13 +2798,13 @@ window.ShadowDOMPolyfill = {};
     get shadowRoot() {
       return unsafeUnwrap(this).polymerShadowRoot_ || null;
     },
-    setAttribute: function(name, value) {
+    setAttribute: function (name, value) {
       var oldValue = unsafeUnwrap(this).getAttribute(name);
       unsafeUnwrap(this).setAttribute(name, value);
       enqueAttributeChange(this, name, oldValue);
       invalidateRendererBasedOnAttribute(this, name);
     },
-    removeAttribute: function(name) {
+    removeAttribute: function (name) {
       var oldValue = unsafeUnwrap(this).getAttribute(name);
       unsafeUnwrap(this).removeAttribute(name);
       enqueAttributeChange(this, name, oldValue);
@@ -2495,31 +2831,36 @@ window.ShadowDOMPolyfill = {};
     },
     set id(v) {
       this.setAttribute("id", v);
-    }
+    },
   });
-  matchesNames.forEach(function(name) {
+  matchesNames.forEach(function (name) {
     if (name !== "matches") {
-      Element.prototype[name] = function(selector) {
+      Element.prototype[name] = function (selector) {
         return this.matches(selector);
       };
     }
   });
   if (OriginalElement.prototype.webkitCreateShadowRoot) {
-    Element.prototype.webkitCreateShadowRoot = Element.prototype.createShadowRoot;
+    Element.prototype.webkitCreateShadowRoot =
+      Element.prototype.createShadowRoot;
   }
   mixin(Element.prototype, ChildNodeInterface);
   mixin(Element.prototype, GetElementsByInterface);
   mixin(Element.prototype, ParentNodeInterface);
   mixin(Element.prototype, SelectorsInterface);
   mixin(Element.prototype, MatchesInterface);
-  registerWrapper(OriginalElement, Element, document.createElementNS(null, "x"));
+  registerWrapper(
+    OriginalElement,
+    Element,
+    document.createElementNS(null, "x")
+  );
   scope.invalidateRendererBasedOnAttribute = invalidateRendererBasedOnAttribute;
   scope.matchesNames = matchesNames;
   scope.originalMatches = originalMatches;
   scope.wrappers.Element = Element;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var Element = scope.wrappers.Element;
   var defineGetter = scope.defineGetter;
@@ -2537,20 +2878,20 @@ window.ShadowDOMPolyfill = {};
   var escapeDataRegExp = /[&\u00A0<>]/g;
   function escapeReplace(c) {
     switch (c) {
-     case "&":
-      return "&amp;";
+      case "&":
+        return "&amp;";
 
-     case "<":
-      return "&lt;";
+      case "<":
+        return "&lt;";
 
-     case ">":
-      return "&gt;";
+      case ">":
+        return "&gt;";
 
-     case '"':
-      return "&quot;";
+      case '"':
+        return "&quot;";
 
-     case " ":
-      return "&nbsp;";
+      case " ":
+        return "&nbsp;";
     }
   }
   function escapeAttr(s) {
@@ -2566,8 +2907,34 @@ window.ShadowDOMPolyfill = {};
     }
     return set;
   }
-  var voidElements = makeSet([ "area", "base", "br", "col", "command", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr" ]);
-  var plaintextParents = makeSet([ "style", "script", "xmp", "iframe", "noembed", "noframes", "plaintext", "noscript" ]);
+  var voidElements = makeSet([
+    "area",
+    "base",
+    "br",
+    "col",
+    "command",
+    "embed",
+    "hr",
+    "img",
+    "input",
+    "keygen",
+    "link",
+    "meta",
+    "param",
+    "source",
+    "track",
+    "wbr",
+  ]);
+  var plaintextParents = makeSet([
+    "style",
+    "script",
+    "xmp",
+    "iframe",
+    "noembed",
+    "noframes",
+    "plaintext",
+    "noscript",
+  ]);
   var XHTML_NS = "http://www.w3.org/1999/xhtml";
   function needsSelfClosingSlash(node) {
     if (node.namespaceURI !== XHTML_NS) return true;
@@ -2576,30 +2943,30 @@ window.ShadowDOMPolyfill = {};
   }
   function getOuterHTML(node, parentNode) {
     switch (node.nodeType) {
-     case Node.ELEMENT_NODE:
-      var tagName = node.tagName.toLowerCase();
-      var s = "<" + tagName;
-      var attrs = node.attributes;
-      for (var i = 0, attr; attr = attrs[i]; i++) {
-        s += " " + attr.name + '="' + escapeAttr(attr.value) + '"';
-      }
-      if (voidElements[tagName]) {
-        if (needsSelfClosingSlash(node)) s += "/";
-        return s + ">";
-      }
-      return s + ">" + getInnerHTML(node) + "</" + tagName + ">";
+      case Node.ELEMENT_NODE:
+        var tagName = node.tagName.toLowerCase();
+        var s = "<" + tagName;
+        var attrs = node.attributes;
+        for (var i = 0, attr; (attr = attrs[i]); i++) {
+          s += " " + attr.name + '="' + escapeAttr(attr.value) + '"';
+        }
+        if (voidElements[tagName]) {
+          if (needsSelfClosingSlash(node)) s += "/";
+          return s + ">";
+        }
+        return s + ">" + getInnerHTML(node) + "</" + tagName + ">";
 
-     case Node.TEXT_NODE:
-      var data = node.data;
-      if (parentNode && plaintextParents[parentNode.localName]) return data;
-      return escapeData(data);
+      case Node.TEXT_NODE:
+        var data = node.data;
+        if (parentNode && plaintextParents[parentNode.localName]) return data;
+        return escapeData(data);
 
-     case Node.COMMENT_NODE:
-      return "<!--" + node.data + "-->";
+      case Node.COMMENT_NODE:
+        return "<!--" + node.data + "-->";
 
-     default:
-      console.error(node);
-      throw new Error("not implemented");
+      default:
+        console.error(node);
+        throw new Error("not implemented");
     }
   }
   function getInnerHTML(node) {
@@ -2616,7 +2983,7 @@ window.ShadowDOMPolyfill = {};
     var tempElement = unwrap(node.ownerDocument.createElement(tagName));
     tempElement.innerHTML = value;
     var firstChild;
-    while (firstChild = tempElement.firstChild) {
+    while ((firstChild = tempElement.firstChild)) {
       node.appendChild(wrap(firstChild));
     }
   }
@@ -2638,8 +3005,13 @@ window.ShadowDOMPolyfill = {};
       }
       var removedNodes = snapshotNodeList(this.childNodes);
       if (this.invalidateShadowRenderer()) {
-        if (this instanceof wrappers.HTMLTemplateElement) setInnerHTML(this.content, value); else setInnerHTML(this, value, this.tagName);
-      } else if (!OriginalHTMLTemplateElement && this instanceof wrappers.HTMLTemplateElement) {
+        if (this instanceof wrappers.HTMLTemplateElement)
+          setInnerHTML(this.content, value);
+        else setInnerHTML(this, value, this.tagName);
+      } else if (
+        !OriginalHTMLTemplateElement &&
+        this instanceof wrappers.HTMLTemplateElement
+      ) {
         setInnerHTML(this.content, value);
       } else {
         unsafeUnwrap(this).innerHTML = value;
@@ -2647,7 +3019,7 @@ window.ShadowDOMPolyfill = {};
       var addedNodes = snapshotNodeList(this.childNodes);
       enqueueMutation(this, "childList", {
         addedNodes: addedNodes,
-        removedNodes: removedNodes
+        removedNodes: removedNodes,
       });
       nodesWereRemoved(removedNodes);
       nodesWereAdded(addedNodes, this);
@@ -2663,31 +3035,31 @@ window.ShadowDOMPolyfill = {};
         p.replaceChild(df, this);
       }
     },
-    insertAdjacentHTML: function(position, text) {
+    insertAdjacentHTML: function (position, text) {
       var contextElement, refNode;
       switch (String(position).toLowerCase()) {
-       case "beforebegin":
-        contextElement = this.parentNode;
-        refNode = this;
-        break;
+        case "beforebegin":
+          contextElement = this.parentNode;
+          refNode = this;
+          break;
 
-       case "afterend":
-        contextElement = this.parentNode;
-        refNode = this.nextSibling;
-        break;
+        case "afterend":
+          contextElement = this.parentNode;
+          refNode = this.nextSibling;
+          break;
 
-       case "afterbegin":
-        contextElement = this;
-        refNode = this.firstChild;
-        break;
+        case "afterbegin":
+          contextElement = this;
+          refNode = this.firstChild;
+          break;
 
-       case "beforeend":
-        contextElement = this;
-        refNode = null;
-        break;
+        case "beforeend":
+          contextElement = this;
+          refNode = null;
+          break;
 
-       default:
-        return;
+        default:
+          return;
       }
       var df = frag(contextElement, text);
       contextElement.insertBefore(df, refNode);
@@ -2701,20 +3073,20 @@ window.ShadowDOMPolyfill = {};
       } else {
         this.removeAttribute("hidden");
       }
-    }
+    },
   });
   function frag(contextElement, html) {
     var p = unwrap(contextElement.cloneNode(false));
     p.innerHTML = html;
     var df = unwrap(document.createDocumentFragment());
     var c;
-    while (c = p.firstChild) {
+    while ((c = p.firstChild)) {
       df.appendChild(c);
     }
     return wrap(df);
   }
   function getter(name) {
-    return function() {
+    return function () {
       scope.renderAllPending();
       return unsafeUnwrap(this)[name];
     };
@@ -2722,37 +3094,57 @@ window.ShadowDOMPolyfill = {};
   function getterRequiresRendering(name) {
     defineGetter(HTMLElement, name, getter(name));
   }
-  [ "clientHeight", "clientLeft", "clientTop", "clientWidth", "offsetHeight", "offsetLeft", "offsetTop", "offsetWidth", "scrollHeight", "scrollWidth" ].forEach(getterRequiresRendering);
+  [
+    "clientHeight",
+    "clientLeft",
+    "clientTop",
+    "clientWidth",
+    "offsetHeight",
+    "offsetLeft",
+    "offsetTop",
+    "offsetWidth",
+    "scrollHeight",
+    "scrollWidth",
+  ].forEach(getterRequiresRendering);
   function getterAndSetterRequiresRendering(name) {
     Object.defineProperty(HTMLElement.prototype, name, {
       get: getter(name),
-      set: function(v) {
+      set: function (v) {
         scope.renderAllPending();
         unsafeUnwrap(this)[name] = v;
       },
       configurable: true,
-      enumerable: true
+      enumerable: true,
     });
   }
-  [ "scrollLeft", "scrollTop" ].forEach(getterAndSetterRequiresRendering);
+  ["scrollLeft", "scrollTop"].forEach(getterAndSetterRequiresRendering);
   function methodRequiresRendering(name) {
     Object.defineProperty(HTMLElement.prototype, name, {
-      value: function() {
+      value: function () {
         scope.renderAllPending();
         return unsafeUnwrap(this)[name].apply(unsafeUnwrap(this), arguments);
       },
       configurable: true,
-      enumerable: true
+      enumerable: true,
     });
   }
-  [ "focus", "getBoundingClientRect", "getClientRects", "scrollIntoView" ].forEach(methodRequiresRendering);
-  registerWrapper(OriginalHTMLElement, HTMLElement, document.createElement("b"));
+  [
+    "focus",
+    "getBoundingClientRect",
+    "getClientRects",
+    "scrollIntoView",
+  ].forEach(methodRequiresRendering);
+  registerWrapper(
+    OriginalHTMLElement,
+    HTMLElement,
+    document.createElement("b")
+  );
   scope.wrappers.HTMLElement = HTMLElement;
   scope.getInnerHTML = getInnerHTML;
   scope.setInnerHTML = setInnerHTML;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -2765,16 +3157,23 @@ window.ShadowDOMPolyfill = {};
   }
   HTMLCanvasElement.prototype = Object.create(HTMLElement.prototype);
   mixin(HTMLCanvasElement.prototype, {
-    getContext: function() {
-      var context = unsafeUnwrap(this).getContext.apply(unsafeUnwrap(this), arguments);
+    getContext: function () {
+      var context = unsafeUnwrap(this).getContext.apply(
+        unsafeUnwrap(this),
+        arguments
+      );
       return context && wrap(context);
-    }
+    },
   });
-  registerWrapper(OriginalHTMLCanvasElement, HTMLCanvasElement, document.createElement("canvas"));
+  registerWrapper(
+    OriginalHTMLCanvasElement,
+    HTMLCanvasElement,
+    document.createElement("canvas")
+  );
   scope.wrappers.HTMLCanvasElement = HTMLCanvasElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -2792,16 +3191,18 @@ window.ShadowDOMPolyfill = {};
     set select(value) {
       this.setAttribute("select", value);
     },
-    setAttribute: function(n, v) {
+    setAttribute: function (n, v) {
       HTMLElement.prototype.setAttribute.call(this, n, v);
-      if (String(n).toLowerCase() === "select") this.invalidateShadowRenderer(true);
-    }
+      if (String(n).toLowerCase() === "select")
+        this.invalidateShadowRenderer(true);
+    },
   });
-  if (OriginalHTMLContentElement) registerWrapper(OriginalHTMLContentElement, HTMLContentElement);
+  if (OriginalHTMLContentElement)
+    registerWrapper(OriginalHTMLContentElement, HTMLContentElement);
   scope.wrappers.HTMLContentElement = HTMLContentElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -2816,13 +3217,17 @@ window.ShadowDOMPolyfill = {};
   mixin(HTMLFormElement.prototype, {
     get elements() {
       return wrapHTMLCollection(unwrap(this).elements);
-    }
+    },
   });
-  registerWrapper(OriginalHTMLFormElement, HTMLFormElement, document.createElement("form"));
+  registerWrapper(
+    OriginalHTMLFormElement,
+    HTMLFormElement,
+    document.createElement("form")
+  );
   scope.wrappers.HTMLFormElement = HTMLFormElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var registerWrapper = scope.registerWrapper;
@@ -2833,10 +3238,16 @@ window.ShadowDOMPolyfill = {};
     HTMLElement.call(this, node);
   }
   HTMLImageElement.prototype = Object.create(HTMLElement.prototype);
-  registerWrapper(OriginalHTMLImageElement, HTMLImageElement, document.createElement("img"));
+  registerWrapper(
+    OriginalHTMLImageElement,
+    HTMLImageElement,
+    document.createElement("img")
+  );
   function Image(width, height) {
     if (!(this instanceof Image)) {
-      throw new TypeError("DOM object constructor cannot be called as a function.");
+      throw new TypeError(
+        "DOM object constructor cannot be called as a function."
+      );
     }
     var node = unwrap(document.createElement("img"));
     HTMLElement.call(this, node);
@@ -2849,7 +3260,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.Image = Image;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -2861,11 +3272,12 @@ window.ShadowDOMPolyfill = {};
   }
   HTMLShadowElement.prototype = Object.create(HTMLElement.prototype);
   HTMLShadowElement.prototype.constructor = HTMLShadowElement;
-  if (OriginalHTMLShadowElement) registerWrapper(OriginalHTMLShadowElement, HTMLShadowElement);
+  if (OriginalHTMLShadowElement)
+    registerWrapper(OriginalHTMLShadowElement, HTMLShadowElement);
   scope.wrappers.HTMLShadowElement = HTMLShadowElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -2891,7 +3303,7 @@ window.ShadowDOMPolyfill = {};
     var doc = getTemplateContentsOwner(templateElement.ownerDocument);
     var df = unwrap(doc.createDocumentFragment());
     var child;
-    while (child = templateElement.firstChild) {
+    while ((child = templateElement.firstChild)) {
       df.appendChild(child);
     }
     return df;
@@ -2910,13 +3322,14 @@ window.ShadowDOMPolyfill = {};
     get content() {
       if (OriginalHTMLTemplateElement) return wrap(unsafeUnwrap(this).content);
       return contentTable.get(this);
-    }
+    },
   });
-  if (OriginalHTMLTemplateElement) registerWrapper(OriginalHTMLTemplateElement, HTMLTemplateElement);
+  if (OriginalHTMLTemplateElement)
+    registerWrapper(OriginalHTMLTemplateElement, HTMLTemplateElement);
   scope.wrappers.HTMLTemplateElement = HTMLTemplateElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var registerWrapper = scope.registerWrapper;
@@ -2926,11 +3339,15 @@ window.ShadowDOMPolyfill = {};
     HTMLElement.call(this, node);
   }
   HTMLMediaElement.prototype = Object.create(HTMLElement.prototype);
-  registerWrapper(OriginalHTMLMediaElement, HTMLMediaElement, document.createElement("audio"));
+  registerWrapper(
+    OriginalHTMLMediaElement,
+    HTMLMediaElement,
+    document.createElement("audio")
+  );
   scope.wrappers.HTMLMediaElement = HTMLMediaElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLMediaElement = scope.wrappers.HTMLMediaElement;
   var registerWrapper = scope.registerWrapper;
@@ -2942,10 +3359,16 @@ window.ShadowDOMPolyfill = {};
     HTMLMediaElement.call(this, node);
   }
   HTMLAudioElement.prototype = Object.create(HTMLMediaElement.prototype);
-  registerWrapper(OriginalHTMLAudioElement, HTMLAudioElement, document.createElement("audio"));
+  registerWrapper(
+    OriginalHTMLAudioElement,
+    HTMLAudioElement,
+    document.createElement("audio")
+  );
   function Audio(src) {
     if (!(this instanceof Audio)) {
-      throw new TypeError("DOM object constructor cannot be called as a function.");
+      throw new TypeError(
+        "DOM object constructor cannot be called as a function."
+      );
     }
     var node = unwrap(document.createElement("audio"));
     HTMLMediaElement.call(this, node);
@@ -2958,7 +3381,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.Audio = Audio;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -2983,12 +3406,18 @@ window.ShadowDOMPolyfill = {};
     },
     get form() {
       return wrap(unwrap(this).form);
-    }
+    },
   });
-  registerWrapper(OriginalHTMLOptionElement, HTMLOptionElement, document.createElement("option"));
+  registerWrapper(
+    OriginalHTMLOptionElement,
+    HTMLOptionElement,
+    document.createElement("option")
+  );
   function Option(text, value, defaultSelected, selected) {
     if (!(this instanceof Option)) {
-      throw new TypeError("DOM object constructor cannot be called as a function.");
+      throw new TypeError(
+        "DOM object constructor cannot be called as a function."
+      );
     }
     var node = unwrap(document.createElement("option"));
     HTMLElement.call(this, node);
@@ -3003,7 +3432,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.Option = Option;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -3016,11 +3445,11 @@ window.ShadowDOMPolyfill = {};
   }
   HTMLSelectElement.prototype = Object.create(HTMLElement.prototype);
   mixin(HTMLSelectElement.prototype, {
-    add: function(element, before) {
+    add: function (element, before) {
       if (typeof before === "object") before = unwrap(before);
       unwrap(this).add(unwrap(element), before);
     },
-    remove: function(indexOrNode) {
+    remove: function (indexOrNode) {
       if (indexOrNode === undefined) {
         HTMLElement.prototype.remove.call(this);
         return;
@@ -3030,13 +3459,17 @@ window.ShadowDOMPolyfill = {};
     },
     get form() {
       return wrap(unwrap(this).form);
-    }
+    },
   });
-  registerWrapper(OriginalHTMLSelectElement, HTMLSelectElement, document.createElement("select"));
+  registerWrapper(
+    OriginalHTMLSelectElement,
+    HTMLSelectElement,
+    document.createElement("select")
+  );
   scope.wrappers.HTMLSelectElement = HTMLSelectElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -3053,16 +3486,16 @@ window.ShadowDOMPolyfill = {};
     get caption() {
       return wrap(unwrap(this).caption);
     },
-    createCaption: function() {
+    createCaption: function () {
       return wrap(unwrap(this).createCaption());
     },
     get tHead() {
       return wrap(unwrap(this).tHead);
     },
-    createTHead: function() {
+    createTHead: function () {
       return wrap(unwrap(this).createTHead());
     },
-    createTFoot: function() {
+    createTFoot: function () {
       return wrap(unwrap(this).createTFoot());
     },
     get tFoot() {
@@ -3071,21 +3504,25 @@ window.ShadowDOMPolyfill = {};
     get tBodies() {
       return wrapHTMLCollection(unwrap(this).tBodies);
     },
-    createTBody: function() {
+    createTBody: function () {
       return wrap(unwrap(this).createTBody());
     },
     get rows() {
       return wrapHTMLCollection(unwrap(this).rows);
     },
-    insertRow: function(index) {
+    insertRow: function (index) {
       return wrap(unwrap(this).insertRow(index));
-    }
+    },
   });
-  registerWrapper(OriginalHTMLTableElement, HTMLTableElement, document.createElement("table"));
+  registerWrapper(
+    OriginalHTMLTableElement,
+    HTMLTableElement,
+    document.createElement("table")
+  );
   scope.wrappers.HTMLTableElement = HTMLTableElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -3103,15 +3540,19 @@ window.ShadowDOMPolyfill = {};
     get rows() {
       return wrapHTMLCollection(unwrap(this).rows);
     },
-    insertRow: function(index) {
+    insertRow: function (index) {
       return wrap(unwrap(this).insertRow(index));
-    }
+    },
   });
-  registerWrapper(OriginalHTMLTableSectionElement, HTMLTableSectionElement, document.createElement("thead"));
+  registerWrapper(
+    OriginalHTMLTableSectionElement,
+    HTMLTableSectionElement,
+    document.createElement("thead")
+  );
   scope.wrappers.HTMLTableSectionElement = HTMLTableSectionElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var mixin = scope.mixin;
@@ -3128,15 +3569,19 @@ window.ShadowDOMPolyfill = {};
     get cells() {
       return wrapHTMLCollection(unwrap(this).cells);
     },
-    insertCell: function(index) {
+    insertCell: function (index) {
       return wrap(unwrap(this).insertCell(index));
-    }
+    },
   });
-  registerWrapper(OriginalHTMLTableRowElement, HTMLTableRowElement, document.createElement("tr"));
+  registerWrapper(
+    OriginalHTMLTableRowElement,
+    HTMLTableRowElement,
+    document.createElement("tr")
+  );
   scope.wrappers.HTMLTableRowElement = HTMLTableRowElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLContentElement = scope.wrappers.HTMLContentElement;
   var HTMLElement = scope.wrappers.HTMLElement;
@@ -3147,14 +3592,14 @@ window.ShadowDOMPolyfill = {};
   var OriginalHTMLUnknownElement = window.HTMLUnknownElement;
   function HTMLUnknownElement(node) {
     switch (node.localName) {
-     case "content":
-      return new HTMLContentElement(node);
+      case "content":
+        return new HTMLContentElement(node);
 
-     case "shadow":
-      return new HTMLShadowElement(node);
+      case "shadow":
+        return new HTMLShadowElement(node);
 
-     case "template":
-      return new HTMLTemplateElement(node);
+      case "template":
+        return new HTMLTemplateElement(node);
     }
     HTMLElement.call(this, node);
   }
@@ -3163,7 +3608,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.HTMLUnknownElement = HTMLUnknownElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var Element = scope.wrappers.Element;
   var HTMLElement = scope.wrappers.HTMLElement;
@@ -3187,13 +3632,17 @@ window.ShadowDOMPolyfill = {};
   mixin(SVGElement.prototype, {
     get ownerSVGElement() {
       return wrap(unsafeUnwrap(this).ownerSVGElement);
-    }
+    },
   });
-  registerWrapper(OriginalSVGElement, SVGElement, document.createElementNS(SVG_NS, "title"));
+  registerWrapper(
+    OriginalSVGElement,
+    SVGElement,
+    document.createElementNS(SVG_NS, "title")
+  );
   scope.wrappers.SVGElement = SVGElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var mixin = scope.mixin;
   var registerWrapper = scope.registerWrapper;
@@ -3217,14 +3666,14 @@ window.ShadowDOMPolyfill = {};
       },
       get animatedInstanceRoot() {
         return wrap(unwrap(this).animatedInstanceRoot);
-      }
+      },
     });
   }
   registerWrapper(OriginalSVGUseElement, SVGUseElement, useElement);
   scope.wrappers.SVGUseElement = SVGUseElement;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var EventTarget = scope.wrappers.EventTarget;
   var mixin = scope.mixin;
@@ -3261,13 +3710,13 @@ window.ShadowDOMPolyfill = {};
     },
     get nextSibling() {
       return wrap(unsafeUnwrap(this).nextSibling);
-    }
+    },
   });
   registerWrapper(OriginalSVGElementInstance, SVGElementInstance);
   scope.wrappers.SVGElementInstance = SVGElementInstance;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var mixin = scope.mixin;
   var registerWrapper = scope.registerWrapper;
@@ -3284,20 +3733,27 @@ window.ShadowDOMPolyfill = {};
     get canvas() {
       return wrap(unsafeUnwrap(this).canvas);
     },
-    drawImage: function() {
+    drawImage: function () {
       arguments[0] = unwrapIfNeeded(arguments[0]);
       unsafeUnwrap(this).drawImage.apply(unsafeUnwrap(this), arguments);
     },
-    createPattern: function() {
+    createPattern: function () {
       arguments[0] = unwrap(arguments[0]);
-      return unsafeUnwrap(this).createPattern.apply(unsafeUnwrap(this), arguments);
-    }
+      return unsafeUnwrap(this).createPattern.apply(
+        unsafeUnwrap(this),
+        arguments
+      );
+    },
   });
-  registerWrapper(OriginalCanvasRenderingContext2D, CanvasRenderingContext2D, document.createElement("canvas").getContext("2d"));
+  registerWrapper(
+    OriginalCanvasRenderingContext2D,
+    CanvasRenderingContext2D,
+    document.createElement("canvas").getContext("2d")
+  );
   scope.wrappers.CanvasRenderingContext2D = CanvasRenderingContext2D;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var addForwardingProperties = scope.addForwardingProperties;
   var mixin = scope.mixin;
@@ -3315,28 +3771,39 @@ window.ShadowDOMPolyfill = {};
     get canvas() {
       return wrap(unsafeUnwrap(this).canvas);
     },
-    texImage2D: function() {
+    texImage2D: function () {
       arguments[5] = unwrapIfNeeded(arguments[5]);
       unsafeUnwrap(this).texImage2D.apply(unsafeUnwrap(this), arguments);
     },
-    texSubImage2D: function() {
+    texSubImage2D: function () {
       arguments[6] = unwrapIfNeeded(arguments[6]);
       unsafeUnwrap(this).texSubImage2D.apply(unsafeUnwrap(this), arguments);
-    }
+    },
   });
-  var OriginalWebGLRenderingContextBase = Object.getPrototypeOf(OriginalWebGLRenderingContext.prototype);
+  var OriginalWebGLRenderingContextBase = Object.getPrototypeOf(
+    OriginalWebGLRenderingContext.prototype
+  );
   if (OriginalWebGLRenderingContextBase !== Object.prototype) {
-    addForwardingProperties(OriginalWebGLRenderingContextBase, WebGLRenderingContext.prototype);
+    addForwardingProperties(
+      OriginalWebGLRenderingContextBase,
+      WebGLRenderingContext.prototype
+    );
   }
-  var instanceProperties = /WebKit/.test(navigator.userAgent) ? {
-    drawingBufferHeight: null,
-    drawingBufferWidth: null
-  } : {};
-  registerWrapper(OriginalWebGLRenderingContext, WebGLRenderingContext, instanceProperties);
+  var instanceProperties = /WebKit/.test(navigator.userAgent)
+    ? {
+        drawingBufferHeight: null,
+        drawingBufferWidth: null,
+      }
+    : {};
+  registerWrapper(
+    OriginalWebGLRenderingContext,
+    WebGLRenderingContext,
+    instanceProperties
+  );
   scope.wrappers.WebGLRenderingContext = WebGLRenderingContext;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var Node = scope.wrappers.Node;
   var GetElementsByInterface = scope.GetElementsByInterface;
@@ -3355,13 +3822,17 @@ window.ShadowDOMPolyfill = {};
   mixin(DocumentFragment.prototype, SelectorsInterface);
   mixin(DocumentFragment.prototype, GetElementsByInterface);
   mixin(DocumentFragment.prototype, NonElementParentNodeInterface);
-  registerWrapper(OriginalDocumentFragment, DocumentFragment, document.createDocumentFragment());
+  registerWrapper(
+    OriginalDocumentFragment,
+    DocumentFragment,
+    document.createDocumentFragment()
+  );
   scope.wrappers.DocumentFragment = DocumentFragment;
   var Comment = registerObject(document.createComment(""));
   scope.wrappers.Comment = Comment;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var DocumentFragment = scope.wrappers.DocumentFragment;
   var TreeScope = scope.TreeScope;
@@ -3377,12 +3848,17 @@ window.ShadowDOMPolyfill = {};
   var shadowHostTable = new WeakMap();
   var nextOlderShadowTreeTable = new WeakMap();
   function ShadowRoot(hostWrapper) {
-    var node = unwrap(unsafeUnwrap(hostWrapper).ownerDocument.createDocumentFragment());
+    var node = unwrap(
+      unsafeUnwrap(hostWrapper).ownerDocument.createDocumentFragment()
+    );
     DocumentFragment.call(this, node);
     rewrap(node, this);
     var oldShadowRoot = hostWrapper.shadowRoot;
     nextOlderShadowTreeTable.set(this, oldShadowRoot);
-    this.treeScope_ = new TreeScope(this, getTreeScope(oldShadowRoot || hostWrapper));
+    this.treeScope_ = new TreeScope(
+      this,
+      getTreeScope(oldShadowRoot || hostWrapper)
+    );
     shadowHostTable.set(this, hostWrapper);
   }
   ShadowRoot.prototype = Object.create(DocumentFragment.prototype);
@@ -3401,18 +3877,19 @@ window.ShadowDOMPolyfill = {};
     get host() {
       return shadowHostTable.get(this) || null;
     },
-    invalidateShadowRenderer: function() {
+    invalidateShadowRenderer: function () {
       return shadowHostTable.get(this).invalidateShadowRenderer();
     },
-    elementFromPoint: function(x, y) {
+    elementFromPoint: function (x, y) {
       return elementFromPoint(this, this.ownerDocument, x, y);
     },
-    getSelection: function() {
+    getSelection: function () {
       return document.getSelection();
     },
     get activeElement() {
       var unwrappedActiveElement = unwrap(this).ownerDocument.activeElement;
-      if (!unwrappedActiveElement || !unwrappedActiveElement.nodeType) return null;
+      if (!unwrappedActiveElement || !unwrappedActiveElement.nodeType)
+        return null;
       var activeElement = wrap(unwrappedActiveElement);
       while (!this.contains(activeElement)) {
         while (activeElement.parentNode) {
@@ -3425,12 +3902,12 @@ window.ShadowDOMPolyfill = {};
         }
       }
       return activeElement;
-    }
+    },
   });
   scope.wrappers.ShadowRoot = ShadowRoot;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var registerWrapper = scope.registerWrapper;
   var setWrapper = scope.setWrapper;
@@ -3481,65 +3958,65 @@ window.ShadowDOMPolyfill = {};
     get commonAncestorContainer() {
       return shadowNodeToHostNode(unsafeUnwrap(this).commonAncestorContainer);
     },
-    setStart: function(refNode, offset) {
+    setStart: function (refNode, offset) {
       refNode = hostNodeToShadowNode(refNode, offset);
       unsafeUnwrap(this).setStart(unwrapIfNeeded(refNode), offset);
     },
-    setEnd: function(refNode, offset) {
+    setEnd: function (refNode, offset) {
       refNode = hostNodeToShadowNode(refNode, offset);
       unsafeUnwrap(this).setEnd(unwrapIfNeeded(refNode), offset);
     },
-    setStartBefore: function(refNode) {
+    setStartBefore: function (refNode) {
       unsafeUnwrap(this).setStartBefore(unwrapIfNeeded(refNode));
     },
-    setStartAfter: function(refNode) {
+    setStartAfter: function (refNode) {
       unsafeUnwrap(this).setStartAfter(unwrapIfNeeded(refNode));
     },
-    setEndBefore: function(refNode) {
+    setEndBefore: function (refNode) {
       unsafeUnwrap(this).setEndBefore(unwrapIfNeeded(refNode));
     },
-    setEndAfter: function(refNode) {
+    setEndAfter: function (refNode) {
       unsafeUnwrap(this).setEndAfter(unwrapIfNeeded(refNode));
     },
-    selectNode: function(refNode) {
+    selectNode: function (refNode) {
       unsafeUnwrap(this).selectNode(unwrapIfNeeded(refNode));
     },
-    selectNodeContents: function(refNode) {
+    selectNodeContents: function (refNode) {
       unsafeUnwrap(this).selectNodeContents(unwrapIfNeeded(refNode));
     },
-    compareBoundaryPoints: function(how, sourceRange) {
+    compareBoundaryPoints: function (how, sourceRange) {
       return unsafeUnwrap(this).compareBoundaryPoints(how, unwrap(sourceRange));
     },
-    extractContents: function() {
+    extractContents: function () {
       return wrap(unsafeUnwrap(this).extractContents());
     },
-    cloneContents: function() {
+    cloneContents: function () {
       return wrap(unsafeUnwrap(this).cloneContents());
     },
-    insertNode: function(node) {
+    insertNode: function (node) {
       unsafeUnwrap(this).insertNode(unwrapIfNeeded(node));
     },
-    surroundContents: function(newParent) {
+    surroundContents: function (newParent) {
       unsafeUnwrap(this).surroundContents(unwrapIfNeeded(newParent));
     },
-    cloneRange: function() {
+    cloneRange: function () {
       return wrap(unsafeUnwrap(this).cloneRange());
     },
-    isPointInRange: function(node, offset) {
+    isPointInRange: function (node, offset) {
       return unsafeUnwrap(this).isPointInRange(unwrapIfNeeded(node), offset);
     },
-    comparePoint: function(node, offset) {
+    comparePoint: function (node, offset) {
       return unsafeUnwrap(this).comparePoint(unwrapIfNeeded(node), offset);
     },
-    intersectsNode: function(node) {
+    intersectsNode: function (node) {
       return unsafeUnwrap(this).intersectsNode(unwrapIfNeeded(node));
     },
-    toString: function() {
+    toString: function () {
       return unsafeUnwrap(this).toString();
-    }
+    },
   };
   if (OriginalRange.prototype.createContextualFragment) {
-    Range.prototype.createContextualFragment = function(html) {
+    Range.prototype.createContextualFragment = function (html) {
       return wrap(unsafeUnwrap(this).createContextualFragment(html));
     };
   }
@@ -3547,7 +4024,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.Range = Range;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var Element = scope.wrappers.Element;
   var HTMLContentElement = scope.wrappers.HTMLContentElement;
@@ -3573,7 +4050,11 @@ window.ShadowDOMPolyfill = {};
   }
   function updateAllChildNodes(parentNodeWrapper) {
     assert(parentNodeWrapper instanceof Node);
-    for (var childWrapper = parentNodeWrapper.firstChild; childWrapper; childWrapper = childWrapper.nextSibling) {
+    for (
+      var childWrapper = parentNodeWrapper.firstChild;
+      childWrapper;
+      childWrapper = childWrapper.nextSibling
+    ) {
       updateWrapperUpAndSideways(childWrapper);
     }
     updateWrapperDown(parentNodeWrapper);
@@ -3586,11 +4067,14 @@ window.ShadowDOMPolyfill = {};
     updateWrapperUpAndSideways(newChildWrapper);
     if (!refChildWrapper) {
       parentNodeWrapper.lastChild_ = parentNodeWrapper.lastChild;
-      if (parentNodeWrapper.lastChild === parentNodeWrapper.firstChild) parentNodeWrapper.firstChild_ = parentNodeWrapper.firstChild;
+      if (parentNodeWrapper.lastChild === parentNodeWrapper.firstChild)
+        parentNodeWrapper.firstChild_ = parentNodeWrapper.firstChild;
       var lastChildWrapper = wrap(parentNode.lastChild);
-      if (lastChildWrapper) lastChildWrapper.nextSibling_ = lastChildWrapper.nextSibling;
+      if (lastChildWrapper)
+        lastChildWrapper.nextSibling_ = lastChildWrapper.nextSibling;
     } else {
-      if (parentNodeWrapper.firstChild === refChildWrapper) parentNodeWrapper.firstChild_ = refChildWrapper;
+      if (parentNodeWrapper.firstChild === refChildWrapper)
+        parentNodeWrapper.firstChild_ = refChildWrapper;
       refChildWrapper.previousSibling_ = refChildWrapper.previousSibling;
     }
     scope.originalInsertBefore.call(parentNode, newChild, refChild);
@@ -3601,10 +4085,14 @@ window.ShadowDOMPolyfill = {};
     if (!parentNode) return;
     var parentNodeWrapper = wrap(parentNode);
     updateWrapperUpAndSideways(nodeWrapper);
-    if (nodeWrapper.previousSibling) nodeWrapper.previousSibling.nextSibling_ = nodeWrapper;
-    if (nodeWrapper.nextSibling) nodeWrapper.nextSibling.previousSibling_ = nodeWrapper;
-    if (parentNodeWrapper.lastChild === nodeWrapper) parentNodeWrapper.lastChild_ = nodeWrapper;
-    if (parentNodeWrapper.firstChild === nodeWrapper) parentNodeWrapper.firstChild_ = nodeWrapper;
+    if (nodeWrapper.previousSibling)
+      nodeWrapper.previousSibling.nextSibling_ = nodeWrapper;
+    if (nodeWrapper.nextSibling)
+      nodeWrapper.nextSibling.previousSibling_ = nodeWrapper;
+    if (parentNodeWrapper.lastChild === nodeWrapper)
+      parentNodeWrapper.lastChild_ = nodeWrapper;
+    if (parentNodeWrapper.firstChild === nodeWrapper)
+      parentNodeWrapper.firstChild_ = nodeWrapper;
     scope.originalRemoveChild.call(parentNode, node);
   }
   var distributedNodesTable = new WeakMap();
@@ -3615,17 +4103,23 @@ window.ShadowDOMPolyfill = {};
   }
   function getDistributedNodes(insertionPoint) {
     var rv = distributedNodesTable.get(insertionPoint);
-    if (!rv) distributedNodesTable.set(insertionPoint, rv = []);
+    if (!rv) distributedNodesTable.set(insertionPoint, (rv = []));
     return rv;
   }
   function getChildNodesSnapshot(node) {
-    var result = [], i = 0;
+    var result = [],
+      i = 0;
     for (var child = node.firstChild; child; child = child.nextSibling) {
       result[i++] = child;
     }
     return result;
   }
-  var request = oneOf(window, [ "requestAnimationFrame", "mozRequestAnimationFrame", "webkitRequestAnimationFrame", "setTimeout" ]);
+  var request = oneOf(window, [
+    "requestAnimationFrame",
+    "mozRequestAnimationFrame",
+    "webkitRequestAnimationFrame",
+    "setTimeout",
+  ]);
   var pendingDirtyRenderers = [];
   var renderTimer;
   function renderAllPending() {
@@ -3658,7 +4152,7 @@ window.ShadowDOMPolyfill = {};
     return getRendererForHost(shadowRoot.host);
   }
   var spliceDiff = new ArraySplice();
-  spliceDiff.equals = function(renderNode, rawNode) {
+  spliceDiff.equals = function (renderNode, rawNode) {
     return unwrap(renderNode.node) === rawNode;
   };
   function RenderNode(node) {
@@ -3667,23 +4161,24 @@ window.ShadowDOMPolyfill = {};
     this.childNodes = [];
   }
   RenderNode.prototype = {
-    append: function(node) {
+    append: function (node) {
       var rv = new RenderNode(node);
       this.childNodes.push(rv);
       return rv;
     },
-    sync: function(opt_added) {
+    sync: function (opt_added) {
       if (this.skip) return;
       var nodeWrapper = this.node;
       var newChildren = this.childNodes;
       var oldChildren = getChildNodesSnapshot(unwrap(nodeWrapper));
       var added = opt_added || new WeakMap();
       var splices = spliceDiff.calculateSplices(newChildren, oldChildren);
-      var newIndex = 0, oldIndex = 0;
+      var newIndex = 0,
+        oldIndex = 0;
       var lastIndex = 0;
       for (var i = 0; i < splices.length; i++) {
         var splice = splices[i];
-        for (;lastIndex < splice.index; lastIndex++) {
+        for (; lastIndex < splice.index; lastIndex++) {
           oldIndex++;
           newChildren[newIndex++].sync(added);
         }
@@ -3706,7 +4201,7 @@ window.ShadowDOMPolyfill = {};
       for (var i = lastIndex; i < newChildren.length; i++) {
         newChildren[i].sync(added);
       }
-    }
+    },
   };
   function ShadowRenderer(host) {
     this.host = host;
@@ -3715,7 +4210,7 @@ window.ShadowDOMPolyfill = {};
     this.associateNode(host);
   }
   ShadowRenderer.prototype = {
-    render: function(opt_renderNode) {
+    render: function (opt_renderNode) {
       if (!this.dirty) return;
       this.invalidateAttributes();
       var host = this.host;
@@ -3729,7 +4224,7 @@ window.ShadowDOMPolyfill = {};
     get parentRenderer() {
       return getTreeScope(this.host).renderer;
     },
-    invalidate: function() {
+    invalidate: function () {
       if (!this.dirty) {
         this.dirty = true;
         var parentRenderer = this.parentRenderer;
@@ -3739,22 +4234,23 @@ window.ShadowDOMPolyfill = {};
         renderTimer = window[request](handleRequestAnimationFrame, 0);
       }
     },
-    distribution: function(root) {
+    distribution: function (root) {
       this.resetAllSubtrees(root);
       this.distributionResolution(root);
     },
-    resetAll: function(node) {
-      if (isInsertionPoint(node)) resetDistributedNodes(node); else resetDestinationInsertionPoints(node);
+    resetAll: function (node) {
+      if (isInsertionPoint(node)) resetDistributedNodes(node);
+      else resetDestinationInsertionPoints(node);
       this.resetAllSubtrees(node);
     },
-    resetAllSubtrees: function(node) {
+    resetAllSubtrees: function (node) {
       for (var child = node.firstChild; child; child = child.nextSibling) {
         this.resetAll(child);
       }
       if (node.shadowRoot) this.resetAll(node.shadowRoot);
       if (node.olderShadowRoot) this.resetAll(node.olderShadowRoot);
     },
-    distributionResolution: function(node) {
+    distributionResolution: function (node) {
       if (isShadowHost(node)) {
         var shadowHost = node;
         var pool = poolPopulation(shadowHost);
@@ -3781,7 +4277,7 @@ window.ShadowDOMPolyfill = {};
         this.distributionResolution(child);
       }
     },
-    poolDistribution: function(node, pool) {
+    poolDistribution: function (node, pool) {
       if (node instanceof HTMLShadowElement) return;
       if (node instanceof HTMLContentElement) {
         var content = node;
@@ -3797,7 +4293,11 @@ window.ShadowDOMPolyfill = {};
           }
         }
         if (!anyDistributed) {
-          for (var child = content.firstChild; child; child = child.nextSibling) {
+          for (
+            var child = content.firstChild;
+            child;
+            child = child.nextSibling
+          ) {
             destributeNodeInto(child, content);
           }
         }
@@ -3807,7 +4307,7 @@ window.ShadowDOMPolyfill = {};
         this.poolDistribution(child, pool);
       }
     },
-    buildRenderTree: function(renderNode, node) {
+    buildRenderTree: function (renderNode, node) {
       var children = this.compose(node);
       for (var i = 0; i < children.length; i++) {
         var child = children[i];
@@ -3819,7 +4319,7 @@ window.ShadowDOMPolyfill = {};
         renderer.dirty = false;
       }
     },
-    compose: function(node) {
+    compose: function (node) {
       var children = [];
       var p = node.shadowRoot || node;
       for (var child = p.firstChild; child; child = child.nextSibling) {
@@ -3828,7 +4328,8 @@ window.ShadowDOMPolyfill = {};
           var distributedNodes = getDistributedNodes(child);
           for (var j = 0; j < distributedNodes.length; j++) {
             var distributedNode = distributedNodes[j];
-            if (isFinalDestination(child, distributedNode)) children.push(distributedNode);
+            if (isFinalDestination(child, distributedNode))
+              children.push(distributedNode);
           }
         } else {
           children.push(child);
@@ -3836,24 +4337,24 @@ window.ShadowDOMPolyfill = {};
       }
       return children;
     },
-    invalidateAttributes: function() {
+    invalidateAttributes: function () {
       this.attributes = Object.create(null);
     },
-    updateDependentAttributes: function(selector) {
+    updateDependentAttributes: function (selector) {
       if (!selector) return;
       var attributes = this.attributes;
       if (/\.\w+/.test(selector)) attributes["class"] = true;
       if (/#\w+/.test(selector)) attributes["id"] = true;
-      selector.replace(/\[\s*([^\s=\|~\]]+)/g, function(_, name) {
+      selector.replace(/\[\s*([^\s=\|~\]]+)/g, function (_, name) {
         attributes[name] = true;
       });
     },
-    dependsOnAttribute: function(name) {
+    dependsOnAttribute: function (name) {
       return this.attributes[name];
     },
-    associateNode: function(node) {
+    associateNode: function (node) {
       unsafeUnwrap(node).polymerShadowRenderer_ = this;
-    }
+    },
   };
   function poolPopulation(node) {
     var pool = [];
@@ -3878,7 +4379,8 @@ window.ShadowDOMPolyfill = {};
   function destributeNodeInto(child, insertionPoint) {
     getDistributedNodes(insertionPoint).push(child);
     var points = destinationInsertionPointsTable.get(child);
-    if (!points) destinationInsertionPointsTable.set(child, [ insertionPoint ]); else points.push(insertionPoint);
+    if (!points) destinationInsertionPointsTable.set(child, [insertionPoint]);
+    else points.push(insertionPoint);
   }
   function getDestinationInsertionPoints(node) {
     return destinationInsertionPointsTable.get(node);
@@ -3905,7 +4407,9 @@ window.ShadowDOMPolyfill = {};
     return points && points[points.length - 1] === insertionPoint;
   }
   function isInsertionPoint(node) {
-    return node instanceof HTMLContentElement || node instanceof HTMLShadowElement;
+    return (
+      node instanceof HTMLContentElement || node instanceof HTMLShadowElement
+    );
   }
   function isShadowHost(shadowHost) {
     return shadowHost.shadowRoot;
@@ -3920,7 +4424,7 @@ window.ShadowDOMPolyfill = {};
   function render(host) {
     new ShadowRenderer(host).render();
   }
-  Node.prototype.invalidateShadowRenderer = function(force) {
+  Node.prototype.invalidateShadowRenderer = function (force) {
     var renderer = unsafeUnwrap(this).polymerShadowRenderer_;
     if (renderer) {
       renderer.invalidate();
@@ -3928,33 +4432,35 @@ window.ShadowDOMPolyfill = {};
     }
     return false;
   };
-  HTMLContentElement.prototype.getDistributedNodes = HTMLShadowElement.prototype.getDistributedNodes = function() {
-    renderAllPending();
-    return getDistributedNodes(this);
-  };
-  Element.prototype.getDestinationInsertionPoints = function() {
+  HTMLContentElement.prototype.getDistributedNodes =
+    HTMLShadowElement.prototype.getDistributedNodes = function () {
+      renderAllPending();
+      return getDistributedNodes(this);
+    };
+  Element.prototype.getDestinationInsertionPoints = function () {
     renderAllPending();
     return getDestinationInsertionPoints(this) || [];
   };
-  HTMLContentElement.prototype.nodeIsInserted_ = HTMLShadowElement.prototype.nodeIsInserted_ = function() {
-    this.invalidateShadowRenderer();
-    var shadowRoot = getShadowRootAncestor(this);
-    var renderer;
-    if (shadowRoot) renderer = getRendererForShadowRoot(shadowRoot);
-    unsafeUnwrap(this).polymerShadowRenderer_ = renderer;
-    if (renderer) renderer.invalidate();
-  };
+  HTMLContentElement.prototype.nodeIsInserted_ =
+    HTMLShadowElement.prototype.nodeIsInserted_ = function () {
+      this.invalidateShadowRenderer();
+      var shadowRoot = getShadowRootAncestor(this);
+      var renderer;
+      if (shadowRoot) renderer = getRendererForShadowRoot(shadowRoot);
+      unsafeUnwrap(this).polymerShadowRenderer_ = renderer;
+      if (renderer) renderer.invalidate();
+    };
   scope.getRendererForHost = getRendererForHost;
   scope.getShadowTrees = getShadowTrees;
   scope.renderAllPending = renderAllPending;
   scope.getDestinationInsertionPoints = getDestinationInsertionPoints;
   scope.visual = {
     insertBefore: insertBefore,
-    remove: remove
+    remove: remove,
   };
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var HTMLElement = scope.wrappers.HTMLElement;
   var assert = scope.assert;
@@ -3962,26 +4468,40 @@ window.ShadowDOMPolyfill = {};
   var registerWrapper = scope.registerWrapper;
   var unwrap = scope.unwrap;
   var wrap = scope.wrap;
-  var elementsWithFormProperty = [ "HTMLButtonElement", "HTMLFieldSetElement", "HTMLInputElement", "HTMLKeygenElement", "HTMLLabelElement", "HTMLLegendElement", "HTMLObjectElement", "HTMLOutputElement", "HTMLTextAreaElement" ];
+  var elementsWithFormProperty = [
+    "HTMLButtonElement",
+    "HTMLFieldSetElement",
+    "HTMLInputElement",
+    "HTMLKeygenElement",
+    "HTMLLabelElement",
+    "HTMLLegendElement",
+    "HTMLObjectElement",
+    "HTMLOutputElement",
+    "HTMLTextAreaElement",
+  ];
   function createWrapperConstructor(name) {
     if (!window[name]) return;
     assert(!scope.wrappers[name]);
-    var GeneratedWrapper = function(node) {
+    var GeneratedWrapper = function (node) {
       HTMLElement.call(this, node);
     };
     GeneratedWrapper.prototype = Object.create(HTMLElement.prototype);
     mixin(GeneratedWrapper.prototype, {
       get form() {
         return wrap(unwrap(this).form);
-      }
+      },
     });
-    registerWrapper(window[name], GeneratedWrapper, document.createElement(name.slice(4, -7)));
+    registerWrapper(
+      window[name],
+      GeneratedWrapper,
+      document.createElement(name.slice(4, -7))
+    );
     scope.wrappers[name] = GeneratedWrapper;
   }
   elementsWithFormProperty.forEach(createWrapperConstructor);
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var registerWrapper = scope.registerWrapper;
   var setWrapper = scope.setWrapper;
@@ -4000,30 +4520,37 @@ window.ShadowDOMPolyfill = {};
     get focusNode() {
       return wrap(unsafeUnwrap(this).focusNode);
     },
-    addRange: function(range) {
+    addRange: function (range) {
       unsafeUnwrap(this).addRange(unwrapIfNeeded(range));
     },
-    collapse: function(node, index) {
+    collapse: function (node, index) {
       unsafeUnwrap(this).collapse(unwrapIfNeeded(node), index);
     },
-    containsNode: function(node, allowPartial) {
-      return unsafeUnwrap(this).containsNode(unwrapIfNeeded(node), allowPartial);
+    containsNode: function (node, allowPartial) {
+      return unsafeUnwrap(this).containsNode(
+        unwrapIfNeeded(node),
+        allowPartial
+      );
     },
-    getRangeAt: function(index) {
+    getRangeAt: function (index) {
       return wrap(unsafeUnwrap(this).getRangeAt(index));
     },
-    removeRange: function(range) {
+    removeRange: function (range) {
       unsafeUnwrap(this).removeRange(unwrap(range));
     },
-    selectAllChildren: function(node) {
-      unsafeUnwrap(this).selectAllChildren(node instanceof ShadowRoot ? unsafeUnwrap(node.host) : unwrapIfNeeded(node));
+    selectAllChildren: function (node) {
+      unsafeUnwrap(this).selectAllChildren(
+        node instanceof ShadowRoot
+          ? unsafeUnwrap(node.host)
+          : unwrapIfNeeded(node)
+      );
     },
-    toString: function() {
+    toString: function () {
       return unsafeUnwrap(this).toString();
-    }
+    },
   };
   if (OriginalSelection.prototype.extend) {
-    Selection.prototype.extend = function(node, offset) {
+    Selection.prototype.extend = function (node, offset) {
       unsafeUnwrap(this).extend(unwrapIfNeeded(node), offset);
     };
   }
@@ -4031,7 +4558,7 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.Selection = Selection;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var registerWrapper = scope.registerWrapper;
   var setWrapper = scope.setWrapper;
@@ -4055,30 +4582,30 @@ window.ShadowDOMPolyfill = {};
     get filter() {
       return unsafeUnwrap(this).filter;
     },
-    parentNode: function() {
+    parentNode: function () {
       return wrap(unsafeUnwrap(this).parentNode());
     },
-    firstChild: function() {
+    firstChild: function () {
       return wrap(unsafeUnwrap(this).firstChild());
     },
-    lastChild: function() {
+    lastChild: function () {
       return wrap(unsafeUnwrap(this).lastChild());
     },
-    previousSibling: function() {
+    previousSibling: function () {
       return wrap(unsafeUnwrap(this).previousSibling());
     },
-    previousNode: function() {
+    previousNode: function () {
       return wrap(unsafeUnwrap(this).previousNode());
     },
-    nextNode: function() {
+    nextNode: function () {
       return wrap(unsafeUnwrap(this).nextNode());
-    }
+    },
   };
   registerWrapper(OriginalTreeWalker, TreeWalker);
   scope.wrappers.TreeWalker = TreeWalker;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var GetElementsByInterface = scope.GetElementsByInterface;
   var Node = scope.wrappers.Node;
@@ -4113,9 +4640,10 @@ window.ShadowDOMPolyfill = {};
   defineWrapGetter(Document, "documentElement");
   defineWrapGetter(Document, "body");
   defineWrapGetter(Document, "head");
-  defineGetter(Document, "activeElement", function() {
+  defineGetter(Document, "activeElement", function () {
     var unwrappedActiveElement = unwrap(this).activeElement;
-    if (!unwrappedActiveElement || !unwrappedActiveElement.nodeType) return null;
+    if (!unwrappedActiveElement || !unwrappedActiveElement.nodeType)
+      return null;
     var activeElement = wrap(unwrappedActiveElement);
     while (!this.contains(activeElement)) {
       while (activeElement.parentNode) {
@@ -4131,11 +4659,20 @@ window.ShadowDOMPolyfill = {};
   });
   function wrapMethod(name) {
     var original = document[name];
-    Document.prototype[name] = function() {
+    Document.prototype[name] = function () {
       return wrap(original.apply(unsafeUnwrap(this), arguments));
     };
   }
-  [ "createComment", "createDocumentFragment", "createElement", "createElementNS", "createEvent", "createEventNS", "createRange", "createTextNode" ].forEach(wrapMethod);
+  [
+    "createComment",
+    "createDocumentFragment",
+    "createElement",
+    "createElementNS",
+    "createEvent",
+    "createEventNS",
+    "createRange",
+    "createTextNode",
+  ].forEach(wrapMethod);
   var originalAdoptNode = document.adoptNode;
   function adoptNodeNoRemove(node, doc) {
     originalAdoptNode.call(unsafeUnwrap(doc), unwrap(node));
@@ -4154,47 +4691,63 @@ window.ShadowDOMPolyfill = {};
   }
   var originalGetSelection = document.getSelection;
   mixin(Document.prototype, {
-    adoptNode: function(node) {
+    adoptNode: function (node) {
       if (node.parentNode) node.parentNode.removeChild(node);
       adoptNodeNoRemove(node, this);
       return node;
     },
-    elementFromPoint: function(x, y) {
+    elementFromPoint: function (x, y) {
       return elementFromPoint(this, this, x, y);
     },
-    importNode: function(node, deep) {
+    importNode: function (node, deep) {
       return cloneNode(node, deep, unsafeUnwrap(this));
     },
-    getSelection: function() {
+    getSelection: function () {
       renderAllPending();
       return new Selection(originalGetSelection.call(unwrap(this)));
     },
-    getElementsByName: function(name) {
-      return SelectorsInterface.querySelectorAll.call(this, "[name=" + JSON.stringify(String(name)) + "]");
-    }
+    getElementsByName: function (name) {
+      return SelectorsInterface.querySelectorAll.call(
+        this,
+        "[name=" + JSON.stringify(String(name)) + "]"
+      );
+    },
   });
   var originalCreateTreeWalker = document.createTreeWalker;
   var TreeWalkerWrapper = scope.wrappers.TreeWalker;
-  Document.prototype.createTreeWalker = function(root, whatToShow, filter, expandEntityReferences) {
+  Document.prototype.createTreeWalker = function (
+    root,
+    whatToShow,
+    filter,
+    expandEntityReferences
+  ) {
     var newFilter = null;
     if (filter) {
       if (filter.acceptNode && typeof filter.acceptNode === "function") {
         newFilter = {
-          acceptNode: function(node) {
+          acceptNode: function (node) {
             return filter.acceptNode(wrap(node));
-          }
+          },
         };
       } else if (typeof filter === "function") {
-        newFilter = function(node) {
+        newFilter = function (node) {
           return filter(wrap(node));
         };
       }
     }
-    return new TreeWalkerWrapper(originalCreateTreeWalker.call(unwrap(this), unwrap(root), whatToShow, newFilter, expandEntityReferences));
+    return new TreeWalkerWrapper(
+      originalCreateTreeWalker.call(
+        unwrap(this),
+        unwrap(root),
+        whatToShow,
+        newFilter,
+        expandEntityReferences
+      )
+    );
   };
   if (document.registerElement) {
     var originalRegisterElement = document.registerElement;
-    Document.prototype.registerElement = function(tagName, object) {
+    Document.prototype.registerElement = function (tagName, object) {
       var prototype, extendsOption;
       if (object !== undefined) {
         prototype = object.prototype;
@@ -4220,10 +4773,15 @@ window.ShadowDOMPolyfill = {};
       for (var i = prototypes.length - 1; i >= 0; i--) {
         newPrototype = Object.create(newPrototype);
       }
-      [ "createdCallback", "attachedCallback", "detachedCallback", "attributeChangedCallback" ].forEach(function(name) {
+      [
+        "createdCallback",
+        "attachedCallback",
+        "detachedCallback",
+        "attributeChangedCallback",
+      ].forEach(function (name) {
         var f = prototype[name];
         if (!f) return;
-        newPrototype[name] = function() {
+        newPrototype[name] = function () {
           if (!(wrap(this) instanceof CustomElementConstructor)) {
             rewrap(this);
           }
@@ -4231,7 +4789,7 @@ window.ShadowDOMPolyfill = {};
         };
       });
       var p = {
-        prototype: newPrototype
+        prototype: newPrototype,
       };
       if (extendsOption) p.extends = extendsOption;
       function CustomElementConstructor(node) {
@@ -4248,14 +4806,64 @@ window.ShadowDOMPolyfill = {};
       CustomElementConstructor.prototype.constructor = CustomElementConstructor;
       scope.constructorTable.set(newPrototype, CustomElementConstructor);
       scope.nativePrototypeTable.set(prototype, newPrototype);
-      var nativeConstructor = originalRegisterElement.call(unwrap(this), tagName, p);
+      var nativeConstructor = originalRegisterElement.call(
+        unwrap(this),
+        tagName,
+        p
+      );
       return CustomElementConstructor;
     };
-    forwardMethodsToWrapper([ window.HTMLDocument || window.Document ], [ "registerElement" ]);
+    forwardMethodsToWrapper(
+      [window.HTMLDocument || window.Document],
+      ["registerElement"]
+    );
   }
-  forwardMethodsToWrapper([ window.HTMLBodyElement, window.HTMLDocument || window.Document, window.HTMLHeadElement, window.HTMLHtmlElement ], [ "appendChild", "compareDocumentPosition", "contains", "getElementsByClassName", "getElementsByTagName", "getElementsByTagNameNS", "insertBefore", "querySelector", "querySelectorAll", "removeChild", "replaceChild" ]);
-  forwardMethodsToWrapper([ window.HTMLBodyElement, window.HTMLHeadElement, window.HTMLHtmlElement ], matchesNames);
-  forwardMethodsToWrapper([ window.HTMLDocument || window.Document ], [ "adoptNode", "importNode", "contains", "createComment", "createDocumentFragment", "createElement", "createElementNS", "createEvent", "createEventNS", "createRange", "createTextNode", "createTreeWalker", "elementFromPoint", "getElementById", "getElementsByName", "getSelection" ]);
+  forwardMethodsToWrapper(
+    [
+      window.HTMLBodyElement,
+      window.HTMLDocument || window.Document,
+      window.HTMLHeadElement,
+      window.HTMLHtmlElement,
+    ],
+    [
+      "appendChild",
+      "compareDocumentPosition",
+      "contains",
+      "getElementsByClassName",
+      "getElementsByTagName",
+      "getElementsByTagNameNS",
+      "insertBefore",
+      "querySelector",
+      "querySelectorAll",
+      "removeChild",
+      "replaceChild",
+    ]
+  );
+  forwardMethodsToWrapper(
+    [window.HTMLBodyElement, window.HTMLHeadElement, window.HTMLHtmlElement],
+    matchesNames
+  );
+  forwardMethodsToWrapper(
+    [window.HTMLDocument || window.Document],
+    [
+      "adoptNode",
+      "importNode",
+      "contains",
+      "createComment",
+      "createDocumentFragment",
+      "createElement",
+      "createElementNS",
+      "createEvent",
+      "createEventNS",
+      "createRange",
+      "createTextNode",
+      "createTreeWalker",
+      "elementFromPoint",
+      "getElementById",
+      "getElementsByName",
+      "getSelection",
+    ]
+  );
   mixin(Document.prototype, GetElementsByInterface);
   mixin(Document.prototype, ParentNodeInterface);
   mixin(Document.prototype, SelectorsInterface);
@@ -4270,28 +4878,36 @@ window.ShadowDOMPolyfill = {};
     },
     get defaultView() {
       return wrap(unwrap(this).defaultView);
-    }
+    },
   });
-  registerWrapper(window.Document, Document, document.implementation.createHTMLDocument(""));
+  registerWrapper(
+    window.Document,
+    Document,
+    document.implementation.createHTMLDocument("")
+  );
   if (window.HTMLDocument) registerWrapper(window.HTMLDocument, Document);
-  wrapEventTargetMethods([ window.HTMLBodyElement, window.HTMLDocument || window.Document, window.HTMLHeadElement ]);
+  wrapEventTargetMethods([
+    window.HTMLBodyElement,
+    window.HTMLDocument || window.Document,
+    window.HTMLHeadElement,
+  ]);
   function DOMImplementation(impl) {
     setWrapper(impl, this);
   }
   var originalCreateDocument = document.implementation.createDocument;
-  DOMImplementation.prototype.createDocument = function() {
+  DOMImplementation.prototype.createDocument = function () {
     arguments[2] = unwrap(arguments[2]);
     return wrap(originalCreateDocument.apply(unsafeUnwrap(this), arguments));
   };
   function wrapImplMethod(constructor, name) {
     var original = document.implementation[name];
-    constructor.prototype[name] = function() {
+    constructor.prototype[name] = function () {
       return wrap(original.apply(unsafeUnwrap(this), arguments));
     };
   }
   function forwardImplMethod(constructor, name) {
     var original = document.implementation[name];
-    constructor.prototype[name] = function() {
+    constructor.prototype[name] = function () {
       return original.apply(unsafeUnwrap(this), arguments);
     };
   }
@@ -4299,13 +4915,16 @@ window.ShadowDOMPolyfill = {};
   wrapImplMethod(DOMImplementation, "createHTMLDocument");
   forwardImplMethod(DOMImplementation, "hasFeature");
   registerWrapper(window.DOMImplementation, DOMImplementation);
-  forwardMethodsToWrapper([ window.DOMImplementation ], [ "createDocument", "createDocumentType", "createHTMLDocument", "hasFeature" ]);
+  forwardMethodsToWrapper(
+    [window.DOMImplementation],
+    ["createDocument", "createDocumentType", "createHTMLDocument", "hasFeature"]
+  );
   scope.adoptNodeNoRemove = adoptNodeNoRemove;
   scope.wrappers.DOMImplementation = DOMImplementation;
   scope.wrappers.Document = Document;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var EventTarget = scope.wrappers.EventTarget;
   var Selection = scope.wrappers.Selection;
@@ -4323,63 +4942,77 @@ window.ShadowDOMPolyfill = {};
     EventTarget.call(this, impl);
   }
   Window.prototype = Object.create(EventTarget.prototype);
-  OriginalWindow.prototype.getComputedStyle = function(el, pseudo) {
+  OriginalWindow.prototype.getComputedStyle = function (el, pseudo) {
     return wrap(this || window).getComputedStyle(unwrapIfNeeded(el), pseudo);
   };
   if (originalGetDefaultComputedStyle) {
-    OriginalWindow.prototype.getDefaultComputedStyle = function(el, pseudo) {
-      return wrap(this || window).getDefaultComputedStyle(unwrapIfNeeded(el), pseudo);
+    OriginalWindow.prototype.getDefaultComputedStyle = function (el, pseudo) {
+      return wrap(this || window).getDefaultComputedStyle(
+        unwrapIfNeeded(el),
+        pseudo
+      );
     };
   }
-  OriginalWindow.prototype.getSelection = function() {
+  OriginalWindow.prototype.getSelection = function () {
     return wrap(this || window).getSelection();
   };
   delete window.getComputedStyle;
   delete window.getDefaultComputedStyle;
   delete window.getSelection;
-  [ "addEventListener", "removeEventListener", "dispatchEvent" ].forEach(function(name) {
-    OriginalWindow.prototype[name] = function() {
-      var w = wrap(this || window);
-      return w[name].apply(w, arguments);
-    };
-    delete window[name];
-  });
+  ["addEventListener", "removeEventListener", "dispatchEvent"].forEach(
+    function (name) {
+      OriginalWindow.prototype[name] = function () {
+        var w = wrap(this || window);
+        return w[name].apply(w, arguments);
+      };
+      delete window[name];
+    }
+  );
   mixin(Window.prototype, {
-    getComputedStyle: function(el, pseudo) {
+    getComputedStyle: function (el, pseudo) {
       renderAllPending();
-      return originalGetComputedStyle.call(unwrap(this), unwrapIfNeeded(el), pseudo);
+      return originalGetComputedStyle.call(
+        unwrap(this),
+        unwrapIfNeeded(el),
+        pseudo
+      );
     },
-    getSelection: function() {
+    getSelection: function () {
       renderAllPending();
       return new Selection(originalGetSelection.call(unwrap(this)));
     },
     get document() {
       return wrap(unwrap(this).document);
-    }
+    },
   });
   if (originalGetDefaultComputedStyle) {
-    Window.prototype.getDefaultComputedStyle = function(el, pseudo) {
+    Window.prototype.getDefaultComputedStyle = function (el, pseudo) {
       renderAllPending();
-      return originalGetDefaultComputedStyle.call(unwrap(this), unwrapIfNeeded(el), pseudo);
+      return originalGetDefaultComputedStyle.call(
+        unwrap(this),
+        unwrapIfNeeded(el),
+        pseudo
+      );
     };
   }
   registerWrapper(OriginalWindow, Window, window);
   scope.wrappers.Window = Window;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var unwrap = scope.unwrap;
   var OriginalDataTransfer = window.DataTransfer || window.Clipboard;
-  var OriginalDataTransferSetDragImage = OriginalDataTransfer.prototype.setDragImage;
+  var OriginalDataTransferSetDragImage =
+    OriginalDataTransfer.prototype.setDragImage;
   if (OriginalDataTransferSetDragImage) {
-    OriginalDataTransfer.prototype.setDragImage = function(image, x, y) {
+    OriginalDataTransfer.prototype.setDragImage = function (image, x, y) {
       OriginalDataTransferSetDragImage.call(this, unwrap(image), x, y);
     };
   }
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var registerWrapper = scope.registerWrapper;
   var setWrapper = scope.setWrapper;
@@ -4399,16 +5032,16 @@ window.ShadowDOMPolyfill = {};
   scope.wrappers.FormData = FormData;
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var unwrapIfNeeded = scope.unwrapIfNeeded;
   var originalSend = XMLHttpRequest.prototype.send;
-  XMLHttpRequest.prototype.send = function(obj) {
+  XMLHttpRequest.prototype.send = function (obj) {
     return originalSend.call(this, unwrapIfNeeded(obj));
   };
 })(window.ShadowDOMPolyfill);
 
-(function(scope) {
+(function (scope) {
   "use strict";
   var isWrapperFor = scope.isWrapperFor;
   var elements = {
@@ -4479,7 +5112,7 @@ window.ShadowDOMPolyfill = {};
     tr: "HTMLTableRowElement",
     track: "HTMLTrackElement",
     ul: "HTMLUListElement",
-    video: "HTMLVideoElement"
+    video: "HTMLVideoElement",
   };
   function overrideConstructor(tagName) {
     var nativeConstructorName = elements[tagName];
@@ -4490,7 +5123,7 @@ window.ShadowDOMPolyfill = {};
     window[nativeConstructorName] = wrapperConstructor;
   }
   Object.keys(elements).forEach(overrideConstructor);
-  Object.getOwnPropertyNames(scope.wrappers).forEach(function(name) {
+  Object.getOwnPropertyNames(scope.wrappers).forEach(function (name) {
     window[name] = scope.wrappers[name];
   });
 })(window.ShadowDOMPolyfill);

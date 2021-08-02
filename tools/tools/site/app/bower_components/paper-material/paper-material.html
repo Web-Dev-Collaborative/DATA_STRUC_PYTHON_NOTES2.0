@@ -8,9 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="paper-material-shared-styles.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../paper-styles/shadow.html" />
+<link rel="import" href="paper-material-shared-styles.html" />
 
 <!--
 Material design: [Cards](https://www.google.com/design/spec/components/cards.html)
@@ -33,7 +33,7 @@ Example:
     <style include="paper-material-shared-styles"></style>
     <style>
       :host([animated]) {
-        @apply(--shadow-transition);
+        @apply (--shadow-transition);
       }
     </style>
 
@@ -42,7 +42,7 @@ Example:
 </dom-module>
 <script>
   Polymer({
-    is: 'paper-material',
+    is: "paper-material",
 
     properties: {
       /**
@@ -57,7 +57,7 @@ Example:
       elevation: {
         type: Number,
         reflectToAttribute: true,
-        value: 1
+        value: 1,
       },
 
       /**
@@ -71,8 +71,8 @@ Example:
       animated: {
         type: Boolean,
         reflectToAttribute: true,
-        value: false
-      }
-    }
+        value: false,
+      },
+    },
   });
 </script>

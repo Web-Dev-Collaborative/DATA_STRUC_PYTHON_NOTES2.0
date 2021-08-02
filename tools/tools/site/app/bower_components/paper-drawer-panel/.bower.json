@@ -2,16 +2,8 @@
   "name": "paper-drawer-panel",
   "version": "1.0.11",
   "description": "A responsive drawer panel",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "drawer",
-    "responsive",
-    "layout"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "drawer", "responsive", "layout"],
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/paper-drawer-panel.git"

@@ -8,18 +8,20 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="iron-overlay-backdrop.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"
+/>
+<link rel="import" href="iron-overlay-backdrop.html" />
 
 <script>
-
   /**
    * @struct
    * @constructor
    * @private
    */
-  Polymer.IronOverlayManagerClass = function() {
+  Polymer.IronOverlayManagerClass = function () {
     /**
      * Used to keep track of the opened overlays.
      * @private {Array<Element>}
@@ -43,14 +45,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // NOTE: Use useCapture=true to avoid accidentally prevention of the closing
     // of an overlay via event.stopPropagation(). The only way to prevent
     // closing of an overlay should be through its APIs.
-    Polymer.Gestures.add(document, 'tap', null);
-    document.addEventListener('tap', this._onCaptureClick.bind(this), true);
-    document.addEventListener('focus', this._onCaptureFocus.bind(this), true);
-    document.addEventListener('keydown', this._onCaptureKeyDown.bind(this), true);
+    Polymer.Gestures.add(document, "tap", null);
+    document.addEventListener("tap", this._onCaptureClick.bind(this), true);
+    document.addEventListener("focus", this._onCaptureFocus.bind(this), true);
+    document.addEventListener(
+      "keydown",
+      this._onCaptureKeyDown.bind(this),
+      true
+    );
   };
 
   Polymer.IronOverlayManagerClass.prototype = {
-
     constructor: Polymer.IronOverlayManagerClass,
 
     /**
@@ -59,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     get backdropElement() {
       if (!this._backdropElement) {
-        this._backdropElement = document.createElement('iron-overlay-backdrop');
+        this._backdropElement = document.createElement("iron-overlay-backdrop");
       }
       return this._backdropElement;
     },
@@ -84,7 +89,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {number} i
      * @private
      */
-    _bringOverlayAtIndexToFront: function(i) {
+    _bringOverlayAtIndexToFront: function (i) {
       var overlay = this._overlays[i];
       if (!overlay) {
         return;
@@ -92,7 +97,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var lastI = this._overlays.length - 1;
       var currentOverlay = this._overlays[lastI];
       // Ensure always-on-top overlay stays on top.
-      if (currentOverlay && this._shouldBeBehindOverlay(overlay, currentOverlay)) {
+      if (
+        currentOverlay &&
+        this._shouldBeBehindOverlay(overlay, currentOverlay)
+      ) {
         lastI--;
       }
       // If already the top element, return.
@@ -118,7 +126,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Also updates the backdrop z-index.
      * @param {!Element} overlay
      */
-    addOrRemoveOverlay: function(overlay) {
+    addOrRemoveOverlay: function (overlay) {
       if (overlay.opened) {
         this.addOverlay(overlay);
       } else {
@@ -131,7 +139,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Ensures the last added overlay with always-on-top remains on top.
      * @param {!Element} overlay
      */
-    addOverlay: function(overlay) {
+    addOverlay: function (overlay) {
       var i = this._overlays.indexOf(overlay);
       if (i >= 0) {
         this._bringOverlayAtIndexToFront(i);
@@ -144,7 +152,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var newZ = this._getZ(overlay);
 
       // Ensure always-on-top overlay stays on top.
-      if (currentOverlay && this._shouldBeBehindOverlay(overlay, currentOverlay)) {
+      if (
+        currentOverlay &&
+        this._shouldBeBehindOverlay(overlay, currentOverlay)
+      ) {
         // This bumps the z-index of +2.
         this._applyOverlayZ(currentOverlay, minimumZ);
         insertionIndex--;
@@ -165,7 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /**
      * @param {!Element} overlay
      */
-    removeOverlay: function(overlay) {
+    removeOverlay: function (overlay) {
       var i = this._overlays.indexOf(overlay);
       if (i === -1) {
         return;
@@ -179,7 +190,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Returns the current overlay.
      * @return {Element|undefined}
      */
-    currentOverlay: function() {
+    currentOverlay: function () {
       var i = this._overlays.length - 1;
       return this._overlays[i];
     },
@@ -188,7 +199,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Returns the current overlay z-index.
      * @return {number}
      */
-    currentOverlayZ: function() {
+    currentOverlayZ: function () {
       return this._getZ(this.currentOverlay());
     },
 
@@ -197,11 +208,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * This does not effect the z-index of any existing overlays.
      * @param {number} minimumZ
      */
-    ensureMinimumZ: function(minimumZ) {
+    ensureMinimumZ: function (minimumZ) {
       this._minimumZ = Math.max(this._minimumZ, minimumZ);
     },
 
-    focusOverlay: function() {
+    focusOverlay: function () {
       var current = /** @type {?} */ (this.currentOverlay());
       if (current) {
         current._applyFocus();
@@ -211,7 +222,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /**
      * Updates the backdrop z-index.
      */
-    trackBackdrop: function() {
+    trackBackdrop: function () {
       var overlay = this._overlayWithBackdrop();
       // Avoid creating the backdrop if there is no overlay with backdrop.
       if (!overlay && !this._backdropElement) {
@@ -224,7 +235,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /**
      * @return {Array<Element>}
      */
-    getBackdrops: function() {
+    getBackdrops: function () {
       var backdrops = [];
       for (var i = 0; i < this._overlays.length; i++) {
         if (this._overlays[i].withBackdrop) {
@@ -238,7 +249,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Returns the z-index for the backdrop.
      * @return {number}
      */
-    backdropZ: function() {
+    backdropZ: function () {
       return this._getZ(this._overlayWithBackdrop()) - 1;
     },
 
@@ -247,7 +258,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {Element|undefined}
      * @private
      */
-    _overlayWithBackdrop: function() {
+    _overlayWithBackdrop: function () {
       for (var i = 0; i < this._overlays.length; i++) {
         if (this._overlays[i].withBackdrop) {
           return this._overlays[i];
@@ -260,10 +271,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {Element=} overlay
      * @private
      */
-    _getZ: function(overlay) {
+    _getZ: function (overlay) {
       var z = this._minimumZ;
       if (overlay) {
-        var z1 = Number(overlay.style.zIndex || window.getComputedStyle(overlay).zIndex);
+        var z1 = Number(
+          overlay.style.zIndex || window.getComputedStyle(overlay).zIndex
+        );
         // Check if is a number
         // Number.isNaN not supported in IE 10+
         if (z1 === z1) {
@@ -278,7 +291,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {number|string} z
      * @private
      */
-    _setZ: function(element, z) {
+    _setZ: function (element, z) {
       element.style.zIndex = z;
     },
 
@@ -287,7 +300,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {number} aboveZ
      * @private
      */
-    _applyOverlayZ: function(overlay, aboveZ) {
+    _applyOverlayZ: function (overlay, aboveZ) {
       this._setZ(overlay, aboveZ + 2);
     },
 
@@ -298,7 +311,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @suppress {missingProperties}
      * @private
      */
-    _overlayInPath: function(path) {
+    _overlayInPath: function (path) {
       path = path || [];
       for (var i = 0; i < path.length; i++) {
         if (path[i]._manager === this) {
@@ -312,7 +325,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {!Event} event
      * @private
      */
-    _onCaptureClick: function(event) {
+    _onCaptureClick: function (event) {
       var overlay = /** @type {?} */ (this.currentOverlay());
       // Check if clicked outside of top overlay.
       if (overlay && this._overlayInPath(Polymer.dom(event).path) !== overlay) {
@@ -325,7 +338,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {!Event} event
      * @private
      */
-    _onCaptureFocus: function(event) {
+    _onCaptureFocus: function (event) {
       var overlay = /** @type {?} */ (this.currentOverlay());
       if (overlay) {
         overlay._onCaptureFocus(event);
@@ -337,12 +350,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {!Event} event
      * @private
      */
-    _onCaptureKeyDown: function(event) {
+    _onCaptureKeyDown: function (event) {
       var overlay = /** @type {?} */ (this.currentOverlay());
       if (overlay) {
-        if (Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, 'esc')) {
+        if (
+          Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, "esc")
+        ) {
           overlay._onCaptureEsc(event);
-        } else if (Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, 'tab')) {
+        } else if (
+          Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, "tab")
+        ) {
           overlay._onCaptureTab(event);
         }
       }
@@ -356,9 +373,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @suppress {missingProperties}
      * @private
      */
-    _shouldBeBehindOverlay: function(overlay1, overlay2) {
+    _shouldBeBehindOverlay: function (overlay1, overlay2) {
       return !overlay1.alwaysOnTop && overlay2.alwaysOnTop;
-    }
+    },
   };
 
   Polymer.IronOverlayManager = new Polymer.IronOverlayManagerClass();

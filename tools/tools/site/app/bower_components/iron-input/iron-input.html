@@ -8,13 +8,15 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-announcer/iron-a11y-announcer.html">
-<link rel="import" href="../iron-validatable-behavior/iron-validatable-behavior.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-a11y-announcer/iron-a11y-announcer.html" />
+<link
+  rel="import"
+  href="../iron-validatable-behavior/iron-validatable-behavior.html"
+/>
 
 <script>
-
-/*
+  /*
 `<iron-input>` adds two-way binding and custom validators using `Polymer.IronValidatorBehavior`
 to `<input>`.
 
@@ -49,23 +51,19 @@ is separate from validation, and `allowed-pattern` does not affect how the input
 */
 
   Polymer({
+    is: "iron-input",
 
-    is: 'iron-input',
+    extends: "input",
 
-    extends: 'input',
-
-    behaviors: [
-      Polymer.IronValidatableBehavior
-    ],
+    behaviors: [Polymer.IronValidatableBehavior],
 
     properties: {
-
       /**
        * Use this property instead of `value` for two-way data binding.
        */
       bindValue: {
-        observer: '_bindValueChanged',
-        type: String
+        observer: "_bindValueChanged",
+        type: String,
       },
 
       /**
@@ -76,7 +74,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
        * If `allowedPattern` is not set, it will use the `type` attribute (only supported for `type=number`).
        */
       preventInvalidInput: {
-        type: Boolean
+        type: Boolean,
       },
 
       /**
@@ -88,28 +86,27 @@ is separate from validation, and `allowed-pattern` does not affect how the input
        */
       allowedPattern: {
         type: String,
-        observer: "_allowedPatternChanged"
+        observer: "_allowedPatternChanged",
       },
 
       _previousValidInput: {
         type: String,
-        value: ''
+        value: "",
       },
 
       _patternAlreadyChecked: {
         type: Boolean,
-        value: false
-      }
-
+        value: false,
+      },
     },
 
     listeners: {
-      'input': '_onInput',
-      'keypress': '_onKeypress'
+      input: "_onInput",
+      keypress: "_onKeypress",
     },
 
     /** @suppress {checkTypes} */
-    registered: function() {
+    registered: function () {
       // Feature detect whether we need to patch dispatchEvent (i.e. on FF and IE).
       if (!this._canDispatchEventOnDisabled()) {
         this._origDispatchEvent = this.dispatchEvent;
@@ -117,27 +114,27 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       }
     },
 
-    created: function() {
+    created: function () {
       Polymer.IronA11yAnnouncer.requestAvailability();
     },
 
-    _canDispatchEventOnDisabled: function() {
-      var input = document.createElement('input');
+    _canDispatchEventOnDisabled: function () {
+      var input = document.createElement("input");
       var canDispatch = false;
       input.disabled = true;
 
-      input.addEventListener('feature-check-dispatch-event', function() {
+      input.addEventListener("feature-check-dispatch-event", function () {
         canDispatch = true;
       });
 
       try {
-        input.dispatchEvent(new Event('feature-check-dispatch-event'));
-      } catch(e) {}
+        input.dispatchEvent(new Event("feature-check-dispatch-event"));
+      } catch (e) {}
 
       return canDispatch;
     },
 
-    _dispatchEventFirefoxIE: function() {
+    _dispatchEventFirefoxIE: function () {
       // Due to Firefox bug, events fired on disabled form controls can throw
       // errors; furthermore, neither IE nor Firefox will actually dispatch
       // events from disabled form controls; as such, we toggle disable around
@@ -155,7 +152,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
         pattern = new RegExp(this.allowedPattern);
       } else {
         switch (this.type) {
-          case 'number':
+          case "number":
             pattern = /[0-9.,e-]/;
             break;
         }
@@ -163,33 +160,41 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       return pattern;
     },
 
-    ready: function() {
+    ready: function () {
       this.bindValue = this.value;
     },
 
     /**
      * @suppress {checkTypes}
      */
-    _bindValueChanged: function() {
+    _bindValueChanged: function () {
       if (this.value !== this.bindValue) {
-        this.value = !(this.bindValue || this.bindValue === 0 || this.bindValue === false) ? '' : this.bindValue;
+        this.value = !(
+          this.bindValue ||
+          this.bindValue === 0 ||
+          this.bindValue === false
+        )
+          ? ""
+          : this.bindValue;
       }
       // manually notify because we don't want to notify until after setting value
-      this.fire('bind-value-changed', {value: this.bindValue});
+      this.fire("bind-value-changed", { value: this.bindValue });
     },
 
-    _allowedPatternChanged: function() {
+    _allowedPatternChanged: function () {
       // Force to prevent invalid input when an `allowed-pattern` is set
       this.preventInvalidInput = this.allowedPattern ? true : false;
     },
 
-    _onInput: function() {
+    _onInput: function () {
       // Need to validate each of the characters pasted if they haven't
       // been validated inside `_onKeypress` already.
       if (this.preventInvalidInput && !this._patternAlreadyChecked) {
         var valid = this._checkPatternValidity();
         if (!valid) {
-          this._announceInvalidCharacter('Invalid string of characters not entered.');
+          this._announceInvalidCharacter(
+            "Invalid string of characters not entered."
+          );
           this.value = this._previousValidInput;
         }
       }
@@ -199,7 +204,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       this._patternAlreadyChecked = false;
     },
 
-    _isPrintable: function(event) {
+    _isPrintable: function (event) {
       // What a control/printable character is varies wildly based on the browser.
       // - most control characters (arrows, backspace) do not send a `keypress` event
       //   in Chrome, but the *do* on Firefox
@@ -212,27 +217,27 @@ is separate from validation, and `allowed-pattern` does not affect how the input
 
       // For these keys, ASCII code == browser keycode.
       var anyNonPrintable =
-        (event.keyCode == 8)   ||  // backspace
-        (event.keyCode == 9)   ||  // tab
-        (event.keyCode == 13)  ||  // enter
-        (event.keyCode == 27);     // escape
+        event.keyCode == 8 || // backspace
+        event.keyCode == 9 || // tab
+        event.keyCode == 13 || // enter
+        event.keyCode == 27; // escape
 
       // For these keys, make sure it's a browser keycode and not an ASCII code.
       var mozNonPrintable =
-        (event.keyCode == 19)  ||  // pause
-        (event.keyCode == 20)  ||  // caps lock
-        (event.keyCode == 45)  ||  // insert
-        (event.keyCode == 46)  ||  // delete
-        (event.keyCode == 144) ||  // num lock
-        (event.keyCode == 145) ||  // scroll lock
-        (event.keyCode > 32 && event.keyCode < 41)   || // page up/down, end, home, arrows
+        event.keyCode == 19 || // pause
+        event.keyCode == 20 || // caps lock
+        event.keyCode == 45 || // insert
+        event.keyCode == 46 || // delete
+        event.keyCode == 144 || // num lock
+        event.keyCode == 145 || // scroll lock
+        (event.keyCode > 32 && event.keyCode < 41) || // page up/down, end, home, arrows
         (event.keyCode > 111 && event.keyCode < 124); // fn keys
 
       return !anyNonPrintable && !(event.charCode == 0 && mozNonPrintable);
     },
 
-    _onKeypress: function(event) {
-      if (!this.preventInvalidInput && this.type !== 'number') {
+    _onKeypress: function (event) {
+      if (!this.preventInvalidInput && this.type !== "number") {
         return;
       }
       var regexp = this._patternRegExp;
@@ -241,8 +246,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       }
 
       // Handle special keys and backspace
-      if (event.metaKey || event.ctrlKey || event.altKey)
-        return;
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
 
       // Check the pattern either here or in `_onInput`, but not in both.
       this._patternAlreadyChecked = true;
@@ -250,11 +254,13 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       var thisChar = String.fromCharCode(event.charCode);
       if (this._isPrintable(event) && !regexp.test(thisChar)) {
         event.preventDefault();
-        this._announceInvalidCharacter('Invalid character ' + thisChar + ' not entered.');
+        this._announceInvalidCharacter(
+          "Invalid character " + thisChar + " not entered."
+        );
       }
     },
 
-    _checkPatternValidity: function() {
+    _checkPatternValidity: function () {
       var regexp = this._patternRegExp;
       if (!regexp) {
         return true;
@@ -272,35 +278,37 @@ is separate from validation, and `allowed-pattern` does not affect how the input
      * then any constraints.
      * @return {boolean} True if the value is valid.
      */
-    validate: function() {
+    validate: function () {
       // First, check what the browser thinks. Some inputs (like type=number)
       // behave weirdly and will set the value to "" if something invalid is
       // entered, but will set the validity correctly.
-      var valid =  this.checkValidity();
+      var valid = this.checkValidity();
 
       // Only do extra checking if the browser thought this was valid.
       if (valid) {
         // Empty, required input is invalid
-        if (this.required && this.value === '') {
+        if (this.required && this.value === "") {
           valid = false;
         } else if (this.hasValidator()) {
-          valid = Polymer.IronValidatableBehavior.validate.call(this, this.value);
+          valid = Polymer.IronValidatableBehavior.validate.call(
+            this,
+            this.value
+          );
         }
       }
 
       this.invalid = !valid;
-      this.fire('iron-input-validate');
+      this.fire("iron-input-validate");
       return valid;
     },
 
-    _announceInvalidCharacter: function(message) {
-      this.fire('iron-announce', { text: message });
-    }
+    _announceInvalidCharacter: function (message) {
+      this.fire("iron-announce", { text: message });
+    },
   });
 
   /*
   The `iron-input-validate` event is fired whenever `validate()` is called.
   @event iron-input-validate
   */
-
 </script>

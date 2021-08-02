@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/paper-item.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-item)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-item)_
-
 
 ##&lt;paper-item&gt;
 
@@ -68,16 +66,16 @@ applied (provided you have correctly included the shared styles):
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--paper-item-min-height` | Minimum height of the item | `48px` |
-| `--paper-item` | Mixin applied to the item | `{}` |
-| `--paper-item-selected-weight` | The font weight of a selected item | `bold` |
-| `--paper-item-selected` | Mixin applied to selected paper-items | `{}` |
-| `--paper-item-disabled-color` | The color for disabled paper-items | `--disabled-text-color` |
-| `--paper-item-disabled` | Mixin applied to disabled paper-items | `{}` |
-| `--paper-item-focused` | Mixin applied to focused paper-items | `{}` |
-| `--paper-item-focused-before` | Mixin applied to :before focused paper-items | `{}` |
+| Custom property                | Description                                  | Default                 |
+| ------------------------------ | -------------------------------------------- | ----------------------- |
+| `--paper-item-min-height`      | Minimum height of the item                   | `48px`                  |
+| `--paper-item`                 | Mixin applied to the item                    | `{}`                    |
+| `--paper-item-selected-weight` | The font weight of a selected item           | `bold`                  |
+| `--paper-item-selected`        | Mixin applied to selected paper-items        | `{}`                    |
+| `--paper-item-disabled-color`  | The color for disabled paper-items           | `--disabled-text-color` |
+| `--paper-item-disabled`        | Mixin applied to disabled paper-items        | `{}`                    |
+| `--paper-item-focused`         | Mixin applied to focused paper-items         | `{}`                    |
+| `--paper-item-focused-before`  | Mixin applied to :before focused paper-items | `{}`                    |
 
 ### Accessibility
 
@@ -86,14 +84,10 @@ This element has `role="listitem"` by default. Depending on usage, it may be mor
 
 ```html
 <paper-item role="menuitemcheckbox">
-  <paper-item-body>
-    Show your status
-  </paper-item-body>
+  <paper-item-body> Show your status </paper-item-body>
   <paper-checkbox></paper-checkbox>
 </paper-item>
 ```
-
-
 
 ##&lt;paper-icon-item&gt;
 
@@ -117,19 +111,17 @@ node with the attribute `item-icon` is placed in the icon area.
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--paper-item-icon-width` | Width of the icon area | `56px` |
-| `--paper-item-icon` | Mixin applied to the icon area | `{}` |
-| `--paper-icon-item` | Mixin applied to the item | `{}` |
-| `--paper-item-selected-weight` | The font weight of a selected item | `bold` |
-| `--paper-item-selected` | Mixin applied to selected paper-items | `{}` |
-| `--paper-item-disabled-color` | The color for disabled paper-items | `--disabled-text-color` |
-| `--paper-item-disabled` | Mixin applied to disabled paper-items | `{}` |
-| `--paper-item-focused` | Mixin applied to focused paper-items | `{}` |
-| `--paper-item-focused-before` | Mixin applied to :before focused paper-items | `{}` |
-
-
+| Custom property                | Description                                  | Default                 |
+| ------------------------------ | -------------------------------------------- | ----------------------- |
+| `--paper-item-icon-width`      | Width of the icon area                       | `56px`                  |
+| `--paper-item-icon`            | Mixin applied to the icon area               | `{}`                    |
+| `--paper-icon-item`            | Mixin applied to the item                    | `{}`                    |
+| `--paper-item-selected-weight` | The font weight of a selected item           | `bold`                  |
+| `--paper-item-selected`        | Mixin applied to selected paper-items        | `{}`                    |
+| `--paper-item-disabled-color`  | The color for disabled paper-items           | `--disabled-text-color` |
+| `--paper-item-disabled`        | Mixin applied to disabled paper-items        | `{}`                    |
+| `--paper-item-focused`         | Mixin applied to focused paper-items         | `{}`                    |
+| `--paper-item-focused-before`  | Mixin applied to :before focused paper-items | `{}`                    |
 
 ##&lt;paper-item-body&gt;
 
@@ -151,13 +143,11 @@ The child elements with the `secondary` attribute is given secondary text stylin
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--paper-item-body-two-line-min-height` | Minimum height of a two-line item | `72px` |
-| `--paper-item-body-three-line-min-height` | Minimum height of a three-line item | `88px` |
-| `--paper-item-body-secondary-color` | Foreground color for the `secondary` area | `--secondary-text-color` |
-| `--paper-item-body-secondary` | Mixin applied to the `secondary` area | `{}` |
-
-
+| Custom property                           | Description                               | Default                  |
+| ----------------------------------------- | ----------------------------------------- | ------------------------ |
+| `--paper-item-body-two-line-min-height`   | Minimum height of a two-line item         | `72px`                   |
+| `--paper-item-body-three-line-min-height` | Minimum height of a three-line item       | `88px`                   |
+| `--paper-item-body-secondary-color`       | Foreground color for the `secondary` area | `--secondary-text-color` |
+| `--paper-item-body-secondary`             | Mixin applied to the `secondary` area     | `{}`                     |
 
 <!-- No docs for Polymer.PaperItemBehavior found. -->

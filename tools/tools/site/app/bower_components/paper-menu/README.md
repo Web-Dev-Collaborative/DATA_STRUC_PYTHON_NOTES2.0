@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build Status](https://travis-ci.org/PolymerElements/paper-menu.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-menu)
 
 _[Demo and API Docs](https://elements.polymer-project.org/elements/paper-menu)_
-
 
 ##&lt;paper-menu&gt;
 
@@ -54,15 +52,15 @@ and multiple items can be selected.
 
 The following custom properties and mixins are available for styling:
 
-| Custom property | Description | Default |
-| --- | --- | --- |
-| `--paper-menu-background-color` | Menu background color | `--primary-background-color` |
-| `--paper-menu-color` | Menu foreground color | `--primary-text-color` |
-| `--paper-menu-disabled-color` | Foreground color for a disabled item | `--disabled-text-color` |
-| `--paper-menu` | Mixin applied to the menu | `{}` |
-| `--paper-menu-selected-item` | Mixin applied to the selected item | `{}` |
-| `--paper-menu-focused-item` | Mixin applied to the focused item | `{}` |
-| `--paper-menu-focused-item-after` | Mixin applied to the ::after pseudo-element for the focused item | `{}` |
+| Custom property                   | Description                                                      | Default                      |
+| --------------------------------- | ---------------------------------------------------------------- | ---------------------------- |
+| `--paper-menu-background-color`   | Menu background color                                            | `--primary-background-color` |
+| `--paper-menu-color`              | Menu foreground color                                            | `--primary-text-color`       |
+| `--paper-menu-disabled-color`     | Foreground color for a disabled item                             | `--disabled-text-color`      |
+| `--paper-menu`                    | Mixin applied to the menu                                        | `{}`                         |
+| `--paper-menu-selected-item`      | Mixin applied to the selected item                               | `{}`                         |
+| `--paper-menu-focused-item`       | Mixin applied to the focused item                                | `{}`                         |
+| `--paper-menu-focused-item-after` | Mixin applied to the ::after pseudo-element for the focused item | `{}`                         |
 
 ### Accessibility
 
@@ -70,8 +68,6 @@ The following custom properties and mixins are available for styling:
 `aria-multiselectable` set. It implements key bindings to navigate through the menu with the up and
 down arrow keys, esc to exit the menu, and enter to activate a menu item. Typing the first letter
 of a menu item will also focus it.
-
-
 
 ##&lt;paper-submenu&gt;
 
@@ -109,5 +105,3 @@ Just like in `<paper-menu>`, the focused item is highlighted, and the selected
 item has bolded text. Please see the `<paper-menu>` docs for which attributes
 (such as `multi` and `selected`), and styling options are available for the
 `menu-content` menu.
-
-

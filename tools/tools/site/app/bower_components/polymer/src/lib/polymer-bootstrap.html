@@ -8,9 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <script>
-
-  (function() {
-
+  (function () {
     // until ES6 modules become standard, we follow Occam and simply stake out
     // a global namespace
 
@@ -19,10 +17,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     var userPolymer = window.Polymer;
 
-    window.Polymer = function(prototype) {
+    window.Polymer = function (prototype) {
       // if input is a `class` (aka a function with a prototype), use the prototype
       // remember that the `constructor` will never be called
-      if (typeof prototype === 'function') {
+      if (typeof prototype === "function") {
         prototype = prototype.prototype;
       }
       // if there is no prototype, use a default empty object
@@ -35,9 +33,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // this may have resulted in a new prototype being created
       prototype = factory.prototype;
       var options = {
-        prototype: prototype
+        prototype: prototype,
       };
-      // NOTE: we're specifically supporting older Chrome versions here 
+      // NOTE: we're specifically supporting older Chrome versions here
       // (specifically Chrome 39) that throw when options.extends is undefined.
       if (prototype.extends) {
         options.extends = prototype.extends;
@@ -47,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return factory;
     };
 
-    var desugar = function(prototype) {
+    var desugar = function (prototype) {
       // Note: need to chain user prototype with the correct type-extended
       // version of Polymer.Base; this is especially important when you can't
       // prototype swizzle (e.g. IE10), since CustomElements uses getPrototypeOf
@@ -67,7 +65,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     Polymer.Class = desugar;
-
   })();
 
   /*
@@ -83,16 +80,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   Polymer.telemetry = {
     registrations: [],
-    _regLog: function(prototype) {
-      console.log('[' + prototype.is + ']: registered')
+    _regLog: function (prototype) {
+      console.log("[" + prototype.is + "]: registered");
     },
-    _registrate: function(prototype) {
+    _registrate: function (prototype) {
       this.registrations.push(prototype);
       Polymer.log && this._regLog(prototype);
     },
-    dumpRegistrations: function() {
+    dumpRegistrations: function () {
       this.registrations.forEach(this._regLog);
-    }
+    },
   };
-
 </script>

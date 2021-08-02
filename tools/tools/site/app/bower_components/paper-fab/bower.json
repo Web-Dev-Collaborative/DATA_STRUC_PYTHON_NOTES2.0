@@ -2,14 +2,8 @@
   "name": "paper-fab",
   "version": "1.2.0",
   "description": "A material design floating action button",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "button"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "button"],
   "main": "paper-fab.html",
   "ignore": [],
   "private": true,

@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -15,7 +14,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 [![Build status](https://travis-ci.org/PolymerElements/iron-iconset-svg.svg?branch=master)](https://travis-ci.org/PolymerElements/iron-iconset-svg)
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/iron-iconset-svg)_
-
 
 ##&lt;iron-iconset-svg&gt;
 
@@ -44,13 +42,11 @@ Example:
 ```
 
 This will automatically register the icon set "my-svg-icons" to the iconset
-database.  To use these icons from within another element, make a
+database. To use these icons from within another element, make a
 `iron-iconset` element and call the `byId` method
 to retrieve a given iconset. To apply a particular icon inside an
 element use the `applyIcon` method. For example:
 
 ```javascript
-iconset.applyIcon(iconNode, 'car');
+iconset.applyIcon(iconNode, "car");
 ```
-
-

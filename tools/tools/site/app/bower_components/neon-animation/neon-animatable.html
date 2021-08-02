@@ -8,9 +8,12 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
-<link rel="import" href="neon-animatable-behavior.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-resizable-behavior/iron-resizable-behavior.html"
+/>
+<link rel="import" href="neon-animatable-behavior.html" />
 
 <!--
 `<neon-animatable>` is a simple container element implementing `Polymer.NeonAnimatableBehavior`. This is a convenience element for use with `<neon-animated-pages>`.
@@ -32,23 +35,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
-    
+
     <content></content>
   </template>
-
 </dom-module>
 
 <script>
-
   Polymer({
+    is: "neon-animatable",
 
-    is: 'neon-animatable',
-
-    behaviors: [
-      Polymer.NeonAnimatableBehavior,
-      Polymer.IronResizableBehavior
-    ]
-
+    behaviors: [Polymer.NeonAnimatableBehavior, Polymer.IronResizableBehavior],
   });
-
 </script>

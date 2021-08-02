@@ -8,10 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <script>
-
   /**
    * `Polymer.IronScrollTargetBehavior` allows an element to respond to scroll events from a
    * designated scroll target.
@@ -24,9 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @polymerBehavior
    */
   Polymer.IronScrollTargetBehavior = {
-
     properties: {
-
       /**
        * Specifies the element that will handle the scroll event
        * on the behalf of the current element. This is typically a reference to an element,
@@ -63,22 +60,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       scrollTarget: {
         type: Object,
-        value: function() {
+        value: function () {
           return this._defaultScrollTarget;
-        }
-      }
+        },
+      },
     },
 
-    observers: [
-      '_scrollTargetChanged(scrollTarget, isAttached)'
-    ],
+    observers: ["_scrollTargetChanged(scrollTarget, isAttached)"],
 
     /**
      * True if the event listener should be installed.
      */
     _shouldHaveListener: true,
 
-    _scrollTargetChanged: function(scrollTarget, isAttached) {
+    _scrollTargetChanged: function (scrollTarget, isAttached) {
       var eventTarget;
 
       if (this._oldScrollTarget) {
@@ -89,21 +84,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return;
       }
       // Support element id references
-      if (scrollTarget === 'document') {
-
+      if (scrollTarget === "document") {
         this.scrollTarget = this._doc;
-
-      } else if (typeof scrollTarget === 'string') {
-
-        this.scrollTarget = this.domHost ? this.domHost.$[scrollTarget] :
-            Polymer.dom(this.ownerDocument).querySelector('#' + scrollTarget);
-
+      } else if (typeof scrollTarget === "string") {
+        this.scrollTarget = this.domHost
+          ? this.domHost.$[scrollTarget]
+          : Polymer.dom(this.ownerDocument).querySelector("#" + scrollTarget);
       } else if (this._isValidScrollTarget()) {
-
-        this._boundScrollHandler = this._boundScrollHandler || this._scrollHandler.bind(this);
+        this._boundScrollHandler =
+          this._boundScrollHandler || this._scrollHandler.bind(this);
         this._oldScrollTarget = scrollTarget;
         this._toggleScrollListener(this._shouldHaveListener, scrollTarget);
-
       }
     },
 
@@ -140,7 +131,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     get _scrollTop() {
       if (this._isValidScrollTarget()) {
-        return this.scrollTarget === this._doc ? window.pageYOffset : this.scrollTarget.scrollTop;
+        return this.scrollTarget === this._doc
+          ? window.pageYOffset
+          : this.scrollTarget.scrollTop;
       }
       return 0;
     },
@@ -152,7 +145,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     get _scrollLeft() {
       if (this._isValidScrollTarget()) {
-        return this.scrollTarget === this._doc ? window.pageXOffset : this.scrollTarget.scrollLeft;
+        return this.scrollTarget === this._doc
+          ? window.pageXOffset
+          : this.scrollTarget.scrollLeft;
       }
       return 0;
     },
@@ -190,8 +185,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {number} left The left position
      * @param {number} top The top position
      */
-    scroll: function(left, top) {
-       if (this.scrollTarget === this._doc) {
+    scroll: function (left, top) {
+      if (this.scrollTarget === this._doc) {
         window.scrollTo(left, top);
       } else if (this._isValidScrollTarget()) {
         this.scrollTarget.scrollLeft = left;
@@ -206,7 +201,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     get _scrollTargetWidth() {
       if (this._isValidScrollTarget()) {
-        return this.scrollTarget === this._doc ? window.innerWidth : this.scrollTarget.offsetWidth;
+        return this.scrollTarget === this._doc
+          ? window.innerWidth
+          : this.scrollTarget.offsetWidth;
       }
       return 0;
     },
@@ -218,7 +215,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     get _scrollTargetHeight() {
       if (this._isValidScrollTarget()) {
-        return this.scrollTarget === this._doc ? window.innerHeight : this.scrollTarget.offsetHeight;
+        return this.scrollTarget === this._doc
+          ? window.innerHeight
+          : this.scrollTarget.offsetHeight;
       }
       return 0;
     },
@@ -228,20 +227,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @return {boolean}
      */
-    _isValidScrollTarget: function() {
+    _isValidScrollTarget: function () {
       return this.scrollTarget instanceof HTMLElement;
     },
 
-    _toggleScrollListener: function(yes, scrollTarget) {
+    _toggleScrollListener: function (yes, scrollTarget) {
       if (!this._boundScrollHandler) {
         return;
       }
       var eventTarget = scrollTarget === this._doc ? window : scrollTarget;
 
       if (yes) {
-        eventTarget.addEventListener('scroll', this._boundScrollHandler);
+        eventTarget.addEventListener("scroll", this._boundScrollHandler);
       } else {
-        eventTarget.removeEventListener('scroll', this._boundScrollHandler);
+        eventTarget.removeEventListener("scroll", this._boundScrollHandler);
       }
     },
 
@@ -250,11 +249,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      * @param {boolean} yes True to add the event, False to remove it.
      */
-    toggleScrollListener: function(yes) {
+    toggleScrollListener: function (yes) {
       this._shouldHaveListener = yes;
       this._toggleScrollListener(yes, this.scrollTarget);
-    }
-
+    },
   };
-
 </script>

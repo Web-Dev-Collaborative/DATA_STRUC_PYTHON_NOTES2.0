@@ -8,20 +8,29 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
-<link rel="import" href="../iron-behaviors/iron-button-state.html">
-<link rel="import" href="../iron-behaviors/iron-control-state.html">
-<link rel="import" href="../iron-form-element-behavior/iron-form-element-behavior.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-validatable-behavior/iron-validatable-behavior.html">
-<link rel="import" href="../paper-input/paper-input.html">
-<link rel="import" href="../paper-menu-button/paper-menu-button.html">
-<link rel="import" href="../paper-ripple/paper-ripple.html">
-<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"
+/>
+<link rel="import" href="../iron-behaviors/iron-button-state.html" />
+<link rel="import" href="../iron-behaviors/iron-control-state.html" />
+<link
+  rel="import"
+  href="../iron-form-element-behavior/iron-form-element-behavior.html"
+/>
+<link rel="import" href="../iron-icon/iron-icon.html" />
+<link
+  rel="import"
+  href="../iron-validatable-behavior/iron-validatable-behavior.html"
+/>
+<link rel="import" href="../paper-input/paper-input.html" />
+<link rel="import" href="../paper-menu-button/paper-menu-button.html" />
+<link rel="import" href="../paper-ripple/paper-ripple.html" />
+<link rel="import" href="../paper-styles/default-theme.html" />
 
-<link rel="import" href="paper-dropdown-menu-icons.html">
-<link rel="import" href="paper-dropdown-menu-shared-styles.html">
+<link rel="import" href="paper-dropdown-menu-icons.html" />
+<link rel="import" href="paper-dropdown-menu-shared-styles.html" />
 
 <!--
 Material design: [Dropdown menus](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
@@ -99,7 +108,8 @@ respectively.
       opened="{{opened}}"
       close-on-activate
       allow-outside-scroll="[[allowOutsideScroll]]"
-      restore-focus-on-close="[[restoreFocusOnClose]]">
+      restore-focus-on-close="[[restoreFocusOnClose]]"
+    >
       <div class="dropdown-trigger">
         <paper-ripple></paper-ripple>
         <!-- paper-input has type="text" for a11y, do not remove -->
@@ -113,8 +123,12 @@ respectively.
           error-message="[[errorMessage]]"
           always-float-label="[[alwaysFloatLabel]]"
           no-label-float="[[noLabelFloat]]"
-          label="[[label]]">
-          <iron-icon icon="paper-dropdown-menu:arrow-drop-down" suffix></iron-icon>
+          label="[[label]]"
+        >
+          <iron-icon
+            icon="paper-dropdown-menu:arrow-drop-down"
+            suffix
+          ></iron-icon>
         </paper-input>
       </div>
       <content id="content" select=".dropdown-content"></content>
@@ -122,17 +136,17 @@ respectively.
   </template>
 
   <script>
-    (function() {
-      'use strict';
+    (function () {
+      "use strict";
 
       Polymer({
-        is: 'paper-dropdown-menu',
+        is: "paper-dropdown-menu",
 
         behaviors: [
           Polymer.IronButtonState,
           Polymer.IronControlState,
           Polymer.IronFormElementBehavior,
-          Polymer.IronValidatableBehavior
+          Polymer.IronValidatableBehavior,
         ],
 
         properties: {
@@ -144,7 +158,7 @@ respectively.
           selectedItemLabel: {
             type: String,
             notify: true,
-            readOnly: true
+            readOnly: true,
           },
 
           /**
@@ -157,7 +171,7 @@ respectively.
           selectedItem: {
             type: Object,
             notify: true,
-            readOnly: true
+            readOnly: true,
           },
 
           /**
@@ -168,28 +182,28 @@ respectively.
           value: {
             type: String,
             notify: true,
-            readOnly: true
+            readOnly: true,
           },
 
           /**
            * The label for the dropdown.
            */
           label: {
-            type: String
+            type: String,
           },
 
           /**
            * The placeholder for the dropdown.
            */
           placeholder: {
-            type: String
+            type: String,
           },
 
           /**
            * The error message to display when invalid.
            */
           errorMessage: {
-              type: String
+            type: String,
           },
 
           /**
@@ -199,7 +213,7 @@ respectively.
             type: Boolean,
             notify: true,
             value: false,
-            observer: '_openedChanged'
+            observer: "_openedChanged",
           },
 
           /**
@@ -210,7 +224,7 @@ respectively.
            */
           allowOutsideScroll: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -218,9 +232,9 @@ respectively.
            * `<paper-input-container>`'s `noLabelFloat` property.
            */
           noLabelFloat: {
-              type: Boolean,
-              value: false,
-              reflectToAttribute: true
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true,
           },
 
           /**
@@ -229,7 +243,7 @@ respectively.
            */
           alwaysFloatLabel: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -238,7 +252,7 @@ respectively.
            */
           noAnimations: {
             type: Boolean,
-            value: false
+            value: false,
           },
 
           /**
@@ -247,7 +261,7 @@ respectively.
            */
           horizontalAlign: {
             type: String,
-            value: 'right'
+            value: "right",
           },
 
           /**
@@ -256,7 +270,7 @@ respectively.
            */
           verticalAlign: {
             type: String,
-            value: 'top'
+            value: "top",
           },
 
           /**
@@ -266,38 +280,36 @@ respectively.
            * the area of the dropdown falling outside of `fitInto`.
            */
           dynamicAlign: {
-            type: Boolean
+            type: Boolean,
           },
-            
+
           /**
            * Whether focus should be restored to the dropdown when the menu closes.
            */
           restoreFocusOnClose: {
             type: Boolean,
-            value: true
+            value: true,
           },
         },
 
         listeners: {
-          'tap': '_onTap'
+          tap: "_onTap",
         },
 
         keyBindings: {
-          'up down': 'open',
-          'esc': 'close'
+          "up down": "open",
+          esc: "close",
         },
 
         hostAttributes: {
-          role: 'combobox',
-          'aria-autocomplete': 'none',
-          'aria-haspopup': 'true'
+          role: "combobox",
+          "aria-autocomplete": "none",
+          "aria-haspopup": "true",
         },
 
-        observers: [
-          '_selectedItemChanged(selectedItem)'
-        ],
+        observers: ["_selectedItemChanged(selectedItem)"],
 
-        attached: function() {
+        attached: function () {
           // NOTE(cdata): Due to timing, a preselected value in a `IronSelectable`
           // child will cause an `iron-select` event to fire while the element is
           // still in a `DocumentFragment`. This has the effect of causing
@@ -318,14 +330,14 @@ respectively.
         /**
          * Show the dropdown content.
          */
-        open: function() {
+        open: function () {
           this.$.menuButton.open();
         },
 
         /**
          * Hide the dropdown content.
          */
-        close: function() {
+        close: function () {
           this.$.menuButton.close();
         },
 
@@ -334,7 +346,7 @@ respectively.
          *
          * @param {CustomEvent} event An `iron-select` event.
          */
-        _onIronSelect: function(event) {
+        _onIronSelect: function (event) {
           this._setSelectedItem(event.detail.item);
         },
 
@@ -343,7 +355,7 @@ respectively.
          *
          * @param {CustomEvent} event An `iron-deselect` event.
          */
-        _onIronDeselect: function(event) {
+        _onIronDeselect: function (event) {
           this._setSelectedItem(null);
         },
 
@@ -352,7 +364,7 @@ respectively.
          *
          * @param {CustomEvent} event A tap event.
          */
-        _onTap: function(event) {
+        _onTap: function (event) {
           if (Polymer.Gestures.findOriginalTarget(event) === this) {
             this.open();
           }
@@ -364,12 +376,15 @@ respectively.
          * @param {Element} selectedItem A selected Element item, with an
          * optional `label` property.
          */
-        _selectedItemChanged: function(selectedItem) {
-          var value = '';
+        _selectedItemChanged: function (selectedItem) {
+          var value = "";
           if (!selectedItem) {
-            value = '';
+            value = "";
           } else {
-            value = selectedItem.label || selectedItem.getAttribute('label') || selectedItem.textContent.trim();
+            value =
+              selectedItem.label ||
+              selectedItem.getAttribute("label") ||
+              selectedItem.textContent.trim();
           }
 
           this._setValue(value);
@@ -383,7 +398,7 @@ respectively.
          * @param {boolean} noLabelFloat True if the label should not float
          * above the input, otherwise false.
          */
-        _computeMenuVerticalOffset: function(noLabelFloat) {
+        _computeMenuVerticalOffset: function (noLabelFloat) {
           // NOTE(cdata): These numbers are somewhat magical because they are
           // derived from the metrics of elements internal to `paper-input`'s
           // template. The metrics will change depending on whether or not the
@@ -398,17 +413,19 @@ respectively.
          * @return {boolean} true if `required` is false, or if `required` is true
          * and the element has a valid selection.
          */
-        _getValidity: function(_value) {
-          return this.disabled || !this.required || (this.required && !!this.value);
+        _getValidity: function (_value) {
+          return (
+            this.disabled || !this.required || (this.required && !!this.value)
+          );
         },
 
-        _openedChanged: function() {
-          var openState = this.opened ? 'true' : 'false';
+        _openedChanged: function () {
+          var openState = this.opened ? "true" : "false";
           var e = this.contentElement;
           if (e) {
-            e.setAttribute('aria-expanded', openState);
+            e.setAttribute("aria-expanded", openState);
           }
-        }
+        },
       });
     })();
   </script>

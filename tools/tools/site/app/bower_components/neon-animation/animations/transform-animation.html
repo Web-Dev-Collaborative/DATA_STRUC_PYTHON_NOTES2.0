@@ -8,9 +8,9 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../neon-animation-behavior.html">
-<link rel="import" href="../web-animations.html">
+<link rel="import" href="../../polymer/polymer.html" />
+<link rel="import" href="../neon-animation-behavior.html" />
+<link rel="import" href="../web-animations.html" />
 
 <!--
 `<transform-animation>` animates a custom transform on an element. Use this to animate multiple
@@ -30,14 +30,10 @@ Configuration:
 -->
 
 <script>
-
   Polymer({
+    is: "transform-animation",
 
-    is: 'transform-animation',
-
-    behaviors: [
-      Polymer.NeonAnimationBehavior
-    ],
+    behaviors: [Polymer.NeonAnimationBehavior],
 
     /**
      * @param {{
@@ -48,23 +44,26 @@ Configuration:
      *   timing: (Object|undefined)
      * }} config
      */
-    configure: function(config) {
+    configure: function (config) {
       var node = config.node;
-      var transformFrom = config.transformFrom || 'none';
-      var transformTo = config.transformTo || 'none';
+      var transformFrom = config.transformFrom || "none";
+      var transformTo = config.transformTo || "none";
 
-      this._effect = new KeyframeEffect(node, [
-        {'transform': transformFrom},
-        {'transform': transformTo}
-      ], this.timingFromConfig(config));
+      this._effect = new KeyframeEffect(
+        node,
+        [{ transform: transformFrom }, { transform: transformTo }],
+        this.timingFromConfig(config)
+      );
 
       if (config.transformOrigin) {
-        this.setPrefixedProperty(node, 'transformOrigin', config.transformOrigin);
+        this.setPrefixedProperty(
+          node,
+          "transformOrigin",
+          config.transformOrigin
+        );
       }
 
       return this._effect;
-    }
-
+    },
   });
-
 </script>

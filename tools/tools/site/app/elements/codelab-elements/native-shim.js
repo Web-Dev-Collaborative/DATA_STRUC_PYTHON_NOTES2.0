@@ -59,7 +59,7 @@
  *  requirements with the latest version of popular transpilers.
  */
 (() => {
-  'use strict';
+  "use strict";
 
   // Do nothing if `customElements` does not exist.
   if (!window.customElements) return;
@@ -82,7 +82,6 @@
    */
   const constructorByTagname = new Map();
 
-
   /**
    * Whether the constructors are being called by a browser process, ie parsing
    * or createElement.
@@ -95,14 +94,14 @@
    */
   let userConstruction = false;
 
-  window.HTMLElement = function() {
+  window.HTMLElement = function () {
     if (!browserConstruction) {
       const tagname = tagnameByConstructor.get(this.constructor);
       const fakeClass = nativeGet.call(window.customElements, tagname);
 
       // Make sure that the fake constructor doesn't call back to this constructor
       userConstruction = true;
-      const instance = new (fakeClass)();
+      const instance = new fakeClass();
       return instance;
     }
     // Else do nothing. This will be reached by ES5-style classes doing
@@ -142,7 +141,8 @@
     StandInElement.observedAttributes = elementClass.observedAttributes;
     standInProto.connectedCallback = elementProto.connectedCallback;
     standInProto.disconnectedCallback = elementProto.disconnectedCallback;
-    standInProto.attributeChangedCallback = elementProto.attributeChangedCallback;
+    standInProto.attributeChangedCallback =
+      elementProto.attributeChangedCallback;
     standInProto.adoptedCallback = elementProto.adoptedCallback;
 
     tagnameByConstructor.set(elementClass, tagname);
@@ -154,11 +154,19 @@
 
   // Workaround for Safari bug where patching customElements can be lost, likely
   // due to native wrapper garbage collection issue
-  Object.defineProperty(window, 'customElements',
-    {value: window.customElements, configurable: true, writable: true});
-  Object.defineProperty(window.customElements, 'define',
-    {value: define, configurable: true, writable: true});
-  Object.defineProperty(window.customElements, 'get',
-    {value: get, configurable: true, writable: true});
-
+  Object.defineProperty(window, "customElements", {
+    value: window.customElements,
+    configurable: true,
+    writable: true,
+  });
+  Object.defineProperty(window.customElements, "define", {
+    value: define,
+    configurable: true,
+    writable: true,
+  });
+  Object.defineProperty(window.customElements, "get", {
+    value: get,
+    configurable: true,
+    writable: true,
+  });
 })();

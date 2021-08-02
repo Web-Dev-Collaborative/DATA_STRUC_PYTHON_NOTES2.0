@@ -5,14 +5,8 @@
   "private": true,
   "license": "http://polymer.github.io/LICENSE.txt",
   "main": "iron-scroll-target-behavior.html",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "polymer",
-    "scroll"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "polymer", "scroll"],
   "repository": {
     "type": "git",
     "url": "git://github.com/PolymerElements/iron-scroll-target-behavior.git"

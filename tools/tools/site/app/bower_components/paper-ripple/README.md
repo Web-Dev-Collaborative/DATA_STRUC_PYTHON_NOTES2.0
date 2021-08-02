@@ -5,7 +5,7 @@
 Material design: [Surface reaction](https://www.google.com/design/spec/animation/responsive-interaction.html#responsive-interaction-surface-reaction)
 
 `paper-ripple` provides a visual effect that other paper elements can
-use to simulate a rippling effect emanating from the point of contact.  The
+use to simulate a rippling effect emanating from the point of contact. The
 effect can be visualized as a concentric circle with motion.
 
 <!---
@@ -20,7 +20,7 @@ effect can be visualized as a concentric circle with motion.
         width: 100%;
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
       }
-      
+
       paper-ripple {
         color: #4285f4;
       }
@@ -30,11 +30,9 @@ effect can be visualized as a concentric circle with motion.
 </custom-element-demo>
 ```
 -->
+
 ```html
 <div style="position: relative">
   <paper-ripple></paper-ripple>
 </div
 ```
-
-
-

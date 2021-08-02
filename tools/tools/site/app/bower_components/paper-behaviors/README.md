@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -16,7 +15,6 @@ thing! https://github.com/PolymerLabs/tedium/issues
 
 _[Demo and API docs](https://elements.polymer-project.org/elements/paper-behaviors)_
 
-
 <!-- No docs for Polymer.PaperButtonBehavior found. -->
 
 ##Polymer.PaperCheckedElementBehavior
@@ -25,13 +23,9 @@ Use `Polymer.PaperCheckedElementBehavior` to implement a custom element
 that has a `checked` property similar to `Polymer.IronCheckedElementBehavior`
 and is compatible with having a ripple effect.
 
-
-
 ##Polymer.PaperInkyFocusBehavior
 
 `Polymer.PaperInkyFocusBehavior` implements a ripple when the element has keyboard focus.
-
-
 
 ##Polymer.PaperRippleBehavior
 
@@ -40,5 +34,3 @@ when the element has focus via pointer or keyboard.
 
 NOTE: This behavior is intended to be used in conjunction with and after
 `Polymer.IronButtonState` and `Polymer.IronControlState`.
-
-

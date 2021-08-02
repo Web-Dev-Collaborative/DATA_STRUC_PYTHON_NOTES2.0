@@ -8,10 +8,13 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-behaviors/paper-checked-element-behavior.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link
+  rel="import"
+  href="../paper-behaviors/paper-checked-element-behavior.html"
+/>
+<link rel="import" href="../paper-styles/default-theme.html" />
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html" />
 
 <!--
 Material design: [Radio button](https://www.google.com/design/spec/components/selection-controls.html#selection-controls-radio-button)
@@ -61,10 +64,16 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
         line-height: 0;
         white-space: nowrap;
         cursor: pointer;
-        @apply(--paper-font-common-base);
-        --calculated-paper-radio-button-size: var(--paper-radio-button-size, 16px);
+        @apply (--paper-font-common-base);
+        --calculated-paper-radio-button-size: var(
+          --paper-radio-button-size,
+          16px
+        );
         /* -1px is a sentinel for the default and is replace in `attached`. */
-        --calculated-paper-radio-button-ink-size: var(--paper-radio-button-ink-size, -1px);
+        --calculated-paper-radio-button-ink-size: var(
+          --paper-radio-button-ink-size,
+          -1px
+        );
       }
 
       :host(:focus) {
@@ -72,8 +81,8 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
       }
 
       #radioContainer {
-        @apply(--layout-inline);
-        @apply(--layout-center-center);
+        @apply (--layout-inline);
+        @apply (--layout-center-center);
         position: relative;
         width: var(--calculated-paper-radio-button-size);
         height: var(--calculated-paper-radio-button-size);
@@ -87,7 +96,10 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
         right: auto;
         width: var(--calculated-paper-radio-button-ink-size);
         height: var(--calculated-paper-radio-button-ink-size);
-        color: var(--paper-radio-button-unchecked-ink-color, --primary-text-color);
+        color: var(
+          --paper-radio-button-unchecked-ink-color,
+          --primary-text-color
+        );
         opacity: 0.6;
         pointer-events: none;
         -webkit-transform: translate(-50%, -50%);
@@ -98,7 +110,8 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
         color: var(--paper-radio-button-checked-ink-color, --primary-color);
       }
 
-      #offRadio, #onRadio {
+      #offRadio,
+      #onRadio {
         position: absolute;
         box-sizing: border-box;
         top: 0;
@@ -109,13 +122,20 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
       }
 
       #offRadio {
-        border: 2px solid var(--paper-radio-button-unchecked-color, --primary-text-color);
-        background-color: var(--paper-radio-button-unchecked-background-color, transparent);
+        border: 2px solid
+          var(--paper-radio-button-unchecked-color, --primary-text-color);
+        background-color: var(
+          --paper-radio-button-unchecked-background-color,
+          transparent
+        );
         transition: border-color 0.28s;
       }
 
       #onRadio {
-        background-color: var(--paper-radio-button-checked-color, --primary-color);
+        background-color: var(
+          --paper-radio-button-checked-color,
+          --primary-color
+        );
         -webkit-transform: scale(0);
         transform: scale(0);
         transition: -webkit-transform ease 0.28s;
@@ -154,12 +174,18 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
       /* disabled state */
 
       :host([disabled]) #offRadio {
-        border-color: var(--paper-radio-button-unchecked-color, --primary-text-color);
+        border-color: var(
+          --paper-radio-button-unchecked-color,
+          --primary-text-color
+        );
         opacity: 0.5;
       }
 
       :host([disabled][checked]) #onRadio {
-        background-color: var(--paper-radio-button-unchecked-color, --primary-text-color);
+        background-color: var(
+          --paper-radio-button-unchecked-color,
+          --primary-text-color
+        );
         opacity: 0.5;
       }
 
@@ -179,16 +205,14 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
 
   <script>
     Polymer({
-      is: 'paper-radio-button',
+      is: "paper-radio-button",
 
-      behaviors: [
-        Polymer.PaperCheckedElementBehavior
-      ],
+      behaviors: [Polymer.PaperCheckedElementBehavior],
 
       hostAttributes: {
-        role: 'radio',
-        'aria-checked': false,
-        tabindex: 0
+        role: "radio",
+        "aria-checked": false,
+        tabindex: 0,
       },
 
       properties: {
@@ -206,19 +230,25 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
 
         ariaActiveAttribute: {
           type: String,
-          value: 'aria-checked'
-        }
+          value: "aria-checked",
+        },
       },
 
-      ready: function() {
+      ready: function () {
         this._rippleContainer = this.$.radioContainer;
       },
 
-      attached: function() {
-        var inkSize = this.getComputedStyleValue('--calculated-paper-radio-button-ink-size').trim();
+      attached: function () {
+        var inkSize = this.getComputedStyleValue(
+          "--calculated-paper-radio-button-ink-size"
+        ).trim();
         // If unset, compute and set the default `--paper-radio-button-ink-size`.
-        if (inkSize === '-1px') {
-          var size = parseFloat(this.getComputedStyleValue('--calculated-paper-radio-button-size').trim());
+        if (inkSize === "-1px") {
+          var size = parseFloat(
+            this.getComputedStyleValue(
+              "--calculated-paper-radio-button-size"
+            ).trim()
+          );
           var defaultInkSize = Math.floor(3 * size);
 
           // The button and ripple need to have the same parity so that their
@@ -227,10 +257,11 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
             defaultInkSize++;
           }
 
-          this.customStyle['--paper-radio-button-ink-size'] = defaultInkSize + 'px';
+          this.customStyle["--paper-radio-button-ink-size"] =
+            defaultInkSize + "px";
           this.updateStyles();
         }
       },
-    })
+    });
   </script>
 </dom-module>

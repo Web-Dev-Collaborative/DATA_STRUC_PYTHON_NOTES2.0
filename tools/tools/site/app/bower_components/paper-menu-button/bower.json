@@ -2,16 +2,8 @@
   "name": "paper-menu-button",
   "version": "1.5.2",
   "description": "A material design element that composes a trigger and a dropdown menu",
-  "authors": [
-    "The Polymer Authors"
-  ],
-  "keywords": [
-    "web-components",
-    "web-component",
-    "polymer",
-    "menu",
-    "button"
-  ],
+  "authors": ["The Polymer Authors"],
+  "keywords": ["web-components", "web-component", "polymer", "menu", "button"],
   "main": "paper-menu-button.html",
   "private": true,
   "repository": {

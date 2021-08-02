@@ -5,17 +5,18 @@ It allows bindings in <body>, and other Polymer features which are lazily
 upgraded. This approach does not block rendering!.
 */
 
-(function() {
-
+(function () {
   var origTryReady = Polymer.Base._tryReady;
 
-  Polymer.Base._tryReady = function() {
+  Polymer.Base._tryReady = function () {
     // Configure properties bound from host lazily at startup
     // This is opt-in because it is expensive; it either needs to be in
     // a permanent top-level host with `lazyChildren` property set, or else
     // each instance needs to set the `lazy-bind` attribute
-    if (this.is && this.hasAttribute('lazy-bind') ||
-        (this.dataHost && this.dataHost.lazyChildren)) {
+    if (
+      (this.is && this.hasAttribute("lazy-bind")) ||
+      (this.dataHost && this.dataHost.lazyChildren)
+    ) {
       for (var p in this._propertyEffects) {
         if (this.hasOwnProperty(p)) {
           var v = this[p];
@@ -28,10 +29,9 @@ upgraded. This approach does not block rendering!.
   };
 
   Polymer.LightDomBindingBehavior = {
-
     lazyChildren: true,
 
-    _initFeatures: function() {
+    _initFeatures: function () {
       // By default, LightDomBindingBehavior becomes the permanent top-level
       // host, so that any lazy-loaded children are automatically hosted by
       // this element, and by virtue of `dataHost.lazyChildren: true` will
@@ -51,8 +51,7 @@ upgraded. This approach does not block rendering!.
       this._tryReady();
     },
   };
-
-}());
+})();
 
 // Similar to `<template is="dom-bind">`, but uses the body's light DOM
 // as the template.  If more advanced features such as event listeners,
@@ -61,11 +60,9 @@ upgraded. This approach does not block rendering!.
 // normal Polymer idioms.
 
 Polymer({
+  extends: "body",
 
-  extends: 'body',
+  is: "body-bind",
 
-  is: 'body-bind',
-
-  behaviors: [Polymer.LightDomBindingBehavior]
-
+  behaviors: [Polymer.LightDomBindingBehavior],
 });

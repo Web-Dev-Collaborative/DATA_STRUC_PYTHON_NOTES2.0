@@ -22,12 +22,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * to prevent doing so until a safe time.
    */
   Polymer.RenderStatus = {
-
     _ready: false,
 
     _callbacks: [],
 
-    whenReady: function(cb) {
+    whenReady: function (cb) {
       if (this._ready) {
         cb();
       } else {
@@ -35,16 +34,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _makeReady: function() {
+    _makeReady: function () {
       this._ready = true;
-      for (var i=0; i < this._callbacks.length; i++) {
+      for (var i = 0; i < this._callbacks.length; i++) {
         this._callbacks[i]();
       }
       this._callbacks = [];
     },
 
-    _catchFirstRender: function() {
-      requestAnimationFrame(function() {
+    _catchFirstRender: function () {
+      requestAnimationFrame(function () {
         Polymer.RenderStatus._makeReady();
       });
     },
@@ -52,17 +51,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _afterNextRenderQueue: [],
     _waitingNextRender: false,
 
-    afterNextRender: function(element, fn, args) {
+    afterNextRender: function (element, fn, args) {
       this._watchNextRender();
       this._afterNextRenderQueue.push([element, fn, args]);
     },
 
-    _watchNextRender: function() {
+    _watchNextRender: function () {
       if (!this._waitingNextRender) {
         this._waitingNextRender = true;
-        var fn = function() {
+        var fn = function () {
           Polymer.RenderStatus._flushNextRender();
-        }
+        };
         if (!this._ready) {
           this.whenReady(fn);
         } else {
@@ -71,26 +70,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _flushNextRender: function() {
+    _flushNextRender: function () {
       var self = this;
       // we want to defer after render until just after the paint.
-      setTimeout(function() {
+      setTimeout(function () {
         self._flushRenderCallbacks(self._afterNextRenderQueue);
         self._afterNextRenderQueue = [];
         self._waitingNextRender = false;
       });
     },
 
-    _flushRenderCallbacks: function(callbacks) {
-      for (var i=0, h; i < callbacks.length; i++) {
+    _flushRenderCallbacks: function (callbacks) {
+      for (var i = 0, h; i < callbacks.length; i++) {
         h = callbacks[i];
         h[1].apply(h[0], h[2] || Polymer.nar);
       }
-    }
+    },
   };
 
   if (window.HTMLImports) {
-    HTMLImports.whenReady(function() {
+    HTMLImports.whenReady(function () {
       Polymer.RenderStatus._catchFirstRender();
     });
   } else {
@@ -100,5 +99,4 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // NOTE: for bc.
   Polymer.ImportStatus = Polymer.RenderStatus;
   Polymer.ImportStatus.whenLoaded = Polymer.ImportStatus.whenReady;
-
 </script>

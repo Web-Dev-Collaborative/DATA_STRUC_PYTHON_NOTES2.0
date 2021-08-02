@@ -8,12 +8,12 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../iron-menu-behavior/iron-menu-behavior.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-<link rel="import" href="../paper-styles/color.html">
-<link rel="import" href="paper-menu-shared-styles.html">
+<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html" />
+<link rel="import" href="../iron-menu-behavior/iron-menu-behavior.html" />
+<link rel="import" href="../paper-styles/default-theme.html" />
+<link rel="import" href="../paper-styles/color.html" />
+<link rel="import" href="paper-menu-shared-styles.html" />
 
 <!--
 Material design: [Menus](https://www.google.com/design/spec/components/menus.html)
@@ -76,10 +76,13 @@ of a menu item will also focus it.
         display: block;
         padding: 8px 0;
 
-        background: var(--paper-menu-background-color, --primary-background-color);
+        background: var(
+          --paper-menu-background-color,
+          --primary-background-color
+        );
         color: var(--paper-menu-color, --primary-text-color);
 
-        @apply(--paper-menu);
+        @apply (--paper-menu);
       }
     </style>
 
@@ -89,13 +92,11 @@ of a menu item will also focus it.
   </template>
 
   <script>
-    (function() {
+    (function () {
       Polymer({
-        is: 'paper-menu',
+        is: "paper-menu",
 
-        behaviors: [
-          Polymer.IronMenuBehavior
-        ]
+        behaviors: [Polymer.IronMenuBehavior],
       });
     })();
   </script>

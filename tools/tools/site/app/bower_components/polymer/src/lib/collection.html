@@ -8,13 +8,12 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="debounce.html">
+<link rel="import" href="debounce.html" />
 
 <script>
-
   Polymer._collections = new WeakMap();
 
-  Polymer.Collection = function(userArray) {
+  Polymer.Collection = function (userArray) {
     Polymer._collections.set(userArray, this);
     this.userArray = userArray;
     this.store = userArray.slice();
@@ -22,16 +21,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   };
 
   Polymer.Collection.prototype = {
-
     constructor: Polymer.Collection,
 
-    initMap: function() {
-      var omap = this.omap = new WeakMap();
-      var pmap = this.pmap = {};
+    initMap: function () {
+      var omap = (this.omap = new WeakMap());
+      var pmap = (this.pmap = {});
       var s = this.store;
-      for (var i=0; i<s.length; i++) {
+      for (var i = 0; i < s.length; i++) {
         var item = s[i];
-        if (item && typeof item == 'object') {
+        if (item && typeof item == "object") {
           omap.set(item, i);
         } else {
           pmap[item] = i;
@@ -39,68 +37,68 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    add: function(item) {
+    add: function (item) {
       var key = this.store.push(item) - 1;
-      if (item && typeof item == 'object') {
+      if (item && typeof item == "object") {
         this.omap.set(item, key);
       } else {
         this.pmap[item] = key;
       }
-      return '#' + key;
+      return "#" + key;
     },
 
-    removeKey: function(key) {
+    removeKey: function (key) {
       if ((key = this._parseKey(key))) {
         this._removeFromMap(this.store[key]);
         delete this.store[key];
       }
     },
 
-    _removeFromMap: function(item) {
-      if (item && typeof item == 'object') {
+    _removeFromMap: function (item) {
+      if (item && typeof item == "object") {
         this.omap.delete(item);
       } else {
         delete this.pmap[item];
       }
     },
 
-    remove: function(item) {
+    remove: function (item) {
       var key = this.getKey(item);
       this.removeKey(key);
       return key;
     },
 
-    getKey: function(item) {
+    getKey: function (item) {
       var key;
-      if (item && typeof item == 'object') {
+      if (item && typeof item == "object") {
         key = this.omap.get(item);
       } else {
         key = this.pmap[item];
       }
       if (key != undefined) {
-        return '#' + key;
+        return "#" + key;
       }
     },
 
-    getKeys: function() {
-      return Object.keys(this.store).map(function(key) {
-        return '#' + key;
+    getKeys: function () {
+      return Object.keys(this.store).map(function (key) {
+        return "#" + key;
       });
     },
 
-    _parseKey: function(key) {
-      if (key && key[0] == '#') {
+    _parseKey: function (key) {
+      if (key && key[0] == "#") {
         return key.slice(1);
       }
     },
 
-    setItem: function(key, item) {
+    setItem: function (key, item) {
       if ((key = this._parseKey(key))) {
         var old = this.store[key];
         if (old) {
           this._removeFromMap(old);
         }
-        if (item && typeof item == 'object') {
+        if (item && typeof item == "object") {
           this.omap.set(item, key);
         } else {
           this.pmap[item] = key;
@@ -109,14 +107,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    getItem: function(key) {
+    getItem: function (key) {
       if ((key = this._parseKey(key))) {
         return this.store[key];
       }
     },
 
-    getItems: function() {
-      var items = [], store = this.store;
+    getItems: function () {
+      var items = [],
+        store = this.store;
       for (var key in store) {
         items.push(store[key]);
       }
@@ -131,19 +130,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // 2. Generates a "keySplices" record (in contrast to the input
     //    "indexSplices"), which contains an array of added and removed keys
     //    corresponding to the added/removed items
-    _applySplices: function(splices) {
+    _applySplices: function (splices) {
       // Dedupe added and removed keys to a final added/removed map
-      var keyMap = {}, key;
-      for (var i=0, s; (i<splices.length) && (s=splices[i]); i++) {
+      var keyMap = {},
+        key;
+      for (var i = 0, s; i < splices.length && (s = splices[i]); i++) {
         s.addedKeys = [];
-        for (var j=0; j<s.removed.length; j++) {
+        for (var j = 0; j < s.removed.length; j++) {
           key = this.getKey(s.removed[j]);
           keyMap[key] = keyMap[key] ? null : -1;
         }
-        for (j=0; j<s.addedCount; j++) {
+        for (j = 0; j < s.addedCount; j++) {
           var item = this.userArray[s.index + j];
           key = this.getKey(item);
-          key = (key === undefined) ? this.add(item) : key;
+          key = key === undefined ? this.add(item) : key;
           keyMap[key] = keyMap[key] ? null : 1;
           // Add an "addedKeys" array to indexSplices to capture keys associated
           // with added items, since references to added items can be lost by
@@ -163,20 +163,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           added.push(key);
         }
       }
-      return [{
-        removed: removed,
-        added: added
-      }];
-    }
-
+      return [
+        {
+          removed: removed,
+          added: added,
+        },
+      ];
+    },
   };
 
-  Polymer.Collection.get = function(userArray) {
-    return Polymer._collections.get(userArray) ||
-      new Polymer.Collection(userArray);
+  Polymer.Collection.get = function (userArray) {
+    return (
+      Polymer._collections.get(userArray) || new Polymer.Collection(userArray)
+    );
   };
 
-  Polymer.Collection.applySplices = function(userArray, splices) {
+  Polymer.Collection.applySplices = function (userArray, splices) {
     // Only apply splices & generate keySplices if the array already has a
     // backing Collection, meaning there is an element monitoring its keys;
     // Splices that happen before the collection has been created must be
@@ -184,5 +186,4 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var coll = Polymer._collections.get(userArray);
     return coll ? coll._applySplices(splices) : null;
   };
-
 </script>

@@ -7,7 +7,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html" />
 
 <!--
 `iron-media-query` can be used to data bind to a CSS media query.
@@ -25,13 +25,10 @@ Example:
 -->
 
 <script>
-
   Polymer({
-
-    is: 'iron-media-query',
+    is: "iron-media-query",
 
     properties: {
-
       /**
        * The Boolean return value of the media query.
        */
@@ -39,7 +36,7 @@ Example:
         type: Boolean,
         value: false,
         readOnly: true,
-        notify: true
+        notify: true,
       },
 
       /**
@@ -47,7 +44,7 @@ Example:
        */
       query: {
         type: String,
-        observer: 'queryChanged'
+        observer: "queryChanged",
       },
 
       /**
@@ -56,66 +53,64 @@ Example:
        */
       full: {
         type: Boolean,
-        value: false
+        value: false,
       },
 
       /**
        * @type {function(MediaQueryList)}
        */
       _boundMQHandler: {
-        value: function() {
+        value: function () {
           return this.queryHandler.bind(this);
-        }
+        },
       },
 
       /**
        * @type {MediaQueryList}
        */
       _mq: {
-        value: null
-      }
+        value: null,
+      },
     },
 
-    attached: function() {
-      this.style.display = 'none';
+    attached: function () {
+      this.style.display = "none";
       this.queryChanged();
     },
 
-    detached: function() {
+    detached: function () {
       this._remove();
     },
 
-    _add: function() {
+    _add: function () {
       if (this._mq) {
         this._mq.addListener(this._boundMQHandler);
       }
     },
 
-    _remove: function() {
+    _remove: function () {
       if (this._mq) {
         this._mq.removeListener(this._boundMQHandler);
       }
       this._mq = null;
     },
 
-    queryChanged: function() {
+    queryChanged: function () {
       this._remove();
       var query = this.query;
       if (!query) {
         return;
       }
-      if (!this.full && query[0] !== '(') {
-        query = '(' + query + ')';
+      if (!this.full && query[0] !== "(") {
+        query = "(" + query + ")";
       }
       this._mq = window.matchMedia(query);
       this._add();
       this.queryHandler(this._mq);
     },
 
-    queryHandler: function(mq) {
+    queryHandler: function (mq) {
       this._setQueryMatches(mq.matches);
-    }
-
+    },
   });
-
 </script>

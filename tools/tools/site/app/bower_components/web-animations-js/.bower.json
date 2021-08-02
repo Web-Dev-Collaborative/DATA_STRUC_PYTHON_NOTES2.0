@@ -3,13 +3,8 @@
   "description": "JavaScript implementation of the Web Animations API",
   "homepage": "https://github.com/web-animations/web-animations-js",
   "main": "web-animations.min.js",
-  "moduleType": [
-    "globals"
-  ],
-  "keywords": [
-    "animations",
-    "polyfill"
-  ],
+  "moduleType": ["globals"],
+  "keywords": ["animations", "polyfill"],
   "license": "Apache-2.0",
   "ignore": [
     "**/.*",

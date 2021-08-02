@@ -20,27 +20,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-'use strict';
+"use strict";
 
 function encode(str) {
   return encodeURIComponent(str).replace(find, replacer);
 }
 
 function decode(str) {
-  return decodeURIComponent(str.replace(plus, ' '));
+  return decodeURIComponent(str.replace(plus, " "));
 }
 
 function URLSearchParams(query) {
   this[secret] = Object.create(null);
   if (!query) return;
-  for (var
-    index, value,
-    pairs = (query || '').split('&'),
-    i = 0,
-    length = pairs.length; i < length; i++
+  for (
+    var index,
+      value,
+      pairs = (query || "").split("&"),
+      i = 0,
+      length = pairs.length;
+    i < length;
+    i++
   ) {
     value = pairs[i];
-    index = value.indexOf('=');
+    index = value.indexOf("=");
     if (-1 < index) {
       this.append(
         decode(value.slice(0, index)),
@@ -50,30 +53,27 @@ function URLSearchParams(query) {
   }
 }
 
-var
-  URLSearchParamsProto = URLSearchParams.prototype,
+var URLSearchParamsProto = URLSearchParams.prototype,
   find = /[!'\(\)~]|%20|%00/g,
   plus = /\+/g,
   replace = {
-    '!': '%21',
-    "'": '%27',
-    '(': '%28',
-    ')': '%29',
-    '~': '%7E',
-    '%20': '+',
-    '%00': '\x00'
+    "!": "%21",
+    "'": "%27",
+    "(": "%28",
+    ")": "%29",
+    "~": "%7E",
+    "%20": "+",
+    "%00": "\x00",
   },
   replacer = function (match) {
     return replace[match];
   },
   iterable = isIterable(),
-  secret = '__URLSearchParams__:' + Math.random()
-;
-
+  secret = "__URLSearchParams__:" + Math.random();
 function isIterable() {
   try {
     return !!Symbol.iterator;
-  } catch(error) {
+  } catch (error) {
     return false;
   }
 }
@@ -81,9 +81,9 @@ function isIterable() {
 URLSearchParamsProto.append = function append(name, value) {
   var dict = this[secret];
   if (name in dict) {
-    dict[name].push('' + value);
+    dict[name].push("" + value);
   } else {
-    dict[name] = ['' + value];
+    dict[name] = ["" + value];
   }
 };
 
@@ -106,13 +106,13 @@ URLSearchParamsProto.has = function has(name) {
 };
 
 URLSearchParamsProto.set = function set(name, value) {
-  this[secret][name] = ['' + value];
+  this[secret][name] = ["" + value];
 };
 
 URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
   var dict = this[secret];
-  Object.getOwnPropertyNames(dict).forEach(function(name) {
-    dict[name].forEach(function(value) {
+  Object.getOwnPropertyNames(dict).forEach(function (name) {
+    dict[name].forEach(function (value) {
       callback.call(thisArg, value, name, this);
     }, this);
   }, this);
@@ -120,16 +120,18 @@ URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
 
 URLSearchParamsProto.keys = function keys() {
   var items = [];
-  this.forEach(function(value, name) { items.push(name); });
+  this.forEach(function (value, name) {
+    items.push(name);
+  });
   var iterator = {
-    next: function() {
+    next: function () {
       var value = items.shift();
-      return {done: value === undefined, value: value};
-    }
+      return { done: value === undefined, value: value };
+    },
   };
 
   if (iterable) {
-    iterator[Symbol.iterator] = function() {
+    iterator[Symbol.iterator] = function () {
       return iterator;
     };
   }
@@ -139,16 +141,18 @@ URLSearchParamsProto.keys = function keys() {
 
 URLSearchParamsProto.values = function values() {
   var items = [];
-  this.forEach(function(value) { items.push(value); });
+  this.forEach(function (value) {
+    items.push(value);
+  });
   var iterator = {
-    next: function() {
+    next: function () {
       var value = items.shift();
-      return {done: value === undefined, value: value};
-    }
+      return { done: value === undefined, value: value };
+    },
   };
 
   if (iterable) {
-    iterator[Symbol.iterator] = function() {
+    iterator[Symbol.iterator] = function () {
       return iterator;
     };
   }
@@ -158,16 +162,18 @@ URLSearchParamsProto.values = function values() {
 
 URLSearchParamsProto.entries = function entries() {
   var items = [];
-  this.forEach(function(value, name) { items.push([name, value]); });
+  this.forEach(function (value, name) {
+    items.push([name, value]);
+  });
   var iterator = {
-    next: function() {
+    next: function () {
       var value = items.shift();
-      return {done: value === undefined, value: value};
-    }
+      return { done: value === undefined, value: value };
+    },
   };
 
   if (iterable) {
-    iterator[Symbol.iterator] = function() {
+    iterator[Symbol.iterator] = function () {
       return iterator;
     };
   }
@@ -193,18 +199,19 @@ URLSearchParamsProto.toJSON = function toJSON() {
 };
 
 URLSearchParamsProto.toString = function toString() {
-  var dict = this[secret], query = [], i, key, name, value;
+  var dict = this[secret],
+    query = [],
+    i,
+    key,
+    name,
+    value;
   for (key in dict) {
     name = encode(key);
-    for (
-      i = 0,
-      value = dict[key];
-      i < value.length; i++
-    ) {
-      query.push(name + '=' + encode(value[i]));
+    for (i = 0, value = dict[key]; i < value.length; i++) {
+      query.push(name + "=" + encode(value[i]));
     }
   }
-  return query.join('&');
+  return query.join("&");
 };
 
 module.exports = global.URLSearchParams || URLSearchParams;
