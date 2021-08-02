@@ -63,10 +63,12 @@ if (WebComponents.flags.shadow) {
     (function () {
       var defineProperty = Object.defineProperty;
       var counter = Date.now() % 1e9;
-      var WeakMap = function () {
-        this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
-      };
-      WeakMap.prototype = {
+
+      class WeakMap {
+        constructor() {
+          this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
+        }
+
         set(key, value) {
           var entry = key[this.name];
           if (entry && entry[0] === key) entry[1] = value;
@@ -76,25 +78,29 @@ if (WebComponents.flags.shadow) {
               writable: true,
             });
           return this;
-        },
+        }
+
         get(key) {
           var entry;
           return (entry = key[this.name]) && entry[0] === key
             ? entry[1]
             : undefined;
-        },
+        }
+
         delete(key) {
           var entry = key[this.name];
           if (!entry || entry[0] !== key) return false;
           entry[0] = entry[1] = undefined;
           return true;
-        },
+        }
+
         has(key) {
           var entry = key[this.name];
           if (!entry) return false;
           return entry[0] === key;
-        },
-      };
+        }
+      }
+
       window.WeakMap = WeakMap;
     })();
   }
@@ -428,8 +434,8 @@ if (WebComponents.flags.shadow) {
     var EDIT_UPDATE = 1;
     var EDIT_ADD = 2;
     var EDIT_DELETE = 3;
-    function ArraySplice() {}
-    ArraySplice.prototype = {
+
+    class ArraySplice {
       calcEditDistances(current, currentStart, currentEnd, old, oldStart, oldEnd) {
         var rowCount = oldEnd - oldStart + 1;
         var columnCount = currentEnd - currentStart + 1;
@@ -453,7 +459,8 @@ if (WebComponents.flags.shadow) {
           }
         }
         return distances;
-      },
+      }
+
       spliceOperationsFromEditDistances(distances) {
         var i = distances.length - 1;
         var j = distances[0].length - 1;
@@ -497,7 +504,8 @@ if (WebComponents.flags.shadow) {
         }
         edits.reverse();
         return edits;
-      },
+      }
+
       calcSplices(current, currentStart, currentEnd, old, oldStart, oldEnd) {
         var prefixCount = 0;
         var suffixCount = 0;
@@ -571,12 +579,14 @@ if (WebComponents.flags.shadow) {
           splices.push(splice);
         }
         return splices;
-      },
+      }
+
       sharedPrefix(current, old, searchLength) {
         for (var i = 0; i < searchLength; i++)
           if (!this.equals(current[i], old[i])) return i;
         return searchLength;
-      },
+      }
+
       sharedSuffix(current, old, searchLength) {
         var index1 = current.length;
         var index2 = old.length;
@@ -587,7 +597,8 @@ if (WebComponents.flags.shadow) {
         )
           count++;
         return count;
-      },
+      }
+
       calculateSplices(current, previous) {
         return this.calcSplices(
           current,
@@ -597,11 +608,13 @@ if (WebComponents.flags.shadow) {
           0,
           previous.length
         );
-      },
+      }
+
       equals(currentValue, previousValue) {
         return currentValue === previousValue;
-      },
-    };
+      }
+    }
+
     scope.ArraySplice = ArraySplice;
   })(window.ShadowDOMPolyfill);
   (function (context) {
@@ -880,24 +893,28 @@ if (WebComponents.flags.shadow) {
   })(window.ShadowDOMPolyfill);
   (function (scope) {
     "use strict";
-    function TreeScope(root, parent) {
-      this.root = root;
-      this.parent = parent;
-    }
-    TreeScope.prototype = {
+
+    class TreeScope {
+      constructor(root, parent) {
+        this.root = root;
+        this.parent = parent;
+      }
+
       get renderer() {
         if (this.root instanceof scope.wrappers.ShadowRoot) {
           return scope.getRendererForHost(this.root.host);
         }
         return null;
-      },
+      }
+
       contains(treeScope) {
         for (; treeScope; treeScope = treeScope.parent) {
           if (treeScope === this) return true;
         }
         return false;
-      },
-    };
+      }
+    }
+
     function setTreeScope(node, treeScope) {
       if (node.treeScope_ !== treeScope) {
         node.treeScope_ = treeScope;
@@ -1238,77 +1255,82 @@ if (WebComponents.flags.shadow) {
       }
       return !stopPropagationTable.get(event);
     }
-    function Listener(type, handler, capture) {
-      this.type = type;
-      this.handler = handler;
-      this.capture = Boolean(capture);
-    }
-    Listener.prototype = {
+
+    class Listener {
+      constructor(type, handler, capture) {
+        this.type = type;
+        this.handler = handler;
+        this.capture = Boolean(capture);
+      }
+
       equals(that) {
         return (
           this.handler === that.handler &&
           this.type === that.type &&
           this.capture === that.capture
         );
-      },
+      }
+
       get removed() {
         return this.handler === null;
-      },
+      }
+
       remove() {
         this.handler = null;
-      },
-    };
+      }
+    }
+
     var OriginalEvent = window.Event;
     OriginalEvent.prototype.polymerBlackList_ = {
       returnValue: true,
       keyLocation: true,
     };
-    function Event(type, options) {
-      if (type instanceof OriginalEvent) {
-        var impl = type;
-        if (
-          !OriginalBeforeUnloadEvent &&
-          impl.type === "beforeunload" &&
-          !(this instanceof BeforeUnloadEvent)
-        ) {
-          return new BeforeUnloadEvent(impl);
+
+    class Event {
+      constructor(type, options) {
+        if (type instanceof OriginalEvent) {
+          var impl = type;
+          if (
+            !OriginalBeforeUnloadEvent &&
+            impl.type === "beforeunload" &&
+            !(this instanceof BeforeUnloadEvent)
+          ) {
+            return new BeforeUnloadEvent(impl);
+          }
+          setWrapper(impl, this);
+        } else {
+          return wrap(constructEvent(OriginalEvent, "Event", type, options));
         }
-        setWrapper(impl, this);
-      } else {
-        return wrap(constructEvent(OriginalEvent, "Event", type, options));
       }
-    }
-    Event.prototype = {
+
       get target() {
         return targetTable.get(this);
-      },
+      }
+
       get currentTarget() {
         return currentTargetTable.get(this);
-      },
+      }
+
       get eventPhase() {
         return eventPhaseTable.get(this);
-      },
+      }
+
       get path() {
         var eventPath = eventPathTable.get(this);
         if (!eventPath) return [];
         return eventPath.slice();
-      },
+      }
+
       stopPropagation() {
         stopPropagationTable.set(this, true);
-      },
+      }
+
       stopImmediatePropagation() {
         stopPropagationTable.set(this, true);
         stopImmediatePropagationTable.set(this, true);
-      },
-    };
-    var supportsDefaultPrevented = (function () {
-      var e = document.createEvent("Event");
-      e.initEvent("test", true, true);
-      e.preventDefault();
-      return e.defaultPrevented;
-    })();
-    if (!supportsDefaultPrevented) {
-      Event.prototype.preventDefault = function () {
+      }
+
+      preventDefault() {
         if (!this.cancelable) return;
         unsafeUnwrap(this).preventDefault();
         Object.defineProperty(this, "defaultPrevented", {
@@ -1317,8 +1339,29 @@ if (WebComponents.flags.shadow) {
           },
           configurable: true,
         });
-      };
+      }
+
+      preventDefault() {
+        if (!this.cancelable) {
+          return;
+        }
+        origPreventDefault.call(this);
+        Object.defineProperty(this, "defaultPrevented", {
+          get() {
+            return true;
+          },
+          configurable: true,
+        });
+      }
     }
+
+    var supportsDefaultPrevented = (function () {
+      var e = document.createEvent("Event");
+      e.initEvent("test", true, true);
+      e.preventDefault();
+      return e.defaultPrevented;
+    })();
+    if (!supportsDefaultPrevented) {}
     registerWrapper(OriginalEvent, Event, document.createEvent("Event"));
     function unwrapOptions(options) {
       if (!options || !options.relatedTarget) return options;
@@ -1330,11 +1373,14 @@ if (WebComponents.flags.shadow) {
     }
     function registerGenericEvent(name, SuperEvent, prototype) {
       var OriginalEvent = window[name];
-      var GenericEvent = function (type, options) {
-        if (type instanceof OriginalEvent) setWrapper(type, this);
-        else return wrap(constructEvent(OriginalEvent, name, type, options));
-      };
-      GenericEvent.prototype = Object.create(SuperEvent.prototype);
+
+      class GenericEvent extends SuperEvent {
+        constructor(type, options) {
+          if (type instanceof OriginalEvent) setWrapper(type, this);
+          else return wrap(constructEvent(OriginalEvent, name, type, options));
+        }
+      }
+
       if (prototype) mixin(GenericEvent.prototype, prototype);
       if (OriginalEvent) {
         try {
@@ -1467,10 +1513,13 @@ if (WebComponents.flags.shadow) {
       );
     }
     var OriginalBeforeUnloadEvent = window.BeforeUnloadEvent;
-    function BeforeUnloadEvent(impl) {
-      Event.call(this, impl);
+
+    class BeforeUnloadEvent extends Event {
+      constructor(impl) {
+        super(impl);
+      }
     }
-    BeforeUnloadEvent.prototype = Object.create(Event.prototype);
+
     mixin(BeforeUnloadEvent.prototype, {
       get returnValue() {
         return unsafeUnwrap(this).returnValue;
@@ -1501,27 +1550,12 @@ if (WebComponents.flags.shadow) {
       return false;
     }
     var OriginalEventTarget = window.EventTarget;
-    function EventTarget(impl) {
-      setWrapper(impl, this);
-    }
-    var methodNames = [
-      "addEventListener",
-      "removeEventListener",
-      "dispatchEvent",
-    ];
-    [Node, Window].forEach(function (constructor) {
-      var p = constructor.prototype;
-      methodNames.forEach(function (name) {
-        Object.defineProperty(p, name + "_", {
-          value: p[name],
-        });
-      });
-    });
-    function getTargetToListenAt(wrapper) {
-      if (wrapper instanceof wrappers.ShadowRoot) wrapper = wrapper.host;
-      return unwrap(wrapper);
-    }
-    EventTarget.prototype = {
+
+    class EventTarget {
+      constructor(impl) {
+        setWrapper(impl, this);
+      }
+
       addEventListener(type, fun, capture) {
         if (!isValidListener(fun) || isMutationEvent(type)) return;
         var listener = new Listener(type, fun, capture);
@@ -1538,7 +1572,8 @@ if (WebComponents.flags.shadow) {
         listeners.push(listener);
         var target = getTargetToListenAt(this);
         target.addEventListener_(type, dispatchOriginalEvent, true);
-      },
+      }
+
       removeEventListener(type, fun, capture) {
         capture = Boolean(capture);
         var listeners = listenersTable.get(this);
@@ -1558,7 +1593,8 @@ if (WebComponents.flags.shadow) {
           var target = getTargetToListenAt(this);
           target.removeEventListener_(type, dispatchOriginalEvent, true);
         }
-      },
+      }
+
       dispatchEvent(event) {
         var nativeEvent = unwrap(event);
         var eventType = nativeEvent.type;
@@ -1575,8 +1611,26 @@ if (WebComponents.flags.shadow) {
           if (tempListener)
             this.removeEventListener(eventType, tempListener, true);
         }
-      },
-    };
+      }
+    }
+
+    var methodNames = [
+      "addEventListener",
+      "removeEventListener",
+      "dispatchEvent",
+    ];
+    [Node, Window].forEach(function (constructor) {
+      var p = constructor.prototype;
+      methodNames.forEach(function (name) {
+        Object.defineProperty(p, name + "_", {
+          value: p[name],
+        });
+      });
+    });
+    function getTargetToListenAt(wrapper) {
+      if (wrapper instanceof wrappers.ShadowRoot) wrapper = wrapper.host;
+      return unwrap(wrapper);
+    }
     function hasListener(node, type) {
       var listeners = listenersTable.get(node);
       if (listeners) {
@@ -1679,14 +1733,17 @@ if (WebComponents.flags.shadow) {
     function nonEnum(obj, prop) {
       Object.defineProperty(obj, prop, nonEnumDescriptor);
     }
-    function Touch(impl) {
-      setWrapper(impl, this);
-    }
-    Touch.prototype = {
+
+    class Touch {
+      constructor(impl) {
+        setWrapper(impl, this);
+      }
+
       get target() {
         return wrap(unsafeUnwrap(this).target);
-      },
-    };
+      }
+    }
+
     var descr = {
       configurable: true,
       enumerable: true,
@@ -1710,15 +1767,18 @@ if (WebComponents.flags.shadow) {
       };
       Object.defineProperty(Touch.prototype, name, descr);
     });
-    function TouchList() {
-      this.length = 0;
-      nonEnum(this, "length");
-    }
-    TouchList.prototype = {
+
+    class TouchList {
+      constructor() {
+        this.length = 0;
+        nonEnum(this, "length");
+      }
+
       item(index) {
         return this[index];
-      },
-    };
+      }
+    }
+
     function wrapTouchList(nativeTouchList) {
       var list = new TouchList();
       for (var i = 0; i < nativeTouchList.length; i++) {
@@ -1727,10 +1787,13 @@ if (WebComponents.flags.shadow) {
       list.length = i;
       return list;
     }
-    function TouchEvent(impl) {
-      UIEvent.call(this, impl);
+
+    class TouchEvent extends UIEvent {
+      constructor(impl) {
+        super(impl);
+      }
     }
-    TouchEvent.prototype = Object.create(UIEvent.prototype);
+
     mixin(TouchEvent.prototype, {
       get touches() {
         return wrapTouchList(unsafeUnwrap(this).touches);
@@ -1760,15 +1823,18 @@ if (WebComponents.flags.shadow) {
     function nonEnum(obj, prop) {
       Object.defineProperty(obj, prop, nonEnumDescriptor);
     }
-    function NodeList() {
-      this.length = 0;
-      nonEnum(this, "length");
-    }
-    NodeList.prototype = {
+
+    class NodeList {
+      constructor() {
+        this.length = 0;
+        nonEnum(this, "length");
+      }
+
       item(index) {
         return this[index];
-      },
-    };
+      }
+    }
+
     nonEnum(NodeList.prototype, "item");
     function wrapNodeList(list) {
       if (list == null) return list;
@@ -2010,16 +2076,29 @@ if (WebComponents.flags.shadow) {
       return false;
     }
     var OriginalNode = window.Node;
-    function Node(original) {
-      assert(original instanceof OriginalNode);
-      EventTarget.call(this, original);
-      this.parentNode_ = undefined;
-      this.firstChild_ = undefined;
-      this.lastChild_ = undefined;
-      this.nextSibling_ = undefined;
-      this.previousSibling_ = undefined;
-      this.treeScope_ = undefined;
+
+    class Node extends EventTarget {
+      constructor(original) {
+        assert(original instanceof OriginalNode);
+        super(original);
+        this.parentNode_ = undefined;
+        this.firstChild_ = undefined;
+        this.lastChild_ = undefined;
+        this.nextSibling_ = undefined;
+        this.previousSibling_ = undefined;
+        this.treeScope_ = undefined;
+      }
+
+      invalidateShadowRenderer(force) {
+        var renderer = unsafeUnwrap(this).polymerShadowRenderer_;
+        if (renderer) {
+          renderer.invalidate();
+          return true;
+        }
+        return false;
+      }
     }
+
     var OriginalDocumentFragment = window.DocumentFragment;
     var originalAppendChild = OriginalNode.prototype.appendChild;
     var originalCompareDocumentPosition =
@@ -2040,7 +2119,6 @@ if (WebComponents.flags.shadow) {
       : function (parent, child) {
           originalRemoveChild.call(parent, child);
         };
-    Node.prototype = Object.create(EventTarget.prototype);
     mixin(Node.prototype, {
       appendChild(childWrapper) {
         return this.insertBefore(childWrapper, null);
@@ -2691,10 +2769,13 @@ if (WebComponents.flags.shadow) {
     var registerWrapper = scope.registerWrapper;
     var unsafeUnwrap = scope.unsafeUnwrap;
     var OriginalCharacterData = window.CharacterData;
-    function CharacterData(node) {
-      Node.call(this, node);
+
+    class CharacterData extends Node {
+      constructor(node) {
+        super(node);
+      }
     }
-    CharacterData.prototype = Object.create(Node.prototype);
+
     mixin(CharacterData.prototype, {
       get nodeValue() {
         return this.data;
@@ -2737,10 +2818,13 @@ if (WebComponents.flags.shadow) {
       return x >>> 0;
     }
     var OriginalText = window.Text;
-    function Text(node) {
-      CharacterData.call(this, node);
+
+    class Text extends CharacterData {
+      constructor(node) {
+        super(node);
+      }
     }
-    Text.prototype = Object.create(CharacterData.prototype);
+
     mixin(Text.prototype, {
       splitText(offset) {
         offset = toUInt32(offset);
@@ -2848,10 +2932,24 @@ if (WebComponents.flags.shadow) {
       });
     }
     var classListTable = new WeakMap();
-    function Element(node) {
-      Node.call(this, node);
+
+    class Element extends Node {
+      constructor(node) {
+        super(node);
+      }
+
+      getDestinationInsertionPoints() {
+        renderAllPending();
+        return getDestinationInsertionPoints(this) || [];
+      }
+
+      createShadowRoot() {
+        var root = originalCreateShadowRoot.call(this);
+        window.CustomElements.watchShadow(this);
+        return root;
+      }
     }
-    Element.prototype = Object.create(Node.prototype);
+
     mixin(Element.prototype, {
       createShadowRoot() {
         var newShadowRoot = new wrappers.ShadowRoot(this);
@@ -3055,10 +3153,13 @@ if (WebComponents.flags.shadow) {
     var oldIe = /MSIE/.test(navigator.userAgent);
     var OriginalHTMLElement = window.HTMLElement;
     var OriginalHTMLTemplateElement = window.HTMLTemplateElement;
-    function HTMLElement(node) {
-      Element.call(this, node);
+
+    class HTMLElement extends Element {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLElement.prototype = Object.create(Element.prototype);
+
     mixin(HTMLElement.prototype, {
       get innerHTML() {
         return getInnerHTML(this);
@@ -3216,10 +3317,13 @@ if (WebComponents.flags.shadow) {
     var unsafeUnwrap = scope.unsafeUnwrap;
     var wrap = scope.wrap;
     var OriginalHTMLCanvasElement = window.HTMLCanvasElement;
-    function HTMLCanvasElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLCanvasElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLCanvasElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLCanvasElement.prototype, {
       getContext() {
         var context = unsafeUnwrap(this).getContext.apply(
@@ -3242,10 +3346,13 @@ if (WebComponents.flags.shadow) {
     var mixin = scope.mixin;
     var registerWrapper = scope.registerWrapper;
     var OriginalHTMLContentElement = window.HTMLContentElement;
-    function HTMLContentElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLContentElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLContentElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLContentElement.prototype, {
       constructor: HTMLContentElement,
       get select() {
@@ -3272,10 +3379,13 @@ if (WebComponents.flags.shadow) {
     var wrapHTMLCollection = scope.wrapHTMLCollection;
     var unwrap = scope.unwrap;
     var OriginalHTMLFormElement = window.HTMLFormElement;
-    function HTMLFormElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLFormElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLFormElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLFormElement.prototype, {
       get elements() {
         return wrapHTMLCollection(unwrap(this).elements);
@@ -3295,10 +3405,13 @@ if (WebComponents.flags.shadow) {
     var unwrap = scope.unwrap;
     var rewrap = scope.rewrap;
     var OriginalHTMLImageElement = window.HTMLImageElement;
-    function HTMLImageElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLImageElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLImageElement.prototype = Object.create(HTMLElement.prototype);
+
     registerWrapper(
       OriginalHTMLImageElement,
       HTMLImageElement,
@@ -3327,11 +3440,13 @@ if (WebComponents.flags.shadow) {
     var NodeList = scope.wrappers.NodeList;
     var registerWrapper = scope.registerWrapper;
     var OriginalHTMLShadowElement = window.HTMLShadowElement;
-    function HTMLShadowElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLShadowElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLShadowElement.prototype = Object.create(HTMLElement.prototype);
-    HTMLShadowElement.prototype.constructor = HTMLShadowElement;
+
     if (OriginalHTMLShadowElement)
       registerWrapper(OriginalHTMLShadowElement, HTMLShadowElement);
     scope.wrappers.HTMLShadowElement = HTMLShadowElement;
@@ -3368,14 +3483,17 @@ if (WebComponents.flags.shadow) {
       return df;
     }
     var OriginalHTMLTemplateElement = window.HTMLTemplateElement;
-    function HTMLTemplateElement(node) {
-      HTMLElement.call(this, node);
-      if (!OriginalHTMLTemplateElement) {
-        var content = extractContent(node);
-        contentTable.set(this, wrap(content));
+
+    class HTMLTemplateElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+        if (!OriginalHTMLTemplateElement) {
+          var content = extractContent(node);
+          contentTable.set(this, wrap(content));
+        }
       }
     }
-    HTMLTemplateElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLTemplateElement.prototype, {
       constructor: HTMLTemplateElement,
       get content() {
@@ -3394,10 +3512,13 @@ if (WebComponents.flags.shadow) {
     var registerWrapper = scope.registerWrapper;
     var OriginalHTMLMediaElement = window.HTMLMediaElement;
     if (!OriginalHTMLMediaElement) return;
-    function HTMLMediaElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLMediaElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLMediaElement.prototype = Object.create(HTMLElement.prototype);
+
     registerWrapper(
       OriginalHTMLMediaElement,
       HTMLMediaElement,
@@ -3413,10 +3534,13 @@ if (WebComponents.flags.shadow) {
     var rewrap = scope.rewrap;
     var OriginalHTMLAudioElement = window.HTMLAudioElement;
     if (!OriginalHTMLAudioElement) return;
-    function HTMLAudioElement(node) {
-      HTMLMediaElement.call(this, node);
+
+    class HTMLAudioElement extends HTMLMediaElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLAudioElement.prototype = Object.create(HTMLMediaElement.prototype);
+
     registerWrapper(
       OriginalHTMLAudioElement,
       HTMLAudioElement,
@@ -3450,10 +3574,13 @@ if (WebComponents.flags.shadow) {
     function trimText(s) {
       return s.replace(/\s+/g, " ").trim();
     }
-    function HTMLOptionElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLOptionElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLOptionElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLOptionElement.prototype, {
       get text() {
         return trimText(this.textContent);
@@ -3496,10 +3623,13 @@ if (WebComponents.flags.shadow) {
     var unwrap = scope.unwrap;
     var wrap = scope.wrap;
     var OriginalHTMLSelectElement = window.HTMLSelectElement;
-    function HTMLSelectElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLSelectElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLSelectElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLSelectElement.prototype, {
       add(element, before) {
         if (typeof before === "object") before = unwrap(before);
@@ -3533,10 +3663,13 @@ if (WebComponents.flags.shadow) {
     var wrap = scope.wrap;
     var wrapHTMLCollection = scope.wrapHTMLCollection;
     var OriginalHTMLTableElement = window.HTMLTableElement;
-    function HTMLTableElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLTableElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLTableElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLTableElement.prototype, {
       get caption() {
         return wrap(unwrap(this).caption);
@@ -3585,10 +3718,13 @@ if (WebComponents.flags.shadow) {
     var unwrap = scope.unwrap;
     var wrap = scope.wrap;
     var OriginalHTMLTableSectionElement = window.HTMLTableSectionElement;
-    function HTMLTableSectionElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLTableSectionElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLTableSectionElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLTableSectionElement.prototype, {
       constructor: HTMLTableSectionElement,
       get rows() {
@@ -3614,10 +3750,13 @@ if (WebComponents.flags.shadow) {
     var unwrap = scope.unwrap;
     var wrap = scope.wrap;
     var OriginalHTMLTableRowElement = window.HTMLTableRowElement;
-    function HTMLTableRowElement(node) {
-      HTMLElement.call(this, node);
+
+    class HTMLTableRowElement extends HTMLElement {
+      constructor(node) {
+        super(node);
+      }
     }
-    HTMLTableRowElement.prototype = Object.create(HTMLElement.prototype);
+
     mixin(HTMLTableRowElement.prototype, {
       get cells() {
         return wrapHTMLCollection(unwrap(this).cells);
@@ -3642,20 +3781,23 @@ if (WebComponents.flags.shadow) {
     var mixin = scope.mixin;
     var registerWrapper = scope.registerWrapper;
     var OriginalHTMLUnknownElement = window.HTMLUnknownElement;
-    function HTMLUnknownElement(node) {
-      switch (node.localName) {
-        case "content":
-          return new HTMLContentElement(node);
 
-        case "shadow":
-          return new HTMLShadowElement(node);
+    class HTMLUnknownElement extends HTMLElement {
+      constructor(node) {
+        switch (node.localName) {
+          case "content":
+            return new HTMLContentElement(node);
 
-        case "template":
-          return new HTMLTemplateElement(node);
+          case "shadow":
+            return new HTMLShadowElement(node);
+
+          case "template":
+            return new HTMLTemplateElement(node);
+        }
+        super(node);
       }
-      HTMLElement.call(this, node);
     }
-    HTMLUnknownElement.prototype = Object.create(HTMLElement.prototype);
+
     registerWrapper(OriginalHTMLUnknownElement, HTMLUnknownElement);
     scope.wrappers.HTMLUnknownElement = HTMLUnknownElement;
   })(window.ShadowDOMPolyfill);
@@ -3679,10 +3821,13 @@ if (WebComponents.flags.shadow) {
       Object.defineProperty(HTMLElement.prototype, "classList", descr);
       delete Element.prototype.classList;
     }
-    function SVGElement(node) {
-      Element.call(this, node);
+
+    class SVGElement extends Element {
+      constructor(node) {
+        super(node);
+      }
     }
-    SVGElement.prototype = Object.create(Element.prototype);
+
     mixin(SVGElement.prototype, {
       get ownerSVGElement() {
         return wrap(unsafeUnwrap(this).ownerSVGElement);
@@ -3734,10 +3879,13 @@ if (WebComponents.flags.shadow) {
     var wrap = scope.wrap;
     var OriginalSVGElementInstance = window.SVGElementInstance;
     if (!OriginalSVGElementInstance) return;
-    function SVGElementInstance(impl) {
-      EventTarget.call(this, impl);
+
+    class SVGElementInstance extends EventTarget {
+      constructor(impl) {
+        super(impl);
+      }
     }
-    SVGElementInstance.prototype = Object.create(EventTarget.prototype);
+
     mixin(SVGElementInstance.prototype, {
       get correspondingElement() {
         return wrap(unsafeUnwrap(this).correspondingElement);
@@ -3863,10 +4011,13 @@ if (WebComponents.flags.shadow) {
     var registerObject = scope.registerObject;
     var registerWrapper = scope.registerWrapper;
     var OriginalDocumentFragment = window.DocumentFragment;
-    function DocumentFragment(node) {
-      Node.call(this, node);
+
+    class DocumentFragment extends Node {
+      constructor(node) {
+        super(node);
+      }
     }
-    DocumentFragment.prototype = Object.create(Node.prototype);
+
     mixin(DocumentFragment.prototype, ParentNodeInterface);
     mixin(DocumentFragment.prototype, SelectorsInterface);
     mixin(DocumentFragment.prototype, GetElementsByInterface);
@@ -3895,21 +4046,24 @@ if (WebComponents.flags.shadow) {
     var wrap = scope.wrap;
     var shadowHostTable = new WeakMap();
     var nextOlderShadowTreeTable = new WeakMap();
-    function ShadowRoot(hostWrapper) {
-      var node = unwrap(
-        unsafeUnwrap(hostWrapper).ownerDocument.createDocumentFragment()
-      );
-      DocumentFragment.call(this, node);
-      rewrap(node, this);
-      var oldShadowRoot = hostWrapper.shadowRoot;
-      nextOlderShadowTreeTable.set(this, oldShadowRoot);
-      this.treeScope_ = new TreeScope(
-        this,
-        getTreeScope(oldShadowRoot || hostWrapper)
-      );
-      shadowHostTable.set(this, hostWrapper);
+
+    class ShadowRoot extends DocumentFragment {
+      constructor(hostWrapper) {
+        var node = unwrap(
+          unsafeUnwrap(hostWrapper).ownerDocument.createDocumentFragment()
+        );
+        super(node);
+        rewrap(node, this);
+        var oldShadowRoot = hostWrapper.shadowRoot;
+        nextOlderShadowTreeTable.set(this, oldShadowRoot);
+        this.treeScope_ = new TreeScope(
+          this,
+          getTreeScope(oldShadowRoot || hostWrapper)
+        );
+        shadowHostTable.set(this, hostWrapper);
+      }
     }
-    ShadowRoot.prototype = Object.create(DocumentFragment.prototype);
+
     mixin(ShadowRoot.prototype, {
       constructor: ShadowRoot,
       get innerHTML() {
@@ -3992,84 +4146,107 @@ if (WebComponents.flags.shadow) {
       node = wrap(node);
       return getHost(node) || node;
     }
-    function Range(impl) {
-      setWrapper(impl, this);
-    }
-    Range.prototype = {
+
+    class Range {
+      constructor(impl) {
+        setWrapper(impl, this);
+      }
+
       get startContainer() {
         return shadowNodeToHostNode(unsafeUnwrap(this).startContainer);
-      },
+      }
+
       get endContainer() {
         return shadowNodeToHostNode(unsafeUnwrap(this).endContainer);
-      },
+      }
+
       get commonAncestorContainer() {
         return shadowNodeToHostNode(unsafeUnwrap(this).commonAncestorContainer);
-      },
+      }
+
       setStart(refNode, offset) {
         refNode = hostNodeToShadowNode(refNode, offset);
         unsafeUnwrap(this).setStart(unwrapIfNeeded(refNode), offset);
-      },
+      }
+
       setEnd(refNode, offset) {
         refNode = hostNodeToShadowNode(refNode, offset);
         unsafeUnwrap(this).setEnd(unwrapIfNeeded(refNode), offset);
-      },
+      }
+
       setStartBefore(refNode) {
         unsafeUnwrap(this).setStartBefore(unwrapIfNeeded(refNode));
-      },
+      }
+
       setStartAfter(refNode) {
         unsafeUnwrap(this).setStartAfter(unwrapIfNeeded(refNode));
-      },
+      }
+
       setEndBefore(refNode) {
         unsafeUnwrap(this).setEndBefore(unwrapIfNeeded(refNode));
-      },
+      }
+
       setEndAfter(refNode) {
         unsafeUnwrap(this).setEndAfter(unwrapIfNeeded(refNode));
-      },
+      }
+
       selectNode(refNode) {
         unsafeUnwrap(this).selectNode(unwrapIfNeeded(refNode));
-      },
+      }
+
       selectNodeContents(refNode) {
         unsafeUnwrap(this).selectNodeContents(unwrapIfNeeded(refNode));
-      },
+      }
+
       compareBoundaryPoints(how, sourceRange) {
         return unsafeUnwrap(this).compareBoundaryPoints(
           how,
           unwrap(sourceRange)
         );
-      },
+      }
+
       extractContents() {
         return wrap(unsafeUnwrap(this).extractContents());
-      },
+      }
+
       cloneContents() {
         return wrap(unsafeUnwrap(this).cloneContents());
-      },
+      }
+
       insertNode(node) {
         unsafeUnwrap(this).insertNode(unwrapIfNeeded(node));
-      },
+      }
+
       surroundContents(newParent) {
         unsafeUnwrap(this).surroundContents(unwrapIfNeeded(newParent));
-      },
+      }
+
       cloneRange() {
         return wrap(unsafeUnwrap(this).cloneRange());
-      },
+      }
+
       isPointInRange(node, offset) {
         return unsafeUnwrap(this).isPointInRange(unwrapIfNeeded(node), offset);
-      },
+      }
+
       comparePoint(node, offset) {
         return unsafeUnwrap(this).comparePoint(unwrapIfNeeded(node), offset);
-      },
+      }
+
       intersectsNode(node) {
         return unsafeUnwrap(this).intersectsNode(unwrapIfNeeded(node));
-      },
+      }
+
       toString() {
         return unsafeUnwrap(this).toString();
-      },
-    };
-    if (OriginalRange.prototype.createContextualFragment) {
-      Range.prototype.createContextualFragment = function (html) {
+      }
+
+      createContextualFragment(html) {
         return wrap(unsafeUnwrap(this).createContextualFragment(html));
-      };
+      }
     }
+
+    if (OriginalRange.prototype.createContextualFragment) {}
     registerWrapper(window.Range, Range, document.createRange());
     scope.wrappers.Range = Range;
   })(window.ShadowDOMPolyfill);
@@ -4204,17 +4381,20 @@ if (WebComponents.flags.shadow) {
     spliceDiff.equals = function (renderNode, rawNode) {
       return unwrap(renderNode.node) === rawNode;
     };
-    function RenderNode(node) {
-      this.skip = false;
-      this.node = node;
-      this.childNodes = [];
-    }
-    RenderNode.prototype = {
+
+    class RenderNode {
+      constructor(node) {
+        this.skip = false;
+        this.node = node;
+        this.childNodes = [];
+      }
+
       append(node) {
         var rv = new RenderNode(node);
         this.childNodes.push(rv);
         return rv;
-      },
+      }
+
       sync(opt_added) {
         if (this.skip) return;
         var nodeWrapper = this.node;
@@ -4250,15 +4430,17 @@ if (WebComponents.flags.shadow) {
         for (var i = lastIndex; i < newChildren.length; i++) {
           newChildren[i].sync(added);
         }
-      },
-    };
-    function ShadowRenderer(host) {
-      this.host = host;
-      this.dirty = false;
-      this.invalidateAttributes();
-      this.associateNode(host);
+      }
     }
-    ShadowRenderer.prototype = {
+
+    class ShadowRenderer {
+      constructor(host) {
+        this.host = host;
+        this.dirty = false;
+        this.invalidateAttributes();
+        this.associateNode(host);
+      }
+
       render(opt_renderNode) {
         if (!this.dirty) return;
         this.invalidateAttributes();
@@ -4269,10 +4451,12 @@ if (WebComponents.flags.shadow) {
         var topMostRenderer = !opt_renderNode;
         if (topMostRenderer) renderNode.sync();
         this.dirty = false;
-      },
+      }
+
       get parentRenderer() {
         return getTreeScope(this.host).renderer;
-      },
+      }
+
       invalidate() {
         if (!this.dirty) {
           this.dirty = true;
@@ -4282,23 +4466,27 @@ if (WebComponents.flags.shadow) {
           if (renderTimer) return;
           renderTimer = window[request](handleRequestAnimationFrame, 0);
         }
-      },
+      }
+
       distribution(root) {
         this.resetAllSubtrees(root);
         this.distributionResolution(root);
-      },
+      }
+
       resetAll(node) {
         if (isInsertionPoint(node)) resetDistributedNodes(node);
         else resetDestinationInsertionPoints(node);
         this.resetAllSubtrees(node);
-      },
+      }
+
       resetAllSubtrees(node) {
         for (var child = node.firstChild; child; child = child.nextSibling) {
           this.resetAll(child);
         }
         if (node.shadowRoot) this.resetAll(node.shadowRoot);
         if (node.olderShadowRoot) this.resetAll(node.olderShadowRoot);
-      },
+      }
+
       distributionResolution(node) {
         if (isShadowHost(node)) {
           var shadowHost = node;
@@ -4325,7 +4513,8 @@ if (WebComponents.flags.shadow) {
         for (var child = node.firstChild; child; child = child.nextSibling) {
           this.distributionResolution(child);
         }
-      },
+      }
+
       poolDistribution(node, pool) {
         if (node instanceof HTMLShadowElement) return;
         if (node instanceof HTMLContentElement) {
@@ -4355,7 +4544,8 @@ if (WebComponents.flags.shadow) {
         for (var child = node.firstChild; child; child = child.nextSibling) {
           this.poolDistribution(child, pool);
         }
-      },
+      }
+
       buildRenderTree(renderNode, node) {
         var children = this.compose(node);
         for (var i = 0; i < children.length; i++) {
@@ -4367,7 +4557,8 @@ if (WebComponents.flags.shadow) {
           var renderer = getRendererForHost(node);
           renderer.dirty = false;
         }
-      },
+      }
+
       compose(node) {
         var children = [];
         var p = node.shadowRoot || node;
@@ -4385,10 +4576,12 @@ if (WebComponents.flags.shadow) {
           }
         }
         return children;
-      },
+      }
+
       invalidateAttributes() {
         this.attributes = Object.create(null);
-      },
+      }
+
       updateDependentAttributes(selector) {
         if (!selector) return;
         var attributes = this.attributes;
@@ -4397,14 +4590,17 @@ if (WebComponents.flags.shadow) {
         selector.replace(/\[\s*([^\s=\|~\]]+)/g, function (_, name) {
           attributes[name] = true;
         });
-      },
+      }
+
       dependsOnAttribute(name) {
         return this.attributes[name];
-      },
+      }
+
       associateNode(node) {
         unsafeUnwrap(node).polymerShadowRenderer_ = this;
-      },
-    };
+      }
+    }
+
     function poolPopulation(node) {
       var pool = [];
       for (var child = node.firstChild; child; child = child.nextSibling) {
@@ -4473,23 +4669,11 @@ if (WebComponents.flags.shadow) {
     function render(host) {
       new ShadowRenderer(host).render();
     }
-    Node.prototype.invalidateShadowRenderer = function (force) {
-      var renderer = unsafeUnwrap(this).polymerShadowRenderer_;
-      if (renderer) {
-        renderer.invalidate();
-        return true;
-      }
-      return false;
-    };
     HTMLContentElement.prototype.getDistributedNodes =
       HTMLShadowElement.prototype.getDistributedNodes = function () {
         renderAllPending();
         return getDistributedNodes(this);
       };
-    Element.prototype.getDestinationInsertionPoints = function () {
-      renderAllPending();
-      return getDestinationInsertionPoints(this) || [];
-    };
     HTMLContentElement.prototype.nodeIsInserted_ =
       HTMLShadowElement.prototype.nodeIsInserted_ = function () {
         this.invalidateShadowRenderer();
@@ -4530,10 +4714,13 @@ if (WebComponents.flags.shadow) {
     function createWrapperConstructor(name) {
       if (!window[name]) return;
       assert(!scope.wrappers[name]);
-      var GeneratedWrapper = function (node) {
-        HTMLElement.call(this, node);
-      };
-      GeneratedWrapper.prototype = Object.create(HTMLElement.prototype);
+
+      class GeneratedWrapper extends HTMLElement {
+        constructor(node) {
+          super(node);
+        }
+      }
+
       mixin(GeneratedWrapper.prototype, {
         get form() {
           return wrap(unwrap(this).form);
@@ -4557,50 +4744,61 @@ if (WebComponents.flags.shadow) {
     var unwrapIfNeeded = scope.unwrapIfNeeded;
     var wrap = scope.wrap;
     var OriginalSelection = window.Selection;
-    function Selection(impl) {
-      setWrapper(impl, this);
-    }
-    Selection.prototype = {
+
+    class Selection {
+      constructor(impl) {
+        setWrapper(impl, this);
+      }
+
       get anchorNode() {
         return wrap(unsafeUnwrap(this).anchorNode);
-      },
+      }
+
       get focusNode() {
         return wrap(unsafeUnwrap(this).focusNode);
-      },
+      }
+
       addRange(range) {
         unsafeUnwrap(this).addRange(unwrapIfNeeded(range));
-      },
+      }
+
       collapse(node, index) {
         unsafeUnwrap(this).collapse(unwrapIfNeeded(node), index);
-      },
+      }
+
       containsNode(node, allowPartial) {
         return unsafeUnwrap(this).containsNode(
           unwrapIfNeeded(node),
           allowPartial
         );
-      },
+      }
+
       getRangeAt(index) {
         return wrap(unsafeUnwrap(this).getRangeAt(index));
-      },
+      }
+
       removeRange(range) {
         unsafeUnwrap(this).removeRange(unwrap(range));
-      },
+      }
+
       selectAllChildren(node) {
         unsafeUnwrap(this).selectAllChildren(
           node instanceof ShadowRoot
             ? unsafeUnwrap(node.host)
             : unwrapIfNeeded(node)
         );
-      },
+      }
+
       toString() {
         return unsafeUnwrap(this).toString();
-      },
-    };
-    if (OriginalSelection.prototype.extend) {
-      Selection.prototype.extend = function (node, offset) {
+      }
+
+      extend(node, offset) {
         unsafeUnwrap(this).extend(unwrapIfNeeded(node), offset);
-      };
+      }
     }
+
+    if (OriginalSelection.prototype.extend) {}
     registerWrapper(window.Selection, Selection, window.getSelection());
     scope.wrappers.Selection = Selection;
   })(window.ShadowDOMPolyfill);
@@ -4612,41 +4810,53 @@ if (WebComponents.flags.shadow) {
     var unwrapIfNeeded = scope.unwrapIfNeeded;
     var wrap = scope.wrap;
     var OriginalTreeWalker = window.TreeWalker;
-    function TreeWalker(impl) {
-      setWrapper(impl, this);
-    }
-    TreeWalker.prototype = {
+
+    class TreeWalker {
+      constructor(impl) {
+        setWrapper(impl, this);
+      }
+
       get root() {
         return wrap(unsafeUnwrap(this).root);
-      },
+      }
+
       get currentNode() {
         return wrap(unsafeUnwrap(this).currentNode);
-      },
+      }
+
       set currentNode(node) {
         unsafeUnwrap(this).currentNode = unwrapIfNeeded(node);
-      },
+      }
+
       get filter() {
         return unsafeUnwrap(this).filter;
-      },
+      }
+
       parentNode() {
         return wrap(unsafeUnwrap(this).parentNode());
-      },
+      }
+
       firstChild() {
         return wrap(unsafeUnwrap(this).firstChild());
-      },
+      }
+
       lastChild() {
         return wrap(unsafeUnwrap(this).lastChild());
-      },
+      }
+
       previousSibling() {
         return wrap(unsafeUnwrap(this).previousSibling());
-      },
+      }
+
       previousNode() {
         return wrap(unsafeUnwrap(this).previousNode());
-      },
+      }
+
       nextNode() {
         return wrap(unsafeUnwrap(this).nextNode());
-      },
-    };
+      }
+    }
+
     registerWrapper(OriginalTreeWalker, TreeWalker);
     scope.wrappers.TreeWalker = TreeWalker;
   })(window.ShadowDOMPolyfill);
@@ -4677,11 +4887,108 @@ if (WebComponents.flags.shadow) {
     var wrapEventTargetMethods = scope.wrapEventTargetMethods;
     var wrapNodeList = scope.wrapNodeList;
     var implementationTable = new WeakMap();
-    function Document(node) {
-      Node.call(this, node);
-      this.treeScope_ = new TreeScope(this, null);
+
+    class Document extends Node {
+      constructor(node) {
+        super(node);
+        this.treeScope_ = new TreeScope(this, null);
+      }
+
+      createTreeWalker(root, whatToShow, filter, expandEntityReferences) {
+        var newFilter = null;
+        if (filter) {
+          if (filter.acceptNode && typeof filter.acceptNode === "function") {
+            newFilter = {
+              acceptNode(node) {
+                return filter.acceptNode(wrap(node));
+              },
+            };
+          } else if (typeof filter === "function") {
+            newFilter = function (node) {
+              return filter(wrap(node));
+            };
+          }
+        }
+        return new TreeWalkerWrapper(
+          originalCreateTreeWalker.call(
+            unwrap(this),
+            unwrap(root),
+            whatToShow,
+            newFilter,
+            expandEntityReferences
+          )
+        );
+      }
+
+      registerElement(tagName, object) {
+        var prototype, extendsOption;
+        if (object !== undefined) {
+          prototype = object.prototype;
+          extendsOption = object.extends;
+        }
+        if (!prototype) prototype = Object.create(HTMLElement.prototype);
+        if (scope.nativePrototypeTable.get(prototype)) {
+          throw new Error("NotSupportedError");
+        }
+        var proto = Object.getPrototypeOf(prototype);
+        var nativePrototype;
+        var prototypes = [];
+        while (proto) {
+          nativePrototype = scope.nativePrototypeTable.get(proto);
+          if (nativePrototype) break;
+          prototypes.push(proto);
+          proto = Object.getPrototypeOf(proto);
+        }
+        if (!nativePrototype) {
+          throw new Error("NotSupportedError");
+        }
+        var newPrototype = Object.create(nativePrototype);
+        for (var i = prototypes.length - 1; i >= 0; i--) {
+          newPrototype = Object.create(newPrototype);
+        }
+        [
+          "createdCallback",
+          "attachedCallback",
+          "detachedCallback",
+          "attributeChangedCallback",
+        ].forEach(function (name) {
+          var f = prototype[name];
+          if (!f) return;
+          newPrototype[name] = function () {
+            if (!(wrap(this) instanceof CustomElementConstructor)) {
+              rewrap(this);
+            }
+            f.apply(wrap(this), arguments);
+          };
+        });
+        var p = {
+          prototype: newPrototype,
+        };
+        if (extendsOption) p.extends = extendsOption;
+        function CustomElementConstructor(node) {
+          if (!node) {
+            if (extendsOption) {
+              return document.createElement(extendsOption, tagName);
+            } else {
+              return document.createElement(tagName);
+            }
+          }
+          setWrapper(node, this);
+        }
+        CustomElementConstructor.prototype = prototype;
+        CustomElementConstructor.prototype.constructor =
+          CustomElementConstructor;
+        scope.constructorTable.set(newPrototype, CustomElementConstructor);
+        scope.nativePrototypeTable.set(prototype, newPrototype);
+        var nativeConstructor = originalRegisterElement.call(
+          unwrap(this),
+          tagName,
+          p
+        );
+        return CustomElementConstructor;
+      }
     }
-    Document.prototype = Object.create(Node.prototype);
+
     defineWrapGetter(Document, "documentElement");
     defineWrapGetter(Document, "body");
     defineWrapGetter(Document, "head");
@@ -4760,105 +5067,8 @@ if (WebComponents.flags.shadow) {
     });
     var originalCreateTreeWalker = document.createTreeWalker;
     var TreeWalkerWrapper = scope.wrappers.TreeWalker;
-    Document.prototype.createTreeWalker = function (
-      root,
-      whatToShow,
-      filter,
-      expandEntityReferences
-    ) {
-      var newFilter = null;
-      if (filter) {
-        if (filter.acceptNode && typeof filter.acceptNode === "function") {
-          newFilter = {
-            acceptNode(node) {
-              return filter.acceptNode(wrap(node));
-            },
-          };
-        } else if (typeof filter === "function") {
-          newFilter = function (node) {
-            return filter(wrap(node));
-          };
-        }
-      }
-      return new TreeWalkerWrapper(
-        originalCreateTreeWalker.call(
-          unwrap(this),
-          unwrap(root),
-          whatToShow,
-          newFilter,
-          expandEntityReferences
-        )
-      );
-    };
     if (document.registerElement) {
       var originalRegisterElement = document.registerElement;
-      Document.prototype.registerElement = function (tagName, object) {
-        var prototype, extendsOption;
-        if (object !== undefined) {
-          prototype = object.prototype;
-          extendsOption = object.extends;
-        }
-        if (!prototype) prototype = Object.create(HTMLElement.prototype);
-        if (scope.nativePrototypeTable.get(prototype)) {
-          throw new Error("NotSupportedError");
-        }
-        var proto = Object.getPrototypeOf(prototype);
-        var nativePrototype;
-        var prototypes = [];
-        while (proto) {
-          nativePrototype = scope.nativePrototypeTable.get(proto);
-          if (nativePrototype) break;
-          prototypes.push(proto);
-          proto = Object.getPrototypeOf(proto);
-        }
-        if (!nativePrototype) {
-          throw new Error("NotSupportedError");
-        }
-        var newPrototype = Object.create(nativePrototype);
-        for (var i = prototypes.length - 1; i >= 0; i--) {
-          newPrototype = Object.create(newPrototype);
-        }
-        [
-          "createdCallback",
-          "attachedCallback",
-          "detachedCallback",
-          "attributeChangedCallback",
-        ].forEach(function (name) {
-          var f = prototype[name];
-          if (!f) return;
-          newPrototype[name] = function () {
-            if (!(wrap(this) instanceof CustomElementConstructor)) {
-              rewrap(this);
-            }
-            f.apply(wrap(this), arguments);
-          };
-        });
-        var p = {
-          prototype: newPrototype,
-        };
-        if (extendsOption) p.extends = extendsOption;
-        function CustomElementConstructor(node) {
-          if (!node) {
-            if (extendsOption) {
-              return document.createElement(extendsOption, tagName);
-            } else {
-              return document.createElement(tagName);
-            }
-          }
-          setWrapper(node, this);
-        }
-        CustomElementConstructor.prototype = prototype;
-        CustomElementConstructor.prototype.constructor =
-          CustomElementConstructor;
-        scope.constructorTable.set(newPrototype, CustomElementConstructor);
-        scope.nativePrototypeTable.set(prototype, newPrototype);
-        var nativeConstructor = originalRegisterElement.call(
-          unwrap(this),
-          tagName,
-          p
-        );
-        return CustomElementConstructor;
-      };
       forwardMethodsToWrapper(
         [window.HTMLDocument || window.Document],
         ["registerElement"]
@@ -4937,14 +5147,19 @@ if (WebComponents.flags.shadow) {
       window.HTMLDocument || window.Document,
       window.HTMLHeadElement,
     ]);
-    function DOMImplementation(impl) {
-      setWrapper(impl, this);
+
+    class DOMImplementation {
+      constructor(impl) {
+        setWrapper(impl, this);
+      }
+
+      createDocument() {
+        arguments[2] = unwrap(arguments[2]);
+        return wrap(originalCreateDocument.apply(unsafeUnwrap(this), arguments));
+      }
     }
+
     var originalCreateDocument = document.implementation.createDocument;
-    DOMImplementation.prototype.createDocument = function () {
-      arguments[2] = unwrap(arguments[2]);
-      return wrap(originalCreateDocument.apply(unsafeUnwrap(this), arguments));
-    };
     function wrapImplMethod(constructor, name) {
       var original = document.implementation[name];
       constructor.prototype[name] = function () {
@@ -4988,10 +5203,22 @@ if (WebComponents.flags.shadow) {
     var originalGetComputedStyle = window.getComputedStyle;
     var originalGetDefaultComputedStyle = window.getDefaultComputedStyle;
     var originalGetSelection = window.getSelection;
-    function Window(impl) {
-      EventTarget.call(this, impl);
+
+    class Window extends EventTarget {
+      constructor(impl) {
+        super(impl);
+      }
+
+      getDefaultComputedStyle(el, pseudo) {
+        renderAllPending();
+        return originalGetDefaultComputedStyle.call(
+          unwrap(this),
+          unwrapIfNeeded(el),
+          pseudo
+        );
+      }
     }
-    Window.prototype = Object.create(EventTarget.prototype);
+
     OriginalWindow.prototype.getComputedStyle = function (el, pseudo) {
       return wrap(this || window).getComputedStyle(unwrapIfNeeded(el), pseudo);
     };
@@ -5035,16 +5262,7 @@ if (WebComponents.flags.shadow) {
         return wrap(unwrap(this).document);
       },
     });
-    if (originalGetDefaultComputedStyle) {
-      Window.prototype.getDefaultComputedStyle = function (el, pseudo) {
-        renderAllPending();
-        return originalGetDefaultComputedStyle.call(
-          unwrap(this),
-          unwrapIfNeeded(el),
-          pseudo
-        );
-      };
-    }
+    if (originalGetDefaultComputedStyle) {}
     registerWrapper(OriginalWindow, Window, window);
     scope.wrappers.Window = Window;
   })(window.ShadowDOMPolyfill);
@@ -6207,18 +6425,21 @@ if (WebComponents.flags.shadow) {
     this._isInvalid = false;
     this._isRelative = false;
   }
-  function jURL(url, base) {
-    if (base !== undefined && !(base instanceof jURL))
-      base = new jURL(String(base));
-    this._url = url;
-    clear.call(this);
-    var input = url.replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, "");
-    parse.call(this, input, null, base);
-  }
-  jURL.prototype = {
+
+  class jURL {
+    constructor(url, base) {
+      if (base !== undefined && !(base instanceof jURL))
+        base = new jURL(String(base));
+      this._url = url;
+      clear.call(this);
+      var input = url.replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, "");
+      parse.call(this, input, null, base);
+    }
+
     toString() {
       return this.href;
-    },
+    }
+
     get href() {
       if (this._isInvalid) return this._url;
       var authority = "";
@@ -6235,77 +6456,93 @@ if (WebComponents.flags.shadow) {
         this._query +
         this._fragment
       );
-    },
+    }
+
     set href(href) {
       clear.call(this);
       parse.call(this, href);
-    },
+    }
+
     get protocol() {
       return this._scheme + ":";
-    },
+    }
+
     set protocol(protocol) {
       if (this._isInvalid) return;
       parse.call(this, protocol + ":", "scheme start");
-    },
+    }
+
     get host() {
       return this._isInvalid
         ? ""
         : this._port
         ? this._host + ":" + this._port
         : this._host;
-    },
+    }
+
     set host(host) {
       if (this._isInvalid || !this._isRelative) return;
       parse.call(this, host, "host");
-    },
+    }
+
     get hostname() {
       return this._host;
-    },
+    }
+
     set hostname(hostname) {
       if (this._isInvalid || !this._isRelative) return;
       parse.call(this, hostname, "hostname");
-    },
+    }
+
     get port() {
       return this._port;
-    },
+    }
+
     set port(port) {
       if (this._isInvalid || !this._isRelative) return;
       parse.call(this, port, "port");
-    },
+    }
+
     get pathname() {
       return this._isInvalid
         ? ""
         : this._isRelative
         ? "/" + this._path.join("/")
         : this._schemeData;
-    },
+    }
+
     set pathname(pathname) {
       if (this._isInvalid || !this._isRelative) return;
       this._path = [];
       parse.call(this, pathname, "relative path start");
-    },
+    }
+
     get search() {
       return this._isInvalid || !this._query || "?" == this._query
         ? ""
         : this._query;
-    },
+    }
+
     set search(search) {
       if (this._isInvalid || !this._isRelative) return;
       this._query = "?";
       if ("?" == search[0]) search = search.slice(1);
       parse.call(this, search, "query");
-    },
+    }
+
     get hash() {
       return this._isInvalid || !this._fragment || "#" == this._fragment
         ? ""
         : this._fragment;
-    },
+    }
+
     set hash(hash) {
       if (this._isInvalid) return;
       this._fragment = "#";
       if ("#" == hash[0]) hash = hash.slice(1);
       parse.call(this, hash, "fragment");
-    },
+    }
+
     get origin() {
       var host;
       if (this._isInvalid || !this._scheme) {
@@ -6323,17 +6560,19 @@ if (WebComponents.flags.shadow) {
         return "";
       }
       return this._scheme + "://" + host;
-    },
-  };
-  var OriginalURL = scope.URL;
-  if (OriginalURL) {
-    jURL.createObjectURL = function (blob) {
+    }
+
+    static createObjectURL(blob) {
       return OriginalURL.createObjectURL.apply(OriginalURL, arguments);
-    };
-    jURL.revokeObjectURL = function (url) {
+    }
+
+    static revokeObjectURL(url) {
       OriginalURL.revokeObjectURL(url);
-    };
+    }
   }
+
+  var OriginalURL = scope.URL;
+  if (OriginalURL) {}
   scope.URL = jURL;
 })(self);
 
@@ -6423,13 +6662,15 @@ if (WebComponents.flags.shadow) {
     }
   }
   var uidCounter = 0;
-  function JsMutationObserver(callback) {
-    this.callback_ = callback;
-    this.nodes_ = [];
-    this.records_ = [];
-    this.uid_ = ++uidCounter;
-  }
-  JsMutationObserver.prototype = {
+
+  class JsMutationObserver {
+    constructor(callback) {
+      this.callback_ = callback;
+      this.nodes_ = [];
+      this.records_ = [];
+      this.uid_ = ++uidCounter;
+    }
+
     observe(target, options) {
       target = wrapIfNeeded(target);
       if (
@@ -6459,7 +6700,8 @@ if (WebComponents.flags.shadow) {
         this.nodes_.push(target);
       }
       registration.addListeners();
-    },
+    }
+
     disconnect() {
       this.nodes_.forEach(function (node) {
         var registrations = registrationsTable.get(node);
@@ -6473,13 +6715,15 @@ if (WebComponents.flags.shadow) {
         }
       }, this);
       this.records_ = [];
-    },
+    }
+
     takeRecords() {
       var copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
-    },
-  };
+    }
+  }
+
   function MutationRecord(type, target) {
     this.type = type;
     this.target = target;
@@ -6524,13 +6768,15 @@ if (WebComponents.flags.shadow) {
       return recordWithOldValue;
     return null;
   }
-  function Registration(observer, target, options) {
-    this.observer = observer;
-    this.target = target;
-    this.options = options;
-    this.transientObservedNodes = [];
-  }
-  Registration.prototype = {
+
+  class Registration {
+    constructor(observer, target, options) {
+      this.observer = observer;
+      this.target = target;
+      this.options = options;
+      this.transientObservedNodes = [];
+    }
+
     enqueue(record) {
       var records = this.observer.records_;
       var length = records.length;
@@ -6545,10 +6791,12 @@ if (WebComponents.flags.shadow) {
         scheduleCallback(this.observer);
       }
       records[length] = record;
-    },
+    }
+
     addListeners() {
       this.addListeners_(this.target);
-    },
+    }
+
     addListeners_(node) {
       var options = this.options;
       if (options.attributes)
@@ -6559,10 +6807,12 @@ if (WebComponents.flags.shadow) {
         node.addEventListener("DOMNodeInserted", this, true);
       if (options.childList || options.subtree)
         node.addEventListener("DOMNodeRemoved", this, true);
-    },
+    }
+
     removeListeners() {
       this.removeListeners_(this.target);
-    },
+    }
+
     removeListeners_(node) {
       var options = this.options;
       if (options.attributes)
@@ -6573,7 +6823,8 @@ if (WebComponents.flags.shadow) {
         node.removeEventListener("DOMNodeInserted", this, true);
       if (options.childList || options.subtree)
         node.removeEventListener("DOMNodeRemoved", this, true);
-    },
+    }
+
     addTransientObserver(node) {
       if (node === this.target) return;
       this.addListeners_(node);
@@ -6581,7 +6832,8 @@ if (WebComponents.flags.shadow) {
       var registrations = registrationsTable.get(node);
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
-    },
+    }
+
     removeTransientObservers() {
       var transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
@@ -6595,7 +6847,8 @@ if (WebComponents.flags.shadow) {
           }
         }
       }, this);
-    },
+    }
+
     handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
@@ -6665,8 +6918,9 @@ if (WebComponents.flags.shadow) {
           );
       }
       clearRecords();
-    },
-  };
+    }
+  }
+
   global.JsMutationObserver = JsMutationObserver;
   if (!global.MutationObserver) {
     global.MutationObserver = JsMutationObserver;
@@ -6718,18 +6972,6 @@ if (WebComponents.flags.shadow) {
   })();
   if (!workingDefaultPrevented) {
     var origPreventDefault = Event.prototype.preventDefault;
-    Event.prototype.preventDefault = function () {
-      if (!this.cancelable) {
-        return;
-      }
-      origPreventDefault.call(this);
-      Object.defineProperty(this, "defaultPrevented", {
-        get() {
-          return true;
-        },
-        configurable: true,
-      });
-    };
   }
   var isIE = /Trident/.test(navigator.userAgent);
   if (
@@ -7029,33 +7271,38 @@ window.HTMLImports.addModule(function (scope) {
 window.HTMLImports.addModule(function (scope) {
   var xhr = scope.xhr;
   var flags = scope.flags;
-  var Loader = function (onLoad, onComplete) {
-    this.cache = {};
-    this.onload = onLoad;
-    this.oncomplete = onComplete;
-    this.inflight = 0;
-    this.pending = {};
-  };
-  Loader.prototype = {
+
+  class Loader {
+    constructor(onLoad, onComplete) {
+      this.cache = {};
+      this.onload = onLoad;
+      this.oncomplete = onComplete;
+      this.inflight = 0;
+      this.pending = {};
+    }
+
     addNodes(nodes) {
       this.inflight += nodes.length;
       for (var i = 0, l = nodes.length, n; i < l && (n = nodes[i]); i++) {
         this.require(n);
       }
       this.checkDone();
-    },
+    }
+
     addNode(node) {
       this.inflight++;
       this.require(node);
       this.checkDone();
-    },
+    }
+
     require(elt) {
       var url = elt.src || elt.href;
       elt.__nodeUrl = url;
       if (!this.dedupe(url, elt)) {
         this.fetch(url, elt);
       }
-    },
+    }
+
     dedupe(url, elt) {
       if (this.pending[url]) {
         this.pending[url].push(elt);
@@ -7069,7 +7316,8 @@ window.HTMLImports.addModule(function (scope) {
       }
       this.pending[url] = [elt];
       return false;
-    },
+    }
+
     fetch(url, elt) {
       flags.load && console.log("fetch", url, elt);
       if (!url) {
@@ -7107,7 +7355,8 @@ window.HTMLImports.addModule(function (scope) {
         }.bind(this);
         xhr.load(url, receiveXhr);
       }
-    },
+    }
+
     receive(url, elt, err, resource, redirectedUrl) {
       this.cache[url] = resource;
       var $p = this.pending[url];
@@ -7116,26 +7365,30 @@ window.HTMLImports.addModule(function (scope) {
         this.tail();
       }
       this.pending[url] = null;
-    },
+    }
+
     tail() {
       --this.inflight;
       this.checkDone();
-    },
+    }
+
     checkDone() {
       if (!this.inflight) {
         this.oncomplete();
       }
-    },
-  };
+    }
+  }
+
   scope.Loader = Loader;
 });
 
 window.HTMLImports.addModule(function (scope) {
-  var Observer = function (addCallback) {
-    this.addCallback = addCallback;
-    this.mo = new MutationObserver(this.handler.bind(this));
-  };
-  Observer.prototype = {
+  class Observer {
+    constructor(addCallback) {
+      this.addCallback = addCallback;
+      this.mo = new MutationObserver(this.handler.bind(this));
+    }
+
     handler(mutations) {
       for (
         var i = 0, l = mutations.length, m;
@@ -7146,7 +7399,8 @@ window.HTMLImports.addModule(function (scope) {
           this.addedNodes(m.addedNodes);
         }
       }
-    },
+    }
+
     addedNodes(nodes) {
       if (this.addCallback) {
         this.addCallback(nodes);
@@ -7160,14 +7414,16 @@ window.HTMLImports.addModule(function (scope) {
           this.addedNodes(n.children);
         }
       }
-    },
+    }
+
     observe(root) {
       this.mo.observe(root, {
         childList: true,
         subtree: true,
       });
-    },
-  };
+    }
+  }
+
   scope.Observer = Observer;
 });
 
@@ -7858,13 +8114,7 @@ window.CustomElements.addModule(function (scope) {
     forDocumentTree(doc, upgradeDocument);
   }
   var originalCreateShadowRoot = Element.prototype.createShadowRoot;
-  if (originalCreateShadowRoot) {
-    Element.prototype.createShadowRoot = function () {
-      var root = originalCreateShadowRoot.call(this);
-      window.CustomElements.watchShadow(this);
-      return root;
-    };
-  }
+  if (originalCreateShadowRoot) {}
   scope.watchShadow = watchShadow;
   scope.upgradeDocumentTree = upgradeDocumentTree;
   scope.upgradeDocument = upgradeDocument;

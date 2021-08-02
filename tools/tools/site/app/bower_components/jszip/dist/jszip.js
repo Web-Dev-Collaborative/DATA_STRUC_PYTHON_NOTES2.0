@@ -66,61 +66,66 @@ https://github.com/nodeca/pako/blob/master/LICENSE
           "use strict";
           var DataReader = require("./dataReader");
 
-          function ArrayReader(data) {
-            if (data) {
-              this.data = data;
-              this.length = this.data.length;
-              this.index = 0;
-              this.zero = 0;
+          class ArrayReader extends DataReader {
+            constructor(data) {
+              if (data) {
+                this.data = data;
+                this.length = this.data.length;
+                this.index = 0;
+                this.zero = 0;
 
-              for (var i = 0; i < this.data.length; i++) {
-                data[i] = data[i] & 0xff;
+                for (var i = 0; i < this.data.length; i++) {
+                  data[i] = data[i] & 0xff;
+                }
               }
+            }
+
+            /**
+             * @see DataReader.byteAt
+             */
+            byteAt(i) {
+              return this.data[this.zero + i];
+            }
+
+            /**
+             * @see DataReader.lastIndexOfSignature
+             */
+            lastIndexOfSignature(sig) {
+              var sig0 = sig.charCodeAt(0),
+                sig1 = sig.charCodeAt(1),
+                sig2 = sig.charCodeAt(2),
+                sig3 = sig.charCodeAt(3);
+              for (var i = this.length - 4; i >= 0; --i) {
+                if (
+                  this.data[i] === sig0 &&
+                  this.data[i + 1] === sig1 &&
+                  this.data[i + 2] === sig2 &&
+                  this.data[i + 3] === sig3
+                ) {
+                  return i - this.zero;
+                }
+              }
+
+              return -1;
+            }
+
+            /**
+             * @see DataReader.readData
+             */
+            readData(size) {
+              this.checkOffset(size);
+              if (size === 0) {
+                return [];
+              }
+              var result = this.data.slice(
+                this.zero + this.index,
+                this.zero + this.index + size
+              );
+              this.index += size;
+              return result;
             }
           }
-          ArrayReader.prototype = new DataReader();
-          /**
-           * @see DataReader.byteAt
-           */
-          ArrayReader.prototype.byteAt = function (i) {
-            return this.data[this.zero + i];
-          };
-          /**
-           * @see DataReader.lastIndexOfSignature
-           */
-          ArrayReader.prototype.lastIndexOfSignature = function (sig) {
-            var sig0 = sig.charCodeAt(0),
-              sig1 = sig.charCodeAt(1),
-              sig2 = sig.charCodeAt(2),
-              sig3 = sig.charCodeAt(3);
-            for (var i = this.length - 4; i >= 0; --i) {
-              if (
-                this.data[i] === sig0 &&
-                this.data[i + 1] === sig1 &&
-                this.data[i + 2] === sig2 &&
-                this.data[i + 3] === sig3
-              ) {
-                return i - this.zero;
-              }
-            }
 
-            return -1;
-          };
-          /**
-           * @see DataReader.readData
-           */
-          ArrayReader.prototype.readData = function (size) {
-            this.checkOffset(size);
-            if (size === 0) {
-              return [];
-            }
-            var result = this.data.slice(
-              this.zero + this.index,
-              this.zero + this.index + size
-            );
-            this.index += size;
-            return result;
-          };
           module.exports = ArrayReader;
         },
         { "./dataReader": 6 },
@@ -202,15 +207,16 @@ https://github.com/nodeca/pako/blob/master/LICENSE
       3: [
         function (require, module, exports) {
           "use strict";
-          function CompressedObject() {
-            this.compressedSize = 0;
-            this.uncompressedSize = 0;
-            this.crc32 = 0;
-            this.compressionMethod = null;
-            this.compressedContent = null;
-          }
 
-          CompressedObject.prototype = {
+          class CompressedObject {
+            constructor() {
+              this.compressedSize = 0;
+              this.uncompressedSize = 0;
+              this.crc32 = 0;
+              this.compressionMethod = null;
+              this.compressedContent = null;
+            }
+
             /**
              * Return the decompressed content in an unspecified format.
              * The format will depend on the decompressor.
@@ -218,7 +224,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             getContent() {
               return null; // see implementation
-            },
+            }
+
             /**
              * Return the compressed content in an unspecified format.
              * The format will depend on the compressed conten source.
@@ -226,8 +233,9 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             getCompressedContent() {
               return null; // see implementation
-            },
-          };
+            }
+          }
+
           module.exports = CompressedObject;
         },
         {},
@@ -350,13 +358,14 @@ https://github.com/nodeca/pako/blob/master/LICENSE
           "use strict";
           var utils = require("./utils");
 
-          function DataReader(data) {
-            this.data = null; // type : see implementation
-            this.length = 0;
-            this.index = 0;
-            this.zero = 0;
-          }
-          DataReader.prototype = {
+          class DataReader {
+            constructor(data) {
+              this.data = null; // type : see implementation
+              this.length = 0;
+              this.index = 0;
+              this.zero = 0;
+            }
+
             /**
              * Check that the offset will not go too far.
              * @param {string} offset the additional offset to check.
@@ -364,7 +373,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             checkOffset(offset) {
               this.checkIndex(this.index + offset);
-            },
+            }
+
             /**
              * Check that the specifed index will not be too far.
              * @param {string} newIndex the index to check.
@@ -380,7 +390,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
                     "). Corrupted zip ?"
                 );
               }
-            },
+            }
+
             /**
              * Change the index.
              * @param {number} newIndex The new index.
@@ -389,7 +400,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
             setIndex(newIndex) {
               this.checkIndex(newIndex);
               this.index = newIndex;
-            },
+            }
+
             /**
              * Skip the next n bytes.
              * @param {number} n the number of bytes to skip.
@@ -397,7 +409,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             skip(n) {
               this.setIndex(this.index + n);
-            },
+            }
+
             /**
              * Get the byte at the specified index.
              * @param {number} i the index to use.
@@ -405,7 +418,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             byteAt(i) {
               // see implementations
-            },
+            }
+
             /**
              * Get the next number with a given byte size.
              * @param {number} size the number of bytes to read.
@@ -420,7 +434,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
               }
               this.index += size;
               return result;
-            },
+            }
+
             /**
              * Get the next string with a given byte size.
              * @param {number} size the number of bytes to read.
@@ -428,7 +443,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             readString(size) {
               return utils.transformTo("string", this.readData(size));
-            },
+            }
+
             /**
              * Get raw data without conversion, <size> bytes.
              * @param {number} size the number of bytes to read.
@@ -436,7 +452,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             readData(size) {
               // see implementations
-            },
+            }
+
             /**
              * Find the last occurence of a zip signature (4 bytes).
              * @param {string} sig the signature to find.
@@ -444,7 +461,8 @@ https://github.com/nodeca/pako/blob/master/LICENSE
              */
             lastIndexOfSignature(sig) {
               // see implementations
-            },
+            }
+
             /**
              * Get the next date.
              * @return {Date} the date.
@@ -459,8 +477,9 @@ https://github.com/nodeca/pako/blob/master/LICENSE
                 (dostime >> 5) & 0x3f, // minute
                 (dostime & 0x1f) << 1
               ); // second
-            },
-          };
+            }
+          }
+
           module.exports = DataReader;
         },
         { "./utils": 22 },
@@ -770,26 +789,28 @@ Usage:
           "use strict";
           var Uint8ArrayReader = require("./uint8ArrayReader");
 
-          function NodeBufferReader(data) {
-            this.data = data;
-            this.length = this.data.length;
-            this.index = 0;
-            this.zero = 0;
-          }
-          NodeBufferReader.prototype = new Uint8ArrayReader();
+          class NodeBufferReader extends Uint8ArrayReader {
+            constructor(data) {
+              this.data = data;
+              this.length = this.data.length;
+              this.index = 0;
+              this.zero = 0;
+            }
 
-          /**
-           * @see DataReader.readData
-           */
-          NodeBufferReader.prototype.readData = function (size) {
-            this.checkOffset(size);
-            var result = this.data.slice(
-              this.zero + this.index,
-              this.zero + this.index + size
-            );
-            this.index += size;
-            return result;
-          };
+            /**
+             * @see DataReader.readData
+             */
+            readData(size) {
+              this.checkOffset(size);
+              var result = this.data.slice(
+                this.zero + this.index,
+                this.zero + this.index + size
+              );
+              this.index += size;
+              return result;
+            }
+          }
+
           module.exports = NodeBufferReader;
         },
         { "./uint8ArrayReader": 19 },
@@ -884,6 +905,7 @@ Usage:
             }
             return result;
           };
+
           /**
            * A simple object representing a file in the zip file.
            * @constructor
@@ -891,43 +913,45 @@ Usage:
            * @param {String|ArrayBuffer|Uint8Array|Buffer} data the data
            * @param {Object} options the options of the file
            */
-          var ZipObject = function (name, data, options) {
-            this.name = name;
-            this.dir = options.dir;
-            this.date = options.date;
-            this.comment = options.comment;
-            this.unixPermissions = options.unixPermissions;
-            this.dosPermissions = options.dosPermissions;
+          class ZipObject {
+            constructor(name, data, options) {
+              this.name = name;
+              this.dir = options.dir;
+              this.date = options.date;
+              this.comment = options.comment;
+              this.unixPermissions = options.unixPermissions;
+              this.dosPermissions = options.dosPermissions;
 
-            this._data = data;
-            this.options = options;
+              this._data = data;
+              this.options = options;
 
-            /*
-             * This object contains initial values for dir and date.
-             * With them, we can check if the user changed the deprecated metadata in
-             * `ZipObject#options` or not.
-             */
-            this._initialMetadata = {
-              dir: options.dir,
-              date: options.date,
-            };
-          };
+              /*
+               * This object contains initial values for dir and date.
+               * With them, we can check if the user changed the deprecated metadata in
+               * `ZipObject#options` or not.
+               */
+              this._initialMetadata = {
+                dir: options.dir,
+                date: options.date,
+              };
+            }
 
-          ZipObject.prototype = {
             /**
              * Return the content as UTF8 string.
              * @return {string} the UTF8 string.
              */
             asText() {
               return dataToString.call(this, true);
-            },
+            }
+
             /**
              * Returns the binary content.
              * @return {string} the content as binary.
              */
             asBinary() {
               return dataToString.call(this, false);
-            },
+            }
+
             /**
              * Returns the content as a nodejs Buffer.
              * @return {Buffer} the content as a Buffer.
@@ -935,7 +959,8 @@ Usage:
             asNodeBuffer() {
               var result = getBinaryData(this);
               return utils.transformTo("nodebuffer", result);
-            },
+            }
+
             /**
              * Returns the content as an Uint8Array.
              * @return {Uint8Array} the content as an Uint8Array.
@@ -943,15 +968,16 @@ Usage:
             asUint8Array() {
               var result = getBinaryData(this);
               return utils.transformTo("uint8array", result);
-            },
+            }
+
             /**
              * Returns the content as an ArrayBuffer.
              * @return {ArrayBuffer} the content as an ArrayBufer.
              */
             asArrayBuffer() {
               return this.asUint8Array().buffer;
-            },
-          };
+            }
+          }
 
           /**
            * Transform an integer into a string in hexadecimal.
@@ -1789,41 +1815,46 @@ Usage:
           var DataReader = require("./dataReader");
           var utils = require("./utils");
 
-          function StringReader(data, optimizedBinaryString) {
-            this.data = data;
-            if (!optimizedBinaryString) {
-              this.data = utils.string2binary(this.data);
+          class StringReader extends DataReader {
+            constructor(data, optimizedBinaryString) {
+              this.data = data;
+              if (!optimizedBinaryString) {
+                this.data = utils.string2binary(this.data);
+              }
+              this.length = this.data.length;
+              this.index = 0;
+              this.zero = 0;
             }
-            this.length = this.data.length;
-            this.index = 0;
-            this.zero = 0;
+
+            /**
+             * @see DataReader.byteAt
+             */
+            byteAt(i) {
+              return this.data.charCodeAt(this.zero + i);
+            }
+
+            /**
+             * @see DataReader.lastIndexOfSignature
+             */
+            lastIndexOfSignature(sig) {
+              return this.data.lastIndexOf(sig) - this.zero;
+            }
+
+            /**
+             * @see DataReader.readData
+             */
+            readData(size) {
+              this.checkOffset(size);
+              // this will work because the constructor applied the "& 0xff" mask.
+              var result = this.data.slice(
+                this.zero + this.index,
+                this.zero + this.index + size
+              );
+              this.index += size;
+              return result;
+            }
           }
-          StringReader.prototype = new DataReader();
-          /**
-           * @see DataReader.byteAt
-           */
-          StringReader.prototype.byteAt = function (i) {
-            return this.data.charCodeAt(this.zero + i);
-          };
-          /**
-           * @see DataReader.lastIndexOfSignature
-           */
-          StringReader.prototype.lastIndexOfSignature = function (sig) {
-            return this.data.lastIndexOf(sig) - this.zero;
-          };
-          /**
-           * @see DataReader.readData
-           */
-          StringReader.prototype.readData = function (size) {
-            this.checkOffset(size);
-            // this will work because the constructor applied the "& 0xff" mask.
-            var result = this.data.slice(
-              this.zero + this.index,
-              this.zero + this.index + size
-            );
-            this.index += size;
-            return result;
-          };
+
           module.exports = StringReader;
         },
         { "./dataReader": 6, "./utils": 22 },
@@ -1838,10 +1869,11 @@ Usage:
            * An object to write any content to a string.
            * @constructor
            */
-          var StringWriter = function () {
-            this.data = [];
-          };
-          StringWriter.prototype = {
+          class StringWriter {
+            constructor() {
+              this.data = [];
+            }
+
             /**
              * Append any content to the current string.
              * @param {Object} input the content to add.
@@ -1849,15 +1881,16 @@ Usage:
             append(input) {
               input = utils.transformTo("string", input);
               this.data.push(input);
-            },
+            }
+
             /**
              * Finalize the construction an return the result.
              * @return {string} the generated string.
              */
             finalize() {
               return this.data.join("");
-            },
-          };
+            }
+          }
 
           module.exports = StringWriter;
         },
@@ -1913,31 +1946,34 @@ Usage:
           "use strict";
           var ArrayReader = require("./arrayReader");
 
-          function Uint8ArrayReader(data) {
-            if (data) {
-              this.data = data;
-              this.length = this.data.length;
-              this.index = 0;
-              this.zero = 0;
+          class Uint8ArrayReader extends ArrayReader {
+            constructor(data) {
+              if (data) {
+                this.data = data;
+                this.length = this.data.length;
+                this.index = 0;
+                this.zero = 0;
+              }
+            }
+
+            /**
+             * @see DataReader.readData
+             */
+            readData(size) {
+              this.checkOffset(size);
+              if (size === 0) {
+                // in IE10, when using subarray(idx, idx), we get the array [0x00] instead of [].
+                return new Uint8Array(0);
+              }
+              var result = this.data.subarray(
+                this.zero + this.index,
+                this.zero + this.index + size
+              );
+              this.index += size;
+              return result;
             }
           }
-          Uint8ArrayReader.prototype = new ArrayReader();
-          /**
-           * @see DataReader.readData
-           */
-          Uint8ArrayReader.prototype.readData = function (size) {
-            this.checkOffset(size);
-            if (size === 0) {
-              // in IE10, when using subarray(idx, idx), we get the array [0x00] instead of [].
-              return new Uint8Array(0);
-            }
-            var result = this.data.subarray(
-              this.zero + this.index,
-              this.zero + this.index + size
-            );
-            this.index += size;
-            return result;
-          };
+
           module.exports = Uint8ArrayReader;
         },
         { "./arrayReader": 1 },
@@ -1953,11 +1989,12 @@ Usage:
            * @constructor
            * @param {number} length The length of the array.
            */
-          var Uint8ArrayWriter = function (length) {
-            this.data = new Uint8Array(length);
-            this.index = 0;
-          };
-          Uint8ArrayWriter.prototype = {
+          class Uint8ArrayWriter {
+            constructor(length) {
+              this.data = new Uint8Array(length);
+              this.index = 0;
+            }
+
             /**
              * Append any content to the current array.
              * @param {Object} input the content to add.
@@ -1969,15 +2006,16 @@ Usage:
                 this.data.set(input, this.index);
                 this.index += input.length;
               }
-            },
+            }
+
             /**
              * Finalize the construction an return the result.
              * @return {Uint8Array} the generated array.
              */
             finalize() {
               return this.data;
-            },
-          };
+            }
+          }
 
           module.exports = Uint8ArrayWriter;
         },
@@ -2610,6 +2648,7 @@ Usage:
           var ZipEntry = require("./zipEntry");
           var support = require("./support");
           var jszipProto = require("./object");
+
           //  class ZipEntries {{{
           /**
            * All the entries in the zip file.
@@ -2617,14 +2656,15 @@ Usage:
            * @param {String|ArrayBuffer|Uint8Array} data the binary stream to load.
            * @param {Object} loadOptions Options for loading the stream.
            */
-          function ZipEntries(data, loadOptions) {
-            this.files = [];
-            this.loadOptions = loadOptions;
-            if (data) {
-              this.load(data);
+          class ZipEntries {
+            constructor(data, loadOptions) {
+              this.files = [];
+              this.loadOptions = loadOptions;
+              if (data) {
+                this.load(data);
+              }
             }
-          }
-          ZipEntries.prototype = {
+
             /**
              * Check that the reader is on the speficied signature.
              * @param {string} expectedSignature the expected signature.
@@ -2642,7 +2682,8 @@ Usage:
                     ")"
                 );
               }
-            },
+            }
+
             /**
              * Check if the given signature is at the given index.
              * @param {number} askedIndex the index to check.
@@ -2656,7 +2697,8 @@ Usage:
               var result = signature === expectedSignature;
               this.reader.setIndex(currentIndex);
               return result;
-            },
+            }
+
             /**
              * Read the end of the central directory.
              */
@@ -2681,7 +2723,8 @@ Usage:
                 zipComment
               );
               this.zipComment = this.loadOptions.decodeFileName(decodeContent);
-            },
+            }
+
             /**
              * Read the end of the Zip 64 central directory.
              * Not merged with the method readEndOfCentral :
@@ -2715,7 +2758,8 @@ Usage:
                   value: extraFieldValue,
                 };
               }
-            },
+            }
+
             /**
              * Read the end of the Zip 64 central directory locator.
              */
@@ -2726,7 +2770,8 @@ Usage:
               if (this.disksCount > 1) {
                 throw new Error("Multi-volumes zip are not supported");
               }
-            },
+            }
+
             /**
              * Read the local files, based on the offset read in the central part.
              */
@@ -2740,7 +2785,8 @@ Usage:
                 file.handleUTF8();
                 file.processAttributes();
               }
-            },
+            }
+
             /**
              * Read the central directory.
              */
@@ -2775,7 +2821,8 @@ Usage:
                   // console.warn("expected", this.centralDirRecords, "records in central dir, got", this.files.length);
                 }
               }
-            },
+            }
+
             /**
              * Read the end of central directory.
              */
@@ -2904,7 +2951,8 @@ Usage:
                   "Corrupted zip: missing " + Math.abs(extraBytes) + " bytes."
                 );
               }
-            },
+            }
+
             prepareReader(data) {
               var type = utils.getTypeOf(data);
               utils.checkSupport(type);
@@ -2926,7 +2974,8 @@ Usage:
                   "Unexpected error: unsupported type '" + type + "'"
                 );
               }
-            },
+            }
+
             /**
              * Read a zip file and create ZipEntries.
              * @param {String|ArrayBuffer|Uint8Array|Buffer} data the binary string representing a zip file.
@@ -2936,8 +2985,9 @@ Usage:
               this.readEndOfCentral();
               this.readCentralDir();
               this.readLocalFiles();
-            },
-          };
+            }
+          }
+
           // }}} end of ZipEntries
           module.exports = ZipEntries;
         },
@@ -2972,11 +3022,12 @@ Usage:
            * @param {Object} options Options of the current file.
            * @param {Object} loadOptions Options for loading the stream.
            */
-          function ZipEntry(options, loadOptions) {
-            this.options = options;
-            this.loadOptions = loadOptions;
-          }
-          ZipEntry.prototype = {
+          class ZipEntry {
+            constructor(options, loadOptions) {
+              this.options = options;
+              this.loadOptions = loadOptions;
+            }
+
             /**
              * say if the file is encrypted.
              * @return {boolean} true if the file is encrypted, false otherwise.
@@ -2984,7 +3035,8 @@ Usage:
             isEncrypted() {
               // bit 1 is set
               return (this.bitFlag & 0x0001) === 0x0001;
-            },
+            }
+
             /**
              * say if the file has utf-8 filename/comment.
              * @return {boolean} true if the filename/comment is in utf-8, false otherwise.
@@ -2992,7 +3044,8 @@ Usage:
             useUTF8() {
               // bit 11 is set
               return (this.bitFlag & 0x0800) === 0x0800;
-            },
+            }
+
             /**
              * Prepare the function used to generate the compressed content from this ZipFile.
              * @param {DataReader} reader the reader to use.
@@ -3009,7 +3062,8 @@ Usage:
 
                 return compressedFileData;
               };
-            },
+            }
+
             /**
              * Prepare the function used to generate the uncompressed content from this ZipFile.
              * @param {DataReader} reader the reader to use.
@@ -3034,7 +3088,8 @@ Usage:
 
                 return uncompressedFileData;
               };
-            },
+            }
+
             /**
              * Read the local part of a zip file and add the info in this object.
              * @param {DataReader} reader the reader to use.
@@ -3112,7 +3167,7 @@ Usage:
                   throw new Error("Corrupted zip : CRC32 mismatch");
                 }
               }
-            },
+            }
 
             /**
              * Read the central part of a zip file and add the info in this object.
@@ -3143,7 +3198,7 @@ Usage:
               this.readExtraFields(reader);
               this.parseZIP64ExtraField(reader);
               this.fileComment = reader.readData(this.fileCommentLength);
-            },
+            }
 
             /**
              * Parse the external file attributes and get the unix/dos permissions.
@@ -3173,7 +3228,7 @@ Usage:
               if (!this.dir && this.fileNameStr.slice(-1) === "/") {
                 this.dir = true;
               }
-            },
+            }
 
             /**
              * Parse the ZIP64 extra field and merge the info in the current ZipEntry.
@@ -3203,7 +3258,8 @@ Usage:
               if (this.diskNumberStart === utils.MAX_VALUE_32BITS) {
                 this.diskNumberStart = extraReader.readInt(4);
               }
-            },
+            }
+
             /**
              * Read the central part of a zip file and add the info in this object.
              * @param {DataReader} reader the reader to use.
@@ -3227,7 +3283,8 @@ Usage:
                   value: extraFieldValue,
                 };
               }
-            },
+            }
+
             /**
              * Apply an UTF8 transformation if needed.
              */
@@ -3261,7 +3318,7 @@ Usage:
                     this.loadOptions.decodeFileName(commentByteArray);
                 }
               }
-            },
+            }
 
             /**
              * Find the unicode path declared in the extra field, if any.
@@ -3289,7 +3346,7 @@ Usage:
                 );
               }
               return null;
-            },
+            }
 
             /**
              * Find the unicode comment declared in the extra field, if any.
@@ -3317,8 +3374,9 @@ Usage:
                 );
               }
               return null;
-            },
-          };
+            }
+          }
+
           module.exports = ZipEntry;
         },
         {
@@ -3471,223 +3529,225 @@ Usage:
            * console.log(deflate.result);
            * ```
            **/
-          function Deflate(options) {
-            if (!(this instanceof Deflate)) return new Deflate(options);
+          class Deflate {
+            constructor(options) {
+              if (!(this instanceof Deflate)) return new Deflate(options);
 
-            this.options = utils.assign(
-              {
-                level: Z_DEFAULT_COMPRESSION,
-                method: Z_DEFLATED,
-                chunkSize: 16384,
-                windowBits: 15,
-                memLevel: 8,
-                strategy: Z_DEFAULT_STRATEGY,
-                to: "",
-              },
-              options || {}
-            );
+              this.options = utils.assign(
+                {
+                  level: Z_DEFAULT_COMPRESSION,
+                  method: Z_DEFLATED,
+                  chunkSize: 16384,
+                  windowBits: 15,
+                  memLevel: 8,
+                  strategy: Z_DEFAULT_STRATEGY,
+                  to: "",
+                },
+                options || {}
+              );
 
-            var opt = this.options;
+              var opt = this.options;
 
-            if (opt.raw && opt.windowBits > 0) {
-              opt.windowBits = -opt.windowBits;
-            } else if (opt.gzip && opt.windowBits > 0 && opt.windowBits < 16) {
-              opt.windowBits += 16;
-            }
-
-            this.err = 0; // error code, if happens (0 = Z_OK)
-            this.msg = ""; // error message
-            this.ended = false; // used to avoid multiple onEnd() calls
-            this.chunks = []; // chunks of compressed data
-
-            this.strm = new ZStream();
-            this.strm.avail_out = 0;
-
-            var status = zlib_deflate.deflateInit2(
-              this.strm,
-              opt.level,
-              opt.method,
-              opt.windowBits,
-              opt.memLevel,
-              opt.strategy
-            );
-
-            if (status !== Z_OK) {
-              throw new Error(msg[status]);
-            }
-
-            if (opt.header) {
-              zlib_deflate.deflateSetHeader(this.strm, opt.header);
-            }
-
-            if (opt.dictionary) {
-              var dict;
-              // Convert data if needed
-              if (typeof opt.dictionary === "string") {
-                // If we need to compress text, change encoding to utf8.
-                dict = strings.string2buf(opt.dictionary);
-              } else if (
-                toString.call(opt.dictionary) === "[object ArrayBuffer]"
-              ) {
-                dict = new Uint8Array(opt.dictionary);
-              } else {
-                dict = opt.dictionary;
+              if (opt.raw && opt.windowBits > 0) {
+                opt.windowBits = -opt.windowBits;
+              } else if (opt.gzip && opt.windowBits > 0 && opt.windowBits < 16) {
+                opt.windowBits += 16;
               }
 
-              status = zlib_deflate.deflateSetDictionary(this.strm, dict);
+              this.err = 0; // error code, if happens (0 = Z_OK)
+              this.msg = ""; // error message
+              this.ended = false; // used to avoid multiple onEnd() calls
+              this.chunks = []; // chunks of compressed data
+
+              this.strm = new ZStream();
+              this.strm.avail_out = 0;
+
+              var status = zlib_deflate.deflateInit2(
+                this.strm,
+                opt.level,
+                opt.method,
+                opt.windowBits,
+                opt.memLevel,
+                opt.strategy
+              );
 
               if (status !== Z_OK) {
                 throw new Error(msg[status]);
               }
 
-              this._dict_set = true;
-            }
-          }
-
-          /**
-           * Deflate#push(data[, mode]) -> Boolean
-           * - data (Uint8Array|Array|ArrayBuffer|String): input data. Strings will be
-           *   converted to utf8 byte sequence.
-           * - mode (Number|Boolean): 0..6 for corresponding Z_NO_FLUSH..Z_TREE modes.
-           *   See constants. Skipped or `false` means Z_NO_FLUSH, `true` meansh Z_FINISH.
-           *
-           * Sends input data to deflate pipe, generating [[Deflate#onData]] calls with
-           * new compressed chunks. Returns `true` on success. The last data block must have
-           * mode Z_FINISH (or `true`). That will flush internal pending buffers and call
-           * [[Deflate#onEnd]]. For interim explicit flushes (without ending the stream) you
-           * can use mode Z_SYNC_FLUSH, keeping the compression context.
-           *
-           * On fail call [[Deflate#onEnd]] with error code and return false.
-           *
-           * We strongly recommend to use `Uint8Array` on input for best speed (output
-           * array format is detected automatically). Also, don't skip last param and always
-           * use the same type in your code (boolean or number). That will improve JS speed.
-           *
-           * For regular `Array`-s make sure all elements are [0..255].
-           *
-           * ##### Example
-           *
-           * ```javascript
-           * push(chunk, false); // push one of data chunks
-           * ...
-           * push(chunk, true);  // push last chunk
-           * ```
-           **/
-          Deflate.prototype.push = function (data, mode) {
-            var strm = this.strm;
-            var chunkSize = this.options.chunkSize;
-            var status, _mode;
-
-            if (this.ended) {
-              return false;
-            }
-
-            _mode =
-              mode === ~~mode ? mode : mode === true ? Z_FINISH : Z_NO_FLUSH;
-
-            // Convert data if needed
-            if (typeof data === "string") {
-              // If we need to compress text, change encoding to utf8.
-              strm.input = strings.string2buf(data);
-            } else if (toString.call(data) === "[object ArrayBuffer]") {
-              strm.input = new Uint8Array(data);
-            } else {
-              strm.input = data;
-            }
-
-            strm.next_in = 0;
-            strm.avail_in = strm.input.length;
-
-            do {
-              if (strm.avail_out === 0) {
-                strm.output = new utils.Buf8(chunkSize);
-                strm.next_out = 0;
-                strm.avail_out = chunkSize;
+              if (opt.header) {
+                zlib_deflate.deflateSetHeader(this.strm, opt.header);
               }
-              status = zlib_deflate.deflate(
-                strm,
-                _mode
-              ); /* no bad return value */
 
-              if (status !== Z_STREAM_END && status !== Z_OK) {
-                this.onEnd(status);
-                this.ended = true;
+              if (opt.dictionary) {
+                var dict;
+                // Convert data if needed
+                if (typeof opt.dictionary === "string") {
+                  // If we need to compress text, change encoding to utf8.
+                  dict = strings.string2buf(opt.dictionary);
+                } else if (
+                  toString.call(opt.dictionary) === "[object ArrayBuffer]"
+                ) {
+                  dict = new Uint8Array(opt.dictionary);
+                } else {
+                  dict = opt.dictionary;
+                }
+
+                status = zlib_deflate.deflateSetDictionary(this.strm, dict);
+
+                if (status !== Z_OK) {
+                  throw new Error(msg[status]);
+                }
+
+                this._dict_set = true;
+              }
+            }
+
+            /**
+             * Deflate#push(data[, mode]) -> Boolean
+             * - data (Uint8Array|Array|ArrayBuffer|String): input data. Strings will be
+             *   converted to utf8 byte sequence.
+             * - mode (Number|Boolean): 0..6 for corresponding Z_NO_FLUSH..Z_TREE modes.
+             *   See constants. Skipped or `false` means Z_NO_FLUSH, `true` meansh Z_FINISH.
+             *
+             * Sends input data to deflate pipe, generating [[Deflate#onData]] calls with
+             * new compressed chunks. Returns `true` on success. The last data block must have
+             * mode Z_FINISH (or `true`). That will flush internal pending buffers and call
+             * [[Deflate#onEnd]]. For interim explicit flushes (without ending the stream) you
+             * can use mode Z_SYNC_FLUSH, keeping the compression context.
+             *
+             * On fail call [[Deflate#onEnd]] with error code and return false.
+             *
+             * We strongly recommend to use `Uint8Array` on input for best speed (output
+             * array format is detected automatically). Also, don't skip last param and always
+             * use the same type in your code (boolean or number). That will improve JS speed.
+             *
+             * For regular `Array`-s make sure all elements are [0..255].
+             *
+             * ##### Example
+             *
+             * ```javascript
+             * push(chunk, false); // push one of data chunks
+             * ...
+             * push(chunk, true);  // push last chunk
+             * ```
+             **/
+            push(data, mode) {
+              var strm = this.strm;
+              var chunkSize = this.options.chunkSize;
+              var status, _mode;
+
+              if (this.ended) {
                 return false;
               }
-              if (
-                strm.avail_out === 0 ||
-                (strm.avail_in === 0 &&
-                  (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))
-              ) {
-                if (this.options.to === "string") {
-                  this.onData(
-                    strings.buf2binstring(
-                      utils.shrinkBuf(strm.output, strm.next_out)
-                    )
-                  );
-                } else {
-                  this.onData(utils.shrinkBuf(strm.output, strm.next_out));
-                }
+
+              _mode =
+                mode === ~~mode ? mode : mode === true ? Z_FINISH : Z_NO_FLUSH;
+
+              // Convert data if needed
+              if (typeof data === "string") {
+                // If we need to compress text, change encoding to utf8.
+                strm.input = strings.string2buf(data);
+              } else if (toString.call(data) === "[object ArrayBuffer]") {
+                strm.input = new Uint8Array(data);
+              } else {
+                strm.input = data;
               }
-            } while (
-              (strm.avail_in > 0 || strm.avail_out === 0) &&
-              status !== Z_STREAM_END
-            );
 
-            // Finalize on the last chunk.
-            if (_mode === Z_FINISH) {
-              status = zlib_deflate.deflateEnd(this.strm);
-              this.onEnd(status);
-              this.ended = true;
-              return status === Z_OK;
-            }
+              strm.next_in = 0;
+              strm.avail_in = strm.input.length;
 
-            // callback interim results if Z_SYNC_FLUSH.
-            if (_mode === Z_SYNC_FLUSH) {
-              this.onEnd(Z_OK);
-              strm.avail_out = 0;
+              do {
+                if (strm.avail_out === 0) {
+                  strm.output = new utils.Buf8(chunkSize);
+                  strm.next_out = 0;
+                  strm.avail_out = chunkSize;
+                }
+                status = zlib_deflate.deflate(
+                  strm,
+                  _mode
+                ); /* no bad return value */
+
+                if (status !== Z_STREAM_END && status !== Z_OK) {
+                  this.onEnd(status);
+                  this.ended = true;
+                  return false;
+                }
+                if (
+                  strm.avail_out === 0 ||
+                  (strm.avail_in === 0 &&
+                    (_mode === Z_FINISH || _mode === Z_SYNC_FLUSH))
+                ) {
+                  if (this.options.to === "string") {
+                    this.onData(
+                      strings.buf2binstring(
+                        utils.shrinkBuf(strm.output, strm.next_out)
+                      )
+                    );
+                  } else {
+                    this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+                  }
+                }
+              } while (
+                (strm.avail_in > 0 || strm.avail_out === 0) &&
+                status !== Z_STREAM_END
+              );
+
+              // Finalize on the last chunk.
+              if (_mode === Z_FINISH) {
+                status = zlib_deflate.deflateEnd(this.strm);
+                this.onEnd(status);
+                this.ended = true;
+                return status === Z_OK;
+              }
+
+              // callback interim results if Z_SYNC_FLUSH.
+              if (_mode === Z_SYNC_FLUSH) {
+                this.onEnd(Z_OK);
+                strm.avail_out = 0;
+                return true;
+              }
+
               return true;
             }
 
-            return true;
-          };
-
-          /**
-           * Deflate#onData(chunk) -> Void
-           * - chunk (Uint8Array|Array|String): ouput data. Type of array depends
-           *   on js engine support. When string output requested, each chunk
-           *   will be string.
-           *
-           * By default, stores data blocks in `chunks[]` property and glue
-           * those in `onEnd`. Override this handler, if you need another behaviour.
-           **/
-          Deflate.prototype.onData = function (chunk) {
-            this.chunks.push(chunk);
-          };
-
-          /**
-           * Deflate#onEnd(status) -> Void
-           * - status (Number): deflate status. 0 (Z_OK) on success,
-           *   other if not.
-           *
-           * Called once after you tell deflate that the input stream is
-           * complete (Z_FINISH) or should be flushed (Z_SYNC_FLUSH)
-           * or if an error happened. By default - join collected chunks,
-           * free memory and fill `results` / `err` properties.
-           **/
-          Deflate.prototype.onEnd = function (status) {
-            // On success - join
-            if (status === Z_OK) {
-              if (this.options.to === "string") {
-                this.result = this.chunks.join("");
-              } else {
-                this.result = utils.flattenChunks(this.chunks);
-              }
+            /**
+             * Deflate#onData(chunk) -> Void
+             * - chunk (Uint8Array|Array|String): ouput data. Type of array depends
+             *   on js engine support. When string output requested, each chunk
+             *   will be string.
+             *
+             * By default, stores data blocks in `chunks[]` property and glue
+             * those in `onEnd`. Override this handler, if you need another behaviour.
+             **/
+            onData(chunk) {
+              this.chunks.push(chunk);
             }
-            this.chunks = [];
-            this.err = status;
-            this.msg = this.strm.msg;
-          };
+
+            /**
+             * Deflate#onEnd(status) -> Void
+             * - status (Number): deflate status. 0 (Z_OK) on success,
+             *   other if not.
+             *
+             * Called once after you tell deflate that the input stream is
+             * complete (Z_FINISH) or should be flushed (Z_SYNC_FLUSH)
+             * or if an error happened. By default - join collected chunks,
+             * free memory and fill `results` / `err` properties.
+             **/
+            onEnd(status) {
+              // On success - join
+              if (status === Z_OK) {
+                if (this.options.to === "string") {
+                  this.result = this.chunks.join("");
+                } else {
+                  this.result = utils.flattenChunks(this.chunks);
+                }
+              }
+              this.chunks = [];
+              this.err = status;
+              this.msg = this.strm.msg;
+            }
+          }
 
           /**
            * deflate(data[, options]) -> Uint8Array|Array|String
@@ -3869,279 +3929,281 @@ Usage:
            * console.log(inflate.result);
            * ```
            **/
-          function Inflate(options) {
-            if (!(this instanceof Inflate)) return new Inflate(options);
+          class Inflate {
+            constructor(options) {
+              if (!(this instanceof Inflate)) return new Inflate(options);
 
-            this.options = utils.assign(
-              {
-                chunkSize: 16384,
-                windowBits: 0,
-                to: "",
-              },
-              options || {}
-            );
+              this.options = utils.assign(
+                {
+                  chunkSize: 16384,
+                  windowBits: 0,
+                  to: "",
+                },
+                options || {}
+              );
 
-            var opt = this.options;
+              var opt = this.options;
 
-            // Force window size for `raw` data, if not set directly,
-            // because we have no header for autodetect.
-            if (opt.raw && opt.windowBits >= 0 && opt.windowBits < 16) {
-              opt.windowBits = -opt.windowBits;
-              if (opt.windowBits === 0) {
-                opt.windowBits = -15;
-              }
-            }
-
-            // If `windowBits` not defined (and mode not raw) - set autodetect flag for gzip/deflate
-            if (
-              opt.windowBits >= 0 &&
-              opt.windowBits < 16 &&
-              !(options && options.windowBits)
-            ) {
-              opt.windowBits += 32;
-            }
-
-            // Gzip header has no info about windows size, we can do autodetect only
-            // for deflate. So, if window size not set, force it to max when gzip possible
-            if (opt.windowBits > 15 && opt.windowBits < 48) {
-              // bit 3 (16) -> gzipped data
-              // bit 4 (32) -> autodetect gzip/deflate
-              if ((opt.windowBits & 15) === 0) {
-                opt.windowBits |= 15;
-              }
-            }
-
-            this.err = 0; // error code, if happens (0 = Z_OK)
-            this.msg = ""; // error message
-            this.ended = false; // used to avoid multiple onEnd() calls
-            this.chunks = []; // chunks of compressed data
-
-            this.strm = new ZStream();
-            this.strm.avail_out = 0;
-
-            var status = zlib_inflate.inflateInit2(this.strm, opt.windowBits);
-
-            if (status !== c.Z_OK) {
-              throw new Error(msg[status]);
-            }
-
-            this.header = new GZheader();
-
-            zlib_inflate.inflateGetHeader(this.strm, this.header);
-          }
-
-          /**
-           * Inflate#push(data[, mode]) -> Boolean
-           * - data (Uint8Array|Array|ArrayBuffer|String): input data
-           * - mode (Number|Boolean): 0..6 for corresponding Z_NO_FLUSH..Z_TREE modes.
-           *   See constants. Skipped or `false` means Z_NO_FLUSH, `true` meansh Z_FINISH.
-           *
-           * Sends input data to inflate pipe, generating [[Inflate#onData]] calls with
-           * new output chunks. Returns `true` on success. The last data block must have
-           * mode Z_FINISH (or `true`). That will flush internal pending buffers and call
-           * [[Inflate#onEnd]]. For interim explicit flushes (without ending the stream) you
-           * can use mode Z_SYNC_FLUSH, keeping the decompression context.
-           *
-           * On fail call [[Inflate#onEnd]] with error code and return false.
-           *
-           * We strongly recommend to use `Uint8Array` on input for best speed (output
-           * format is detected automatically). Also, don't skip last param and always
-           * use the same type in your code (boolean or number). That will improve JS speed.
-           *
-           * For regular `Array`-s make sure all elements are [0..255].
-           *
-           * ##### Example
-           *
-           * ```javascript
-           * push(chunk, false); // push one of data chunks
-           * ...
-           * push(chunk, true);  // push last chunk
-           * ```
-           **/
-          Inflate.prototype.push = function (data, mode) {
-            var strm = this.strm;
-            var chunkSize = this.options.chunkSize;
-            var dictionary = this.options.dictionary;
-            var status, _mode;
-            var next_out_utf8, tail, utf8str;
-            var dict;
-
-            // Flag to properly process Z_BUF_ERROR on testing inflate call
-            // when we check that all output data was flushed.
-            var allowBufError = false;
-
-            if (this.ended) {
-              return false;
-            }
-            _mode =
-              mode === ~~mode
-                ? mode
-                : mode === true
-                ? c.Z_FINISH
-                : c.Z_NO_FLUSH;
-
-            // Convert data if needed
-            if (typeof data === "string") {
-              // Only binary strings can be decompressed on practice
-              strm.input = strings.binstring2buf(data);
-            } else if (toString.call(data) === "[object ArrayBuffer]") {
-              strm.input = new Uint8Array(data);
-            } else {
-              strm.input = data;
-            }
-
-            strm.next_in = 0;
-            strm.avail_in = strm.input.length;
-
-            do {
-              if (strm.avail_out === 0) {
-                strm.output = new utils.Buf8(chunkSize);
-                strm.next_out = 0;
-                strm.avail_out = chunkSize;
-              }
-
-              status = zlib_inflate.inflate(
-                strm,
-                c.Z_NO_FLUSH
-              ); /* no bad return value */
-
-              if (status === c.Z_NEED_DICT && dictionary) {
-                // Convert data if needed
-                if (typeof dictionary === "string") {
-                  dict = strings.string2buf(dictionary);
-                } else if (
-                  toString.call(dictionary) === "[object ArrayBuffer]"
-                ) {
-                  dict = new Uint8Array(dictionary);
-                } else {
-                  dict = dictionary;
+              // Force window size for `raw` data, if not set directly,
+              // because we have no header for autodetect.
+              if (opt.raw && opt.windowBits >= 0 && opt.windowBits < 16) {
+                opt.windowBits = -opt.windowBits;
+                if (opt.windowBits === 0) {
+                  opt.windowBits = -15;
                 }
-
-                status = zlib_inflate.inflateSetDictionary(this.strm, dict);
               }
 
-              if (status === c.Z_BUF_ERROR && allowBufError === true) {
-                status = c.Z_OK;
-                allowBufError = false;
+              // If `windowBits` not defined (and mode not raw) - set autodetect flag for gzip/deflate
+              if (
+                opt.windowBits >= 0 &&
+                opt.windowBits < 16 &&
+                !(options && options.windowBits)
+              ) {
+                opt.windowBits += 32;
               }
 
-              if (status !== c.Z_STREAM_END && status !== c.Z_OK) {
-                this.onEnd(status);
-                this.ended = true;
+              // Gzip header has no info about windows size, we can do autodetect only
+              // for deflate. So, if window size not set, force it to max when gzip possible
+              if (opt.windowBits > 15 && opt.windowBits < 48) {
+                // bit 3 (16) -> gzipped data
+                // bit 4 (32) -> autodetect gzip/deflate
+                if ((opt.windowBits & 15) === 0) {
+                  opt.windowBits |= 15;
+                }
+              }
+
+              this.err = 0; // error code, if happens (0 = Z_OK)
+              this.msg = ""; // error message
+              this.ended = false; // used to avoid multiple onEnd() calls
+              this.chunks = []; // chunks of compressed data
+
+              this.strm = new ZStream();
+              this.strm.avail_out = 0;
+
+              var status = zlib_inflate.inflateInit2(this.strm, opt.windowBits);
+
+              if (status !== c.Z_OK) {
+                throw new Error(msg[status]);
+              }
+
+              this.header = new GZheader();
+
+              zlib_inflate.inflateGetHeader(this.strm, this.header);
+            }
+
+            /**
+             * Inflate#push(data[, mode]) -> Boolean
+             * - data (Uint8Array|Array|ArrayBuffer|String): input data
+             * - mode (Number|Boolean): 0..6 for corresponding Z_NO_FLUSH..Z_TREE modes.
+             *   See constants. Skipped or `false` means Z_NO_FLUSH, `true` meansh Z_FINISH.
+             *
+             * Sends input data to inflate pipe, generating [[Inflate#onData]] calls with
+             * new output chunks. Returns `true` on success. The last data block must have
+             * mode Z_FINISH (or `true`). That will flush internal pending buffers and call
+             * [[Inflate#onEnd]]. For interim explicit flushes (without ending the stream) you
+             * can use mode Z_SYNC_FLUSH, keeping the decompression context.
+             *
+             * On fail call [[Inflate#onEnd]] with error code and return false.
+             *
+             * We strongly recommend to use `Uint8Array` on input for best speed (output
+             * format is detected automatically). Also, don't skip last param and always
+             * use the same type in your code (boolean or number). That will improve JS speed.
+             *
+             * For regular `Array`-s make sure all elements are [0..255].
+             *
+             * ##### Example
+             *
+             * ```javascript
+             * push(chunk, false); // push one of data chunks
+             * ...
+             * push(chunk, true);  // push last chunk
+             * ```
+             **/
+            push(data, mode) {
+              var strm = this.strm;
+              var chunkSize = this.options.chunkSize;
+              var dictionary = this.options.dictionary;
+              var status, _mode;
+              var next_out_utf8, tail, utf8str;
+              var dict;
+
+              // Flag to properly process Z_BUF_ERROR on testing inflate call
+              // when we check that all output data was flushed.
+              var allowBufError = false;
+
+              if (this.ended) {
                 return false;
               }
+              _mode =
+                mode === ~~mode
+                  ? mode
+                  : mode === true
+                  ? c.Z_FINISH
+                  : c.Z_NO_FLUSH;
 
-              if (strm.next_out) {
-                if (
-                  strm.avail_out === 0 ||
-                  status === c.Z_STREAM_END ||
-                  (strm.avail_in === 0 &&
-                    (_mode === c.Z_FINISH || _mode === c.Z_SYNC_FLUSH))
-                ) {
-                  if (this.options.to === "string") {
-                    next_out_utf8 = strings.utf8border(
-                      strm.output,
-                      strm.next_out
-                    );
+              // Convert data if needed
+              if (typeof data === "string") {
+                // Only binary strings can be decompressed on practice
+                strm.input = strings.binstring2buf(data);
+              } else if (toString.call(data) === "[object ArrayBuffer]") {
+                strm.input = new Uint8Array(data);
+              } else {
+                strm.input = data;
+              }
 
-                    tail = strm.next_out - next_out_utf8;
-                    utf8str = strings.buf2string(strm.output, next_out_utf8);
+              strm.next_in = 0;
+              strm.avail_in = strm.input.length;
 
-                    // move tail
-                    strm.next_out = tail;
-                    strm.avail_out = chunkSize - tail;
-                    if (tail) {
-                      utils.arraySet(
-                        strm.output,
-                        strm.output,
-                        next_out_utf8,
-                        tail,
-                        0
-                      );
-                    }
+              do {
+                if (strm.avail_out === 0) {
+                  strm.output = new utils.Buf8(chunkSize);
+                  strm.next_out = 0;
+                  strm.avail_out = chunkSize;
+                }
 
-                    this.onData(utf8str);
+                status = zlib_inflate.inflate(
+                  strm,
+                  c.Z_NO_FLUSH
+                ); /* no bad return value */
+
+                if (status === c.Z_NEED_DICT && dictionary) {
+                  // Convert data if needed
+                  if (typeof dictionary === "string") {
+                    dict = strings.string2buf(dictionary);
+                  } else if (
+                    toString.call(dictionary) === "[object ArrayBuffer]"
+                  ) {
+                    dict = new Uint8Array(dictionary);
                   } else {
-                    this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+                    dict = dictionary;
+                  }
+
+                  status = zlib_inflate.inflateSetDictionary(this.strm, dict);
+                }
+
+                if (status === c.Z_BUF_ERROR && allowBufError === true) {
+                  status = c.Z_OK;
+                  allowBufError = false;
+                }
+
+                if (status !== c.Z_STREAM_END && status !== c.Z_OK) {
+                  this.onEnd(status);
+                  this.ended = true;
+                  return false;
+                }
+
+                if (strm.next_out) {
+                  if (
+                    strm.avail_out === 0 ||
+                    status === c.Z_STREAM_END ||
+                    (strm.avail_in === 0 &&
+                      (_mode === c.Z_FINISH || _mode === c.Z_SYNC_FLUSH))
+                  ) {
+                    if (this.options.to === "string") {
+                      next_out_utf8 = strings.utf8border(
+                        strm.output,
+                        strm.next_out
+                      );
+
+                      tail = strm.next_out - next_out_utf8;
+                      utf8str = strings.buf2string(strm.output, next_out_utf8);
+
+                      // move tail
+                      strm.next_out = tail;
+                      strm.avail_out = chunkSize - tail;
+                      if (tail) {
+                        utils.arraySet(
+                          strm.output,
+                          strm.output,
+                          next_out_utf8,
+                          tail,
+                          0
+                        );
+                      }
+
+                      this.onData(utf8str);
+                    } else {
+                      this.onData(utils.shrinkBuf(strm.output, strm.next_out));
+                    }
                   }
                 }
+
+                // When no more input data, we should check that internal inflate buffers
+                // are flushed. The only way to do it when avail_out = 0 - run one more
+                // inflate pass. But if output data not exists, inflate return Z_BUF_ERROR.
+                // Here we set flag to process this error properly.
+                //
+                // NOTE. Deflate does not return error in this case and does not needs such
+                // logic.
+                if (strm.avail_in === 0 && strm.avail_out === 0) {
+                  allowBufError = true;
+                }
+              } while (
+                (strm.avail_in > 0 || strm.avail_out === 0) &&
+                status !== c.Z_STREAM_END
+              );
+
+              if (status === c.Z_STREAM_END) {
+                _mode = c.Z_FINISH;
               }
 
-              // When no more input data, we should check that internal inflate buffers
-              // are flushed. The only way to do it when avail_out = 0 - run one more
-              // inflate pass. But if output data not exists, inflate return Z_BUF_ERROR.
-              // Here we set flag to process this error properly.
-              //
-              // NOTE. Deflate does not return error in this case and does not needs such
-              // logic.
-              if (strm.avail_in === 0 && strm.avail_out === 0) {
-                allowBufError = true;
+              // Finalize on the last chunk.
+              if (_mode === c.Z_FINISH) {
+                status = zlib_inflate.inflateEnd(this.strm);
+                this.onEnd(status);
+                this.ended = true;
+                return status === c.Z_OK;
               }
-            } while (
-              (strm.avail_in > 0 || strm.avail_out === 0) &&
-              status !== c.Z_STREAM_END
-            );
 
-            if (status === c.Z_STREAM_END) {
-              _mode = c.Z_FINISH;
-            }
+              // callback interim results if Z_SYNC_FLUSH.
+              if (_mode === c.Z_SYNC_FLUSH) {
+                this.onEnd(c.Z_OK);
+                strm.avail_out = 0;
+                return true;
+              }
 
-            // Finalize on the last chunk.
-            if (_mode === c.Z_FINISH) {
-              status = zlib_inflate.inflateEnd(this.strm);
-              this.onEnd(status);
-              this.ended = true;
-              return status === c.Z_OK;
-            }
-
-            // callback interim results if Z_SYNC_FLUSH.
-            if (_mode === c.Z_SYNC_FLUSH) {
-              this.onEnd(c.Z_OK);
-              strm.avail_out = 0;
               return true;
             }
 
-            return true;
-          };
-
-          /**
-           * Inflate#onData(chunk) -> Void
-           * - chunk (Uint8Array|Array|String): ouput data. Type of array depends
-           *   on js engine support. When string output requested, each chunk
-           *   will be string.
-           *
-           * By default, stores data blocks in `chunks[]` property and glue
-           * those in `onEnd`. Override this handler, if you need another behaviour.
-           **/
-          Inflate.prototype.onData = function (chunk) {
-            this.chunks.push(chunk);
-          };
-
-          /**
-           * Inflate#onEnd(status) -> Void
-           * - status (Number): inflate status. 0 (Z_OK) on success,
-           *   other if not.
-           *
-           * Called either after you tell inflate that the input stream is
-           * complete (Z_FINISH) or should be flushed (Z_SYNC_FLUSH)
-           * or if an error happened. By default - join collected chunks,
-           * free memory and fill `results` / `err` properties.
-           **/
-          Inflate.prototype.onEnd = function (status) {
-            // On success - join
-            if (status === c.Z_OK) {
-              if (this.options.to === "string") {
-                // Glue & convert here, until we teach pako to send
-                // utf8 alligned strings to onData
-                this.result = this.chunks.join("");
-              } else {
-                this.result = utils.flattenChunks(this.chunks);
-              }
+            /**
+             * Inflate#onData(chunk) -> Void
+             * - chunk (Uint8Array|Array|String): ouput data. Type of array depends
+             *   on js engine support. When string output requested, each chunk
+             *   will be string.
+             *
+             * By default, stores data blocks in `chunks[]` property and glue
+             * those in `onEnd`. Override this handler, if you need another behaviour.
+             **/
+            onData(chunk) {
+              this.chunks.push(chunk);
             }
-            this.chunks = [];
-            this.err = status;
-            this.msg = this.strm.msg;
-          };
+
+            /**
+             * Inflate#onEnd(status) -> Void
+             * - status (Number): inflate status. 0 (Z_OK) on success,
+             *   other if not.
+             *
+             * Called either after you tell inflate that the input stream is
+             * complete (Z_FINISH) or should be flushed (Z_SYNC_FLUSH)
+             * or if an error happened. By default - join collected chunks,
+             * free memory and fill `results` / `err` properties.
+             **/
+            onEnd(status) {
+              // On success - join
+              if (status === c.Z_OK) {
+                if (this.options.to === "string") {
+                  // Glue & convert here, until we teach pako to send
+                  // utf8 alligned strings to onData
+                  this.result = this.chunks.join("");
+                } else {
+                  this.result = utils.flattenChunks(this.chunks);
+                }
+              }
+              this.chunks = [];
+              this.err = status;
+              this.msg = this.strm.msg;
+            }
+          }
 
           /**
            * inflate(data[, options]) -> Uint8Array|Array|String

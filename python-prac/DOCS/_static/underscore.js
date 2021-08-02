@@ -650,9 +650,22 @@
   b.chain = function (a) {
     return b(a).chain();
   };
-  var m = function (a) {
-    this._wrapped = a;
-  };
+
+  class m {
+    constructor(a) {
+      this._wrapped = a;
+    }
+
+    chain() {
+      this._chain = true;
+      return this;
+    }
+
+    value() {
+      return this._wrapped;
+    }
+  }
+
   b.prototype = m.prototype;
   var v = function (a, c) {
       return c ? b(a).chain() : a;
@@ -681,11 +694,4 @@
       return v(b.apply(this._wrapped, arguments), this._chain);
     };
   });
-  m.prototype.chain = function () {
-    this._chain = true;
-    return this;
-  };
-  m.prototype.value = function () {
-    return this._wrapped;
-  };
 }.call(this));

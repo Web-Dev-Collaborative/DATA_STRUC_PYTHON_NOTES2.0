@@ -200,27 +200,34 @@
   function sa() {}
   function ta() {}
   x(ta, sa);
-  function y(a) {
-    this.j = a;
-  }
-  x(y, ta);
-  y.prototype.set = function (a, b) {
-    try {
-      this.j.setItem(a, b);
-    } catch (c) {
-      if (0 == this.j.length) throw "Storage mechanism: Storage disabled";
-      throw "Storage mechanism: Quota exceeded";
+
+  class y {
+    constructor(a) {
+      this.j = a;
     }
-  };
-  y.prototype.get = function (a) {
-    a = this.j.getItem(a);
-    if (!r(a) && null !== a)
-      throw "Storage mechanism: Invalid value was encountered";
-    return a;
-  };
-  y.prototype.key = function (a) {
-    return this.j.key(a);
-  };
+
+    set(a, b) {
+      try {
+        this.j.setItem(a, b);
+      } catch (c) {
+        if (0 == this.j.length) throw "Storage mechanism: Storage disabled";
+        throw "Storage mechanism: Quota exceeded";
+      }
+    }
+
+    get(a) {
+      a = this.j.getItem(a);
+      if (!r(a) && null !== a)
+        throw "Storage mechanism: Invalid value was encountered";
+      return a;
+    }
+
+    key(a) {
+      return this.j.key(a);
+    }
+  }
+
+  x(y, ta);
   function ua() {
     var a = null;
     try {
@@ -259,17 +266,23 @@
   function Da(a, b, c) {
     for (var d in a) b.call(c, a[d], d, a);
   }
-  function B() {
-    this.a = "";
-    this.v = Ea;
+
+  class B {
+    constructor() {
+      this.a = "";
+      this.v = Ea;
+    }
+
+    c() {
+      return this.a;
+    }
+
+    b() {
+      return 1;
+    }
   }
+
   B.prototype.i = !0;
-  B.prototype.c = function () {
-    return this.a;
-  };
-  B.prototype.b = function () {
-    return 1;
-  };
   var Fa = /^(?:(?:https?|mailto|ftp):|[^:/?#]*(?:[/?#]|$))/i,
     Ea = {};
   function Ga(a) {
@@ -290,26 +303,37 @@
     }
     C = "";
   }
-  function D() {
-    this.a = Ja;
+
+  class D {
+    constructor() {
+      this.a = Ja;
+    }
+
+    b() {
+      return null;
+    }
+
+    c() {
+      return "";
+    }
   }
-  D.prototype.b = function () {
-    return null;
-  };
+
   D.prototype.i = !0;
-  D.prototype.c = function () {
-    return "";
-  };
   var Ja = {};
   var E = {},
     Ka = {};
-  function F() {
-    throw Error("Do not instantiate directly");
+
+  class F {
+    constructor() {
+      throw Error("Do not instantiate directly");
+    }
+
+    toString() {
+      return this.u;
+    }
   }
+
   F.prototype.B = null;
-  F.prototype.toString = function () {
-    return this.u;
-  };
   function G() {
     F.call(this);
   }
@@ -483,47 +507,150 @@
     }
     return "zSoyz";
   }
-  var hb = {}; /*
+  var hb = {};
 
- Copyright 2018 Google Inc.
+  /*
 
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
+Copyright 2018 Google Inc.
 
-      http://www.apache.org/licenses/LICENSE-2.0
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 */
-  function P() {
-    var a = HTMLElement.call(this) || this;
-    a.j = new ua();
-    return a;
-  }
-  ea(P, HTMLElement);
-  P.prototype.connectedCallback = function () {
-    this.hasAttribute("sort") ? jb(this) : this.setAttribute("sort", "alpha");
-    (this.hasAttribute("filter") ||
-      this.hasAttribute("category") ||
-      this.hasAttribute("tags")) &&
-      kb(this);
-  };
-  P.prototype.connectedCallback = P.prototype.connectedCallback;
-  P.prototype.attributeChangedCallback = function (a) {
-    switch (a) {
-      case "sort":
-        jb(this);
-        break;
-      case "filter":
-      case "category":
-      case "tags":
+  class P {
+    constructor() {
+      var a = HTMLElement.call(this) || this;
+      a.j = new ua();
+      return a;
+    }
+
+    connectedCallback() {
+      this.hasAttribute("sort") ? jb(this) : this.setAttribute("sort", "alpha");
+      (this.hasAttribute("filter") ||
+        this.hasAttribute("category") ||
+        this.hasAttribute("tags")) &&
         kb(this);
     }
-  };
+
+    attributeChangedCallback(a) {
+      switch (a) {
+        case "sort":
+          jb(this);
+          break;
+        case "filter":
+        case "category":
+        case "tags":
+          kb(this);
+      }
+    }
+
+    i(a, b) {
+      if (!a || !b) return 0;
+      var c = parseFloat(a.getAttribute("duration")) || 0,
+        d = parseFloat(b.getAttribute("duration")) || 0;
+      c -= d;
+      return 0 === c ? this.c(a, b) : c;
+    }
+
+    c(a, b) {
+      if (!a || !b) return 0;
+      var c = new Date(a.getAttribute("updated") || 0);
+      c = new Date(b.getAttribute("updated") || 0).getTime() - c.getTime();
+      return 0 === c ? this.b(a, b) : c;
+    }
+
+    b(a, b) {
+      if (!a || !b) return 0;
+      a = a.getAttribute("title");
+      b = b.getAttribute("title");
+      return a < b ? -1 : a > b ? 1 : 0;
+    }
+
+    G(a) {
+      var b = (a.getAttribute("category") || "")
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/--+/g, "-")
+        .trim()
+        .split(",")
+        .shift();
+      var c = a.getAttribute("title") || "",
+        d = parseInt(a.getAttribute("duration"), 10) || 0,
+        e;
+      (e = a.getAttribute("updated"))
+        ? ((e = new Date(e)),
+          (e =
+            "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ")[
+              e.getMonth()
+            ] +
+            " " +
+            e.getUTCDate() +
+            ", " +
+            e.getFullYear()))
+        : (e = "");
+      e = e || "";
+      a.getAttribute("tags");
+      var f = a.getAttribute("authors") || "";
+      b = N(
+        '<div class="card-header ' +
+          O(b) +
+          '-bg"><span class="category-icon ' +
+          O(b) +
+          '-icon"></span><span class="card-duration">' +
+          (d
+            ? '<img src="//codelabs.developers.google.com/images/schedule.svg">' +
+              M(d) +
+              " min"
+            : "") +
+          '</span></div><div class="card-description">' +
+          M(c) +
+          '</div><div class="card-footer ' +
+          O(b) +
+          '-footer"><span class="card-start ' +
+          O(b) +
+          '-start">Start</span><span class="card-updated">' +
+          (f ? "<div>" + M(f) + "</div>" : "") +
+          (e ? "<div>Updated " + M(e) + "</div>" : "") +
+          "</span></div>"
+      );
+      eb(a, ib(b));
+      a.classList.add("card");
+      b = new URL(a.href, document.location.origin);
+      b.searchParams.has("index") ||
+        b.searchParams.set("index", document.location.pathname);
+      b = b.href;
+      b instanceof B ||
+        b instanceof B ||
+        ((b = "object" == typeof b && b.i ? b.c() : String(b)),
+        Fa.test(b) || (b = "about:invalid#zClosurez"),
+        (b = Ga(b)));
+      a.href =
+        b instanceof B && b.constructor === B && b.v === Ea
+          ? b.a
+          : "type_error:SafeUrl";
+      if ((b = a.getAttribute("id")))
+        (b = this.j.get("progress_" + b)),
+          (c = a.getAttribute("steps")),
+          b &&
+            c &&
+            a.setAttribute(
+              "progress",
+              (parseFloat(b) / parseFloat(c) - 1).toFixed(2)
+            );
+      this.appendChild(a);
+    }
+  }
+
+  ea(P, HTMLElement);
+  P.prototype.connectedCallback = P.prototype.connectedCallback;
   P.prototype.attributeChangedCallback = P.prototype.attributeChangedCallback;
   function jb(a) {
     var b = a.getAttribute("sort") || "alpha",
@@ -554,25 +681,6 @@
   function lb(a) {
     a.setAttribute("num", a.querySelectorAll(".card:not([hidden])").length);
   }
-  P.prototype.i = function (a, b) {
-    if (!a || !b) return 0;
-    var c = parseFloat(a.getAttribute("duration")) || 0,
-      d = parseFloat(b.getAttribute("duration")) || 0;
-    c -= d;
-    return 0 === c ? this.c(a, b) : c;
-  };
-  P.prototype.c = function (a, b) {
-    if (!a || !b) return 0;
-    var c = new Date(a.getAttribute("updated") || 0);
-    c = new Date(b.getAttribute("updated") || 0).getTime() - c.getTime();
-    return 0 === c ? this.b(a, b) : c;
-  };
-  P.prototype.b = function (a, b) {
-    if (!a || !b) return 0;
-    a = a.getAttribute("title");
-    b = b.getAttribute("title");
-    return a < b ? -1 : a > b ? 1 : 0;
-  };
   function kb(a) {
     var b = mb(a.getAttribute("filter")),
       c = Q((a.getAttribute("tags") || "").split(",")),
@@ -622,79 +730,6 @@
     });
     return b.sort();
   }
-  P.prototype.G = function (a) {
-    var b = (a.getAttribute("category") || "")
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/--+/g, "-")
-      .trim()
-      .split(",")
-      .shift();
-    var c = a.getAttribute("title") || "",
-      d = parseInt(a.getAttribute("duration"), 10) || 0,
-      e;
-    (e = a.getAttribute("updated"))
-      ? ((e = new Date(e)),
-        (e =
-          "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ")[
-            e.getMonth()
-          ] +
-          " " +
-          e.getUTCDate() +
-          ", " +
-          e.getFullYear()))
-      : (e = "");
-    e = e || "";
-    a.getAttribute("tags");
-    var f = a.getAttribute("authors") || "";
-    b = N(
-      '<div class="card-header ' +
-        O(b) +
-        '-bg"><span class="category-icon ' +
-        O(b) +
-        '-icon"></span><span class="card-duration">' +
-        (d
-          ? '<img src="//codelabs.developers.google.com/images/schedule.svg">' +
-            M(d) +
-            " min"
-          : "") +
-        '</span></div><div class="card-description">' +
-        M(c) +
-        '</div><div class="card-footer ' +
-        O(b) +
-        '-footer"><span class="card-start ' +
-        O(b) +
-        '-start">Start</span><span class="card-updated">' +
-        (f ? "<div>" + M(f) + "</div>" : "") +
-        (e ? "<div>Updated " + M(e) + "</div>" : "") +
-        "</span></div>"
-    );
-    eb(a, ib(b));
-    a.classList.add("card");
-    b = new URL(a.href, document.location.origin);
-    b.searchParams.has("index") ||
-      b.searchParams.set("index", document.location.pathname);
-    b = b.href;
-    b instanceof B ||
-      b instanceof B ||
-      ((b = "object" == typeof b && b.i ? b.c() : String(b)),
-      Fa.test(b) || (b = "about:invalid#zClosurez"),
-      (b = Ga(b)));
-    a.href =
-      b instanceof B && b.constructor === B && b.v === Ea
-        ? b.a
-        : "type_error:SafeUrl";
-    if ((b = a.getAttribute("id")))
-      (b = this.j.get("progress_" + b)),
-        (c = a.getAttribute("steps")),
-        b &&
-          c &&
-          a.setAttribute(
-            "progress",
-            (parseFloat(b) / parseFloat(c) - 1).toFixed(2)
-          );
-    this.appendChild(a);
-  };
   P.prototype.addCard = P.prototype.G;
   h.Object.defineProperties(P, {
     observedAttributes: {
@@ -765,76 +800,85 @@
       q.removeEventListener("test", t, b);
       return a;
     })();
-  function Ab(a, b) {
-    this.type = a;
-    this.a = this.target = b;
+
+  class Ab {
+    constructor(a, b) {
+      this.type = a;
+      this.a = this.target = b;
+    }
+
+    preventDefault() {}
   }
-  Ab.prototype.preventDefault = function () {};
-  function W(a, b) {
-    Ab.call(this, a ? a.type : "");
-    this.relatedTarget = this.a = this.target = null;
-    this.button = this.screenY = this.screenX = this.clientY = this.clientX = 0;
-    this.key = "";
-    this.metaKey = this.shiftKey = this.altKey = this.ctrlKey = !1;
-    this.pointerId = 0;
-    this.pointerType = "";
-    this.b = null;
-    if (a) {
-      var c = (this.type = a.type),
-        d = a.changedTouches ? a.changedTouches[0] : null;
-      this.target = a.target || a.srcElement;
-      this.a = b;
-      if ((b = a.relatedTarget)) {
-        if (Na) {
-          a: {
-            try {
-              H(b.nodeName);
-              var e = !0;
-              break a;
-            } catch (f) {}
-            e = !1;
+
+  class W {
+    constructor(a, b) {
+      Ab.call(this, a ? a.type : "");
+      this.relatedTarget = this.a = this.target = null;
+      this.button = this.screenY = this.screenX = this.clientY = this.clientX = 0;
+      this.key = "";
+      this.metaKey = this.shiftKey = this.altKey = this.ctrlKey = !1;
+      this.pointerId = 0;
+      this.pointerType = "";
+      this.b = null;
+      if (a) {
+        var c = (this.type = a.type),
+          d = a.changedTouches ? a.changedTouches[0] : null;
+        this.target = a.target || a.srcElement;
+        this.a = b;
+        if ((b = a.relatedTarget)) {
+          if (Na) {
+            a: {
+              try {
+                H(b.nodeName);
+                var e = !0;
+                break a;
+              } catch (f) {}
+              e = !1;
+            }
+            e || (b = null);
           }
-          e || (b = null);
-        }
-      } else
-        "mouseover" == c
-          ? (b = a.fromElement)
-          : "mouseout" == c && (b = a.toElement);
-      this.relatedTarget = b;
-      null === d
-        ? ((this.clientX = void 0 !== a.clientX ? a.clientX : a.pageX),
-          (this.clientY = void 0 !== a.clientY ? a.clientY : a.pageY),
-          (this.screenX = a.screenX || 0),
-          (this.screenY = a.screenY || 0))
-        : ((this.clientX = void 0 !== d.clientX ? d.clientX : d.pageX),
-          (this.clientY = void 0 !== d.clientY ? d.clientY : d.pageY),
-          (this.screenX = d.screenX || 0),
-          (this.screenY = d.screenY || 0));
-      this.button = a.button;
-      this.key = a.key || "";
-      this.ctrlKey = a.ctrlKey;
-      this.altKey = a.altKey;
-      this.shiftKey = a.shiftKey;
-      this.metaKey = a.metaKey;
-      this.pointerId = a.pointerId || 0;
-      this.pointerType = r(a.pointerType)
-        ? a.pointerType
-        : Bb[a.pointerType] || "";
-      this.b = a;
-      a.defaultPrevented && this.preventDefault();
+        } else
+          "mouseover" == c
+            ? (b = a.fromElement)
+            : "mouseout" == c && (b = a.toElement);
+        this.relatedTarget = b;
+        null === d
+          ? ((this.clientX = void 0 !== a.clientX ? a.clientX : a.pageX),
+            (this.clientY = void 0 !== a.clientY ? a.clientY : a.pageY),
+            (this.screenX = a.screenX || 0),
+            (this.screenY = a.screenY || 0))
+          : ((this.clientX = void 0 !== d.clientX ? d.clientX : d.pageX),
+            (this.clientY = void 0 !== d.clientY ? d.clientY : d.pageY),
+            (this.screenX = d.screenX || 0),
+            (this.screenY = d.screenY || 0));
+        this.button = a.button;
+        this.key = a.key || "";
+        this.ctrlKey = a.ctrlKey;
+        this.altKey = a.altKey;
+        this.shiftKey = a.shiftKey;
+        this.metaKey = a.metaKey;
+        this.pointerId = a.pointerId || 0;
+        this.pointerType = r(a.pointerType)
+          ? a.pointerType
+          : Bb[a.pointerType] || "";
+        this.b = a;
+        a.defaultPrevented && this.preventDefault();
+      }
+    }
+
+    preventDefault() {
+      W.D.preventDefault.call(this);
+      var a = this.b;
+      if (a.preventDefault) a.preventDefault();
+      else if (((a.returnValue = !1), yb))
+        try {
+          if (a.ctrlKey || (112 <= a.keyCode && 123 >= a.keyCode)) a.keyCode = -1;
+        } catch (b) {}
     }
   }
+
   x(W, Ab);
   var Bb = { 2: "touch", 3: "pen", 4: "mouse" };
-  W.prototype.preventDefault = function () {
-    W.D.preventDefault.call(this);
-    var a = this.b;
-    if (a.preventDefault) a.preventDefault();
-    else if (((a.returnValue = !1), yb))
-      try {
-        if (a.ctrlKey || (112 <= a.keyCode && 123 >= a.keyCode)) a.keyCode = -1;
-      } catch (b) {}
-  };
   var Cb = "closure_listenable_" + ((1e6 * Math.random()) | 0),
     Db = 0;
   function Eb(a, b, c, d, e) {
@@ -854,28 +898,33 @@
     a.src = null;
     a.a = null;
   }
-  function Gb(a) {
-    this.src = a;
-    this.a = {};
-    this.b = 0;
-  }
-  Gb.prototype.add = function (a, b, c, d, e) {
-    var f = a.toString();
-    a = this.a[f];
-    a || ((a = this.a[f] = []), this.b++);
-    var g;
-    a: {
-      for (g = 0; g < a.length; ++g) {
-        var l = a[g];
-        if (!l.o && l.listener == b && l.capture == !!d && l.a == e) break a;
-      }
-      g = -1;
+
+  class Gb {
+    constructor(a) {
+      this.src = a;
+      this.a = {};
+      this.b = 0;
     }
-    -1 < g
-      ? ((b = a[g]), c || (b.A = !1))
-      : ((b = new Eb(b, this.src, f, !!d, e)), (b.A = c), a.push(b));
-    return b;
-  };
+
+    add(a, b, c, d, e) {
+      var f = a.toString();
+      a = this.a[f];
+      a || ((a = this.a[f] = []), this.b++);
+      var g;
+      a: {
+        for (g = 0; g < a.length; ++g) {
+          var l = a[g];
+          if (!l.o && l.listener == b && l.capture == !!d && l.a == e) break a;
+        }
+        g = -1;
+      }
+      -1 < g
+        ? ((b = a[g]), c || (b.A = !1))
+        : ((b = new Eb(b, this.src, f, !!d, e)), (b.A = c), a.push(b));
+      return b;
+    }
+  }
+
   function Hb(a, b) {
     var c = b.type;
     if (c in a.a) {
@@ -1043,29 +1092,43 @@
       else throw Error("Invalid listener argument");
     return 2147483647 < Number(b) ? -1 : q.setTimeout(a, b || 0);
   }
-  function X(a, b, c) {
-    R.call(this);
-    this.J = null != c ? w(a, c) : a;
-    this.v = b;
-    this.i = w(this.K, this);
-    this.a = this.b = null;
-    this.c = [];
+
+  class X {
+    constructor(a, b, c) {
+      R.call(this);
+      this.J = null != c ? w(a, c) : a;
+      this.v = b;
+      this.i = w(this.K, this);
+      this.a = this.b = null;
+      this.c = [];
+    }
+
+    I(a) {
+      this.c = arguments;
+      this.b ? (this.a = pa() + this.v) : (this.b = Yb(this.i, this.v));
+    }
+
+    K() {
+      this.a
+        ? ((this.b = Yb(this.i, this.a - pa())), (this.a = null))
+        : ((this.b = null), this.J.apply(null, this.c));
+    }
   }
+
   x(X, R);
-  X.prototype.I = function (a) {
-    this.c = arguments;
-    this.b ? (this.a = pa() + this.v) : (this.b = Yb(this.i, this.v));
-  };
-  X.prototype.K = function () {
-    this.a
-      ? ((this.b = Yb(this.i, this.a - pa())), (this.a = null))
-      : ((this.b = null), this.J.apply(null, this.c));
-  };
-  function Zb(a) {
-    R.call(this);
-    this.b = a;
-    this.a = {};
+
+  class Zb {
+    constructor(a) {
+      R.call(this);
+      this.b = a;
+      this.a = {};
+    }
+
+    handleEvent() {
+      throw Error("EventHandler.handleEvent not implemented");
+    }
   }
+
   x(Zb, R);
   var $b = [];
   function Y(a, b, c, d) {
@@ -1086,38 +1149,41 @@
     );
     a.a = {};
   }
-  Zb.prototype.handleEvent = function () {
-    throw Error("EventHandler.handleEvent not implemented");
-  };
-  function Z() {
-    var a = HTMLElement.call(this) || this;
-    a.m = new Zb();
-    a.C = !1;
-    a.g = null;
-    a.w = null;
-    a.f = null;
-    a.l = null;
-    a.h = null;
-    a.L = new X(function () {
-      var b = a.f.value.trim();
-      a.l &&
-        ("" === b ? a.l.setAttribute("hide", "") : a.l.removeAttribute("hide"));
-      a.g && a.g.setAttribute("filter", b);
-    }, 20);
-    return a;
+
+  class Z {
+    constructor() {
+      var a = HTMLElement.call(this) || this;
+      a.m = new Zb();
+      a.C = !1;
+      a.g = null;
+      a.w = null;
+      a.f = null;
+      a.l = null;
+      a.h = null;
+      a.L = new X(function () {
+        var b = a.f.value.trim();
+        a.l &&
+          ("" === b ? a.l.setAttribute("hide", "") : a.l.removeAttribute("hide"));
+        a.g && a.g.setAttribute("filter", b);
+      }, 20);
+      return a;
+    }
+
+    connectedCallback() {
+      this.C || bc(this);
+      cc(this);
+      window.requestAnimationFrame(function () {
+        document.body.removeAttribute("unresolved");
+      });
+    }
+
+    disconnectedCallback() {
+      ac(this.m);
+    }
   }
+
   ea(Z, HTMLElement);
-  Z.prototype.connectedCallback = function () {
-    this.C || bc(this);
-    cc(this);
-    window.requestAnimationFrame(function () {
-      document.body.removeAttribute("unresolved");
-    });
-  };
   Z.prototype.connectedCallback = Z.prototype.connectedCallback;
-  Z.prototype.disconnectedCallback = function () {
-    ac(this.m);
-  };
   Z.prototype.disconnectedCallback = Z.prototype.disconnectedCallback;
   function cc(a) {
     if (a.w) {

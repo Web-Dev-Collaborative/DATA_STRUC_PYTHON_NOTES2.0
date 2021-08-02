@@ -3321,9 +3321,17 @@
           (u = null);
       }
     }
-    function t(e) {
-      return Math.round(parseFloat(e));
+
+    class t {
+      constructor(e) {
+        return Math.round(parseFloat(e));
+      }
+
+      static stop() {
+        C.clearTimeout(n);
+      }
     }
+
     var n,
       r,
       i,
@@ -4049,16 +4057,12 @@
     }),
     (k.fx.speeds = { slow: 600, fast: 200, _default: 400 }),
     (k.fn.delay = function (r, e) {
-      return (
-        (r = (k.fx && k.fx.speeds[r]) || r),
-        (e = e || "fx"),
-        this.queue(e, function (e, t) {
-          var n = C.setTimeout(e, r);
-          t.stop = function () {
-            C.clearTimeout(n);
-          };
-        })
-      );
+      return (r = (k.fx && k.fx.speeds[r]) || r),
+      (e = e || "fx"),
+      this.queue(e, function (e, t) {
+        var n = C.setTimeout(e, r);
+      })
+    ;
     }),
     (ot = E.createElement("input")),
     (at = E.createElement("select").appendChild(E.createElement("option"))),

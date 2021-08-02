@@ -12,10 +12,12 @@ if (typeof WeakMap === "undefined") {
   (function () {
     var defineProperty = Object.defineProperty;
     var counter = Date.now() % 1e9;
-    var WeakMap = function () {
-      this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
-    };
-    WeakMap.prototype = {
+
+    class WeakMap {
+      constructor() {
+        this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
+      }
+
       set(key, value) {
         var entry = key[this.name];
         if (entry && entry[0] === key) entry[1] = value;
@@ -25,25 +27,29 @@ if (typeof WeakMap === "undefined") {
             writable: true,
           });
         return this;
-      },
+      }
+
       get(key) {
         var entry;
         return (entry = key[this.name]) && entry[0] === key
           ? entry[1]
           : undefined;
-      },
+      }
+
       delete(key) {
         var entry = key[this.name];
         if (!entry || entry[0] !== key) return false;
         entry[0] = entry[1] = undefined;
         return true;
-      },
+      }
+
       has(key) {
         var entry = key[this.name];
         if (!entry) return false;
         return entry[0] === key;
-      },
-    };
+      }
+    }
+
     window.WeakMap = WeakMap;
   })();
 }
@@ -134,13 +140,15 @@ if (typeof WeakMap === "undefined") {
     }
   }
   var uidCounter = 0;
-  function JsMutationObserver(callback) {
-    this.callback_ = callback;
-    this.nodes_ = [];
-    this.records_ = [];
-    this.uid_ = ++uidCounter;
-  }
-  JsMutationObserver.prototype = {
+
+  class JsMutationObserver {
+    constructor(callback) {
+      this.callback_ = callback;
+      this.nodes_ = [];
+      this.records_ = [];
+      this.uid_ = ++uidCounter;
+    }
+
     observe(target, options) {
       target = wrapIfNeeded(target);
       if (
@@ -170,7 +178,8 @@ if (typeof WeakMap === "undefined") {
         this.nodes_.push(target);
       }
       registration.addListeners();
-    },
+    }
+
     disconnect() {
       this.nodes_.forEach(function (node) {
         var registrations = registrationsTable.get(node);
@@ -184,13 +193,15 @@ if (typeof WeakMap === "undefined") {
         }
       }, this);
       this.records_ = [];
-    },
+    }
+
     takeRecords() {
       var copyOfRecords = this.records_;
       this.records_ = [];
       return copyOfRecords;
-    },
-  };
+    }
+  }
+
   function MutationRecord(type, target) {
     this.type = type;
     this.target = target;
@@ -235,13 +246,15 @@ if (typeof WeakMap === "undefined") {
       return recordWithOldValue;
     return null;
   }
-  function Registration(observer, target, options) {
-    this.observer = observer;
-    this.target = target;
-    this.options = options;
-    this.transientObservedNodes = [];
-  }
-  Registration.prototype = {
+
+  class Registration {
+    constructor(observer, target, options) {
+      this.observer = observer;
+      this.target = target;
+      this.options = options;
+      this.transientObservedNodes = [];
+    }
+
     enqueue(record) {
       var records = this.observer.records_;
       var length = records.length;
@@ -256,10 +269,12 @@ if (typeof WeakMap === "undefined") {
         scheduleCallback(this.observer);
       }
       records[length] = record;
-    },
+    }
+
     addListeners() {
       this.addListeners_(this.target);
-    },
+    }
+
     addListeners_(node) {
       var options = this.options;
       if (options.attributes)
@@ -270,10 +285,12 @@ if (typeof WeakMap === "undefined") {
         node.addEventListener("DOMNodeInserted", this, true);
       if (options.childList || options.subtree)
         node.addEventListener("DOMNodeRemoved", this, true);
-    },
+    }
+
     removeListeners() {
       this.removeListeners_(this.target);
-    },
+    }
+
     removeListeners_(node) {
       var options = this.options;
       if (options.attributes)
@@ -284,7 +301,8 @@ if (typeof WeakMap === "undefined") {
         node.removeEventListener("DOMNodeInserted", this, true);
       if (options.childList || options.subtree)
         node.removeEventListener("DOMNodeRemoved", this, true);
-    },
+    }
+
     addTransientObserver(node) {
       if (node === this.target) return;
       this.addListeners_(node);
@@ -292,7 +310,8 @@ if (typeof WeakMap === "undefined") {
       var registrations = registrationsTable.get(node);
       if (!registrations) registrationsTable.set(node, (registrations = []));
       registrations.push(this);
-    },
+    }
+
     removeTransientObservers() {
       var transientObservedNodes = this.transientObservedNodes;
       this.transientObservedNodes = [];
@@ -306,7 +325,8 @@ if (typeof WeakMap === "undefined") {
           }
         }
       }, this);
-    },
+    }
+
     handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
@@ -376,8 +396,9 @@ if (typeof WeakMap === "undefined") {
           );
       }
       clearRecords();
-    },
-  };
+    }
+  }
+
   global.JsMutationObserver = JsMutationObserver;
   if (!global.MutationObserver) {
     global.MutationObserver = JsMutationObserver;
