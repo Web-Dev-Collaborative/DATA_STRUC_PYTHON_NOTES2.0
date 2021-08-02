@@ -77,7 +77,7 @@
   const J = Object.keys;
   const s = Function.prototype.bind;
 
-  var b = a => {
+  var b = (a) => {
     return new m(a);
   };
 
@@ -187,18 +187,18 @@
     if (a == null) return b;
     return p && a.indexOf === p
       ? a.indexOf(c) != -1
-      : (b = E(a, a => {
+      : (b = E(a, (a) => {
           return a === c;
         }));
   };
   b.invoke = function (a, c) {
     const d = i.call(arguments, 2);
-    return b.map(a, a => {
+    return b.map(a, (a) => {
       return (b.isFunction(c) ? c || a : a[c]).apply(a, d);
     });
   };
   b.pluck = (a, c) => {
-    return b.map(a, a => {
+    return b.map(a, (a) => {
       return a[c];
     });
   };
@@ -222,7 +222,7 @@
     });
     return e.value;
   };
-  b.shuffle = a => {
+  b.shuffle = (a) => {
     const b = [];
     let d;
     j(a, (a, f) => {
@@ -241,7 +241,8 @@
           return { value: a, criteria: c.call(d, a, b, g) };
         })
         .sort((a, b) => {
-          const c = a.criteria, d = b.criteria;
+          const c = a.criteria,
+            d = b.criteria;
           return c < d ? -1 : c > d ? 1 : 0;
         }),
       "value"
@@ -249,11 +250,11 @@
   };
   b.groupBy = (a, c) => {
     const d = {},
-          e = b.isFunction(c)
-            ? c
-            : a => {
-                return a[c];
-              };
+      e = b.isFunction(c)
+        ? c
+        : (a) => {
+            return a[c];
+          };
     j(a, (a, b) => {
       const c = e(a, b);
       (d[c] || (d[c] = [])).push(a);
@@ -268,7 +269,7 @@
     }
     return e;
   };
-  b.toArray = a => {
+  b.toArray = (a) => {
     return !a
       ? []
       : a.toArray
@@ -279,7 +280,7 @@
       ? i.call(a)
       : b.values(a);
   };
-  b.size = a => {
+  b.size = (a) => {
     return b.toArray(a).length;
   };
   b.first = b.head = (a, b, d) => {
@@ -296,8 +297,8 @@
   b.rest = b.tail = (a, b, d) => {
     return i.call(a, b == null || d ? 1 : b);
   };
-  b.compact = a => {
-    return b.filter(a, a => {
+  b.compact = (a) => {
+    return b.filter(a, (a) => {
       return !!a;
     });
   };
@@ -316,7 +317,8 @@
     return b.difference(a, i.call(arguments, 1));
   };
   b.uniq = b.unique = (a, c, d) => {
-    const d = d ? b.map(a, d) : a, e = [];
+    const d = d ? b.map(a, d) : a,
+      e = [];
     b.reduce(
       d,
       (d, g, h) => {
@@ -333,15 +335,15 @@
   };
   b.intersection = b.intersect = function (a) {
     const c = i.call(arguments, 1);
-    return b.filter(b.uniq(a), a => {
-      return b.every(c, c => {
+    return b.filter(b.uniq(a), (a) => {
+      return b.every(c, (c) => {
         return b.indexOf(c, a) >= 0;
       });
     });
   };
   b.difference = function (a) {
     const c = b.flatten(i.call(arguments, 1));
-    return b.filter(a, a => {
+    return b.filter(a, (a) => {
       return !b.include(c, a);
     });
   };
@@ -390,17 +392,18 @@
     if (a.bind === s && s) return s.apply(a, i.call(arguments, 1));
     if (!b.isFunction(a)) throw new TypeError();
     e = i.call(arguments, 2);
-    return d = function () {
+    return (d = function () {
       if (!(this instanceof d)) return a.apply(c, e.concat(i.call(arguments)));
       F.prototype = a.prototype;
-      const b = new F(), g = a.apply(b, e.concat(i.call(arguments)));
+      const b = new F(),
+        g = a.apply(b, e.concat(i.call(arguments)));
       return Object(g) === g ? g : b;
-    };
+    });
   };
   b.bindAll = function (a) {
     let c = i.call(arguments, 1);
     c.length == 0 && (c = b.functions(a));
-    j(c, c => {
+    j(c, (c) => {
       a[c] = b.bind(a[c], a);
     });
     return a;
@@ -451,7 +454,8 @@
   b.debounce = (a, b) => {
     let d;
     return function () {
-      const e = this, f = arguments;
+      const e = this,
+        f = arguments;
       clearTimeout(d);
       d = setTimeout(() => {
         d = null;
@@ -459,8 +463,9 @@
       }, b);
     };
   };
-  b.once = a => {
-    let b = false, d;
+  b.once = (a) => {
+    let b = false,
+      d;
     return function () {
       if (b) return d;
       b = true;
@@ -490,35 +495,35 @@
   };
   b.keys =
     J ||
-    (a => {
+    ((a) => {
       if (a !== Object(a)) throw new TypeError("Invalid object");
       const c = [];
       let d;
       for (d in a) b.has(a, d) && (c[c.length] = d);
       return c;
     });
-  b.values = a => {
+  b.values = (a) => {
     return b.map(a, b.identity);
   };
-  b.functions = b.methods = a => {
+  b.functions = b.methods = (a) => {
     const c = [];
     let d;
     for (d in a) b.isFunction(a[d]) && c.push(d);
     return c.sort();
   };
   b.extend = function (a) {
-    j(i.call(arguments, 1), b => {
+    j(i.call(arguments, 1), (b) => {
       for (const d in b) a[d] = b[d];
     });
     return a;
   };
   b.defaults = function (a) {
-    j(i.call(arguments, 1), b => {
+    j(i.call(arguments, 1), (b) => {
       for (const d in b) a[d] == null && (a[d] = b[d]);
     });
     return a;
   };
-  b.clone = a => {
+  b.clone = (a) => {
     return !b.isObject(a) ? a : b.isArray(a) ? a.slice() : b.extend({}, a);
   };
   b.tap = (a, b) => {
@@ -528,54 +533,54 @@
   b.isEqual = (a, b) => {
     return q(a, b, []);
   };
-  b.isEmpty = a => {
+  b.isEmpty = (a) => {
     if (b.isArray(a) || b.isString(a)) return a.length === 0;
     for (const c in a) if (b.has(a, c)) return false;
     return true;
   };
-  b.isElement = a => {
+  b.isElement = (a) => {
     return !!(a && a.nodeType == 1);
   };
   b.isArray =
     o ||
-    (a => {
+    ((a) => {
       return l.call(a) == "[object Array]";
     });
-  b.isObject = a => {
+  b.isObject = (a) => {
     return a === Object(a);
   };
-  b.isArguments = a => {
+  b.isArguments = (a) => {
     return l.call(a) == "[object Arguments]";
   };
   if (!b.isArguments(arguments))
-    b.isArguments = a => {
+    b.isArguments = (a) => {
       return !(!a || !b.has(a, "callee"));
     };
-  b.isFunction = a => {
+  b.isFunction = (a) => {
     return l.call(a) == "[object Function]";
   };
-  b.isString = a => {
+  b.isString = (a) => {
     return l.call(a) == "[object String]";
   };
-  b.isNumber = a => {
+  b.isNumber = (a) => {
     return l.call(a) == "[object Number]";
   };
-  b.isNaN = a => {
+  b.isNaN = (a) => {
     return a !== a;
   };
-  b.isBoolean = a => {
+  b.isBoolean = (a) => {
     return a === true || a === false || l.call(a) == "[object Boolean]";
   };
-  b.isDate = a => {
+  b.isDate = (a) => {
     return l.call(a) == "[object Date]";
   };
-  b.isRegExp = a => {
+  b.isRegExp = (a) => {
     return l.call(a) == "[object RegExp]";
   };
-  b.isNull = a => {
+  b.isNull = (a) => {
     return a === null;
   };
-  b.isUndefined = a => {
+  b.isUndefined = (a) => {
     return a === void 0;
   };
   b.has = (a, b) => {
@@ -585,13 +590,13 @@
     r._ = G;
     return this;
   };
-  b.identity = a => {
+  b.identity = (a) => {
     return a;
   };
   b.times = (a, b, d) => {
     for (let e = 0; e < a; e++) b.call(d, e);
   };
-  b.escape = a => {
+  b.escape = (a) => {
     return ("" + a)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
@@ -600,13 +605,13 @@
       .replace(/'/g, "&#x27;")
       .replace(/\//g, "&#x2F;");
   };
-  b.mixin = a => {
-    j(b.functions(a), c => {
+  b.mixin = (a) => {
+    j(b.functions(a), (c) => {
       K(c, (b[c] = a[c]));
     });
   };
   let L = 0;
-  b.uniqueId = a => {
+  b.uniqueId = (a) => {
     const b = L++;
     return a ? a + b : b;
   };
@@ -616,9 +621,9 @@
     escape: /<%-([\s\S]+?)%>/g,
   };
   const t = /.^/,
-        u = a => {
-          return a.replace(/\\\\/g, "\\").replace(/\\'/g, "'");
-        };
+    u = (a) => {
+      return a.replace(/\\\\/g, "\\").replace(/\\'/g, "'");
+    };
   b.template = (a, c) => {
     var d = b.templateSettings;
 
@@ -648,7 +653,7 @@
           return e.call(this, a, b);
         };
   };
-  b.chain = a => {
+  b.chain = (a) => {
     return b(a).chain();
   };
 
@@ -670,8 +675,8 @@
   b.prototype = m.prototype;
 
   const v = (a, c) => {
-      return c ? b(a).chain() : a;
-    };
+    return c ? b(a).chain() : a;
+  };
 
   var K = (a, c) => {
     m.prototype[a] = function () {
@@ -682,7 +687,7 @@
   };
 
   b.mixin(b);
-  j("pop,push,reverse,shift,sort,splice,unshift".split(","), a => {
+  j("pop,push,reverse,shift,sort,splice,unshift".split(","), (a) => {
     const b = k[a];
     m.prototype[a] = function () {
       const d = this._wrapped;
@@ -692,7 +697,7 @@
       return v(d, this._chain);
     };
   });
-  j(["concat", "join", "slice"], a => {
+  j(["concat", "join", "slice"], (a) => {
     const b = k[a];
     m.prototype[a] = function () {
       return v(b.apply(this._wrapped, arguments), this._chain);
