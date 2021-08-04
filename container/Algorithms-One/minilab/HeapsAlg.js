@@ -30,5 +30,5 @@ const countSet = (set) => {
 };
 
 countSet([1, 2, 3]);
-countSet(["a", "b", "c", "d"]);
-countSet(["corn", "turkey", "winter", "algebra", "window", "kevin"]);
+countSet(['a', 'b', 'c', 'd']);
+countSet(['corn', 'turkey', 'winter', 'algebra', 'window', 'kevin']);
