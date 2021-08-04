@@ -794,8 +794,7 @@ _mode_ is an optional string that specifies the mode in which the file is opened
 
 Meaning
 
-|  |
-|  |
+| | | |
 
 |
 

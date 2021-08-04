@@ -26,8 +26,8 @@ def csFindAddedLetter(str_1, str_2):
         if i in m1:
             m1[i] += 1
         else:
-            m1[i] =1
-            
+            m1[i] = 1
+
     for i in str_1:
         m1[i] -= 1
     for h1 in m1:

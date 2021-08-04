@@ -8,9 +8,10 @@ We will consider `a, e, i, o, u as vowels for this challenge (but not y).
 The input string will only consist of lower case letters and/or spaces.
 """
 
+
 def get_count(input_str):
     # Your code here
-    vowel_counts = {} #this is a dictionary to store the vowels
+    vowel_counts = {}  # this is a dictionary to store the vowels
     for vowel in "aeiou":
 
         count = input_str.count(vowel)
@@ -18,6 +19,7 @@ def get_count(input_str):
         print(vowel_counts)
         counts = vowel_counts.values()
     return sum(counts)
+
 
 print(get_count("adela are mere"))
 
@@ -45,6 +47,8 @@ Notes:
 - Return the name of the data type as a lowercase string.
 """
 import datetime
+
+
 def data_type(value):
     # Your code here
     date = datetime.date
@@ -63,11 +67,11 @@ def data_type(value):
     elif type(value) == date:
         return "date"
 
-print(data_type([1, 2, 3, 4]))
-print(data_type({'key': "value"}))
-print(data_type("This is an example string."))
-print(data_type(datetime.date(2018,1,1)))
 
+print(data_type([1, 2, 3, 4]))
+print(data_type({"key": "value"}))
+print(data_type("This is an example string."))
+print(data_type(datetime.date(2018, 1, 1)))
 
 
 """
@@ -97,12 +101,12 @@ Notes:
 
 def emotify(txt):
     # Your code here
-    #````another option```
+    # ````another option```
     # new = txt.split(' ')
     # print(new)
-    #````````````
+    # ````````````
     new_list = list(txt)
-    #print(new_list)
+    # print(new_list)
     sliced_list = new_list[8:]
     emotion = "".join(sliced_list)
     print(emotion)
@@ -113,12 +117,14 @@ def emotify(txt):
     else:
         return "Make me :("
 
+
 print(emotify("Make me smile"))
 print(emotify("Make me grin"))
 print(emotify("Make me sad"))
 
 
 import math
+
 """
 Challenge #3:
 
@@ -136,8 +142,8 @@ Notes:
 
 
 def multiply_nums(nums):
-    # Your code here 
-    #nums = "2, 4, 6"
+    # Your code here
+    # nums = "2, 4, 6"
     integer_list = []
     new_list = list(nums)
     sliced_list = new_list[0::3]
@@ -147,10 +153,9 @@ def multiply_nums(nums):
         integer_list.append(int_elem)
         print(type(int_elem))
     return math.prod(integer_list)
-        
+
 
 print(multiply_nums("2, 3"))
-
 
 
 """
@@ -177,13 +182,14 @@ def add_indexes(numbers):
         sum = index + value
         new_list.append(sum)
     return new_list
-enumerate(my_list) # tuples of the index and the value of the list
-list(enumerate(a_list)) #and makes it into an array
+
+
+enumerate(my_list)  # tuples of the index and the value of the list
+list(enumerate(a_list))  # and makes it into an array
 for item in enumerate(a_list):
     print(item)
 for index, value in enumerate(a_list):
     print(index) or print(value)
-
 
 
 """
@@ -201,17 +207,19 @@ Notes:
 - Return "invalid" if n exceeds the length of the list.
 - Return an empty list if n == 0.
 """
-#list[-1] = last element 
-#list[-2] = last 2 elements of the list
+# list[-1] = last element
+# list[-2] = last 2 elements of the list
+
 
 def last(a, n):
     # Your code here
     if n > len(a):
         return "invalid"
-    elif n == 0 :
+    elif n == 0:
         return []
     else:
-        return a[-n:] #the last 3/n elements
+        return a[-n:]  # the last 3/n elements
+
 
 print(last([1, 2, 3, 4, 5], 1))
 
@@ -231,9 +239,12 @@ Examples:
 - get_middle("middle") -> "dd"
 - get_middle("A") -> "A"
 """
+
+
 def get_middle(input_str):
     # Your code here
-    return input_str[(len(input_str) -1) // 2: (len(input_str) + 2) // 2]
+    return input_str[(len(input_str) - 1) // 2 : (len(input_str) + 2) // 2]
+
 
 print(get_middle("test"))
 print(get_middle("testing"))
@@ -243,12 +254,13 @@ print(get_middle("beyoudre"))
 print(get_middle("you"))
 
 
-#Given a string of words, return the length of the shortest word(s).
+# Given a string of words, return the length of the shortest word(s).
 
-#The input string will never be empty and you do not need to validate for different data types.
+# The input string will never be empty and you do not need to validate for different data types.
 def csShortestWord(input_str):
     word = map(len, input_str.split())
     return min(word)
+
 
 # Given an array of integers, return the sum of all the positive integers in the array.
 
@@ -262,6 +274,8 @@ def csShortestWord(input_str):
 # If the input_arr does not contain any positive integers, the default sum should be 0.
 
 import math
+
+
 def csSumOfPositive(input_arr):
     new_array = []
     for num in input_arr:
@@ -292,12 +306,15 @@ the maximum number is first.
 
 import functools
 import operator
+
+
 def max_and_min(input_str):
     # Your code here
     new_list = list(map(int, input_str.split()))
     new_string = str(max(new_list)) + " " + str(min(new_list))
     print(type(new_string))
     return new_string
+
 
 print(max_and_min("1 2 3 4 5"))
 print(max_and_min("1 2 -3 4 5"))
@@ -320,10 +337,12 @@ Notes:
 - There won't be any awkward decimal numbers, only 0.5 to deal with.
 """
 import math
+
+
 def get_discounts(nums, percentage):
     # Your code here
     new_percentage = list(percentage)
-    discount_str = int(new_percentage[0] + new_percentage[1]) 
+    discount_str = int(new_percentage[0] + new_percentage[1])
     discount = int(discount_str) / 100
     print(discount)
     d = []
@@ -333,6 +352,8 @@ def get_discounts(nums, percentage):
         new_num = int(s.rstrip(".0")) if ".0" in s else float(s)
         d.append(new_num)
     return d
+
+
 print(get_discounts([2, 4, 6, 11], "50%"))
 print(get_discounts([10, 20, 40, 80], "75%"))
 print(get_discounts([100], "45%"))

@@ -1152,6 +1152,7 @@ A Python object encapsulates variables _(data)_ and functions _(behavior)_ into 
   - Lets call our first class my first class
     - _**class MyFirstClass:**_
   - In classes you can set variables
+
     - lets set a variable equal to data
 
       - _**variable = “data”**_
@@ -1385,6 +1386,7 @@ The best thing about Python is that so many people already did so much of the wo
   - You can use the functions in that module
 - Any Python file that ends with the _**.py**_ extension is considered a module
 - Let’s take a look how this works in code
+
   - One of the most common modules is _**[math](https://www.w3schools.com/python/module_math.asp)**_
   - Let’s import _**[math](https://www.w3schools.com/python/module_math.asp)**_
 
@@ -1412,6 +1414,7 @@ The best thing about Python is that so many people already did so much of the wo
     - What if we want to just import one of the functions
       - we would do from _**[math](https://www.w3schools.com/python/module_math.asp)**_ import [_**pow**_](https://www.programiz.com/python-programming/methods/built-in/pow)
         - [\*\*\*pow](https://www.programiz.com/python-programming/methods/built-in/pow)\*\*\* is another function from math
+
 - **See below for example**
 
   from math import pow

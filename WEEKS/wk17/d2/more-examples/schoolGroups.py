@@ -15,14 +15,16 @@
 
 # [output] string
 
+
 def schoolGroups(years, groups):
     alphabet = list(map(chr, range(97, 123)))
     emp_list = []
     for year in range(1, years + 1):
         for group in range(0, groups):
-            emp_list.append(f'{year}{alphabet[group]}')
-    #print(emp_list)
-    return ', '.join(emp_list)
+            emp_list.append(f"{year}{alphabet[group]}")
+    # print(emp_list)
+    return ", ".join(emp_list)
+
 
 print(schoolGroups(1, 4))
 print(schoolGroups(6, 7))

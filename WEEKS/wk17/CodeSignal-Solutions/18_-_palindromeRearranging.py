@@ -1,3 +1,4 @@
+
 def palindromeRearranging(inputString):
     inputList = sorted(inputString)
     foundMiddle = False

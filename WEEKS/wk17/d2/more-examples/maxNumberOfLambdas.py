@@ -22,9 +22,10 @@
 
 # [output] integer
 
+
 def csMaxNumberOfLambdas(text):
     sub_string = "lambda"
-    lambda_count = {'l': 0, 'a': 0, 'm': 0, 'b': 0, 'd': 0, 'a': 0}
+    lambda_count = {"l": 0, "a": 0, "m": 0, "b": 0, "d": 0, "a": 0}
     counts = []
     for letter in text:
         if letter in lambda_count:
@@ -32,4 +33,3 @@ def csMaxNumberOfLambdas(text):
     for key, value in lambda_count.items():
         counts.append(value)
     return min(counts)
-

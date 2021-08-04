@@ -21,9 +21,10 @@
 
 # true is the sequence is regular and false otherwise.
 
+
 def validParenthesesSequence(s):
     stack = []
- 
+
     # Traversing the Expression
     for char in s:
         if char in ["(", "{", "["]:
@@ -32,13 +33,13 @@ def validParenthesesSequence(s):
             if not stack:
                 return False
             current_char = stack.pop()
-            if current_char == '(':
+            if current_char == "(":
                 if char != ")":
                     return False
-            if current_char == '{':
+            if current_char == "{":
                 if char != "}":
                     return False
-            if current_char == '[':
+            if current_char == "[":
                 if char != "]":
                     return False
     if stack:

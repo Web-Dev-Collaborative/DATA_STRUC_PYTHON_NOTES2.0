@@ -15,11 +15,12 @@
 
 # [output] integer
 
+
 def csReverseIntegerBits(n):
     reversed_num = 0
-    while(n > 0):
+    while n > 0:
         reversed_num = reversed_num << 1
-        if ( n & 1 == 1):
+        if n & 1 == 1:
             reversed_num = reversed_num ^ 1
         n = n >> 1
     return reversed_num
