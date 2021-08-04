@@ -64,14 +64,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   Polymer.Templatizer = {
     properties: {
       __hideTemplateChildren__: {
-        observer: "_showHideChildren",
+        observer: '_showHideChildren',
       },
     },
 
     // Extension point for overrides
     _instanceProps: Polymer.nob,
 
-    _parentPropPrefix: "_parent_",
+    _parentPropPrefix: '_parent_',
 
     /**
      * Prepares a template containing Polymer bindings by generating
@@ -151,14 +151,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (n.nodeType === Node.TEXT_NODE) {
             if (hide) {
               n.__polymerTextContent__ = n.textContent;
-              n.textContent = "";
+              n.textContent = '';
             } else {
               n.textContent = n.__polymerTextContent__;
             }
           } else if (n.style) {
             if (hide) {
               n.__polymerDisplay__ = n.style.display;
-              n.style.display = "none";
+              n.style.display = 'none';
             } else {
               n.style.display = n.__polymerDisplay__;
             }
@@ -169,14 +169,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     __setPropertyImpl: function (property, value, fromAbove, node) {
-      if (node && node.__hideTemplateChildren__ && property == "textContent") {
-        property = "__polymerTextContent__";
+      if (node && node.__hideTemplateChildren__ && property == 'textContent') {
+        property = '__polymerTextContent__';
       }
       this.__setPropertyOrig(property, value, fromAbove, node);
     },
 
     _debounceTemplate: function (fn) {
-      Polymer.dom.addDebouncer(this.debounce("_debounceTemplate", fn));
+      Polymer.dom.addDebouncer(this.debounce('_debounceTemplate', fn));
     },
 
     _flushTemplates: function () {
@@ -188,14 +188,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       for (var prop in parentProps) {
         archetype._addPropertyEffect(
           prop,
-          "function",
+          'function',
           this._createHostPropEffector(prop)
         );
       }
       for (prop in this._instanceProps) {
         archetype._addPropertyEffect(
           prop,
-          "function",
+          'function',
           this._createInstancePropEffector(prop)
         );
       }
@@ -250,16 +250,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             // Needed for effect optimization.
             var effects = [
               {
-                kind: "function",
+                kind: 'function',
                 effect: this._createForwardPropEffector(prop),
                 fn: Polymer.Bind._functionEffect,
               },
               {
-                kind: "notify",
+                kind: 'notify',
                 fn: Polymer.Bind._notifyEffect,
                 effect: {
                   event:
-                    Polymer.CaseMap.camelToDashCase(parentProp) + "-changed",
+                    Polymer.CaseMap.camelToDashCase(parentProp) + '-changed',
                 },
               },
             ];
@@ -334,7 +334,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _notifyPathUpImpl: function (path, value) {
       var dataHost = this.dataHost;
-      var dot = path.indexOf(".");
+      var dot = path.indexOf('.');
       var root = dot < 0 ? path : path.slice(0, dot);
       // Call extension point for Templatizer sub-classes
       dataHost._forwardInstancePath.call(dataHost, this, path, value);

@@ -58,10 +58,10 @@ Note: announcements are only audible if you have a screen reader enabled.
 
   <script>
     (function () {
-      "use strict";
+      'use strict';
 
       Polymer.IronA11yAnnouncer = Polymer({
-        is: "iron-a11y-announcer",
+        is: 'iron-a11y-announcer',
 
         properties: {
           /**
@@ -71,12 +71,12 @@ Note: announcements are only audible if you have a screen reader enabled.
            */
           mode: {
             type: String,
-            value: "polite",
+            value: 'polite',
           },
 
           _text: {
             type: String,
-            value: "",
+            value: '',
           },
         },
 
@@ -86,7 +86,7 @@ Note: announcements are only audible if you have a screen reader enabled.
           }
 
           document.body.addEventListener(
-            "iron-announce",
+            'iron-announce',
             this._onIronAnnounce.bind(this)
           );
         },
@@ -97,7 +97,7 @@ Note: announcements are only audible if you have a screen reader enabled.
          * @param {string} text The text that should be announced.
          */
         announce: function (text) {
-          this._text = "";
+          this._text = '';
           this.async(function () {
             this._text = text;
           }, 100);
@@ -115,7 +115,7 @@ Note: announcements are only audible if you have a screen reader enabled.
       Polymer.IronA11yAnnouncer.requestAvailability = function () {
         if (!Polymer.IronA11yAnnouncer.instance) {
           Polymer.IronA11yAnnouncer.instance = document.createElement(
-            "iron-a11y-announcer"
+            'iron-a11y-announcer'
           );
         }
 

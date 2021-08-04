@@ -47,7 +47,7 @@ Polymer adds convenient features to make it easy to build complex elements:
  * A not-very-useful inline element
  */
 Polymer({
-  is: "my-element",
+  is: 'my-element',
 });
 ```
 
@@ -67,7 +67,7 @@ Polymer({
 
   <script>
     Polymer({
-      is: "my-simple-namecard",
+      is: 'my-simple-namecard',
     });
   </script>
 </dom-module>
@@ -78,14 +78,14 @@ Polymer({
 ```js
 // Create an element that takes a property
 Polymer({
-  is: "my-property-namecard",
+  is: 'my-property-namecard',
   properties: {
     myName: {
       type: String,
     },
   },
   ready: function () {
-    this.textContent = "Hi! My name is " + this.myName;
+    this.textContent = 'Hi! My name is ' + this.myName;
   },
 });
 ```
@@ -110,7 +110,7 @@ Polymer({
 
   <script>
     Polymer({
-      is: "my-bound-namecard",
+      is: 'my-bound-namecard',
       properties: {
         myName: {
           type: String,
@@ -146,7 +146,7 @@ Polymer({
 
   <script>
     Polymer({
-      is: "my-styled-namecard",
+      is: 'my-styled-namecard',
       properties: {
         myName: {
           type: String,

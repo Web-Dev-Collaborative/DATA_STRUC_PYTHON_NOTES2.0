@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script>
   (function () {
-    "use strict";
+    'use strict';
     /**
      * Used to calculate the scroll direction during touch events.
      * @type {!Object}
@@ -164,7 +164,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return true;
         }
 
-        contentElements = Polymer.dom(element).querySelectorAll("content");
+        contentElements = Polymer.dom(element).querySelectorAll('content');
 
         for (
           contentIndex = 0;
@@ -209,40 +209,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this._boundScrollHandler =
           this._boundScrollHandler || this._scrollInteractionHandler.bind(this);
         // Modern `wheel` event for mouse wheel scrolling:
-        document.addEventListener("wheel", this._boundScrollHandler, true);
+        document.addEventListener('wheel', this._boundScrollHandler, true);
         // Older, non-standard `mousewheel` event for some FF:
-        document.addEventListener("mousewheel", this._boundScrollHandler, true);
+        document.addEventListener('mousewheel', this._boundScrollHandler, true);
         // IE:
         document.addEventListener(
-          "DOMMouseScroll",
+          'DOMMouseScroll',
           this._boundScrollHandler,
           true
         );
         // Save the lastScrollableNodes on touchstart, to be used on touchmove.
-        document.addEventListener("touchstart", this._boundScrollHandler, true);
+        document.addEventListener('touchstart', this._boundScrollHandler, true);
         // Mobile devices can scroll on touch move:
-        document.addEventListener("touchmove", this._boundScrollHandler, true);
+        document.addEventListener('touchmove', this._boundScrollHandler, true);
       },
 
       _unlockScrollInteractions: function () {
-        document.removeEventListener("wheel", this._boundScrollHandler, true);
+        document.removeEventListener('wheel', this._boundScrollHandler, true);
         document.removeEventListener(
-          "mousewheel",
+          'mousewheel',
           this._boundScrollHandler,
           true
         );
         document.removeEventListener(
-          "DOMMouseScroll",
+          'DOMMouseScroll',
           this._boundScrollHandler,
           true
         );
         document.removeEventListener(
-          "touchstart",
+          'touchstart',
           this._boundScrollHandler,
           true
         );
         document.removeEventListener(
-          "touchmove",
+          'touchmove',
           this._boundScrollHandler,
           true
         );
@@ -260,7 +260,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // Update if root target changed. For touch events, ensure we don't
         // update during touchmove.
         var target = Polymer.dom(event).rootTarget;
-        if (event.type !== "touchmove" && lastRootTarget !== target) {
+        if (event.type !== 'touchmove' && lastRootTarget !== target) {
           lastRootTarget = target;
           lastScrollableNodes = this._getScrollableNodes(
             Polymer.dom(event).path
@@ -273,7 +273,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         // Don't prevent touchstart event inside the locking element when it has
         // scrollable nodes.
-        if (event.type === "touchstart") {
+        if (event.type === 'touchstart') {
           return false;
         }
         // Get deltaX/Y.
@@ -305,10 +305,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var node = /** @type {!Element} */ (nodes[i]);
           // Check inline style before checking computed style.
           var style = node.style;
-          if (style.overflow !== "scroll" && style.overflow !== "auto") {
+          if (style.overflow !== 'scroll' && style.overflow !== 'auto') {
             style = window.getComputedStyle(node);
           }
-          if (style.overflow === "scroll" || style.overflow === "auto") {
+          if (style.overflow === 'scroll' || style.overflow === 'auto') {
             scrollables.push(node);
           }
         }
@@ -369,16 +369,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           deltaY: event.deltaY,
         };
         // Already available.
-        if ("deltaX" in event) {
+        if ('deltaX' in event) {
           // do nothing, values are already good.
         }
         // Safari has scroll info in `wheelDeltaX/Y`.
-        else if ("wheelDeltaX" in event) {
+        else if ('wheelDeltaX' in event) {
           info.deltaX = -event.wheelDeltaX;
           info.deltaY = -event.wheelDeltaY;
         }
         // Firefox has scroll info in `detail` and `axis`.
-        else if ("axis" in event) {
+        else if ('axis' in event) {
           info.deltaX = event.axis === 1 ? event.detail : 0;
           info.deltaY = event.axis === 2 ? event.detail : 0;
         }

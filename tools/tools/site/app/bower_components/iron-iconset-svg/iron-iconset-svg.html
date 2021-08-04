@@ -48,7 +48,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @implements {Polymer.Iconset}
    */
   Polymer({
-    is: "iron-iconset-svg",
+    is: 'iron-iconset-svg',
 
     properties: {
       /**
@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       name: {
         type: String,
-        observer: "_nameChanged",
+        observer: '_nameChanged',
       },
 
       /**
@@ -83,7 +83,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     attached: function () {
-      this.style.display = "none";
+      this.style.display = 'none';
     },
 
     /**
@@ -94,7 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     getIconNames: function () {
       this._icons = this._createIconMap();
       return Object.keys(this._icons).map(function (n) {
-        return this.name + ":" + n;
+        return this.name + ':' + n;
       }, this);
     },
 
@@ -160,7 +160,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
 
         this.__targetIsRTL =
-          target && window.getComputedStyle(target)["direction"] === "rtl";
+          target && window.getComputedStyle(target)['direction'] === 'rtl';
       }
 
       return this.__targetIsRTL;
@@ -172,9 +172,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      *
      */
     _nameChanged: function () {
-      new Polymer.IronMeta({ type: "iconset", key: this.name, value: this });
+      new Polymer.IronMeta({ type: 'iconset', key: this.name, value: this });
       this.async(function () {
-        this.fire("iron-iconset-added", this, { node: window });
+        this.fire('iron-iconset-added', this, { node: window });
       });
     },
 
@@ -189,7 +189,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // need to use a null-based object here.
       var icons = Object.create(null);
       Polymer.dom(this)
-        .querySelectorAll("[id]")
+        .querySelectorAll('[id]')
         .forEach(function (icon) {
           icons[icon.id] = icon;
         });
@@ -219,22 +219,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _prepareSvgClone: function (sourceSvg, size, mirrorAllowed) {
       if (sourceSvg) {
         var content = sourceSvg.cloneNode(true),
-          svg = document.createElementNS("http://www.w3.org/2000/svg", "svg"),
+          svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
           viewBox =
-            content.getAttribute("viewBox") || "0 0 " + size + " " + size,
+            content.getAttribute('viewBox') || '0 0 ' + size + ' ' + size,
           cssText =
-            "pointer-events: none; display: block; width: 100%; height: 100%;";
+            'pointer-events: none; display: block; width: 100%; height: 100%;';
 
-        if (mirrorAllowed && content.hasAttribute("mirror-in-rtl")) {
-          cssText += "-webkit-transform:scale(-1,1);transform:scale(-1,1);";
+        if (mirrorAllowed && content.hasAttribute('mirror-in-rtl')) {
+          cssText += '-webkit-transform:scale(-1,1);transform:scale(-1,1);';
         }
 
-        svg.setAttribute("viewBox", viewBox);
-        svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+        svg.setAttribute('viewBox', viewBox);
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
         // TODO(dfreedm): `pointer-events: none` works around https://crbug.com/370136
         // TODO(sjmiles): inline style may not be ideal, but avoids requiring a shadow-root
         svg.style.cssText = cssText;
-        svg.appendChild(content).removeAttribute("id");
+        svg.appendChild(content).removeAttribute('id');
         return svg;
       }
       return null;

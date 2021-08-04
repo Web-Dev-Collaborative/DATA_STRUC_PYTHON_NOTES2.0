@@ -21,14 +21,14 @@ THE SOFTWARE.
 
 */
 define(() => {
-  "use strict";
+  'use strict';
 
   function encode(str) {
     return encodeURIComponent(str).replace(find, replacer);
   }
 
   function decode(str) {
-    return decodeURIComponent(str.replace(plus, " "));
+    return decodeURIComponent(str.replace(plus, ' '));
   }
 
   function URLSearchParams(query) {
@@ -37,14 +37,14 @@ define(() => {
     for (
       let index,
         value,
-        pairs = (query || "").split("&"),
+        pairs = (query || '').split('&'),
         i = 0,
         length = pairs.length;
       i < length;
       i++
     ) {
       value = pairs[i];
-      index = value.indexOf("=");
+      index = value.indexOf('=');
       if (-1 < index) {
         this.append(
           decode(value.slice(0, index)),
@@ -59,13 +59,13 @@ define(() => {
   var plus = /\+/g;
 
   const replace = {
-    "!": "%21",
-    "'": "%27",
-    "(": "%28",
-    ")": "%29",
-    "~": "%7E",
-    "%20": "+",
-    "%00": "\x00",
+    '!': '%21',
+    "'": '%27',
+    '(': '%28',
+    ')': '%29',
+    '~': '%7E',
+    '%20': '+',
+    '%00': '\x00',
   };
 
   var replacer = (match) => {
@@ -73,7 +73,7 @@ define(() => {
   };
 
   const iterable = isIterable();
-  var secret = "__URLSearchParams__:" + Math.random();
+  var secret = '__URLSearchParams__:' + Math.random();
   function isIterable() {
     try {
       return !!Symbol.iterator;
@@ -85,9 +85,9 @@ define(() => {
   URLSearchParamsProto.append = function append(name, value) {
     const dict = this[secret];
     if (name in dict) {
-      dict[name].push("" + value);
+      dict[name].push('' + value);
     } else {
-      dict[name] = ["" + value];
+      dict[name] = ['' + value];
     }
   };
 
@@ -110,7 +110,7 @@ define(() => {
   };
 
   URLSearchParamsProto.set = function set(name, value) {
-    this[secret][name] = ["" + value];
+    this[secret][name] = ['' + value];
   };
 
   URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
@@ -212,10 +212,10 @@ URLSearchParamsProto.toBody = function() {
     for (key in dict) {
       name = encode(key);
       for (i = 0, value = dict[key]; i < value.length; i++) {
-        query.push(name + "=" + encode(value[i]));
+        query.push(name + '=' + encode(value[i]));
       }
     }
-    return query.join("&");
+    return query.join('&');
   };
   const dP = Object.defineProperty,
     gOPD = Object.getOwnPropertyDescriptor,
@@ -224,23 +224,23 @@ URLSearchParamsProto.toBody = function() {
       function append(name, value) {
         URLSearchParamsProto.append.call(this, name, value);
         name = this.toString();
-        search.set.call(this._usp, name ? "?" + name : "");
+        search.set.call(this._usp, name ? '?' + name : '');
       }
       function del(name) {
         URLSearchParamsProto.delete.call(this, name);
         name = this.toString();
-        search.set.call(this._usp, name ? "?" + name : "");
+        search.set.call(this._usp, name ? '?' + name : '');
       }
       function set(name, value) {
         URLSearchParamsProto.set.call(this, name, value);
         name = this.toString();
-        search.set.call(this._usp, name ? "?" + name : "");
+        search.set.call(this._usp, name ? '?' + name : '');
       }
       return (sp, value) => {
         sp.append = append;
         sp.delete = del;
         sp.set = set;
-        return dP(sp, "_usp", {
+        return dP(sp, '_usp', {
           configurable: true,
           writable: true,
           value: value,
@@ -249,7 +249,7 @@ URLSearchParamsProto.toBody = function() {
     },
     createSearchParamsCreate = (polluteSearchParams) => {
       return (obj, sp) => {
-        dP(obj, "_searchParams", {
+        dP(obj, '_searchParams', {
           configurable: true,
           writable: true,
           value: polluteSearchParams(sp, obj),
@@ -267,15 +267,15 @@ URLSearchParamsProto.toBody = function() {
       if (!(obj instanceof Class))
         throw new TypeError(
           "'searchParams' accessed on an object that " +
-            "does not implement interface " +
+            'does not implement interface ' +
             Class.name
         );
     },
     upgradeClass = (Class) => {
       const ClassProto = Class.prototype;
-      const searchParams = gOPD(ClassProto, "searchParams");
-      const href = gOPD(ClassProto, "href");
-      const search = gOPD(ClassProto, "search");
+      const searchParams = gOPD(ClassProto, 'searchParams');
+      const href = gOPD(ClassProto, 'href');
+      const search = gOPD(ClassProto, 'search');
       let createSearchParams;
       if (!searchParams && search && search.set) {
         createSearchParams = createSearchParamsCreate(

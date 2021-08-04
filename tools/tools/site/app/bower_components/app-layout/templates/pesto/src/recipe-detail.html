@@ -202,12 +202,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: "recipe-detail",
+      is: 'recipe-detail',
 
       properties: {
         recipe: {
           type: Object,
-          observer: "__recipeChanged",
+          observer: '__recipeChanged',
         },
 
         __favorite: {
@@ -218,7 +218,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       __recipeChanged: function (recipe) {
         if (recipe) {
-          this.style.backgroundImage = "url(" + recipe.imageUrl + ")";
+          this.style.backgroundImage = 'url(' + recipe.imageUrl + ')';
         }
       },
 
@@ -227,7 +227,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       __computeFavIcon: function (favorite) {
-        return favorite ? "app:favorite" : "app:favorite-border";
+        return favorite ? 'app:favorite' : 'app:favorite-border';
       },
     });
   </script>

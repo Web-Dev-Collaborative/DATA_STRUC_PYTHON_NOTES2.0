@@ -59,7 +59,7 @@ Or, in a Polymer element, you can include a meta in your template:
     var singleton = null;
 
     Polymer.IronMeta = Polymer({
-      is: "iron-meta",
+      is: 'iron-meta',
 
       properties: {
         /**
@@ -68,8 +68,8 @@ Or, in a Polymer element, you can include a meta in your template:
          */
         type: {
           type: String,
-          value: "default",
-          observer: "_typeChanged",
+          value: 'default',
+          observer: '_typeChanged',
         },
 
         /**
@@ -77,7 +77,7 @@ Or, in a Polymer element, you can include a meta in your template:
          */
         key: {
           type: String,
-          observer: "_keyChanged",
+          observer: '_keyChanged',
         },
 
         /**
@@ -86,7 +86,7 @@ Or, in a Polymer element, you can include a meta in your template:
         value: {
           type: Object,
           notify: true,
-          observer: "_valueChanged",
+          observer: '_valueChanged',
         },
 
         /**
@@ -94,7 +94,7 @@ Or, in a Polymer element, you can include a meta in your template:
          */
         self: {
           type: Boolean,
-          observer: "_selfChanged",
+          observer: '_selfChanged',
         },
 
         /**
@@ -120,9 +120,9 @@ Or, in a Polymer element, you can include a meta in your template:
         if (config) {
           for (var n in config) {
             switch (n) {
-              case "type":
-              case "key":
-              case "value":
+              case 'type':
+              case 'key':
+              case 'value':
                 this[n] = config[n];
                 break;
             }
@@ -232,7 +232,7 @@ Or, in a Polymer element, you can include a meta in your template:
     @element iron-meta-query
     */
     Polymer.IronMetaQuery = Polymer({
-      is: "iron-meta-query",
+      is: 'iron-meta-query',
 
       properties: {
         /**
@@ -241,8 +241,8 @@ Or, in a Polymer element, you can include a meta in your template:
          */
         type: {
           type: String,
-          value: "default",
-          observer: "_typeChanged",
+          value: 'default',
+          observer: '_typeChanged',
         },
 
         /**
@@ -251,7 +251,7 @@ Or, in a Polymer element, you can include a meta in your template:
          */
         key: {
           type: String,
-          observer: "_keyChanged",
+          observer: '_keyChanged',
         },
 
         /**
@@ -282,8 +282,8 @@ Or, in a Polymer element, you can include a meta in your template:
         if (config) {
           for (var n in config) {
             switch (n) {
-              case "type":
-              case "key":
+              case 'type':
+              case 'key':
                 this[n] = config[n];
                 break;
             }

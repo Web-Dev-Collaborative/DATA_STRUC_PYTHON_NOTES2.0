@@ -121,7 +121,7 @@ Custom property | Description | Default
         @apply (--paper-tabs);
       }
 
-      :host-context([dir="rtl"]) {
+      :host-context([dir='rtl']) {
         @apply (--layout-horizontal-reverse);
       }
 
@@ -250,7 +250,7 @@ Custom property | Description | Default
 
   <script>
     Polymer({
-      is: "paper-tabs",
+      is: 'paper-tabs',
 
       behaviors: [Polymer.IronResizableBehavior, Polymer.IronMenubarBehavior],
 
@@ -263,7 +263,7 @@ Custom property | Description | Default
         noink: {
           type: Boolean,
           value: false,
-          observer: "_noinkChanged",
+          observer: '_noinkChanged',
         },
 
         /**
@@ -325,7 +325,7 @@ Custom property | Description | Default
 
         selectable: {
           type: String,
-          value: "paper-tab",
+          value: 'paper-tab',
         },
 
         /**
@@ -373,18 +373,18 @@ Custom property | Description | Default
       },
 
       hostAttributes: {
-        role: "tablist",
+        role: 'tablist',
       },
 
       listeners: {
-        "iron-resize": "_onTabSizingChanged",
-        "iron-items-changed": "_onTabSizingChanged",
-        "iron-select": "_onIronSelect",
-        "iron-deselect": "_onIronDeselect",
+        'iron-resize': '_onTabSizingChanged',
+        'iron-items-changed': '_onTabSizingChanged',
+        'iron-select': '_onIronSelect',
+        'iron-deselect': '_onIronDeselect',
       },
 
       keyBindings: {
-        "left:keyup right:keyup": "_onArrowKeyup",
+        'left:keyup right:keyup': '_onArrowKeyup',
       },
 
       created: function () {
@@ -393,11 +393,11 @@ Custom property | Description | Default
         this._pendingActivationTimeout = undefined;
         this._bindDelayedActivationHandler =
           this._delayedActivationHandler.bind(this);
-        this.addEventListener("blur", this._onBlurCapture.bind(this), true);
+        this.addEventListener('blur', this._onBlurCapture.bind(this), true);
       },
 
       ready: function () {
-        this.setScrollDirection("y", this.$.tabsContainer);
+        this.setScrollDirection('y', this.$.tabsContainer);
       },
 
       detached: function () {
@@ -405,18 +405,18 @@ Custom property | Description | Default
       },
 
       _noinkChanged: function (noink) {
-        var childTabs = Polymer.dom(this).querySelectorAll("paper-tab");
+        var childTabs = Polymer.dom(this).querySelectorAll('paper-tab');
         childTabs.forEach(
           noink ? this._setNoinkAttribute : this._removeNoinkAttribute
         );
       },
 
       _setNoinkAttribute: function (element) {
-        element.setAttribute("noink", "");
+        element.setAttribute('noink', '');
       },
 
       _removeNoinkAttribute: function (element) {
-        element.removeAttribute("noink");
+        element.removeAttribute('noink');
       },
 
       _computeScrollButtonClass: function (
@@ -425,37 +425,37 @@ Custom property | Description | Default
         hideScrollButtons
       ) {
         if (!scrollable || hideScrollButtons) {
-          return "hidden";
+          return 'hidden';
         }
 
         if (hideThisButton) {
-          return "not-visible";
+          return 'not-visible';
         }
 
-        return "";
+        return '';
       },
 
       _computeTabsContentClass: function (scrollable, fitContainer) {
         return scrollable
-          ? "scrollable" + (fitContainer ? " fit-container" : "")
-          : " fit-container";
+          ? 'scrollable' + (fitContainer ? ' fit-container' : '')
+          : ' fit-container';
       },
 
       _computeSelectionBarClass: function (noBar, alignBottom) {
         if (noBar) {
-          return "hidden";
+          return 'hidden';
         } else if (alignBottom) {
-          return "align-bottom";
+          return 'align-bottom';
         }
 
-        return "";
+        return '';
       },
 
       // TODO(cdata): Add `track` response back in when gesture lands.
 
       _onTabSizingChanged: function () {
         this.debounce(
-          "_onTabSizingChanged",
+          '_onTabSizingChanged',
           function () {
             this._scroll();
             this._tabChanged(this.selectedItem);
@@ -467,12 +467,12 @@ Custom property | Description | Default
       _onIronSelect: function (event) {
         this._tabChanged(event.detail.item, this._previousTab);
         this._previousTab = event.detail.item;
-        this.cancelDebouncer("tab-changed");
+        this.cancelDebouncer('tab-changed');
       },
 
       _onIronDeselect: function (event) {
         this.debounce(
-          "tab-changed",
+          'tab-changed',
           function () {
             this._tabChanged(null, this._previousTab);
             this._previousTab = null;
@@ -608,8 +608,8 @@ Custom property | Description | Default
       _tabChanged: function (tab, old) {
         if (!tab) {
           // Remove the bar without animation.
-          this.$.selectionBar.classList.remove("expand");
-          this.$.selectionBar.classList.remove("contract");
+          this.$.selectionBar.classList.remove('expand');
+          this.$.selectionBar.classList.remove('contract');
           this._positionBar(0, 0);
           return;
         }
@@ -626,8 +626,8 @@ Custom property | Description | Default
 
         if (this.noSlide || old == null) {
           // Position the bar without animation.
-          this.$.selectionBar.classList.remove("expand");
-          this.$.selectionBar.classList.remove("contract");
+          this.$.selectionBar.classList.remove('expand');
+          this.$.selectionBar.classList.remove('contract');
           this._positionBar(this._pos.width, this._pos.left);
           return;
         }
@@ -638,7 +638,7 @@ Custom property | Description | Default
         var m = 5;
 
         // bar animation: expand
-        this.$.selectionBar.classList.add("expand");
+        this.$.selectionBar.classList.add('expand');
 
         var moveRight = oldIndex < index;
         var isRTL = this._isRTL;
@@ -688,7 +688,7 @@ Custom property | Description | Default
         this._width = width;
         this._left = left;
         this.transform(
-          "translateX(" + left + "%) scaleX(" + width / 100 + ")",
+          'translateX(' + left + '%) scaleX(' + width / 100 + ')',
           this.$.selectionBar
         );
       },
@@ -696,13 +696,13 @@ Custom property | Description | Default
       _onBarTransitionEnd: function (e) {
         var cl = this.$.selectionBar.classList;
         // bar animation: expand -> contract
-        if (cl.contains("expand")) {
-          cl.remove("expand");
-          cl.add("contract");
+        if (cl.contains('expand')) {
+          cl.remove('expand');
+          cl.add('contract');
           this._positionBar(this._pos.width, this._pos.left);
           // bar animation done
-        } else if (cl.contains("contract")) {
-          cl.remove("contract");
+        } else if (cl.contains('contract')) {
+          cl.remove('contract');
         }
       },
     });

@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](classes.html "9. Classes") |
-- [previous](inputoutput.html "7. Input and Output") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](classes.html '9. Classes') |
+- [previous](inputoutput.html '7. Input and Output') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -386,11 +386,11 @@ After the statement is executed, the file _f_ is always closed, even if a proble
 
 #### Previous topic
 
-[<span class="section-number">7. </span>Input and Output](inputoutput.html "previous chapter")
+[<span class="section-number">7. </span>Input and Output](inputoutput.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">9. </span>Classes](classes.html "next chapter")
+[<span class="section-number">9. </span>Classes](classes.html 'next chapter')
 
 ### This Page
 
@@ -399,10 +399,10 @@ After the statement is executed, the file _f_ is always closed, even if a proble
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](classes.html "9. Classes") |
-- [previous](inputoutput.html "7. Input and Output") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](classes.html '9. Classes') |
+- [previous](inputoutput.html '7. Input and Output') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

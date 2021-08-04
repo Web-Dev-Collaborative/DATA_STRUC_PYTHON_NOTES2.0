@@ -8,14 +8,14 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 // @version 0.7.24
-if (typeof WeakMap === "undefined") {
+if (typeof WeakMap === 'undefined') {
   (() => {
     const defineProperty = Object.defineProperty;
     let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
-        this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
+        this.name = '__st' + ((Math.random() * 1e9) >>> 0) + (counter++ + '__');
       }
 
       set(key, value) {
@@ -57,19 +57,19 @@ if (typeof WeakMap === "undefined") {
 window.ShadowDOMPolyfill = {};
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const constructorTable = new WeakMap();
   const nativePrototypeTable = new WeakMap();
   const wrappers = Object.create(null);
   function detectEval() {
-    if (typeof chrome !== "undefined" && chrome.app && chrome.app.runtime) {
+    if (typeof chrome !== 'undefined' && chrome.app && chrome.app.runtime) {
       return false;
     }
     if (navigator.getDeviceStorage) {
       return false;
     }
     try {
-      const f = new Function("return true;");
+      const f = new Function('return true;');
       return f();
     } catch (ex) {
       return false;
@@ -77,7 +77,7 @@ window.ShadowDOMPolyfill = {};
   }
   const hasEval = detectEval();
   function assert(b) {
-    if (!b) throw new Error("Assertion failed");
+    if (!b) throw new Error('Assertion failed');
   }
   const defineProperty = Object.defineProperty;
   const getOwnPropertyNames = Object.getOwnPropertyNames;
@@ -95,12 +95,12 @@ window.ShadowDOMPolyfill = {};
     for (let i = 0; i < names.length; i++) {
       const name = names[i];
       switch (name) {
-        case "arguments":
-        case "caller":
-        case "length":
-        case "name":
-        case "prototype":
-        case "toString":
+        case 'arguments':
+        case 'caller':
+        case 'length':
+        case 'name':
+        case 'prototype':
+        case 'toString':
           continue;
       }
       defineProperty(to, name, getOwnPropertyDescriptor(from, name));
@@ -160,14 +160,14 @@ window.ShadowDOMPolyfill = {};
   }
   function getGetter(name) {
     return hasEval && isIdentifierName(name)
-      ? new Function("return this.__impl4cf1e782hg__." + name)
+      ? new Function('return this.__impl4cf1e782hg__.' + name)
       : function () {
           return this.__impl4cf1e782hg__[name];
         };
   }
   function getSetter(name) {
     return hasEval && isIdentifierName(name)
-      ? new Function("v", "this.__impl4cf1e782hg__." + name + " = v")
+      ? new Function('v', 'this.__impl4cf1e782hg__.' + name + ' = v')
       : function (v) {
           this.__impl4cf1e782hg__[name] = v;
         };
@@ -175,9 +175,9 @@ window.ShadowDOMPolyfill = {};
   function getMethod(name) {
     return hasEval && isIdentifierName(name)
       ? new Function(
-          "return this.__impl4cf1e782hg__." +
+          'return this.__impl4cf1e782hg__.' +
             name +
-            ".apply(this.__impl4cf1e782hg__, arguments)"
+            '.apply(this.__impl4cf1e782hg__, arguments)'
         )
       : function () {
           return this.__impl4cf1e782hg__[name].apply(
@@ -188,7 +188,7 @@ window.ShadowDOMPolyfill = {};
   }
   function getDescriptor(source, name) {
     try {
-      if (source === window && name === "showModalDialog") {
+      if (source === window && name === 'showModalDialog') {
         return dummyDescriptor;
       }
       return Object.getOwnPropertyDescriptor(source, name);
@@ -197,14 +197,14 @@ window.ShadowDOMPolyfill = {};
     }
   }
   const isBrokenSafari = (() => {
-    const descr = Object.getOwnPropertyDescriptor(Node.prototype, "nodeType");
+    const descr = Object.getOwnPropertyDescriptor(Node.prototype, 'nodeType');
     return descr && !descr.get && !descr.set;
   })();
   function installProperty(source, target, allowMethod, opt_blacklist) {
     const names = getOwnPropertyNames(source);
     for (let i = 0; i < names.length; i++) {
       const name = names[i];
-      if (name === "polymerBlackList_") continue;
+      if (name === 'polymerBlackList_') continue;
       if (name in target) continue;
       if (source.polymerBlackList_ && source.polymerBlackList_[name]) continue;
       if (isFirefox) {
@@ -212,7 +212,7 @@ window.ShadowDOMPolyfill = {};
       }
       const descriptor = getDescriptor(source, name);
       let getter, setter;
-      if (typeof descriptor.value === "function") {
+      if (typeof descriptor.value === 'function') {
         if (allowMethod) {
           target[name] = getMethod(name);
         }
@@ -252,7 +252,7 @@ window.ShadowDOMPolyfill = {};
       registerInstanceProperties(wrapperPrototype, opt_instance);
     defineNonEnumerableDataProperty(
       wrapperPrototype,
-      "constructor",
+      'constructor',
       wrapperConstructor
     );
     wrapperConstructor.prototype = wrapperPrototype;
@@ -369,7 +369,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   function newSplice(index, removed, addedCount) {
     return {
       index: index,
@@ -567,7 +567,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((context) => {
-  "use strict";
+  'use strict';
   const OriginalMutationObserver = window.MutationObserver;
   let callbacks = [];
   let pending = false;
@@ -604,7 +604,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const setEndOfMicrotask = scope.setEndOfMicrotask;
   const wrapIfNeeded = scope.wrapIfNeeded;
   const wrappers = scope.wrappers;
@@ -682,22 +682,22 @@ window.ShadowDOMPolyfill = {};
         const registration = registrations[j];
         const options = registration.options;
         if (node !== target && !options.subtree) continue;
-        if (type === "attributes" && !options.attributes) continue;
+        if (type === 'attributes' && !options.attributes) continue;
         if (
-          type === "attributes" &&
+          type === 'attributes' &&
           options.attributeFilter &&
           (data.namespace !== null ||
             options.attributeFilter.indexOf(data.name) === -1)
         ) {
           continue;
         }
-        if (type === "characterData" && !options.characterData) continue;
-        if (type === "childList" && !options.childList) continue;
+        if (type === 'characterData' && !options.characterData) continue;
+        if (type === 'childList' && !options.childList) continue;
         var observer = registration.observer;
         interestedObservers[observer.uid_] = observer;
         if (
-          (type === "attributes" && options.attributeOldValue) ||
-          (type === "characterData" && options.characterDataOldValue)
+          (type === 'attributes' && options.attributeOldValue) ||
+          (type === 'characterData' && options.characterDataOldValue)
         ) {
           associatedStrings[observer.uid_] = data.oldValue;
         }
@@ -706,7 +706,7 @@ window.ShadowDOMPolyfill = {};
     for (const uid in interestedObservers) {
       var observer = interestedObservers[uid];
       const record = new MutationRecord(type, target);
-      if ("name" in data && "namespace" in data) {
+      if ('name' in data && 'namespace' in data) {
         record.attributeName = data.name;
         record.attributeNamespace = data.namespace;
       }
@@ -725,19 +725,19 @@ window.ShadowDOMPolyfill = {};
     this.childList = !!options.childList;
     this.subtree = !!options.subtree;
     if (
-      !("attributes" in options) &&
-      ("attributeOldValue" in options || "attributeFilter" in options)
+      !('attributes' in options) &&
+      ('attributeOldValue' in options || 'attributeFilter' in options)
     ) {
       this.attributes = true;
     } else {
       this.attributes = !!options.attributes;
     }
-    if ("characterDataOldValue" in options && !("characterData" in options))
+    if ('characterDataOldValue' in options && !('characterData' in options))
       this.characterData = true;
     else this.characterData = !!options.characterData;
     if (
       (!this.attributes &&
-        (options.attributeOldValue || "attributeFilter" in options)) ||
+        (options.attributeOldValue || 'attributeFilter' in options)) ||
       (!this.characterData && options.characterDataOldValue)
     ) {
       throw new TypeError();
@@ -745,10 +745,10 @@ window.ShadowDOMPolyfill = {};
     this.characterData = !!options.characterData;
     this.attributeOldValue = !!options.attributeOldValue;
     this.characterDataOldValue = !!options.characterDataOldValue;
-    if ("attributeFilter" in options) {
+    if ('attributeFilter' in options) {
       if (
         options.attributeFilter == null ||
-        typeof options.attributeFilter !== "object"
+        typeof options.attributeFilter !== 'object'
       ) {
         throw new TypeError();
       }
@@ -846,7 +846,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
 
   class TreeScope {
     constructor(root, parent) {
@@ -897,7 +897,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const forwardMethodsToWrapper = scope.forwardMethodsToWrapper;
   const getTreeScope = scope.getTreeScope;
   const mixin = scope.mixin;
@@ -961,15 +961,15 @@ window.ShadowDOMPolyfill = {};
   function eventMustBeStopped(event) {
     if (!event) return false;
     switch (event.type) {
-      case "abort":
-      case "error":
-      case "select":
-      case "change":
-      case "load":
-      case "reset":
-      case "resize":
-      case "scroll":
-      case "selectstart":
+      case 'abort':
+      case 'error':
+      case 'select':
+      case 'change':
+      case 'load':
+      case 'reset':
+      case 'resize':
+      case 'scroll':
+      case 'selectstart':
         return true;
     }
     return false;
@@ -1066,16 +1066,16 @@ window.ShadowDOMPolyfill = {};
   }
   function isLoadLikeEvent(event) {
     switch (event.type) {
-      case "load":
-      case "beforeunload":
-      case "unload":
+      case 'load':
+      case 'beforeunload':
+      case 'unload':
         return true;
     }
     return false;
   }
   function dispatchEvent(event, originalWrapperTarget) {
     if (currentlyDispatchingEvents.get(event))
-      throw new Error("InvalidStateError");
+      throw new Error('InvalidStateError');
     currentlyDispatchingEvents.set(event, true);
     scope.renderAllPending();
     let eventPath;
@@ -1148,7 +1148,7 @@ window.ShadowDOMPolyfill = {};
     } else if (phase === BUBBLING_PHASE && !event.bubbles) {
       return true;
     }
-    if ("relatedTarget" in event) {
+    if ('relatedTarget' in event) {
       const originalEvent = unwrap(event);
       const unwrappedRelatedTarget = originalEvent.relatedTarget;
       if (unwrappedRelatedTarget) {
@@ -1189,7 +1189,7 @@ window.ShadowDOMPolyfill = {};
         continue;
       }
       try {
-        if (typeof listener.handler === "function")
+        if (typeof listener.handler === 'function')
           listener.handler.call(currentTarget, event);
         else listener.handler.handleEvent(event);
         if (stopImmediatePropagationTable.get(event)) return false;
@@ -1244,14 +1244,14 @@ window.ShadowDOMPolyfill = {};
         const impl = type;
         if (
           !OriginalBeforeUnloadEvent &&
-          impl.type === "beforeunload" &&
+          impl.type === 'beforeunload' &&
           !(this instanceof BeforeUnloadEvent)
         ) {
           return new BeforeUnloadEvent(impl);
         }
         setWrapper(impl, this);
       } else {
-        return wrap(constructEvent(OriginalEvent, "Event", type, options));
+        return wrap(constructEvent(OriginalEvent, 'Event', type, options));
       }
     }
 
@@ -1285,7 +1285,7 @@ window.ShadowDOMPolyfill = {};
     preventDefault() {
       if (!this.cancelable) return;
       unsafeUnwrap(this).preventDefault();
-      Object.defineProperty(this, "defaultPrevented", {
+      Object.defineProperty(this, 'defaultPrevented', {
         get() {
           return true;
         },
@@ -1295,14 +1295,14 @@ window.ShadowDOMPolyfill = {};
   }
 
   const supportsDefaultPrevented = (() => {
-    const e = document.createEvent("Event");
-    e.initEvent("test", true, true);
+    const e = document.createEvent('Event');
+    e.initEvent('test', true, true);
     e.preventDefault();
     return e.defaultPrevented;
   })();
   if (!supportsDefaultPrevented) {
   }
-  registerWrapper(OriginalEvent, Event, document.createEvent("Event"));
+  registerWrapper(OriginalEvent, Event, document.createEvent('Event'));
   function unwrapOptions(options) {
     if (!options || !options.relatedTarget) return options;
     return Object.create(options, {
@@ -1324,7 +1324,7 @@ window.ShadowDOMPolyfill = {};
     if (prototype) mixin(GenericEvent.prototype, prototype);
     if (OriginalEvent) {
       try {
-        registerWrapper(OriginalEvent, GenericEvent, new OriginalEvent("temp"));
+        registerWrapper(OriginalEvent, GenericEvent, new OriginalEvent('temp'));
       } catch (ex) {
         registerWrapper(
           OriginalEvent,
@@ -1335,8 +1335,8 @@ window.ShadowDOMPolyfill = {};
     }
     return GenericEvent;
   }
-  const UIEvent = registerGenericEvent("UIEvent", Event);
-  const CustomEvent = registerGenericEvent("CustomEvent", Event);
+  const UIEvent = registerGenericEvent('UIEvent', Event);
+  const CustomEvent = registerGenericEvent('CustomEvent', Event);
   const relatedTargetProto = {
     get relatedTarget() {
       const relatedTarget = relatedTargetTable.get(this);
@@ -1353,30 +1353,30 @@ window.ShadowDOMPolyfill = {};
   }
   const mouseEventProto = mixin(
     {
-      initMouseEvent: getInitFunction("initMouseEvent", 14),
+      initMouseEvent: getInitFunction('initMouseEvent', 14),
     },
     relatedTargetProto
   );
   const focusEventProto = mixin(
     {
-      initFocusEvent: getInitFunction("initFocusEvent", 5),
+      initFocusEvent: getInitFunction('initFocusEvent', 5),
     },
     relatedTargetProto
   );
   const MouseEvent = registerGenericEvent(
-    "MouseEvent",
+    'MouseEvent',
     UIEvent,
     mouseEventProto
   );
   const FocusEvent = registerGenericEvent(
-    "FocusEvent",
+    'FocusEvent',
     UIEvent,
     focusEventProto
   );
   const defaultInitDicts = Object.create(null);
   const supportsEventConstructors = (() => {
     try {
-      new window.FocusEvent("focus");
+      new window.FocusEvent('focus');
     } catch (ex) {
       return false;
     }
@@ -1391,10 +1391,10 @@ window.ShadowDOMPolyfill = {};
     Object.keys(defaultDict).forEach((key) => {
       let v =
         options != null && key in options ? options[key] : defaultDict[key];
-      if (key === "relatedTarget") v = unwrap(v);
+      if (key === 'relatedTarget') v = unwrap(v);
       args.push(v);
     });
-    event["init" + name].apply(event, args);
+    event['init' + name].apply(event, args);
     return event;
   }
   if (!supportsEventConstructors) {
@@ -1405,27 +1405,27 @@ window.ShadowDOMPolyfill = {};
       }
       defaultInitDicts[name] = initDict;
     };
-    configureEventConstructor("Event", {
+    configureEventConstructor('Event', {
       bubbles: false,
       cancelable: false,
     });
     configureEventConstructor(
-      "CustomEvent",
+      'CustomEvent',
       {
         detail: null,
       },
-      "Event"
+      'Event'
     );
     configureEventConstructor(
-      "UIEvent",
+      'UIEvent',
       {
         view: null,
         detail: 0,
       },
-      "Event"
+      'Event'
     );
     configureEventConstructor(
-      "MouseEvent",
+      'MouseEvent',
       {
         screenX: 0,
         screenY: 0,
@@ -1438,14 +1438,14 @@ window.ShadowDOMPolyfill = {};
         button: 0,
         relatedTarget: null,
       },
-      "UIEvent"
+      'UIEvent'
     );
     configureEventConstructor(
-      "FocusEvent",
+      'FocusEvent',
       {
         relatedTarget: null,
       },
-      "UIEvent"
+      'UIEvent'
     );
   }
   var OriginalBeforeUnloadEvent = window.BeforeUnloadEvent;
@@ -1467,20 +1467,20 @@ window.ShadowDOMPolyfill = {};
   if (OriginalBeforeUnloadEvent)
     registerWrapper(OriginalBeforeUnloadEvent, BeforeUnloadEvent);
   function isValidListener(fun) {
-    if (typeof fun === "function") return true;
+    if (typeof fun === 'function') return true;
     return fun && fun.handleEvent;
   }
   function isMutationEvent(type) {
     switch (type) {
-      case "DOMAttrModified":
-      case "DOMAttributeNameChanged":
-      case "DOMCharacterDataModified":
-      case "DOMElementNameChanged":
-      case "DOMNodeInserted":
-      case "DOMNodeInsertedIntoDocument":
-      case "DOMNodeRemoved":
-      case "DOMNodeRemovedFromDocument":
-      case "DOMSubtreeModified":
+      case 'DOMAttrModified':
+      case 'DOMAttributeNameChanged':
+      case 'DOMCharacterDataModified':
+      case 'DOMElementNameChanged':
+      case 'DOMNodeInserted':
+      case 'DOMNodeInsertedIntoDocument':
+      case 'DOMNodeRemoved':
+      case 'DOMNodeRemovedFromDocument':
+      case 'DOMSubtreeModified':
         return true;
     }
     return false;
@@ -1551,14 +1551,14 @@ window.ShadowDOMPolyfill = {};
   }
 
   const methodNames = [
-    "addEventListener",
-    "removeEventListener",
-    "dispatchEvent",
+    'addEventListener',
+    'removeEventListener',
+    'dispatchEvent',
   ];
   [Node, Window].forEach((constructor) => {
     const p = constructor.prototype;
     methodNames.forEach((name) => {
-      Object.defineProperty(p, name + "_", {
+      Object.defineProperty(p, name + '_', {
         value: p[name],
       });
     });
@@ -1620,11 +1620,11 @@ window.ShadowDOMPolyfill = {};
       }
       const old = inlineEventHandlers[name];
       if (old) this.removeEventListener(eventType, old.wrapped, false);
-      if (typeof value === "function") {
+      if (typeof value === 'function') {
         const wrapped = function (e) {
           const rv = value.call(this, e);
           if (rv === false) e.preventDefault();
-          else if (name === "onbeforeunload" && typeof rv === "string")
+          else if (name === 'onbeforeunload' && typeof rv === 'string')
             e.returnValue = rv;
         };
         this.addEventListener(eventType, wrapped, false);
@@ -1649,7 +1649,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const UIEvent = scope.wrappers.UIEvent;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -1660,7 +1660,7 @@ window.ShadowDOMPolyfill = {};
   if (!OriginalTouchEvent) return;
   let nativeEvent;
   try {
-    nativeEvent = document.createEvent("TouchEvent");
+    nativeEvent = document.createEvent('TouchEvent');
   } catch (ex) {
     return;
   }
@@ -1687,17 +1687,17 @@ window.ShadowDOMPolyfill = {};
     get: null,
   };
   [
-    "clientX",
-    "clientY",
-    "screenX",
-    "screenY",
-    "pageX",
-    "pageY",
-    "identifier",
-    "webkitRadiusX",
-    "webkitRadiusY",
-    "webkitRotationAngle",
-    "webkitForce",
+    'clientX',
+    'clientY',
+    'screenX',
+    'screenY',
+    'pageX',
+    'pageY',
+    'identifier',
+    'webkitRadiusX',
+    'webkitRadiusY',
+    'webkitRotationAngle',
+    'webkitForce',
   ].forEach((name) => {
     descr.get = function () {
       return unsafeUnwrap(this)[name];
@@ -1708,7 +1708,7 @@ window.ShadowDOMPolyfill = {};
   class TouchList {
     constructor() {
       this.length = 0;
-      nonEnum(this, "length");
+      nonEnum(this, 'length');
     }
 
     item(index) {
@@ -1742,7 +1742,7 @@ window.ShadowDOMPolyfill = {};
       return wrapTouchList(unsafeUnwrap(this).changedTouches);
     },
     initTouchEvent() {
-      throw new Error("Not implemented");
+      throw new Error('Not implemented');
     },
   });
   registerWrapper(OriginalTouchEvent, TouchEvent, nativeEvent);
@@ -1752,7 +1752,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const unsafeUnwrap = scope.unsafeUnwrap;
   const wrap = scope.wrap;
   const nonEnumDescriptor = {
@@ -1765,7 +1765,7 @@ window.ShadowDOMPolyfill = {};
   class NodeList {
     constructor() {
       this.length = 0;
-      nonEnum(this, "length");
+      nonEnum(this, 'length');
     }
 
     item(index) {
@@ -1773,7 +1773,7 @@ window.ShadowDOMPolyfill = {};
     }
   }
 
-  nonEnum(NodeList.prototype, "item");
+  nonEnum(NodeList.prototype, 'item');
   function wrapNodeList(list) {
     if (list == null) return list;
     const wrapperList = new NodeList();
@@ -1796,13 +1796,13 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   scope.wrapHTMLCollection = scope.wrapNodeList;
   scope.wrappers.HTMLCollection = scope.wrappers.NodeList;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const EventTarget = scope.wrappers.EventTarget;
   const NodeList = scope.wrappers.NodeList;
   const TreeScope = scope.TreeScope;
@@ -1832,14 +1832,14 @@ window.ShadowDOMPolyfill = {};
   }
   let surpressMutations = false;
   function enqueueRemovalForInsertedNodes(node, parent, nodes) {
-    enqueueMutation(parent, "childList", {
+    enqueueMutation(parent, 'childList', {
       removedNodes: nodes,
       previousSibling: node.previousSibling,
       nextSibling: node.nextSibling,
     });
   }
   function enqueueRemovalForInsertedDocumentFragment(df, nodes) {
-    enqueueMutation(df, "childList", {
+    enqueueMutation(df, 'childList', {
       removedNodes: nodes,
     });
   }
@@ -2110,7 +2110,7 @@ window.ShadowDOMPolyfill = {};
           adoptNodesIfNeeded(this, nodes);
         }
       }
-      enqueueMutation(this, "childList", {
+      enqueueMutation(this, 'childList', {
         addedNodes: nodes,
         nextSibling: refWrapper,
         previousSibling: previousNode,
@@ -2134,7 +2134,7 @@ window.ShadowDOMPolyfill = {};
           }
         }
         if (!found) {
-          throw new Error("NotFoundError");
+          throw new Error('NotFoundError');
         }
       }
       const childNode = unwrap(childWrapper);
@@ -2164,7 +2164,7 @@ window.ShadowDOMPolyfill = {};
         removeChildOriginalHelper(unsafeUnwrap(this), childNode);
       }
       if (!surpressMutations) {
-        enqueueMutation(this, "childList", {
+        enqueueMutation(this, 'childList', {
           removedNodes: createOneElementNodeList(childWrapper),
           nextSibling: childWrapperNextSibling,
           previousSibling: childWrapperPreviousSibling,
@@ -2183,7 +2183,7 @@ window.ShadowDOMPolyfill = {};
         oldChildWrapper = wrap(oldChildNode);
       }
       if (oldChildWrapper.parentNode !== this) {
-        throw new Error("NotFoundError");
+        throw new Error('NotFoundError');
       }
       let nextNode = oldChildWrapper.nextSibling;
       const previousNode = oldChildWrapper.previousSibling;
@@ -2221,7 +2221,7 @@ window.ShadowDOMPolyfill = {};
           oldChildNode
         );
       }
-      enqueueMutation(this, "childList", {
+      enqueueMutation(this, 'childList', {
         addedNodes: nodes,
         removedNodes: createOneElementNodeList(oldChildWrapper),
         nextSibling: nextNode,
@@ -2272,7 +2272,7 @@ window.ShadowDOMPolyfill = {};
       return p;
     },
     get textContent() {
-      let s = "";
+      let s = '';
       for (let child = this.firstChild; child; child = child.nextSibling) {
         if (child.nodeType != Node.COMMENT_NODE) {
           s += child.textContent;
@@ -2281,11 +2281,11 @@ window.ShadowDOMPolyfill = {};
       return s;
     },
     set textContent(textContent) {
-      if (textContent == null) textContent = "";
+      if (textContent == null) textContent = '';
       const removedNodes = snapshotNodeList(this.childNodes);
       if (this.invalidateShadowRenderer()) {
         removeAllChildNodes(this);
-        if (textContent !== "") {
+        if (textContent !== '') {
           const textNode =
             unsafeUnwrap(this).ownerDocument.createTextNode(textContent);
           this.appendChild(textNode);
@@ -2295,7 +2295,7 @@ window.ShadowDOMPolyfill = {};
         unsafeUnwrap(this).textContent = textContent;
       }
       const addedNodes = snapshotNodeList(this.childNodes);
-      enqueueMutation(this, "childList", {
+      enqueueMutation(this, 'childList', {
         addedNodes: addedNodes,
         removedNodes: removedNodes,
       });
@@ -2332,7 +2332,7 @@ window.ShadowDOMPolyfill = {};
     normalize() {
       const nodes = snapshotNodeList(this.childNodes);
       let remNodes = [];
-      let s = "";
+      let s = '';
       let modNode;
       for (let i = 0, n; i < nodes.length; i++) {
         n = nodes[i];
@@ -2349,7 +2349,7 @@ window.ShadowDOMPolyfill = {};
             cleanupNodes(remNodes);
           }
           remNodes = [];
-          s = "";
+          s = '';
           modNode = null;
           if (n.childNodes.length) n.normalize();
         }
@@ -2360,7 +2360,7 @@ window.ShadowDOMPolyfill = {};
       }
     },
   });
-  defineWrapGetter(Node, "ownerDocument");
+  defineWrapGetter(Node, 'ownerDocument');
   registerWrapper(OriginalNode, Node, document.createDocumentFragment());
   delete Node.prototype.querySelector;
   delete Node.prototype.querySelectorAll;
@@ -2377,7 +2377,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLCollection = scope.wrappers.HTMLCollection;
   const NodeList = scope.wrappers.NodeList;
   const getTreeScope = scope.getTreeScope;
@@ -2412,16 +2412,16 @@ window.ShadowDOMPolyfill = {};
     return index;
   }
   function shimSelector(selector) {
-    return String(selector).replace(/\/deep\/|::shadow|>>>/g, " ");
+    return String(selector).replace(/\/deep\/|::shadow|>>>/g, ' ');
   }
   function shimMatchesSelector(selector) {
     return String(selector)
-      .replace(/:host\(([^\s]+)\)/g, "$1")
-      .replace(/([^\s]):host/g, "$1")
-      .replace(":host", "*")
+      .replace(/:host\(([^\s]+)\)/g, '$1')
+      .replace(/([^\s]):host/g, '$1')
+      .replace(':host', '*')
       .replace(
         /\^|\/shadow\/|\/shadow-deep\/|::shadow|\/deep\/|::content|>>>/g,
-        " "
+        ' '
       );
   }
   function findOne(node, selector) {
@@ -2438,7 +2438,7 @@ window.ShadowDOMPolyfill = {};
   function matchesSelector(el, selector) {
     return el.matches(selector);
   }
-  const XHTML_NS = "http://www.w3.org/1999/xhtml";
+  const XHTML_NS = 'http://www.w3.org/1999/xhtml';
   function matchesTagName(el, localName, localNameLowerCase) {
     const ln = el.localName;
     return (
@@ -2579,7 +2579,7 @@ window.ShadowDOMPolyfill = {};
   const GetElementsByInterface = {
     getElementsByTagName(localName) {
       const result = new HTMLCollection();
-      const match = localName === "*" ? matchesEveryThing : matchesTagName;
+      const match = localName === '*' ? matchesEveryThing : matchesTagName;
       result.length = getElementsByTagNameFiltered.call(
         this,
         match,
@@ -2591,15 +2591,15 @@ window.ShadowDOMPolyfill = {};
       return result;
     },
     getElementsByClassName(className) {
-      return this.querySelectorAll("." + className);
+      return this.querySelectorAll('.' + className);
     },
     getElementsByTagNameNS(ns, localName) {
       const result = new HTMLCollection();
       let match = null;
-      if (ns === "*") {
-        match = localName === "*" ? matchesEveryThing : matchesLocalNameOnly;
+      if (ns === '*') {
+        match = localName === '*' ? matchesEveryThing : matchesLocalNameOnly;
       } else {
-        match = localName === "*" ? matchesNameSpace : matchesLocalNameNS;
+        match = localName === '*' ? matchesNameSpace : matchesLocalNameNS;
       }
       result.length = getElementsByTagNameNSFiltered.call(
         this,
@@ -2618,7 +2618,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const NodeList = scope.wrappers.NodeList;
   function forwardElement(node) {
     while (node && node.nodeType !== Node.ELEMENT_NODE) {
@@ -2688,7 +2688,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const ChildNodeInterface = scope.ChildNodeInterface;
   const Node = scope.wrappers.Node;
   const enqueueMutation = scope.enqueueMutation;
@@ -2721,7 +2721,7 @@ window.ShadowDOMPolyfill = {};
     },
     set data(value) {
       const oldValue = unsafeUnwrap(this).data;
-      enqueueMutation(this, "characterData", {
+      enqueueMutation(this, 'characterData', {
         oldValue: oldValue,
       });
       unsafeUnwrap(this).data = value;
@@ -2731,13 +2731,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalCharacterData,
     CharacterData,
-    document.createTextNode("")
+    document.createTextNode('')
   );
   scope.wrappers.CharacterData = CharacterData;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const CharacterData = scope.wrappers.CharacterData;
   const enqueueMutation = scope.enqueueMutation;
   const mixin = scope.mixin;
@@ -2757,7 +2757,7 @@ window.ShadowDOMPolyfill = {};
     splitText(offset) {
       offset = toUInt32(offset);
       const s = this.data;
-      if (offset > s.length) throw new Error("IndexSizeError");
+      if (offset > s.length) throw new Error('IndexSizeError');
       const head = s.slice(0, offset);
       const tail = s.slice(offset);
       this.data = head;
@@ -2767,33 +2767,33 @@ window.ShadowDOMPolyfill = {};
       return newTextNode;
     },
   });
-  registerWrapper(OriginalText, Text, document.createTextNode(""));
+  registerWrapper(OriginalText, Text, document.createTextNode(''));
   scope.wrappers.Text = Text;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   if (!window.DOMTokenList) {
     console.warn(
-      "Missing DOMTokenList prototype, please include a " +
-        "compatible classList polyfill such as http://goo.gl/uTcepH."
+      'Missing DOMTokenList prototype, please include a ' +
+        'compatible classList polyfill such as http://goo.gl/uTcepH.'
     );
     return;
   }
   const unsafeUnwrap = scope.unsafeUnwrap;
   const enqueueMutation = scope.enqueueMutation;
   function getClass(el) {
-    return unsafeUnwrap(el).getAttribute("class");
+    return unsafeUnwrap(el).getAttribute('class');
   }
   function enqueueClassAttributeChange(el, oldValue) {
-    enqueueMutation(el, "attributes", {
-      name: "class",
+    enqueueMutation(el, 'attributes', {
+      name: 'class',
       namespace: null,
       oldValue: oldValue,
     });
   }
   function invalidateClass(el) {
-    scope.invalidateRendererBasedOnAttribute(el, "class");
+    scope.invalidateRendererBasedOnAttribute(el, 'class');
   }
   function changeClass(tokenList, method, args) {
     const ownerElement = tokenList.ownerElement_;
@@ -2823,7 +2823,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const ChildNodeInterface = scope.ChildNodeInterface;
   const GetElementsByInterface = scope.GetElementsByInterface;
   const Node = scope.wrappers.Node;
@@ -2839,10 +2839,10 @@ window.ShadowDOMPolyfill = {};
   const wrappers = scope.wrappers;
   const OriginalElement = window.Element;
   const matchesNames = [
-    "matches",
-    "mozMatchesSelector",
-    "msMatchesSelector",
-    "webkitMatchesSelector",
+    'matches',
+    'mozMatchesSelector',
+    'msMatchesSelector',
+    'webkitMatchesSelector',
   ].filter((name) => {
     return OriginalElement.prototype[name];
   });
@@ -2855,7 +2855,7 @@ window.ShadowDOMPolyfill = {};
     if (renderer.dependsOnAttribute(name)) renderer.invalidate();
   }
   function enqueAttributeChange(element, name, oldValue) {
-    enqueueMutation(element, "attributes", {
+    enqueueMutation(element, 'attributes', {
       name: name,
       namespace: null,
       oldValue: oldValue,
@@ -2911,17 +2911,17 @@ window.ShadowDOMPolyfill = {};
       return unsafeUnwrap(this).className;
     },
     set className(v) {
-      this.setAttribute("class", v);
+      this.setAttribute('class', v);
     },
     get id() {
       return unsafeUnwrap(this).id;
     },
     set id(v) {
-      this.setAttribute("id", v);
+      this.setAttribute('id', v);
     },
   });
   matchesNames.forEach((name) => {
-    if (name !== "matches") {
+    if (name !== 'matches') {
       Element.prototype[name] = function (selector) {
         return this.matches(selector);
       };
@@ -2939,7 +2939,7 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalElement,
     Element,
-    document.createElementNS(null, "x")
+    document.createElementNS(null, 'x')
   );
   scope.invalidateRendererBasedOnAttribute = invalidateRendererBasedOnAttribute;
   scope.matchesNames = matchesNames;
@@ -2948,7 +2948,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const Element = scope.wrappers.Element;
   const defineGetter = scope.defineGetter;
   const enqueueMutation = scope.enqueueMutation;
@@ -2965,20 +2965,20 @@ window.ShadowDOMPolyfill = {};
   const escapeDataRegExp = /[&\u00A0<>]/g;
   function escapeReplace(c) {
     switch (c) {
-      case "&":
-        return "&amp;";
+      case '&':
+        return '&amp;';
 
-      case "<":
-        return "&lt;";
+      case '<':
+        return '&lt;';
 
-      case ">":
-        return "&gt;";
+      case '>':
+        return '&gt;';
 
       case '"':
-        return "&quot;";
+        return '&quot;';
 
-      case " ":
-        return "&nbsp;";
+      case ' ':
+        return '&nbsp;';
     }
   }
   function escapeAttr(s) {
@@ -2995,34 +2995,34 @@ window.ShadowDOMPolyfill = {};
     return set;
   }
   const voidElements = makeSet([
-    "area",
-    "base",
-    "br",
-    "col",
-    "command",
-    "embed",
-    "hr",
-    "img",
-    "input",
-    "keygen",
-    "link",
-    "meta",
-    "param",
-    "source",
-    "track",
-    "wbr",
+    'area',
+    'base',
+    'br',
+    'col',
+    'command',
+    'embed',
+    'hr',
+    'img',
+    'input',
+    'keygen',
+    'link',
+    'meta',
+    'param',
+    'source',
+    'track',
+    'wbr',
   ]);
   const plaintextParents = makeSet([
-    "style",
-    "script",
-    "xmp",
-    "iframe",
-    "noembed",
-    "noframes",
-    "plaintext",
-    "noscript",
+    'style',
+    'script',
+    'xmp',
+    'iframe',
+    'noembed',
+    'noframes',
+    'plaintext',
+    'noscript',
   ]);
-  const XHTML_NS = "http://www.w3.org/1999/xhtml";
+  const XHTML_NS = 'http://www.w3.org/1999/xhtml';
   function needsSelfClosingSlash(node) {
     if (node.namespaceURI !== XHTML_NS) return true;
     const doctype = node.ownerDocument.doctype;
@@ -3032,16 +3032,16 @@ window.ShadowDOMPolyfill = {};
     switch (node.nodeType) {
       case Node.ELEMENT_NODE:
         const tagName = node.tagName.toLowerCase();
-        let s = "<" + tagName;
+        let s = '<' + tagName;
         const attrs = node.attributes;
         for (let i = 0, attr; (attr = attrs[i]); i++) {
-          s += " " + attr.name + '="' + escapeAttr(attr.value) + '"';
+          s += ' ' + attr.name + '="' + escapeAttr(attr.value) + '"';
         }
         if (voidElements[tagName]) {
-          if (needsSelfClosingSlash(node)) s += "/";
-          return s + ">";
+          if (needsSelfClosingSlash(node)) s += '/';
+          return s + '>';
         }
-        return s + ">" + getInnerHTML(node) + "</" + tagName + ">";
+        return s + '>' + getInnerHTML(node) + '</' + tagName + '>';
 
       case Node.TEXT_NODE:
         const data = node.data;
@@ -3049,24 +3049,24 @@ window.ShadowDOMPolyfill = {};
         return escapeData(data);
 
       case Node.COMMENT_NODE:
-        return "<!--" + node.data + "-->";
+        return '<!--' + node.data + '-->';
 
       default:
         console.error(node);
-        throw new Error("not implemented");
+        throw new Error('not implemented');
     }
   }
   function getInnerHTML(node) {
     if (node instanceof wrappers.HTMLTemplateElement) node = node.content;
-    let s = "";
+    let s = '';
     for (let child = node.firstChild; child; child = child.nextSibling) {
       s += getOuterHTML(child, node);
     }
     return s;
   }
   function setInnerHTML(node, value, opt_tagName) {
-    const tagName = opt_tagName || "div";
-    node.textContent = "";
+    const tagName = opt_tagName || 'div';
+    node.textContent = '';
     const tempElement = unwrap(node.ownerDocument.createElement(tagName));
     tempElement.innerHTML = value;
     let firstChild;
@@ -3107,7 +3107,7 @@ window.ShadowDOMPolyfill = {};
         unsafeUnwrap(this).innerHTML = value;
       }
       const addedNodes = snapshotNodeList(this.childNodes);
-      enqueueMutation(this, "childList", {
+      enqueueMutation(this, 'childList', {
         addedNodes: addedNodes,
         removedNodes: removedNodes,
       });
@@ -3128,22 +3128,22 @@ window.ShadowDOMPolyfill = {};
     insertAdjacentHTML(position, text) {
       let contextElement, refNode;
       switch (String(position).toLowerCase()) {
-        case "beforebegin":
+        case 'beforebegin':
           contextElement = this.parentNode;
           refNode = this;
           break;
 
-        case "afterend":
+        case 'afterend':
           contextElement = this.parentNode;
           refNode = this.nextSibling;
           break;
 
-        case "afterbegin":
+        case 'afterbegin':
           contextElement = this;
           refNode = this.firstChild;
           break;
 
-        case "beforeend":
+        case 'beforeend':
           contextElement = this;
           refNode = null;
           break;
@@ -3155,13 +3155,13 @@ window.ShadowDOMPolyfill = {};
       contextElement.insertBefore(df, refNode);
     },
     get hidden() {
-      return this.hasAttribute("hidden");
+      return this.hasAttribute('hidden');
     },
     set hidden(v) {
       if (v) {
-        this.setAttribute("hidden", "");
+        this.setAttribute('hidden', '');
       } else {
-        this.removeAttribute("hidden");
+        this.removeAttribute('hidden');
       }
     },
   });
@@ -3185,16 +3185,16 @@ window.ShadowDOMPolyfill = {};
     defineGetter(HTMLElement, name, getter(name));
   }
   [
-    "clientHeight",
-    "clientLeft",
-    "clientTop",
-    "clientWidth",
-    "offsetHeight",
-    "offsetLeft",
-    "offsetTop",
-    "offsetWidth",
-    "scrollHeight",
-    "scrollWidth",
+    'clientHeight',
+    'clientLeft',
+    'clientTop',
+    'clientWidth',
+    'offsetHeight',
+    'offsetLeft',
+    'offsetTop',
+    'offsetWidth',
+    'scrollHeight',
+    'scrollWidth',
   ].forEach(getterRequiresRendering);
   function getterAndSetterRequiresRendering(name) {
     Object.defineProperty(HTMLElement.prototype, name, {
@@ -3207,7 +3207,7 @@ window.ShadowDOMPolyfill = {};
       enumerable: true,
     });
   }
-  ["scrollLeft", "scrollTop"].forEach(getterAndSetterRequiresRendering);
+  ['scrollLeft', 'scrollTop'].forEach(getterAndSetterRequiresRendering);
   function methodRequiresRendering(name) {
     Object.defineProperty(HTMLElement.prototype, name, {
       value() {
@@ -3219,15 +3219,15 @@ window.ShadowDOMPolyfill = {};
     });
   }
   [
-    "focus",
-    "getBoundingClientRect",
-    "getClientRects",
-    "scrollIntoView",
+    'focus',
+    'getBoundingClientRect',
+    'getClientRects',
+    'scrollIntoView',
   ].forEach(methodRequiresRendering);
   registerWrapper(
     OriginalHTMLElement,
     HTMLElement,
-    document.createElement("b")
+    document.createElement('b')
   );
   scope.wrappers.HTMLElement = HTMLElement;
   scope.getInnerHTML = getInnerHTML;
@@ -3235,7 +3235,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3261,13 +3261,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLCanvasElement,
     HTMLCanvasElement,
-    document.createElement("canvas")
+    document.createElement('canvas')
   );
   scope.wrappers.HTMLCanvasElement = HTMLCanvasElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3282,14 +3282,14 @@ window.ShadowDOMPolyfill = {};
   mixin(HTMLContentElement.prototype, {
     constructor: HTMLContentElement,
     get select() {
-      return this.getAttribute("select");
+      return this.getAttribute('select');
     },
     set select(value) {
-      this.setAttribute("select", value);
+      this.setAttribute('select', value);
     },
     setAttribute(n, v) {
       HTMLElement.prototype.setAttribute.call(this, n, v);
-      if (String(n).toLowerCase() === "select")
+      if (String(n).toLowerCase() === 'select')
         this.invalidateShadowRenderer(true);
     },
   });
@@ -3299,7 +3299,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3321,13 +3321,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLFormElement,
     HTMLFormElement,
-    document.createElement("form")
+    document.createElement('form')
   );
   scope.wrappers.HTMLFormElement = HTMLFormElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const registerWrapper = scope.registerWrapper;
   const unwrap = scope.unwrap;
@@ -3343,15 +3343,15 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLImageElement,
     HTMLImageElement,
-    document.createElement("img")
+    document.createElement('img')
   );
   function Image(width, height) {
     if (!(this instanceof Image)) {
       throw new TypeError(
-        "DOM object constructor cannot be called as a function."
+        'DOM object constructor cannot be called as a function.'
       );
     }
-    const node = unwrap(document.createElement("img"));
+    const node = unwrap(document.createElement('img'));
     HTMLElement.call(this, node);
     rewrap(node, this);
     if (width !== undefined) node.width = width;
@@ -3363,7 +3363,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const NodeList = scope.wrappers.NodeList;
@@ -3382,7 +3382,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3395,7 +3395,7 @@ window.ShadowDOMPolyfill = {};
     if (!doc.defaultView) return doc;
     let d = templateContentsOwnerTable.get(doc);
     if (!d) {
-      d = doc.implementation.createHTMLDocument("");
+      d = doc.implementation.createHTMLDocument('');
       while (d.lastChild) {
         d.removeChild(d.lastChild);
       }
@@ -3437,7 +3437,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const registerWrapper = scope.registerWrapper;
   const OriginalHTMLMediaElement = window.HTMLMediaElement;
@@ -3452,13 +3452,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLMediaElement,
     HTMLMediaElement,
-    document.createElement("audio")
+    document.createElement('audio')
   );
   scope.wrappers.HTMLMediaElement = HTMLMediaElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLMediaElement = scope.wrappers.HTMLMediaElement;
   const registerWrapper = scope.registerWrapper;
   const unwrap = scope.unwrap;
@@ -3475,19 +3475,19 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLAudioElement,
     HTMLAudioElement,
-    document.createElement("audio")
+    document.createElement('audio')
   );
   function Audio(src) {
     if (!(this instanceof Audio)) {
       throw new TypeError(
-        "DOM object constructor cannot be called as a function."
+        'DOM object constructor cannot be called as a function.'
       );
     }
-    const node = unwrap(document.createElement("audio"));
+    const node = unwrap(document.createElement('audio'));
     HTMLMediaElement.call(this, node);
     rewrap(node, this);
-    node.setAttribute("preload", "auto");
-    if (src !== undefined) node.setAttribute("src", src);
+    node.setAttribute('preload', 'auto');
+    if (src !== undefined) node.setAttribute('src', src);
   }
   Audio.prototype = HTMLAudioElement.prototype;
   scope.wrappers.HTMLAudioElement = HTMLAudioElement;
@@ -3495,7 +3495,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3504,7 +3504,7 @@ window.ShadowDOMPolyfill = {};
   const wrap = scope.wrap;
   const OriginalHTMLOptionElement = window.HTMLOptionElement;
   function trimText(s) {
-    return s.replace(/\s+/g, " ").trim();
+    return s.replace(/\s+/g, ' ').trim();
   }
 
   class HTMLOptionElement extends HTMLElement {
@@ -3527,20 +3527,20 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLOptionElement,
     HTMLOptionElement,
-    document.createElement("option")
+    document.createElement('option')
   );
   function Option(text, value, defaultSelected, selected) {
     if (!(this instanceof Option)) {
       throw new TypeError(
-        "DOM object constructor cannot be called as a function."
+        'DOM object constructor cannot be called as a function.'
       );
     }
-    const node = unwrap(document.createElement("option"));
+    const node = unwrap(document.createElement('option'));
     HTMLElement.call(this, node);
     rewrap(node, this);
     if (text !== undefined) node.text = text;
-    if (value !== undefined) node.setAttribute("value", value);
-    if (defaultSelected === true) node.setAttribute("selected", "");
+    if (value !== undefined) node.setAttribute('value', value);
+    if (defaultSelected === true) node.setAttribute('selected', '');
     node.selected = selected === true;
   }
   Option.prototype = HTMLOptionElement.prototype;
@@ -3549,7 +3549,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3565,7 +3565,7 @@ window.ShadowDOMPolyfill = {};
 
   mixin(HTMLSelectElement.prototype, {
     add(element, before) {
-      if (typeof before === "object") before = unwrap(before);
+      if (typeof before === 'object') before = unwrap(before);
       unwrap(this).add(unwrap(element), before);
     },
     remove(indexOrNode) {
@@ -3573,7 +3573,7 @@ window.ShadowDOMPolyfill = {};
         HTMLElement.prototype.remove.call(this);
         return;
       }
-      if (typeof indexOrNode === "object") indexOrNode = unwrap(indexOrNode);
+      if (typeof indexOrNode === 'object') indexOrNode = unwrap(indexOrNode);
       unwrap(this).remove(indexOrNode);
     },
     get form() {
@@ -3583,13 +3583,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLSelectElement,
     HTMLSelectElement,
-    document.createElement("select")
+    document.createElement('select')
   );
   scope.wrappers.HTMLSelectElement = HTMLSelectElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3639,13 +3639,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLTableElement,
     HTMLTableElement,
-    document.createElement("table")
+    document.createElement('table')
   );
   scope.wrappers.HTMLTableElement = HTMLTableElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3672,13 +3672,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLTableSectionElement,
     HTMLTableSectionElement,
-    document.createElement("thead")
+    document.createElement('thead')
   );
   scope.wrappers.HTMLTableSectionElement = HTMLTableSectionElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3704,13 +3704,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalHTMLTableRowElement,
     HTMLTableRowElement,
-    document.createElement("tr")
+    document.createElement('tr')
   );
   scope.wrappers.HTMLTableRowElement = HTMLTableRowElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLContentElement = scope.wrappers.HTMLContentElement;
   const HTMLElement = scope.wrappers.HTMLElement;
   const HTMLShadowElement = scope.wrappers.HTMLShadowElement;
@@ -3722,13 +3722,13 @@ window.ShadowDOMPolyfill = {};
   class HTMLUnknownElement extends HTMLElement {
     constructor(node) {
       switch (node.localName) {
-        case "content":
+        case 'content':
           return new HTMLContentElement(node);
 
-        case "shadow":
+        case 'shadow':
           return new HTMLShadowElement(node);
 
-        case "template":
+        case 'template':
           return new HTMLTemplateElement(node);
       }
       super(node);
@@ -3740,7 +3740,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const Element = scope.wrappers.Element;
   const HTMLElement = scope.wrappers.HTMLElement;
   const registerWrapper = scope.registerWrapper;
@@ -3748,15 +3748,15 @@ window.ShadowDOMPolyfill = {};
   const unsafeUnwrap = scope.unsafeUnwrap;
   const wrap = scope.wrap;
   const mixin = scope.mixin;
-  const SVG_NS = "http://www.w3.org/2000/svg";
+  const SVG_NS = 'http://www.w3.org/2000/svg';
   const OriginalSVGElement = window.SVGElement;
-  const svgTitleElement = document.createElementNS(SVG_NS, "title");
-  if (!("classList" in svgTitleElement)) {
+  const svgTitleElement = document.createElementNS(SVG_NS, 'title');
+  if (!('classList' in svgTitleElement)) {
     const descr = Object.getOwnPropertyDescriptor(
       Element.prototype,
-      "classList"
+      'classList'
     );
-    Object.defineProperty(HTMLElement.prototype, "classList", descr);
+    Object.defineProperty(HTMLElement.prototype, 'classList', descr);
     delete Element.prototype.classList;
   }
 
@@ -3774,21 +3774,21 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalSVGElement,
     SVGElement,
-    document.createElementNS(SVG_NS, "title")
+    document.createElementNS(SVG_NS, 'title')
   );
   scope.wrappers.SVGElement = SVGElement;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
   const unwrap = scope.unwrap;
   const wrap = scope.wrap;
   const OriginalSVGUseElement = window.SVGUseElement;
-  const SVG_NS = "http://www.w3.org/2000/svg";
-  const gWrapper = wrap(document.createElementNS(SVG_NS, "g"));
-  const useElement = document.createElementNS(SVG_NS, "use");
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const gWrapper = wrap(document.createElementNS(SVG_NS, 'g'));
+  const useElement = document.createElementNS(SVG_NS, 'use');
   const SVGGElement = gWrapper.constructor;
   const parentInterfacePrototype = Object.getPrototypeOf(SVGGElement.prototype);
   const parentInterface = parentInterfacePrototype.constructor;
@@ -3796,7 +3796,7 @@ window.ShadowDOMPolyfill = {};
     parentInterface.call(this, impl);
   }
   SVGUseElement.prototype = Object.create(parentInterfacePrototype);
-  if ("instanceRoot" in useElement) {
+  if ('instanceRoot' in useElement) {
     mixin(SVGUseElement.prototype, {
       get instanceRoot() {
         return wrap(unwrap(this).instanceRoot);
@@ -3811,7 +3811,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const EventTarget = scope.wrappers.EventTarget;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3837,7 +3837,7 @@ window.ShadowDOMPolyfill = {};
       return wrap(unsafeUnwrap(this).parentNode);
     },
     get childNodes() {
-      throw new Error("Not implemented");
+      throw new Error('Not implemented');
     },
     get firstChild() {
       return wrap(unsafeUnwrap(this).firstChild);
@@ -3857,7 +3857,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
   const setWrapper = scope.setWrapper;
@@ -3888,13 +3888,13 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     OriginalCanvasRenderingContext2D,
     CanvasRenderingContext2D,
-    document.createElement("canvas").getContext("2d")
+    document.createElement('canvas').getContext('2d')
   );
   scope.wrappers.CanvasRenderingContext2D = CanvasRenderingContext2D;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const addForwardingProperties = scope.addForwardingProperties;
   const mixin = scope.mixin;
   const registerWrapper = scope.registerWrapper;
@@ -3944,7 +3944,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const Node = scope.wrappers.Node;
   const GetElementsByInterface = scope.GetElementsByInterface;
   const NonElementParentNodeInterface = scope.NonElementParentNodeInterface;
@@ -3971,12 +3971,12 @@ window.ShadowDOMPolyfill = {};
     document.createDocumentFragment()
   );
   scope.wrappers.DocumentFragment = DocumentFragment;
-  const Comment = registerObject(document.createComment(""));
+  const Comment = registerObject(document.createComment(''));
   scope.wrappers.Comment = Comment;
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const DocumentFragment = scope.wrappers.DocumentFragment;
   const TreeScope = scope.TreeScope;
   const elementFromPoint = scope.elementFromPoint;
@@ -4054,7 +4054,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const registerWrapper = scope.registerWrapper;
   const setWrapper = scope.setWrapper;
   const unsafeUnwrap = scope.unsafeUnwrap;
@@ -4195,7 +4195,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const Element = scope.wrappers.Element;
   const HTMLContentElement = scope.wrappers.HTMLContentElement;
   const HTMLShadowElement = scope.wrappers.HTMLShadowElement;
@@ -4285,10 +4285,10 @@ window.ShadowDOMPolyfill = {};
     return result;
   }
   const request = oneOf(window, [
-    "requestAnimationFrame",
-    "mozRequestAnimationFrame",
-    "webkitRequestAnimationFrame",
-    "setTimeout",
+    'requestAnimationFrame',
+    'mozRequestAnimationFrame',
+    'webkitRequestAnimationFrame',
+    'setTimeout',
   ]);
   let pendingDirtyRenderers = [];
   let renderTimer;
@@ -4463,7 +4463,7 @@ window.ShadowDOMPolyfill = {};
       if (node instanceof HTMLShadowElement) return;
       if (node instanceof HTMLContentElement) {
         const content = node;
-        this.updateDependentAttributes(content.getAttribute("select"));
+        this.updateDependentAttributes(content.getAttribute('select'));
         let anyDistributed = false;
         for (let i = 0; i < pool.length; i++) {
           var node = pool[i];
@@ -4529,8 +4529,8 @@ window.ShadowDOMPolyfill = {};
     updateDependentAttributes(selector) {
       if (!selector) return;
       const attributes = this.attributes;
-      if (/\.\w+/.test(selector)) attributes["class"] = true;
-      if (/#\w+/.test(selector)) attributes["id"] = true;
+      if (/\.\w+/.test(selector)) attributes['class'] = true;
+      if (/#\w+/.test(selector)) attributes['id'] = true;
       selector.replace(/\[\s*([^\s=\|~\]]+)/g, (_, name) => {
         attributes[name] = true;
       });
@@ -4579,7 +4579,7 @@ window.ShadowDOMPolyfill = {};
   }
   const selectorStartCharRe = /^(:not\()?[*.#[a-zA-Z_|]/;
   function matches(node, contentElement) {
-    let select = contentElement.getAttribute("select");
+    let select = contentElement.getAttribute('select');
     if (!select) return true;
     select = select.trim();
     if (!select) return true;
@@ -4638,7 +4638,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const HTMLElement = scope.wrappers.HTMLElement;
   const assert = scope.assert;
   const mixin = scope.mixin;
@@ -4646,15 +4646,15 @@ window.ShadowDOMPolyfill = {};
   const unwrap = scope.unwrap;
   const wrap = scope.wrap;
   const elementsWithFormProperty = [
-    "HTMLButtonElement",
-    "HTMLFieldSetElement",
-    "HTMLInputElement",
-    "HTMLKeygenElement",
-    "HTMLLabelElement",
-    "HTMLLegendElement",
-    "HTMLObjectElement",
-    "HTMLOutputElement",
-    "HTMLTextAreaElement",
+    'HTMLButtonElement',
+    'HTMLFieldSetElement',
+    'HTMLInputElement',
+    'HTMLKeygenElement',
+    'HTMLLabelElement',
+    'HTMLLegendElement',
+    'HTMLObjectElement',
+    'HTMLOutputElement',
+    'HTMLTextAreaElement',
   ];
   function createWrapperConstructor(name) {
     if (!window[name]) return;
@@ -4682,7 +4682,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const registerWrapper = scope.registerWrapper;
   const setWrapper = scope.setWrapper;
   const unsafeUnwrap = scope.unsafeUnwrap;
@@ -4751,7 +4751,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const registerWrapper = scope.registerWrapper;
   const setWrapper = scope.setWrapper;
   const unsafeUnwrap = scope.unsafeUnwrap;
@@ -4810,7 +4810,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const GetElementsByInterface = scope.GetElementsByInterface;
   const Node = scope.wrappers.Node;
   const ParentNodeInterface = scope.ParentNodeInterface;
@@ -4846,13 +4846,13 @@ window.ShadowDOMPolyfill = {};
     createTreeWalker(root, whatToShow, filter, expandEntityReferences) {
       let newFilter = null;
       if (filter) {
-        if (filter.acceptNode && typeof filter.acceptNode === "function") {
+        if (filter.acceptNode && typeof filter.acceptNode === 'function') {
           newFilter = {
             acceptNode(node) {
               return filter.acceptNode(wrap(node));
             },
           };
-        } else if (typeof filter === "function") {
+        } else if (typeof filter === 'function') {
           newFilter = (node) => {
             return filter(wrap(node));
           };
@@ -4877,7 +4877,7 @@ window.ShadowDOMPolyfill = {};
       }
       if (!prototype) prototype = Object.create(HTMLElement.prototype);
       if (scope.nativePrototypeTable.get(prototype)) {
-        throw new Error("NotSupportedError");
+        throw new Error('NotSupportedError');
       }
       let proto = Object.getPrototypeOf(prototype);
       let nativePrototype;
@@ -4889,17 +4889,17 @@ window.ShadowDOMPolyfill = {};
         proto = Object.getPrototypeOf(proto);
       }
       if (!nativePrototype) {
-        throw new Error("NotSupportedError");
+        throw new Error('NotSupportedError');
       }
       let newPrototype = Object.create(nativePrototype);
       for (let i = prototypes.length - 1; i >= 0; i--) {
         newPrototype = Object.create(newPrototype);
       }
       [
-        "createdCallback",
-        "attachedCallback",
-        "detachedCallback",
-        "attributeChangedCallback",
+        'createdCallback',
+        'attachedCallback',
+        'detachedCallback',
+        'attributeChangedCallback',
       ].forEach((name) => {
         const f = prototype[name];
         if (!f) return;
@@ -4937,10 +4937,10 @@ window.ShadowDOMPolyfill = {};
     }
   }
 
-  defineWrapGetter(Document, "documentElement");
-  defineWrapGetter(Document, "body");
-  defineWrapGetter(Document, "head");
-  defineGetter(Document, "activeElement", function () {
+  defineWrapGetter(Document, 'documentElement');
+  defineWrapGetter(Document, 'body');
+  defineWrapGetter(Document, 'head');
+  defineGetter(Document, 'activeElement', function () {
     const unwrappedActiveElement = unwrap(this).activeElement;
     if (!unwrappedActiveElement || !unwrappedActiveElement.nodeType)
       return null;
@@ -4964,14 +4964,14 @@ window.ShadowDOMPolyfill = {};
     };
   }
   [
-    "createComment",
-    "createDocumentFragment",
-    "createElement",
-    "createElementNS",
-    "createEvent",
-    "createEventNS",
-    "createRange",
-    "createTextNode",
+    'createComment',
+    'createDocumentFragment',
+    'createElement',
+    'createElementNS',
+    'createEvent',
+    'createEventNS',
+    'createRange',
+    'createTextNode',
   ].forEach(wrapMethod);
   const originalAdoptNode = document.adoptNode;
   function adoptNodeNoRemove(node, doc) {
@@ -5009,7 +5009,7 @@ window.ShadowDOMPolyfill = {};
     getElementsByName(name) {
       return SelectorsInterface.querySelectorAll.call(
         this,
-        "[name=" + JSON.stringify(String(name)) + "]"
+        '[name=' + JSON.stringify(String(name)) + ']'
       );
     },
   });
@@ -5019,7 +5019,7 @@ window.ShadowDOMPolyfill = {};
     var originalRegisterElement = document.registerElement;
     forwardMethodsToWrapper(
       [window.HTMLDocument || window.Document],
-      ["registerElement"]
+      ['registerElement']
     );
   }
   forwardMethodsToWrapper(
@@ -5030,17 +5030,17 @@ window.ShadowDOMPolyfill = {};
       window.HTMLHtmlElement,
     ],
     [
-      "appendChild",
-      "compareDocumentPosition",
-      "contains",
-      "getElementsByClassName",
-      "getElementsByTagName",
-      "getElementsByTagNameNS",
-      "insertBefore",
-      "querySelector",
-      "querySelectorAll",
-      "removeChild",
-      "replaceChild",
+      'appendChild',
+      'compareDocumentPosition',
+      'contains',
+      'getElementsByClassName',
+      'getElementsByTagName',
+      'getElementsByTagNameNS',
+      'insertBefore',
+      'querySelector',
+      'querySelectorAll',
+      'removeChild',
+      'replaceChild',
     ]
   );
   forwardMethodsToWrapper(
@@ -5050,22 +5050,22 @@ window.ShadowDOMPolyfill = {};
   forwardMethodsToWrapper(
     [window.HTMLDocument || window.Document],
     [
-      "adoptNode",
-      "importNode",
-      "contains",
-      "createComment",
-      "createDocumentFragment",
-      "createElement",
-      "createElementNS",
-      "createEvent",
-      "createEventNS",
-      "createRange",
-      "createTextNode",
-      "createTreeWalker",
-      "elementFromPoint",
-      "getElementById",
-      "getElementsByName",
-      "getSelection",
+      'adoptNode',
+      'importNode',
+      'contains',
+      'createComment',
+      'createDocumentFragment',
+      'createElement',
+      'createElementNS',
+      'createEvent',
+      'createEventNS',
+      'createRange',
+      'createTextNode',
+      'createTreeWalker',
+      'elementFromPoint',
+      'getElementById',
+      'getElementsByName',
+      'getSelection',
     ]
   );
   mixin(Document.prototype, GetElementsByInterface);
@@ -5087,7 +5087,7 @@ window.ShadowDOMPolyfill = {};
   registerWrapper(
     window.Document,
     Document,
-    document.implementation.createHTMLDocument("")
+    document.implementation.createHTMLDocument('')
   );
   if (window.HTMLDocument) registerWrapper(window.HTMLDocument, Document);
   wrapEventTargetMethods([
@@ -5120,13 +5120,13 @@ window.ShadowDOMPolyfill = {};
       return original.apply(unsafeUnwrap(this), arguments);
     };
   }
-  wrapImplMethod(DOMImplementation, "createDocumentType");
-  wrapImplMethod(DOMImplementation, "createHTMLDocument");
-  forwardImplMethod(DOMImplementation, "hasFeature");
+  wrapImplMethod(DOMImplementation, 'createDocumentType');
+  wrapImplMethod(DOMImplementation, 'createHTMLDocument');
+  forwardImplMethod(DOMImplementation, 'hasFeature');
   registerWrapper(window.DOMImplementation, DOMImplementation);
   forwardMethodsToWrapper(
     [window.DOMImplementation],
-    ["createDocument", "createDocumentType", "createHTMLDocument", "hasFeature"]
+    ['createDocument', 'createDocumentType', 'createHTMLDocument', 'hasFeature']
   );
   scope.adoptNodeNoRemove = adoptNodeNoRemove;
   scope.wrappers.DOMImplementation = DOMImplementation;
@@ -5134,7 +5134,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const EventTarget = scope.wrappers.EventTarget;
   const Selection = scope.wrappers.Selection;
   const mixin = scope.mixin;
@@ -5180,7 +5180,7 @@ window.ShadowDOMPolyfill = {};
   delete window.getComputedStyle;
   delete window.getDefaultComputedStyle;
   delete window.getSelection;
-  ["addEventListener", "removeEventListener", "dispatchEvent"].forEach(
+  ['addEventListener', 'removeEventListener', 'dispatchEvent'].forEach(
     (name) => {
       OriginalWindow.prototype[name] = function () {
         const w = wrap(this || window);
@@ -5213,7 +5213,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const unwrap = scope.unwrap;
   const OriginalDataTransfer = window.DataTransfer || window.Clipboard;
   const OriginalDataTransferSetDragImage =
@@ -5226,7 +5226,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const registerWrapper = scope.registerWrapper;
   const setWrapper = scope.setWrapper;
   const unwrap = scope.unwrap;
@@ -5246,7 +5246,7 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const unwrapIfNeeded = scope.unwrapIfNeeded;
   const originalSend = XMLHttpRequest.prototype.send;
   XMLHttpRequest.prototype.send = function (obj) {
@@ -5255,77 +5255,77 @@ window.ShadowDOMPolyfill = {};
 })(window.ShadowDOMPolyfill);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   const isWrapperFor = scope.isWrapperFor;
   const elements = {
-    a: "HTMLAnchorElement",
-    area: "HTMLAreaElement",
-    audio: "HTMLAudioElement",
-    base: "HTMLBaseElement",
-    body: "HTMLBodyElement",
-    br: "HTMLBRElement",
-    button: "HTMLButtonElement",
-    canvas: "HTMLCanvasElement",
-    caption: "HTMLTableCaptionElement",
-    col: "HTMLTableColElement",
-    content: "HTMLContentElement",
-    data: "HTMLDataElement",
-    datalist: "HTMLDataListElement",
-    del: "HTMLModElement",
-    dir: "HTMLDirectoryElement",
-    div: "HTMLDivElement",
-    dl: "HTMLDListElement",
-    embed: "HTMLEmbedElement",
-    fieldset: "HTMLFieldSetElement",
-    font: "HTMLFontElement",
-    form: "HTMLFormElement",
-    frame: "HTMLFrameElement",
-    frameset: "HTMLFrameSetElement",
-    h1: "HTMLHeadingElement",
-    head: "HTMLHeadElement",
-    hr: "HTMLHRElement",
-    html: "HTMLHtmlElement",
-    iframe: "HTMLIFrameElement",
-    img: "HTMLImageElement",
-    input: "HTMLInputElement",
-    keygen: "HTMLKeygenElement",
-    label: "HTMLLabelElement",
-    legend: "HTMLLegendElement",
-    li: "HTMLLIElement",
-    link: "HTMLLinkElement",
-    map: "HTMLMapElement",
-    marquee: "HTMLMarqueeElement",
-    menu: "HTMLMenuElement",
-    menuitem: "HTMLMenuItemElement",
-    meta: "HTMLMetaElement",
-    meter: "HTMLMeterElement",
-    object: "HTMLObjectElement",
-    ol: "HTMLOListElement",
-    optgroup: "HTMLOptGroupElement",
-    option: "HTMLOptionElement",
-    output: "HTMLOutputElement",
-    p: "HTMLParagraphElement",
-    param: "HTMLParamElement",
-    pre: "HTMLPreElement",
-    progress: "HTMLProgressElement",
-    q: "HTMLQuoteElement",
-    script: "HTMLScriptElement",
-    select: "HTMLSelectElement",
-    shadow: "HTMLShadowElement",
-    source: "HTMLSourceElement",
-    span: "HTMLSpanElement",
-    style: "HTMLStyleElement",
-    table: "HTMLTableElement",
-    tbody: "HTMLTableSectionElement",
-    template: "HTMLTemplateElement",
-    textarea: "HTMLTextAreaElement",
-    thead: "HTMLTableSectionElement",
-    time: "HTMLTimeElement",
-    title: "HTMLTitleElement",
-    tr: "HTMLTableRowElement",
-    track: "HTMLTrackElement",
-    ul: "HTMLUListElement",
-    video: "HTMLVideoElement",
+    a: 'HTMLAnchorElement',
+    area: 'HTMLAreaElement',
+    audio: 'HTMLAudioElement',
+    base: 'HTMLBaseElement',
+    body: 'HTMLBodyElement',
+    br: 'HTMLBRElement',
+    button: 'HTMLButtonElement',
+    canvas: 'HTMLCanvasElement',
+    caption: 'HTMLTableCaptionElement',
+    col: 'HTMLTableColElement',
+    content: 'HTMLContentElement',
+    data: 'HTMLDataElement',
+    datalist: 'HTMLDataListElement',
+    del: 'HTMLModElement',
+    dir: 'HTMLDirectoryElement',
+    div: 'HTMLDivElement',
+    dl: 'HTMLDListElement',
+    embed: 'HTMLEmbedElement',
+    fieldset: 'HTMLFieldSetElement',
+    font: 'HTMLFontElement',
+    form: 'HTMLFormElement',
+    frame: 'HTMLFrameElement',
+    frameset: 'HTMLFrameSetElement',
+    h1: 'HTMLHeadingElement',
+    head: 'HTMLHeadElement',
+    hr: 'HTMLHRElement',
+    html: 'HTMLHtmlElement',
+    iframe: 'HTMLIFrameElement',
+    img: 'HTMLImageElement',
+    input: 'HTMLInputElement',
+    keygen: 'HTMLKeygenElement',
+    label: 'HTMLLabelElement',
+    legend: 'HTMLLegendElement',
+    li: 'HTMLLIElement',
+    link: 'HTMLLinkElement',
+    map: 'HTMLMapElement',
+    marquee: 'HTMLMarqueeElement',
+    menu: 'HTMLMenuElement',
+    menuitem: 'HTMLMenuItemElement',
+    meta: 'HTMLMetaElement',
+    meter: 'HTMLMeterElement',
+    object: 'HTMLObjectElement',
+    ol: 'HTMLOListElement',
+    optgroup: 'HTMLOptGroupElement',
+    option: 'HTMLOptionElement',
+    output: 'HTMLOutputElement',
+    p: 'HTMLParagraphElement',
+    param: 'HTMLParamElement',
+    pre: 'HTMLPreElement',
+    progress: 'HTMLProgressElement',
+    q: 'HTMLQuoteElement',
+    script: 'HTMLScriptElement',
+    select: 'HTMLSelectElement',
+    shadow: 'HTMLShadowElement',
+    source: 'HTMLSourceElement',
+    span: 'HTMLSpanElement',
+    style: 'HTMLStyleElement',
+    table: 'HTMLTableElement',
+    tbody: 'HTMLTableSectionElement',
+    template: 'HTMLTemplateElement',
+    textarea: 'HTMLTextAreaElement',
+    thead: 'HTMLTableSectionElement',
+    time: 'HTMLTimeElement',
+    title: 'HTMLTitleElement',
+    tr: 'HTMLTableRowElement',
+    track: 'HTMLTrackElement',
+    ul: 'HTMLUListElement',
+    video: 'HTMLVideoElement',
   };
   function overrideConstructor(tagName) {
     const nativeConstructorName = elements[tagName];

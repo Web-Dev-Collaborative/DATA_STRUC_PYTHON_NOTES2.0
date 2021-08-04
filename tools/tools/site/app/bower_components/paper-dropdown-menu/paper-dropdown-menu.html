@@ -137,10 +137,10 @@ respectively.
 
   <script>
     (function () {
-      "use strict";
+      'use strict';
 
       Polymer({
-        is: "paper-dropdown-menu",
+        is: 'paper-dropdown-menu',
 
         behaviors: [
           Polymer.IronButtonState,
@@ -213,7 +213,7 @@ respectively.
             type: Boolean,
             notify: true,
             value: false,
-            observer: "_openedChanged",
+            observer: '_openedChanged',
           },
 
           /**
@@ -261,7 +261,7 @@ respectively.
            */
           horizontalAlign: {
             type: String,
-            value: "right",
+            value: 'right',
           },
 
           /**
@@ -270,7 +270,7 @@ respectively.
            */
           verticalAlign: {
             type: String,
-            value: "top",
+            value: 'top',
           },
 
           /**
@@ -293,21 +293,21 @@ respectively.
         },
 
         listeners: {
-          tap: "_onTap",
+          tap: '_onTap',
         },
 
         keyBindings: {
-          "up down": "open",
-          esc: "close",
+          'up down': 'open',
+          esc: 'close',
         },
 
         hostAttributes: {
-          role: "combobox",
-          "aria-autocomplete": "none",
-          "aria-haspopup": "true",
+          role: 'combobox',
+          'aria-autocomplete': 'none',
+          'aria-haspopup': 'true',
         },
 
-        observers: ["_selectedItemChanged(selectedItem)"],
+        observers: ['_selectedItemChanged(selectedItem)'],
 
         attached: function () {
           // NOTE(cdata): Due to timing, a preselected value in a `IronSelectable`
@@ -377,13 +377,13 @@ respectively.
          * optional `label` property.
          */
         _selectedItemChanged: function (selectedItem) {
-          var value = "";
+          var value = '';
           if (!selectedItem) {
-            value = "";
+            value = '';
           } else {
             value =
               selectedItem.label ||
-              selectedItem.getAttribute("label") ||
+              selectedItem.getAttribute('label') ||
               selectedItem.textContent.trim();
           }
 
@@ -420,10 +420,10 @@ respectively.
         },
 
         _openedChanged: function () {
-          var openState = this.opened ? "true" : "false";
+          var openState = this.opened ? 'true' : 'false';
           var e = this.contentElement;
           if (e) {
-            e.setAttribute("aria-expanded", openState);
+            e.setAttribute('aria-expanded', openState);
           }
         },
       });

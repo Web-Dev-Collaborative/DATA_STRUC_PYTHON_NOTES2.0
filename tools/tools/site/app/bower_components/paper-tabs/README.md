@@ -1,12 +1,10 @@
-[![Build status](https://travis-ci.org/PolymerElements/paper-tabs.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-tabs)
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://beta.webcomponents.org/element/PolymerElements/paper-tabs)
+[![Build status](https://travis-ci.org/PolymerElements/paper-tabs.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-tabs) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://beta.webcomponents.org/element/PolymerElements/paper-tabs)
 
 ##&lt;paper-tabs&gt;
 
 Material design: [Tabs](https://www.google.com/design/spec/components/tabs.html)
 
-`paper-tabs` makes it easy to explore and switch between different views or functional aspects of
-an app, or to browse categorized data sets.
+`paper-tabs` makes it easy to explore and switch between different views or functional aspects of an app, or to browse categorized data sets.
 
 <!---
 ```

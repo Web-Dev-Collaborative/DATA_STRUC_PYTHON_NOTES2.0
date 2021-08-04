@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-goog.provide("claat.ui.cards.Filter");
-goog.provide("claat.ui.cards.Order");
-goog.provide("claat.ui.cards.Sorter");
+goog.provide('claat.ui.cards.Filter');
+goog.provide('claat.ui.cards.Order');
+goog.provide('claat.ui.cards.Sorter');
 
 /**
  * Kiosk tags have special meaning in that the filtering result
@@ -35,9 +35,9 @@ claat.ui.cards.Filter;
  * @enum {string}
  */
 claat.ui.cards.Order = {
-  ALPHA: "a-z",
-  DURATION: "duration",
-  RECENT: "recent",
+  ALPHA: 'a-z',
+  DURATION: 'duration',
+  RECENT: 'recent',
 };
 
 /**
@@ -75,7 +75,7 @@ claat.ui.cards.Sorter = function (container) {
    * Card elements.
    * @private {NodeList}
    */
-  this.cards_ = container.querySelectorAll(".codelab-card");
+  this.cards_ = container.querySelectorAll('.codelab-card');
   this.processCards_();
 };
 
@@ -145,13 +145,13 @@ claat.ui.cards.Sorter.prototype.processCards_ = function () {
   for (let i = 0; i < this.cards_.length; i++) {
     const card = this.cards_[i];
     // filtering
-    card.desc = (card.dataset["title"] || "").trim().toLowerCase();
-    card.cats = cleanStrings((card.dataset["category"] || "").split(","));
-    card.tags = cleanStrings((card.dataset["tags"] || "").split(","));
+    card.desc = (card.dataset['title'] || '').trim().toLowerCase();
+    card.cats = cleanStrings((card.dataset['category'] || '').split(','));
+    card.tags = cleanStrings((card.dataset['tags'] || '').split(','));
     // sorting
-    card.updated = new Date(card.dataset["updated"]);
-    card.duration = parseInt(card.dataset["duration"], 10);
-    if (card.dataset["pin"]) {
+    card.updated = new Date(card.dataset['updated']);
+    card.duration = parseInt(card.dataset['duration'], 10);
+    if (card.dataset['pin']) {
       pin += 1;
       card.pin = pin;
     }
@@ -219,10 +219,10 @@ claat.ui.cards.Sorter.prototype.sort_ = function (cards) {
         if (n !== null) {
           return n;
         }
-        if (a.dataset["title"] < b.dataset["title"]) {
+        if (a.dataset['title'] < b.dataset['title']) {
           return -1;
         }
-        if (a.dataset["title"] > b.dataset["title"]) {
+        if (a.dataset['title'] > b.dataset['title']) {
           return 1;
         }
         return 0;
@@ -283,7 +283,7 @@ claat.ui.cards.Sorter.prototype.match_ = function (card) {
  * @return {string}
  */
 function normalizeValue(v) {
-  return (v || "").trim().toLowerCase();
+  return (v || '').trim().toLowerCase();
 }
 
 /**

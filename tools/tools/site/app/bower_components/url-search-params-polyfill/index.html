@@ -11,7 +11,7 @@
     <meta names="apple-mobile-web-app-status-bar-style" content="black" />
     <script>
       // here the list of tests to run with wru
-      var TESTS = ["url-search-params"];
+      var TESTS = ['url-search-params'];
     </script>
     <script>
       // don't change code here
@@ -20,7 +20,7 @@
         i < TESTS.length;
         ++i &&
         document.write(
-          '<script src="build/' + TESTS + '.max.js"><' + "/script>"
+          '<script src="build/' + TESTS + '.max.js"><' + '/script>'
         )
       );
       function wru(wru) {
@@ -29,7 +29,7 @@
           XHR =
             typeof XMLHttpRequest === typeof XHR
               ? function () {
-                  return new ActiveXObject("Microsoft.XMLHTTP");
+                  return new ActiveXObject('Microsoft.XMLHTTP');
                 }
               : function () {
                   return new XMLHttpRequest();
@@ -39,12 +39,12 @@
         };
         function load(file, then) {
           var xhr = XHR();
-          xhr.open("get", file, true);
+          xhr.open('get', file, true);
           xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
               Function(
-                "wru",
-                xhr.responseText.replace(/\/\/remove:[^\x00]*?\/\/:remove/g, "")
+                'wru',
+                xhr.responseText.replace(/\/\/remove:[^\x00]*?\/\/:remove/g, '')
               )(wru);
               then();
             }
@@ -54,7 +54,7 @@
         this.onload = function () {
           (function onload() {
             if (TESTS.length) {
-              load("test/" + TESTS.shift() + ".js?" + Math.random(), onload);
+              load('test/' + TESTS.shift() + '.js?' + Math.random(), onload);
             } else {
               wru.test = test;
               wru.test(all);
@@ -112,17 +112,17 @@
           function j() {
             A = K.call(m);
             if (A) {
-              if (typeof A == "function") {
-                A = { name: A[S] || "anonymous", test: A };
+              if (typeof A == 'function') {
+                A = { name: A[S] || 'anonymous', test: A };
               }
-              (P = l(l(Z.node, "div"), "span"))[E] =
+              (P = l(l(Z.node, 'div'), 'span'))[E] =
                 ((ag(A, S) && A[S]) || (ag(A, e) && A[e]) || Q) + i + i;
               a = [];
               u = [];
               T = [];
               ab = {};
-              b("setup");
-              T[ah] || b("test");
+              b('setup');
+              T[ah] || b('test');
               N || r();
             } else {
               t();
@@ -142,32 +142,32 @@
             P[E] = x.call(P[E], 0, -2) + i + ai;
           }
           function t() {
-            var ak = Z.node.insertBefore(p("div"), Z.node.firstChild),
+            var ak = Z.node.insertBefore(p('div'), Z.node.firstChild),
               al,
               aj,
               ai;
             if (ad) {
-              ai = aj = "error";
-              al = "There Are Errors: " + ad;
+              ai = aj = 'error';
+              al = 'There Are Errors: ' + ad;
             } else {
               if (C) {
-                ai = aj = "fail";
-                al = C + " Tests Failed";
+                ai = aj = 'fail';
+                al = C + ' Tests Failed';
               } else {
-                ai = aj = "pass";
-                al = "Passed " + s + " Tests";
+                ai = aj = 'pass';
+                al = 'Passed ' + s + ' Tests';
               }
             }
             Z.status = ai;
-            ak[E] = "<strong>" + al + "</strong>";
+            ak[E] = '<strong>' + al + '</strong>';
             ak.className = aj;
           }
           function G() {
             var ai = this.lastChild.style;
-            ai.display = ai.display == "none" ? "block" : "none";
+            ai.display = ai.display == 'none' ? 'block' : 'none';
           }
           function c(ai) {
-            P[E] += "<ul>" + D + v.call(ai, d + D) + d + "</ul>";
+            P[E] += '<ul>' + D + v.call(ai, d + D) + d + '</ul>';
             (P.onclick = G).call(P);
           }
           function r() {
@@ -175,9 +175,9 @@
             s += a[ah];
             C += u[ah];
             ad += T[ah];
-            g("(" + v.call([a[ah], (M = u[ah]), T[ah]], ", ") + ")");
+            g('(' + v.call([a[ah], (M = u[ah]), T[ah]], ', ') + ')');
             P = P.parentNode;
-            T[ah] ? c(T, (W = "error")) : M ? c(u, (W = "fail")) : (W = "pass");
+            T[ah] ? c(T, (W = 'error')) : M ? c(u, (W = 'fail')) : (W = 'pass');
             P.className = W;
             M = 0;
             W = i;
@@ -203,7 +203,7 @@
               H(R);
               R = 0;
             }
-            b("teardown");
+            b('teardown');
           }
           var Z = {
               assert: function U(aj, ai) {
@@ -217,10 +217,10 @@
               },
               async: function V(aj, am, ak, al) {
                 al = ++N;
-                if (typeof aj == "function") {
+                if (typeof aj == 'function') {
                   ak = am;
                   am = aj;
-                  aj = "asynchronous test #" + al;
+                  aj = 'asynchronous test #' + al;
                 }
                 ak = X(function () {
                   al = 0;
@@ -232,7 +232,7 @@
                     return;
                   }
                   z = ae;
-                  W = aj + ": ";
+                  W = aj + ': ';
                   try {
                     am.apply(this, arguments);
                   } catch (an) {
@@ -256,14 +256,14 @@
             I = true,
             ae = !I,
             y = 100,
-            i = " ",
-            Q = "unknown",
-            ah = "length",
-            S = "name",
-            e = "description",
-            D = "<li>",
-            d = "</li>",
-            k = "\\|/-",
+            i = ' ',
+            Q = 'unknown',
+            ah = 'length',
+            S = 'name',
+            e = 'description',
+            D = '<li>',
+            d = '</li>',
+            k = '\\|/-',
             q = Z.hasOwnProperty,
             W = i,
             ac = W.charAt,
@@ -280,7 +280,7 @@
             C = 0,
             ad = 0,
             R = 0,
-            E = "innerHTML",
+            E = 'innerHTML',
             h = Y.document,
             O = h.createElement,
             B,
@@ -300,13 +300,13 @@
           F = B.random;
           X = Y.setTimeout;
           H = Y.clearTimeout;
-          Z.node = h.getElementById("wru") || h.body || h.documentElement;
+          Z.node = h.getElementById('wru') || h.body || h.documentElement;
           Y.setInterval(function () {
             N && g(ac.call(k, M++ % 4));
           }, y);
           undefined;
           Z.log = function o(aj, ai) {
-            ai ? alert(aj) : typeof console != "undefined" && console.log(aj);
+            ai ? alert(aj) : typeof console != 'undefined' && console.log(aj);
           };
           y *= y;
           Z.random = ae;

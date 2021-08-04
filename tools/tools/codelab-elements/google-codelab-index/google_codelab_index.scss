@@ -27,7 +27,7 @@ body {
   transition: opacity ease-in 0.2s;
   padding-top: 64px;
   background: #eceff1;
-  font-family: "Roboto", "Noto", sans-serif;
+  font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-weight: 400;
@@ -152,7 +152,7 @@ a {
 
 h2 {
   margin: 0;
-  font-family: "Roboto", "Noto", sans-serif;
+  font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 45px;
   font-weight: 400;
@@ -259,7 +259,7 @@ footer .footerbar a {
   color: currentcolor;
 }
 
-@import "cards";
+@import 'cards';
 
 @media (min-width: 768px) {
   #toolbar .logo-devs {

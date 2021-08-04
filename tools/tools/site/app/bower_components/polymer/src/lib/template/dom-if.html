@@ -24,8 +24,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * created / destroyed when the `if` condition changes.
    */
   Polymer({
-    is: "dom-if",
-    extends: "template",
+    is: 'dom-if',
+    extends: 'template',
     _template: null,
 
     /**
@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if: {
         type: Boolean,
         value: false,
-        observer: "_queueRender",
+        observer: '_queueRender',
       },
 
       /**
@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       restamp: {
         type: Boolean,
         value: false,
-        observer: "_queueRender",
+        observer: '_queueRender',
       },
     },
 
@@ -110,7 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this._showHideChildren();
       }
       if (this.if != this._lastIf) {
-        this.fire("dom-change");
+        this.fire('dom-change');
         this._lastIf = this.if;
       }
     },

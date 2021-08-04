@@ -15,52 +15,52 @@
  * limitations under the License.
  */
 
-goog.module("googlecodelabs.CodelabAnalytics");
+goog.module('googlecodelabs.CodelabAnalytics');
 
-const EventHandler = goog.require("goog.events.EventHandler");
+const EventHandler = goog.require('goog.events.EventHandler');
 
 /**
  * The general codelab action event fired for trackable interactions.
  * @const {string}
  */
-const ACTION_EVENT = "google-codelab-action";
+const ACTION_EVENT = 'google-codelab-action';
 
 /**
  * The general codelab pageview event fired for trackable pageviews.
  * @const {string}
  */
-const PAGEVIEW_EVENT = "google-codelab-pageview";
+const PAGEVIEW_EVENT = 'google-codelab-pageview';
 
 /**
  * The Google Analytics ID. Analytics CE will not complete initialization
  * without a valid Analytics ID value set for this.
  * @const {string}
  */
-const GAID_ATTR = "gaid";
+const GAID_ATTR = 'gaid';
 
 /** @const {string} */
-const CODELAB_ID_ATTR = "codelab-id";
+const CODELAB_ID_ATTR = 'codelab-id';
 
 /**
  * The GAID defined by the current codelab.
  * @const {string}
  */
-const CODELAB_GAID_ATTR = "codelab-gaid";
+const CODELAB_GAID_ATTR = 'codelab-gaid';
 
 /** @const {string} */
-const CODELAB_ENV_ATTR = "environment";
+const CODELAB_ENV_ATTR = 'environment';
 
 /** @const {string} */
-const CODELAB_CATEGORY_ATTR = "category";
+const CODELAB_CATEGORY_ATTR = 'category';
 
 /** @const {string} */
-const ANALYTICS_READY_ATTR = "anayltics-ready";
+const ANALYTICS_READY_ATTR = 'anayltics-ready';
 
 /**
  * A list of selectors whose elements are waiting for this to be set up.
  * @const {!Array<string>}
  */
-const DEPENDENT_SELECTORS = ["google-codelab"];
+const DEPENDENT_SELECTORS = ['google-codelab'];
 
 /**
  * Event detail passed when firing ACTION_EVENT.
@@ -91,7 +91,7 @@ let AnalyticsPageview;
 class CodelabAnalytics extends HTMLElement {
   /** @return {string} */
   static getTagName() {
-    return "google-codelab-analytics";
+    return 'google-codelab-analytics';
   }
 
   constructor() {
@@ -113,10 +113,10 @@ class CodelabAnalytics extends HTMLElement {
     this.eventHandler_ = new EventHandler();
 
     /** @private {?string} */
-    this.codelabCategory_ = this.getAttribute(CODELAB_CATEGORY_ATTR) || "";
+    this.codelabCategory_ = this.getAttribute(CODELAB_CATEGORY_ATTR) || '';
 
     /** @private {?string} */
-    this.codelabEnv_ = this.getAttribute(CODELAB_ENV_ATTR) || "";
+    this.codelabEnv_ = this.getAttribute(CODELAB_ENV_ATTR) || '';
   }
 
   /**
@@ -124,13 +124,13 @@ class CodelabAnalytics extends HTMLElement {
    * @override
    */
   connectedCallback() {
-    this.gaid_ = this.getAttribute(GAID_ATTR) || "";
+    this.gaid_ = this.getAttribute(GAID_ATTR) || '';
 
     if (this.hasSetup_ || !this.gaid_) {
       return;
     }
 
-    if (!("ga" in window)) {
+    if (!('ga' in window)) {
       this.initGAScript_().then((response) => {
         if (response) {
           this.init_();
@@ -156,14 +156,14 @@ class CodelabAnalytics extends HTMLElement {
         e.getBrowserEvent().detail
       );
       // Add tracking...
-      this.trackEvent_(detail["category"], detail["action"], detail["label"]);
+      this.trackEvent_(detail['category'], detail['action'], detail['label']);
     });
 
     this.eventHandler_.listen(document.body, PAGEVIEW_EVENT, (e) => {
       const detail = /** @type {AnalyticsPageview} */ (
         e.getBrowserEvent().detail
       );
-      this.trackPageview_(detail["page"], detail["title"]);
+      this.trackPageview_(detail['page'], detail['title']);
     });
   }
 
@@ -221,13 +221,13 @@ class CodelabAnalytics extends HTMLElement {
   trackEvent_(category, opt_action, opt_label) {
     const params = {
       // Always event for trackEvent_ method
-      hitType: "event",
+      hitType: 'event',
       dimension1: this.codelabEnv_,
-      dimension2: this.codelabCategory_ || "",
+      dimension2: this.codelabCategory_ || '',
       dimension4: this.codelabId_ || undefined,
       eventCategory: category,
-      eventAction: opt_action || "",
-      eventLabel: opt_label || "",
+      eventAction: opt_action || '',
+      eventLabel: opt_label || '',
     };
     this.gaSend_(params);
   }
@@ -239,12 +239,12 @@ class CodelabAnalytics extends HTMLElement {
    */
   trackPageview_(opt_page, opt_title) {
     const params = {
-      hitType: "pageview",
+      hitType: 'pageview',
       dimension1: this.codelabEnv_,
       dimension2: this.codelabCategory_,
       dimension4: this.codelabId_ || undefined,
-      page: opt_page || "",
-      title: opt_title || "",
+      page: opt_page || '',
+      title: opt_title || '',
     };
     this.gaSend_(params);
   }
@@ -262,9 +262,9 @@ class CodelabAnalytics extends HTMLElement {
 
   /** @private */
   gaSend_(params) {
-    window["ga"](() => {
-      if (window["ga"].getAll) {
-        const trackers = window["ga"].getAll();
+    window['ga'](() => {
+      if (window['ga'].getAll) {
+        const trackers = window['ga'].getAll();
         trackers.forEach((tracker) => {
           tracker.send(params);
         });
@@ -285,14 +285,14 @@ class CodelabAnalytics extends HTMLElement {
    * @private
    */
   getGAView_() {
-    let parts = location.search.substring(1).split("&");
+    let parts = location.search.substring(1).split('&');
     for (let i = 0; i < parts.length; i++) {
-      let param = parts[i].split("=");
-      if (param[0] === "viewga") {
+      let param = parts[i].split('=');
+      if (param[0] === 'viewga') {
         return param[1];
       }
     }
-    return "";
+    return '';
   }
 
   /**
@@ -302,9 +302,9 @@ class CodelabAnalytics extends HTMLElement {
   static injectGAScript() {
     /** @type {!HTMLScriptElement} */
     const resource = /** @type {!HTMLScriptElement} */ (
-      document.createElement("script")
+      document.createElement('script')
     );
-    resource.src = "https://www.google-analytics.com/analytics.js";
+    resource.src = 'https://www.google-analytics.com/analytics.js';
     resource.async = false;
     return new Promise((resolve, reject) => {
       resource.onload = () => resolve(resource);
@@ -328,13 +328,13 @@ class CodelabAnalytics extends HTMLElement {
   async initGAScript_() {
     // This is a pretty-printed version of the function(i,s,o,g,r,a,m) script
     // provided by Google Analytics.
-    window["GoogleAnalyticsObject"] = "ga";
-    window["ga"] =
-      window["ga"] ||
+    window['GoogleAnalyticsObject'] = 'ga';
+    window['ga'] =
+      window['ga'] ||
       function () {
-        (window["ga"]["q"] = window["ga"]["q"] || []).push(arguments);
+        (window['ga']['q'] = window['ga']['q'] || []).push(arguments);
       };
-    window["ga"]["l"] = new Date().valueOf();
+    window['ga']['l'] = new Date().valueOf();
 
     try {
       return await CodelabAnalytics.injectGAScript();
@@ -345,16 +345,16 @@ class CodelabAnalytics extends HTMLElement {
 
   /** @private */
   createTrackers_() {
-    if (window["ga"]) {
+    if (window['ga']) {
       // The default tracker is given name 't0' per analytics.js dev docs.
       if (this.gaid_ && !this.isTrackerCreated_(this.gaid_)) {
-        window["ga"]("create", this.gaid_, "auto");
+        window['ga']('create', this.gaid_, 'auto');
       }
 
       const gaView = this.getGAView_();
       if (gaView && !this.isTrackerCreated_(gaView)) {
-        window["ga"]("create", gaView, "auto", "view");
-        window["ga"]("view.send", "pageview");
+        window['ga']('create', gaView, 'auto', 'view');
+        window['ga']('view.send', 'pageview');
       }
     }
 
@@ -366,10 +366,10 @@ class CodelabAnalytics extends HTMLElement {
    * @private
    */
   createCodelabGATracker_() {
-    if (window["ga"]) {
+    if (window['ga']) {
       const codelabGAId = this.getAttribute(CODELAB_GAID_ATTR);
       if (codelabGAId && !this.isTrackerCreated_(codelabGAId)) {
-        window["ga"]("create", codelabGAId, "auto", "codelabAccount");
+        window['ga']('create', codelabGAId, 'auto', 'codelabAccount');
       }
     }
   }
@@ -381,10 +381,10 @@ class CodelabAnalytics extends HTMLElement {
    */
   isTrackerCreated_(trackerId) {
     let isCreated = false;
-    if (window["ga"] && window["ga"].getAll) {
-      const allTrackers = window["ga"].getAll();
+    if (window['ga'] && window['ga'].getAll) {
+      const allTrackers = window['ga'].getAll();
       allTrackers.forEach((tracker) => {
-        if (tracker.get("trackingId") == trackerId) {
+        if (tracker.get('trackingId') == trackerId) {
           isCreated = true;
         }
       });

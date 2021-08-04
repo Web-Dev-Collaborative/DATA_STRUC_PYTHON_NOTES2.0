@@ -113,12 +113,12 @@ let SourceSpansT;
 const IN_GLOBAL_SCOPE = false;
 
 (() => {
-  "use strict";
+  'use strict';
 
   const win = window;
   const doc = document;
   const root = doc.documentElement;
-  const head = doc["head"] || doc.getElementsByTagName("head")[0] || root;
+  const head = doc['head'] || doc.getElementsByTagName('head')[0] || root;
 
   // From http://javascript.nwbox.com/ContentLoaded/contentloaded.js
   // Author: Diego Perini (diego.perini at gmail.com)
@@ -127,18 +127,18 @@ const IN_GLOBAL_SCOPE = false;
   // License: MIT
   // Version: 1.2
   function contentLoaded(callback) {
-    const addEventListener = doc["addEventListener"];
+    const addEventListener = doc['addEventListener'];
     let done = false;
     let top = true;
-    const add = addEventListener ? "addEventListener" : "attachEvent";
-    const rem = addEventListener ? "removeEventListener" : "detachEvent";
-    const pre = addEventListener ? "" : "on";
+    const add = addEventListener ? 'addEventListener' : 'attachEvent';
+    const rem = addEventListener ? 'removeEventListener' : 'detachEvent';
+    const pre = addEventListener ? '' : 'on';
 
     const init = (e) => {
-      if (e.type == "readystatechange" && doc.readyState != "complete") {
+      if (e.type == 'readystatechange' && doc.readyState != 'complete') {
         return;
       }
-      (e.type == "load" ? win : doc)[rem](pre + e.type, init, false);
+      (e.type == 'load' ? win : doc)[rem](pre + e.type, init, false);
       if (!done && (done = true)) {
         callback.call(win, e.type || e);
       }
@@ -146,16 +146,16 @@ const IN_GLOBAL_SCOPE = false;
 
     const poll = () => {
       try {
-        root.doScroll("left");
+        root.doScroll('left');
       } catch (e) {
         win.setTimeout(poll, 50);
         return;
       }
-      init("poll");
+      init('poll');
     };
 
-    if (doc.readyState == "complete") {
-      callback.call(win, "lazy");
+    if (doc.readyState == 'complete') {
+      callback.call(win, 'lazy');
     } else {
       if (doc.createEventObject && root.doScroll) {
         try {
@@ -165,9 +165,9 @@ const IN_GLOBAL_SCOPE = false;
           poll();
         }
       }
-      doc[add](pre + "DOMContentLoaded", init, false);
-      doc[add](pre + "readystatechange", init, false);
-      win[add](pre + "load", init, false);
+      doc[add](pre + 'DOMContentLoaded', init, false);
+      doc[add](pre + 'readystatechange', init, false);
+      win[add](pre + 'load', init, false);
     }
   }
 
@@ -179,9 +179,9 @@ const IN_GLOBAL_SCOPE = false;
       if (i === n) {
         return;
       }
-      const link = doc.createElement("link");
-      link.rel = "stylesheet";
-      link.type = "text/css";
+      const link = doc.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
       if (i + 1 < n) {
         // http://pieisgood.org/test/script-link-events/ indicates that many
         // versions of IE do not support onerror on <link>s, though
@@ -197,19 +197,19 @@ const IN_GLOBAL_SCOPE = false;
     load(0);
   }
 
-  let scriptQuery = "";
+  let scriptQuery = '';
   // Look for the <script> node that loads this script to get its parameters.
   // This starts looking at the end instead of just considering the last
   // because deferred and async scripts run out of order.
   // If the script is loaded twice, then this will run in reverse order.
-  const scripts = doc.getElementsByTagName("script");
+  const scripts = doc.getElementsByTagName('script');
   for (var i = scripts.length; --i >= 0; ) {
     const script = scripts[i];
     const match = script.src.match(
       /^[^?#]*\/run_prettify\.js(\?[^#]*)?(?:#.*)?$/
     );
     if (match) {
-      scriptQuery = match[1] || "";
+      scriptQuery = match[1] || '';
       // Remove the script from the DOM so that multiple runs at least run
       // multiple times even if parameter sets are interpreted in reverse
       // order.
@@ -226,13 +226,13 @@ const IN_GLOBAL_SCOPE = false;
   scriptQuery.replace(/[?&]([^&=]+)=([^&]+)/g, (_, name, value) => {
     value = decodeURIComponent(value);
     name = decodeURIComponent(name);
-    if (name == "autorun") {
+    if (name == 'autorun') {
       autorun = !/^[0fn]/i.test(value);
-    } else if (name == "lang") {
+    } else if (name == 'lang') {
       langs.push(value);
-    } else if (name == "skin") {
+    } else if (name == 'skin') {
       skins.push(value);
-    } else if (name == "callback") {
+    } else if (name == 'callback') {
       callbacks.push(value);
     }
   });
@@ -242,11 +242,11 @@ const IN_GLOBAL_SCOPE = false;
   // This only works if this script is loaded via https : something
   // over which we exercise no control.
   const LOADER_BASE_URL =
-    "https://cdn.rawgit.com/google/code-prettify/master/loader";
+    'https://cdn.rawgit.com/google/code-prettify/master/loader';
 
   for (var i = 0, n = langs.length; i < n; ++i)
     ((lang) => {
-      let script = doc.createElement("script");
+      let script = doc.createElement('script');
 
       // Excerpted from jQuery.ajaxTransport("script") to fire events when
       // a script is finished loading.
@@ -274,9 +274,9 @@ const IN_GLOBAL_SCOPE = false;
             }
           };
 
-      script.type = "text/javascript";
+      script.type = 'text/javascript';
       script.src =
-        LOADER_BASE_URL + "/lang-" + encodeURIComponent(langs[i]) + ".js";
+        LOADER_BASE_URL + '/lang-' + encodeURIComponent(langs[i]) + '.js';
 
       // Circumvent IE6 bugs with base elements (#2709 and #4378) by prepending
       head.insertBefore(script, head.firstChild);
@@ -292,10 +292,10 @@ const IN_GLOBAL_SCOPE = false;
   const skinUrls = [];
   for (var i = 0, n = skins.length; i < n; ++i) {
     skinUrls.push(
-      LOADER_BASE_URL + "/skins/" + encodeURIComponent(skins[i]) + ".css"
+      LOADER_BASE_URL + '/skins/' + encodeURIComponent(skins[i]) + '.css'
     );
   }
-  skinUrls.push(LOADER_BASE_URL + "/prettify.css");
+  skinUrls.push(LOADER_BASE_URL + '/prettify.css');
   loadStylesheetsFallingBack(skinUrls);
 
   const prettyPrint = (() => {
@@ -390,7 +390,7 @@ const IN_GLOBAL_SCOPE = false;
      * UI events.
      * If set to {@code false}, {@code prettyPrint()} is synchronous.
      */
-    window["PR_SHOULD_USE_CONTINUATION"] = true;
+    window['PR_SHOULD_USE_CONTINUATION'] = true;
 
     /**
      * Pretty print a chunk of code.
@@ -419,72 +419,72 @@ const IN_GLOBAL_SCOPE = false;
       // We use things that coerce to strings to make them compact when minified
       // and to defeat aggressive optimizers that fold large string constants.
       const FLOW_CONTROL_KEYWORDS = [
-        "break,continue,do,else,for,if,return,while",
+        'break,continue,do,else,for,if,return,while',
       ];
       const C_KEYWORDS = [
         FLOW_CONTROL_KEYWORDS,
-        "auto,case,char,const,default," +
-          "double,enum,extern,float,goto,inline,int,long,register,restrict,short,signed," +
-          "sizeof,static,struct,switch,typedef,union,unsigned,void,volatile",
+        'auto,case,char,const,default,' +
+          'double,enum,extern,float,goto,inline,int,long,register,restrict,short,signed,' +
+          'sizeof,static,struct,switch,typedef,union,unsigned,void,volatile',
       ];
       const COMMON_KEYWORDS = [
         C_KEYWORDS,
-        "catch,class,delete,false,import," +
-          "new,operator,private,protected,public,this,throw,true,try,typeof",
+        'catch,class,delete,false,import,' +
+          'new,operator,private,protected,public,this,throw,true,try,typeof',
       ];
       const CPP_KEYWORDS = [
         COMMON_KEYWORDS,
-        "alignas,alignof,align_union,asm,axiom,bool," +
-          "concept,concept_map,const_cast,constexpr,decltype,delegate," +
-          "dynamic_cast,explicit,export,friend,generic,late_check," +
-          "mutable,namespace,noexcept,noreturn,nullptr,property,reinterpret_cast,static_assert," +
-          "static_cast,template,typeid,typename,using,virtual,where",
+        'alignas,alignof,align_union,asm,axiom,bool,' +
+          'concept,concept_map,const_cast,constexpr,decltype,delegate,' +
+          'dynamic_cast,explicit,export,friend,generic,late_check,' +
+          'mutable,namespace,noexcept,noreturn,nullptr,property,reinterpret_cast,static_assert,' +
+          'static_cast,template,typeid,typename,using,virtual,where',
       ];
       const JAVA_KEYWORDS = [
         COMMON_KEYWORDS,
-        "abstract,assert,boolean,byte,extends,finally,final,implements,import," +
-          "instanceof,interface,null,native,package,strictfp,super,synchronized," +
-          "throws,transient",
+        'abstract,assert,boolean,byte,extends,finally,final,implements,import,' +
+          'instanceof,interface,null,native,package,strictfp,super,synchronized,' +
+          'throws,transient',
       ];
       const CSHARP_KEYWORDS = [
         COMMON_KEYWORDS,
-        "abstract,add,alias,as,ascending,async,await,base,bool,by,byte,checked,decimal,delegate,descending," +
-          "dynamic,event,finally,fixed,foreach,from,get,global,group,implicit,in,interface," +
-          "internal,into,is,join,let,lock,null,object,out,override,orderby,params," +
-          "partial,readonly,ref,remove,sbyte,sealed,select,set,stackalloc,string,select,uint,ulong," +
-          "unchecked,unsafe,ushort,value,var,virtual,where,yield",
+        'abstract,add,alias,as,ascending,async,await,base,bool,by,byte,checked,decimal,delegate,descending,' +
+          'dynamic,event,finally,fixed,foreach,from,get,global,group,implicit,in,interface,' +
+          'internal,into,is,join,let,lock,null,object,out,override,orderby,params,' +
+          'partial,readonly,ref,remove,sbyte,sealed,select,set,stackalloc,string,select,uint,ulong,' +
+          'unchecked,unsafe,ushort,value,var,virtual,where,yield',
       ];
       const COFFEE_KEYWORDS =
-        "all,and,by,catch,class,else,extends,false,finally," +
-        "for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then," +
-        "throw,true,try,unless,until,when,while,yes";
+        'all,and,by,catch,class,else,extends,false,finally,' +
+        'for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,' +
+        'throw,true,try,unless,until,when,while,yes';
       const JSCRIPT_KEYWORDS = [
         COMMON_KEYWORDS,
-        "abstract,async,await,constructor,debugger,enum,eval,export,function," +
-          "get,implements,instanceof,interface,let,null,set,undefined,var,with," +
-          "yield,Infinity,NaN",
+        'abstract,async,await,constructor,debugger,enum,eval,export,function,' +
+          'get,implements,instanceof,interface,let,null,set,undefined,var,with,' +
+          'yield,Infinity,NaN',
       ];
       const PERL_KEYWORDS =
-        "caller,delete,die,do,dump,elsif,eval,exit,foreach,for," +
-        "goto,if,import,last,local,my,next,no,our,print,package,redo,require," +
-        "sub,undef,unless,until,use,wantarray,while,BEGIN,END";
+        'caller,delete,die,do,dump,elsif,eval,exit,foreach,for,' +
+        'goto,if,import,last,local,my,next,no,our,print,package,redo,require,' +
+        'sub,undef,unless,until,use,wantarray,while,BEGIN,END';
       const PYTHON_KEYWORDS = [
         FLOW_CONTROL_KEYWORDS,
-        "and,as,assert,class,def,del," +
-          "elif,except,exec,finally,from,global,import,in,is,lambda," +
-          "nonlocal,not,or,pass,print,raise,try,with,yield," +
-          "False,True,None",
+        'and,as,assert,class,def,del,' +
+          'elif,except,exec,finally,from,global,import,in,is,lambda,' +
+          'nonlocal,not,or,pass,print,raise,try,with,yield,' +
+          'False,True,None',
       ];
       const RUBY_KEYWORDS = [
         FLOW_CONTROL_KEYWORDS,
-        "alias,and,begin,case,class," +
-          "def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo," +
-          "rescue,retry,self,super,then,true,undef,unless,until,when,yield," +
-          "BEGIN,END",
+        'alias,and,begin,case,class,' +
+          'def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,' +
+          'rescue,retry,self,super,then,true,undef,unless,until,when,yield,' +
+          'BEGIN,END',
       ];
       const SH_KEYWORDS = [
         FLOW_CONTROL_KEYWORDS,
-        "case,done,elif,esac,eval,fi," + "function,in,local,set,then,until",
+        'case,done,elif,esac,eval,fi,' + 'function,in,local,set,then,until',
       ];
       const ALL_KEYWORDS = [
         CPP_KEYWORDS,
@@ -504,70 +504,70 @@ const IN_GLOBAL_SCOPE = false;
        * token style for a string literal
        * @const
        */
-      const PR_STRING = "str";
+      const PR_STRING = 'str';
       /**
        * token style for a keyword
        * @const
        */
-      const PR_KEYWORD = "kwd";
+      const PR_KEYWORD = 'kwd';
       /**
        * token style for a comment
        * @const
        */
-      const PR_COMMENT = "com";
+      const PR_COMMENT = 'com';
       /**
        * token style for a type
        * @const
        */
-      const PR_TYPE = "typ";
+      const PR_TYPE = 'typ';
       /**
        * token style for a literal value.  e.g. 1, null, true.
        * @const
        */
-      const PR_LITERAL = "lit";
+      const PR_LITERAL = 'lit';
       /**
        * token style for a punctuation string.
        * @const
        */
-      const PR_PUNCTUATION = "pun";
+      const PR_PUNCTUATION = 'pun';
       /**
        * token style for plain text.
        * @const
        */
-      const PR_PLAIN = "pln";
+      const PR_PLAIN = 'pln';
 
       /**
        * token style for an sgml tag.
        * @const
        */
-      const PR_TAG = "tag";
+      const PR_TAG = 'tag';
       /**
        * token style for a markup declaration such as a DOCTYPE.
        * @const
        */
-      const PR_DECLARATION = "dec";
+      const PR_DECLARATION = 'dec';
       /**
        * token style for embedded source.
        * @const
        */
-      const PR_SOURCE = "src";
+      const PR_SOURCE = 'src';
       /**
        * token style for an sgml attribute name.
        * @const
        */
-      const PR_ATTRIB_NAME = "atn";
+      const PR_ATTRIB_NAME = 'atn';
       /**
        * token style for an sgml attribute value.
        * @const
        */
-      const PR_ATTRIB_VALUE = "atv";
+      const PR_ATTRIB_VALUE = 'atv';
 
       /**
        * A class that indicates a section of markup that is not code, e.g. to allow
        * embedding of line numbers within code listings.
        * @const
        */
-      const PR_NOCODE = "nocode";
+      const PR_NOCODE = 'nocode';
 
       /**
        * A set of tokens that can precede a regular expression literal in
@@ -589,7 +589,7 @@ const IN_GLOBAL_SCOPE = false;
        * @const
        */
       const REGEXP_PRECEDER_PATTERN =
-        "(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*";
+        '(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*';
 
       // CAVEAT: this does not properly handle the case where a regular
       // expression immediately follows another since a regular expression may
@@ -618,7 +618,7 @@ const IN_GLOBAL_SCOPE = false;
             /[a-z]/i.test(
               regex.source.replace(
                 /\\u[0-9a-f]{4}|\\x[0-9a-f]{2}|\\[^ux]/gi,
-                ""
+                ''
               )
             )
           ) {
@@ -646,9 +646,9 @@ const IN_GLOBAL_SCOPE = false;
           cc0 = escapeCharToCodeUnit[c1];
           if (cc0) {
             return cc0;
-          } else if ("0" <= c1 && c1 <= "7") {
+          } else if ('0' <= c1 && c1 <= '7') {
             return parseInt(charsetPart.substring(1), 8);
-          } else if (c1 === "u" || c1 === "x") {
+          } else if (c1 === 'u' || c1 === 'x') {
             return parseInt(charsetPart.substring(2), 16);
           } else {
             return charsetPart.charCodeAt(1);
@@ -657,11 +657,11 @@ const IN_GLOBAL_SCOPE = false;
 
         function encodeEscape(charCode) {
           if (charCode < 0x20) {
-            return (charCode < 0x10 ? "\\x0" : "\\x") + charCode.toString(16);
+            return (charCode < 0x10 ? '\\x0' : '\\x') + charCode.toString(16);
           }
           const ch = String.fromCharCode(charCode);
-          return ch === "\\" || ch === "-" || ch === "]" || ch === "^"
-            ? "\\" + ch
+          return ch === '\\' || ch === '-' || ch === ']' || ch === '^'
+            ? '\\' + ch
             : ch;
         }
 
@@ -670,22 +670,22 @@ const IN_GLOBAL_SCOPE = false;
             .substring(1, charSet.length - 1)
             .match(
               new RegExp(
-                "\\\\u[0-9A-Fa-f]{4}" +
-                  "|\\\\x[0-9A-Fa-f]{2}" +
-                  "|\\\\[0-3][0-7]{0,2}" +
-                  "|\\\\[0-7]{1,2}" +
-                  "|\\\\[\\s\\S]" +
-                  "|-" +
-                  "|[^-\\\\]",
-                "g"
+                '\\\\u[0-9A-Fa-f]{4}' +
+                  '|\\\\x[0-9A-Fa-f]{2}' +
+                  '|\\\\[0-3][0-7]{0,2}' +
+                  '|\\\\[0-7]{1,2}' +
+                  '|\\\\[\\s\\S]' +
+                  '|-' +
+                  '|[^-\\\\]',
+                'g'
               )
             );
           const ranges = [];
-          const inverse = charsetParts[0] === "^";
+          const inverse = charsetParts[0] === '^';
 
-          const out = ["["];
+          const out = ['['];
           if (inverse) {
-            out.push("^");
+            out.push('^');
           }
 
           for (var i = inverse ? 1 : 0, n = charsetParts.length; i < n; ++i) {
@@ -696,7 +696,7 @@ const IN_GLOBAL_SCOPE = false;
             } else {
               const start = decodeEscape(p);
               let end;
-              if (i + 2 < n && "-" === charsetParts[i + 1]) {
+              if (i + 2 < n && '-' === charsetParts[i + 1]) {
                 end = decodeEscape(charsetParts[i + 2]);
                 i += 2;
               } else {
@@ -745,13 +745,13 @@ const IN_GLOBAL_SCOPE = false;
             out.push(encodeEscape(range[0]));
             if (range[1] > range[0]) {
               if (range[1] + 1 > range[0]) {
-                out.push("-");
+                out.push('-');
               }
               out.push(encodeEscape(range[1]));
             }
           }
-          out.push("]");
-          return out.join("");
+          out.push(']');
+          return out.join('');
         }
 
         function allowAnywhereFoldCaseAndRenumberGroups(regex) {
@@ -760,17 +760,17 @@ const IN_GLOBAL_SCOPE = false;
           // include any of the above.
           const parts = regex.source.match(
             new RegExp(
-              "(?:" +
-                "\\[(?:[^\\x5C\\x5D]|\\\\[\\s\\S])*\\]" + // a character set
-                "|\\\\u[A-Fa-f0-9]{4}" + // a unicode escape
-                "|\\\\x[A-Fa-f0-9]{2}" + // a hex escape
-                "|\\\\[0-9]+" + // a back-reference or octal escape
-                "|\\\\[^ux0-9]" + // other escape sequence
-                "|\\(\\?[:!=]" + // start of a non-capturing group
-                "|[\\(\\)\\^]" + // start/end of a group, or line start
-                "|[^\\x5B\\x5C\\(\\)\\^]+" + // run of other characters
-                ")",
-              "g"
+              '(?:' +
+                '\\[(?:[^\\x5C\\x5D]|\\\\[\\s\\S])*\\]' + // a character set
+                '|\\\\u[A-Fa-f0-9]{4}' + // a unicode escape
+                '|\\\\x[A-Fa-f0-9]{2}' + // a hex escape
+                '|\\\\[0-9]+' + // a back-reference or octal escape
+                '|\\\\[^ux0-9]' + // other escape sequence
+                '|\\(\\?[:!=]' + // start of a non-capturing group
+                '|[\\(\\)\\^]' + // start/end of a group, or line start
+                '|[^\\x5B\\x5C\\(\\)\\^]+' + // run of other characters
+                ')',
+              'g'
             )
           );
           const n = parts.length;
@@ -784,10 +784,10 @@ const IN_GLOBAL_SCOPE = false;
           // mapping.
           for (var i = 0, groupIndex = 0; i < n; ++i) {
             var p = parts[i];
-            if (p === "(") {
+            if (p === '(') {
               // groups are 1-indexed, so max group index is count of '('
               ++groupIndex;
-            } else if ("\\" === p.charAt(0)) {
+            } else if ('\\' === p.charAt(0)) {
               var decimalValue = +p.substring(1);
               if (decimalValue) {
                 if (decimalValue <= groupIndex) {
@@ -811,15 +811,15 @@ const IN_GLOBAL_SCOPE = false;
           }
           for (var i = 0, groupIndex = 0; i < n; ++i) {
             var p = parts[i];
-            if (p === "(") {
+            if (p === '(') {
               ++groupIndex;
               if (!capturedGroups[groupIndex]) {
-                parts[i] = "(?:";
+                parts[i] = '(?:';
               }
-            } else if ("\\" === p.charAt(0)) {
+            } else if ('\\' === p.charAt(0)) {
               var decimalValue = +p.substring(1);
               if (decimalValue && decimalValue <= groupIndex) {
-                parts[i] = "\\" + capturedGroups[decimalValue];
+                parts[i] = '\\' + capturedGroups[decimalValue];
               }
             }
           }
@@ -827,8 +827,8 @@ const IN_GLOBAL_SCOPE = false;
           // Remove any prefix anchors so that the output will match anywhere.
           // ^^ really does mean an anchored match though.
           for (var i = 0; i < n; ++i) {
-            if ("^" === parts[i] && "^" !== parts[i + 1]) {
-              parts[i] = "";
+            if ('^' === parts[i] && '^' !== parts[i + 1]) {
+              parts[i] = '';
             }
           }
 
@@ -838,33 +838,33 @@ const IN_GLOBAL_SCOPE = false;
             for (var i = 0; i < n; ++i) {
               var p = parts[i];
               const ch0 = p.charAt(0);
-              if (p.length >= 2 && ch0 === "[") {
+              if (p.length >= 2 && ch0 === '[') {
                 parts[i] = caseFoldCharset(p);
-              } else if (ch0 !== "\\") {
+              } else if (ch0 !== '\\') {
                 // TODO: handle letters in numeric escapes.
                 parts[i] = p.replace(/[a-zA-Z]/g, (ch) => {
                   const cc = ch.charCodeAt(0);
-                  return "[" + String.fromCharCode(cc & ~32, cc | 32) + "]";
+                  return '[' + String.fromCharCode(cc & ~32, cc | 32) + ']';
                 });
               }
             }
           }
 
-          return parts.join("");
+          return parts.join('');
         }
 
         const rewritten = [];
         for (var i = 0, n = regexs.length; i < n; ++i) {
           var regex = regexs[i];
           if (regex.global || regex.multiline) {
-            throw new Error("" + regex);
+            throw new Error('' + regex);
           }
           rewritten.push(
-            "(?:" + allowAnywhereFoldCaseAndRenumberGroups(regex) + ")"
+            '(?:' + allowAnywhereFoldCaseAndRenumberGroups(regex) + ')'
           );
         }
 
-        return new RegExp(rewritten.join("|"), ignoreCase ? "gi" : "g");
+        return new RegExp(rewritten.join('|'), ignoreCase ? 'gi' : 'g');
       }
 
       /**
@@ -935,8 +935,8 @@ const IN_GLOBAL_SCOPE = false;
               walk(child);
             }
             const nodeName = node.nodeName.toLowerCase();
-            if ("br" === nodeName || "li" === nodeName) {
-              chunks[k] = "\n";
+            if ('br' === nodeName || 'li' === nodeName) {
+              chunks[k] = '\n';
               spans[k << 1] = length++;
               spans[(k++ << 1) | 1] = node;
             }
@@ -945,9 +945,9 @@ const IN_GLOBAL_SCOPE = false;
             let text = node.nodeValue;
             if (text.length) {
               if (!isPreformatted) {
-                text = text.replace(/[ \t\r\n]+/g, " ");
+                text = text.replace(/[ \t\r\n]+/g, ' ');
               } else {
-                text = text.replace(/\r\n?/g, "\n"); // Normalize newlines.
+                text = text.replace(/\r\n?/g, '\n'); // Normalize newlines.
               }
               // TODO: handle tabs here?
               chunks[k] = text;
@@ -961,7 +961,7 @@ const IN_GLOBAL_SCOPE = false;
         walk(node);
 
         return {
-          sourceCode: chunks.join("").replace(/\n$/, ""),
+          sourceCode: chunks.join('').replace(/\n$/, ''),
           spans: spans,
         };
       }
@@ -1099,7 +1099,7 @@ const IN_GLOBAL_SCOPE = false;
               }
             }
             const regex = patternParts[1];
-            const k = "" + regex;
+            const k = '' + regex;
             if (!regexKeys.hasOwnProperty(k)) {
               allRegexs.push(regex);
               regexKeys[k] = null;
@@ -1138,7 +1138,7 @@ const IN_GLOBAL_SCOPE = false;
             let match = void 0;
 
             let isEmbedded;
-            if (typeof style === "string") {
+            if (typeof style === 'string') {
               isEmbedded = false;
             } else {
               let patternParts = shortcuts[token.charAt(0)];
@@ -1162,8 +1162,8 @@ const IN_GLOBAL_SCOPE = false;
               }
 
               isEmbedded =
-                style.length >= 5 && "lang-" === style.substring(0, 5);
-              if (isEmbedded && !(match && typeof match[1] === "string")) {
+                style.length >= 5 && 'lang-' === style.substring(0, 5);
+              if (isEmbedded && !(match && typeof match[1] === 'string')) {
                 isEmbedded = false;
                 style = PR_SOURCE;
               }
@@ -1242,21 +1242,21 @@ const IN_GLOBAL_SCOPE = false;
       function sourceDecorator(options) {
         const shortcutStylePatterns = [],
           fallthroughStylePatterns = [];
-        if (options["tripleQuotedStrings"]) {
+        if (options['tripleQuotedStrings']) {
           // '''multi-line-string''', 'single-line-string', and double-quoted
           shortcutStylePatterns.push([
             PR_STRING,
             /^(?:\'\'\'(?:[^\'\\]|\\[\s\S]|\'{1,2}(?=[^\']))*(?:\'\'\'|$)|\"\"\"(?:[^\"\\]|\\[\s\S]|\"{1,2}(?=[^\"]))*(?:\"\"\"|$)|\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$))/,
             null,
-            "'\"",
+            '\'"',
           ]);
-        } else if (options["multiLineStrings"]) {
+        } else if (options['multiLineStrings']) {
           // 'multi-line-string', "multi-line-string"
           shortcutStylePatterns.push([
             PR_STRING,
             /^(?:\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$)|\`(?:[^\\\`]|\\[\s\S])*(?:\`|$))/,
             null,
-            "'\"`",
+            '\'"`',
           ]);
         } else {
           // 'single-line-string', "single-line-string"
@@ -1264,10 +1264,10 @@ const IN_GLOBAL_SCOPE = false;
             PR_STRING,
             /^(?:\'(?:[^\\\'\r\n]|\\.)*(?:\'|$)|\"(?:[^\\\"\r\n]|\\.)*(?:\"|$))/,
             null,
-            "\"'",
+            '"\'',
           ]);
         }
-        if (options["verbatimStrings"]) {
+        if (options['verbatimStrings']) {
           // verbatim-string-literal production from the C# grammar.  See issue 93.
           fallthroughStylePatterns.push([
             PR_STRING,
@@ -1275,16 +1275,16 @@ const IN_GLOBAL_SCOPE = false;
             null,
           ]);
         }
-        const hc = options["hashComments"];
+        const hc = options['hashComments'];
         if (hc) {
-          if (options["cStyleComments"]) {
+          if (options['cStyleComments']) {
             if (hc > 1) {
               // multiline hash comments
               shortcutStylePatterns.push([
                 PR_COMMENT,
                 /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/,
                 null,
-                "#",
+                '#',
               ]);
             } else {
               // Stop C preprocessor declarations at an unclosed open comment
@@ -1292,7 +1292,7 @@ const IN_GLOBAL_SCOPE = false;
                 PR_COMMENT,
                 /^#(?:(?:define|e(?:l|nd)if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\r\n]*)/,
                 null,
-                "#",
+                '#',
               ]);
             }
             // #include <stdio.h>
@@ -1302,10 +1302,10 @@ const IN_GLOBAL_SCOPE = false;
               null,
             ]);
           } else {
-            shortcutStylePatterns.push([PR_COMMENT, /^#[^\r\n]*/, null, "#"]);
+            shortcutStylePatterns.push([PR_COMMENT, /^#[^\r\n]*/, null, '#']);
           }
         }
-        if (options["cStyleComments"]) {
+        if (options['cStyleComments']) {
           fallthroughStylePatterns.push([PR_COMMENT, /^\/\/[^\r\n]*/, null]);
           fallthroughStylePatterns.push([
             PR_COMMENT,
@@ -1313,19 +1313,19 @@ const IN_GLOBAL_SCOPE = false;
             null,
           ]);
         }
-        const regexLiterals = options["regexLiterals"];
+        const regexLiterals = options['regexLiterals'];
         if (regexLiterals) {
           /**
            * @const
            */
           const regexExcls =
             regexLiterals > 1
-              ? "" // Multiline regex literals
-              : "\n\r";
+              ? '' // Multiline regex literals
+              : '\n\r';
           /**
            * @const
            */
-          const regexAny = regexExcls ? "." : "[\\S\\s]";
+          const regexAny = regexExcls ? '.' : '[\\S\\s]';
           /**
            * @const
            */
@@ -1333,46 +1333,46 @@ const IN_GLOBAL_SCOPE = false;
             // A regular expression literal starts with a slash that is
             // not followed by * or / so that it is not confused with
             // comments.
-            "/(?=[^/*" +
+            '/(?=[^/*' +
             regexExcls +
-            "])" +
+            '])' +
             // and then contains any number of raw characters,
-            "(?:[^/\\x5B\\x5C" +
+            '(?:[^/\\x5B\\x5C' +
             regexExcls +
-            "]" +
+            ']' +
             // escape sequences (\x5C),
-            "|\\x5C" +
+            '|\\x5C' +
             regexAny +
             // or non-nesting character sets (\x5B\x5D);
-            "|\\x5B(?:[^\\x5C\\x5D" +
+            '|\\x5B(?:[^\\x5C\\x5D' +
             regexExcls +
-            "]" +
-            "|\\x5C" +
+            ']' +
+            '|\\x5C' +
             regexAny +
-            ")*(?:\\x5D|$))+" +
+            ')*(?:\\x5D|$))+' +
             // finally closed by a /.
-            "/";
+            '/';
           fallthroughStylePatterns.push([
-            "lang-regex",
-            RegExp("^" + REGEXP_PRECEDER_PATTERN + "(" + REGEX_LITERAL + ")"),
+            'lang-regex',
+            RegExp('^' + REGEXP_PRECEDER_PATTERN + '(' + REGEX_LITERAL + ')'),
           ]);
         }
 
-        const types = options["types"];
+        const types = options['types'];
         if (types) {
           fallthroughStylePatterns.push([PR_TYPE, types]);
         }
 
-        const keywords = ("" + options["keywords"]).replace(/^ | $/g, "");
+        const keywords = ('' + options['keywords']).replace(/^ | $/g, '');
         if (keywords.length) {
           fallthroughStylePatterns.push([
             PR_KEYWORD,
-            new RegExp("^(?:" + keywords.replace(/[\s,]+/g, "|") + ")\\b"),
+            new RegExp('^(?:' + keywords.replace(/[\s,]+/g, '|') + ')\\b'),
             null,
           ]);
         }
 
-        shortcutStylePatterns.push([PR_PLAIN, /^\s+/, null, " \r\n\t\xA0"]);
+        shortcutStylePatterns.push([PR_PLAIN, /^\s+/, null, ' \r\n\t\xA0']);
 
         let punctuation =
           // The Bash man page says
@@ -1410,9 +1410,9 @@ const IN_GLOBAL_SCOPE = false;
           // If that does turn out to be a problem, we should change the below
           // when hc is truthy to include # in the run of punctuation characters
           // only when not followint [|&;<>].
-          "^.[^\\s\\w.$@'\"`/\\\\]*";
-        if (options["regexLiterals"]) {
-          punctuation += "(?!s*/)";
+          '^.[^\\s\\w.$@\'"`/\\\\]*';
+        if (options['regexLiterals']) {
+          punctuation += '(?!s*/)';
         }
 
         fallthroughStylePatterns.push(
@@ -1423,20 +1423,20 @@ const IN_GLOBAL_SCOPE = false;
           [
             PR_LITERAL,
             new RegExp(
-              "^(?:" +
+              '^(?:' +
                 // A hex number
-                "0x[a-f0-9]+" +
+                '0x[a-f0-9]+' +
                 // or an octal or decimal number,
-                "|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)" +
+                '|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)' +
                 // possibly in scientific notation
-                "(?:e[+\\-]?\\d+)?" +
-                ")" +
+                '(?:e[+\\-]?\\d+)?' +
+                ')' +
                 // with an optional modifier like UL for unsigned long
-                "[a-z]*",
-              "i"
+                '[a-z]*',
+              'i'
             ),
             null,
-            "0123456789",
+            '0123456789',
           ],
           // Don't treat escaped quotes in bash as starting strings.
           // See issue 144.
@@ -1479,7 +1479,7 @@ const IN_GLOBAL_SCOPE = false;
 
         const document = node.ownerDocument;
 
-        let li = document.createElement("li");
+        let li = document.createElement('li');
         while (node.firstChild) {
           li.appendChild(node.firstChild);
         }
@@ -1491,7 +1491,7 @@ const IN_GLOBAL_SCOPE = false;
           const type = node.nodeType;
           if (type == 1 && !nocode.test(node.className)) {
             // Element
-            if ("br" === node.nodeName) {
+            if ('br' === node.nodeName) {
               breakAfter(node);
               // Discard the <BR> since it is now flush against a </LI>.
               if (node.parentNode) {
@@ -1590,11 +1590,11 @@ const IN_GLOBAL_SCOPE = false;
 
         // Make sure numeric indices show correctly.
         if (startLineNum === (startLineNum | 0)) {
-          listItems[0].setAttribute("value", startLineNum);
+          listItems[0].setAttribute('value', startLineNum);
         }
 
-        const ol = document.createElement("ol");
-        ol.className = "linenums";
+        const ol = document.createElement('ol');
+        ol.className = 'linenums';
         const offset =
           Math.max(0, (startLineNum - 1) /* zero index */ | 0) || 0;
         for (const i = 0, n = listItems.length; i < n; ++i) {
@@ -1602,9 +1602,9 @@ const IN_GLOBAL_SCOPE = false;
           // Stick a class on the LIs so that stylesheets can
           // color odd/even rows, or any other row pattern that
           // is co-prime with 10.
-          li.className = "L" + ((i + offset) % 10);
+          li.className = 'L' + ((i + offset) % 10);
           if (!li.firstChild) {
-            li.appendChild(document.createTextNode("\xA0"));
+            li.appendChild(document.createTextNode('\xA0'));
           }
           ol.appendChild(li);
         }
@@ -1669,10 +1669,10 @@ const IN_GLOBAL_SCOPE = false;
         nDecorations = decorations.length = decPos;
 
         const sourceNode = job.sourceNode;
-        let oldDisplay = "";
+        let oldDisplay = '';
         if (sourceNode) {
           oldDisplay = sourceNode.style.display;
-          sourceNode.style.display = "none";
+          sourceNode.style.display = 'none';
         }
         try {
           const decoration = null;
@@ -1698,11 +1698,11 @@ const IN_GLOBAL_SCOPE = false;
               // space to appear at the beginning of every line but the first.
               // Emitting an old Mac OS 9 line separator makes everything spiffy.
               if (isIE8OrEarlier) {
-                styledText = styledText.replace(newlineRe, "\r");
+                styledText = styledText.replace(newlineRe, '\r');
               }
               textNode.nodeValue = styledText;
               const document = textNode.ownerDocument;
-              const span = document.createElement("span");
+              const span = document.createElement('span');
               span.className = decorations[decorationIndex + 1];
               const parentNode = textNode.parentNode;
               parentNode.replaceChild(span, textNode);
@@ -1745,8 +1745,8 @@ const IN_GLOBAL_SCOPE = false;
           const ext = fileExtensions[i];
           if (!langHandlerRegistry.hasOwnProperty(ext)) {
             langHandlerRegistry[ext] = handler;
-          } else if (win["console"]) {
-            console["warn"]("cannot override language handler %s", ext);
+          } else if (win['console']) {
+            console['warn']('cannot override language handler %s', ext);
           }
         }
       }
@@ -1754,11 +1754,11 @@ const IN_GLOBAL_SCOPE = false;
         if (!(extension && langHandlerRegistry.hasOwnProperty(extension))) {
           // Treat it as markup if the first non whitespace character is a < and
           // the last non-whitespace character is a >.
-          extension = /^\s*</.test(source) ? "default-markup" : "default-code";
+          extension = /^\s*</.test(source) ? 'default-markup' : 'default-code';
         }
         return langHandlerRegistry[extension];
       }
-      registerLangHandler(decorateSource, ["default-code"]);
+      registerLangHandler(decorateSource, ['default-code']);
       registerLangHandler(
         createSimpleLexer(
           [],
@@ -1767,43 +1767,43 @@ const IN_GLOBAL_SCOPE = false;
             [PR_DECLARATION, /^<!\w[^>]*(?:>|$)/],
             [PR_COMMENT, /^<\!--[\s\S]*?(?:-\->|$)/],
             // Unescaped content in an unknown language
-            ["lang-", /^<\?([\s\S]+?)(?:\?>|$)/],
-            ["lang-", /^<%([\s\S]+?)(?:%>|$)/],
+            ['lang-', /^<\?([\s\S]+?)(?:\?>|$)/],
+            ['lang-', /^<%([\s\S]+?)(?:%>|$)/],
             [PR_PUNCTUATION, /^(?:<[%?]|[%?]>)/],
-            ["lang-", /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i],
+            ['lang-', /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i],
             // Unescaped content in javascript.  (Or possibly vbscript).
-            ["lang-js", /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i],
+            ['lang-js', /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i],
             // Contains unescaped stylesheet content
-            ["lang-css", /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],
-            ["lang-in.tag", /^(<\/?[a-z][^<>]*>)/i],
+            ['lang-css', /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],
+            ['lang-in.tag', /^(<\/?[a-z][^<>]*>)/i],
           ]
         ),
-        ["default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl"]
+        ['default-markup', 'htm', 'html', 'mxml', 'xhtml', 'xml', 'xsl']
       );
       registerLangHandler(
         createSimpleLexer(
           [
-            [PR_PLAIN, /^[\s]+/, null, " \t\r\n"],
-            [PR_ATTRIB_VALUE, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, "\"'"],
+            [PR_PLAIN, /^[\s]+/, null, ' \t\r\n'],
+            [PR_ATTRIB_VALUE, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, '"\''],
           ],
           [
             [PR_TAG, /^^<\/?[a-z](?:[\w.:-]*\w)?|\/?>$/i],
             [PR_ATTRIB_NAME, /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i],
-            ["lang-uq.val", /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/],
+            ['lang-uq.val', /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/],
             [PR_PUNCTUATION, /^[=<>\/]+/],
-            ["lang-js", /^on\w+\s*=\s*\"([^\"]+)\"/i],
-            ["lang-js", /^on\w+\s*=\s*\'([^\']+)\'/i],
-            ["lang-js", /^on\w+\s*=\s*([^\"\'>\s]+)/i],
-            ["lang-css", /^style\s*=\s*\"([^\"]+)\"/i],
-            ["lang-css", /^style\s*=\s*\'([^\']+)\'/i],
-            ["lang-css", /^style\s*=\s*([^\"\'>\s]+)/i],
+            ['lang-js', /^on\w+\s*=\s*\"([^\"]+)\"/i],
+            ['lang-js', /^on\w+\s*=\s*\'([^\']+)\'/i],
+            ['lang-js', /^on\w+\s*=\s*([^\"\'>\s]+)/i],
+            ['lang-css', /^style\s*=\s*\"([^\"]+)\"/i],
+            ['lang-css', /^style\s*=\s*\'([^\']+)\'/i],
+            ['lang-css', /^style\s*=\s*([^\"\'>\s]+)/i],
           ]
         ),
-        ["in.tag"]
+        ['in.tag']
       );
       registerLangHandler(
         createSimpleLexer([], [[PR_ATTRIB_VALUE, /^[\s\S]+/]]),
-        ["uq.val"]
+        ['uq.val']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1812,13 +1812,13 @@ const IN_GLOBAL_SCOPE = false;
           cStyleComments: true,
           types: C_TYPES,
         }),
-        ["c", "cc", "cpp", "cxx", "cyc", "m"]
+        ['c', 'cc', 'cpp', 'cxx', 'cyc', 'm']
       );
       registerLangHandler(
         sourceDecorator({
-          keywords: "null,true,false",
+          keywords: 'null,true,false',
         }),
-        ["json"]
+        ['json']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1828,14 +1828,14 @@ const IN_GLOBAL_SCOPE = false;
           verbatimStrings: true,
           types: C_TYPES,
         }),
-        ["cs"]
+        ['cs']
       );
       registerLangHandler(
         sourceDecorator({
           keywords: JAVA_KEYWORDS,
           cStyleComments: true,
         }),
-        ["java"]
+        ['java']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1843,7 +1843,7 @@ const IN_GLOBAL_SCOPE = false;
           hashComments: true,
           multiLineStrings: true,
         }),
-        ["bash", "bsh", "csh", "sh"]
+        ['bash', 'bsh', 'csh', 'sh']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1852,7 +1852,7 @@ const IN_GLOBAL_SCOPE = false;
           multiLineStrings: true,
           tripleQuotedStrings: true,
         }),
-        ["cv", "py", "python"]
+        ['cv', 'py', 'python']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1861,7 +1861,7 @@ const IN_GLOBAL_SCOPE = false;
           multiLineStrings: true,
           regexLiterals: 2, // multiline regex literals
         }),
-        ["perl", "pl", "pm"]
+        ['perl', 'pl', 'pm']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1870,7 +1870,7 @@ const IN_GLOBAL_SCOPE = false;
           multiLineStrings: true,
           regexLiterals: true,
         }),
-        ["rb", "ruby"]
+        ['rb', 'ruby']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1878,7 +1878,7 @@ const IN_GLOBAL_SCOPE = false;
           cStyleComments: true,
           regexLiterals: true,
         }),
-        ["javascript", "js", "ts", "typescript"]
+        ['javascript', 'js', 'ts', 'typescript']
       );
       registerLangHandler(
         sourceDecorator({
@@ -1889,10 +1889,10 @@ const IN_GLOBAL_SCOPE = false;
           tripleQuotedStrings: true,
           regexLiterals: true,
         }),
-        ["coffee"]
+        ['coffee']
       );
       registerLangHandler(createSimpleLexer([], [[PR_STRING, /^[\s\S]+/]]), [
-        "regex",
+        'regex',
       ]);
 
       /** @param {JobT} job */
@@ -1915,8 +1915,8 @@ const IN_GLOBAL_SCOPE = false;
           // modifying the sourceNode in place.
           recombineTagsAndDecorations(job);
         } catch (e) {
-          if (win["console"]) {
-            console["log"]((e && e["stack"]) || e);
+          if (win['console']) {
+            console['log']((e && e['stack']) || e);
           }
         }
       }
@@ -1939,7 +1939,7 @@ const IN_GLOBAL_SCOPE = false;
         /** @type{string|null} */
         const langExtension = opt_langExtension || null;
         /** @type{!Element} */
-        let container = document.createElement("div");
+        let container = document.createElement('div');
         // This could cause images to load and onload listeners to fire.
         // E.g. <img onerror="alert(1337)" src="nosuchimage.png">.
         // We assume that the inner HTML is from a trusted source.
@@ -1947,7 +1947,7 @@ const IN_GLOBAL_SCOPE = false;
         // when it is injected into a <pre> tag.
         // http://stackoverflow.com/questions/451486/pre-tag-loses-line-breaks-when-setting-innerhtml-in-ie
         // http://stackoverflow.com/questions/195363/inserting-a-newline-into-a-pre-tag-ie-javascript
-        container.innerHTML = "<pre>" + sourceCodeHtml + "</pre>";
+        container.innerHTML = '<pre>' + sourceCodeHtml + '</pre>';
         container = /** @type{!Element} */ (container.firstChild);
         if (nl) {
           numberLines(container, nl, true);
@@ -1985,9 +1985,9 @@ const IN_GLOBAL_SCOPE = false;
         }
         // fetch a list of nodes to rewrite
         let codeSegments = [
-          byTagName("pre"),
-          byTagName("code"),
-          byTagName("xmp"),
+          byTagName('pre'),
+          byTagName('code'),
+          byTagName('xmp'),
         ];
         const elements = [];
         for (let i = 0; i < codeSegments.length; ++i) {
@@ -1998,7 +1998,7 @@ const IN_GLOBAL_SCOPE = false;
         codeSegments = null;
 
         let clock = Date;
-        if (!clock["now"]) {
+        if (!clock['now']) {
           clock = {
             now() {
               return +new Date();
@@ -2019,10 +2019,10 @@ const IN_GLOBAL_SCOPE = false;
         const EMPTY = {};
 
         function doWork() {
-          const endTime = win["PR_SHOULD_USE_CONTINUATION"]
-            ? clock["now"]() + 250 /* ms */
+          const endTime = win['PR_SHOULD_USE_CONTINUATION']
+            ? clock['now']() + 250 /* ms */
             : Infinity;
-          for (; k < elements.length && clock["now"]() < endTime; k++) {
+          for (; k < elements.length && clock['now']() < endTime; k++) {
             const cs = elements[k];
 
             // Look for a preceding comment like
@@ -2076,7 +2076,7 @@ const IN_GLOBAL_SCOPE = false;
               if (!nested) {
                 // Mark done.  If we fail to prettyprint for whatever reason,
                 // we shouldn't try again.
-                cs.className += " prettyprinted";
+                cs.className += ' prettyprinted';
 
                 // If the classes includes a language extensions, use it.
                 // Language extensions can be specified like
@@ -2086,7 +2086,7 @@ const IN_GLOBAL_SCOPE = false;
                 // HTML5 recommends that a language be specified using "language-"
                 // as the prefix instead.  Google Code Prettify supports both.
                 // http://dev.w3.org/html5/spec-author-view/the-code-element.html
-                let langExtension = attrs["lang"];
+                let langExtension = attrs['lang'];
                 if (!langExtension) {
                   langExtension = className.match(langExtensionRe);
                   // Support <pre class="prettyprint"><code class="language-c">
@@ -2108,23 +2108,23 @@ const IN_GLOBAL_SCOPE = false;
                 if (preformattedTagNameRe.test(cs.tagName)) {
                   preformatted = 1;
                 } else {
-                  const currentStyle = cs["currentStyle"];
+                  const currentStyle = cs['currentStyle'];
                   const defaultView = doc.defaultView;
                   const whitespace = currentStyle
-                    ? currentStyle["whiteSpace"]
+                    ? currentStyle['whiteSpace']
                     : defaultView && defaultView.getComputedStyle
                     ? defaultView
                         .getComputedStyle(cs, null)
-                        .getPropertyValue("white-space")
+                        .getPropertyValue('white-space')
                     : 0;
                   preformatted =
-                    whitespace && "pre" === whitespace.substring(0, 3);
+                    whitespace && 'pre' === whitespace.substring(0, 3);
                 }
 
                 // Look for a class like linenums or linenums:<n> where <n> is the
                 // 1-indexed number of the first line.
-                let lineNums = attrs["linenums"];
-                if (!(lineNums = lineNums === "true" || +lineNums)) {
+                let lineNums = attrs['linenums'];
+                if (!(lineNums = lineNums === 'true' || +lineNums)) {
                   lineNums = className.match(/\blinenums\b(?::(\d+))?/);
                   lineNums = lineNums
                     ? lineNums[1] && lineNums[1].length
@@ -2154,7 +2154,7 @@ const IN_GLOBAL_SCOPE = false;
           if (k < elements.length) {
             // finish up in a continuation
             win.setTimeout(doWork, 250);
-          } else if ("function" === typeof opt_whenDone) {
+          } else if ('function' === typeof opt_whenDone) {
             opt_whenDone();
           }
         }
@@ -2166,7 +2166,7 @@ const IN_GLOBAL_SCOPE = false;
        * Contains functions for creating and registering new language handlers.
        * @type {Object}
        */
-      const PR = (win["PR"] = {
+      const PR = (win['PR'] = {
         createSimpleLexer: createSimpleLexer,
         registerLangHandler: registerLangHandler,
         sourceDecorator: sourceDecorator,
@@ -2184,10 +2184,10 @@ const IN_GLOBAL_SCOPE = false;
         PR_TAG: PR_TAG,
         PR_TYPE: PR_TYPE,
         prettyPrintOne: IN_GLOBAL_SCOPE
-          ? (win["prettyPrintOne"] = $prettyPrintOne)
+          ? (win['prettyPrintOne'] = $prettyPrintOne)
           : (prettyPrintOne = $prettyPrintOne),
         prettyPrint: (prettyPrint = IN_GLOBAL_SCOPE
-          ? (win["prettyPrint"] = $prettyPrint)
+          ? (win['prettyPrint'] = $prettyPrint)
           : (prettyPrint = $prettyPrint)),
       });
 
@@ -2203,9 +2203,9 @@ const IN_GLOBAL_SCOPE = false;
       // whose value is an object. This helps avoid conflict with any
       // other existing JavaScript code that could have defined a define()
       // function that does not conform to the AMD API.
-      const define = win["define"];
-      if (typeof define === "function" && define["amd"]) {
-        define("google-code-prettify", [], () => {
+      const define = win['define'];
+      if (typeof define === 'function' && define['amd']) {
+        define('google-code-prettify', [], () => {
           return PR;
         });
       }
@@ -2225,7 +2225,7 @@ const IN_GLOBAL_SCOPE = false;
               for (let i = 0; i < n; ++i) {
                 ((i) => {
                   win.setTimeout(function () {
-                    win["exports"][callbacks[i]].apply(win, arguments);
+                    win['exports'][callbacks[i]].apply(win, arguments);
                   }, 0);
                 })(i);
               }

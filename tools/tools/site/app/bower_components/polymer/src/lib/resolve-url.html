@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return (
           pre +
           "'" +
-          resolve(url.replace(/["']/g, ""), ownerDocument) +
+          resolve(url.replace(/["']/g, ''), ownerDocument) +
           "'" +
           post
         );
@@ -29,12 +29,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       for (var name in URL_ATTRS) {
         var a$ = URL_ATTRS[name];
         for (var i = 0, l = a$.length, a, at, v; i < l && (a = a$[i]); i++) {
-          if (name === "*" || element.localName === name) {
+          if (name === '*' || element.localName === name) {
             at = element.attributes[a];
             v = at && at.value;
             if (v && v.search(BINDING_RX) < 0) {
               at.value =
-                a === "style"
+                a === 'style'
                   ? resolveCss(v, ownerDocument)
                   : resolve(v, ownerDocument);
             }
@@ -45,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     function resolve(url, ownerDocument) {
       // do not resolve '#' links, they are used for routing
-      if (url && url[0] === "#") {
+      if (url && url[0] === '#') {
         return url;
       }
       var resolver = getUrlResolver(ownerDocument);
@@ -57,8 +57,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var tempDocBase;
     function resolveUrl(url, baseUri) {
       if (!tempDoc) {
-        tempDoc = document.implementation.createHTMLDocument("temp");
-        tempDocBase = tempDoc.createElement("base");
+        tempDoc = document.implementation.createHTMLDocument('temp');
+        tempDocBase = tempDoc.createElement('base');
         tempDoc.head.appendChild(tempDocBase);
       }
       tempDocBase.href = baseUri;
@@ -68,14 +68,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function getUrlResolver(ownerDocument) {
       return (
         ownerDocument.__urlResolver ||
-        (ownerDocument.__urlResolver = ownerDocument.createElement("a"))
+        (ownerDocument.__urlResolver = ownerDocument.createElement('a'))
       );
     }
 
     var CSS_URL_RX = /(url\()([^)]*)(\))/g;
     var URL_ATTRS = {
-      "*": ["href", "src", "style", "url"],
-      form: ["action"],
+      '*': ['href', 'src', 'style', 'url'],
+      form: ['action'],
     };
     var BINDING_RX = /\{\{|\[\[/;
 

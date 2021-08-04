@@ -5,23 +5,23 @@ const dP = Object.defineProperty,
     function append(name, value) {
       URLSearchParamsProto.append.call(this, name, value);
       name = this.toString();
-      search.set.call(this._usp, name ? "?" + name : "");
+      search.set.call(this._usp, name ? '?' + name : '');
     }
     function del(name) {
       URLSearchParamsProto.delete.call(this, name);
       name = this.toString();
-      search.set.call(this._usp, name ? "?" + name : "");
+      search.set.call(this._usp, name ? '?' + name : '');
     }
     function set(name, value) {
       URLSearchParamsProto.set.call(this, name, value);
       name = this.toString();
-      search.set.call(this._usp, name ? "?" + name : "");
+      search.set.call(this._usp, name ? '?' + name : '');
     }
     return (sp, value) => {
       sp.append = append;
       sp.delete = del;
       sp.set = set;
-      return dP(sp, "_usp", {
+      return dP(sp, '_usp', {
         configurable: true,
         writable: true,
         value: value,
@@ -30,7 +30,7 @@ const dP = Object.defineProperty,
   },
   createSearchParamsCreate = (polluteSearchParams) => {
     return (obj, sp) => {
-      dP(obj, "_searchParams", {
+      dP(obj, '_searchParams', {
         configurable: true,
         writable: true,
         value: polluteSearchParams(sp, obj),
@@ -48,15 +48,15 @@ const dP = Object.defineProperty,
     if (!(obj instanceof Class))
       throw new TypeError(
         "'searchParams' accessed on an object that " +
-          "does not implement interface " +
+          'does not implement interface ' +
           Class.name
       );
   },
   upgradeClass = (Class) => {
     const ClassProto = Class.prototype;
-    const searchParams = gOPD(ClassProto, "searchParams");
-    const href = gOPD(ClassProto, "href");
-    const search = gOPD(ClassProto, "search");
+    const searchParams = gOPD(ClassProto, 'searchParams');
+    const href = gOPD(ClassProto, 'href');
+    const search = gOPD(ClassProto, 'search');
     let createSearchParams;
     if (!searchParams && search && search.set) {
       createSearchParams = createSearchParamsCreate(

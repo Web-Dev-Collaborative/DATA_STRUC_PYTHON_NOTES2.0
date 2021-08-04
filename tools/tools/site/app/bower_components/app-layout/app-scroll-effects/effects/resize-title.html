@@ -25,37 +25,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Transform the font size of a designated title element between two values based on the scroll
      * position.
      */
-    Polymer.AppLayout.registerEffect("resize-title", {
+    Polymer.AppLayout.registerEffect('resize-title', {
       /** @this Polymer.AppLayout.ElementWithBackground */
       setUp: function setUp() {
-        var title = this._getDOMRef("mainTitle");
-        var condensedTitle = this._getDOMRef("condensedTitle");
+        var title = this._getDOMRef('mainTitle');
+        var condensedTitle = this._getDOMRef('condensedTitle');
 
         if (!condensedTitle) {
           console.warn(
-            "Scroll effect `resize-title`: undefined `condensed-title`"
+            'Scroll effect `resize-title`: undefined `condensed-title`'
           );
           return false;
         }
         if (!title) {
-          console.warn("Scroll effect `resize-title`: undefined `main-title`");
+          console.warn('Scroll effect `resize-title`: undefined `main-title`');
           return false;
         }
 
-        condensedTitle.style.willChange = "opacity";
-        title.style.willChange = "opacity";
-        condensedTitle.style.webkitTransform = "translateZ(0)";
-        title.style.webkitTransform = "translateZ(0)";
-        condensedTitle.style.transform = "translateZ(0)";
-        title.style.transform = "translateZ(0)";
+        condensedTitle.style.willChange = 'opacity';
+        title.style.willChange = 'opacity';
+        condensedTitle.style.webkitTransform = 'translateZ(0)';
+        title.style.webkitTransform = 'translateZ(0)';
+        condensedTitle.style.transform = 'translateZ(0)';
+        title.style.transform = 'translateZ(0)';
 
         var titleClientRect = title.getBoundingClientRect();
         var condensedTitleClientRect = condensedTitle.getBoundingClientRect();
         var fx = {};
 
         fx.scale =
-          parseInt(window.getComputedStyle(condensedTitle)["font-size"], 10) /
-          parseInt(window.getComputedStyle(title)["font-size"], 10);
+          parseInt(window.getComputedStyle(condensedTitle)['font-size'], 10) /
+          parseInt(window.getComputedStyle(title)['font-size'], 10);
         fx.titleDX = titleClientRect.left - condensedTitleClientRect.left;
         fx.titleDY = titleClientRect.top - condensedTitleClientRect.top;
         fx.condensedTitle = condensedTitle;
@@ -85,16 +85,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           ],
           function (scale, translateX, translateY) {
             this.transform(
-              "translate(" +
+              'translate(' +
                 translateX +
-                "px, " +
+                'px, ' +
                 translateY +
-                "px) " +
-                "scale3d(" +
+                'px) ' +
+                'scale3d(' +
                 scale +
-                ", " +
+                ', ' +
                 scale +
-                ", 1)",
+                ', 1)',
               fx.title
             );
           },

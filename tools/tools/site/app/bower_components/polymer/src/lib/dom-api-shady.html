@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="dom-innerHTML.html" />
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     var Settings = Polymer.Settings;
     var DomApi = Polymer.DomApi;
@@ -35,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (host.shadyRoot && host.shadyRoot._distributionClean) {
           host.shadyRoot._distributionClean = false;
           Polymer.dom.addDebouncer(
-            host.debounce("_distribute", host._distributeContent)
+            host.debounce('_distribute', host._distributeContent)
           );
         }
       },
@@ -53,8 +53,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       insertBefore: function (node, ref_node) {
         if (ref_node && TreeApi.Logical.getParentNode(ref_node) !== this.node) {
           throw Error(
-            "The ref_node to be inserted before is not a child " +
-              "of this node"
+            'The ref_node to be inserted before is not a child ' +
+              'of this node'
           );
         }
         // remove node from its current position iff it's in a tree.
@@ -141,7 +141,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       removeChild: function (node) {
         if (TreeApi.Logical.getParentNode(node) !== this.node) {
           throw Error(
-            "The node to be removed is not a child of this node: " + node
+            'The node to be removed is not a child of this node: ' + node
           );
         }
         if (!this._removeNode(node)) {
@@ -608,7 +608,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 tc.push(c.textContent);
               }
             }
-            return tc.join("");
+            return tc.join('');
           }
         },
         set: function (text) {
@@ -638,7 +638,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var nt = this.node.nodeType;
           if (nt !== Node.TEXT_NODE || nt !== Node.COMMENT_NODE) {
             this._clear();
-            var d = document.createElement("div");
+            var d = document.createElement('div');
             d.innerHTML = text;
             // here, appendChild may move nodes async so we cannot rely
             // on node position when copying

@@ -71,12 +71,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     attached: function () {
       // Note: the iron-form that this element belongs to will set this
       // element's _parentForm property when handling this event.
-      this.fire("iron-form-element-register");
+      this.fire('iron-form-element-register');
     },
 
     detached: function () {
       if (this._parentForm) {
-        this._parentForm.fire("iron-form-element-unregister", { target: this });
+        this._parentForm.fire('iron-form-element-unregister', { target: this });
       }
     },
   };

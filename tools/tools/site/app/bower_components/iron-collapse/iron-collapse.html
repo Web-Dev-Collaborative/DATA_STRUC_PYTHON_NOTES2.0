@@ -85,7 +85,7 @@ Custom property | Description | Default
 
 <script>
   Polymer({
-    is: "iron-collapse",
+    is: 'iron-collapse',
 
     behaviors: [Polymer.IronResizableBehavior],
 
@@ -98,7 +98,7 @@ Custom property | Description | Default
       horizontal: {
         type: Boolean,
         value: false,
-        observer: "_horizontalChanged",
+        observer: '_horizontalChanged',
       },
 
       /**
@@ -110,7 +110,7 @@ Custom property | Description | Default
         type: Boolean,
         value: false,
         notify: true,
-        observer: "_openedChanged",
+        observer: '_openedChanged',
       },
 
       /**
@@ -140,12 +140,12 @@ Custom property | Description | Default
        */
       _desiredSize: {
         type: String,
-        value: "",
+        value: '',
       },
     },
 
     get dimension() {
-      return this.horizontal ? "width" : "height";
+      return this.horizontal ? 'width' : 'height';
     },
 
     /**
@@ -153,7 +153,7 @@ Custom property | Description | Default
      * @private
      */
     get _dimensionMax() {
-      return this.horizontal ? "maxWidth" : "maxHeight";
+      return this.horizontal ? 'maxWidth' : 'maxHeight';
     },
 
     /**
@@ -161,17 +161,17 @@ Custom property | Description | Default
      * @private
      */
     get _dimensionMaxCss() {
-      return this.horizontal ? "max-width" : "max-height";
+      return this.horizontal ? 'max-width' : 'max-height';
     },
 
     hostAttributes: {
-      role: "group",
-      "aria-hidden": "true",
-      "aria-expanded": "false",
+      role: 'group',
+      'aria-hidden': 'true',
+      'aria-expanded': 'false',
     },
 
     listeners: {
-      transitionend: "_onTransitionEnd",
+      transitionend: '_onTransitionEnd',
     },
 
     /**
@@ -198,7 +198,7 @@ Custom property | Description | Default
      */
     updateSize: function (size, animated) {
       // Consider 'auto' as '', to take full size.
-      size = size === "auto" ? "" : size;
+      size = size === 'auto' ? '' : size;
 
       var willAnimate =
         animated &&
@@ -215,8 +215,8 @@ Custom property | Description | Default
         var startSize = this._calcSize();
         // For `auto` we must calculate what is the final size for the animation.
         // After the transition is done, _transitionEnd will set the size back to `auto`.
-        if (size === "") {
-          this.style[this._dimensionMax] = "";
+        if (size === '') {
+          this.style[this._dimensionMax] = '';
           size = this._calcSize();
         }
         // Go to startSize without animation.
@@ -246,31 +246,31 @@ Custom property | Description | Default
      */
     enableTransition: function (enabled) {
       Polymer.Base._warn(
-        "`enableTransition()` is deprecated, use `noAnimation` instead."
+        '`enableTransition()` is deprecated, use `noAnimation` instead.'
       );
       this.noAnimation = !enabled;
     },
 
     _updateTransition: function (enabled) {
-      this.style.transitionDuration = enabled && !this.noAnimation ? "" : "0s";
+      this.style.transitionDuration = enabled && !this.noAnimation ? '' : '0s';
     },
 
     _horizontalChanged: function () {
       this.style.transitionProperty = this._dimensionMaxCss;
       var otherDimension =
-        this._dimensionMax === "maxWidth" ? "maxHeight" : "maxWidth";
-      this.style[otherDimension] = "";
-      this.updateSize(this.opened ? "auto" : "0px", false);
+        this._dimensionMax === 'maxWidth' ? 'maxHeight' : 'maxWidth';
+      this.style[otherDimension] = '';
+      this.updateSize(this.opened ? 'auto' : '0px', false);
     },
 
     _openedChanged: function () {
-      this.setAttribute("aria-expanded", this.opened);
-      this.setAttribute("aria-hidden", !this.opened);
+      this.setAttribute('aria-expanded', this.opened);
+      this.setAttribute('aria-hidden', !this.opened);
 
       this._setTransitioning(true);
-      this.toggleClass("iron-collapse-closed", false);
-      this.toggleClass("iron-collapse-opened", false);
-      this.updateSize(this.opened ? "auto" : "0px", true);
+      this.toggleClass('iron-collapse-closed', false);
+      this.toggleClass('iron-collapse-opened', false);
+      this.updateSize(this.opened ? 'auto' : '0px', true);
 
       // Focus the current collapse.
       if (this.opened) {
@@ -280,8 +280,8 @@ Custom property | Description | Default
 
     _transitionEnd: function () {
       this.style[this._dimensionMax] = this._desiredSize;
-      this.toggleClass("iron-collapse-closed", !this.opened);
-      this.toggleClass("iron-collapse-opened", this.opened);
+      this.toggleClass('iron-collapse-closed', !this.opened);
+      this.toggleClass('iron-collapse-opened', this.opened);
       this._updateTransition(false);
       this.notifyResize();
       this._setTransitioning(false);
@@ -294,7 +294,7 @@ Custom property | Description | Default
     },
 
     _calcSize: function () {
-      return this.getBoundingClientRect()[this.dimension] + "px";
+      return this.getBoundingClientRect()[this.dimension] + 'px';
     },
   });
 </script>

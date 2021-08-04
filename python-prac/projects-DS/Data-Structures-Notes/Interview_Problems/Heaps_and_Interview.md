@@ -215,6 +215,6 @@ Another interesting solution might be to iterate through the arrays while there 
 
 Like so:
 
-![Solution](Interview2.png "Solution")
+![Solution](Interview2.png 'Solution')
 
 But a truly optimal solution to this problem is solved [using min heaps](https://medium.com/outco/how-to-merge-k-sorted-arrays-c35d87aa298e).

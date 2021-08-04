@@ -22,8 +22,8 @@ google-codelab-index-cards {
   margin: 0 0 24px 0;
 }
 
-google-codelab-index-cards[num="1"],
-google-codelab-index-cards[num="2"] {
+google-codelab-index-cards[num='1'],
+google-codelab-index-cards[num='2'] {
   justify-content: flex-start;
 }
 
@@ -40,8 +40,8 @@ google-codelab-index-cards .card {
   flex-shrink: 0;
 }
 
-google-codelab-index-cards[num="1"] .card,
-google-codelab-index-cards[num="2"] .card {
+google-codelab-index-cards[num='1'] .card,
+google-codelab-index-cards[num='2'] .card {
   margin-right: 8px;
 }
 
@@ -100,7 +100,7 @@ google-codelab-index-cards .card .card-start {
   cursor: pointer;
   z-index: 0;
   padding: 0.7em 0.57em;
-  font-family: "Roboto", "Noto", sans-serif;
+  font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
   font-weight: 500;
@@ -116,7 +116,7 @@ google-codelab-index-cards .card .card-updated {
   text-align: right;
 }
 
-@import "categories";
+@import 'categories';
 
 @media (min-width: 768px) {
   google-codelab-index-cards .card {
@@ -146,8 +146,8 @@ google-codelab-index-cards .card .card-updated {
     width: 100%;
     flex: 1 0 200px;
   }
-  google-codelab-index-cards[num="1"] .card,
-  google-codelab-index-cards[num="2"] .card {
+  google-codelab-index-cards[num='1'] .card,
+  google-codelab-index-cards[num='2'] .card {
     margin-right: 0;
   }
 }

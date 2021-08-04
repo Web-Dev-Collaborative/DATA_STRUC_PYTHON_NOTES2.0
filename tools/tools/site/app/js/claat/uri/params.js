@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-goog.provide("claat.uri.params");
+goog.provide('claat.uri.params');
 
 /**
  * Decodes URL search parts.
@@ -28,11 +28,11 @@ claat.uri.params.decode = (search) => {
     return obj;
   }
 
-  const parts = search.split("&");
+  const parts = search.split('&');
   while (parts.length > 0) {
     let name = goog.global.decodeURIComponent(parts.shift());
-    let value = "";
-    const i = name.indexOf("=");
+    let value = '';
+    const i = name.indexOf('=');
     if (i > 0) {
       value = name.substring(i + 1);
       name = name.substring(0, i);

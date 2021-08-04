@@ -53,7 +53,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       h1 {
-        font-family: "Abril Fatface", cursive;
+        font-family: 'Abril Fatface', cursive;
         font-size: 6em;
         font-weight: 300;
         color: #0a3142;
@@ -74,7 +74,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .desc::before {
         background-color: #31f0ef;
-        content: "";
+        content: '';
         height: 6px;
         left: 0;
         line-height: 21px;
@@ -179,19 +179,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: "shrine-featured-item",
+      is: 'shrine-featured-item',
 
       properties: {
         item: {
           type: Object,
-          observer: "_itemChanged",
+          observer: '_itemChanged',
         },
       },
 
       _itemChanged: function (item) {
-        this.style.visibility = item && item.title ? "visible" : "hidden";
-        this.$.img.src = "";
-        this.$.img.src = item ? item.imageUrl : "";
+        this.style.visibility = item && item.title ? 'visible' : 'hidden';
+        this.$.img.src = '';
+        this.$.img.src = item ? item.imageUrl : '';
       },
     });
   </script>

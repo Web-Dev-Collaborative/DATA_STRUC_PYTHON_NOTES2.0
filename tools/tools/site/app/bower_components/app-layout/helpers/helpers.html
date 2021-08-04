@@ -32,7 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     effectDef
   ) {
     if (Polymer.AppLayout._scrollEffects[effectName] != null) {
-      throw new Error("effect `" + effectName + "` is already registered.");
+      throw new Error('effect `' + effectName + '` is already registered.');
     }
     Polymer.AppLayout._scrollEffects[effectName] = effectDef;
   };
@@ -64,8 +64,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var docEl = document.documentElement;
     var target = options.target || docEl;
     var hasNativeScrollBehavior =
-      "scrollBehavior" in target.style && target.scroll;
-    var scrollClassName = "app-layout-silent-scroll";
+      'scrollBehavior' in target.style && target.scroll;
+    var scrollClassName = 'app-layout-silent-scroll';
     var scrollTop = options.top || 0;
     var scrollLeft = options.left || 0;
     var scrollTo =
@@ -76,7 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             target.scrollTop = scrollTop;
           };
 
-    if (options.behavior === "smooth") {
+    if (options.behavior === 'smooth') {
       if (hasNativeScrollBehavior) {
         target.scroll(options);
       } else {
@@ -111,7 +111,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         updateFrame();
       }
-    } else if (options.behavior === "silent") {
+    } else if (options.behavior === 'silent') {
       docEl.classList.add(scrollClassName);
 
       // Browsers keep the scroll momentum even if the bottom of the scrolling content

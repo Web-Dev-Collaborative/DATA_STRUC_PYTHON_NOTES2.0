@@ -91,29 +91,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: "x-app",
+      is: 'x-app',
 
       properties: {
         selected: {
           type: String,
-          value: "Item One",
+          value: 'Item One',
         },
 
         wideLayout: {
           type: Boolean,
           value: false,
-          observer: "onLayoutChange",
+          observer: 'onLayoutChange',
         },
 
         items: {
           type: Array,
           value: function () {
             return [
-              "Item One",
-              "Item Two",
-              "Item Three",
-              "Item Four",
-              "Item Five",
+              'Item One',
+              'Item Two',
+              'Item Three',
+              'Item Four',
+              'Item Five',
             ];
           },
         },

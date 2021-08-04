@@ -13,10 +13,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _shouldAddListener: function (effect) {
       return (
         effect.name &&
-        effect.kind != "attribute" &&
-        effect.kind != "text" &&
+        effect.kind != 'attribute' &&
+        effect.kind != 'text' &&
         !effect.isCompound &&
-        effect.parts[0].mode === "{"
+        effect.parts[0].mode === '{'
       );
     },
 
@@ -50,8 +50,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       } else {
         this._warn(
           this._logf(
-            "_observerEffect",
-            "observer method `" + effect.method + "` not defined"
+            '_observerEffect',
+            'observer method `' + effect.method + '` not defined'
           )
         );
       }
@@ -76,8 +76,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       } else {
         this._warn(
           this._logf(
-            "_complexObserverEffect",
-            "observer method `" + effect.method + "` not defined"
+            '_complexObserverEffect',
+            'observer method `' + effect.method + '` not defined'
           )
         );
       }
@@ -103,8 +103,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       } else {
         this._warn(
           this._logf(
-            "_computeEffect",
-            "compute method `" + effect.method + "` not defined"
+            '_computeEffect',
+            'compute method `' + effect.method + '` not defined'
           )
         );
       }
@@ -131,8 +131,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       } else {
         computedHost._warn(
           computedHost._logf(
-            "_annotatedComputationEffect",
-            "compute method `" + effect.method + "` not defined"
+            '_annotatedComputationEffect',
+            'compute method `' + effect.method + '` not defined'
           )
         );
       }
@@ -176,7 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // also true when `path === name`. We can skip this check b/c then
           // `name` and `v` already have the values we want.
           // Read the following as: `head(path) === name`.
-          var matches = path.indexOf(name + ".") === 0;
+          var matches = path.indexOf(name + '.') === 0;
           values[i] = {
             path: matches ? path : name,
             value: matches ? value : v,

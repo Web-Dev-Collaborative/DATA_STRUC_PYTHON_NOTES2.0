@@ -84,7 +84,7 @@ element.
 <script>
   (function () {
     Polymer({
-      is: "paper-dialog",
+      is: 'paper-dialog',
 
       behaviors: [
         Polymer.PaperDialogBehavior,
@@ -92,17 +92,17 @@ element.
       ],
 
       listeners: {
-        "neon-animation-finish": "_onNeonAnimationFinish",
+        'neon-animation-finish': '_onNeonAnimationFinish',
       },
 
       _renderOpened: function () {
         this.cancelAnimation();
-        this.playAnimation("entry");
+        this.playAnimation('entry');
       },
 
       _renderClosed: function () {
         this.cancelAnimation();
-        this.playAnimation("exit");
+        this.playAnimation('exit');
       },
 
       _onNeonAnimationFinish: function () {

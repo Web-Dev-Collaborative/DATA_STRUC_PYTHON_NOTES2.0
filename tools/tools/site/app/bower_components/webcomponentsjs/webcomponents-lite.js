@@ -12,15 +12,15 @@
   window.WebComponents = window.WebComponents || {
     flags: {},
   };
-  const file = "webcomponents-lite.js";
+  const file = 'webcomponents-lite.js';
   const script = document.querySelector('script[src*="' + file + '"]');
   const flags = {};
   if (!flags.noOpts) {
     location.search
       .slice(1)
-      .split("&")
+      .split('&')
       .forEach((option) => {
-        const parts = option.split("=");
+        const parts = option.split('=');
         let match;
         if (parts[0] && (match = parts[0].match(/wc-(.+)/))) {
           flags[match[1]] = parts[1] || true;
@@ -28,13 +28,13 @@
       });
     if (script) {
       for (let i = 0, a; (a = script.attributes[i]); i++) {
-        if (a.name !== "src") {
+        if (a.name !== 'src') {
           flags[a.name] = a.value || true;
         }
       }
     }
     if (flags.log && flags.log.split) {
-      const parts = flags.log.split(",");
+      const parts = flags.log.split(',');
       flags.log = {};
       parts.forEach((f) => {
         flags.log[f] = true;
@@ -53,29 +53,29 @@
 })();
 
 ((scope) => {
-  "use strict";
+  'use strict';
   let hasWorkingUrl = false;
   if (!scope.forceJURL) {
     try {
-      const u = new URL("b", "http://a");
-      u.pathname = "c%20d";
-      hasWorkingUrl = u.href === "http://a/c%20d";
+      const u = new URL('b', 'http://a');
+      u.pathname = 'c%20d';
+      hasWorkingUrl = u.href === 'http://a/c%20d';
     } catch (e) {}
   }
   if (hasWorkingUrl) return;
   const relative = Object.create(null);
-  relative["ftp"] = 21;
-  relative["file"] = 0;
-  relative["gopher"] = 70;
-  relative["http"] = 80;
-  relative["https"] = 443;
-  relative["ws"] = 80;
-  relative["wss"] = 443;
+  relative['ftp'] = 21;
+  relative['file'] = 0;
+  relative['gopher'] = 70;
+  relative['http'] = 80;
+  relative['https'] = 443;
+  relative['ws'] = 80;
+  relative['wss'] = 443;
   const relativePathDotMapping = Object.create(null);
-  relativePathDotMapping["%2e"] = ".";
-  relativePathDotMapping[".%2e"] = "..";
-  relativePathDotMapping["%2e."] = "..";
-  relativePathDotMapping["%2e%2e"] = "..";
+  relativePathDotMapping['%2e'] = '.';
+  relativePathDotMapping['.%2e'] = '..';
+  relativePathDotMapping['%2e.'] = '..';
+  relativePathDotMapping['%2e%2e'] = '..';
   function isRelativeScheme(scheme) {
     return relative[scheme] !== undefined;
   }
@@ -84,7 +84,7 @@
     this._isInvalid = true;
   }
   function IDNAToASCII(h) {
-    if ("" == h) {
+    if ('' == h) {
       invalid.call(this);
     }
     return h.toLowerCase();
@@ -118,9 +118,9 @@
     function err(message) {
       errors.push(message);
     }
-    let state = stateOverride || "scheme start";
+    let state = stateOverride || 'scheme start';
     let cursor = 0;
-    let buffer = "";
+    let buffer = '';
     let seenAt = false;
     let seenBracket = false;
     var errors = [];
@@ -130,95 +130,95 @@
     ) {
       const c = input[cursor];
       switch (state) {
-        case "scheme start":
+        case 'scheme start':
           if (c && ALPHA.test(c)) {
             buffer += c.toLowerCase();
-            state = "scheme";
+            state = 'scheme';
           } else if (!stateOverride) {
-            buffer = "";
-            state = "no scheme";
+            buffer = '';
+            state = 'no scheme';
             continue;
           } else {
-            err("Invalid scheme.");
+            err('Invalid scheme.');
             break loop;
           }
           break;
 
-        case "scheme":
+        case 'scheme':
           if (c && ALPHANUMERIC.test(c)) {
             buffer += c.toLowerCase();
-          } else if (":" == c) {
+          } else if (':' == c) {
             this._scheme = buffer;
-            buffer = "";
+            buffer = '';
             if (stateOverride) {
               break loop;
             }
             if (isRelativeScheme(this._scheme)) {
               this._isRelative = true;
             }
-            if ("file" == this._scheme) {
-              state = "relative";
+            if ('file' == this._scheme) {
+              state = 'relative';
             } else if (
               this._isRelative &&
               base &&
               base._scheme == this._scheme
             ) {
-              state = "relative or authority";
+              state = 'relative or authority';
             } else if (this._isRelative) {
-              state = "authority first slash";
+              state = 'authority first slash';
             } else {
-              state = "scheme data";
+              state = 'scheme data';
             }
           } else if (!stateOverride) {
-            buffer = "";
+            buffer = '';
             cursor = 0;
-            state = "no scheme";
+            state = 'no scheme';
             continue;
           } else if (EOF == c) {
             break loop;
           } else {
-            err("Code point not allowed in scheme: " + c);
+            err('Code point not allowed in scheme: ' + c);
             break loop;
           }
           break;
 
-        case "scheme data":
-          if ("?" == c) {
-            this._query = "?";
-            state = "query";
-          } else if ("#" == c) {
-            this._fragment = "#";
-            state = "fragment";
+        case 'scheme data':
+          if ('?' == c) {
+            this._query = '?';
+            state = 'query';
+          } else if ('#' == c) {
+            this._fragment = '#';
+            state = 'fragment';
           } else {
-            if (EOF != c && "\t" != c && "\n" != c && "\r" != c) {
+            if (EOF != c && '\t' != c && '\n' != c && '\r' != c) {
               this._schemeData += percentEscape(c);
             }
           }
           break;
 
-        case "no scheme":
+        case 'no scheme':
           if (!base || !isRelativeScheme(base._scheme)) {
-            err("Missing scheme.");
+            err('Missing scheme.');
             invalid.call(this);
           } else {
-            state = "relative";
+            state = 'relative';
             continue;
           }
           break;
 
-        case "relative or authority":
-          if ("/" == c && "/" == input[cursor + 1]) {
-            state = "authority ignore slashes";
+        case 'relative or authority':
+          if ('/' == c && '/' == input[cursor + 1]) {
+            state = 'authority ignore slashes';
           } else {
-            err("Expected /, got: " + c);
-            state = "relative";
+            err('Expected /, got: ' + c);
+            state = 'relative';
             continue;
           }
           break;
 
-        case "relative":
+        case 'relative':
           this._isRelative = true;
-          if ("file" != this._scheme) this._scheme = base._scheme;
+          if ('file' != this._scheme) this._scheme = base._scheme;
           if (EOF == c) {
             this._host = base._host;
             this._port = base._port;
@@ -227,38 +227,38 @@
             this._username = base._username;
             this._password = base._password;
             break loop;
-          } else if ("/" == c || "\\" == c) {
-            if ("\\" == c) err("\\ is an invalid code point.");
-            state = "relative slash";
-          } else if ("?" == c) {
+          } else if ('/' == c || '\\' == c) {
+            if ('\\' == c) err('\\ is an invalid code point.');
+            state = 'relative slash';
+          } else if ('?' == c) {
             this._host = base._host;
             this._port = base._port;
             this._path = base._path.slice();
-            this._query = "?";
+            this._query = '?';
             this._username = base._username;
             this._password = base._password;
-            state = "query";
-          } else if ("#" == c) {
+            state = 'query';
+          } else if ('#' == c) {
             this._host = base._host;
             this._port = base._port;
             this._path = base._path.slice();
             this._query = base._query;
-            this._fragment = "#";
+            this._fragment = '#';
             this._username = base._username;
             this._password = base._password;
-            state = "fragment";
+            state = 'fragment';
           } else {
             const nextC = input[cursor + 1];
             const nextNextC = input[cursor + 2];
             if (
-              "file" != this._scheme ||
+              'file' != this._scheme ||
               !ALPHA.test(c) ||
-              (nextC != ":" && nextC != "|") ||
+              (nextC != ':' && nextC != '|') ||
               (EOF != nextNextC &&
-                "/" != nextNextC &&
-                "\\" != nextNextC &&
-                "?" != nextNextC &&
-                "#" != nextNextC)
+                '/' != nextNextC &&
+                '\\' != nextNextC &&
+                '?' != nextNextC &&
+                '#' != nextNextC)
             ) {
               this._host = base._host;
               this._port = base._port;
@@ -267,75 +267,75 @@
               this._path = base._path.slice();
               this._path.pop();
             }
-            state = "relative path";
+            state = 'relative path';
             continue;
           }
           break;
 
-        case "relative slash":
-          if ("/" == c || "\\" == c) {
-            if ("\\" == c) {
-              err("\\ is an invalid code point.");
+        case 'relative slash':
+          if ('/' == c || '\\' == c) {
+            if ('\\' == c) {
+              err('\\ is an invalid code point.');
             }
-            if ("file" == this._scheme) {
-              state = "file host";
+            if ('file' == this._scheme) {
+              state = 'file host';
             } else {
-              state = "authority ignore slashes";
+              state = 'authority ignore slashes';
             }
           } else {
-            if ("file" != this._scheme) {
+            if ('file' != this._scheme) {
               this._host = base._host;
               this._port = base._port;
               this._username = base._username;
               this._password = base._password;
             }
-            state = "relative path";
+            state = 'relative path';
             continue;
           }
           break;
 
-        case "authority first slash":
-          if ("/" == c) {
-            state = "authority second slash";
+        case 'authority first slash':
+          if ('/' == c) {
+            state = 'authority second slash';
           } else {
             err("Expected '/', got: " + c);
-            state = "authority ignore slashes";
+            state = 'authority ignore slashes';
             continue;
           }
           break;
 
-        case "authority second slash":
-          state = "authority ignore slashes";
-          if ("/" != c) {
+        case 'authority second slash':
+          state = 'authority ignore slashes';
+          if ('/' != c) {
             err("Expected '/', got: " + c);
             continue;
           }
           break;
 
-        case "authority ignore slashes":
-          if ("/" != c && "\\" != c) {
-            state = "authority";
+        case 'authority ignore slashes':
+          if ('/' != c && '\\' != c) {
+            state = 'authority';
             continue;
           } else {
-            err("Expected authority, got: " + c);
+            err('Expected authority, got: ' + c);
           }
           break;
 
-        case "authority":
-          if ("@" == c) {
+        case 'authority':
+          if ('@' == c) {
             if (seenAt) {
-              err("@ already seen.");
-              buffer += "%40";
+              err('@ already seen.');
+              buffer += '%40';
             }
             seenAt = true;
             for (let i = 0; i < buffer.length; i++) {
               const cp = buffer[i];
-              if ("\t" == cp || "\n" == cp || "\r" == cp) {
-                err("Invalid whitespace in authority.");
+              if ('\t' == cp || '\n' == cp || '\r' == cp) {
+                err('Invalid whitespace in authority.');
                 continue;
               }
-              if (":" == cp && null === this._password) {
-                this._password = "";
+              if (':' == cp && null === this._password) {
+                this._password = '';
                 continue;
               }
               const tempC = percentEscape(cp);
@@ -343,176 +343,176 @@
                 ? (this._password += tempC)
                 : (this._username += tempC);
             }
-            buffer = "";
+            buffer = '';
           } else if (
             EOF == c ||
-            "/" == c ||
-            "\\" == c ||
-            "?" == c ||
-            "#" == c
+            '/' == c ||
+            '\\' == c ||
+            '?' == c ||
+            '#' == c
           ) {
             cursor -= buffer.length;
-            buffer = "";
-            state = "host";
+            buffer = '';
+            state = 'host';
             continue;
           } else {
             buffer += c;
           }
           break;
 
-        case "file host":
-          if (EOF == c || "/" == c || "\\" == c || "?" == c || "#" == c) {
+        case 'file host':
+          if (EOF == c || '/' == c || '\\' == c || '?' == c || '#' == c) {
             if (
               buffer.length == 2 &&
               ALPHA.test(buffer[0]) &&
-              (buffer[1] == ":" || buffer[1] == "|")
+              (buffer[1] == ':' || buffer[1] == '|')
             ) {
-              state = "relative path";
+              state = 'relative path';
             } else if (buffer.length == 0) {
-              state = "relative path start";
+              state = 'relative path start';
             } else {
               this._host = IDNAToASCII.call(this, buffer);
-              buffer = "";
-              state = "relative path start";
+              buffer = '';
+              state = 'relative path start';
             }
             continue;
-          } else if ("\t" == c || "\n" == c || "\r" == c) {
-            err("Invalid whitespace in file host.");
+          } else if ('\t' == c || '\n' == c || '\r' == c) {
+            err('Invalid whitespace in file host.');
           } else {
             buffer += c;
           }
           break;
 
-        case "host":
-        case "hostname":
-          if (":" == c && !seenBracket) {
+        case 'host':
+        case 'hostname':
+          if (':' == c && !seenBracket) {
             this._host = IDNAToASCII.call(this, buffer);
-            buffer = "";
-            state = "port";
-            if ("hostname" == stateOverride) {
+            buffer = '';
+            state = 'port';
+            if ('hostname' == stateOverride) {
               break loop;
             }
           } else if (
             EOF == c ||
-            "/" == c ||
-            "\\" == c ||
-            "?" == c ||
-            "#" == c
+            '/' == c ||
+            '\\' == c ||
+            '?' == c ||
+            '#' == c
           ) {
             this._host = IDNAToASCII.call(this, buffer);
-            buffer = "";
-            state = "relative path start";
+            buffer = '';
+            state = 'relative path start';
             if (stateOverride) {
               break loop;
             }
             continue;
-          } else if ("\t" != c && "\n" != c && "\r" != c) {
-            if ("[" == c) {
+          } else if ('\t' != c && '\n' != c && '\r' != c) {
+            if ('[' == c) {
               seenBracket = true;
-            } else if ("]" == c) {
+            } else if (']' == c) {
               seenBracket = false;
             }
             buffer += c;
           } else {
-            err("Invalid code point in host/hostname: " + c);
+            err('Invalid code point in host/hostname: ' + c);
           }
           break;
 
-        case "port":
+        case 'port':
           if (/[0-9]/.test(c)) {
             buffer += c;
           } else if (
             EOF == c ||
-            "/" == c ||
-            "\\" == c ||
-            "?" == c ||
-            "#" == c ||
+            '/' == c ||
+            '\\' == c ||
+            '?' == c ||
+            '#' == c ||
             stateOverride
           ) {
-            if ("" != buffer) {
+            if ('' != buffer) {
               const temp = parseInt(buffer, 10);
               if (temp != relative[this._scheme]) {
-                this._port = temp + "";
+                this._port = temp + '';
               }
-              buffer = "";
+              buffer = '';
             }
             if (stateOverride) {
               break loop;
             }
-            state = "relative path start";
+            state = 'relative path start';
             continue;
-          } else if ("\t" == c || "\n" == c || "\r" == c) {
-            err("Invalid code point in port: " + c);
+          } else if ('\t' == c || '\n' == c || '\r' == c) {
+            err('Invalid code point in port: ' + c);
           } else {
             invalid.call(this);
           }
           break;
 
-        case "relative path start":
-          if ("\\" == c) err("'\\' not allowed in path.");
-          state = "relative path";
-          if ("/" != c && "\\" != c) {
+        case 'relative path start':
+          if ('\\' == c) err("'\\' not allowed in path.");
+          state = 'relative path';
+          if ('/' != c && '\\' != c) {
             continue;
           }
           break;
 
-        case "relative path":
+        case 'relative path':
           if (
             EOF == c ||
-            "/" == c ||
-            "\\" == c ||
-            (!stateOverride && ("?" == c || "#" == c))
+            '/' == c ||
+            '\\' == c ||
+            (!stateOverride && ('?' == c || '#' == c))
           ) {
-            if ("\\" == c) {
-              err("\\ not allowed in relative path.");
+            if ('\\' == c) {
+              err('\\ not allowed in relative path.');
             }
             let tmp;
             if ((tmp = relativePathDotMapping[buffer.toLowerCase()])) {
               buffer = tmp;
             }
-            if (".." == buffer) {
+            if ('..' == buffer) {
               this._path.pop();
-              if ("/" != c && "\\" != c) {
-                this._path.push("");
+              if ('/' != c && '\\' != c) {
+                this._path.push('');
               }
-            } else if ("." == buffer && "/" != c && "\\" != c) {
-              this._path.push("");
-            } else if ("." != buffer) {
+            } else if ('.' == buffer && '/' != c && '\\' != c) {
+              this._path.push('');
+            } else if ('.' != buffer) {
               if (
-                "file" == this._scheme &&
+                'file' == this._scheme &&
                 this._path.length == 0 &&
                 buffer.length == 2 &&
                 ALPHA.test(buffer[0]) &&
-                buffer[1] == "|"
+                buffer[1] == '|'
               ) {
-                buffer = buffer[0] + ":";
+                buffer = buffer[0] + ':';
               }
               this._path.push(buffer);
             }
-            buffer = "";
-            if ("?" == c) {
-              this._query = "?";
-              state = "query";
-            } else if ("#" == c) {
-              this._fragment = "#";
-              state = "fragment";
+            buffer = '';
+            if ('?' == c) {
+              this._query = '?';
+              state = 'query';
+            } else if ('#' == c) {
+              this._fragment = '#';
+              state = 'fragment';
             }
-          } else if ("\t" != c && "\n" != c && "\r" != c) {
+          } else if ('\t' != c && '\n' != c && '\r' != c) {
             buffer += percentEscape(c);
           }
           break;
 
-        case "query":
-          if (!stateOverride && "#" == c) {
-            this._fragment = "#";
-            state = "fragment";
-          } else if (EOF != c && "\t" != c && "\n" != c && "\r" != c) {
+        case 'query':
+          if (!stateOverride && '#' == c) {
+            this._fragment = '#';
+            state = 'fragment';
+          } else if (EOF != c && '\t' != c && '\n' != c && '\r' != c) {
             this._query += percentEscapeQuery(c);
           }
           break;
 
-        case "fragment":
-          if (EOF != c && "\t" != c && "\n" != c && "\r" != c) {
+        case 'fragment':
+          if (EOF != c && '\t' != c && '\n' != c && '\r' != c) {
             this._fragment += c;
           }
           break;
@@ -521,15 +521,15 @@
     }
   }
   function clear() {
-    this._scheme = "";
-    this._schemeData = "";
-    this._username = "";
+    this._scheme = '';
+    this._schemeData = '';
+    this._username = '';
     this._password = null;
-    this._host = "";
-    this._port = "";
+    this._host = '';
+    this._port = '';
     this._path = [];
-    this._query = "";
-    this._fragment = "";
+    this._query = '';
+    this._fragment = '';
     this._isInvalid = false;
     this._isRelative = false;
   }
@@ -540,7 +540,7 @@
         base = new jURL(String(base));
       this._url = url;
       clear.call(this);
-      const input = url.replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, "");
+      const input = url.replace(/^[ \t\r\n\f]+|[ \t\r\n\f]+$/g, '');
       parse.call(this, input, null, base);
     }
 
@@ -550,16 +550,16 @@
 
     get href() {
       if (this._isInvalid) return this._url;
-      let authority = "";
-      if ("" != this._username || null != this._password) {
+      let authority = '';
+      if ('' != this._username || null != this._password) {
         authority =
           this._username +
-          (null != this._password ? ":" + this._password : "") +
-          "@";
+          (null != this._password ? ':' + this._password : '') +
+          '@';
       }
       return (
         this.protocol +
-        (this._isRelative ? "//" + authority + this.host : "") +
+        (this._isRelative ? '//' + authority + this.host : '') +
         this.pathname +
         this._query +
         this._fragment
@@ -572,25 +572,25 @@
     }
 
     get protocol() {
-      return this._scheme + ":";
+      return this._scheme + ':';
     }
 
     set protocol(protocol) {
       if (this._isInvalid) return;
-      parse.call(this, protocol + ":", "scheme start");
+      parse.call(this, protocol + ':', 'scheme start');
     }
 
     get host() {
       return this._isInvalid
-        ? ""
+        ? ''
         : this._port
-        ? this._host + ":" + this._port
+        ? this._host + ':' + this._port
         : this._host;
     }
 
     set host(host) {
       if (this._isInvalid || !this._isRelative) return;
-      parse.call(this, host, "host");
+      parse.call(this, host, 'host');
     }
 
     get hostname() {
@@ -599,7 +599,7 @@
 
     set hostname(hostname) {
       if (this._isInvalid || !this._isRelative) return;
-      parse.call(this, hostname, "hostname");
+      parse.call(this, hostname, 'hostname');
     }
 
     get port() {
@@ -608,66 +608,66 @@
 
     set port(port) {
       if (this._isInvalid || !this._isRelative) return;
-      parse.call(this, port, "port");
+      parse.call(this, port, 'port');
     }
 
     get pathname() {
       return this._isInvalid
-        ? ""
+        ? ''
         : this._isRelative
-        ? "/" + this._path.join("/")
+        ? '/' + this._path.join('/')
         : this._schemeData;
     }
 
     set pathname(pathname) {
       if (this._isInvalid || !this._isRelative) return;
       this._path = [];
-      parse.call(this, pathname, "relative path start");
+      parse.call(this, pathname, 'relative path start');
     }
 
     get search() {
-      return this._isInvalid || !this._query || "?" == this._query
-        ? ""
+      return this._isInvalid || !this._query || '?' == this._query
+        ? ''
         : this._query;
     }
 
     set search(search) {
       if (this._isInvalid || !this._isRelative) return;
-      this._query = "?";
-      if ("?" == search[0]) search = search.slice(1);
-      parse.call(this, search, "query");
+      this._query = '?';
+      if ('?' == search[0]) search = search.slice(1);
+      parse.call(this, search, 'query');
     }
 
     get hash() {
-      return this._isInvalid || !this._fragment || "#" == this._fragment
-        ? ""
+      return this._isInvalid || !this._fragment || '#' == this._fragment
+        ? ''
         : this._fragment;
     }
 
     set hash(hash) {
       if (this._isInvalid) return;
-      this._fragment = "#";
-      if ("#" == hash[0]) hash = hash.slice(1);
-      parse.call(this, hash, "fragment");
+      this._fragment = '#';
+      if ('#' == hash[0]) hash = hash.slice(1);
+      parse.call(this, hash, 'fragment');
     }
 
     get origin() {
       let host;
       if (this._isInvalid || !this._scheme) {
-        return "";
+        return '';
       }
       switch (this._scheme) {
-        case "data":
-        case "file":
-        case "javascript":
-        case "mailto":
-          return "null";
+        case 'data':
+        case 'file':
+        case 'javascript':
+        case 'mailto':
+          return 'null';
       }
       host = this.host;
       if (!host) {
-        return "";
+        return '';
       }
-      return this._scheme + "://" + host;
+      return this._scheme + '://' + host;
     }
 
     static createObjectURL(blob) {
@@ -685,14 +685,14 @@
   scope.URL = jURL;
 })(self);
 
-if (typeof WeakMap === "undefined") {
+if (typeof WeakMap === 'undefined') {
   (() => {
     const defineProperty = Object.defineProperty;
     let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
-        this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
+        this.name = '__st' + ((Math.random() * 1e9) >>> 0) + (counter++ + '__');
       }
 
       set(key, value) {
@@ -744,7 +744,7 @@ if (typeof WeakMap === "undefined") {
   } else {
     let setImmediateQueue = [];
     const sentinel = String(Math.random());
-    window.addEventListener("message", (e) => {
+    window.addEventListener('message', (e) => {
       if (e.data === sentinel) {
         const queue = setImmediateQueue;
         setImmediateQueue = [];
@@ -755,7 +755,7 @@ if (typeof WeakMap === "undefined") {
     });
     setImmediate = (func) => {
       setImmediateQueue.push(func);
-      window.postMessage(sentinel, "*");
+      window.postMessage(sentinel, '*');
     };
   }
   let isScheduled = false;
@@ -955,13 +955,13 @@ if (typeof WeakMap === "undefined") {
     addListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.addEventListener("DOMAttrModified", this, true);
+        node.addEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.addEventListener("DOMCharacterDataModified", this, true);
+        node.addEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.addEventListener("DOMNodeInserted", this, true);
+        node.addEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.addEventListener("DOMNodeRemoved", this, true);
+        node.addEventListener('DOMNodeRemoved', this, true);
     }
 
     removeListeners() {
@@ -971,13 +971,13 @@ if (typeof WeakMap === "undefined") {
     removeListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.removeEventListener("DOMAttrModified", this, true);
+        node.removeEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.removeEventListener("DOMCharacterDataModified", this, true);
+        node.removeEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.removeEventListener("DOMNodeInserted", this, true);
+        node.removeEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.removeEventListener("DOMNodeRemoved", this, true);
+        node.removeEventListener('DOMNodeRemoved', this, true);
     }
 
     addTransientObserver(node) {
@@ -1007,11 +1007,11 @@ if (typeof WeakMap === "undefined") {
     handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
-        case "DOMAttrModified":
+        case 'DOMAttrModified':
           const name = e.attrName;
           const namespace = e.relatedNode.namespaceURI;
           var target = e.target;
-          var record = new getRecord("attributes", target);
+          var record = new getRecord('attributes', target);
           record.attributeName = name;
           record.attributeNamespace = namespace;
           var oldValue =
@@ -1032,9 +1032,9 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMCharacterDataModified":
+        case 'DOMCharacterDataModified':
           var target = e.target;
-          var record = getRecord("characterData", target);
+          var record = getRecord('characterData', target);
           var oldValue = e.prevValue;
           forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.characterData) return;
@@ -1044,13 +1044,13 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMNodeRemoved":
+        case 'DOMNodeRemoved':
           this.addTransientObserver(e.target);
 
-        case "DOMNodeInserted":
+        case 'DOMNodeInserted':
           const changedNode = e.target;
           let addedNodes, removedNodes;
-          if (e.type === "DOMNodeInserted") {
+          if (e.type === 'DOMNodeInserted') {
             addedNodes = [changedNode];
             removedNodes = [];
           } else {
@@ -1059,7 +1059,7 @@ if (typeof WeakMap === "undefined") {
           }
           const previousSibling = changedNode.previousSibling;
           const nextSibling = changedNode.nextSibling;
-          var record = getRecord("childList", e.target.parentNode);
+          var record = getRecord('childList', e.target.parentNode);
           record.addedNodes = addedNodes;
           record.removedNodes = removedNodes;
           record.previousSibling = previousSibling;
@@ -1081,7 +1081,7 @@ if (typeof WeakMap === "undefined") {
 })(self);
 
 (() => {
-  const needsTemplate = typeof HTMLTemplateElement === "undefined";
+  const needsTemplate = typeof HTMLTemplateElement === 'undefined';
   if (/Trident/.test(navigator.userAgent)) {
     (() => {
       const importNode = document.importNode;
@@ -1099,9 +1099,9 @@ if (typeof WeakMap === "undefined") {
   }
   const needsCloning = (() => {
     if (!needsTemplate) {
-      const t = document.createElement("template");
-      const t2 = document.createElement("template");
-      t2.content.appendChild(document.createElement("div"));
+      const t = document.createElement('template');
+      const t2 = document.createElement('template');
+      t2.content.appendChild(document.createElement('div'));
       t.content.appendChild(t2);
       const clone = t.cloneNode(true);
       return (
@@ -1110,7 +1110,7 @@ if (typeof WeakMap === "undefined") {
       );
     }
   })();
-  const TEMPLATE_TAG = "template";
+  const TEMPLATE_TAG = 'template';
 
   class TemplateImpl extends HTMLElement {
     static decorate(template) {
@@ -1127,9 +1127,9 @@ if (typeof WeakMap === "undefined") {
       };
       if (canDecorate) {
         try {
-          Object.defineProperty(template, "innerHTML", {
+          Object.defineProperty(template, 'innerHTML', {
             get() {
-              let o = "";
+              let o = '';
               for (let e = this.content.firstChild; e; e = e.nextSibling) {
                 o += e.outerHTML || escapeData(e.data);
               }
@@ -1193,20 +1193,20 @@ if (typeof WeakMap === "undefined") {
   }
 
   if (needsTemplate) {
-    var contentDoc = document.implementation.createHTMLDocument("template");
+    var contentDoc = document.implementation.createHTMLDocument('template');
     var canDecorate = true;
-    const templateStyle = document.createElement("style");
-    templateStyle.textContent = TEMPLATE_TAG + "{display:none;}";
+    const templateStyle = document.createElement('style');
+    templateStyle.textContent = TEMPLATE_TAG + '{display:none;}';
     const head = document.head;
     head.insertBefore(templateStyle, head.firstElementChild);
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('DOMContentLoaded', () => {
       TemplateImpl.bootstrap(document);
     });
     const createElement = document.createElement;
     document.createElement = function () {
-      "use strict";
+      'use strict';
       const el = createElement.apply(document, arguments);
-      if (el.localName === "template") {
+      if (el.localName === 'template') {
         TemplateImpl.decorate(el);
       }
       return el;
@@ -1214,17 +1214,17 @@ if (typeof WeakMap === "undefined") {
     const escapeDataRegExp = /[&\u00A0<>]/g;
     function escapeReplace(c) {
       switch (c) {
-        case "&":
-          return "&amp;";
+        case '&':
+          return '&amp;';
 
-        case "<":
-          return "&lt;";
+        case '<':
+          return '&lt;';
 
-        case ">":
-          return "&gt;";
+        case '>':
+          return '&gt;';
 
-        case " ":
-          return "&nbsp;";
+        case ' ':
+          return '&nbsp;';
       }
     }
     function escapeData(s) {
@@ -1264,7 +1264,7 @@ if (typeof WeakMap === "undefined") {
 })();
 
 ((scope) => {
-  "use strict";
+  'use strict';
   if (!(window.performance && window.performance.now)) {
     const start = Date.now();
     window.performance = {
@@ -1300,8 +1300,8 @@ if (typeof WeakMap === "undefined") {
     })();
   }
   const workingDefaultPrevented = (() => {
-    const e = document.createEvent("Event");
-    e.initEvent("foo", true, true);
+    const e = document.createEvent('Event');
+    e.initEvent('foo', true, true);
     e.preventDefault();
     return e.defaultPrevented;
   })();
@@ -1312,7 +1312,7 @@ if (typeof WeakMap === "undefined") {
         return;
       }
       origPreventDefault.call(this);
-      Object.defineProperty(this, "defaultPrevented", {
+      Object.defineProperty(this, 'defaultPrevented', {
         get() {
           return true;
         },
@@ -1323,11 +1323,11 @@ if (typeof WeakMap === "undefined") {
   const isIE = /Trident/.test(navigator.userAgent);
   if (
     !window.CustomEvent ||
-    (isIE && typeof window.CustomEvent !== "function")
+    (isIE && typeof window.CustomEvent !== 'function')
   ) {
     window.CustomEvent = (inType, params) => {
       params = params || {};
-      const e = document.createEvent("CustomEvent");
+      const e = document.createEvent('CustomEvent');
       e.initCustomEvent(
         inType,
         Boolean(params.bubbles),
@@ -1338,11 +1338,11 @@ if (typeof WeakMap === "undefined") {
     };
     window.CustomEvent.prototype = window.Event.prototype;
   }
-  if (!window.Event || (isIE && typeof window.Event !== "function")) {
+  if (!window.Event || (isIE && typeof window.Event !== 'function')) {
     const origEvent = window.Event;
     window.Event = (inType, params) => {
       params = params || {};
-      const e = document.createEvent("Event");
+      const e = document.createEvent('Event');
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
       return e;
     };
@@ -1355,8 +1355,8 @@ window.HTMLImports = window.HTMLImports || {
 };
 
 ((scope) => {
-  const IMPORT_LINK_TYPE = "import";
-  const useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
+  const IMPORT_LINK_TYPE = 'import';
+  const useNative = Boolean(IMPORT_LINK_TYPE in document.createElement('link'));
   const hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
   const wrap = (node) => {
     return hasShadowDOMPolyfill
@@ -1369,17 +1369,17 @@ window.HTMLImports = window.HTMLImports || {
       const script =
         window.HTMLImports.currentScript ||
         document.currentScript ||
-        (document.readyState !== "complete"
+        (document.readyState !== 'complete'
           ? document.scripts[document.scripts.length - 1]
           : null);
       return wrap(script);
     },
     configurable: true,
   };
-  Object.defineProperty(document, "_currentScript", currentScriptDescriptor);
+  Object.defineProperty(document, '_currentScript', currentScriptDescriptor);
   Object.defineProperty(
     rootDocument,
-    "_currentScript",
+    '_currentScript',
     currentScriptDescriptor
   );
   const isIE = /Trident/.test(navigator.userAgent);
@@ -1389,18 +1389,18 @@ window.HTMLImports = window.HTMLImports || {
       watchImportsLoad(callback, doc);
     }, doc);
   }
-  const requiredReadyState = isIE ? "complete" : "interactive";
-  const READY_EVENT = "readystatechange";
+  const requiredReadyState = isIE ? 'complete' : 'interactive';
+  const READY_EVENT = 'readystatechange';
   function isDocumentReady(doc) {
     return (
-      doc.readyState === "complete" || doc.readyState === requiredReadyState
+      doc.readyState === 'complete' || doc.readyState === requiredReadyState
     );
   }
   function whenDocumentReady(callback, doc) {
     if (!isDocumentReady(doc)) {
       const checkReady = () => {
         if (
-          doc.readyState === "complete" ||
+          doc.readyState === 'complete' ||
           doc.readyState === requiredReadyState
         ) {
           doc.removeEventListener(READY_EVENT, checkReady);
@@ -1416,7 +1416,7 @@ window.HTMLImports = window.HTMLImports || {
     event.target.__loaded = true;
   }
   function watchImportsLoad(callback, doc) {
-    const imports = doc.querySelectorAll("link[rel=import]");
+    const imports = doc.querySelectorAll('link[rel=import]');
     let parsedCount = 0;
     const importCount = imports.length;
     const newImports = [];
@@ -1448,8 +1448,8 @@ window.HTMLImports = window.HTMLImports || {
           parsedCount++;
           checkDone();
         } else {
-          imp.addEventListener("load", loadedImport);
-          imp.addEventListener("error", errorLoadingImport);
+          imp.addEventListener('load', loadedImport);
+          imp.addEventListener('error', errorLoadingImport);
         }
       }
     } else {
@@ -1458,7 +1458,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   function isImportLoaded(link) {
     return useNative
-      ? link.__loaded || (link.import && link.import.readyState !== "loading")
+      ? link.__loaded || (link.import && link.import.readyState !== 'loading')
       : link.__importParsed;
   }
   if (useNative) {
@@ -1479,7 +1479,7 @@ window.HTMLImports = window.HTMLImports || {
       }
     }
     function isImport(element) {
-      return element.localName === "link" && element.rel === "import";
+      return element.localName === 'link' && element.rel === 'import';
     }
     function handleImport(element) {
       const loaded = element.import;
@@ -1488,13 +1488,13 @@ window.HTMLImports = window.HTMLImports || {
           target: element,
         });
       } else {
-        element.addEventListener("load", markTargetLoaded);
-        element.addEventListener("error", markTargetLoaded);
+        element.addEventListener('load', markTargetLoaded);
+        element.addEventListener('error', markTargetLoaded);
       }
     }
     (() => {
-      if (document.readyState === "loading") {
-        const imports = document.querySelectorAll("link[rel=import]");
+      if (document.readyState === 'loading') {
+        const imports = document.querySelectorAll('link[rel=import]');
         for (
           let i = 0, l = imports.length, imp;
           i < l && (imp = imports[i]);
@@ -1508,8 +1508,8 @@ window.HTMLImports = window.HTMLImports || {
   whenReady((detail) => {
     window.HTMLImports.ready = true;
     window.HTMLImports.readyTime = new Date().getTime();
-    const evt = rootDocument.createEvent("CustomEvent");
-    evt.initCustomEvent("HTMLImportsLoaded", true, true, detail);
+    const evt = rootDocument.createEvent('CustomEvent');
+    evt.initCustomEvent('HTMLImportsLoaded', true, true, detail);
     rootDocument.dispatchEvent(evt);
   });
   scope.IMPORT_LINK_TYPE = IMPORT_LINK_TYPE;
@@ -1539,7 +1539,7 @@ window.HTMLImports.addModule((scope) => {
   const path = {
     resolveUrlsInStyle(style, linkUrl) {
       const doc = style.ownerDocument;
-      const resolver = doc.createElement("a");
+      const resolver = doc.createElement('a');
       style.textContent = this.resolveUrlsInCssText(
         style.textContent,
         linkUrl,
@@ -1554,7 +1554,7 @@ window.HTMLImports.addModule((scope) => {
     },
     replaceUrls(text, urlObj, linkUrl, regexp) {
       return text.replace(regexp, (m, pre, url, post) => {
-        let urlPath = url.replace(/["']/g, "");
+        let urlPath = url.replace(/["']/g, '');
         if (linkUrl) {
           urlPath = new URL(urlPath, linkUrl).href;
         }
@@ -1580,17 +1580,17 @@ window.HTMLImports.addModule((scope) => {
     load(url, next, nextContext) {
       const request = new XMLHttpRequest();
       if (scope.flags.debug || scope.flags.bust) {
-        url += "?" + Math.random();
+        url += '?' + Math.random();
       }
-      request.open("GET", url, xhr.async);
-      request.addEventListener("readystatechange", (e) => {
+      request.open('GET', url, xhr.async);
+      request.addEventListener('readystatechange', (e) => {
         if (request.readyState === 4) {
           let redirectedUrl = null;
           try {
-            const locationHeader = request.getResponseHeader("Location");
+            const locationHeader = request.getResponseHeader('Location');
             if (locationHeader) {
               redirectedUrl =
-                locationHeader.substr(0, 1) === "/"
+                locationHeader.substr(0, 1) === '/'
                   ? location.origin + locationHeader
                   : locationHeader;
             }
@@ -1609,7 +1609,7 @@ window.HTMLImports.addModule((scope) => {
       return request;
     },
     loadDocument(url, next, nextContext) {
-      this.load(url, next, nextContext).responseType = "document";
+      this.load(url, next, nextContext).responseType = 'document';
     },
   };
   scope.xhr = xhr;
@@ -1666,23 +1666,23 @@ window.HTMLImports.addModule((scope) => {
     }
 
     fetch(url, elt) {
-      flags.load && console.log("fetch", url, elt);
+      flags.load && console.log('fetch', url, elt);
       if (!url) {
         setTimeout(() => {
           this.receive(
             url,
             elt,
             {
-              error: "href must be specified",
+              error: 'href must be specified',
             },
             null
           );
         }, 0);
       } else if (url.match(/^data:/)) {
-        const pieces = url.split(",");
+        const pieces = url.split(',');
         const header = pieces[0];
         let body = pieces[1];
-        if (header.indexOf(";base64") > -1) {
+        if (header.indexOf(';base64') > -1) {
           body = atob(body);
         } else {
           body = decodeURIComponent(body);
@@ -1736,7 +1736,7 @@ window.HTMLImports.addModule((scope) => {
         i < l && (m = mutations[i]);
         i++
       ) {
-        if (m.type === "childList" && m.addedNodes.length) {
+        if (m.type === 'childList' && m.addedNodes.length) {
           this.addedNodes(m.addedNodes);
         }
       }
@@ -1774,21 +1774,21 @@ window.HTMLImports.addModule((scope) => {
   const flags = scope.flags;
   const isIE = scope.isIE;
   const IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
-  const IMPORT_SELECTOR = "link[rel=" + IMPORT_LINK_TYPE + "]";
+  const IMPORT_SELECTOR = 'link[rel=' + IMPORT_LINK_TYPE + ']';
   const importParser = {
     documentSelectors: IMPORT_SELECTOR,
     importsSelectors: [
       IMPORT_SELECTOR,
-      "link[rel=stylesheet]:not([type])",
-      "style:not([type])",
-      "script:not([type])",
+      'link[rel=stylesheet]:not([type])',
+      'style:not([type])',
+      'script:not([type])',
       'script[type="application/javascript"]',
       'script[type="text/javascript"]',
-    ].join(","),
+    ].join(','),
     map: {
-      link: "parseLink",
-      script: "parseScript",
-      style: "parseStyle",
+      link: 'parseLink',
+      script: 'parseScript',
+      style: 'parseStyle',
     },
     dynamicElements: [],
     parseNext() {
@@ -1799,7 +1799,7 @@ window.HTMLImports.addModule((scope) => {
     },
     parse(elt) {
       if (this.isParsed(elt)) {
-        flags.parse && console.log("[%s] is already parsed", elt.localName);
+        flags.parse && console.log('[%s] is already parsed', elt.localName);
         return;
       }
       const fn = this[this.map[elt.localName]];
@@ -1815,7 +1815,7 @@ window.HTMLImports.addModule((scope) => {
       }
     },
     markParsing(elt) {
-      flags.parse && console.log("parsing", elt);
+      flags.parse && console.log('parsing', elt);
       this.parsingElement = elt;
     },
     markParsingComplete(elt) {
@@ -1826,7 +1826,7 @@ window.HTMLImports.addModule((scope) => {
         this.markDynamicParsingComplete(elt.__importElement);
       }
       this.parsingElement = null;
-      flags.parse && console.log("completed", elt);
+      flags.parse && console.log('completed', elt);
     },
     markDynamicParsingComplete(elt) {
       const i = this.dynamicElements.indexOf(elt);
@@ -1845,13 +1845,13 @@ window.HTMLImports.addModule((scope) => {
       this.markParsingComplete(elt);
       if (elt.__resource && !elt.__error) {
         elt.dispatchEvent(
-          new CustomEvent("load", {
+          new CustomEvent('load', {
             bubbles: false,
           })
         );
       } else {
         elt.dispatchEvent(
-          new CustomEvent("error", {
+          new CustomEvent('error', {
             bubbles: false,
           })
         );
@@ -1902,19 +1902,19 @@ window.HTMLImports.addModule((scope) => {
     trackElement(elt, callback) {
       const self = this;
       const done = (e) => {
-        elt.removeEventListener("load", done);
-        elt.removeEventListener("error", done);
+        elt.removeEventListener('load', done);
+        elt.removeEventListener('error', done);
         if (callback) {
           callback(e);
         }
         self.markParsingComplete(elt);
         self.parseNext();
       };
-      elt.addEventListener("load", done);
-      elt.addEventListener("error", done);
-      if (isIE && elt.localName === "style") {
+      elt.addEventListener('load', done);
+      elt.addEventListener('error', done);
+      if (isIE && elt.localName === 'style') {
         let fakeLoad = false;
-        if (elt.textContent.indexOf("@import") == -1) {
+        if (elt.textContent.indexOf('@import') == -1) {
           fakeLoad = true;
         } else if (elt.sheet) {
           fakeLoad = true;
@@ -1929,7 +1929,7 @@ window.HTMLImports.addModule((scope) => {
         if (fakeLoad) {
           setTimeout(() => {
             elt.dispatchEvent(
-              new CustomEvent("load", {
+              new CustomEvent('load', {
                 bubbles: false,
               })
             );
@@ -1938,7 +1938,7 @@ window.HTMLImports.addModule((scope) => {
       }
     },
     parseScript(scriptElt) {
-      const script = document.createElement("script");
+      const script = document.createElement('script');
       script.__importElement = scriptElt;
       script.src = scriptElt.src
         ? scriptElt.src
@@ -1998,12 +1998,12 @@ window.HTMLImports.addModule((scope) => {
     },
   };
   function nodeIsImport(elt) {
-    return elt.localName === "link" && elt.rel === IMPORT_LINK_TYPE;
+    return elt.localName === 'link' && elt.rel === IMPORT_LINK_TYPE;
   }
   function generateScriptDataUrl(script) {
     const scriptContent = generateScriptContent(script);
     return (
-      "data:text/javascript;charset=utf-8," + encodeURIComponent(scriptContent)
+      'data:text/javascript;charset=utf-8,' + encodeURIComponent(scriptContent)
     );
   }
   function generateScriptContent(script) {
@@ -2013,12 +2013,12 @@ window.HTMLImports.addModule((scope) => {
     const owner = script.ownerDocument;
     owner.__importedScripts = owner.__importedScripts || 0;
     const moniker = script.ownerDocument.baseURI;
-    const num = owner.__importedScripts ? "-" + owner.__importedScripts : "";
+    const num = owner.__importedScripts ? '-' + owner.__importedScripts : '';
     owner.__importedScripts++;
-    return "\n//# sourceURL=" + moniker + num + ".js\n";
+    return '\n//# sourceURL=' + moniker + num + '.js\n';
   }
   function cloneStyle(style) {
-    const clone = style.ownerDocument.createElement("style");
+    const clone = style.ownerDocument.createElement('style');
     clone.textContent = style.textContent;
     path.resolveUrlsInStyle(clone);
     return clone;
@@ -2038,7 +2038,7 @@ window.HTMLImports.addModule((scope) => {
   const importer = {
     documents: {},
     documentPreloadSelectors: IMPORT_SELECTOR,
-    importsPreloadSelectors: [IMPORT_SELECTOR].join(","),
+    importsPreloadSelectors: [IMPORT_SELECTOR].join(','),
     loadNode(node) {
       importLoader.addNode(node);
     },
@@ -2056,7 +2056,7 @@ window.HTMLImports.addModule((scope) => {
         : this.importsPreloadSelectors;
     },
     loaded(url, elt, resource, err, redirectedUrl) {
-      flags.load && console.log("loaded", url, elt);
+      flags.load && console.log('loaded', url, elt);
       elt.__resource = resource;
       elt.__error = err;
       if (isImportLink(elt)) {
@@ -2091,23 +2091,23 @@ window.HTMLImports.addModule((scope) => {
     return isLinkRel(elt, IMPORT_LINK_TYPE);
   }
   function isLinkRel(elt, rel) {
-    return elt.localName === "link" && elt.getAttribute("rel") === rel;
+    return elt.localName === 'link' && elt.getAttribute('rel') === rel;
   }
   function hasBaseURIAccessor(doc) {
-    return !!Object.getOwnPropertyDescriptor(doc, "baseURI");
+    return !!Object.getOwnPropertyDescriptor(doc, 'baseURI');
   }
   function makeDocument(resource, url) {
     const doc = document.implementation.createHTMLDocument(IMPORT_LINK_TYPE);
     doc._URL = url;
-    const base = doc.createElement("base");
-    base.setAttribute("href", url);
+    const base = doc.createElement('base');
+    base.setAttribute('href', url);
     if (!doc.baseURI && !hasBaseURIAccessor(doc)) {
-      Object.defineProperty(doc, "baseURI", {
+      Object.defineProperty(doc, 'baseURI', {
         value: url,
       });
     }
-    const meta = doc.createElement("meta");
-    meta.setAttribute("charset", "utf-8");
+    const meta = doc.createElement('meta');
+    meta.setAttribute('charset', 'utf-8');
     doc.head.appendChild(meta);
     doc.head.appendChild(base);
     doc.body.innerHTML = resource;
@@ -2119,13 +2119,13 @@ window.HTMLImports.addModule((scope) => {
   if (!document.baseURI) {
     const baseURIDescriptor = {
       get() {
-        const base = document.querySelector("base");
+        const base = document.querySelector('base');
         return base ? base.href : window.location.href;
       },
       configurable: true,
     };
-    Object.defineProperty(document, "baseURI", baseURIDescriptor);
-    Object.defineProperty(rootDocument, "baseURI", baseURIDescriptor);
+    Object.defineProperty(document, 'baseURI', baseURIDescriptor);
+    Object.defineProperty(rootDocument, 'baseURI', baseURIDescriptor);
   }
   scope.importer = importer;
   scope.importLoader = importLoader;
@@ -2185,12 +2185,12 @@ window.HTMLImports.addModule((scope) => {
     window.HTMLImports.importer.bootDocument(rootDocument);
   }
   if (
-    document.readyState === "complete" ||
-    (document.readyState === "interactive" && !window.attachEvent)
+    document.readyState === 'complete' ||
+    (document.readyState === 'interactive' && !window.attachEvent)
   ) {
     bootstrap();
   } else {
-    document.addEventListener("DOMContentLoaded", bootstrap);
+    document.addEventListener('DOMContentLoaded', bootstrap);
   }
 })(window.HTMLImports);
 
@@ -2223,7 +2223,7 @@ window.CustomElements = window.CustomElements || {
 window.CustomElements.addModule((scope) => {
   const IMPORT_LINK_TYPE = window.HTMLImports
     ? window.HTMLImports.IMPORT_LINK_TYPE
-    : "none";
+    : 'none';
   function forSubtree(node, cb) {
     findAllElements(node, (e) => {
       if (cb(e)) {
@@ -2265,7 +2265,7 @@ window.CustomElements.addModule((scope) => {
       return;
     }
     processingDocuments.push(doc);
-    const imports = doc.querySelectorAll("link[rel=" + IMPORT_LINK_TYPE + "]");
+    const imports = doc.querySelectorAll('link[rel=' + IMPORT_LINK_TYPE + ']');
     for (let i = 0, l = imports.length, n; i < l && (n = imports[i]); i++) {
       if (n.import) {
         _forDocumentTree(n.import, cb, processingDocuments);
@@ -2300,7 +2300,7 @@ window.CustomElements.addModule((scope) => {
     });
   }
   const hasThrottledAttached =
-    window.MutationObserver._isPolyfilled && flags["throttle-attached"];
+    window.MutationObserver._isPolyfilled && flags['throttle-attached'];
   scope.hasPolyfillMutations = hasThrottledAttached;
   scope.hasThrottledAttached = hasThrottledAttached;
   let isPendingMutations = false;
@@ -2373,7 +2373,7 @@ window.CustomElements.addModule((scope) => {
   }
   function watchShadow(node) {
     if (node.shadowRoot && !node.shadowRoot.__watched) {
-      flags.dom && console.log("watching shadow-root for: ", node.localName);
+      flags.dom && console.log('watching shadow-root for: ', node.localName);
       let root = node.shadowRoot;
       while (root) {
         observe(root);
@@ -2384,22 +2384,22 @@ window.CustomElements.addModule((scope) => {
   function handler(root, mutations) {
     if (flags.dom) {
       const mx = mutations[0];
-      if (mx && mx.type === "childList" && mx.addedNodes) {
+      if (mx && mx.type === 'childList' && mx.addedNodes) {
         if (mx.addedNodes) {
           let d = mx.addedNodes[0];
           while (d && d !== document && !d.host) {
             d = d.parentNode;
           }
           var u =
-            (d && (d.URL || d._URL || (d.host && d.host.localName))) || "";
-          u = u.split("/?").shift().split("/").pop();
+            (d && (d.URL || d._URL || (d.host && d.host.localName))) || '';
+          u = u.split('/?').shift().split('/').pop();
         }
       }
-      console.group("mutations (%d) [%s]", mutations.length, u || "");
+      console.group('mutations (%d) [%s]', mutations.length, u || '');
     }
     const isAttached = inDocument(root);
     mutations.forEach((mx) => {
-      if (mx.type === "childList") {
+      if (mx.type === 'childList') {
         forEach(mx.addedNodes, (n) => {
           if (!n.localName) {
             return;
@@ -2445,7 +2445,7 @@ window.CustomElements.addModule((scope) => {
   function upgradeDocument(doc) {
     doc = window.wrap(doc);
     flags.dom &&
-      console.group("upgradeDocument: ", doc.baseURI.split("/").pop());
+      console.group('upgradeDocument: ', doc.baseURI.split('/').pop());
     const isMainDocument = doc === window.wrap(document);
     addedNode(doc, isMainDocument);
     observe(doc);
@@ -2474,13 +2474,13 @@ window.CustomElements.addModule((scope) => {
 window.CustomElements.addModule((scope) => {
   const flags = scope.flags;
   function upgrade(node, isAttached) {
-    if (node.localName === "template") {
+    if (node.localName === 'template') {
       if (window.HTMLTemplateElement && HTMLTemplateElement.decorate) {
         HTMLTemplateElement.decorate(node);
       }
     }
     if (!node.__upgraded__ && node.nodeType === Node.ELEMENT_NODE) {
-      const is = node.getAttribute("is");
+      const is = node.getAttribute('is');
       const definition =
         scope.getRegisteredDefinition(node.localName) ||
         scope.getRegisteredDefinition(is);
@@ -2495,9 +2495,9 @@ window.CustomElements.addModule((scope) => {
     }
   }
   function upgradeWithDefinition(element, definition, isAttached) {
-    flags.upgrade && console.group("upgrade:", element.localName);
+    flags.upgrade && console.group('upgrade:', element.localName);
     if (definition.is) {
-      element.setAttribute("is", definition.is);
+      element.setAttribute('is', definition.is);
     }
     implementPrototype(element, definition);
     element.__upgraded__ = true;
@@ -2556,10 +2556,10 @@ window.CustomElements.addModule((scope) => {
     const definition = options || {};
     if (!name) {
       throw new Error(
-        "document.registerElement: first argument `name` must not be empty"
+        'document.registerElement: first argument `name` must not be empty'
       );
     }
-    if (name.indexOf("-") < 0) {
+    if (name.indexOf('-') < 0) {
       throw new Error(
         "document.registerElement: first argument ('name') must contain a dash ('-'). Argument provided was '" +
           String(name) +
@@ -2632,14 +2632,14 @@ window.CustomElements.addModule((scope) => {
     }
   }
   var reservedTagList = [
-    "annotation-xml",
-    "color-profile",
-    "font-face",
-    "font-face-src",
-    "font-face-uri",
-    "font-face-format",
-    "font-face-name",
-    "missing-glyph",
+    'annotation-xml',
+    'color-profile',
+    'font-face',
+    'font-face-src',
+    'font-face-uri',
+    'font-face-format',
+    'font-face-name',
+    'missing-glyph',
   ];
   function ancestry(extnds) {
     const extendee = getRegisteredDefinition(extnds);
@@ -2681,7 +2681,7 @@ window.CustomElements.addModule((scope) => {
       if (!foundPrototype) {
         console.warn(
           definition.tag +
-            " prototype not found in prototype chain for " +
+            ' prototype not found in prototype chain for ' +
             definition.is
         );
       }
@@ -2705,7 +2705,7 @@ window.CustomElements.addModule((scope) => {
       return instantiate(definition);
     };
   }
-  const HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
+  const HTML_NAMESPACE = 'http://www.w3.org/1999/xhtml';
   function createElementNS(namespace, tag, typeExtension) {
     if (namespace === HTML_NAMESPACE) {
       return createElement(tag, typeExtension);
@@ -2732,11 +2732,11 @@ window.CustomElements.addModule((scope) => {
     let element;
     if (typeExtension) {
       element = createElement(tag);
-      element.setAttribute("is", typeExtension);
+      element.setAttribute('is', typeExtension);
       return element;
     }
     element = domCreateElement(tag);
-    if (tag.indexOf("-") >= 0) {
+    if (tag.indexOf('-') >= 0) {
       implementPrototype(element, HTMLElement);
     }
     return element;
@@ -2771,8 +2771,8 @@ window.CustomElements.addModule((scope) => {
       return n;
     };
   }
-  wrapDomMethodToForceUpgrade(Node.prototype, "cloneNode");
-  wrapDomMethodToForceUpgrade(document, "importNode");
+  wrapDomMethodToForceUpgrade(Node.prototype, 'cloneNode');
+  wrapDomMethodToForceUpgrade(document, 'importNode');
   document.registerElement = register;
   document.createElement = createElement;
   document.createElementNS = createElementNS;
@@ -2836,17 +2836,17 @@ window.CustomElements.addModule((scope) => {
             window.CustomElements.readyTime - window.HTMLImports.readyTime;
         }
         document.dispatchEvent(
-          new CustomEvent("WebComponentsReady", {
+          new CustomEvent('WebComponentsReady', {
             bubbles: true,
           })
         );
       });
     });
   }
-  if (document.readyState === "complete" || scope.flags.eager) {
+  if (document.readyState === 'complete' || scope.flags.eager) {
     bootstrap();
   } else if (
-    document.readyState === "interactive" &&
+    document.readyState === 'interactive' &&
     !window.attachEvent &&
     (!window.HTMLImports || window.HTMLImports.ready)
   ) {
@@ -2854,22 +2854,22 @@ window.CustomElements.addModule((scope) => {
   } else {
     const loadEvent =
       window.HTMLImports && !window.HTMLImports.ready
-        ? "HTMLImportsLoaded"
-        : "DOMContentLoaded";
+        ? 'HTMLImportsLoaded'
+        : 'DOMContentLoaded';
     window.addEventListener(loadEvent, bootstrap);
   }
 })(window.CustomElements);
 
 ((scope) => {
-  const style = document.createElement("style");
+  const style = document.createElement('style');
   style.textContent =
-    "" +
-    "body {" +
-    "transition: opacity ease-in 0.2s;" +
-    " } \n" +
-    "body[unresolved] {" +
-    "opacity: 0; display: block; overflow: hidden; position: relative;" +
-    " } \n";
-  const head = document.querySelector("head");
+    '' +
+    'body {' +
+    'transition: opacity ease-in 0.2s;' +
+    ' } \n' +
+    'body[unresolved] {' +
+    'opacity: 0; display: block; overflow: hidden; position: relative;' +
+    ' } \n';
+  const head = document.querySelector('head');
   head.insertBefore(style, head.firstChild);
 })(window.WebComponents);

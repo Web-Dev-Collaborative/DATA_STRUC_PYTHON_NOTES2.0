@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](stdlib2.html "11. Brief Tour of the Standard Library — Part II") |
-- [previous](classes.html "9. Classes") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](stdlib2.html '11. Brief Tour of the Standard Library — Part II') |
+- [previous](classes.html '9. Classes') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -293,11 +293,11 @@ Python has a “batteries included” philosophy. This is best seen through the 
 
 #### Previous topic
 
-[<span class="section-number">9. </span>Classes](classes.html "previous chapter")
+[<span class="section-number">9. </span>Classes](classes.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">11. </span>Brief Tour of the Standard Library — Part II](stdlib2.html "next chapter")
+[<span class="section-number">11. </span>Brief Tour of the Standard Library — Part II](stdlib2.html 'next chapter')
 
 ### This Page
 
@@ -306,10 +306,10 @@ Python has a “batteries included” philosophy. This is best seen through the 
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](stdlib2.html "11. Brief Tour of the Standard Library — Part II") |
-- [previous](classes.html "9. Classes") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](stdlib2.html '11. Brief Tour of the Standard Library — Part II') |
+- [previous](classes.html '9. Classes') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

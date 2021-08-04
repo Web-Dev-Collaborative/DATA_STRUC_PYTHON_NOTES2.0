@@ -40,21 +40,21 @@
  * @author mikesamuel@gmail.com
  */
 
-PR["registerLangHandler"](
-  PR["createSimpleLexer"](
+PR['registerLangHandler'](
+  PR['createSimpleLexer'](
     [
       // Whitespace
       // whitechar    ->    newline | vertab | space | tab | uniWhite
       // newline      ->    return linefeed | return | linefeed | formfeed
-      [PR["PR_PLAIN"], /^[\t\n\x0B\x0C\r ]+/, null, "\t\n\x0B\x0C\r "],
+      [PR['PR_PLAIN'], /^[\t\n\x0B\x0C\r ]+/, null, '\t\n\x0B\x0C\r '],
       // Single line double and single-quoted strings.
       // char         ->    ' (graphic<' | \> | space | escape<\&>) '
       // string       ->    " {graphic<" | \> | space | escape | gap}"
       // escape       ->    \ ( charesc | ascii | decimal | o octal
       //                        | x hexadecimal )
       // charesc      ->    a | b | f | n | r | t | v | \ | " | ' | &
-      [PR["PR_STRING"], /^\"(?:[^\"\\\n\x0C\r]|\\[\s\S])*(?:\"|$)/, null, '"'],
-      [PR["PR_STRING"], /^\'(?:[^\'\\\n\x0C\r]|\\[^&])\'?/, null, "'"],
+      [PR['PR_STRING'], /^\"(?:[^\"\\\n\x0C\r]|\\[\s\S])*(?:\"|$)/, null, '"'],
+      [PR['PR_STRING'], /^\'(?:[^\'\\\n\x0C\r]|\\[^&])\'?/, null, "'"],
       // decimal      ->    digit{digit}
       // octal        ->    octit{octit}
       // hexadecimal  ->    hexit{hexit}
@@ -65,10 +65,10 @@ PR["registerLangHandler"](
       //               |    decimal exponent
       // exponent     ->    (e | E) [+ | -] decimal
       [
-        PR["PR_LITERAL"],
+        PR['PR_LITERAL'],
         /^(?:0o[0-7]+|0x[\da-f]+|\d+(?:\.\d+)?(?:e[+\-]?\d+)?)/i,
         null,
-        "0123456789",
+        '0123456789',
       ],
     ],
     [
@@ -80,7 +80,7 @@ PR["registerLangHandler"](
       // opencom      ->    '{-'
       // closecom     ->    '-}'
       [
-        PR["PR_COMMENT"],
+        PR['PR_COMMENT'],
         /^(?:(?:--+(?:[^\r\n\x0C]*)?)|(?:\{-(?:[^-]|-+[^-\}])*-\}))/,
       ],
       // reservedid   ->    case | class | data | default | deriving | do
@@ -88,7 +88,7 @@ PR["registerLangHandler"](
       //               |    instance | let | module | newtype | of | then
       //               |    type | where | _
       [
-        PR["PR_KEYWORD"],
+        PR['PR_KEYWORD'],
         /^(?:case|class|data|default|deriving|do|else|if|import|in|infix|infixl|infixr|instance|let|module|newtype|of|then|type|where|_)(?=[^a-zA-Z0-9\']|$)/,
         null,
       ],
@@ -103,10 +103,10 @@ PR["registerLangHandler"](
       // large        ->    ascLarge | uniLarge
       // ascLarge     ->    A | B | ... | Z
       // uniLarge     ->    any uppercase or titlecase Unicode letter
-      [PR["PR_PLAIN"], /^(?:[A-Z][\w\']*\.)*[a-zA-Z][\w\']*/],
+      [PR['PR_PLAIN'], /^(?:[A-Z][\w\']*\.)*[a-zA-Z][\w\']*/],
       // matches the symbol production
-      [PR["PR_PUNCTUATION"], /^[^\t\n\x0B\x0C\r a-zA-Z0-9\'\"]+/],
+      [PR['PR_PUNCTUATION'], /^[^\t\n\x0B\x0C\r a-zA-Z0-9\'\"]+/],
     ]
   ),
-  ["hs"]
+  ['hs']
 );

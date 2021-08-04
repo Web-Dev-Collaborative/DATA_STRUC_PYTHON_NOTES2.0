@@ -152,7 +152,7 @@ Custom property                          | Description                          
 
   <script>
     Polymer({
-      is: "app-drawer-layout",
+      is: 'app-drawer-layout',
 
       behaviors: [Polymer.IronResizableBehavior],
 
@@ -171,7 +171,7 @@ Custom property                          | Description                          
          */
         responsiveWidth: {
           type: String,
-          value: "640px",
+          value: '640px',
         },
 
         /**
@@ -194,15 +194,15 @@ Custom property                          | Description                          
       },
 
       listeners: {
-        tap: "_tapHandler",
-        "app-drawer-attached": "_resetDrawerState",
-        "app-drawer-reset-layout": "resetLayout",
-        "iron-resize": "resetLayout",
+        tap: '_tapHandler',
+        'app-drawer-attached': '_resetDrawerState',
+        'app-drawer-reset-layout': 'resetLayout',
+        'iron-resize': 'resetLayout',
       },
 
       observers: [
-        "resetLayout(narrow, isAttached)",
-        "_narrowChanged(narrow, isAttached)",
+        'resetLayout(narrow, isAttached)',
+        '_narrowChanged(narrow, isAttached)',
       ],
 
       /**
@@ -216,7 +216,7 @@ Custom property                          | Description                          
 
       _tapHandler: function (e) {
         var target = Polymer.dom(e).localTarget;
-        if (target && target.hasAttribute("drawer-toggle")) {
+        if (target && target.hasAttribute('drawer-toggle')) {
           var drawer = this.drawer;
           if (drawer && !drawer.persistent) {
             drawer.toggle();
@@ -225,28 +225,28 @@ Custom property                          | Description                          
       },
 
       resetLayout: function () {
-        this.debounce("_resetLayout", function () {
+        this.debounce('_resetLayout', function () {
           var drawer = this.drawer;
           var contentContainer = this.$.contentContainer;
 
           if (this.narrow || !drawer) {
-            contentContainer.style.marginLeft = "";
-            contentContainer.style.marginRight = "";
+            contentContainer.style.marginLeft = '';
+            contentContainer.style.marginRight = '';
           } else {
             var drawerWidth = drawer.getWidth();
-            if (drawer.position == "right") {
-              contentContainer.style.marginLeft = "";
-              contentContainer.style.marginRight = drawerWidth + "px";
+            if (drawer.position == 'right') {
+              contentContainer.style.marginLeft = '';
+              contentContainer.style.marginRight = drawerWidth + 'px';
             } else {
-              contentContainer.style.marginLeft = drawerWidth + "px";
-              contentContainer.style.marginRight = "";
+              contentContainer.style.marginLeft = drawerWidth + 'px';
+              contentContainer.style.marginRight = '';
             }
           }
         });
       },
 
       _resetDrawerState: function () {
-        this.debounce("_resetDrawerState", function () {
+        this.debounce('_resetDrawerState', function () {
           var drawer = this.drawer;
           if (!drawer) {
             return;
@@ -262,7 +262,7 @@ Custom property                          | Description                          
       },
 
       _narrowChanged: function (narrow) {
-        this.toggleClass("narrow", narrow, this.$.contentContainer);
+        this.toggleClass('narrow', narrow, this.$.contentContainer);
         this._resetDrawerState();
         this.notifyResize();
       },
@@ -273,8 +273,8 @@ Custom property                          | Description                          
 
       _computeMediaQuery: function (forceNarrow, responsiveWidth) {
         return forceNarrow
-          ? "(min-width: 0px)"
-          : "(max-width: " + responsiveWidth + ")";
+          ? '(min-width: 0px)'
+          : '(max-width: ' + responsiveWidth + ')';
       },
     });
   </script>

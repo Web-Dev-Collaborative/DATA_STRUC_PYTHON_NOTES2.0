@@ -60,16 +60,16 @@ Custom property | Description | Default
   </template>
   <script>
     Polymer({
-      is: "paper-icon-button-light",
-      extends: "button",
+      is: 'paper-icon-button-light',
+      extends: 'button',
 
       behaviors: [Polymer.PaperRippleBehavior],
 
       listeners: {
-        down: "_rippleDown",
-        up: "_rippleUp",
-        focus: "_rippleDown",
-        blur: "_rippleUp",
+        down: '_rippleDown',
+        up: '_rippleUp',
+        focus: '_rippleDown',
+        blur: '_rippleUp',
       },
 
       _rippleDown: function () {
@@ -88,7 +88,7 @@ Custom property | Description | Default
         Polymer.PaperRippleBehavior.ensureRipple.apply(this, arguments);
         if (this._ripple && this._ripple !== lastRipple) {
           this._ripple.center = true;
-          this._ripple.classList.add("circle");
+          this._ripple.classList.add('circle');
         }
       },
     });

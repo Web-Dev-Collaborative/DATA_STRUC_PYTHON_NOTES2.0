@@ -26,7 +26,7 @@
       function adjustHeightInParent(theme) {
         if (parent !== window) {
           try {
-            var div = document.getElementById("container");
+            var div = document.getElementById('container');
             parent.adjustChildIframeSize(
               theme,
               div.offsetWidth,
@@ -37,7 +37,7 @@
           }
         } else {
           // redirect to main page if this page is loaded directly
-          window.location = "./index.html";
+          window.location = './index.html';
         }
       }
 
@@ -51,9 +51,9 @@
 
         // theme is named in the "name" property of the embedded iframe
         var theme =
-          window.frameElement && window.frameElement.getAttribute("name");
+          window.frameElement && window.frameElement.getAttribute('name');
 
-        return theme ? theme : "default";
+        return theme ? theme : 'default';
       }
 
       /**
@@ -61,12 +61,12 @@
        * @param {string} theme
        */
       function loadTheme(theme) {
-        var link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.type = "text/css";
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
         link.href =
-          theme === "default" ? "../src/prettify.css" : theme + ".css";
-        document.getElementsByTagName("head")[0].appendChild(link);
+          theme === 'default' ? '../src/prettify.css' : theme + '.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
       }
 
       /**
@@ -85,7 +85,7 @@
       (function () {
         // Load the stylesheet that we're demoing.
         var themeName = getThemeName();
-        document.title = "Theme " + themeName;
+        document.title = 'Theme ' + themeName;
         loadTheme(themeName);
       })();
     </script>

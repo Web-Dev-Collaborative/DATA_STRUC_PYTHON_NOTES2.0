@@ -30,7 +30,7 @@ Configuration:
 
 <script>
   Polymer({
-    is: "slide-from-left-animation",
+    is: 'slide-from-left-animation',
 
     behaviors: [Polymer.NeonAnimationBehavior],
 
@@ -39,18 +39,18 @@ Configuration:
 
       this._effect = new KeyframeEffect(
         node,
-        [{ transform: "translateX(-100%)" }, { transform: "none" }],
+        [{ transform: 'translateX(-100%)' }, { transform: 'none' }],
         this.timingFromConfig(config)
       );
 
       if (config.transformOrigin) {
         this.setPrefixedProperty(
           node,
-          "transformOrigin",
+          'transformOrigin',
           config.transformOrigin
         );
       } else {
-        this.setPrefixedProperty(node, "transformOrigin", "0 50%");
+        this.setPrefixedProperty(node, 'transformOrigin', '0 50%');
       }
 
       return this._effect;

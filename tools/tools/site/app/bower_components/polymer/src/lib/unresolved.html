@@ -15,19 +15,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // native Custom Elements is not available.
 
     function resolve() {
-      document.body.removeAttribute("unresolved");
+      document.body.removeAttribute('unresolved');
     }
 
     if (window.WebComponents) {
-      addEventListener("WebComponentsReady", resolve);
+      addEventListener('WebComponentsReady', resolve);
     } else {
       if (
-        document.readyState === "interactive" ||
-        document.readyState === "complete"
+        document.readyState === 'interactive' ||
+        document.readyState === 'complete'
       ) {
         resolve();
       } else {
-        addEventListener("DOMContentLoaded", resolve);
+        addEventListener('DOMContentLoaded', resolve);
       }
     }
   })();

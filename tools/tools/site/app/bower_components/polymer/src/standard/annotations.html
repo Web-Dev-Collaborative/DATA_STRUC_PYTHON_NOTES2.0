@@ -159,15 +159,15 @@ TODO(sjmiles): this module should produce either syntactic metadata
             this._discoverTemplateParentProps(note.templateContent._notes));
           var bindings = [];
           for (var prop in pp) {
-            var name = "_parent_" + prop;
+            var name = '_parent_' + prop;
             bindings.push({
               index: note.index,
-              kind: "property",
+              kind: 'property',
               name: name,
               propertyName: name,
               parts: [
                 {
-                  mode: "{",
+                  mode: '{',
                   model: prop,
                   value: prop,
                 },
@@ -280,7 +280,7 @@ TODO(sjmiles): this module should produce either syntactic metadata
           var name = binding.name;
           storage[name] = literals;
           // Configure properties with their literal parts
-          if (binding.literal && binding.kind == "property") {
+          if (binding.literal && binding.kind == 'property') {
             if (node._configValue) {
               node._configValue(name, binding.literal);
             } else {

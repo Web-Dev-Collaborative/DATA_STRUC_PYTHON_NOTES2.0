@@ -29,7 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @type {?Object}
        */
       focusedItem: {
-        observer: "_focusedItemChanged",
+        observer: '_focusedItemChanged',
         readOnly: true,
         type: Object,
       },
@@ -47,23 +47,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _SEARCH_RESET_TIMEOUT_MS: 1000,
 
     hostAttributes: {
-      role: "menu",
-      tabindex: "0",
+      role: 'menu',
+      tabindex: '0',
     },
 
-    observers: ["_updateMultiselectable(multi)"],
+    observers: ['_updateMultiselectable(multi)'],
 
     listeners: {
-      focus: "_onFocus",
-      keydown: "_onKeydown",
-      "iron-items-changed": "_onIronItemsChanged",
+      focus: '_onFocus',
+      keydown: '_onKeydown',
+      'iron-items-changed': '_onIronItemsChanged',
     },
 
     keyBindings: {
-      up: "_onUpKey",
-      down: "_onDownKey",
-      esc: "_onEscKey",
-      "shift+tab:keydown": "_onShiftTabDown",
+      up: '_onUpKey',
+      down: '_onDownKey',
+      esc: '_onEscKey',
+      'shift+tab:keydown': '_onShiftTabDown',
     },
 
     attached: function () {
@@ -84,7 +84,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this._defaultFocusAsync = null;
       }
       var item = this._valueToItem(value);
-      if (item && item.hasAttribute("disabled")) return;
+      if (item && item.hasAttribute('disabled')) return;
       this._setFocusedItem(item);
       Polymer.IronMultiSelectableBehaviorImpl.select.apply(this, arguments);
     },
@@ -101,7 +101,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         : this.selectedItem;
 
       this.items.forEach(function (item) {
-        item.setAttribute("tabindex", item === selectedItem ? "0" : "-1");
+        item.setAttribute('tabindex', item === selectedItem ? '0' : '-1');
       }, this);
     },
 
@@ -113,9 +113,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     _updateMultiselectable: function (multi) {
       if (multi) {
-        this.setAttribute("aria-multiselectable", "true");
+        this.setAttribute('aria-multiselectable', 'true');
       } else {
-        this.removeAttribute("aria-multiselectable");
+        this.removeAttribute('aria-multiselectable');
       }
     },
 
@@ -126,9 +126,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {KeyboardEvent} event A KeyboardEvent.
      */
     _focusWithKeyboardEvent: function (event) {
-      this.cancelDebouncer("_clearSearchText");
+      this.cancelDebouncer('_clearSearchText');
 
-      var searchText = this._searchText || "";
+      var searchText = this._searchText || '';
       var key =
         event.key && event.key.length == 1
           ? event.key
@@ -138,12 +138,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var searchLength = searchText.length;
 
       for (var i = 0, item; (item = this.items[i]); i++) {
-        if (item.hasAttribute("disabled")) {
+        if (item.hasAttribute('disabled')) {
           continue;
         }
 
-        var attr = this.attrForItemTitle || "textContent";
-        var title = (item[attr] || item.getAttribute(attr) || "").trim();
+        var attr = this.attrForItemTitle || 'textContent';
+        var title = (item[attr] || item.getAttribute(attr) || '').trim();
 
         if (title.length < searchLength) {
           continue;
@@ -157,14 +157,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       this._searchText = searchText;
       this.debounce(
-        "_clearSearchText",
+        '_clearSearchText',
         this._clearSearchText,
         this._SEARCH_RESET_TIMEOUT_MS
       );
     },
 
     _clearSearchText: function () {
-      this._searchText = "";
+      this._searchText = '';
     },
 
     /**
@@ -178,7 +178,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       for (var i = 1; i < length + 1; i++) {
         var item = this.items[(curFocusIndex - i + length) % length];
-        if (!item.hasAttribute("disabled")) {
+        if (!item.hasAttribute('disabled')) {
           var owner = Polymer.dom(item).getOwnerRoot() || document;
           this._setFocusedItem(item);
 
@@ -202,7 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       for (var i = 1; i < length + 1; i++) {
         var item = this.items[(curFocusIndex + i) % length];
-        if (!item.hasAttribute("disabled")) {
+        if (!item.hasAttribute('disabled')) {
           var owner = Polymer.dom(item).getOwnerRoot() || document;
           this._setFocusedItem(item);
 
@@ -225,9 +225,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     _applySelection: function (item, isSelected) {
       if (isSelected) {
-        item.setAttribute("aria-selected", "true");
+        item.setAttribute('aria-selected', 'true');
       } else {
-        item.removeAttribute("aria-selected");
+        item.removeAttribute('aria-selected');
       }
       Polymer.IronSelectableBehavior._applySelection.apply(this, arguments);
     },
@@ -241,9 +241,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * applicable.
      */
     _focusedItemChanged: function (focusedItem, old) {
-      old && old.setAttribute("tabindex", "-1");
+      old && old.setAttribute('tabindex', '-1');
       if (focusedItem) {
-        focusedItem.setAttribute("tabindex", "0");
+        focusedItem.setAttribute('tabindex', '0');
         focusedItem.focus();
       }
     },
@@ -267,16 +267,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {CustomEvent} event A key combination event.
      */
     _onShiftTabDown: function (event) {
-      var oldTabIndex = this.getAttribute("tabindex");
+      var oldTabIndex = this.getAttribute('tabindex');
 
       Polymer.IronMenuBehaviorImpl._shiftTabPressed = true;
 
       this._setFocusedItem(null);
 
-      this.setAttribute("tabindex", "-1");
+      this.setAttribute('tabindex', '-1');
 
       this.async(function () {
-        this.setAttribute("tabindex", oldTabIndex);
+        this.setAttribute('tabindex', oldTabIndex);
         Polymer.IronMenuBehaviorImpl._shiftTabPressed = false;
         // NOTE(cdata): polymer/polymer#1305
       }, 1);
@@ -300,7 +300,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       );
       if (
         rootTarget !== this &&
-        typeof rootTarget.tabIndex !== "undefined" &&
+        typeof rootTarget.tabIndex !== 'undefined' &&
         !this.isLightDescendant(rootTarget)
       ) {
         return;
@@ -362,7 +362,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {KeyboardEvent} event A keyboard event.
      */
     _onKeydown: function (event) {
-      if (!this.keyboardEventMatchesKeys(event, "up down esc")) {
+      if (!this.keyboardEventMatchesKeys(event, 'up down esc')) {
         // all other keys focus the menu item starting with that character
         this._focusWithKeyboardEvent(event);
       }

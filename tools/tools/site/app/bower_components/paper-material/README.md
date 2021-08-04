@@ -19,8 +19,7 @@ _[Demo and API Docs](https://elements.polymer-project.org/elements/paper-materia
 
 Material design: [Cards](https://www.google.com/design/spec/components/cards.html)
 
-`paper-material` is a container that renders two shadows on top of each other to
-create the effect of a lifted piece of paper.
+`paper-material` is a container that renders two shadows on top of each other to create the effect of a lifted piece of paper.
 
 Example:
 

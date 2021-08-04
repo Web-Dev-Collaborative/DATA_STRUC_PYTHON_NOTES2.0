@@ -1,9 +1,6 @@
 ##&lt;app-drawer-layout&gt;
 
-app-drawer-layout is a wrapper element that positions an app-drawer and other content. When
-the viewport width is smaller than `responsiveWidth`, this element changes to narrow layout.
-In narrow layout, the drawer will be stacked on top of the main content. The drawer will slide
-in/out to hide/reveal the main content.
+app-drawer-layout is a wrapper element that positions an app-drawer and other content. When the viewport width is smaller than `responsiveWidth`, this element changes to narrow layout. In narrow layout, the drawer will be stacked on top of the main content. The drawer will slide in/out to hide/reveal the main content.
 
 By default the drawer is aligned to the start, which is left in LTR layouts:
 
@@ -69,6 +66,6 @@ Add the `fullbleed` attribute to app-drawer-layout to make it fit the size of it
 
 ### Styling
 
-| Custom property                          | Description                          | Default |
-| ---------------------------------------- | ------------------------------------ | ------- |
-| `--app-drawer-layout-content-transition` | Transition for the content container | none    |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--app-drawer-layout-content-transition` | Transition for the content container | none |

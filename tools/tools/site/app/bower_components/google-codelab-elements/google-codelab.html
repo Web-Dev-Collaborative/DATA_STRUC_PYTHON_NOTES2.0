@@ -240,7 +240,7 @@ prevent syntax highlighting code blocks, respectively:
   </template>
   <script>
     Polymer({
-      is: "google-codelab",
+      is: 'google-codelab',
 
       /**
        * Fired when the codelab steps have been fully initialized.
@@ -269,7 +269,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         title: {
           type: String,
-          value: "",
+          value: '',
         },
 
         /**
@@ -293,7 +293,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         feedbackLink: {
           type: String,
-          value: "",
+          value: '',
         },
 
         /**
@@ -319,7 +319,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         remaining: {
           type: String,
-          value: "",
+          value: '',
           readOnly: true,
         },
 
@@ -328,7 +328,7 @@ prevent syntax highlighting code blocks, respectively:
          */
         lastUpdated: {
           type: String,
-          value: "",
+          value: '',
         },
 
         /**
@@ -413,11 +413,11 @@ prevent syntax highlighting code blocks, respectively:
         },
       },
 
-      observers: ["_selectedChanged(steps, selected)"],
+      observers: ['_selectedChanged(steps, selected)'],
 
       keyBindings: {
-        left: "selectPrevious",
-        right: "selectNext",
+        left: 'selectPrevious',
+        right: 'selectNext',
       },
 
       ready: function () {
@@ -441,15 +441,15 @@ prevent syntax highlighting code blocks, respectively:
         this._setSteps(steps);
         this._setDuration(duration);
         this._updateRemaining();
-        this.fire("google-codelab-ready", { steps: this.steps });
+        this.fire('google-codelab-ready', { steps: this.steps });
       },
 
       /**
        * Advance one step of the codelab.
        */
       selectNext: function () {
-        this.$.pages.entryAnimation = "slide-from-right-animation";
-        this.$.pages.exitAnimation = "slide-left-animation";
+        this.$.pages.entryAnimation = 'slide-from-right-animation';
+        this.$.pages.exitAnimation = 'slide-left-animation';
         this.select(this.selected + 1);
       },
 
@@ -457,8 +457,8 @@ prevent syntax highlighting code blocks, respectively:
        * Go one step backwards.
        */
       selectPrevious: function () {
-        this.$.pages.entryAnimation = "slide-from-left-animation";
-        this.$.pages.exitAnimation = "slide-right-animation";
+        this.$.pages.entryAnimation = 'slide-from-left-animation';
+        this.$.pages.exitAnimation = 'slide-right-animation';
         this.select(this.selected - 1);
       },
 
@@ -475,7 +475,7 @@ prevent syntax highlighting code blocks, respectively:
       },
 
       _selectedChanged: function (steps, selected) {
-        this.set("state.stepIndex", this.selected);
+        this.set('state.stepIndex', this.selected);
         this._updateRemaining();
 
         if (!this.steps.length) {
@@ -487,14 +487,14 @@ prevent syntax highlighting code blocks, respectively:
 
         location.hash = this.selected.toString();
 
-        this.fire("google-codelab-step", { index: this.selected, step: step });
+        this.fire('google-codelab-step', { index: this.selected, step: step });
 
         if (
           this.selected === this.steps.length - 1 &&
           !this._resumed &&
           this._userHasNavigated
         ) {
-          this.fire("google-codelab-complete");
+          this.fire('google-codelab-complete');
         }
       },
 
@@ -547,8 +547,8 @@ prevent syntax highlighting code blocks, respectively:
         this.steps.slice(this.selected).forEach(function (item) {
           remain += item.duration || 0;
         });
-        var str = this._narrow ? "" : " remaining";
-        this._setRemaining(remain + " min" + str);
+        var str = this._narrow ? '' : ' remaining';
+        this._setRemaining(remain + ' min' + str);
       },
 
       _resume: function () {
@@ -560,31 +560,31 @@ prevent syntax highlighting code blocks, respectively:
       _goToHome: function () {
         // extract 'index' search param
         var index;
-        var parts = location.search.substring(1).split("&");
+        var parts = location.search.substring(1).split('&');
         for (var i = 0; i < parts.length; i++) {
-          var param = parts[i].split("=");
-          if (param[0] === "index") {
+          var param = parts[i].split('=');
+          if (param[0] === 'index') {
             index = param[1];
             break;
           }
         }
         // decode and extract index name from the search param
         // default index is 'index'
-        index = index ? decodeURIComponent(index) : "";
-        index = index.replace(/[^a-z0-9\-]+/gi, "");
-        if (index === "index") {
-          index = "";
+        index = index ? decodeURIComponent(index) : '';
+        index = index.replace(/[^a-z0-9\-]+/gi, '');
+        if (index === 'index') {
+          index = '';
         }
         // navigate away to the index page
-        window.location.href = "/" + index;
+        window.location.href = '/' + index;
       },
 
       _tocItemClass: function (selected, i) {
-        var cls = ["toc-item"];
+        var cls = ['toc-item'];
         if (i < selected) {
-          cls.push("completed");
+          cls.push('completed');
         }
-        return cls.join(" ");
+        return cls.join(' ');
       },
 
       _scrollToTopOfStep: function () {
@@ -615,7 +615,7 @@ prevent syntax highlighting code blocks, respectively:
       },
 
       _nextFabTitle: function (stepIndex) {
-        return stepIndex > 0 ? "Next step" : "Start codelab";
+        return stepIndex > 0 ? 'Next step' : 'Start codelab';
       },
     });
   </script>

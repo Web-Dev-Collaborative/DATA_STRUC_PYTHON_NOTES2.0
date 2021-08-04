@@ -15,110 +15,110 @@
  * limitations under the License.
  */
 
-goog.module("googlecodelabs.Codelab");
+goog.module('googlecodelabs.Codelab');
 
-const EventHandler = goog.require("goog.events.EventHandler");
+const EventHandler = goog.require('goog.events.EventHandler');
 const HTML5LocalStorage = goog.require(
-  "goog.storage.mechanism.HTML5LocalStorage"
+  'goog.storage.mechanism.HTML5LocalStorage'
 );
-const KeyCodes = goog.require("goog.events.KeyCodes");
-const Templates = goog.require("googlecodelabs.Codelab.Templates");
-const Transition = goog.require("goog.fx.css3.Transition");
-const TransitionEventType = goog.require("goog.fx.Transition.EventType");
-const dom = goog.require("goog.dom");
-const events = goog.require("goog.events");
-const soy = goog.require("goog.soy");
+const KeyCodes = goog.require('goog.events.KeyCodes');
+const Templates = goog.require('googlecodelabs.Codelab.Templates');
+const Transition = goog.require('goog.fx.css3.Transition');
+const TransitionEventType = goog.require('goog.fx.Transition.EventType');
+const dom = goog.require('goog.dom');
+const events = goog.require('goog.events');
+const soy = goog.require('goog.soy');
 
 /**
  * Deprecated. Title causes the bowser to display a tooltip over the whole codelab.
  * Use codelab-title instead.
  * @const {string}
  */
-const TITLE_ATTR = "title";
+const TITLE_ATTR = 'title';
 
 /** @const {string} */
-const CODELAB_TITLE_ATTR = "codelab-title";
+const CODELAB_TITLE_ATTR = 'codelab-title';
 
 /** @const {string} */
-const ENVIRONMENT_ATTR = "environment";
+const ENVIRONMENT_ATTR = 'environment';
 
 /** @const {string} */
-const CATEGORY_ATTR = "category";
+const CATEGORY_ATTR = 'category';
 
 /** @const {string} */
-const GAID_ATTR = "codelab-gaid";
+const GAID_ATTR = 'codelab-gaid';
 
 /** @const {string} */
-const CODELAB_ID_ATTR = "codelab-id";
+const CODELAB_ID_ATTR = 'codelab-id';
 
 /** @const {string} */
-const FEEDBACK_LINK_ATTR = "feedback-link";
+const FEEDBACK_LINK_ATTR = 'feedback-link';
 
 /** @const {string} */
-const SELECTED_ATTR = "selected";
+const SELECTED_ATTR = 'selected';
 
 /** @const {string} */
-const LAST_UPDATED_ATTR = "last-updated";
+const LAST_UPDATED_ATTR = 'last-updated';
 
 /** @const {string} */
-const DURATION_ATTR = "duration";
+const DURATION_ATTR = 'duration';
 
 /** @const {string} */
-const HIDDEN_ATTR = "hidden";
+const HIDDEN_ATTR = 'hidden';
 
 /** @const {string} */
-const ID_ATTR = "id";
+const ID_ATTR = 'id';
 
 /** @const {string} */
-const COMPLETED_ATTR = "completed";
+const COMPLETED_ATTR = 'completed';
 
 /** @const {string} */
-const LABEL_ATTR = "label";
+const LABEL_ATTR = 'label';
 
 /** @const {string} */
-const DONT_SET_HISTORY_ATTR = "dsh";
+const DONT_SET_HISTORY_ATTR = 'dsh';
 
 /** @const {string} */
-const ANIMATING_ATTR = "animating";
+const ANIMATING_ATTR = 'animating';
 
 /** @const {string} */
-const NO_TOOLBAR_ATTR = "no-toolbar";
+const NO_TOOLBAR_ATTR = 'no-toolbar';
 
 /** @const {string} */
-const NO_ARROWS_ATTR = "no-arrows";
+const NO_ARROWS_ATTR = 'no-arrows';
 
 /** @const {string} */
-const DISAPPEAR_ATTR = "disappear";
+const DISAPPEAR_ATTR = 'disappear';
 
 /** @const {number} Page transition time in seconds */
 const ANIMATION_DURATION = 0.5;
 
 /** @const {string} */
-const DRAWER_OPEN_ATTR = "drawer--open";
+const DRAWER_OPEN_ATTR = 'drawer--open';
 
 /** @const {string} */
-const ANALYTICS_READY_ATTR = "anayltics-ready";
+const ANALYTICS_READY_ATTR = 'anayltics-ready';
 
 /**
  * The general codelab action event fired for trackable interactions.
  */
-const CODELAB_ACTION_EVENT = "google-codelab-action";
+const CODELAB_ACTION_EVENT = 'google-codelab-action';
 
 /**
  * The general codelab action event fired for trackable interactions.
  */
-const CODELAB_PAGEVIEW_EVENT = "google-codelab-pageview";
+const CODELAB_PAGEVIEW_EVENT = 'google-codelab-pageview';
 
 /**
  * The general codelab action event fired when the codelab element is ready.
  */
-const CODELAB_READY_EVENT = "google-codelab-ready";
+const CODELAB_READY_EVENT = 'google-codelab-ready';
 
 /** @const {string} */
-const ARIA_HIDDEN_ATTR = "aria-hidden";
+const ARIA_HIDDEN_ATTR = 'aria-hidden';
 
 /** @const {string} */
-const TAB_INDEX_ATTR = "tabindex";
+const TAB_INDEX_ATTR = 'tabindex';
 
 /**
  * @extends {HTMLElement}
@@ -126,7 +126,7 @@ const TAB_INDEX_ATTR = "tabindex";
 class Codelab extends HTMLElement {
   /** @return {string} */
   static getTagName() {
-    return "google-codelab";
+    return 'google-codelab';
   }
 
   constructor() {
@@ -157,10 +157,10 @@ class Codelab extends HTMLElement {
     this.doneBtn_ = null;
 
     /** @private {string} */
-    this.id_ = "";
+    this.id_ = '';
 
     /** @private {string} */
-    this.title_ = "";
+    this.title_ = '';
 
     /** @private {number} */
     this.setFocusTimeoutId_ = -1;
@@ -223,14 +223,14 @@ class Codelab extends HTMLElement {
     this.toggleToolbar_();
 
     if (this.resumed_) {
-      console.log("resumed");
+      console.log('resumed');
       // TODO Show resume dialog
     }
 
     if (!this.ready_) {
       this.ready_ = true;
       this.fireEvent_(CODELAB_READY_EVENT);
-      this.setAttribute(CODELAB_READY_EVENT, "");
+      this.setAttribute(CODELAB_READY_EVENT, '');
     }
   }
 
@@ -326,7 +326,7 @@ class Codelab extends HTMLElement {
    * @private
    */
   configureAnalytics_() {
-    const analytics = document.querySelector("google-codelab-analytics");
+    const analytics = document.querySelector('google-codelab-analytics');
     if (analytics) {
       const gaid = this.getAttribute(GAID_ATTR);
       if (gaid) {
@@ -404,7 +404,7 @@ class Codelab extends HTMLElement {
     }
 
     if (this.titleContainer_) {
-      const menuBtn = this.titleContainer_.querySelector("#menu");
+      const menuBtn = this.titleContainer_.querySelector('#menu');
       if (menuBtn) {
         this.eventHandler_.listen(menuBtn, events.EventType.CLICK, (e) => {
           e.preventDefault();
@@ -412,7 +412,7 @@ class Codelab extends HTMLElement {
           if (this.hasAttribute(DRAWER_OPEN_ATTR)) {
             this.removeAttribute(DRAWER_OPEN_ATTR);
           } else {
-            this.setAttribute(DRAWER_OPEN_ATTR, "");
+            this.setAttribute(DRAWER_OPEN_ATTR, '');
           }
         });
 
@@ -450,7 +450,7 @@ class Codelab extends HTMLElement {
     }
 
     if (this.hasAttribute(NO_TOOLBAR_ATTR)) {
-      this.titleContainer_.setAttribute(HIDDEN_ATTR, "");
+      this.titleContainer_.setAttribute(HIDDEN_ATTR, '');
     } else {
       this.titleContainer_.removeAttribute(HIDDEN_ATTR);
     }
@@ -465,7 +465,7 @@ class Codelab extends HTMLElement {
     }
 
     if (this.hasAttribute(NO_ARROWS_ATTR)) {
-      this.controls_.setAttribute(HIDDEN_ATTR, "");
+      this.controls_.setAttribute(HIDDEN_ATTR, '');
     } else {
       this.controls_.removeAttribute(HIDDEN_ATTR);
     }
@@ -481,7 +481,7 @@ class Codelab extends HTMLElement {
       return;
     }
 
-    const focused = this.drawer_.querySelector(":focus");
+    const focused = this.drawer_.querySelector(':focus');
     let li;
     if (focused) {
       li = /** @type {!Element} */ (focused.parentNode);
@@ -501,7 +501,7 @@ class Codelab extends HTMLElement {
     }
 
     if (next) {
-      const a = next.querySelector("a");
+      const a = next.querySelector('a');
       if (a) {
         a.focus();
       }
@@ -533,7 +533,7 @@ class Codelab extends HTMLElement {
    */
   handlePopStateChanged_(e) {
     if (document.location.hash) {
-      this.setAttribute(DONT_SET_HISTORY_ATTR, "");
+      this.setAttribute(DONT_SET_HISTORY_ATTR, '');
       this.setAttribute(SELECTED_ATTR, document.location.hash.substring(1));
       this.removeAttribute(DONT_SET_HISTORY_ATTR);
     }
@@ -561,7 +561,7 @@ class Codelab extends HTMLElement {
     let target = /** @type {!Element} */ (e.target);
 
     while (target !== this.drawer_) {
-      if (target.tagName.toUpperCase() === "A") {
+      if (target.tagName.toUpperCase() === 'A') {
         break;
       }
       e.preventDefault();
@@ -574,7 +574,7 @@ class Codelab extends HTMLElement {
     }
 
     const selected = new URL(
-      target.getAttribute("href"),
+      target.getAttribute('href'),
       document.location.origin
     ).hash.substring(1);
 
@@ -589,14 +589,14 @@ class Codelab extends HTMLElement {
       return;
     }
     const url = new URL(document.location.href);
-    url.hash = "";
+    url.hash = '';
     const newTitleEl = soy.renderAsElement(Templates.title, {
       title: this.title_,
       url: url.href,
     });
     document.title = this.title_;
-    const oldTitleEl = this.titleContainer_.querySelector("h1");
-    const buttons = this.titleContainer_.querySelector("#codelab-nav-buttons");
+    const oldTitleEl = this.titleContainer_.querySelector('h1');
+    const buttons = this.titleContainer_.querySelector('#codelab-nav-buttons');
     if (oldTitleEl) {
       dom.replaceNode(newTitleEl, oldTitleEl);
     } else {
@@ -624,13 +624,13 @@ class Codelab extends HTMLElement {
     Array.prototype.forEach.call(this.timeContainer_, (timeContainer) => {
       // Hide the time container if there was no time indication.
       if (!time) {
-        timeContainer.style.display = "none";
+        timeContainer.style.display = 'none';
         return;
       }
 
       // Update the time container with remaining time.
       const newTimeEl = soy.renderAsElement(Templates.timeRemaining, { time });
-      const oldTimeEl = timeContainer.querySelector(".time-remaining");
+      const oldTimeEl = timeContainer.querySelector('.time-remaining');
       if (oldTimeEl) {
         dom.replaceNode(newTimeEl, oldTimeEl);
       } else {
@@ -645,7 +645,7 @@ class Codelab extends HTMLElement {
   setupSteps_() {
     this.steps_.forEach((step, index) => {
       step = /** @type {!Element} */ (step);
-      step.setAttribute("step", index);
+      step.setAttribute('step', index);
     });
   }
 
@@ -675,20 +675,20 @@ class Codelab extends HTMLElement {
       return;
     }
 
-    const stepTitleEl = this.steps_[selected].querySelector(".step-title");
-    const stepTitle = stepTitleEl ? stepTitleEl.textContent : "";
-    const stepTitlePrefix = selected + 1 + ".";
-    const re = new RegExp(stepTitlePrefix, "g");
+    const stepTitleEl = this.steps_[selected].querySelector('.step-title');
+    const stepTitle = stepTitleEl ? stepTitleEl.textContent : '';
+    const stepTitlePrefix = selected + 1 + '.';
+    const re = new RegExp(stepTitlePrefix, 'g');
     this.fireEvent_(CODELAB_PAGEVIEW_EVENT, {
-      page: location.pathname + "#" + selected,
-      title: stepTitle.replace(re, "").trim(),
+      page: location.pathname + '#' + selected,
+      title: stepTitle.replace(re, '').trim(),
     });
 
     const stepToSelect = this.steps_[selected];
 
     if (this.currentSelectedStep_ === -1) {
       // No previous selected step, so select the correct step with no animation
-      stepToSelect.setAttribute(SELECTED_ATTR, "");
+      stepToSelect.setAttribute(SELECTED_ATTR, '');
     } else {
       if (this.transitionIn_) {
         this.transitionIn_.stop();
@@ -701,33 +701,33 @@ class Codelab extends HTMLElement {
 
       const transitionInInitialStyle = {};
       const transitionInFinalStyle = {
-        transform: "translate3d(0, 0, 0)",
+        transform: 'translate3d(0, 0, 0)',
       };
 
       const transitionOutInitialStyle = {
-        transform: "translate3d(0, 0, 0)",
+        transform: 'translate3d(0, 0, 0)',
       };
       const transitionOutFinalStyle = {};
 
       const currentStep = this.steps_[this.currentSelectedStep_];
-      stepToSelect.setAttribute(ANIMATING_ATTR, "");
+      stepToSelect.setAttribute(ANIMATING_ATTR, '');
 
       if (this.currentSelectedStep_ < selected) {
         // Move new step in from the right
-        transitionInInitialStyle["transform"] = "translate3d(110%, 0, 0)";
-        transitionOutFinalStyle["transform"] = "translate3d(-110%, 0, 0)";
+        transitionInInitialStyle['transform'] = 'translate3d(110%, 0, 0)';
+        transitionOutFinalStyle['transform'] = 'translate3d(-110%, 0, 0)';
       } else {
         // Move new step in from the left
-        transitionInInitialStyle["transform"] = "translate3d(-110%, 0, 0)";
-        transitionOutFinalStyle["transform"] = "translate3d(110%, 0, 0)";
+        transitionInInitialStyle['transform'] = 'translate3d(-110%, 0, 0)';
+        transitionOutFinalStyle['transform'] = 'translate3d(110%, 0, 0)';
       }
 
       const animationProperties = [
         {
-          property: "transform",
+          property: 'transform',
           duration: ANIMATION_DURATION,
           delay: 0,
-          timing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          timing: 'cubic-bezier(0.4, 0, 0.2, 1)',
         },
       ];
 
@@ -753,7 +753,7 @@ class Codelab extends HTMLElement {
         this.transitionIn_,
         [TransitionEventType.FINISH, TransitionEventType.STOP],
         () => {
-          stepToSelect.setAttribute(SELECTED_ATTR, "");
+          stepToSelect.setAttribute(SELECTED_ATTR, '');
           stepToSelect.removeAttribute(ANIMATING_ATTR);
         }
       );
@@ -778,38 +778,38 @@ class Codelab extends HTMLElement {
 
     if (this.nextStepBtn_ && this.prevStepBtn_ && this.doneBtn_) {
       if (selected === 0) {
-        this.prevStepBtn_.setAttribute(ARIA_HIDDEN_ATTR, "");
-        this.prevStepBtn_.setAttribute(DISAPPEAR_ATTR, "");
-        this.prevStepBtn_.setAttribute(TAB_INDEX_ATTR, "-1");
+        this.prevStepBtn_.setAttribute(ARIA_HIDDEN_ATTR, '');
+        this.prevStepBtn_.setAttribute(DISAPPEAR_ATTR, '');
+        this.prevStepBtn_.setAttribute(TAB_INDEX_ATTR, '-1');
       } else {
         this.prevStepBtn_.removeAttribute(ARIA_HIDDEN_ATTR);
         this.prevStepBtn_.removeAttribute(DISAPPEAR_ATTR);
         this.prevStepBtn_.removeAttribute(TAB_INDEX_ATTR);
       }
       if (selected === this.steps_.length - 1) {
-        this.nextStepBtn_.setAttribute(HIDDEN_ATTR, "");
+        this.nextStepBtn_.setAttribute(HIDDEN_ATTR, '');
         this.doneBtn_.removeAttribute(HIDDEN_ATTR);
         this.fireEvent_(CODELAB_ACTION_EVENT, {
-          category: "codelab",
-          action: "complete",
+          category: 'codelab',
+          action: 'complete',
           label: this.title_,
         });
       } else {
         this.nextStepBtn_.removeAttribute(HIDDEN_ATTR);
-        this.doneBtn_.setAttribute(HIDDEN_ATTR, "");
+        this.doneBtn_.setAttribute(HIDDEN_ATTR, '');
       }
     }
 
     if (this.drawer_) {
-      const steps = this.drawer_.querySelectorAll("li");
+      const steps = this.drawer_.querySelectorAll('li');
       steps.forEach((step, i) => {
         if (i <= selected) {
-          step.setAttribute(COMPLETED_ATTR, "");
+          step.setAttribute(COMPLETED_ATTR, '');
         } else {
           step.removeAttribute(COMPLETED_ATTR);
         }
         if (i === selected) {
-          step.setAttribute(SELECTED_ATTR, "");
+          step.setAttribute(SELECTED_ATTR, '');
         } else {
           step.removeAttribute(SELECTED_ATTR);
         }
@@ -843,18 +843,18 @@ class Codelab extends HTMLElement {
    */
   getHomeUrl_() {
     const url = new URL(document.location.href);
-    let index = url.searchParams.get("index");
+    let index = url.searchParams.get('index');
     if (!index) {
-      return "/";
+      return '/';
     }
 
-    index = index.replace(/[^a-z0-9\-]+/gi, "");
-    if (!index || index.trim() === "") {
-      return "/";
+    index = index.replace(/[^a-z0-9\-]+/gi, '');
+    if (!index || index.trim() === '') {
+      return '/';
     }
 
-    if (index === "index") {
-      index = "";
+    if (index === 'index') {
+      index = '';
     }
     const u = new URL(index, document.location.origin);
     return u.pathname;
@@ -879,15 +879,15 @@ class Codelab extends HTMLElement {
    */
   firePageLoadEvents_() {
     this.fireEvent_(CODELAB_PAGEVIEW_EVENT, {
-      page: location.pathname + "#" + this.currentSelectedStep_,
+      page: location.pathname + '#' + this.currentSelectedStep_,
       title: this.steps_[this.currentSelectedStep_].getAttribute(LABEL_ATTR),
     });
 
     window.requestAnimationFrame(() => {
-      document.body.removeAttribute("unresolved");
+      document.body.removeAttribute('unresolved');
       this.fireEvent_(CODELAB_ACTION_EVENT, {
-        category: "codelab",
-        action: "ready",
+        category: 'codelab',
+        action: 'ready',
       });
     });
   }
@@ -896,7 +896,7 @@ class Codelab extends HTMLElement {
    * @private
    */
   setupDom_() {
-    this.steps_ = Array.from(this.querySelectorAll("google-codelab-step"));
+    this.steps_ = Array.from(this.querySelectorAll('google-codelab-step'));
 
     const feedback = this.getAttribute(FEEDBACK_LINK_ATTR);
     soy.renderElement(this, Templates.structure, {
@@ -904,18 +904,18 @@ class Codelab extends HTMLElement {
       homeUrl: this.getHomeUrl_(),
     });
 
-    this.drawer_ = this.querySelector("#drawer");
-    this.titleContainer_ = this.querySelector("#codelab-title");
-    this.stepsContainer_ = this.querySelector("#steps");
-    this.controls_ = this.querySelector("#controls");
-    this.prevStepBtn_ = this.querySelector("#controls #previous-step");
-    this.nextStepBtn_ = this.querySelector("#controls #next-step");
-    this.doneBtn_ = this.querySelector("#controls #done");
+    this.drawer_ = this.querySelector('#drawer');
+    this.titleContainer_ = this.querySelector('#codelab-title');
+    this.stepsContainer_ = this.querySelector('#steps');
+    this.controls_ = this.querySelector('#controls');
+    this.prevStepBtn_ = this.querySelector('#controls #previous-step');
+    this.nextStepBtn_ = this.querySelector('#controls #next-step');
+    this.doneBtn_ = this.querySelector('#controls #done');
 
     this.steps_.forEach((step) => dom.appendChild(this.stepsContainer_, step));
     this.setupSteps_();
     this.renderDrawer_();
-    this.timeContainer_ = this.querySelectorAll(".codelab-time-container");
+    this.timeContainer_ = this.querySelectorAll('.codelab-time-container');
 
     let hasLocationHash = false;
     if (document.location.hash) {
@@ -928,19 +928,19 @@ class Codelab extends HTMLElement {
 
     this.id_ = this.getAttribute(ID_ATTR);
     const progress = this.storage_.get(`progress_${this.id_}`);
-    if (progress && progress !== "0") {
+    if (progress && progress !== '0') {
       this.resumed_ = true;
       if (!hasLocationHash) {
         this.setAttribute(SELECTED_ATTR, progress);
       }
     }
     // Start Google Feedback when the feedback link is clicked, if it exists.
-    const feedbackLink = this.querySelector("#codelab-feedback");
+    const feedbackLink = this.querySelector('#codelab-feedback');
     if (feedbackLink) {
       this.eventHandler_.listen(feedbackLink, events.EventType.CLICK, (e) => {
-        if ("userfeedback" in window) {
-          window["userfeedback"]["api"]["startFeedback"]({
-            productId: "5143948",
+        if ('userfeedback' in window) {
+          window['userfeedback']['api']['startFeedback']({
+            productId: '5143948',
           });
           e.preventDefault();
         }

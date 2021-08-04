@@ -72,7 +72,7 @@ item has bolded text. Please see the `<paper-menu>` docs for which attributes
   <script>
     (function () {
       Polymer({
-        is: "paper-submenu",
+        is: 'paper-submenu',
 
         properties: {
           /**
@@ -96,14 +96,14 @@ item has bolded text. Please see the `<paper-menu>` docs for which attributes
             type: Boolean,
             value: false,
             notify: true,
-            observer: "_openedChanged",
+            observer: '_openedChanged',
           },
         },
 
         behaviors: [Polymer.IronControlState],
 
         listeners: {
-          focus: "_onFocus",
+          focus: '_onFocus',
         },
 
         get __parent() {
@@ -119,14 +119,14 @@ item has bolded text. Please see the `<paper-menu>` docs for which attributes
         },
 
         attached: function () {
-          this.listen(this.__parent, "iron-activate", "_onParentIronActivate");
+          this.listen(this.__parent, 'iron-activate', '_onParentIronActivate');
         },
 
         dettached: function () {
           this.unlisten(
             this.__parent,
-            "iron-activate",
-            "_onParentIronActivate"
+            'iron-activate',
+            '_onParentIronActivate'
           );
         },
 
@@ -137,7 +137,7 @@ item has bolded text. Please see the `<paper-menu>` docs for which attributes
           if (!this.disabled && !this._active) {
             this.$.collapse.show();
             this._active = true;
-            this.__trigger && this.__trigger.classList.add("iron-selected");
+            this.__trigger && this.__trigger.classList.add('iron-selected');
             this.__content && this.__content.focus();
           }
         },
@@ -149,7 +149,7 @@ item has bolded text. Please see the `<paper-menu>` docs for which attributes
           if (this._active) {
             this.$.collapse.hide();
             this._active = false;
-            this.__trigger && this.__trigger.classList.remove("iron-selected");
+            this.__trigger && this.__trigger.classList.remove('iron-selected');
           }
         },
 
@@ -178,9 +178,9 @@ item has bolded text. Please see the `<paper-menu>` docs for which attributes
          */
         _openedChanged: function (opened, oldOpened) {
           if (opened) {
-            this.fire("paper-submenu-open");
+            this.fire('paper-submenu-open');
           } else if (oldOpened != null) {
-            this.fire("paper-submenu-close");
+            this.fire('paper-submenu-close');
           }
         },
 

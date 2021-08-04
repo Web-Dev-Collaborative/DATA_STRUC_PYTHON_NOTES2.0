@@ -31,7 +31,7 @@ if (!window.console || !console.firebug) {
  * small helper function to urldecode strings
  */
 jQuery.urldecode = (x) => {
-  return decodeURIComponent(x).replace(/\+/g, " ");
+  return decodeURIComponent(x).replace(/\+/g, ' ');
 };
 
 /**
@@ -45,11 +45,11 @@ jQuery.urlencode = encodeURIComponent;
  * it will always return arrays of strings for the value parts.
  */
 jQuery.getQueryParameters = (s) => {
-  if (typeof s === "undefined") s = document.location.search;
-  const parts = s.substr(s.indexOf("?") + 1).split("&");
+  if (typeof s === 'undefined') s = document.location.search;
+  const parts = s.substr(s.indexOf('?') + 1).split('&');
   const result = {};
   for (let i = 0; i < parts.length; i++) {
-    const tmp = parts[i].split("=", 2);
+    const tmp = parts[i].split('=', 2);
     const key = jQuery.urldecode(tmp[0]);
     const value = jQuery.urldecode(tmp[1]);
     if (key in result) result[key].push(value);
@@ -70,19 +70,19 @@ jQuery.fn.highlightText = function (text, className) {
       if (
         pos >= 0 &&
         !jQuery(node.parentNode).hasClass(className) &&
-        !jQuery(node.parentNode).hasClass("nohighlight")
+        !jQuery(node.parentNode).hasClass('nohighlight')
       ) {
         let span;
         const isInSVG = jQuery(node)
-          .closest("body, svg, foreignObject")
-          .is("svg");
+          .closest('body, svg, foreignObject')
+          .is('svg');
         if (isInSVG) {
           span = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "tspan"
+            'http://www.w3.org/2000/svg',
+            'tspan'
           );
         } else {
-          span = document.createElement("span");
+          span = document.createElement('span');
           span.className = className;
         }
         span.appendChild(document.createTextNode(val.substr(pos, text.length)));
@@ -96,22 +96,22 @@ jQuery.fn.highlightText = function (text, className) {
         node.nodeValue = val.substr(0, pos);
         if (isInSVG) {
           const rect = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "rect"
+            'http://www.w3.org/2000/svg',
+            'rect'
           );
           const bbox = node.parentElement.getBBox();
           rect.x.baseVal.value = bbox.x;
           rect.y.baseVal.value = bbox.y;
           rect.width.baseVal.value = bbox.width;
           rect.height.baseVal.value = bbox.height;
-          rect.setAttribute("class", className);
+          rect.setAttribute('class', className);
           addItems.push({
             parent: node.parentNode,
             target: rect,
           });
         }
       }
-    } else if (!jQuery(node).is("button, select, textarea")) {
+    } else if (!jQuery(node).is('button, select, textarea')) {
       jQuery.each(node.childNodes, function () {
         highlight(this, addItems);
       });
@@ -140,13 +140,13 @@ if (!jQuery.browser) {
       /(webkit)[ \/]([\w.]+)/.exec(ua) ||
       /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) ||
       /(msie) ([\w.]+)/.exec(ua) ||
-      (ua.indexOf("compatible") < 0 &&
+      (ua.indexOf('compatible') < 0 &&
         /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua)) ||
       [];
 
     return {
-      browser: match[1] || "",
-      version: match[2] || "0",
+      browser: match[1] || '',
+      version: match[2] || '0',
     };
   };
   jQuery.browser = {};
@@ -173,19 +173,19 @@ const Documentation = {
   PLURAL_EXPR(n) {
     return n === 1 ? 0 : 1;
   },
-  LOCALE: "unknown",
+  LOCALE: 'unknown',
 
   // gettext and ngettext don't access this so that the functions
   // can safely bound to a different name (_ = Documentation.gettext)
   gettext(string) {
     const translated = Documentation.TRANSLATIONS[string];
-    if (typeof translated === "undefined") return string;
-    return typeof translated === "string" ? translated : translated[0];
+    if (typeof translated === 'undefined') return string;
+    return typeof translated === 'string' ? translated : translated[0];
   },
 
   ngettext(singular, plural, n) {
     const translated = Documentation.TRANSLATIONS[singular];
-    if (typeof translated === "undefined") return n == 1 ? singular : plural;
+    if (typeof translated === 'undefined') return n == 1 ? singular : plural;
     return translated[Documentation.PLURALEXPR(n)];
   },
 
@@ -193,8 +193,8 @@ const Documentation = {
     for (const key in catalog.messages)
       this.TRANSLATIONS[key] = catalog.messages[key];
     this.PLURAL_EXPR = new Function(
-      "n",
-      "return +(" + catalog.plural_expr + ")"
+      'n',
+      'return +(' + catalog.plural_expr + ')'
     );
     this.LOCALE = catalog.locale;
   },
@@ -203,16 +203,16 @@ const Documentation = {
    * add context elements like header anchor links
    */
   addContextElements() {
-    $("div[id] > :header:first").each(function () {
+    $('div[id] > :header:first').each(function () {
       $('<a class="headerlink">\u00B6</a>')
-        .attr("href", "#" + this.id)
-        .attr("title", _("Permalink to this headline"))
+        .attr('href', '#' + this.id)
+        .attr('title', _('Permalink to this headline'))
         .appendTo(this);
     });
-    $("dt[id]").each(function () {
+    $('dt[id]').each(function () {
       $('<a class="headerlink">\u00B6</a>')
-        .attr("href", "#" + this.id)
-        .attr("title", _("Permalink to this definition"))
+        .attr('href', '#' + this.id)
+        .attr('title', _('Permalink to this definition'))
         .appendTo(this);
     });
   },
@@ -224,7 +224,7 @@ const Documentation = {
   fixFirefoxAnchorBug() {
     if (document.location.hash && $.browser.mozilla)
       window.setTimeout(() => {
-        document.location.href += "";
+        document.location.href += '';
       }, 10);
   },
 
@@ -235,21 +235,21 @@ const Documentation = {
     const params = $.getQueryParameters();
     const terms = params.highlight ? params.highlight[0].split(/\s+/) : [];
     if (terms.length) {
-      let body = $("div.body");
+      let body = $('div.body');
       if (!body.length) {
-        body = $("body");
+        body = $('body');
       }
       window.setTimeout(() => {
         $.each(terms, function () {
-          body.highlightText(this.toLowerCase(), "highlighted");
+          body.highlightText(this.toLowerCase(), 'highlighted');
         });
       }, 10);
       $(
         '<p class="highlight-link"><a href="javascript:Documentation.' +
           'hideSearchWords()">' +
-          _("Hide Search Matches") +
-          "</a></p>"
-      ).appendTo($("#searchbox"));
+          _('Hide Search Matches') +
+          '</a></p>'
+      ).appendTo($('#searchbox'));
     }
   },
 
@@ -257,16 +257,16 @@ const Documentation = {
    * init the domain index toggle buttons
    */
   initIndexTable() {
-    const togglers = $("img.toggler")
+    const togglers = $('img.toggler')
       .click(function () {
-        const src = $(this).attr("src");
-        const idnum = $(this).attr("id").substr(7);
-        $("tr.cg-" + idnum).toggle();
-        if (src.substr(-9) === "minus.png")
-          $(this).attr("src", src.substr(0, src.length - 9) + "plus.png");
-        else $(this).attr("src", src.substr(0, src.length - 8) + "minus.png");
+        const src = $(this).attr('src');
+        const idnum = $(this).attr('id').substr(7);
+        $('tr.cg-' + idnum).toggle();
+        if (src.substr(-9) === 'minus.png')
+          $(this).attr('src', src.substr(0, src.length - 9) + 'plus.png');
+        else $(this).attr('src', src.substr(0, src.length - 8) + 'minus.png');
       })
-      .css("display", "");
+      .css('display', '');
     if (DOCUMENTATION_OPTIONS.COLLAPSE_INDEX) {
       togglers.click();
     }
@@ -276,15 +276,15 @@ const Documentation = {
    * helper function to hide the search marks again
    */
   hideSearchWords() {
-    $("#searchbox .highlight-link").fadeOut(300);
-    $("span.highlighted").removeClass("highlighted");
+    $('#searchbox .highlight-link').fadeOut(300);
+    $('span.highlighted').removeClass('highlighted');
   },
 
   /**
    * make the url absolute
    */
   makeURL(relativeURL) {
-    return DOCUMENTATION_OPTIONS.URL_ROOT + "/" + relativeURL;
+    return DOCUMENTATION_OPTIONS.URL_ROOT + '/' + relativeURL;
   },
 
   /**
@@ -294,10 +294,10 @@ const Documentation = {
     const path = document.location.pathname;
     const parts = path.split(/\//);
     $.each(DOCUMENTATION_OPTIONS.URL_ROOT.split(/\//), function () {
-      if (this === "..") parts.pop();
+      if (this === '..') parts.pop();
     });
-    const url = parts.join("/");
-    return path.substring(url.lastIndexOf("/") + 1, path.length - 1);
+    const url = parts.join('/');
+    return path.substring(url.lastIndexOf('/') + 1, path.length - 1);
   },
 
   initOnKeyListeners() {
@@ -305,9 +305,9 @@ const Documentation = {
       const activeElementType = document.activeElement.tagName;
       // don't navigate when in search box or textarea
       if (
-        activeElementType !== "TEXTAREA" &&
-        activeElementType !== "INPUT" &&
-        activeElementType !== "SELECT" &&
+        activeElementType !== 'TEXTAREA' &&
+        activeElementType !== 'INPUT' &&
+        activeElementType !== 'SELECT' &&
         !event.altKey &&
         !event.ctrlKey &&
         !event.metaKey &&
@@ -315,13 +315,13 @@ const Documentation = {
       ) {
         switch (event.keyCode) {
           case 37: // left
-            const prevHref = $('link[rel="prev"]').prop("href");
+            const prevHref = $('link[rel="prev"]').prop('href');
             if (prevHref) {
               window.location.href = prevHref;
               return false;
             }
           case 39: // right
-            const nextHref = $('link[rel="next"]').prop("href");
+            const nextHref = $('link[rel="next"]').prop('href');
             if (nextHref) {
               window.location.href = nextHref;
               return false;

@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     window.Polymer = function (prototype) {
       // if input is a `class` (aka a function with a prototype), use the prototype
       // remember that the `constructor` will never be called
-      if (typeof prototype === "function") {
+      if (typeof prototype === 'function') {
         prototype = prototype.prototype;
       }
       // if there is no prototype, use a default empty object
@@ -81,7 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   Polymer.telemetry = {
     registrations: [],
     _regLog: function (prototype) {
-      console.log("[" + prototype.is + "]: registered");
+      console.log('[' + prototype.is + ']: registered');
     },
     _registrate: function (prototype) {
       this.registrations.push(prototype);

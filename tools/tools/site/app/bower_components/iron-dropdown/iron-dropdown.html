@@ -75,10 +75,10 @@ method is called on the element.
 
   <script>
     (function () {
-      "use strict";
+      'use strict';
 
       Polymer({
-        is: "iron-dropdown",
+        is: 'iron-dropdown',
 
         behaviors: [
           Polymer.IronControlState,
@@ -95,7 +95,7 @@ method is called on the element.
            */
           horizontalAlign: {
             type: String,
-            value: "left",
+            value: 'left',
             reflectToAttribute: true,
           },
 
@@ -106,7 +106,7 @@ method is called on the element.
            */
           verticalAlign: {
             type: String,
-            value: "top",
+            value: 'top',
             reflectToAttribute: true,
           },
 
@@ -172,11 +172,11 @@ method is called on the element.
         },
 
         listeners: {
-          "neon-animation-finish": "_onNeonAnimationFinish",
+          'neon-animation-finish': '_onNeonAnimationFinish',
         },
 
         observers: [
-          "_updateOverlayPosition(positionTarget, verticalAlign, horizontalAlign, verticalOffset, horizontalOffset)",
+          '_updateOverlayPosition(positionTarget, verticalAlign, horizontalAlign, verticalOffset, horizontalOffset)',
         ],
 
         /**
@@ -210,7 +210,7 @@ method is called on the element.
 
         detached: function () {
           this.cancelAnimation();
-          document.removeEventListener("scroll", this._boundOnCaptureScroll);
+          document.removeEventListener('scroll', this._boundOnCaptureScroll);
           Polymer.IronDropdownScrollManager.removeScrollLock(this);
         },
 
@@ -226,12 +226,12 @@ method is called on the element.
             this._updateAnimationConfig();
             this._saveScrollPosition();
             if (this.opened) {
-              document.addEventListener("scroll", this._boundOnCaptureScroll);
+              document.addEventListener('scroll', this._boundOnCaptureScroll);
               !this.allowOutsideScroll &&
                 Polymer.IronDropdownScrollManager.pushScrollLock(this);
             } else {
               document.removeEventListener(
-                "scroll",
+                'scroll',
                 this._boundOnCaptureScroll
               );
               Polymer.IronDropdownScrollManager.removeScrollLock(this);
@@ -248,8 +248,8 @@ method is called on the element.
          */
         _renderOpened: function () {
           if (!this.noAnimations && this.animationConfig.open) {
-            this.$.contentWrapper.classList.add("animating");
-            this.playAnimation("open");
+            this.$.contentWrapper.classList.add('animating');
+            this.playAnimation('open');
           } else {
             Polymer.IronOverlayBehaviorImpl._renderOpened.apply(
               this,
@@ -263,8 +263,8 @@ method is called on the element.
          */
         _renderClosed: function () {
           if (!this.noAnimations && this.animationConfig.close) {
-            this.$.contentWrapper.classList.add("animating");
-            this.playAnimation("close");
+            this.$.contentWrapper.classList.add('animating');
+            this.playAnimation('close');
           } else {
             Polymer.IronOverlayBehaviorImpl._renderClosed.apply(
               this,
@@ -280,7 +280,7 @@ method is called on the element.
          * none.
          */
         _onNeonAnimationFinish: function () {
-          this.$.contentWrapper.classList.remove("animating");
+          this.$.contentWrapper.classList.remove('animating');
           if (this.opened) {
             this._finishRenderOpened();
           } else {

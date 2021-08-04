@@ -39,7 +39,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // Given a node and scope name, add a scoping class to each node
       // in the tree. This facilitates transforming css into scoped rules.
       dom: function (node, scope, useAttr, shouldRemoveScope) {
-        this._transformDom(node, scope || "", useAttr, shouldRemoveScope);
+        this._transformDom(node, scope || '', useAttr, shouldRemoveScope);
       },
 
       _transformDom: function (node, selector, useAttr, shouldRemoveScope) {
@@ -79,13 +79,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 if (c) {
                   element.setAttribute(
                     CLASS,
-                    c.replace(SCOPE_NAME, "").replace(scope, "")
+                    c.replace(SCOPE_NAME, '').replace(scope, '')
                   );
                 }
               } else {
                 element.setAttribute(
                   CLASS,
-                  (c ? c + " " : "") + SCOPE_NAME + " " + scope
+                  (c ? c + ' ' : '') + SCOPE_NAME + ' ' + scope
                 );
               }
             }
@@ -95,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       elementStyles: function (element, callback) {
         var styles = element._styles;
-        var cssText = "";
+        var cssText = '';
         for (var i = 0, l = styles.length, s; i < l && (s = styles[i]); i++) {
           var rules = styleUtil.rulesForStyle(s);
           cssText += nativeShadow
@@ -106,7 +106,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 element.extends,
                 callback,
                 element._scopeCssViaAttr
-              ) + "\n\n";
+              ) + '\n\n';
         }
         return cssText.trim();
       },
@@ -136,12 +136,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             ? CSS_ATTR_PREFIX + scope + CSS_ATTR_SUFFIX
             : CSS_CLASS_PREFIX + scope;
         } else {
-          return "";
+          return '';
         }
       },
 
       _calcHostScope: function (scope, ext) {
-        return ext ? "[is=" + scope + "]" : scope;
+        return ext ? '[is=' + scope + ']' : scope;
       },
 
       rule: function (rule, scope, hostScope) {
@@ -173,7 +173,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var stop = false;
         var hostContext = false;
         var self = this;
-        selector = selector.replace(CONTENT_START, HOST + " $1");
+        selector = selector.replace(CONTENT_START, HOST + ' $1');
         selector = selector.replace(SIMPLE_SELECTOR_SEP, function (m, c, s) {
           if (!stop) {
             var info = self._transformCompoundSelector(s, c, scope, hostScope);
@@ -182,7 +182,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             c = info.combinator;
             s = info.value;
           } else {
-            s = s.replace(SCOPE_JUMP, " ");
+            s = s.replace(SCOPE_JUMP, ' ');
           }
           return c + s;
         });
@@ -193,11 +193,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               return (
                 pre +
                 paren +
-                " " +
+                ' ' +
                 hostScope +
                 post +
                 COMPLEX_SELECTOR_SEP +
-                " " +
+                ' ' +
                 pre +
                 hostScope +
                 paren +
@@ -235,13 +235,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         // remove left-side combinator when dealing with ::content.
         if (selector.indexOf(CONTENT) >= 0) {
-          combinator = "";
+          combinator = '';
         }
         // process scope jumping selectors up to the scope jump and then stop
         // e.g. .zonk ::content > .foo ==> .zonk.scope > .foo
         var stop;
         if (jumpIndex >= 0) {
-          selector = selector.replace(SCOPE_JUMP, " ");
+          selector = selector.replace(SCOPE_JUMP, ' ');
           stop = true;
         }
         return {
@@ -269,7 +269,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       normalizeRootSelector: function (rule) {
         if (rule.selector === ROOT) {
-          rule.selector = "body";
+          rule.selector = 'body';
         }
       },
 
@@ -279,31 +279,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           : this._transformSimpleSelector(selector.trim(), SCOPE_DOC_SELECTOR);
       },
 
-      SCOPE_NAME: "style-scope",
+      SCOPE_NAME: 'style-scope',
     };
 
     var SCOPE_NAME = api.SCOPE_NAME;
     var SCOPE_DOC_SELECTOR =
-      ":not([" + SCOPE_NAME + "])" + ":not(." + SCOPE_NAME + ")";
-    var COMPLEX_SELECTOR_SEP = ",";
+      ':not([' + SCOPE_NAME + '])' + ':not(.' + SCOPE_NAME + ')';
+    var COMPLEX_SELECTOR_SEP = ',';
     var SIMPLE_SELECTOR_SEP = /(^|[\s>+~]+)((?:\[.+?\]|[^\s>+~=\[])+)/g;
-    var HOST = ":host";
-    var ROOT = ":root";
+    var HOST = ':host';
+    var ROOT = ':root';
     // NOTE: this supports 1 nested () pair for things like
     // :host(:not([selected]), more general support requires
     // parsing which seems like overkill
     var HOST_PAREN = /(:host)(?:\(((?:\([^)(]*\)|[^)(]*)+?)\))/g;
-    var HOST_CONTEXT = ":host-context";
+    var HOST_CONTEXT = ':host-context';
     var HOST_CONTEXT_PAREN =
       /(.*)(?::host-context)(?:\(((?:\([^)(]*\)|[^)(]*)+?)\))(.*)/;
-    var CONTENT = "::content";
+    var CONTENT = '::content';
     var SCOPE_JUMP = /::content|::shadow|\/deep\//;
-    var CSS_CLASS_PREFIX = ".";
-    var CSS_ATTR_PREFIX = "[" + SCOPE_NAME + "~=";
-    var CSS_ATTR_SUFFIX = "]";
-    var PSEUDO_PREFIX = ":";
-    var CLASS = "class";
-    var CONTENT_START = new RegExp("^(" + CONTENT + ")");
+    var CSS_CLASS_PREFIX = '.';
+    var CSS_ATTR_PREFIX = '[' + SCOPE_NAME + '~=';
+    var CSS_ATTR_SUFFIX = ']';
+    var PSEUDO_PREFIX = ':';
+    var CLASS = 'class';
+    var CONTENT_START = new RegExp('^(' + CONTENT + ')');
 
     // exports
     return api;

@@ -37,7 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <style>
       body {
-        font-family: "Roboto", "Noto", sans-serif;
+        font-family: 'Roboto', 'Noto', sans-serif;
         background-color: #ddd;
         margin: 0;
       }
@@ -134,7 +134,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <script>
         HTMLImports.whenReady(function () {
           Polymer({
-            is: "x-grid",
+            is: 'x-grid',
 
             attached: function () {
               this._updateGridStyles =
@@ -142,11 +142,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 function () {
                   this.updateStyles();
                 }.bind(this);
-              window.addEventListener("resize", this._updateGridStyles);
+              window.addEventListener('resize', this._updateGridStyles);
             },
 
             detached: function () {
-              window.removeEventListener("resize", this._updateGridStyles);
+              window.removeEventListener('resize', this._updateGridStyles);
             },
           });
         });

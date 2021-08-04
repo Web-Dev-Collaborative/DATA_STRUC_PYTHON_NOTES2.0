@@ -17,8 +17,6 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/iron-scroll-t
 
 ##Polymer.IronScrollTargetBehavior
 
-`Polymer.IronScrollTargetBehavior` allows an element to respond to scroll events from a
-designated scroll target.
+`Polymer.IronScrollTargetBehavior` allows an element to respond to scroll events from a designated scroll target.
 
-Elements that consume this behavior can override the `_scrollHandler`
-method to add logic on the scroll event.
+Elements that consume this behavior can override the `_scrollHandler` method to add logic on the scroll event.

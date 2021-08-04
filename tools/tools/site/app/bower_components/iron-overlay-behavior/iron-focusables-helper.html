@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     var p = Element.prototype;
     var matches =
@@ -59,13 +59,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // http://allyjs.io/data-tables/focusable.html
 
         // Elements that cannot be focused if they have [disabled] attribute.
-        if (matches.call(element, "input, select, textarea, button, object")) {
-          return matches.call(element, ":not([disabled])");
+        if (matches.call(element, 'input, select, textarea, button, object')) {
+          return matches.call(element, ':not([disabled])');
         }
         // Elements that can be focused even if they have [disabled] attribute.
         return matches.call(
           element,
-          "a[href], area[href], iframe, [tabindex], [contentEditable]"
+          'a[href], area[href], iframe, [tabindex], [contentEditable]'
         );
       },
 
@@ -94,7 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       _normalizedTabIndex: function (element) {
         if (this.isFocusable(element)) {
-          var tabIndex = element.getAttribute("tabindex") || 0;
+          var tabIndex = element.getAttribute('tabindex') || 0;
           return Number(tabIndex);
         }
         return -1;
@@ -135,7 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         //  </div>
         // TODO(valdrin) support ShadowDOM v1 when upgrading to Polymer v2.0.
         var children;
-        if (element.localName === "content") {
+        if (element.localName === 'content') {
           children = Polymer.dom(element).getDistributedNodes();
         } else {
           // Use shadow root if possible, will check for distributed nodes.
@@ -159,9 +159,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // Check inline style first to save a re-flow. If looks good, check also
         // computed style.
         var style = element.style;
-        if (style.visibility !== "hidden" && style.display !== "none") {
+        if (style.visibility !== 'hidden' && style.display !== 'none') {
           style = window.getComputedStyle(element);
-          return style.visibility !== "hidden" && style.display !== "none";
+          return style.visibility !== 'hidden' && style.display !== 'none';
         }
         return false;
       },

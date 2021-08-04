@@ -35,8 +35,8 @@ class ModelMetaclass(type):
                 mappings[k] = v
         for k in mappings.keys():
             attrs.pop(k)
-        attrs["__mappings__"] = mappings  # 保存属性和列的映射关系
-        attrs["__table__"] = name  # 假设表名和类名一致
+        attrs["__mappings__"] = mappings  # 
+        attrs["__table__"] = name  # 
         return type.__new__(cls, name, bases, attrs)
 
 

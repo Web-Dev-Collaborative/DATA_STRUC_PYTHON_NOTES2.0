@@ -183,7 +183,7 @@ Custom property | Description | Default
 
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     Polymer.PaperScrollHeaderPanel = Polymer({
       /**
@@ -198,7 +198,7 @@ Custom property | Description | Default
        * @event paper-header-transform
        */
 
-      is: "paper-scroll-header-panel",
+      is: 'paper-scroll-header-panel',
 
       behaviors: [Polymer.IronResizableBehavior],
 
@@ -300,19 +300,19 @@ Custom property | Description | Default
       },
 
       observers: [
-        "_setup(headerHeight, condensedHeaderHeight, fixed)",
-        "_condensedHeaderHeightChanged(condensedHeaderHeight)",
-        "_headerHeightChanged(headerHeight, condensedHeaderHeight)",
-        "_condensesChanged(condenses)",
+        '_setup(headerHeight, condensedHeaderHeight, fixed)',
+        '_condensedHeaderHeightChanged(condensedHeaderHeight)',
+        '_headerHeightChanged(headerHeight, condensedHeaderHeight)',
+        '_condensesChanged(condenses)',
       ],
 
       listeners: {
-        "iron-resize": "measureHeaderHeight",
+        'iron-resize': 'measureHeaderHeight',
       },
 
       ready: function () {
         this._scrollHandler = this._scroll.bind(this);
-        this.scroller.addEventListener("scroll", this._scrollHandler);
+        this.scroller.addEventListener('scroll', this._scrollHandler);
       },
 
       attached: function () {
@@ -486,8 +486,8 @@ Custom property | Description | Default
       _setup: function () {
         var s = this.scroller.style;
 
-        s.paddingTop = this.fixed ? "" : this.headerHeight + "px";
-        s.top = this.fixed ? this.headerHeight + "px" : "";
+        s.paddingTop = this.fixed ? '' : this.headerHeight + 'px';
+        s.top = this.fixed ? this.headerHeight + 'px' : '';
 
         if (this.fixed) {
           this._setHeaderState(0);
@@ -511,7 +511,7 @@ Custom property | Description | Default
           this._condenseHeader(y);
         }
 
-        this.fire("paper-header-transform", {
+        this.fire('paper-header-transform', {
           y: y,
           height: this.headerHeight,
           condensedHeight: this.condensedHeaderHeight,
@@ -536,7 +536,7 @@ Custom property | Description | Default
         // transition header bg
         if (!this.noDissolve) {
           this.$.headerBg.style.opacity = reset
-            ? ""
+            ? ''
             : (this._headerMargin - y) / this._headerMargin;
         }
         // adjust header bg so it stays at the center
@@ -544,7 +544,7 @@ Custom property | Description | Default
         // transition condensed header bg
         if (!this.noDissolve) {
           this.$.condensedHeaderBg.style.opacity = reset
-            ? ""
+            ? ''
             : y / this._headerMargin;
 
           // adjust condensed header bg so it stays at the center
@@ -554,7 +554,7 @@ Custom property | Description | Default
 
       _translateY: function (node, y) {
         this.transform(
-          y === null ? "" : "translate3d(0, " + y + "px, 0)",
+          y === null ? '' : 'translate3d(0, ' + y + 'px, 0)',
           node
         );
       },
@@ -565,7 +565,7 @@ Custom property | Description | Default
           this._updateScrollState(this.scroller.scrollTop);
 
           this.fire(
-            "content-scroll",
+            'content-scroll',
             {
               target: this.scroller,
             },

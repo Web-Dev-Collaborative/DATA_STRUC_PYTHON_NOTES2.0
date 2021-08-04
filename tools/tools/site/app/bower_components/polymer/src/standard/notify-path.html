@@ -60,7 +60,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   (function () {
     // Using strict here to ensure fast argument manipulation in array methods
-    "use strict";
+    'use strict';
 
     Polymer.Base._addFeature({
       /**
@@ -119,14 +119,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (Array.isArray(path)) {
           var parts = [];
           for (var i = 0; i < path.length; i++) {
-            var args = path[i].toString().split(".");
+            var args = path[i].toString().split('.');
             for (var j = 0; j < args.length; j++) {
               parts.push(args[j]);
             }
           }
           return parts;
         } else {
-          return path.toString().split(".");
+          return path.toString().split('.');
         }
       },
 
@@ -158,7 +158,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // Loop over path parts[0..n-2] and dereference
           for (var i = 0; i < parts.length - 1; i++) {
             var part = parts[i];
-            if (array && part[0] == "#") {
+            if (array && part[0] == '#') {
               // Part was key; lookup item in collection
               prop = Polymer.Collection.get(array).getItem(part);
             } else {
@@ -180,7 +180,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (array) {
             var coll = Polymer.Collection.get(array);
             var old, key;
-            if (last[0] == "#") {
+            if (last[0] == '#') {
               // Part was key; lookup item in collection
               key = last;
               old = coll.getItem(key);
@@ -202,7 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           prop[last] = value;
           // Notify observers of path change
           if (!root) {
-            this._notifyPath(parts.join("."), value);
+            this._notifyPath(parts.join('.'), value);
           }
         } else {
           // Simple property set
@@ -246,7 +246,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             return;
           }
           var part = parts[i];
-          if (array && part[0] == "#") {
+          if (array && part[0] == '#') {
             // Part was key; lookup item in collection
             prop = Polymer.Collection.get(array).getItem(part);
           } else {
@@ -261,7 +261,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           array = Array.isArray(prop) ? prop : null;
         }
         if (info) {
-          info.path = parts.join(".");
+          info.path = parts.join('.');
         }
         return prop;
       },
@@ -287,11 +287,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _annotationPathEffect: function (path, value, effect) {
-        if (effect.value === path || effect.value.indexOf(path + ".") === 0) {
+        if (effect.value === path || effect.value.indexOf(path + '.') === 0) {
           // TODO(sorvell): ideally the effect function is on this prototype
           // so we don't have to call it like this.
           Polymer.Bind._annotationEffect.call(this, path, value, effect);
-        } else if (path.indexOf(effect.value + ".") === 0 && !effect.negate) {
+        } else if (path.indexOf(effect.value + '.') === 0 && !effect.negate) {
           // locate the bound node
           var node = this._nodes[effect.index];
           if (node && node._notifyPath) {
@@ -328,7 +328,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var effectArg = effect.trigger.name;
         return (
           effectArg == path ||
-          effectArg.indexOf(path + ".") === 0 ||
+          effectArg.indexOf(path + '.') === 0 ||
           (effect.trigger.wildcard && path.indexOf(effectArg) === 0)
         );
       },
@@ -370,9 +370,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _notifyBoundPaths: function (path, value) {
         for (var a in this._boundPaths) {
           var b = this._boundPaths[a];
-          if (path.indexOf(a + ".") == 0) {
+          if (path.indexOf(a + '.') == 0) {
             this._notifyPath(this._fixPath(b, a, path), value);
-          } else if (path.indexOf(b + ".") == 0) {
+          } else if (path.indexOf(b + '.') == 0) {
             this._notifyPath(this._fixPath(a, b, path), value);
           }
         }
@@ -398,11 +398,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _modelForPath: function (path) {
-        var dot = path.indexOf(".");
+        var dot = path.indexOf('.');
         return dot < 0 ? path : path.slice(0, dot);
       },
 
-      _EVENT_CHANGED: "-changed",
+      _EVENT_CHANGED: '-changed',
 
       /**
        * Notify that an array has changed.
@@ -445,9 +445,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           keySplices: Polymer.Collection.applySplices(array, splices),
           indexSplices: splices,
         };
-        var splicesPath = path + ".splices";
+        var splicesPath = path + '.splices';
         this._notifyPath(splicesPath, change);
-        this._notifyPath(path + ".length", array.length);
+        this._notifyPath(path + '.length', array.length);
         // All path notification values are cached on `this.__data__`.
         // Null here to allow potentially large splice records to be GC'ed.
         this.__data__[splicesPath] = { keySplices: null, indexSplices: null };
@@ -460,7 +460,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             addedCount: added,
             removed: removed,
             object: array,
-            type: "splice",
+            type: 'splice',
           },
         ]);
       },

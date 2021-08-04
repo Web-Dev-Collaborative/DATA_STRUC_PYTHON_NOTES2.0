@@ -59,11 +59,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _listenListeners: function (listeners) {
       var node, name, eventName;
       for (eventName in listeners) {
-        if (eventName.indexOf(".") < 0) {
+        if (eventName.indexOf('.') < 0) {
           node = this;
           name = eventName;
         } else {
-          name = eventName.split(".");
+          name = eventName.split('.');
           node = this.$[name[0]];
           name = name[1];
         }
@@ -95,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _boundListenerKey: function (eventName, methodName) {
-      return eventName + ":" + methodName;
+      return eventName + ':' + methodName;
     },
 
     _recordEventHandler: function (
@@ -139,8 +139,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         } else {
           host._warn(
             host._logf(
-              "_createEventHandler",
-              "listener method `" + methodName + "` not defined"
+              '_createEventHandler',
+              'listener method `' + methodName + '` not defined'
             )
           );
         }

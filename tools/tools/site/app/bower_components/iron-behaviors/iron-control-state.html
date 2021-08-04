@@ -35,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         type: Boolean,
         value: false,
         notify: true,
-        observer: "_disabledChanged",
+        observer: '_disabledChanged',
         reflectToAttribute: true,
       },
 
@@ -51,11 +51,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
     },
 
-    observers: ["_changedControlState(focused, disabled)"],
+    observers: ['_changedControlState(focused, disabled)'],
 
     ready: function () {
-      this.addEventListener("focus", this._boundFocusBlurHandler, true);
-      this.addEventListener("blur", this._boundFocusBlurHandler, true);
+      this.addEventListener('focus', this._boundFocusBlurHandler, true);
+      this.addEventListener('blur', this._boundFocusBlurHandler, true);
     },
 
     _focusBlurHandler: function (event) {
@@ -66,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // handled). In either case, we can disregard `event.path`.
 
       if (event.target === this) {
-        this._setFocused(event.type === "focus");
+        this._setFocused(event.type === 'focus');
       } else if (!this.shadowRoot) {
         var target = /** @type {Node} */ (Polymer.dom(event).localTarget);
         if (!this.isLightDescendant(target)) {
@@ -84,8 +84,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _disabledChanged: function (disabled, old) {
-      this.setAttribute("aria-disabled", disabled ? "true" : "false");
-      this.style.pointerEvents = disabled ? "none" : "";
+      this.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+      this.style.pointerEvents = disabled ? 'none' : '';
       if (disabled) {
         this._oldTabIndex = this.tabIndex;
         this._setFocused(false);

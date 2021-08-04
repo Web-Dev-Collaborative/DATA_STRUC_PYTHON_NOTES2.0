@@ -100,7 +100,7 @@ With arrays, the information stored within them are all physically stored next t
 
 A linked list might be better represented as a bead necklace - little nodes connected by a link (beads by string). There is no requirement that this data exist next to each other in memory. Instead, each item in the list points to the next item’s location in memory.
 
-![Arrays v Linked Lists](Array_LList.png "Arrays v Linked Lists")
+![Arrays v Linked Lists](Array_LList.png 'Arrays v Linked Lists')
 
 Arrays _have_ to be contiguous because they are data stored next to each other in memory. In the bits, the allocated memory must always have a value – it isn’t null in memory. It’s either a 0 or a 1. No matter if we aren’t storing a value, a 0 is still being read. That position in memory is always being read, so even if it’s “empty”, it’ll be _read_ as nothing. (That memory is either still reserved for the array or marked as not in use, but probably contains unused data.)
 

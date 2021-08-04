@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="settings.html" />
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     var DomApi = Polymer.DomApi.ctor;
     var Settings = Polymer.Settings;
@@ -72,7 +72,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
 
         _hasAttrSelect: function () {
-          var select = this.node.getAttribute("select");
+          var select = this.node.getAttribute('select');
           return select && select.match(/[[.]+/);
         },
 

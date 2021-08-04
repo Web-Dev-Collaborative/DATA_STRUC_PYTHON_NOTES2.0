@@ -23,8 +23,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // remove stuff we don't care about that may hinder parsing
       _clean: function (cssText) {
         return cssText
-          .replace(this._rx.comments, "")
-          .replace(this._rx.port, "");
+          .replace(this._rx.comments, '')
+          .replace(this._rx.port, '');
       },
 
       // super simple {...} lexer that returns a node tree
@@ -61,10 +61,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var ss = node.previous ? node.previous.end : node.parent.start;
           t = text.substring(ss, node.start - 1);
           t = this._expandUnicodeEscapes(t);
-          t = t.replace(this._rx.multipleSpaces, " ");
+          t = t.replace(this._rx.multipleSpaces, ' ');
           // TODO(sorvell): ad hoc; make selector include only after last ;
           // helps with mixin syntax
-          t = t.substring(t.lastIndexOf(";") + 1);
+          t = t.substring(t.lastIndexOf(';') + 1);
           var s = (node.parsedSelector = node.selector = t.trim());
           node.atRule = s.indexOf(this.AT_START) === 0;
           // note, support a subset of rule types...
@@ -101,17 +101,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var code = arguments[1],
             repeat = 6 - code.length;
           while (repeat--) {
-            code = "0" + code;
+            code = '0' + code;
           }
-          return "\\" + code;
+          return '\\' + code;
         });
       },
 
       // stringify parsed css.
       stringify: function (node, preserveProperties, text) {
-        text = text || "";
+        text = text || '';
         // calc rule cssText
-        var cssText = "";
+        var cssText = '';
         if (node.cssText || node.rules) {
           var r$ = node.rules;
           if (r$ && (preserveProperties || !this._hasMixinRules(r$))) {
@@ -124,18 +124,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               : this.removeCustomProps(node.cssText);
             cssText = cssText.trim();
             if (cssText) {
-              cssText = "  " + cssText + "\n";
+              cssText = '  ' + cssText + '\n';
             }
           }
         }
         // emit rule if there is cssText
         if (cssText) {
           if (node.selector) {
-            text += node.selector + " " + this.OPEN_BRACE + "\n";
+            text += node.selector + ' ' + this.OPEN_BRACE + '\n';
           }
           text += cssText;
           if (node.selector) {
-            text += this.CLOSE_BRACE + "\n\n";
+            text += this.CLOSE_BRACE + '\n\n';
           }
         }
         return text;
@@ -152,14 +152,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       removeCustomPropAssignment: function (cssText) {
         return cssText
-          .replace(this._rx.customProp, "")
-          .replace(this._rx.mixinProp, "");
+          .replace(this._rx.customProp, '')
+          .replace(this._rx.mixinProp, '');
       },
 
       removeCustomPropApply: function (cssText) {
         return cssText
-          .replace(this._rx.mixinApply, "")
-          .replace(this._rx.varApply, "");
+          .replace(this._rx.mixinApply, '')
+          .replace(this._rx.varApply, '');
       },
 
       types: {
@@ -169,8 +169,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         MIXIN_RULE: 1000,
       },
 
-      OPEN_BRACE: "{",
-      CLOSE_BRACE: "}",
+      OPEN_BRACE: '{',
+      CLOSE_BRACE: '}',
 
       // helper regexp's
       _rx: {
@@ -184,9 +184,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         multipleSpaces: /\s+/g,
       },
 
-      VAR_START: "--",
-      MEDIA_START: "@media",
-      AT_START: "@",
+      VAR_START: '--',
+      MEDIA_START: '@media',
+      AT_START: '@',
     };
   })();
 </script>

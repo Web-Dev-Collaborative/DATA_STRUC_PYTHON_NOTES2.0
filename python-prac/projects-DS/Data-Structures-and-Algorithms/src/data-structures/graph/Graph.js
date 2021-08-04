@@ -48,7 +48,7 @@ class Graph {
     }
     if (this.edges[edge.key]) {
       console.log(edge.key);
-      throw new Error("Edge has already been added before");
+      throw new Error('Edge has already been added before');
     } else {
       this.edges[edge.key] = edge;
     }

@@ -1,5 +1,5 @@
 <script>
-  addEventListener("WebComponentsReady", function () {
+  addEventListener('WebComponentsReady', function () {
     // given a list of elements, produce a report of rules that
     // match those elements.
     var auditor = {
@@ -18,7 +18,7 @@
       documentSheets: Array.prototype.filter.call(
         document.styleSheets,
         function (sheet) {
-          return !sheet.ownerNode.hasAttribute("scope");
+          return !sheet.ownerNode.hasAttribute('scope');
         }
       ),
 
@@ -74,12 +74,12 @@
       },
 
       elementsWithShadyRoot: function () {
-        var e$ = Polymer.dom(document).querySelectorAll("*");
+        var e$ = Polymer.dom(document).querySelectorAll('*');
         return this.filterElementsWithRoots(e$);
       },
 
       elementsInsideShadyRoot: function (e) {
-        var e$ = Polymer.dom(e.root || e).querySelectorAll("*");
+        var e$ = Polymer.dom(e.root || e).querySelectorAll('*');
         var roots = this.filterElementsWithRoots(e$);
         roots.forEach(function (e) {
           e$ = e$.concat(this.elementsInsideShadyRoot(e));

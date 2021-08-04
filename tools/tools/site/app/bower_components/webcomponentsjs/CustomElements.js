@@ -8,14 +8,14 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 // @version 0.7.24
-if (typeof WeakMap === "undefined") {
+if (typeof WeakMap === 'undefined') {
   (() => {
     const defineProperty = Object.defineProperty;
     let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
-        this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
+        this.name = '__st' + ((Math.random() * 1e9) >>> 0) + (counter++ + '__');
       }
 
       set(key, value) {
@@ -67,7 +67,7 @@ if (typeof WeakMap === "undefined") {
   } else {
     let setImmediateQueue = [];
     const sentinel = String(Math.random());
-    window.addEventListener("message", (e) => {
+    window.addEventListener('message', (e) => {
       if (e.data === sentinel) {
         const queue = setImmediateQueue;
         setImmediateQueue = [];
@@ -78,7 +78,7 @@ if (typeof WeakMap === "undefined") {
     });
     setImmediate = (func) => {
       setImmediateQueue.push(func);
-      window.postMessage(sentinel, "*");
+      window.postMessage(sentinel, '*');
     };
   }
   let isScheduled = false;
@@ -278,13 +278,13 @@ if (typeof WeakMap === "undefined") {
     addListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.addEventListener("DOMAttrModified", this, true);
+        node.addEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.addEventListener("DOMCharacterDataModified", this, true);
+        node.addEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.addEventListener("DOMNodeInserted", this, true);
+        node.addEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.addEventListener("DOMNodeRemoved", this, true);
+        node.addEventListener('DOMNodeRemoved', this, true);
     }
 
     removeListeners() {
@@ -294,13 +294,13 @@ if (typeof WeakMap === "undefined") {
     removeListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.removeEventListener("DOMAttrModified", this, true);
+        node.removeEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.removeEventListener("DOMCharacterDataModified", this, true);
+        node.removeEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.removeEventListener("DOMNodeInserted", this, true);
+        node.removeEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.removeEventListener("DOMNodeRemoved", this, true);
+        node.removeEventListener('DOMNodeRemoved', this, true);
     }
 
     addTransientObserver(node) {
@@ -330,11 +330,11 @@ if (typeof WeakMap === "undefined") {
     handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
-        case "DOMAttrModified":
+        case 'DOMAttrModified':
           const name = e.attrName;
           const namespace = e.relatedNode.namespaceURI;
           var target = e.target;
-          var record = new getRecord("attributes", target);
+          var record = new getRecord('attributes', target);
           record.attributeName = name;
           record.attributeNamespace = namespace;
           var oldValue =
@@ -355,9 +355,9 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMCharacterDataModified":
+        case 'DOMCharacterDataModified':
           var target = e.target;
-          var record = getRecord("characterData", target);
+          var record = getRecord('characterData', target);
           var oldValue = e.prevValue;
           forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.characterData) return;
@@ -367,13 +367,13 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMNodeRemoved":
+        case 'DOMNodeRemoved':
           this.addTransientObserver(e.target);
 
-        case "DOMNodeInserted":
+        case 'DOMNodeInserted':
           const changedNode = e.target;
           let addedNodes, removedNodes;
-          if (e.type === "DOMNodeInserted") {
+          if (e.type === 'DOMNodeInserted') {
             addedNodes = [changedNode];
             removedNodes = [];
           } else {
@@ -382,7 +382,7 @@ if (typeof WeakMap === "undefined") {
           }
           const previousSibling = changedNode.previousSibling;
           const nextSibling = changedNode.nextSibling;
-          var record = getRecord("childList", e.target.parentNode);
+          var record = getRecord('childList', e.target.parentNode);
           record.addedNodes = addedNodes;
           record.removedNodes = removedNodes;
           record.previousSibling = previousSibling;
@@ -404,7 +404,7 @@ if (typeof WeakMap === "undefined") {
 })(self);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   if (!(window.performance && window.performance.now)) {
     const start = Date.now();
     window.performance = {
@@ -440,8 +440,8 @@ if (typeof WeakMap === "undefined") {
     })();
   }
   const workingDefaultPrevented = (() => {
-    const e = document.createEvent("Event");
-    e.initEvent("foo", true, true);
+    const e = document.createEvent('Event');
+    e.initEvent('foo', true, true);
     e.preventDefault();
     return e.defaultPrevented;
   })();
@@ -452,7 +452,7 @@ if (typeof WeakMap === "undefined") {
         return;
       }
       origPreventDefault.call(this);
-      Object.defineProperty(this, "defaultPrevented", {
+      Object.defineProperty(this, 'defaultPrevented', {
         get() {
           return true;
         },
@@ -463,11 +463,11 @@ if (typeof WeakMap === "undefined") {
   const isIE = /Trident/.test(navigator.userAgent);
   if (
     !window.CustomEvent ||
-    (isIE && typeof window.CustomEvent !== "function")
+    (isIE && typeof window.CustomEvent !== 'function')
   ) {
     window.CustomEvent = (inType, params) => {
       params = params || {};
-      const e = document.createEvent("CustomEvent");
+      const e = document.createEvent('CustomEvent');
       e.initCustomEvent(
         inType,
         Boolean(params.bubbles),
@@ -478,11 +478,11 @@ if (typeof WeakMap === "undefined") {
     };
     window.CustomEvent.prototype = window.Event.prototype;
   }
-  if (!window.Event || (isIE && typeof window.Event !== "function")) {
+  if (!window.Event || (isIE && typeof window.Event !== 'function')) {
     const origEvent = window.Event;
     window.Event = (inType, params) => {
       params = params || {};
-      const e = document.createEvent("Event");
+      const e = document.createEvent('Event');
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
       return e;
     };
@@ -519,7 +519,7 @@ window.CustomElements = window.CustomElements || {
 window.CustomElements.addModule((scope) => {
   const IMPORT_LINK_TYPE = window.HTMLImports
     ? window.HTMLImports.IMPORT_LINK_TYPE
-    : "none";
+    : 'none';
   function forSubtree(node, cb) {
     findAllElements(node, (e) => {
       if (cb(e)) {
@@ -561,7 +561,7 @@ window.CustomElements.addModule((scope) => {
       return;
     }
     processingDocuments.push(doc);
-    const imports = doc.querySelectorAll("link[rel=" + IMPORT_LINK_TYPE + "]");
+    const imports = doc.querySelectorAll('link[rel=' + IMPORT_LINK_TYPE + ']');
     for (let i = 0, l = imports.length, n; i < l && (n = imports[i]); i++) {
       if (n.import) {
         _forDocumentTree(n.import, cb, processingDocuments);
@@ -596,7 +596,7 @@ window.CustomElements.addModule((scope) => {
     });
   }
   const hasThrottledAttached =
-    window.MutationObserver._isPolyfilled && flags["throttle-attached"];
+    window.MutationObserver._isPolyfilled && flags['throttle-attached'];
   scope.hasPolyfillMutations = hasThrottledAttached;
   scope.hasThrottledAttached = hasThrottledAttached;
   let isPendingMutations = false;
@@ -669,7 +669,7 @@ window.CustomElements.addModule((scope) => {
   }
   function watchShadow(node) {
     if (node.shadowRoot && !node.shadowRoot.__watched) {
-      flags.dom && console.log("watching shadow-root for: ", node.localName);
+      flags.dom && console.log('watching shadow-root for: ', node.localName);
       let root = node.shadowRoot;
       while (root) {
         observe(root);
@@ -680,22 +680,22 @@ window.CustomElements.addModule((scope) => {
   function handler(root, mutations) {
     if (flags.dom) {
       const mx = mutations[0];
-      if (mx && mx.type === "childList" && mx.addedNodes) {
+      if (mx && mx.type === 'childList' && mx.addedNodes) {
         if (mx.addedNodes) {
           let d = mx.addedNodes[0];
           while (d && d !== document && !d.host) {
             d = d.parentNode;
           }
           var u =
-            (d && (d.URL || d._URL || (d.host && d.host.localName))) || "";
-          u = u.split("/?").shift().split("/").pop();
+            (d && (d.URL || d._URL || (d.host && d.host.localName))) || '';
+          u = u.split('/?').shift().split('/').pop();
         }
       }
-      console.group("mutations (%d) [%s]", mutations.length, u || "");
+      console.group('mutations (%d) [%s]', mutations.length, u || '');
     }
     const isAttached = inDocument(root);
     mutations.forEach((mx) => {
-      if (mx.type === "childList") {
+      if (mx.type === 'childList') {
         forEach(mx.addedNodes, (n) => {
           if (!n.localName) {
             return;
@@ -741,7 +741,7 @@ window.CustomElements.addModule((scope) => {
   function upgradeDocument(doc) {
     doc = window.wrap(doc);
     flags.dom &&
-      console.group("upgradeDocument: ", doc.baseURI.split("/").pop());
+      console.group('upgradeDocument: ', doc.baseURI.split('/').pop());
     const isMainDocument = doc === window.wrap(document);
     addedNode(doc, isMainDocument);
     observe(doc);
@@ -770,13 +770,13 @@ window.CustomElements.addModule((scope) => {
 window.CustomElements.addModule((scope) => {
   const flags = scope.flags;
   function upgrade(node, isAttached) {
-    if (node.localName === "template") {
+    if (node.localName === 'template') {
       if (window.HTMLTemplateElement && HTMLTemplateElement.decorate) {
         HTMLTemplateElement.decorate(node);
       }
     }
     if (!node.__upgraded__ && node.nodeType === Node.ELEMENT_NODE) {
-      const is = node.getAttribute("is");
+      const is = node.getAttribute('is');
       const definition =
         scope.getRegisteredDefinition(node.localName) ||
         scope.getRegisteredDefinition(is);
@@ -791,9 +791,9 @@ window.CustomElements.addModule((scope) => {
     }
   }
   function upgradeWithDefinition(element, definition, isAttached) {
-    flags.upgrade && console.group("upgrade:", element.localName);
+    flags.upgrade && console.group('upgrade:', element.localName);
     if (definition.is) {
-      element.setAttribute("is", definition.is);
+      element.setAttribute('is', definition.is);
     }
     implementPrototype(element, definition);
     element.__upgraded__ = true;
@@ -852,10 +852,10 @@ window.CustomElements.addModule((scope) => {
     const definition = options || {};
     if (!name) {
       throw new Error(
-        "document.registerElement: first argument `name` must not be empty"
+        'document.registerElement: first argument `name` must not be empty'
       );
     }
-    if (name.indexOf("-") < 0) {
+    if (name.indexOf('-') < 0) {
       throw new Error(
         "document.registerElement: first argument ('name') must contain a dash ('-'). Argument provided was '" +
           String(name) +
@@ -928,14 +928,14 @@ window.CustomElements.addModule((scope) => {
     }
   }
   var reservedTagList = [
-    "annotation-xml",
-    "color-profile",
-    "font-face",
-    "font-face-src",
-    "font-face-uri",
-    "font-face-format",
-    "font-face-name",
-    "missing-glyph",
+    'annotation-xml',
+    'color-profile',
+    'font-face',
+    'font-face-src',
+    'font-face-uri',
+    'font-face-format',
+    'font-face-name',
+    'missing-glyph',
   ];
   function ancestry(extnds) {
     const extendee = getRegisteredDefinition(extnds);
@@ -977,7 +977,7 @@ window.CustomElements.addModule((scope) => {
       if (!foundPrototype) {
         console.warn(
           definition.tag +
-            " prototype not found in prototype chain for " +
+            ' prototype not found in prototype chain for ' +
             definition.is
         );
       }
@@ -1001,7 +1001,7 @@ window.CustomElements.addModule((scope) => {
       return instantiate(definition);
     };
   }
-  const HTML_NAMESPACE = "http://www.w3.org/1999/xhtml";
+  const HTML_NAMESPACE = 'http://www.w3.org/1999/xhtml';
   function createElementNS(namespace, tag, typeExtension) {
     if (namespace === HTML_NAMESPACE) {
       return createElement(tag, typeExtension);
@@ -1028,11 +1028,11 @@ window.CustomElements.addModule((scope) => {
     let element;
     if (typeExtension) {
       element = createElement(tag);
-      element.setAttribute("is", typeExtension);
+      element.setAttribute('is', typeExtension);
       return element;
     }
     element = domCreateElement(tag);
-    if (tag.indexOf("-") >= 0) {
+    if (tag.indexOf('-') >= 0) {
       implementPrototype(element, HTMLElement);
     }
     return element;
@@ -1067,8 +1067,8 @@ window.CustomElements.addModule((scope) => {
       return n;
     };
   }
-  wrapDomMethodToForceUpgrade(Node.prototype, "cloneNode");
-  wrapDomMethodToForceUpgrade(document, "importNode");
+  wrapDomMethodToForceUpgrade(Node.prototype, 'cloneNode');
+  wrapDomMethodToForceUpgrade(document, 'importNode');
   document.registerElement = register;
   document.createElement = createElement;
   document.createElementNS = createElementNS;
@@ -1132,17 +1132,17 @@ window.CustomElements.addModule((scope) => {
             window.CustomElements.readyTime - window.HTMLImports.readyTime;
         }
         document.dispatchEvent(
-          new CustomEvent("WebComponentsReady", {
+          new CustomEvent('WebComponentsReady', {
             bubbles: true,
           })
         );
       });
     });
   }
-  if (document.readyState === "complete" || scope.flags.eager) {
+  if (document.readyState === 'complete' || scope.flags.eager) {
     bootstrap();
   } else if (
-    document.readyState === "interactive" &&
+    document.readyState === 'interactive' &&
     !window.attachEvent &&
     (!window.HTMLImports || window.HTMLImports.ready)
   ) {
@@ -1150,8 +1150,8 @@ window.CustomElements.addModule((scope) => {
   } else {
     const loadEvent =
       window.HTMLImports && !window.HTMLImports.ready
-        ? "HTMLImportsLoaded"
-        : "DOMContentLoaded";
+        ? 'HTMLImportsLoaded'
+        : 'DOMContentLoaded';
     window.addEventListener(loadEvent, bootstrap);
   }
 })(window.CustomElements);

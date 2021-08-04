@@ -98,18 +98,18 @@ style this element.
 
 <script>
   Polymer({
-    is: "paper-textarea",
+    is: 'paper-textarea',
 
     behaviors: [Polymer.PaperInputBehavior, Polymer.IronFormElementBehavior],
 
     properties: {
       _ariaLabelledBy: {
-        observer: "_ariaLabelledByChanged",
+        observer: '_ariaLabelledByChanged',
         type: String,
       },
 
       _ariaDescribedBy: {
-        observer: "_ariaDescribedByChanged",
+        observer: '_ariaDescribedByChanged',
         type: String,
       },
 
@@ -140,11 +140,11 @@ style this element.
     },
 
     _ariaLabelledByChanged: function (ariaLabelledBy) {
-      this.$.input.textarea.setAttribute("aria-labelledby", ariaLabelledBy);
+      this.$.input.textarea.setAttribute('aria-labelledby', ariaLabelledBy);
     },
 
     _ariaDescribedByChanged: function (ariaDescribedBy) {
-      this.$.input.textarea.setAttribute("aria-describedby", ariaDescribedBy);
+      this.$.input.textarea.setAttribute('aria-describedby', ariaDescribedBy);
     },
 
     get _focusableElement() {

@@ -1,6 +1,6 @@
 # @Author  : lightXu
 # @File    : convolve.py
-# @Time    : 2019/7/8 0008 下午 16:13
+# @Time    : 2019/7/8 0008  16:13
 from cv2 import COLOR_BGR2GRAY, cvtColor, imread, imshow, waitKey
 from numpy import array, dot, pad, ravel, uint8, zeros
 

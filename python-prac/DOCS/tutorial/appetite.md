@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](interpreter.html "2. Using the Python Interpreter") |
-- [previous](index.html "The Python Tutorial") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](interpreter.html '2. Using the Python Interpreter') |
+- [previous](index.html 'The Python Tutorial') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -48,11 +48,11 @@ The rest of the tutorial introduces various features of the Python language and 
 
 #### Previous topic
 
-[The Python Tutorial](index.html "previous chapter")
+[The Python Tutorial](index.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">2. </span>Using the Python Interpreter](interpreter.html "next chapter")
+[<span class="section-number">2. </span>Using the Python Interpreter](interpreter.html 'next chapter')
 
 ### This Page
 
@@ -61,10 +61,10 @@ The rest of the tutorial introduces various features of the Python language and 
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](interpreter.html "2. Using the Python Interpreter") |
-- [previous](index.html "The Python Tutorial") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](interpreter.html '2. Using the Python Interpreter') |
+- [previous](index.html 'The Python Tutorial') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

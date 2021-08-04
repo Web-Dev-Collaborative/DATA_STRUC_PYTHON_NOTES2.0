@@ -24,14 +24,14 @@ Elements that can be animated should implement the `Polymer.NeonAnimatableBehavi
 
 ```js
 Polymer({
-  is: "my-animatable",
+  is: 'my-animatable',
   behaviors: [Polymer.NeonAnimationRunnerBehavior],
   properties: {
     animationConfig: {
       value: function () {
         return {
           // provided by neon-animation/animations/scale-down-animation.html
-          name: "scale-down-animation",
+          name: 'scale-down-animation',
           node: this,
         };
       },
@@ -39,14 +39,14 @@ Polymer({
   },
   listeners: {
     // this event is fired when the animation finishes
-    "neon-animation-finish": "_onNeonAnimationFinish",
+    'neon-animation-finish': '_onNeonAnimationFinish',
   },
   animate: function () {
     // run scale-down-animation
     this.playAnimation();
   },
   _onNeonAnimationFinish: function () {
-    console.log("animation done!");
+    console.log('animation done!');
   },
 });
 ```
@@ -65,7 +65,7 @@ An element might run different animations, for example it might do something dif
 
 ```js
 Polymer({
-  is: "my-dialog",
+  is: 'my-dialog',
   behaviors: [Polymer.NeonAnimationRunnerBehavior],
   properties: {
     opened: {
@@ -76,12 +76,12 @@ Polymer({
         return {
           entry: {
             // provided by neon-animation/animations/scale-up-animation.html
-            name: "scale-up-animation",
+            name: 'scale-up-animation',
             node: this,
           },
           exit: {
             // provided by neon-animation/animations/fade-out-animation.html
-            name: "fade-out-animation",
+            name: 'fade-out-animation',
             node: this,
           },
         };
@@ -89,22 +89,22 @@ Polymer({
     },
   },
   listeners: {
-    "neon-animation-finish": "_onNeonAnimationFinish",
+    'neon-animation-finish': '_onNeonAnimationFinish',
   },
   show: function () {
     this.opened = true;
-    this.style.display = "inline-block";
+    this.style.display = 'inline-block';
     // run scale-up-animation
-    this.playAnimation("entry");
+    this.playAnimation('entry');
   },
   hide: function () {
     this.opened = false;
     // run fade-out-animation
-    this.playAnimation("exit");
+    this.playAnimation('exit');
   },
   _onNeonAnimationFinish: function () {
     if (!this.opened) {
-      this.style.display = "none";
+      this.style.display = 'none';
     }
   },
 });
@@ -129,15 +129,11 @@ properties: {
 
 ### Configuration properties
 
-You can pass additional parameters to configure an animation in the animation configuration object.
-All animations should accept the following properties:
+You can pass additional parameters to configure an animation in the animation configuration object. All animations should accept the following properties:
 
 - `name`: The name of an animation, ie. an element implementing `Polymer.NeonAnimationBehavior`.
 - `node`: The target node to apply the animation to. Defaults to `this`.
-- `timing`: Timing properties to use in this animation. They match the [Web Animations Animation Effect Timing interface](https://w3c.github.io/web-animations/#the-animationeffecttiming-interface). The
-  properties include the following:
-  _ `duration`: The duration of the animation in milliseconds.
-  _ `delay`: The delay before the start of the animation in milliseconds. \* `easing`: A timing function for the animation. Matches the CSS timing function values.
+- `timing`: Timing properties to use in this animation. They match the [Web Animations Animation Effect Timing interface](https://w3c.github.io/web-animations/#the-animationeffecttiming-interface). The properties include the following: _ `duration`: The duration of the animation in milliseconds. _ `delay`: The delay before the start of the animation in milliseconds. \* `easing`: A timing function for the animation. Matches the CSS timing function values.
 
 Animations may define additional configuration properties and they are listed in their documentation.
 

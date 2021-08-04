@@ -62,7 +62,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         bool = !node.hasAttribute(name);
       }
       if (bool) {
-        Polymer.dom(node).setAttribute(name, "");
+        Polymer.dom(node).setAttribute(name, '');
       } else {
         Polymer.dom(node).removeAttribute(name);
       }
@@ -98,7 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         Polymer.dom(fromElement).removeAttribute(name);
       }
       if (toElement) {
-        Polymer.dom(toElement).setAttribute(name, "");
+        Polymer.dom(toElement).setAttribute(name, '');
       }
     },
 
@@ -147,7 +147,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           tc.push(Polymer.dom(c).textContent);
         }
       }
-      return tc.join("");
+      return tc.join('');
     },
 
     queryEffectiveChildren: function (slctr) {
@@ -171,7 +171,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {Array<Node>} List of distributed nodes for the `<content>`.
      */
     getContentChildNodes: function (slctr) {
-      var content = Polymer.dom(this.root).querySelector(slctr || "content");
+      var content = Polymer.dom(this.root).querySelector(slctr || 'content');
       return content ? Polymer.dom(content).getDistributedNodes() : [];
     },
 
@@ -340,7 +340,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     translate3d: function (x, y, z, node) {
       node = node || this;
-      this.transform("translate3d(" + x + "," + y + "," + z + ")", node);
+      this.transform('translate3d(' + x + ',' + y + ',' + z + ')', node);
     },
 
     /**
@@ -362,13 +362,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {HTMLLinkElement} The link element for the URL to be loaded.
      */
     importHref: function (href, onload, onerror, optAsync) {
-      var l = document.createElement("link");
-      l.rel = "import";
+      var l = document.createElement('link');
+      l.rel = 'import';
       l.href = href;
 
       optAsync = Boolean(optAsync);
       if (optAsync) {
-        l.setAttribute("async", "");
+        l.setAttribute('async', '');
       }
 
       var self = this;

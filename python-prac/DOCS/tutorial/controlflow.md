@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](datastructures.html "5. Data Structures") |
-- [previous](introduction.html "3. An Informal Introduction to Python") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](datastructures.html '5. Data Structures') |
+- [previous](introduction.html '3. An Informal Introduction to Python') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -692,11 +692,11 @@ Actually, _call by object reference_ would be a better description, since if a m
 
 #### Previous topic
 
-[<span class="section-number">3. </span>An Informal Introduction to Python](introduction.html "previous chapter")
+[<span class="section-number">3. </span>An Informal Introduction to Python](introduction.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">5. </span>Data Structures](datastructures.html "next chapter")
+[<span class="section-number">5. </span>Data Structures](datastructures.html 'next chapter')
 
 ### This Page
 
@@ -705,10 +705,10 @@ Actually, _call by object reference_ would be a better description, since if a m
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](datastructures.html "5. Data Structures") |
-- [previous](introduction.html "3. An Informal Introduction to Python") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](datastructures.html '5. Data Structures') |
+- [previous](introduction.html '3. An Informal Introduction to Python') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

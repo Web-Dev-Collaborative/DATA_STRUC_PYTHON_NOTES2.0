@@ -103,74 +103,74 @@
 
 // The comments inline below refer to productions in the CSS specification's
 // lexical grammar.  See link above.
-PR["registerLangHandler"](
-  PR["createSimpleLexer"](
+PR['registerLangHandler'](
+  PR['createSimpleLexer'](
     // Shortcut patterns.
     [
       // The space production <s>
-      [PR["PR_PLAIN"], /^[ \t\r\n\f]+/, null, " \t\r\n\f"],
+      [PR['PR_PLAIN'], /^[ \t\r\n\f]+/, null, ' \t\r\n\f'],
     ],
     // Fall-through patterns.
     [
       // Quoted strings.  <string1> and <string2>
       [
-        PR["PR_STRING"],
+        PR['PR_STRING'],
         /^\"(?:[^\n\r\f\\\"]|\\(?:\r\n?|\n|\f)|\\[\s\S])*\"/,
         null,
       ],
       [
-        PR["PR_STRING"],
+        PR['PR_STRING'],
         /^\'(?:[^\n\r\f\\\']|\\(?:\r\n?|\n|\f)|\\[\s\S])*\'/,
         null,
       ],
-      ["lang-css-str", /^url\(([^\)\"\']+)\)/i],
+      ['lang-css-str', /^url\(([^\)\"\']+)\)/i],
       [
-        PR["PR_KEYWORD"],
+        PR['PR_KEYWORD'],
         /^(?:url|rgb|\!important|@import|@page|@media|@charset|inherit)(?=[^\-\w]|$)/i,
         null,
       ],
       // A property name -- an identifier followed by a colon.
       [
-        "lang-css-kw",
+        'lang-css-kw',
         /^(-?(?:[_a-z]|(?:\\[0-9a-f]+ ?))(?:[_a-z0-9\-]|\\(?:\\[0-9a-f]+ ?))*)\s*:/i,
       ],
       // A C style block comment.  The <comment> production.
-      [PR["PR_COMMENT"], /^\/\*[^*]*\*+(?:[^\/*][^*]*\*+)*\//],
+      [PR['PR_COMMENT'], /^\/\*[^*]*\*+(?:[^\/*][^*]*\*+)*\//],
       // Escaping text spans
-      [PR["PR_COMMENT"], /^(?:<!--|-->)/],
+      [PR['PR_COMMENT'], /^(?:<!--|-->)/],
       // A number possibly containing a suffix.
-      [PR["PR_LITERAL"], /^(?:\d+|\d*\.\d+)(?:%|[a-z]+)?/i],
+      [PR['PR_LITERAL'], /^(?:\d+|\d*\.\d+)(?:%|[a-z]+)?/i],
       // A hex color
-      [PR["PR_LITERAL"], /^#(?:[0-9a-f]{3}){1,2}\b/i],
+      [PR['PR_LITERAL'], /^#(?:[0-9a-f]{3}){1,2}\b/i],
       // An identifier
       [
-        PR["PR_PLAIN"],
+        PR['PR_PLAIN'],
         /^-?(?:[_a-z]|(?:\\[\da-f]+ ?))(?:[_a-z\d\-]|\\(?:\\[\da-f]+ ?))*/i,
       ],
       // A run of punctuation
-      [PR["PR_PUNCTUATION"], /^[^\s\w\'\"]+/],
+      [PR['PR_PUNCTUATION'], /^[^\s\w\'\"]+/],
     ]
   ),
-  ["css"]
+  ['css']
 );
 // Above we use embedded languages to highlight property names (identifiers
 // followed by a colon) differently from identifiers in values.
-PR["registerLangHandler"](
-  PR["createSimpleLexer"](
+PR['registerLangHandler'](
+  PR['createSimpleLexer'](
     [],
     [
       [
-        PR["PR_KEYWORD"],
+        PR['PR_KEYWORD'],
         /^-?(?:[_a-z]|(?:\\[\da-f]+ ?))(?:[_a-z\d\-]|\\(?:\\[\da-f]+ ?))*/i,
       ],
     ]
   ),
-  ["css-kw"]
+  ['css-kw']
 );
 // The content of an unquoted URL literal like url(http://foo/img.png) should
 // be colored as string content.  This language handler is used above in the
 // URL production to do so.
-PR["registerLangHandler"](
-  PR["createSimpleLexer"]([], [[PR["PR_STRING"], /^[^\)\"\']+/]]),
-  ["css-str"]
+PR['registerLangHandler'](
+  PR['createSimpleLexer']([], [[PR['PR_STRING'], /^[^\)\"\']+/]]),
+  ['css-str']
 );

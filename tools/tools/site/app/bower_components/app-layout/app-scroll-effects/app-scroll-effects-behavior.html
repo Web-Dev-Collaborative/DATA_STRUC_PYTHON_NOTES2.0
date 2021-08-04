@@ -171,7 +171,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
       },
 
-      observers: ["_effectsChanged(effects, effectsConfig, isAttached)"],
+      observers: ['_effectsChanged(effects, effectsConfig, isAttached)'],
 
       /**
        * Updates the scroll state. This method should be overridden
@@ -267,12 +267,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _effectsChanged: function (effects, effectsConfig, isAttached) {
         this._tearDownEffects();
 
-        if (effects === "" || !isAttached) {
+        if (effects === '' || !isAttached) {
           return;
         }
-        effects.split(" ").forEach(function (effectName) {
+        effects.split(' ').forEach(function (effectName) {
           var effectDef;
-          if (effectName !== "") {
+          if (effectName !== '') {
             if ((effectDef = Polymer.AppLayout._scrollEffects[effectName])) {
               this._effects.push(
                 this._boundEffect(effectDef, effectsConfig[effectName])
@@ -387,17 +387,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {string} id The id for the node.
        */
       _getDOMRef: function (id) {
-        console.warn("_getDOMRef", "`" + id + "` is undefined");
+        console.warn('_getDOMRef', '`' + id + '` is undefined');
       },
 
       _getUndefinedMsg: function (effectName) {
         return (
-          "Scroll effect `" +
+          'Scroll effect `' +
           effectName +
-          "` is undefined. " +
-          "Did you forget to import app-layout/app-scroll-effects/effects/" +
+          '` is undefined. ' +
+          'Did you forget to import app-layout/app-scroll-effects/effects/' +
           effectName +
-          ".html ?"
+          '.html ?'
         );
       },
     },

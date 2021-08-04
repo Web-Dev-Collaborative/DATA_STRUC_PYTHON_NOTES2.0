@@ -13,7 +13,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../lib/style-cache.html" />
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     var serializeValueToAttribute = Polymer.Base.serializeValueToAttribute;
 
@@ -200,7 +200,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // note, the scope selector is incremented per class counter
         this._scopeSelector = info
           ? info._scopeSelector
-          : this.is + "-" + this.__proto__._scopeCount++;
+          : this.is + '-' + this.__proto__._scopeCount++;
         var style = propertyUtils.applyElementStyle(
           this,
           this._styleProperties,
@@ -222,7 +222,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       serializeValueToAttribute: function (value, attribute, node) {
         // override to ensure whenever classes are set, we need to shim them.
         node = node || this;
-        if (attribute === "class" && !nativeShadow) {
+        if (attribute === 'class' && !nativeShadow) {
           // host needed to scope styling.
           // Under Shady DOM, domHost is safe to use here because we know it
           // is a Polymer element
@@ -243,13 +243,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _scopeElementClass: function (element, selector) {
         if (!nativeShadow && !this._scopeCssViaAttr) {
           selector =
-            (selector ? selector + " " : "") +
+            (selector ? selector + ' ' : '') +
             SCOPE_NAME +
-            " " +
+            ' ' +
             this.is +
             (element._scopeSelector
-              ? " " + XSCOPE_NAME + " " + element._scopeSelector
-              : "");
+              ? ' ' + XSCOPE_NAME + ' ' + element._scopeSelector
+              : '');
         }
         return selector;
       },

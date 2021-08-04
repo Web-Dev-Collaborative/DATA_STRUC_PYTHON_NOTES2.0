@@ -1,3 +1,3 @@
 function circleOfNumbers(n, firstNumber) {
-    return (n / 2 + firstNumber) % n;
+  return (n / 2 + firstNumber) % n;
 }

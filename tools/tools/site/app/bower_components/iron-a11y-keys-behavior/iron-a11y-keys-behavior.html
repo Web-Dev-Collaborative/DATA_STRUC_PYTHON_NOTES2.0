@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     /**
      * Chrome uses an older version of DOM Level 3 Keyboard Events
@@ -21,11 +21,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Values taken from: http://www.w3.org/TR/2007/WD-DOM-Level-3-Events-20071221/keyset.html#KeySet-Set
      */
     var KEY_IDENTIFIER = {
-      "U+0008": "backspace",
-      "U+0009": "tab",
-      "U+001B": "esc",
-      "U+0020": "space",
-      "U+007F": "del",
+      'U+0008': 'backspace',
+      'U+0009': 'tab',
+      'U+001B': 'esc',
+      'U+0020': 'space',
+      'U+007F': 'del',
     };
 
     /**
@@ -36,21 +36,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * Values from: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent.keyCode#Value_of_keyCode
      */
     var KEY_CODE = {
-      8: "backspace",
-      9: "tab",
-      13: "enter",
-      27: "esc",
-      33: "pageup",
-      34: "pagedown",
-      35: "end",
-      36: "home",
-      32: "space",
-      37: "left",
-      38: "up",
-      39: "right",
-      40: "down",
-      46: "del",
-      106: "*",
+      8: 'backspace',
+      9: 'tab',
+      13: 'enter',
+      27: 'esc',
+      33: 'pageup',
+      34: 'pagedown',
+      35: 'end',
+      36: 'home',
+      32: 'space',
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down',
+      46: 'del',
+      106: '*',
     };
 
     /**
@@ -59,10 +59,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * in a KeyboardEvent instance.
      */
     var MODIFIER_KEYS = {
-      shift: "shiftKey",
-      ctrl: "ctrlKey",
-      alt: "altKey",
-      meta: "metaKey",
+      shift: 'shiftKey',
+      ctrl: 'ctrlKey',
+      alt: 'altKey',
+      meta: 'metaKey',
     };
 
     /**
@@ -104,22 +104,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * alpha-numeric characters.
      */
     function transformKey(key, noSpecialChars) {
-      var validKey = "";
+      var validKey = '';
       if (key) {
         var lKey = key.toLowerCase();
-        if (lKey === " " || SPACE_KEY.test(lKey)) {
-          validKey = "space";
+        if (lKey === ' ' || SPACE_KEY.test(lKey)) {
+          validKey = 'space';
         } else if (ESC_KEY.test(lKey)) {
-          validKey = "esc";
+          validKey = 'esc';
         } else if (lKey.length == 1) {
           if (!noSpecialChars || KEY_CHAR.test(lKey)) {
             validKey = lKey;
           }
         } else if (ARROW_KEY.test(lKey)) {
-          validKey = lKey.replace("arrow", "");
-        } else if (lKey == "multiply") {
+          validKey = lKey.replace('arrow', '');
+        } else if (lKey == 'multiply') {
           // numpad '*' can map to Multiply on IE/Windows
-          validKey = "*";
+          validKey = '*';
         } else {
           validKey = lKey;
         }
@@ -128,12 +128,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     function transformKeyIdentifier(keyIdent) {
-      var validKey = "";
+      var validKey = '';
       if (keyIdent) {
         if (keyIdent in KEY_IDENTIFIER) {
           validKey = KEY_IDENTIFIER[keyIdent];
         } else if (IDENT_CHAR.test(keyIdent)) {
-          keyIdent = parseInt(keyIdent.replace("U+", "0x"), 16);
+          keyIdent = parseInt(keyIdent.replace('U+', '0x'), 16);
           validKey = String.fromCharCode(keyIdent).toLowerCase();
         } else {
           validKey = keyIdent.toLowerCase();
@@ -143,7 +143,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     function transformKeyCode(keyCode) {
-      var validKey = "";
+      var validKey = '';
       if (Number(keyCode)) {
         if (keyCode >= 65 && keyCode <= 90) {
           // ascii a-z
@@ -151,7 +151,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           validKey = String.fromCharCode(32 + keyCode);
         } else if (keyCode >= 112 && keyCode <= 123) {
           // function keys f1-f12
-          validKey = "f" + (keyCode - 112);
+          validKey = 'f' + (keyCode - 112);
         } else if (keyCode >= 48 && keyCode <= 57) {
           // top 0-9 keys
           validKey = String(keyCode - 48);
@@ -187,7 +187,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       return (
         transformKeyIdentifier(keyEvent.keyIdentifier) ||
         transformKeyCode(keyEvent.keyCode) ||
-        ""
+        ''
       );
     }
 
@@ -209,12 +209,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return {
           combo: keyComboString,
           key: keyComboString,
-          event: "keydown",
+          event: 'keydown',
         };
       }
-      return keyComboString.split("+").reduce(
+      return keyComboString.split('+').reduce(
         function (parsedKeyCombo, keyComboPart) {
-          var eventParts = keyComboPart.split(":");
+          var eventParts = keyComboPart.split(':');
           var keyName = eventParts[0];
           var event = eventParts[1];
 
@@ -223,13 +223,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             parsedKeyCombo.hasModifiers = true;
           } else {
             parsedKeyCombo.key = keyName;
-            parsedKeyCombo.event = event || "keydown";
+            parsedKeyCombo.event = event || 'keydown';
           }
 
           return parsedKeyCombo;
         },
         {
-          combo: keyComboString.split(":").shift(),
+          combo: keyComboString.split(':').shift(),
         }
       );
     }
@@ -237,7 +237,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     function parseEventString(eventString) {
       return eventString
         .trim()
-        .split(" ")
+        .split(' ')
         .map(function (keyComboString) {
           return parseKeyComboString(keyComboString);
         });
@@ -319,7 +319,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
       },
 
-      observers: ["_resetKeyEventListeners(keyEventTarget, _boundKeyHandlers)"],
+      observers: ['_resetKeyEventListeners(keyEventTarget, _boundKeyHandlers)'],
 
       /**
        * To be used to express what combination of keys  will trigger the relative

@@ -50,16 +50,16 @@
       (function () {
         function htmlEscape(s) {
           return s
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;");
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
         }
 
         // this page's own source code
         var quineHtml = htmlEscape(
-          "<!DOCTYPE html>\n<html>\n" +
+          '<!DOCTYPE html>\n<html>\n' +
             document.documentElement.innerHTML +
-            "\n<\/html>\n"
+            '\n<\/html>\n'
         );
 
         // Highlight the operative parts:
@@ -69,7 +69,7 @@
         );
 
         // insert into PRE
-        document.getElementById("quine").innerHTML = quineHtml;
+        document.getElementById('quine').innerHTML = quineHtml;
       })();
       //]]>
     </script>

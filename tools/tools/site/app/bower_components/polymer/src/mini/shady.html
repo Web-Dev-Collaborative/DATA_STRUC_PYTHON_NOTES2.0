@@ -77,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // capture insertion point list
         var i$ = (this.shadyRoot._insertionPoints =
           !this._notes || this._notes._hasContent
-            ? this.shadyRoot.querySelectorAll("content")
+            ? this.shadyRoot.querySelectorAll('content')
             : []);
         // save logical tree info
         // a. for shadyRoot
@@ -356,7 +356,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _matchesContentSelect: function (node, contentElement) {
-        var select = contentElement.getAttribute("select");
+        var select = contentElement.getAttribute('select');
         // no selector matches all nodes (including text)
         if (!select) {
           return true;
@@ -436,7 +436,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     function isInsertionPoint(node) {
       // TODO(jmesserly): we could add back 'shadow' support here.
-      return node.localName == "content";
+      return node.localName == 'content';
     }
 
     // returns the host that's the top of this host's distribution tree
@@ -453,7 +453,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var c$ = TreeApi.Logical.getChildNodes(host);
       for (var i = 0, c; i < c$.length; i++) {
         c = c$[i];
-        if (c.localName && c.localName === "content") {
+        if (c.localName && c.localName === 'content') {
           return host.domHost;
         }
       }

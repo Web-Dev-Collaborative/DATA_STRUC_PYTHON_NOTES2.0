@@ -44,7 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         value: false,
         reflectToAttribute: true,
         notify: true,
-        observer: "_checkedChanged",
+        observer: '_checkedChanged',
       },
 
       /**
@@ -60,12 +60,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       /* Overriden from Polymer.IronFormElementBehavior */
       value: {
         type: String,
-        value: "on",
-        observer: "_valueChanged",
+        value: 'on',
+        observer: '_valueChanged',
       },
     },
 
-    observers: ["_requiredChanged(required)"],
+    observers: ['_requiredChanged(required)'],
 
     created: function () {
       // Used by `iron-form` to handle the case that an element with this behavior
@@ -88,9 +88,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     _requiredChanged: function () {
       if (this.required) {
-        this.setAttribute("aria-required", "true");
+        this.setAttribute('aria-required', 'true');
       } else {
-        this.removeAttribute("aria-required");
+        this.removeAttribute('aria-required');
       }
     },
 
@@ -99,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     _checkedChanged: function () {
       this.active = this.checked;
-      this.fire("iron-change");
+      this.fire('iron-change');
     },
 
     /**
@@ -107,7 +107,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     _valueChanged: function () {
       if (this.value === undefined || this.value === null) {
-        this.value = "on";
+        this.value = 'on';
       }
     },
   };

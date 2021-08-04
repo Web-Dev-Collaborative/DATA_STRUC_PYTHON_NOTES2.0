@@ -30,12 +30,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             try {
               result = neonAnimation.configure(config);
               // Check if we have an Effect rather than an Animation
-              if (typeof result.cancel != "function") {
+              if (typeof result.cancel != 'function') {
                 result = document.timeline.play(result);
               }
             } catch (e) {
               result = null;
-              console.warn("Couldnt play", "(", config.name, ").", e);
+              console.warn('Couldnt play', '(', config.name, ').', e);
             }
             if (result) {
               results.push({
@@ -45,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               });
             }
           } else {
-            console.warn(this.is + ":", config.name, "not found!");
+            console.warn(this.is + ':', config.name, 'not found!');
           }
         }
       }
@@ -55,7 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _shouldComplete: function (activeEntries) {
       var finished = true;
       for (var i = 0; i < activeEntries.length; i++) {
-        if (activeEntries[i].animation.playState != "finished") {
+        if (activeEntries[i].animation.playState != 'finished') {
           finished = false;
           break;
         }
@@ -91,7 +91,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var activeEntries = this._configureAnimations(configs);
 
       if (activeEntries.length == 0) {
-        this.fire("neon-animation-finish", cookie, { bubbles: false });
+        this.fire('neon-animation-finish', cookie, { bubbles: false });
         return;
       }
 
@@ -102,7 +102,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (this._shouldComplete(activeEntries)) {
             this._complete(activeEntries);
             delete this._active[type];
-            this.fire("neon-animation-finish", cookie, { bubbles: false });
+            this.fire('neon-animation-finish', cookie, { bubbles: false });
           }
         }.bind(this);
       }

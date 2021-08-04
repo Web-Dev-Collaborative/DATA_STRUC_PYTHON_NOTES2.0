@@ -17,8 +17,7 @@ With Node installed, run `npm install` in the root of the `site` (this folder):
 $ npm install
 ```
 
-(Optional) npm installs binstubs at `./node_modules/.bin/`. When running tasks
-like `gulp`, you may want to add `./node_modules/.bin/` to your `$PATH` for convenience:
+(Optional) npm installs binstubs at `./node_modules/.bin/`. When running tasks like `gulp`, you may want to add `./node_modules/.bin/` to your `$PATH` for convenience:
 
 ```text
 $ export PATH="./node_modules/.bin/:$PATH"
@@ -30,21 +29,15 @@ This does pose a mild security risk, so please do so at your own risk.
 
 ### Serve
 
-To serve the site in dev mode, run `gulp serve`, passing a path to a directory
-with the codelabs content as an argument. This will compile all the views and
-codelabs into the `build/` directory and start a web server to serve that
-content.
+To serve the site in dev mode, run `gulp serve`, passing a path to a directory with the codelabs content as an argument. This will compile all the views and codelabs into the `build/` directory and start a web server to serve that content.
 
 ```text
 $ gulp serve
 ```
 
-The output will include the address where the server is running
-(http://localhost:8000 by default).
+The output will include the address where the server is running (http://localhost:8000 by default).
 
-You can also serve the completely compiled and minified (prod) version with the
-`serve:dist` command. Always run this before publishing, as it will show you an
-replica of what will appear on staging/production.
+You can also serve the completely compiled and minified (prod) version with the `serve:dist` command. Always run this before publishing, as it will show you an replica of what will appear on staging/production.
 
 ```text
 $ gulp serve:dist
@@ -52,18 +45,13 @@ $ gulp serve:dist
 
 ### Views
 
-Views are themed/styled collections of codelabs, served from the same url.
-Codelab tags are used for selecting codelabs into views. View definitions are
-stored in `/app/views` directory. Views commonly correspond to events (e.g. NEXT 2018) or abstract themes (e.g. Windows), but we refer to them generically as
-"views" internally.
+Views are themed/styled collections of codelabs, served from the same url. Codelab tags are used for selecting codelabs into views. View definitions are stored in `/app/views` directory. Views commonly correspond to events (e.g. NEXT 2018) or abstract themes (e.g. Windows), but we refer to them generically as "views" internally.
 
 #### Add a new view
 
 To add a new view (e.g. to serve codelabs for a particular event):
 
-1.  Create a new folder in `app/views`, which will be the "view id". As the view
-    id will appear in the URL, the name should be sluggified, meaning all lowercase
-    with special characters replaced with dashes.
+1.  Create a new folder in `app/views`, which will be the "view id". As the view id will appear in the URL, the name should be sluggified, meaning all lowercase with special characters replaced with dashes.
 
         ```text
         // General example
@@ -76,8 +64,7 @@ To add a new view (e.g. to serve codelabs for a particular event):
         Tracking with utm_source -> tracking-with-utm_source
         ```
 
-1.  Add a new file named `view.json` inside this folder. Here is a template
-    `view.json`:
+1.  Add a new file named `view.json` inside this folder. Here is a template `view.json`:
 
         ```javascript
         // app/views/my-event/view.json
@@ -136,8 +123,7 @@ To add a new view (e.g. to serve codelabs for a particular event):
         }
         ```
 
-1.  (Optional) Add a file named `style.css` inside the view folder. If provided,
-    this file will be included in the HTML, allowing for custom styles.
+1.  (Optional) Add a file named `style.css` inside the view folder. If provided, this file will be included in the HTML, allowing for custom styles.
 
         This file is not included in the main assets bundle, so there will be a
         performance decrease as the browser needs to load additional styles.
@@ -145,18 +131,13 @@ To add a new view (e.g. to serve codelabs for a particular event):
         broken. Please check with the codelabs team to see if your style changes
         make more sense to upstream across all views.
 
-1.  (Optional) Add a file named `index.html` inside the view folder. This allows
-    you to fully customize the view, but comes at the expense of duplication. Please
-    use this sparingly and check with the core team before making drastic changes.
+1.  (Optional) Add a file named `index.html` inside the view folder. This allows you to fully customize the view, but comes at the expense of duplication. Please use this sparingly and check with the core team before making drastic changes.
 
 1.  Execute the `serve` command as described above to see the view.
 
 #### Build and serve a single view (deprecated)
 
-The build is very fast, so you should not need to filter by a specific view.
-Instead, build all views and then visit the appropriate URL. If you still wish
-to build a single set of views, you can do so with the `--views-filter`
-parameter:
+The build is very fast, so you should not need to filter by a specific view. Instead, build all views and then visit the appropriate URL. If you still wish to build a single set of views, you can do so with the `--views-filter` parameter:
 
 ```text
 $ gulp serve --views-filter='^event-*'
@@ -188,8 +169,7 @@ Creating gs://mco-codelabs-prod/...
 
 #### Setup permissions and web access to your buckets
 
-1.  Make newly uploaded files world-readable and ensure user@ has owner
-    permissions:
+1.  Make newly uploaded files world-readable and ensure user@ has owner permissions:
 
         ```text
         $ gsutil defacl ch -g all:R -u you@your-domain.com:O $STAGING_BUCKET $PROD_BUCKET
@@ -201,11 +181,7 @@ Creating gs://mco-codelabs-prod/...
 
 ### Deploy to staging
 
-The following commands perform a "copy" operation, uploading all local files to
-the staging bucket. The local copy of a file will overwrite the staging copy of
-the same file. Staging files that do not exist in the local copy will be
-untouched. To perform a complete "sync" (make staging look exactly like the
-local copy), specify `--delete-missing` on the publish command.
+The following commands perform a "copy" operation, uploading all local files to the staging bucket. The local copy of a file will overwrite the staging copy of the same file. Staging files that do not exist in the local copy will be untouched. To perform a complete "sync" (make staging look exactly like the local copy), specify `--delete-missing` on the publish command.
 
 1. Compile and minify the build:
 
@@ -231,14 +207,9 @@ See [#options](#options) for information on how to customize the staging bucket.
 
 ### Deploy to prod
 
-We do not deploy from local to production. Instead, we "promote" a staging build
-to production.
+We do not deploy from local to production. Instead, we "promote" a staging build to production.
 
-The following commands perform a "copy" operation, uploading all staging files
-to the prod bucket. The staging copy of a file will overwrite the prod copy of
-the same file. Prod files that do not exist in the staging bucket will be
-untouched. To perform a complete "sync" (make prod look exactly like staging),
-specify `--delete-missing` on the publish command.
+The following commands perform a "copy" operation, uploading all staging files to the prod bucket. The staging copy of a file will overwrite the prod copy of the same file. Prod files that do not exist in the staging bucket will be untouched. To perform a complete "sync" (make prod look exactly like staging), specify `--delete-missing` on the publish command.
 
 1. Deploy views from the staging bucket to the production bucket:
 
@@ -254,14 +225,11 @@ specify `--delete-missing` on the publish command.
 
 1. Visit the [production site](https://mco-codelabs-prod.storage.googleapis.com/index.html) (modify link to match your production bucket name).
 
-See [#options](#options) for information on how to customize the staging and
-prod bucket.
+See [#options](#options) for information on how to customize the staging and prod bucket.
 
 ### Deploy to custom bucket
 
-This section describes the steps to create and deploy to a custom bucket.
-Replace `gs://codelabs.mycompany.com` with the name of your bucket. If you want
-to use GCS directly for serving, the bucket name **must** be a valid domain.
+This section describes the steps to create and deploy to a custom bucket. Replace `gs://codelabs.mycompany.com` with the name of your bucket. If you want to use GCS directly for serving, the bucket name **must** be a valid domain.
 
 1.  Create a new bucket:
 
@@ -269,8 +237,7 @@ to use GCS directly for serving, the bucket name **must** be a valid domain.
     $ gsutil mb gs://codelabs.mycompany.com
     ```
 
-1.  Make newly uploaded files world-readable and ensure user@ has owner
-    permissions:
+1.  Make newly uploaded files world-readable and ensure user@ has owner permissions:
 
         ```text
         $ gsutil defacl ch -g all:R -u you@your-domain.com:O gs://codelabs.mycompany.com
@@ -288,13 +255,11 @@ to use GCS directly for serving, the bucket name **must** be a valid domain.
 
     This option is only available on bucket names that are valid domains.
 
-Follow the steps in [deploy to staging](#deploy-to-staging) with a custom
-`--staging-bucket` parameter. See [#options](#options) for information.
+Follow the steps in [deploy to staging](#deploy-to-staging) with a custom `--staging-bucket` parameter. See [#options](#options) for information.
 
 ### Deploy single view or codelab
 
-Where possible, build and publish the entire website. This will ensure all
-assets are up-to-date.
+Where possible, build and publish the entire website. This will ensure all assets are up-to-date.
 
 To build and publish a set of views to staging:
 
@@ -312,46 +277,31 @@ $ gulp publish:staging:codelabs
 
 ## Options
 
-`--base-url` - base URL for serving canonical links. This should always include
-the protocol (http:// or https://) and NOT including a trailing slash. The
-default value is "https://codelabs.developers.google.com".
+`--base-url` - base URL for serving canonical links. This should always include the protocol (http:// or https://) and NOT including a trailing slash. The default value is "https://codelabs.developers.google.com".
 
-`--codelabs-dir` - absolute or relative path on disk where codelabs are stored.
-Any filters will be applied to these codelabs, and then the resulting selection
-is symlinked into the build folder. The default value is "." (the current directory).
+`--codelabs-dir` - absolute or relative path on disk where codelabs are stored. Any filters will be applied to these codelabs, and then the resulting selection is symlinked into the build folder. The default value is "." (the current directory).
 
-`--codelabs-filter` - regular expression by which to filter codelabs IDs for
-inclusion. If a filter is not specified, all codelabs are included.
+`--codelabs-filter` - regular expression by which to filter codelabs IDs for inclusion. If a filter is not specified, all codelabs are included.
 
-`--codelabs-namespace` - URL path where codelabs will be served in the web
-server. The default value is "/codelabs", meaning codelabs will be served at
-https://URL/codelabs.
+`--codelabs-namespace` - URL path where codelabs will be served in the web server. The default value is "/codelabs", meaning codelabs will be served at https://URL/codelabs.
 
-`--dry` - Print out steps instead of actually taking them. This only applies to
-publish operations.
+`--dry` - Print out steps instead of actually taking them. This only applies to publish operations.
 
-`--delete-missing` - Delete any files in the destination that are not present
-at the source (rsync-style behavior).
+`--delete-missing` - Delete any files in the destination that are not present at the source (rsync-style behavior).
 
-`--prod-bucket` - name of the GCS bucket to use for production resources. This
-is only used for publishing.
+`--prod-bucket` - name of the GCS bucket to use for production resources. This is only used for publishing.
 
-`--staging-bucket` - name of the GCS bucket to use for staging resources. This
-is only used for publishing.
+`--staging-bucket` - name of the GCS bucket to use for staging resources. This is only used for publishing.
 
-`--views-filter` - regular expression by which to filter included views
-(events). If a filter is not specified, all views are included.
+`--views-filter` - regular expression by which to filter included views (events). If a filter is not specified, all views are included.
 
 The following options are only relevant when invoking claat:
 
-`--codelabs-env` - environment for which to build codelabs. The default value is
-"web".
+`--codelabs-env` - environment for which to build codelabs. The default value is "web".
 
-`--codelabs-format` - format in which to build the codelabs. The default value
-is "html"
+`--codelabs-format` - format in which to build the codelabs. The default value is "html"
 
-`--codelab-source` - Google Doc ID from which to build codelab. This can be
-specified multiple times to build from multiple sources.
+`--codelab-source` - Google Doc ID from which to build codelab. This can be specified multiple times to build from multiple sources.
 
 ## Testing
 

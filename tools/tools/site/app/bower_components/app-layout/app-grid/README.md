@@ -1,13 +1,10 @@
 ##&lt;app-grid&gt;
 
-app-grid is a helper class useful for creating responsive, fluid grid layouts using custom properties.
-Because custom properties can be defined inside a `@media` rule, you can customize the grid layout
-for different responsive breakpoints.
+app-grid is a helper class useful for creating responsive, fluid grid layouts using custom properties. Because custom properties can be defined inside a `@media` rule, you can customize the grid layout for different responsive breakpoints.
 
 Example:
 
-Import `app-grid-style.html` and include `app-grid-style` in the style of an element's definition.
-Then, add the class `app-grid` to a container such as `ul` or `div`:
+Import `app-grid-style.html` and include `app-grid-style` in the style of an element's definition. Then, add the class `app-grid` to a container such as `ul` or `div`:
 
 ```html
 <template>
@@ -40,15 +37,11 @@ Then, add the class `app-grid` to a container such as `ul` or `div`:
 </template>
 ```
 
-In this example, the grid will take 3 columns per row and only 1 column if the viewport width is
-smaller than 640px.
+In this example, the grid will take 3 columns per row and only 1 column if the viewport width is smaller than 640px.
 
 ### Expandible items
 
-In many cases, it's useful to expand an item more than 1 column. To achieve this type of layout,
-you can specify the number of columns the item should expand to by setting the custom property
-`--app-grid-expandible-item-columns`. To indicate which item should expand, apply the mixin
-`--app-grid-expandible-item` to a rule with a selector to the item. For example:
+In many cases, it's useful to expand an item more than 1 column. To achieve this type of layout, you can specify the number of columns the item should expand to by setting the custom property `--app-grid-expandible-item-columns`. To indicate which item should expand, apply the mixin `--app-grid-expandible-item` to a rule with a selector to the item. For example:
 
 ```html
 <template>
@@ -74,9 +67,7 @@ you can specify the number of columns the item should expand to by setting the c
 
 ### Preserving the aspect ratio
 
-When the size of a grid item should preserve the aspect ratio, you can add the `has-aspect-ratio`
-attribute to the element with the class `app-grid`. Now, every item element becomes a wrapper around
-the item content. For example:
+When the size of a grid item should preserve the aspect ratio, you can add the `has-aspect-ratio` attribute to the element with the class `app-grid`. Now, every item element becomes a wrapper around the item content. For example:
 
 ```html
 <template>
@@ -112,9 +103,9 @@ the item content. For example:
 
 ### Styling
 
-| Custom property                      | Description                                                | Default |
-| ------------------------------------ | ---------------------------------------------------------- | ------- |
-| `--app-grid-columns`                 | The number of columns per row.                             | 1       |
-| `--app-grid-gutter`                  | The space between two items.                               | 0px     |
-| `--app-grid-item-height`             | The height of the items.                                   | auto    |
-| `--app-grid-expandible-item-columns` | The number of columns an expandible item should expand to. | 1       |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--app-grid-columns` | The number of columns per row. | 1 |
+| `--app-grid-gutter` | The space between two items. | 0px |
+| `--app-grid-item-height` | The height of the items. | auto |
+| `--app-grid-expandible-item-columns` | The number of columns an expandible item should expand to. | 1 |

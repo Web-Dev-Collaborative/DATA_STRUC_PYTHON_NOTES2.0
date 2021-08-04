@@ -21,9 +21,9 @@ google-codelab {
   display: grid;
   grid-template: 64px 1fr 56px/ 256px 1fr;
   grid-template-areas:
-    "title title"
-    "drawer  main"
-    "metadata  main";
+    'title title'
+    'drawer  main'
+    'metadata  main';
 }
 
 // stylelint-disable selector-max-id
@@ -55,7 +55,7 @@ google-codelab #codelab-title h1 {
   font-size: 20px;
   font-weight: 400;
   margin: 0 8px;
-  font-family: "Roboto", "Noto", sans-serif;
+  font-family: 'Roboto', 'Noto', sans-serif;
   flex-grow: 1;
   flex-shrink: 1;
   white-space: nowrap;
@@ -136,7 +136,7 @@ google-codelab #previous-step,
 google-codelab #next-step,
 google-codelab #done {
   border-radius: 4px;
-  font-family: "Google Sans", Arial, sans-serif;
+  font-family: 'Google Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.6px;
@@ -216,5 +216,5 @@ google-codelab .metadata a:focus {
   }
 }
 
-@import "drawer";
-@import "steps";
+@import 'drawer';
+@import 'steps';

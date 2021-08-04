@@ -67,13 +67,13 @@ Custom property                         | Description
     (function () {
       function encodeHTMLEntities_(htmlStr) {
         return htmlStr
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
       }
 
       Polymer({
-        is: "google-codelab-step",
+        is: 'google-codelab-step',
 
         /**
          * Fired when user copies a snippet into the clipboard.
@@ -98,7 +98,7 @@ Custom property                         | Description
            */
           label: {
             type: String,
-            value: "",
+            value: '',
           },
 
           /**
@@ -117,7 +117,7 @@ Custom property                         | Description
           active: {
             type: Boolean,
             value: false,
-            observer: "_activeChanged",
+            observer: '_activeChanged',
           },
         },
 
@@ -127,14 +127,14 @@ Custom property                         | Description
           var codelab = Polymer.dom(this).parentNode;
 
           // Don't syntax highlight code if google-codelab requests it.
-          if (codelab.localName === "google-codelab" && codelab.noHighlight) {
+          if (codelab.localName === 'google-codelab' && codelab.noHighlight) {
             return;
           }
 
           if (this.active && !this._isHighlighted) {
             // Minimize jank by waiting one click to do syntax highlighting.
             this.async(function () {
-              var blocks = Polymer.dom(this).querySelectorAll("pre > code");
+              var blocks = Polymer.dom(this).querySelectorAll('pre > code');
               blocks.forEach(
                 function (block) {
                   // TODO: consider pre-escaping markup on server.
@@ -143,9 +143,9 @@ Custom property                         | Description
                   );
 
                   block.addEventListener(
-                    "copy",
+                    'copy',
                     function () {
-                      this.fire("google-codelab-snippet-copy", {
+                      this.fire('google-codelab-snippet-copy', {
                         snippet: block.textContent,
                       });
                     }.bind(this)

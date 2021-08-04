@@ -16,14 +16,14 @@
     const e = l.call(a);
     if (e != l.call(c)) return false;
     switch (e) {
-      case "[object String]":
+      case '[object String]':
         return a == String(c);
-      case "[object Number]":
+      case '[object Number]':
         return a != +a ? c != +c : a == 0 ? 1 / a == 1 / c : a == +c;
-      case "[object Date]":
-      case "[object Boolean]":
+      case '[object Date]':
+      case '[object Boolean]':
         return +a == +c;
-      case "[object RegExp]":
+      case '[object RegExp]':
         return (
           a.source == c.source &&
           a.global == c.global &&
@@ -31,17 +31,17 @@
           a.ignoreCase == c.ignoreCase
         );
     }
-    if (typeof a != "object" || typeof c != "object") return false;
+    if (typeof a != 'object' || typeof c != 'object') return false;
     for (var f = d.length; f--; ) if (d[f] == a) return true;
     d.push(a);
     const f = 0;
     let g = true;
-    if (e == "[object Array]") {
+    if (e == '[object Array]') {
       if (((f = a.length), (g = f == c.length)))
         for (; f--; ) if (!(g = f in a == f in c && q(a[f], c[f], d))) break;
     } else {
       if (
-        "constructor" in a != "constructor" in c ||
+        'constructor' in a != 'constructor' in c ||
         a.constructor != c.constructor
       )
         return false;
@@ -81,12 +81,12 @@
     return new m(a);
   };
 
-  if (typeof exports !== "undefined") {
-    if (typeof module !== "undefined" && module.exports)
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports)
       exports = module.exports = b;
     exports._ = b;
   } else r._ = b;
-  b.VERSION = "1.3.1";
+  b.VERSION = '1.3.1';
   const j =
     (b.each =
     b.forEach =
@@ -122,7 +122,7 @@
           f ? (d = c.call(e, d, a, b, i)) : ((d = a), (f = true));
         });
         if (!f)
-          throw new TypeError("Reduce of empty array with no initial value");
+          throw new TypeError('Reduce of empty array with no initial value');
         return d;
       };
   b.reduceRight = b.foldr = function (a, c, d, e) {
@@ -245,7 +245,7 @@
             d = b.criteria;
           return c < d ? -1 : c > d ? 1 : 0;
         }),
-      "value"
+      'value'
     );
   };
   b.groupBy = (a, c) => {
@@ -350,13 +350,13 @@
   b.zip = function () {
     for (
       var a = i.call(arguments),
-        c = b.max(b.pluck(a, "length")),
+        c = b.max(b.pluck(a, 'length')),
         d = Array(c),
         e = 0;
       e < c;
       e++
     )
-      d[e] = b.pluck(a, "" + e);
+      d[e] = b.pluck(a, '' + e);
     return d;
   };
   b.indexOf = (a, c, d) => {
@@ -496,7 +496,7 @@
   b.keys =
     J ||
     ((a) => {
-      if (a !== Object(a)) throw new TypeError("Invalid object");
+      if (a !== Object(a)) throw new TypeError('Invalid object');
       const c = [];
       let d;
       for (d in a) b.has(a, d) && (c[c.length] = d);
@@ -544,38 +544,38 @@
   b.isArray =
     o ||
     ((a) => {
-      return l.call(a) == "[object Array]";
+      return l.call(a) == '[object Array]';
     });
   b.isObject = (a) => {
     return a === Object(a);
   };
   b.isArguments = (a) => {
-    return l.call(a) == "[object Arguments]";
+    return l.call(a) == '[object Arguments]';
   };
   if (!b.isArguments(arguments))
     b.isArguments = (a) => {
-      return !(!a || !b.has(a, "callee"));
+      return !(!a || !b.has(a, 'callee'));
     };
   b.isFunction = (a) => {
-    return l.call(a) == "[object Function]";
+    return l.call(a) == '[object Function]';
   };
   b.isString = (a) => {
-    return l.call(a) == "[object String]";
+    return l.call(a) == '[object String]';
   };
   b.isNumber = (a) => {
-    return l.call(a) == "[object Number]";
+    return l.call(a) == '[object Number]';
   };
   b.isNaN = (a) => {
     return a !== a;
   };
   b.isBoolean = (a) => {
-    return a === true || a === false || l.call(a) == "[object Boolean]";
+    return a === true || a === false || l.call(a) == '[object Boolean]';
   };
   b.isDate = (a) => {
-    return l.call(a) == "[object Date]";
+    return l.call(a) == '[object Date]';
   };
   b.isRegExp = (a) => {
-    return l.call(a) == "[object RegExp]";
+    return l.call(a) == '[object RegExp]';
   };
   b.isNull = (a) => {
     return a === null;
@@ -597,13 +597,13 @@
     for (let e = 0; e < a; e++) b.call(d, e);
   };
   b.escape = (a) => {
-    return ("" + a)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#x27;")
-      .replace(/\//g, "&#x2F;");
+    return ('' + a)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;')
+      .replace(/\//g, '&#x2F;');
   };
   b.mixin = (a) => {
     j(b.functions(a), (c) => {
@@ -622,7 +622,7 @@
   };
   const t = /.^/,
     u = (a) => {
-      return a.replace(/\\\\/g, "\\").replace(/\\'/g, "'");
+      return a.replace(/\\\\/g, '\\').replace(/\\'/g, "'");
     };
   b.template = (a, c) => {
     var d = b.templateSettings;
@@ -630,7 +630,7 @@
     const d =
       "var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('" +
       a
-        .replace(/\\/g, "\\\\")
+        .replace(/\\/g, '\\\\')
         .replace(/'/g, "\\'")
         .replace(d.escape || t, (a, b) => {
           return "',_.escape(" + u(b) + "),'";
@@ -639,14 +639,14 @@
           return "'," + u(b) + ",'";
         })
         .replace(d.evaluate || t, (a, b) => {
-          return "');" + u(b).replace(/[\r\n\t]/g, " ") + ";__p.push('";
+          return "');" + u(b).replace(/[\r\n\t]/g, ' ') + ";__p.push('";
         })
-        .replace(/\r/g, "\\r")
-        .replace(/\n/g, "\\n")
-        .replace(/\t/g, "\\t") +
+        .replace(/\r/g, '\\r')
+        .replace(/\n/g, '\\n')
+        .replace(/\t/g, '\\t') +
       "');}return __p.join('');";
 
-    const e = new Function("obj", "_", d);
+    const e = new Function('obj', '_', d);
     return c
       ? e(c, b)
       : function (a) {
@@ -687,17 +687,17 @@
   };
 
   b.mixin(b);
-  j("pop,push,reverse,shift,sort,splice,unshift".split(","), (a) => {
+  j('pop,push,reverse,shift,sort,splice,unshift'.split(','), (a) => {
     const b = k[a];
     m.prototype[a] = function () {
       const d = this._wrapped;
       b.apply(d, arguments);
       const e = d.length;
-      (a == "shift" || a == "splice") && e === 0 && delete d[0];
+      (a == 'shift' || a == 'splice') && e === 0 && delete d[0];
       return v(d, this._chain);
     };
   });
-  j(["concat", "join", "slice"], (a) => {
+  j(['concat', 'join', 'slice'], (a) => {
     const b = k[a];
     m.prototype[a] = function () {
       return v(b.apply(this._wrapped, arguments), this._chain);

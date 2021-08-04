@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](modules.html "6. Modules") |
-- [previous](controlflow.html "4. More Control Flow Tools") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](modules.html '6. Modules') |
+- [previous](controlflow.html '4. More Control Flow Tools') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -550,11 +550,11 @@ Other languages may return the mutated object, which allows method chaining, suc
 
 #### Previous topic
 
-[<span class="section-number">4. </span>More Control Flow Tools](controlflow.html "previous chapter")
+[<span class="section-number">4. </span>More Control Flow Tools](controlflow.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">6. </span>Modules](modules.html "next chapter")
+[<span class="section-number">6. </span>Modules](modules.html 'next chapter')
 
 ### This Page
 
@@ -563,10 +563,10 @@ Other languages may return the mutated object, which allows method chaining, suc
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](modules.html "6. Modules") |
-- [previous](controlflow.html "4. More Control Flow Tools") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](modules.html '6. Modules') |
+- [previous](controlflow.html '4. More Control Flow Tools') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

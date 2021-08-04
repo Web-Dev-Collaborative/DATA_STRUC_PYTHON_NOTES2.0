@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](stdlib.html "10. Brief Tour of the Standard Library") |
-- [previous](errors.html "8. Errors and Exceptions") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](stdlib.html '10. Brief Tour of the Standard Library') |
+- [previous](errors.html '8. Errors and Exceptions') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -584,11 +584,11 @@ Except for one thing. Module objects have a secret read-only attribute called <a
 
 #### Previous topic
 
-[<span class="section-number">8. </span>Errors and Exceptions](errors.html "previous chapter")
+[<span class="section-number">8. </span>Errors and Exceptions](errors.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">10. </span>Brief Tour of the Standard Library](stdlib.html "next chapter")
+[<span class="section-number">10. </span>Brief Tour of the Standard Library](stdlib.html 'next chapter')
 
 ### This Page
 
@@ -597,10 +597,10 @@ Except for one thing. Module objects have a secret read-only attribute called <a
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](stdlib.html "10. Brief Tour of the Standard Library") |
-- [previous](errors.html "8. Errors and Exceptions") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](stdlib.html '10. Brief Tour of the Standard Library') |
+- [previous](errors.html '8. Errors and Exceptions') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

@@ -103,8 +103,8 @@ Then the `observe` property should be configured as follows:
 
 <script>
   Polymer({
-    is: "dom-repeat",
-    extends: "template",
+    is: 'dom-repeat',
+    extends: 'template',
     _template: null,
 
     /**
@@ -130,7 +130,7 @@ Then the `observe` property should be configured as follows:
        */
       as: {
         type: String,
-        value: "item",
+        value: 'item',
       },
 
       /**
@@ -140,7 +140,7 @@ Then the `observe` property should be configured as follows:
        */
       indexAs: {
         type: String,
-        value: "index",
+        value: 'index',
       },
 
       /**
@@ -152,7 +152,7 @@ Then the `observe` property should be configured as follows:
        */
       sort: {
         type: Function,
-        observer: "_sortChanged",
+        observer: '_sortChanged',
       },
 
       /**
@@ -164,7 +164,7 @@ Then the `observe` property should be configured as follows:
        */
       filter: {
         type: Function,
-        observer: "_filterChanged",
+        observer: '_filterChanged',
       },
 
       /**
@@ -176,7 +176,7 @@ Then the `observe` property should be configured as follows:
        */
       observe: {
         type: String,
-        observer: "_observeChanged",
+        observer: '_observeChanged',
       },
 
       /**
@@ -209,7 +209,7 @@ Then the `observe` property should be configured as follows:
        */
       initialCount: {
         type: Number,
-        observer: "_initializeChunking",
+        observer: '_initializeChunking',
       },
 
       /**
@@ -227,13 +227,13 @@ Then the `observe` property should be configured as follows:
 
       _targetFrameTime: {
         type: Number,
-        computed: "_computeFrameTime(targetFramerate)",
+        computed: '_computeFrameTime(targetFramerate)',
       },
     },
 
     behaviors: [Polymer.Templatizer],
 
-    observers: ["_itemsChanged(items.*)"],
+    observers: ['_itemsChanged(items.*)'],
 
     created: function () {
       this._instances = [];
@@ -282,7 +282,7 @@ Then the `observe` property should be configured as follows:
       var dataHost = this._getRootDataHost();
       this._sortFn =
         sort &&
-        (typeof sort == "function"
+        (typeof sort == 'function'
           ? sort
           : function () {
               return dataHost[sort].apply(dataHost, arguments);
@@ -297,7 +297,7 @@ Then the `observe` property should be configured as follows:
       var dataHost = this._getRootDataHost();
       this._filterFn =
         filter &&
-        (typeof filter == "function"
+        (typeof filter == 'function'
           ? filter
           : function () {
               return dataHost[filter].apply(dataHost, arguments);
@@ -324,7 +324,7 @@ Then the `observe` property should be configured as follows:
       // Debounced so that multiple calls through `_render` between animation
       // frames only queue one new rAF (e.g. array mutation & chunked render)
       if (this.items && this._limit < this.items.length) {
-        this.debounce("renderChunk", this._requestRenderChunk);
+        this.debounce('renderChunk', this._requestRenderChunk);
       }
     },
 
@@ -346,11 +346,11 @@ Then the `observe` property should be configured as follows:
 
     _observeChanged: function () {
       this._observePaths =
-        this.observe && this.observe.replace(".*", ".").split(" ");
+        this.observe && this.observe.replace('.*', '.').split(' ');
     },
 
     _itemsChanged: function (change) {
-      if (change.path == "items") {
+      if (change.path == 'items') {
         if (Array.isArray(this.items)) {
           this.collection = Polymer.Collection.get(this.items);
         } else if (!this.items) {
@@ -358,8 +358,8 @@ Then the `observe` property should be configured as follows:
         } else {
           this._error(
             this._logf(
-              "dom-repeat",
-              "expected array for `items`," + " found",
+              'dom-repeat',
+              'expected array for `items`,' + ' found',
               this.items
             )
           );
@@ -369,7 +369,7 @@ Then the `observe` property should be configured as follows:
         this._needFullRefresh = true;
         this._initializeChunking();
         this._debounceTemplate(this._render);
-      } else if (change.path == "items.splices") {
+      } else if (change.path == 'items.splices') {
         this._keySplices = this._keySplices.concat(change.value.keySplices);
         this._indexSplices = this._indexSplices.concat(
           change.value.indexSplices
@@ -386,7 +386,7 @@ Then the `observe` property should be configured as follows:
 
     _checkObservedPaths: function (path) {
       if (this._observePaths) {
-        path = path.substring(path.indexOf(".") + 1);
+        path = path.substring(path.indexOf('.') + 1);
         var paths = this._observePaths;
         for (var i = 0; i < paths.length; i++) {
           if (path.indexOf(paths[i]) === 0) {
@@ -394,7 +394,7 @@ Then the `observe` property should be configured as follows:
             // insertion sort of the changed item
             this._needFullRefresh = true;
             if (this.delay) {
-              this.debounce("render", this._render, this.delay);
+              this.debounce('render', this._render, this.delay);
             } else {
               this._debounceTemplate(this._render);
             }
@@ -468,7 +468,7 @@ Then the `observe` property should be configured as follows:
       // Set rendered item count
       this._setRenderedItemCount(this._instances.length);
       // Notify users
-      this.fire("dom-change");
+      this.fire('dom-change');
       // Check to see if we need to render more items
       this._tryRenderChunk();
     },
@@ -690,7 +690,7 @@ Then the `observe` property should be configured as follows:
         // TODO(kschaaf): If the pool is shared across turns, parentProps
         // need to be re-set to reused instances in addition to item/key
         inst.__setProperty(this.as, this.collection.getItem(key), true);
-        inst.__setProperty("__key__", key, true);
+        inst.__setProperty('__key__', key, true);
       } else {
         inst = this._stampInstance(idx, key);
       }
@@ -738,7 +738,7 @@ Then the `observe` property should be configured as follows:
           // When there is no sort/filter, the view index is the array index
           idx = inst[this.indexAs];
         }
-        this.set("items." + idx, value);
+        this.set('items.' + idx, value);
       }
     },
 
@@ -746,9 +746,9 @@ Then the `observe` property should be configured as follows:
     // Called as a side effect of a template instance path change, responsible
     // for notifying items.<key-for-inst>.<path> change up to host
     _forwardInstancePath: function (inst, path, value) {
-      if (path.indexOf(this.as + ".") === 0) {
+      if (path.indexOf(this.as + '.') === 0) {
         this._notifyPath(
-          "items." + inst.__key__ + "." + path.slice(this.as.length + 1),
+          'items.' + inst.__key__ + '.' + path.slice(this.as.length + 1),
           value
         );
       }
@@ -782,13 +782,13 @@ Then the `observe` property should be configured as follows:
     // responsible for notifying item.<path> changes to inst for key
     _forwardItemPath: function (path, value) {
       if (this._keyToInstIdx) {
-        var dot = path.indexOf(".");
+        var dot = path.indexOf('.');
         var key = path.substring(0, dot < 0 ? path.length : dot);
         var idx = this._keyToInstIdx[key];
         var inst = this._instances[idx];
         if (inst && !inst.isPlaceholder) {
           if (dot >= 0) {
-            path = this.as + "." + path.substring(dot + 1);
+            path = this.as + '.' + path.substring(dot + 1);
             inst._notifyPath(path, value, true);
           } else {
             inst.__setProperty(this.as, value, true);

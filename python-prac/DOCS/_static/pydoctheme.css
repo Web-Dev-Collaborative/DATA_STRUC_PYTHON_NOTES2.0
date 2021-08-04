@@ -1,4 +1,4 @@
-@import url("default.css");
+@import url('default.css');
 
 body {
   background-color: white;
@@ -28,7 +28,7 @@ div.related:first-child {
 form.inline-search input {
   display: inline;
 }
-form.inline-search input[type="submit"] {
+form.inline-search input[type='submit'] {
   width: 40px;
 }
 
@@ -58,13 +58,13 @@ div.sphinxsidebar a:hover {
 
 form.inline-search input,
 div.sphinxsidebar input {
-  font-family: "Lucida Grande", Arial, sans-serif;
+  font-family: 'Lucida Grande', Arial, sans-serif;
   border: 1px solid #999999;
   font-size: smaller;
   border-radius: 3px;
 }
 
-div.sphinxsidebar input[type="text"] {
+div.sphinxsidebar input[type='text'] {
   max-width: 150px;
 }
 

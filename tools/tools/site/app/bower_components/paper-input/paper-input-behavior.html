@@ -205,7 +205,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autocomplete: {
         type: String,
-        value: "off",
+        value: 'off',
       },
 
       /**
@@ -214,7 +214,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autofocus: {
         type: Boolean,
-        observer: "_autofocusChanged",
+        observer: '_autofocusChanged',
       },
 
       /**
@@ -285,7 +285,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       placeholder: {
         type: String,
         // need to set a default so _computeAlwaysFloatLabel is run
-        value: "",
+        value: '',
       },
 
       /**
@@ -313,7 +313,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autocapitalize: {
         type: String,
-        value: "none",
+        value: 'none',
       },
 
       /**
@@ -322,7 +322,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       autocorrect: {
         type: String,
-        value: "off",
+        value: 'off',
       },
 
       /**
@@ -363,21 +363,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _ariaDescribedBy: {
         type: String,
-        value: "",
+        value: '',
       },
 
       _ariaLabelledBy: {
         type: String,
-        value: "",
+        value: '',
       },
     },
 
     listeners: {
-      "addon-attached": "_onAddonAttached",
+      'addon-attached': '_onAddonAttached',
     },
 
     keyBindings: {
-      "shift+tab:keydown": "_onShiftTabDown",
+      'shift+tab:keydown': '_onShiftTabDown',
     },
 
     hostAttributes: {
@@ -402,13 +402,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // These types have some default placeholder text; overlapping
       // the label on top of it looks terrible. Auto-float the label in this case.
       this._typesThatHaveText = [
-        "date",
-        "datetime",
-        "datetime-local",
-        "month",
-        "time",
-        "week",
-        "file",
+        'date',
+        'datetime',
+        'datetime-local',
+        'month',
+        'time',
+        'week',
+        'file',
       ];
     },
 
@@ -425,7 +425,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _appendStringWithSpace: function (str, more) {
       if (str) {
-        str = str + " " + more;
+        str = str + ' ' + more;
       } else {
         str = more;
       }
@@ -440,7 +440,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           target.id
         );
       } else {
-        var id = "paper-input-add-on-" + Polymer.PaperInputHelper.NextAddonID++;
+        var id = 'paper-input-add-on-' + Polymer.PaperInputHelper.NextAddonID++;
         target.id = id;
         this._ariaDescribedBy = this._appendStringWithSpace(
           this._ariaDescribedBy,
@@ -475,11 +475,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @param {CustomEvent} event A key combination event.
      */
     _onShiftTabDown: function (event) {
-      var oldTabIndex = this.getAttribute("tabindex");
+      var oldTabIndex = this.getAttribute('tabindex');
       this._shiftTabPressed = true;
-      this.setAttribute("tabindex", "-1");
+      this.setAttribute('tabindex', '-1');
       this.async(function () {
-        this.setAttribute("tabindex", oldTabIndex);
+        this.setAttribute('tabindex', oldTabIndex);
         this._shiftTabPressed = false;
       }, 1);
     },
@@ -518,9 +518,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _updateAriaLabelledBy: function () {
-      var label = Polymer.dom(this.root).querySelector("label");
+      var label = Polymer.dom(this.root).querySelector('label');
       if (!label) {
-        this._ariaLabelledBy = "";
+        this._ariaLabelledBy = '';
         return;
       }
       var labelledBy;
@@ -528,7 +528,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         labelledBy = label.id;
       } else {
         labelledBy =
-          "paper-input-label-" + Polymer.PaperInputHelper.NextLabelID++;
+          'paper-input-label-' + Polymer.PaperInputHelper.NextLabelID++;
         label.id = labelledBy;
       }
       this._ariaLabelledBy = labelledBy;

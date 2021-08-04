@@ -14,7 +14,7 @@ upgraded. This approach does not block rendering!.
     // a permanent top-level host with `lazyChildren` property set, or else
     // each instance needs to set the `lazy-bind` attribute
     if (
-      (this.is && this.hasAttribute("lazy-bind")) ||
+      (this.is && this.hasAttribute('lazy-bind')) ||
       (this.dataHost && this.dataHost.lazyChildren)
     ) {
       for (const p in this._propertyEffects) {
@@ -60,9 +60,9 @@ upgraded. This approach does not block rendering!.
 // normal Polymer idioms.
 
 Polymer({
-  extends: "body",
+  extends: 'body',
 
-  is: "body-bind",
+  is: 'body-bind',
 
   behaviors: [Polymer.LightDomBindingBehavior],
 });

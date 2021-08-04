@@ -22,23 +22,20 @@ Pre-built (concatenated & minified) versions of the polyfills are maintained in 
 
 ## Browser Support
 
-Our polyfills are intended to work in the latest versions of evergreen browsers. See below
-for our complete browser support matrix:
+Our polyfills are intended to work in the latest versions of evergreen browsers. See below for our complete browser support matrix:
 
-| Polyfill        | IE10 | IE11+ | Chrome\* | Firefox\* | Safari 7+\* | Chrome Android\* | Mobile Safari\* |
-| --------------- | :--: | :---: | :------: | :-------: | :---------: | :--------------: | :-------------: |
-| Custom Elements |  ~   |   ✓   |    ✓     |     ✓     |      ✓      |        ✓         |        ✓        |
-| HTML Imports    |  ~   |   ✓   |    ✓     |     ✓     |      ✓      |        ✓         |        ✓        |
-| Shadow DOM      |  ✓   |   ✓   |    ✓     |     ✓     |      ✓      |        ✓         |        ✓        |
-| Templates       |  ✓   |   ✓   |    ✓     |     ✓     |      ✓      |        ✓         |        ✓        |
+| Polyfill | IE10 | IE11+ | Chrome\* | Firefox\* | Safari 7+\* | Chrome Android\* | Mobile Safari\* |
+| --- | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Custom Elements | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| HTML Imports | ~ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Shadow DOM | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Templates | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 \*Indicates the current version of the browser
 
-~Indicates support may be flaky. If using Custom Elements or HTML Imports with Shadow DOM,
-you will get the non-flaky Mutation Observer polyfill that Shadow DOM includes.
+~Indicates support may be flaky. If using Custom Elements or HTML Imports with Shadow DOM, you will get the non-flaky Mutation Observer polyfill that Shadow DOM includes.
 
-The polyfills may work in older browsers, however require additional polyfills (such as classList)
-to be used. We cannot guarantee support for browsers outside of our compatibility matrix.
+The polyfills may work in older browsers, however require additional polyfills (such as classList) to be used. We cannot guarantee support for browsers outside of our compatibility matrix.
 
 ### Manually Building
 
@@ -77,9 +74,9 @@ The webcomponents.js and webcomponents-lite.js polyfills parse element definitio
 For these situations (or when you need an approximate replacement for the Polymer 0.5 `polymer-ready` behavior), you can use the `WebComponentsReady` event as a signal before interacting with the element. The criteria for this event to fire is all Custom Elements with definitions registered by the time HTML Imports available at load time have loaded have upgraded.
 
 ```js
-window.addEventListener("WebComponentsReady", function (e) {
+window.addEventListener('WebComponentsReady', function (e) {
   // imports are loaded and elements have been registered
-  console.log("Components are ready");
+  console.log('Components are ready');
 });
 ```
 
@@ -127,8 +124,7 @@ It's worth noting that `customElement.__proto__.__proto__.constructor` is `HTMLE
 
 ### Contenteditable elements do not trigger MutationObserver <a id="contentedit"></a>
 
-Using the MutationObserver polyfill, it isn't possible to monitor mutations of an element marked `contenteditable`.
-See [the mailing list](https://groups.google.com/forum/#!msg/polymer-dev/LHdtRVXXVsA/v1sGoiTYWUkJ)
+Using the MutationObserver polyfill, it isn't possible to monitor mutations of an element marked `contenteditable`. See [the mailing list](https://groups.google.com/forum/#!msg/polymer-dev/LHdtRVXXVsA/v1sGoiTYWUkJ)
 
 ### ShadowCSS: :host-context(...):host(...) doesn't work <a id="hostcontext"></a>
 

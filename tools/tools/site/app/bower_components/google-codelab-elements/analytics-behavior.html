@@ -24,10 +24,10 @@ the License.
    */
   GoogleCodelabs.AnalyticsBehavior = {
     listeners: {
-      "google-codelab-step": "_trackStepChanged",
-      "google-codelab-complete": "_trackCodelabComplete",
-      "google-codelab-snippet-copy": "_trackSnippetCopy",
-      "google-codelab-survey-answer": "_trackSurveyAnswer",
+      'google-codelab-step': '_trackStepChanged',
+      'google-codelab-complete': '_trackCodelabComplete',
+      'google-codelab-snippet-copy': '_trackSnippetCopy',
+      'google-codelab-survey-answer': '_trackSurveyAnswer',
     },
 
     get _isTrackingEnabled() {
@@ -38,7 +38,7 @@ the License.
       params.hitType = hit;
       params.dimension1 = target.environment;
       params.dimension2 = target.category;
-      window["ga"](function () {
+      window['ga'](function () {
         var trackers = ga.getAll();
         for (var i = 0; i < trackers.length; i++) {
           var tracker = trackers[i];
@@ -51,8 +51,8 @@ the License.
       if (!this._isTrackingEnabled) {
         return;
       }
-      this._gaSend("pageview", e.target, {
-        page: location.pathname + "#" + detail.index,
+      this._gaSend('pageview', e.target, {
+        page: location.pathname + '#' + detail.index,
         title: detail.step.label,
       });
     },
@@ -61,9 +61,9 @@ the License.
       if (!this._isTrackingEnabled) {
         return;
       }
-      this._gaSend("event", e.target, {
-        eventCategory: "codelab",
-        eventAction: "complete",
+      this._gaSend('event', e.target, {
+        eventCategory: 'codelab',
+        eventAction: 'complete',
         eventLabel: e.target.title,
       });
     },
@@ -72,9 +72,9 @@ the License.
       if (!this._isTrackingEnabled) {
         return;
       }
-      this._gaSend("event", e.target, {
-        eventCategory: "snippet",
-        eventAction: "copy",
+      this._gaSend('event', e.target, {
+        eventCategory: 'snippet',
+        eventAction: 'copy',
         eventLabel: detail.snippet.substring(0, 500),
       });
     },
@@ -83,8 +83,8 @@ the License.
       if (!this._isTrackingEnabled) {
         return;
       }
-      this._gaSend("event", e.target, {
-        eventCategory: "survey",
+      this._gaSend('event', e.target, {
+        eventCategory: 'survey',
         eventAction: detail.question.substring(0, 500),
         eventLabel: detail.answer.substring(0, 500),
       });

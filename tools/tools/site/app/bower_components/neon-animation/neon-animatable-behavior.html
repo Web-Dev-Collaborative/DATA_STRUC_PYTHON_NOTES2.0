@@ -30,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * manually if using this. The animated node is set to `this` if using this property.
        */
       entryAnimation: {
-        observer: "_entryAnimationChanged",
+        observer: '_entryAnimationChanged',
         type: String,
       },
 
@@ -39,14 +39,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * manually if using this. The animated node is set to `this` if using this property.
        */
       exitAnimation: {
-        observer: "_exitAnimationChanged",
+        observer: '_exitAnimationChanged',
         type: String,
       },
     },
 
     _entryAnimationChanged: function () {
       this.animationConfig = this.animationConfig || {};
-      this.animationConfig["entry"] = [
+      this.animationConfig['entry'] = [
         {
           name: this.entryAnimation,
           node: this,
@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _exitAnimationChanged: function () {
       this.animationConfig = this.animationConfig || {};
-      this.animationConfig["exit"] = [
+      this.animationConfig['exit'] = [
         {
           name: this.exitAnimation,
           node: this,
@@ -86,11 +86,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       if (
         this.animationConfig.value &&
-        typeof this.animationConfig.value === "function"
+        typeof this.animationConfig.value === 'function'
       ) {
         this._warn(
           this._logf(
-            "playAnimation",
+            'playAnimation',
             "Please put 'animationConfig' inside of your components 'properties' object instead of outside of it."
           )
         );

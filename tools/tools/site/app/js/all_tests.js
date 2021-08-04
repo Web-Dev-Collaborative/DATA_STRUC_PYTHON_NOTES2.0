@@ -15,12 +15,12 @@
  */
 
 const allTests = [
-  "claat/ui/cards/cardsorter_test.html",
-  "claat/uri/params_test.html",
+  'claat/ui/cards/cardsorter_test.html',
+  'claat/uri/params_test.html',
 ];
 
 // If we're running in a nodejs context, export tests. Used when running tests
 // externally on a CI.
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = _allTests;
 }

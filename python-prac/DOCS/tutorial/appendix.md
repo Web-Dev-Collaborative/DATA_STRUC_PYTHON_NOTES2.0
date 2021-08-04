@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](https://docs.python.org/3/using/index.html "Python Setup and Usage") |
-- [previous](floatingpoint.html "15. Floating Point Arithmetic: Issues and Limitations") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](https://docs.python.org/3/using/index.html 'Python Setup and Usage') |
+- [previous](floatingpoint.html '15. Floating Point Arithmetic: Issues and Limitations') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -89,11 +89,11 @@ A problem with the GNU Readline package may prevent this.
 
 #### Previous topic
 
-[<span class="section-number">15. </span>Floating Point Arithmetic: Issues and Limitations](floatingpoint.html "previous chapter")
+[<span class="section-number">15. </span>Floating Point Arithmetic: Issues and Limitations](floatingpoint.html 'previous chapter')
 
 #### Next topic
 
-[Python Setup and Usage](https://docs.python.org/3/using/index.html "next chapter")
+[Python Setup and Usage](https://docs.python.org/3/using/index.html 'next chapter')
 
 ### This Page
 
@@ -102,10 +102,10 @@ A problem with the GNU Readline package may prevent this.
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](https://docs.python.org/3/using/index.html "Python Setup and Usage") |
-- [previous](floatingpoint.html "15. Floating Point Arithmetic: Issues and Limitations") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](https://docs.python.org/3/using/index.html 'Python Setup and Usage') |
+- [previous](floatingpoint.html '15. Floating Point Arithmetic: Issues and Limitations') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

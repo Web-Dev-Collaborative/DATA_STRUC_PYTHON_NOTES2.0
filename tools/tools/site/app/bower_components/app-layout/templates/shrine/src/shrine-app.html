@@ -95,19 +95,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         height: calc(100vh - 65px);
       }
 
-      :host([page="detail"]) #mainToolbar {
+      :host([page='detail']) #mainToolbar {
         height: 64px;
       }
 
-      :host([page="detail"]) paper-tabs {
+      :host([page='detail']) paper-tabs {
         display: none;
       }
 
-      :host([page="detail"]) .leftItem [icon="arrow-back"] {
+      :host([page='detail']) .leftItem [icon='arrow-back'] {
         display: block;
       }
 
-      :host([page="detail"]) .leftItem [icon="menu"] {
+      :host([page='detail']) .leftItem [icon='menu'] {
         display: none;
       }
 
@@ -169,7 +169,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: #0a3142;
       }
 
-      [icon="settings"] {
+      [icon='settings'] {
         width: 35px;
         height: 35px;
         color: #0a3142;
@@ -197,7 +197,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * Phone
        */
       @media (max-width: 400px) {
-        .leftItem [icon="menu"] {
+        .leftItem [icon='menu'] {
           display: block;
         }
 
@@ -347,27 +347,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: "shrine-app",
+      is: 'shrine-app',
 
       properties: {
         sections: {
           type: Array,
           value: function () {
             return [
-              "feature",
-              "latest",
-              "fashion",
-              "furniture",
-              "beauty",
-              "food",
-              "travel",
+              'feature',
+              'latest',
+              'fashion',
+              'furniture',
+              'beauty',
+              'food',
+              'travel',
             ];
           },
         },
 
         selectedTab: {
           type: Number,
-          computed: "_computeSelectedTab(sections, sectionData.section)",
+          computed: '_computeSelectedTab(sections, sectionData.section)',
         },
 
         items: {
@@ -380,7 +380,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         page: {
           type: String,
-          computed: "_computePage(onDetailPage)",
+          computed: '_computePage(onDetailPage)',
           reflectToAttribute: true,
         },
 
@@ -395,12 +395,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         onDetailPage: Boolean,
       },
 
-      observers: ["_hashDidChange(route.path, items, featuredItems)"],
+      observers: ['_hashDidChange(route.path, items, featuredItems)'],
 
       ready: function () {
         this.async(function () {
           if (!this.route.path) {
-            this.set("route.path", "feature");
+            this.set('route.path', 'feature');
           }
         });
       },
@@ -426,7 +426,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _computePage: function (onDetailPage) {
-        return onDetailPage ? "detail" : "list";
+        return onDetailPage ? 'detail' : 'list';
       },
 
       _hashDidChange: function () {
@@ -441,7 +441,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       _getSectionClass: function (index, selectedTab) {
-        return index === selectedTab ? "active" : "";
+        return index === selectedTab ? 'active' : '';
       },
 
       _shouldShowTabs: function (onDetailPage, smallScreen) {

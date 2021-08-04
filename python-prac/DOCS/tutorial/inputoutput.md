@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](errors.html "8. Errors and Exceptions") |
-- [previous](modules.html "6. Modules") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](errors.html '8. Errors and Exceptions') |
+- [previous](modules.html '6. Modules') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -356,11 +356,11 @@ Contrary to <a href="#tut-json" class="reference internal"><span class="std std-
 
 #### Previous topic
 
-[<span class="section-number">6. </span>Modules](modules.html "previous chapter")
+[<span class="section-number">6. </span>Modules](modules.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">8. </span>Errors and Exceptions](errors.html "next chapter")
+[<span class="section-number">8. </span>Errors and Exceptions](errors.html 'next chapter')
 
 ### This Page
 
@@ -369,10 +369,10 @@ Contrary to <a href="#tut-json" class="reference internal"><span class="std std-
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](errors.html "8. Errors and Exceptions") |
-- [previous](modules.html "6. Modules") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](errors.html '8. Errors and Exceptions') |
+- [previous](modules.html '6. Modules') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

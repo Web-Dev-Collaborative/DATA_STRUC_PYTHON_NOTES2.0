@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       multi: {
         type: Boolean,
         value: false,
-        observer: "multiChanged",
+        observer: 'multiChanged',
       },
 
       /**
@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
     },
 
-    observers: ["_updateSelected(selectedValues.splices)"],
+    observers: ['_updateSelected(selectedValues.splices)'],
 
     /**
      * Selects the given value. If the `multi` property is true, then the selected state of the
@@ -136,9 +136,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var i = this.selectedValues.indexOf(value);
       var unselected = i < 0;
       if (unselected) {
-        this.push("selectedValues", value);
+        this.push('selectedValues', value);
       } else {
-        this.splice("selectedValues", i, 1);
+        this.splice('selectedValues', i, 1);
       }
     },
 

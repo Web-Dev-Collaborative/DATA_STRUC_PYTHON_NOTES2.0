@@ -129,7 +129,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             delete this[i];
           } else if (c.value !== undefined) {
             var value = c.value;
-            if (typeof value == "function") {
+            if (typeof value == 'function') {
               // pass existing config values (this._config) to value function
               value = value.call(this, this._config);
             }
@@ -148,11 +148,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               for (var i = 0, l = fx.length, x; i < l && (x = fx[i]); i++) {
                 // TODO(kschaaf): computed annotations are excluded from top-down
                 // configure for now; to be revisited
-                if (x.kind === "annotation") {
+                if (x.kind === 'annotation') {
                   var node = this._nodes[x.effect.index];
                   var name = x.effect.propertyName;
                   // seeding configuration only
-                  var isAttr = x.effect.kind == "attribute";
+                  var isAttr = x.effect.kind == 'attribute';
                   var hasEffect =
                     node._propertyEffects && node._propertyEffects[name];
                   if (node._configValue && (hasEffect || !isAttr)) {

@@ -86,7 +86,7 @@ Custom property                     | Description
   </template>
   <script>
     Polymer({
-      is: "google-codelab-survey",
+      is: 'google-codelab-survey',
 
       /**
        * Fired when user answers a survey question.
@@ -102,7 +102,7 @@ Custom property                     | Description
          */
         surveyId: {
           type: String,
-          value: "",
+          value: '',
         },
 
         /**
@@ -116,12 +116,12 @@ Custom property                     | Description
       },
 
       listeners: {
-        click: "_onClick",
+        click: '_onClick',
       },
 
       ready: function () {
         var elems =
-          Polymer.dom(this).queryDistributedElements("paper-radio-group");
+          Polymer.dom(this).queryDistributedElements('paper-radio-group');
         for (var i = 0, elem; (elem = elems[i]); i++) {
           // use this method for its side effect: ensure `name` property is present
           // on radio buttons
@@ -134,14 +134,14 @@ Custom property                     | Description
       },
 
       _storageKey: function (id) {
-        return "codelab-survey-" + id;
+        return 'codelab-survey-' + id;
       },
 
       _storageLoaded: function () {
         var elems = this.getContentChildren();
-        var answer = "";
+        var answer = '';
         for (var i = 0, elem; (elem = elems[i]); i++) {
-          if (elem.tagName === "H4") {
+          if (elem.tagName === 'H4') {
             answer = this.answers[this._elemText(elem)];
             continue;
           }
@@ -169,24 +169,24 @@ Custom property                     | Description
 
       _onClick: function (evt) {
         evt = Polymer.dom(evt);
-        if (evt.localTarget.tagName !== "PAPER-RADIO-BUTTON") {
+        if (evt.localTarget.tagName !== 'PAPER-RADIO-BUTTON') {
           return;
         }
         var qElem = evt.localTarget.parentElement.previousElementSibling;
-        if (!qElem || qElem.tagName !== "H4") {
+        if (!qElem || qElem.tagName !== 'H4') {
           return;
         }
         var question = this._elemText(qElem);
         var answer = evt.localTarget.name;
-        this.set("answers." + question, answer);
-        this.fire("google-codelab-survey-answer", {
+        this.set('answers.' + question, answer);
+        this.fire('google-codelab-survey-answer', {
           question: question,
           answer: answer,
         });
       },
 
       _elemText: function (el) {
-        return el.textContent.trim().replace(/\n|\r/g, "");
+        return el.textContent.trim().replace(/\n|\r/g, '');
       },
     });
   </script>

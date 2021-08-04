@@ -9,7 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     var DomApi = Polymer.DomApi.ctor;
 
@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * `Polymer.dom(node).classList.method(arguments)` where methods and arguments
      * match native DOM.
      */
-    Object.defineProperty(DomApi.prototype, "classList", {
+    Object.defineProperty(DomApi.prototype, 'classList', {
       get: function () {
         if (!this._classList) {
           this._classList = new DomApi.ClassList(this);

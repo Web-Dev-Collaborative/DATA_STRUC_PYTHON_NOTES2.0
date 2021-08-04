@@ -2,19 +2,19 @@
 const URLSearchParams =
   URLSearchParams ||
   (() => {
-    "use strict";
+    'use strict';
     function e(e) {
       return encodeURIComponent(e).replace(i, u);
     }
     function t(e) {
-      return decodeURIComponent(e.replace(s, " "));
+      return decodeURIComponent(e.replace(s, ' '));
     }
     function n(e) {
       this[f] = Object.create(null);
       if (!e) return;
-      for (let n, r, i = (e || "").split("&"), s = 0, o = i.length; s < o; s++)
+      for (let n, r, i = (e || '').split('&'), s = 0, o = i.length; s < o; s++)
         (r = i[s]),
-          (n = r.indexOf("=")),
+          (n = r.indexOf('=')),
           -1 < n && this.append(t(r.slice(0, n)), t(r.slice(n + 1)));
     }
     function l() {
@@ -29,13 +29,13 @@ const URLSearchParams =
     var s = /\+/g;
 
     const o = {
-      "!": "%21",
-      "'": "%27",
-      "(": "%28",
-      ")": "%29",
-      "~": "%7E",
-      "%20": "+",
-      "%00": "\0",
+      '!': '%21',
+      "'": '%27',
+      '(': '%28',
+      ')': '%29',
+      '~': '%7E',
+      '%20': '+',
+      '%00': '\0',
     };
 
     var u = (e) => {
@@ -43,10 +43,10 @@ const URLSearchParams =
     };
 
     const a = l();
-    var f = "__URLSearchParams__:" + Math.random();
+    var f = '__URLSearchParams__:' + Math.random();
     (r.append = function (t, n) {
       const r = this[f];
-      t in r ? r[t].push("" + n) : (r[t] = ["" + n]);
+      t in r ? r[t].push('' + n) : (r[t] = ['' + n]);
     }),
       (r.delete = function (t) {
         delete this[f][t];
@@ -63,7 +63,7 @@ const URLSearchParams =
         return t in this[f];
       }),
       (r.set = function (t, n) {
-        this[f][t] = ["" + n];
+        this[f][t] = ['' + n];
       }),
       (r.forEach = function (t, n) {
         const r = this[f];
@@ -143,9 +143,9 @@ const URLSearchParams =
         let o;
         for (i in t) {
           s = e(i);
-          for (r = 0, o = t[i]; r < o.length; r++) n.push(s + "=" + e(o[r]));
+          for (r = 0, o = t[i]; r < o.length; r++) n.push(s + '=' + e(o[r]));
         }
-        return n.join("&");
+        return n.join('&');
       });
     const c = Object.defineProperty,
       h = Object.getOwnPropertyDescriptor,
@@ -153,31 +153,31 @@ const URLSearchParams =
         function t(t, n) {
           r.append.call(this, t, n),
             (t = this.toString()),
-            e.set.call(this._usp, t ? "?" + t : "");
+            e.set.call(this._usp, t ? '?' + t : '');
         }
         function n(t) {
           r.delete.call(this, t),
             (t = this.toString()),
-            e.set.call(this._usp, t ? "?" + t : "");
+            e.set.call(this._usp, t ? '?' + t : '');
         }
         function i(t, n) {
           r.set.call(this, t, n),
             (t = this.toString()),
-            e.set.call(this._usp, t ? "?" + t : "");
+            e.set.call(this._usp, t ? '?' + t : '');
         }
         return (e, r) => {
           return (
             (e.append = t),
             (e.delete = n),
             (e.set = i),
-            c(e, "_usp", { configurable: !0, writable: !0, value: r })
+            c(e, '_usp', { configurable: !0, writable: !0, value: r })
           );
         };
       },
       d = (e) => {
         return (t, n) => {
           return (
-            c(t, "_searchParams", {
+            c(t, '_searchParams', {
               configurable: !0,
               writable: !0,
               value: e(n, t),
@@ -201,9 +201,9 @@ const URLSearchParams =
       },
       g = (e) => {
         const t = e.prototype;
-        const r = h(t, "searchParams");
-        const i = h(t, "href");
-        const s = h(t, "search");
+        const r = h(t, 'searchParams');
+        const i = h(t, 'href');
+        const s = h(t, 'search');
         let o;
         !r &&
           s &&

@@ -17,8 +17,7 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/iron-collapse
 
 ##&lt;iron-collapse&gt;
 
-`iron-collapse` creates a collapsible block of content. By default, the content
-will be collapsed. Use `opened` or `toggle()` to show/hide the content.
+`iron-collapse` creates a collapsible block of content. By default, the content will be collapsed. Use `opened` or `toggle()` to show/hide the content.
 
 ```html
 <button on-click="toggle">toggle collapse</button>
@@ -30,9 +29,7 @@ will be collapsed. Use `opened` or `toggle()` to show/hide the content.
 ... toggle: function() { this.$.collapse.toggle(); }
 ```
 
-`iron-collapse` adjusts the max-height/max-width of the collapsible element to show/hide
-the content. So avoid putting padding/margin/border on the collapsible directly,
-and instead put a div inside and style that.
+`iron-collapse` adjusts the max-height/max-width of the collapsible element to show/hide the content. So avoid putting padding/margin/border on the collapsible directly, and instead put a div inside and style that.
 
 ```html
 <style>
@@ -53,6 +50,6 @@ and instead put a div inside and style that.
 
 The following custom properties and mixins are available for styling:
 
-| Custom property                       | Description                   | Default |
-| ------------------------------------- | ----------------------------- | ------- |
+| Custom property | Description | Default |
+| --- | --- | --- |
 | `--iron-collapse-transition-duration` | Animation transition duration | `300ms` |

@@ -17,8 +17,7 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/iron-input)_
 
 ##&lt;iron-input&gt;
 
-`<iron-input>` adds two-way binding and custom validators using `Polymer.IronValidatorBehavior`
-to `<input>`.
+`<iron-input>` adds two-way binding and custom validators using `Polymer.IronValidatorBehavior` to `<input>`.
 
 ### Two-way binding
 
@@ -28,8 +27,7 @@ By default you can only get notified of changes to an `input`'s `value` due to u
 <input value="{{myValue::input}}" />
 ```
 
-`iron-input` adds the `bind-value` property that mirrors the `value` property, and can be used
-for two-way data binding. `bind-value` will notify if it is changed either by user input or by script.
+`iron-input` adds the `bind-value` property that mirrors the `value` property, and can be used for two-way data binding. `bind-value` will notify if it is changed either by user input or by script.
 
 ```html
 <input is="iron-input" bind-value="{{myValue}}" />
@@ -45,9 +43,7 @@ You can use custom validators that implement `Polymer.IronValidatorBehavior` wit
 
 ### Stopping invalid input
 
-It may be desirable to only allow users to enter certain characters. You can use the
-`prevent-invalid-input` and `allowed-pattern` attributes together to accomplish this. This feature
-is separate from validation, and `allowed-pattern` does not affect how the input is validated.
+It may be desirable to only allow users to enter certain characters. You can use the `prevent-invalid-input` and `allowed-pattern` attributes together to accomplish this. This feature is separate from validation, and `allowed-pattern` does not affect how the input is validated.
 
 ```html
 <!-- only allow characters that match [0-9] -->

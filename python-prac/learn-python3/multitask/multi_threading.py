@@ -3,7 +3,7 @@
 
 import time, threading
 
-# 新线程执行的代码:
+#:
 def loop():
     print("thread %s is running..." % threading.current_thread().name)
     n = 0

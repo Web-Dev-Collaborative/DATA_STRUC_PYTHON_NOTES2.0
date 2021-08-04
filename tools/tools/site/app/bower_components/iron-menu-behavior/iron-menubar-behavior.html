@@ -19,12 +19,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
   Polymer.IronMenubarBehaviorImpl = {
     hostAttributes: {
-      role: "menubar",
+      role: 'menubar',
     },
 
     keyBindings: {
-      left: "_onLeftKey",
-      right: "_onRightKey",
+      left: '_onLeftKey',
+      right: '_onRightKey',
     },
 
     _onUpKey: function (event) {
@@ -38,7 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     get _isRTL() {
-      return window.getComputedStyle(this)["direction"] === "rtl";
+      return window.getComputedStyle(this)['direction'] === 'rtl';
     },
 
     _onLeftKey: function (event) {
@@ -60,7 +60,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _onKeydown: function (event) {
-      if (this.keyboardEventMatchesKeys(event, "up down left right esc")) {
+      if (this.keyboardEventMatchesKeys(event, 'up down left right esc')) {
         return;
       }
 

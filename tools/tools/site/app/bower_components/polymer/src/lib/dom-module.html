@@ -22,7 +22,7 @@
      *
      */
     var DomModule = function () {
-      return document.createElement("dom-module");
+      return document.createElement('dom-module');
     };
 
     DomModule.prototype = Object.create(HTMLElement.prototype);
@@ -43,7 +43,7 @@
        */
       register: function (id) {
         id =
-          id || this.id || this.getAttribute("name") || this.getAttribute("is");
+          id || this.id || this.getAttribute('name') || this.getAttribute('is');
         if (id) {
           this.id = id;
           // store id separate from lowercased id so that
@@ -91,14 +91,14 @@
     // loaded by this point. In addition the HTMLImports polyfill should be
     // changed to upgrade elements prior to running any scripts.)
     var cePolyfill = window.CustomElements && !CustomElements.useNative;
-    document.registerElement("dom-module", DomModule);
+    document.registerElement('dom-module', DomModule);
 
     function forceDomModulesUpgrade() {
       if (cePolyfill) {
         var script = document._currentScript || document.currentScript;
         var doc = (script && script.ownerDocument) || document;
         // find all dom-modules
-        var modules = doc.querySelectorAll("dom-module");
+        var modules = doc.querySelectorAll('dom-module');
         // minimize work by going backwards and stopping if we find an
         // upgraded module.
         for (var i = modules.length - 1, m; i >= 0 && (m = modules[i]); i--) {

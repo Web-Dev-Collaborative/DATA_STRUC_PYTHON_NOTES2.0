@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](controlflow.html "4. More Control Flow Tools") |
-- [previous](interpreter.html "2. Using the Python Interpreter") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](controlflow.html '4. More Control Flow Tools') |
+- [previous](interpreter.html '2. Using the Python Interpreter') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -445,11 +445,11 @@ Unlike other languages, special characters such as `\n` have the same meaning wi
 
 #### Previous topic
 
-[<span class="section-number">2. </span>Using the Python Interpreter](interpreter.html "previous chapter")
+[<span class="section-number">2. </span>Using the Python Interpreter](interpreter.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">4. </span>More Control Flow Tools](controlflow.html "next chapter")
+[<span class="section-number">4. </span>More Control Flow Tools](controlflow.html 'next chapter')
 
 ### This Page
 
@@ -458,10 +458,10 @@ Unlike other languages, special characters such as `\n` have the same meaning wi
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](controlflow.html "4. More Control Flow Tools") |
-- [previous](interpreter.html "2. Using the Python Interpreter") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](controlflow.html '4. More Control Flow Tools') |
+- [previous](interpreter.html '2. Using the Python Interpreter') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

@@ -25,8 +25,7 @@ Example:
 
 Will emit 'api-load' event when loaded, and set 'loaded' to true
 
-Implemented by Polymer.IronJsonpLibraryBehavior. Use it
-to create specific library loader elements.
+Implemented by Polymer.IronJsonpLibraryBehavior. Use it to create specific library loader elements.
 
 ##Polymer.IronJsonpLibraryBehavior
 

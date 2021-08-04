@@ -42,25 +42,25 @@
  * @author mikesamuel@gmail.com
  */
 
-PR["registerLangHandler"](
-  PR["createSimpleLexer"](
+PR['registerLangHandler'](
+  PR['createSimpleLexer'](
     [
       // Whitespace is made up of spaces, tabs and newline characters.
-      [PR["PR_PLAIN"], /^[\t\n\r \xA0]+/, null, "\t\n\r \xA0"],
+      [PR['PR_PLAIN'], /^[\t\n\r \xA0]+/, null, '\t\n\r \xA0'],
       // Not escaped as a string.  See note on minimalism above.
       [
-        PR["PR_PLAIN"],
+        PR['PR_PLAIN'],
         /^(?:\"(?:[^\"\\]|\\[\s\S])*(?:\"|$)|\'(?:[^\'\\]|\\[\s\S])+(?:\'|$)|`[^`]*(?:`|$))/,
         null,
-        "\"'",
+        '"\'',
       ],
     ],
     [
       // Block comments are delimited by /* and */.
       // Single-line comments begin with // and extend to the end of a line.
-      [PR["PR_COMMENT"], /^(?:\/\/[^\r\n]*|\/\*[\s\S]*?\*\/)/],
-      [PR["PR_PLAIN"], /^(?:[^\/\"\'`]|\/(?![\/\*]))+/i],
+      [PR['PR_COMMENT'], /^(?:\/\/[^\r\n]*|\/\*[\s\S]*?\*\/)/],
+      [PR['PR_PLAIN'], /^(?:[^\/\"\'`]|\/(?![\/\*]))+/i],
     ]
   ),
-  ["go"]
+  ['go']
 );

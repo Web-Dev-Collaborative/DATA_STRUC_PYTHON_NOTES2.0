@@ -36,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       _parentResizable: {
         type: Object,
-        observer: "_parentResizableChanged",
+        observer: '_parentResizableChanged',
       },
 
       /**
@@ -50,7 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     listeners: {
-      "iron-request-resize-notifications": "_onIronRequestResizeNotifications",
+      'iron-request-resize-notifications': '_onIronRequestResizeNotifications',
     },
 
     created: function () {
@@ -61,14 +61,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     attached: function () {
-      this.fire("iron-request-resize-notifications", null, {
+      this.fire('iron-request-resize-notifications', null, {
         node: this,
         bubbles: true,
         cancelable: true,
       });
 
       if (!this._parentResizable) {
-        window.addEventListener("resize", this._boundNotifyResize);
+        window.addEventListener('resize', this._boundNotifyResize);
         this.notifyResize();
       }
     },
@@ -77,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if (this._parentResizable) {
         this._parentResizable.stopResizeNotificationsFor(this);
       } else {
-        window.removeEventListener("resize", this._boundNotifyResize);
+        window.removeEventListener('resize', this._boundNotifyResize);
       }
 
       this._parentResizable = null;
@@ -118,7 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       if (index > -1) {
         this._interestedResizables.splice(index, 1);
-        this.unlisten(target, "iron-resize", "_onDescendantIronResize");
+        this.unlisten(target, 'iron-resize', '_onDescendantIronResize');
       }
     },
 
@@ -150,7 +150,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _fireResize: function () {
-      this.fire("iron-resize", null, {
+      this.fire('iron-resize', null, {
         node: this,
         bubbles: false,
       });
@@ -165,7 +165,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       if (this._interestedResizables.indexOf(target) === -1) {
         this._interestedResizables.push(target);
-        this.listen(target, "iron-resize", "_onDescendantIronResize");
+        this.listen(target, 'iron-resize', '_onDescendantIronResize');
       }
 
       target.assignParentResizable(this);
@@ -176,7 +176,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _parentResizableChanged: function (parentResizable) {
       if (parentResizable) {
-        window.removeEventListener("resize", this._boundNotifyResize);
+        window.removeEventListener('resize', this._boundNotifyResize);
       }
     },
 

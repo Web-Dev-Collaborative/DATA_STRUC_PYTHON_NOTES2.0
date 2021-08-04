@@ -8,14 +8,14 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 // @version 0.7.24
-if (typeof WeakMap === "undefined") {
+if (typeof WeakMap === 'undefined') {
   (() => {
     const defineProperty = Object.defineProperty;
     let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
-        this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
+        this.name = '__st' + ((Math.random() * 1e9) >>> 0) + (counter++ + '__');
       }
 
       set(key, value) {
@@ -67,7 +67,7 @@ if (typeof WeakMap === "undefined") {
   } else {
     let setImmediateQueue = [];
     const sentinel = String(Math.random());
-    window.addEventListener("message", (e) => {
+    window.addEventListener('message', (e) => {
       if (e.data === sentinel) {
         const queue = setImmediateQueue;
         setImmediateQueue = [];
@@ -78,7 +78,7 @@ if (typeof WeakMap === "undefined") {
     });
     setImmediate = (func) => {
       setImmediateQueue.push(func);
-      window.postMessage(sentinel, "*");
+      window.postMessage(sentinel, '*');
     };
   }
   let isScheduled = false;
@@ -278,13 +278,13 @@ if (typeof WeakMap === "undefined") {
     addListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.addEventListener("DOMAttrModified", this, true);
+        node.addEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.addEventListener("DOMCharacterDataModified", this, true);
+        node.addEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.addEventListener("DOMNodeInserted", this, true);
+        node.addEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.addEventListener("DOMNodeRemoved", this, true);
+        node.addEventListener('DOMNodeRemoved', this, true);
     }
 
     removeListeners() {
@@ -294,13 +294,13 @@ if (typeof WeakMap === "undefined") {
     removeListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.removeEventListener("DOMAttrModified", this, true);
+        node.removeEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.removeEventListener("DOMCharacterDataModified", this, true);
+        node.removeEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.removeEventListener("DOMNodeInserted", this, true);
+        node.removeEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.removeEventListener("DOMNodeRemoved", this, true);
+        node.removeEventListener('DOMNodeRemoved', this, true);
     }
 
     addTransientObserver(node) {
@@ -330,11 +330,11 @@ if (typeof WeakMap === "undefined") {
     handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
-        case "DOMAttrModified":
+        case 'DOMAttrModified':
           const name = e.attrName;
           const namespace = e.relatedNode.namespaceURI;
           var target = e.target;
-          var record = new getRecord("attributes", target);
+          var record = new getRecord('attributes', target);
           record.attributeName = name;
           record.attributeNamespace = namespace;
           var oldValue =
@@ -355,9 +355,9 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMCharacterDataModified":
+        case 'DOMCharacterDataModified':
           var target = e.target;
-          var record = getRecord("characterData", target);
+          var record = getRecord('characterData', target);
           var oldValue = e.prevValue;
           forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.characterData) return;
@@ -367,13 +367,13 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMNodeRemoved":
+        case 'DOMNodeRemoved':
           this.addTransientObserver(e.target);
 
-        case "DOMNodeInserted":
+        case 'DOMNodeInserted':
           const changedNode = e.target;
           let addedNodes, removedNodes;
-          if (e.type === "DOMNodeInserted") {
+          if (e.type === 'DOMNodeInserted') {
             addedNodes = [changedNode];
             removedNodes = [];
           } else {
@@ -382,7 +382,7 @@ if (typeof WeakMap === "undefined") {
           }
           const previousSibling = changedNode.previousSibling;
           const nextSibling = changedNode.nextSibling;
-          var record = getRecord("childList", e.target.parentNode);
+          var record = getRecord('childList', e.target.parentNode);
           record.addedNodes = addedNodes;
           record.removedNodes = removedNodes;
           record.previousSibling = previousSibling;

@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](interactive.html "14. Interactive Input Editing and History Substitution") |
-- [previous](venv.html "12. Virtual Environments and Packages") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](interactive.html '14. Interactive Input Editing and History Substitution') |
+- [previous](venv.html '12. Virtual Environments and Packages') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -51,11 +51,11 @@ Footnotes
 
 #### Previous topic
 
-[<span class="section-number">12. </span>Virtual Environments and Packages](venv.html "previous chapter")
+[<span class="section-number">12. </span>Virtual Environments and Packages](venv.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">14. </span>Interactive Input Editing and History Substitution](interactive.html "next chapter")
+[<span class="section-number">14. </span>Interactive Input Editing and History Substitution](interactive.html 'next chapter')
 
 ### This Page
 
@@ -64,10 +64,10 @@ Footnotes
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](interactive.html "14. Interactive Input Editing and History Substitution") |
-- [previous](venv.html "12. Virtual Environments and Packages") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](interactive.html '14. Interactive Input Editing and History Substitution') |
+- [previous](venv.html '12. Virtual Environments and Packages') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

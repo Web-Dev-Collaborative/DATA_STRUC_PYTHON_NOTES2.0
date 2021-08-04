@@ -25,8 +25,7 @@ Material design: [Lists](https://www.google.com/design/spec/components/lists.htm
 <paper-item>Item</paper-item>
 ```
 
-Use this element with `<paper-item-body>` to make Material Design styled two-line and three-line
-items.
+Use this element with `<paper-item-body>` to make Material Design styled two-line and three-line items.
 
 ```html
 <paper-item>
@@ -38,9 +37,7 @@ items.
 </paper-item>
 ```
 
-To use `paper-item` as a link, wrap it in an anchor tag. Since `paper-item` will
-already receive focus, you may want to prevent the anchor tag from receiving
-focus as well by setting its tabindex to -1.
+To use `paper-item` as a link, wrap it in an anchor tag. Since `paper-item` will already receive focus, you may want to prevent the anchor tag from receiving focus as well by setting its tabindex to -1.
 
 ```html
 <a href="https://www.polymer-project.org/" tabindex="-1">
@@ -48,9 +45,7 @@ focus as well by setting its tabindex to -1.
 </a>
 ```
 
-If you are concerned about performance and want to use `paper-item` in a `paper-listbox`
-with many items, you can just use a native `button` with the `paper-item` class
-applied (provided you have correctly included the shared styles):
+If you are concerned about performance and want to use `paper-item` in a `paper-listbox` with many items, you can just use a native `button` with the `paper-item` class applied (provided you have correctly included the shared styles):
 
 ```html
 <style is="custom-style" include="paper-item-shared-styles"></style>
@@ -66,21 +61,20 @@ applied (provided you have correctly included the shared styles):
 
 The following custom properties and mixins are available for styling:
 
-| Custom property                | Description                                  | Default                 |
-| ------------------------------ | -------------------------------------------- | ----------------------- |
-| `--paper-item-min-height`      | Minimum height of the item                   | `48px`                  |
-| `--paper-item`                 | Mixin applied to the item                    | `{}`                    |
-| `--paper-item-selected-weight` | The font weight of a selected item           | `bold`                  |
-| `--paper-item-selected`        | Mixin applied to selected paper-items        | `{}`                    |
-| `--paper-item-disabled-color`  | The color for disabled paper-items           | `--disabled-text-color` |
-| `--paper-item-disabled`        | Mixin applied to disabled paper-items        | `{}`                    |
-| `--paper-item-focused`         | Mixin applied to focused paper-items         | `{}`                    |
-| `--paper-item-focused-before`  | Mixin applied to :before focused paper-items | `{}`                    |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--paper-item-min-height` | Minimum height of the item | `48px` |
+| `--paper-item` | Mixin applied to the item | `{}` |
+| `--paper-item-selected-weight` | The font weight of a selected item | `bold` |
+| `--paper-item-selected` | Mixin applied to selected paper-items | `{}` |
+| `--paper-item-disabled-color` | The color for disabled paper-items | `--disabled-text-color` |
+| `--paper-item-disabled` | Mixin applied to disabled paper-items | `{}` |
+| `--paper-item-focused` | Mixin applied to focused paper-items | `{}` |
+| `--paper-item-focused-before` | Mixin applied to :before focused paper-items | `{}` |
 
 ### Accessibility
 
-This element has `role="listitem"` by default. Depending on usage, it may be more appropriate to set
-`role="menuitem"`, `role="menuitemcheckbox"` or `role="menuitemradio"`.
+This element has `role="listitem"` by default. Depending on usage, it may be more appropriate to set `role="menuitem"`, `role="menuitemcheckbox"` or `role="menuitemradio"`.
 
 ```html
 <paper-item role="menuitemcheckbox">
@@ -91,10 +85,7 @@ This element has `role="listitem"` by default. Depending on usage, it may be mor
 
 ##&lt;paper-icon-item&gt;
 
-`<paper-icon-item>` is a convenience element to make an item with icon. It is an interactive list
-item with a fixed-width icon area, according to Material Design. This is useful if the icons are of
-varying widths, but you want the item bodies to line up. Use this like a `<paper-item>`. The child
-node with the attribute `item-icon` is placed in the icon area.
+`<paper-icon-item>` is a convenience element to make an item with icon. It is an interactive list item with a fixed-width icon area, according to Material Design. This is useful if the icons are of varying widths, but you want the item bodies to line up. Use this like a `<paper-item>`. The child node with the attribute `item-icon` is placed in the icon area.
 
 ```html
 <paper-icon-item>
@@ -111,22 +102,21 @@ node with the attribute `item-icon` is placed in the icon area.
 
 The following custom properties and mixins are available for styling:
 
-| Custom property                | Description                                  | Default                 |
-| ------------------------------ | -------------------------------------------- | ----------------------- |
-| `--paper-item-icon-width`      | Width of the icon area                       | `56px`                  |
-| `--paper-item-icon`            | Mixin applied to the icon area               | `{}`                    |
-| `--paper-icon-item`            | Mixin applied to the item                    | `{}`                    |
-| `--paper-item-selected-weight` | The font weight of a selected item           | `bold`                  |
-| `--paper-item-selected`        | Mixin applied to selected paper-items        | `{}`                    |
-| `--paper-item-disabled-color`  | The color for disabled paper-items           | `--disabled-text-color` |
-| `--paper-item-disabled`        | Mixin applied to disabled paper-items        | `{}`                    |
-| `--paper-item-focused`         | Mixin applied to focused paper-items         | `{}`                    |
-| `--paper-item-focused-before`  | Mixin applied to :before focused paper-items | `{}`                    |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--paper-item-icon-width` | Width of the icon area | `56px` |
+| `--paper-item-icon` | Mixin applied to the icon area | `{}` |
+| `--paper-icon-item` | Mixin applied to the item | `{}` |
+| `--paper-item-selected-weight` | The font weight of a selected item | `bold` |
+| `--paper-item-selected` | Mixin applied to selected paper-items | `{}` |
+| `--paper-item-disabled-color` | The color for disabled paper-items | `--disabled-text-color` |
+| `--paper-item-disabled` | Mixin applied to disabled paper-items | `{}` |
+| `--paper-item-focused` | Mixin applied to focused paper-items | `{}` |
+| `--paper-item-focused-before` | Mixin applied to :before focused paper-items | `{}` |
 
 ##&lt;paper-item-body&gt;
 
-Use `<paper-item-body>` in a `<paper-item>` or `<paper-icon-item>` to make two- or
-three- line items. It is a flex item that is a vertical flexbox.
+Use `<paper-item-body>` in a `<paper-item>` or `<paper-icon-item>` to make two- or three- line items. It is a flex item that is a vertical flexbox.
 
 ```html
 <paper-item>
@@ -143,11 +133,11 @@ The child elements with the `secondary` attribute is given secondary text stylin
 
 The following custom properties and mixins are available for styling:
 
-| Custom property                           | Description                               | Default                  |
-| ----------------------------------------- | ----------------------------------------- | ------------------------ |
-| `--paper-item-body-two-line-min-height`   | Minimum height of a two-line item         | `72px`                   |
-| `--paper-item-body-three-line-min-height` | Minimum height of a three-line item       | `88px`                   |
-| `--paper-item-body-secondary-color`       | Foreground color for the `secondary` area | `--secondary-text-color` |
-| `--paper-item-body-secondary`             | Mixin applied to the `secondary` area     | `{}`                     |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--paper-item-body-two-line-min-height` | Minimum height of a two-line item | `72px` |
+| `--paper-item-body-three-line-min-height` | Minimum height of a three-line item | `88px` |
+| `--paper-item-body-secondary-color` | Foreground color for the `secondary` area | `--secondary-text-color` |
+| `--paper-item-body-secondary` | Mixin applied to the `secondary` area | `{}` |
 
 <!-- No docs for Polymer.PaperItemBehavior found. -->

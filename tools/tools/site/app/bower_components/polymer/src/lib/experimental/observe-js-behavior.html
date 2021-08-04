@@ -2,7 +2,7 @@
 
 <script>
   (function () {
-    ["push", "pop", "shift", "unshift", "splice"].forEach(function (m) {
+    ['push', 'pop', 'shift', 'unshift', 'splice'].forEach(function (m) {
       var orig = Polymer.Base[m];
       Polymer.Base[m] = function (path) {
         var obj = this.get(path);
@@ -24,10 +24,10 @@
     },
 
     _propertyChanged: function (path, newValue, oldValue) {
-      if (oldValue && typeof oldValue == "object") {
+      if (oldValue && typeof oldValue == 'object') {
         this._removeObserveJsObserver(oldValue, path);
       }
-      if (newValue && typeof newValue == "object") {
+      if (newValue && typeof newValue == 'object') {
         this._addObserveJsObserver(newValue, path);
       }
     },
@@ -73,7 +73,7 @@
       if (Array.isArray(object)) {
         observer = new ArrayObserver(object);
         observer.open(function (splices) {
-          this._notifyObserveJsPath(els, "splices", {
+          this._notifyObserveJsPath(els, 'splices', {
             keySplices: Polymer.Collection.applySplices(object, splices),
             indexSplices: splices,
           });
@@ -99,7 +99,7 @@
       for (var id in els) {
         var el = els[id];
         for (var path in el.paths) {
-          el.element.set(path + "." + prop, value);
+          el.element.set(path + '.' + prop, value);
         }
       }
     },

@@ -17,15 +17,9 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/iron-a11y-key
 
 ##Polymer.IronA11yKeysBehavior
 
-`Polymer.IronA11yKeysBehavior` provides a normalized interface for processing
-keyboard commands that pertain to [WAI-ARIA best practices](http://www.w3.org/TR/wai-aria-practices/#kbd_general_binding).
-The element takes care of browser differences with respect to Keyboard events
-and uses an expressive syntax to filter key presses.
+`Polymer.IronA11yKeysBehavior` provides a normalized interface for processing keyboard commands that pertain to [WAI-ARIA best practices](http://www.w3.org/TR/wai-aria-practices/#kbd_general_binding). The element takes care of browser differences with respect to Keyboard events and uses an expressive syntax to filter key presses.
 
-Use the `keyBindings` prototype property to express what combination of keys
-will trigger the callback. A key binding has the format
-`"KEY+MODIFIER:EVENT": "callback"` (`"KEY": "callback"` or
-`"KEY:EVENT": "callback"` are valid as well). Some examples:
+Use the `keyBindings` prototype property to express what combination of keys will trigger the callback. A key binding has the format `"KEY+MODIFIER:EVENT": "callback"` (`"KEY": "callback"` or `"KEY:EVENT": "callback"` are valid as well). Some examples:
 
 ```javascript
  keyBindings: {
@@ -47,8 +41,6 @@ The callback will receive with an event containing the following information in 
  }
 ```
 
-Use the `keyEventTarget` attribute to set up event handlers on a specific
-node.
+Use the `keyEventTarget` attribute to set up event handlers on a specific node.
 
-See the [demo source code](https://github.com/PolymerElements/iron-a11y-keys-behavior/blob/master/demo/x-key-aware.html)
-for an example.
+See the [demo source code](https://github.com/PolymerElements/iron-a11y-keys-behavior/blob/master/demo/x-key-aware.html) for an example.

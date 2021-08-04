@@ -17,20 +17,20 @@
 PR.registerLangHandler(
   PR.createSimpleLexer(
     [
-      ["str", /^(?:"(?:[^\\"\r\n]|\\.)*(?:"|$))/, null, '"'],
-      ["pln", /^\s+/, null, " \r\n\t\u00a0"],
+      ['str', /^(?:"(?:[^\\"\r\n]|\\.)*(?:"|$))/, null, '"'],
+      ['pln', /^\s+/, null, ' \r\n\t\u00a0'],
     ],
     [
-      ["com", /^REM[^\r\n]*/, null],
+      ['com', /^REM[^\r\n]*/, null],
       [
-        "kwd",
+        'kwd',
         /^\b(?:AND|CLOSE|CLR|CMD|CONT|DATA|DEF ?FN|DIM|END|FOR|GET|GOSUB|GOTO|IF|INPUT|LET|LIST|LOAD|NEW|NEXT|NOT|ON|OPEN|OR|POKE|PRINT|READ|RESTORE|RETURN|RUN|SAVE|STEP|STOP|SYS|THEN|TO|VERIFY|WAIT)\b/,
         null,
       ],
-      ["pln", /^[A-Z][A-Z0-9]?(?:\$|%)?/i, null],
-      ["lit", /^(?:\d+(?:\.\d*)?|\.\d+)(?:e[+\-]?\d+)?/i, null, "0123456789"],
-      ["pun", /^.[^\s\w\.$%"]*/, null],
+      ['pln', /^[A-Z][A-Z0-9]?(?:\$|%)?/i, null],
+      ['lit', /^(?:\d+(?:\.\d*)?|\.\d+)(?:e[+\-]?\d+)?/i, null, '0123456789'],
+      ['pun', /^.[^\s\w\.$%"]*/, null],
     ]
   ),
-  ["basic", "cbm"]
+  ['basic', 'cbm']
 );

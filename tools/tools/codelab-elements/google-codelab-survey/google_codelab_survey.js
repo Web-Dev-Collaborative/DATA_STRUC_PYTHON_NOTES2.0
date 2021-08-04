@@ -15,43 +15,43 @@
  * limitations under the License.
  */
 
-goog.module("googlecodelabs.CodelabSurvey");
+goog.module('googlecodelabs.CodelabSurvey');
 
-const EventHandler = goog.require("goog.events.EventHandler");
+const EventHandler = goog.require('goog.events.EventHandler');
 const HTML5LocalStorage = goog.require(
-  "goog.storage.mechanism.HTML5LocalStorage"
+  'goog.storage.mechanism.HTML5LocalStorage'
 );
-const Templates = goog.require("googlecodelabs.CodelabSurvey.Templates");
-const dom = goog.require("goog.dom");
-const events = goog.require("goog.events");
-const soy = goog.require("goog.soy");
+const Templates = goog.require('googlecodelabs.CodelabSurvey.Templates');
+const dom = goog.require('goog.dom');
+const events = goog.require('goog.events');
+const soy = goog.require('goog.soy');
 
 /**
  * The prefix for all survey keys in local storage.
  * @const {string}
  */
-const STORAGE_KEY_PREFIX = "codelab-survey-";
+const STORAGE_KEY_PREFIX = 'codelab-survey-';
 
 /**
  * The id for the current survey.
  * @const {string}
  */
-const SURVEY_ID_ATTR = "survey-id";
+const SURVEY_ID_ATTR = 'survey-id';
 
 /**
  * The upgraded id (to prevent FUOC).
  * @const {string}
  */
-const SURVEY_UPGRADED_ATTR = "upgraded";
+const SURVEY_UPGRADED_ATTR = 'upgraded';
 
 /** @const {string} */
-const DEFAULT_SURVEY_NAME = "default-codelabs-survey";
+const DEFAULT_SURVEY_NAME = 'default-codelabs-survey';
 
 /** @const {string} */
-const OPTION_WRAPPER_CLASS = "survey-option-wrapper";
+const OPTION_WRAPPER_CLASS = 'survey-option-wrapper';
 
 /** @const {string} */
-const RADIO_TEXT_CLASS = "option-text";
+const RADIO_TEXT_CLASS = 'option-text';
 
 /**
  * @extends {HTMLElement}
@@ -59,7 +59,7 @@ const RADIO_TEXT_CLASS = "option-text";
 class CodelabSurvey extends HTMLElement {
   /** @return {string} */
   static getTagName() {
-    return "google-codelab-survey";
+    return 'google-codelab-survey';
   }
 
   constructor() {
@@ -133,7 +133,7 @@ class CodelabSurvey extends HTMLElement {
     const optionTextElement = optionWrapperElement.querySelector(
       `.${RADIO_TEXT_CLASS}`
     );
-    let answer = "";
+    let answer = '';
     if (optionTextElement) {
       answer = optionTextElement.textContent;
     }
@@ -144,9 +144,9 @@ class CodelabSurvey extends HTMLElement {
       this.storageKey_,
       JSON.stringify(this.storedData_[this.surveyName_])
     );
-    const codelabEvent = new CustomEvent("google-codelab-action", {
+    const codelabEvent = new CustomEvent('google-codelab-action', {
       detail: {
-        category: "survey",
+        category: 'survey',
         action: question.substring(0, 500),
         label: answer.substring(0, 500),
       },
@@ -168,14 +168,14 @@ class CodelabSurvey extends HTMLElement {
 
   /** @private */
   updateDom_() {
-    const radioGroupEls = this.querySelectorAll("paper-radio-group");
-    const questionEls = this.querySelectorAll("h4");
+    const radioGroupEls = this.querySelectorAll('paper-radio-group');
+    const questionEls = this.querySelectorAll('h4');
     const surveyQuestions = [];
     if (radioGroupEls.length && questionEls.length == radioGroupEls.length) {
       radioGroupEls.forEach((radioGroupEl, index) => {
         const surveyOptions = [];
         const polymerRadioEls =
-          radioGroupEl.querySelectorAll("paper-radio-button");
+          radioGroupEl.querySelectorAll('paper-radio-button');
         dom.removeNode(radioGroupEl);
         polymerRadioEls.forEach((radioEl) => {
           const title = radioEl.textContent;
@@ -200,7 +200,7 @@ class CodelabSurvey extends HTMLElement {
       this.appendChild(updatedDom);
     }
     this.setAnsweredQuestions_();
-    this.setAttribute(SURVEY_UPGRADED_ATTR, "");
+    this.setAttribute(SURVEY_UPGRADED_ATTR, '');
   }
 
   /** @private */
@@ -228,8 +228,8 @@ class CodelabSurvey extends HTMLElement {
    */
   normalizeIdAttr_(question, answer) {
     return `${question}--${answer}`
-      .replace(/\s+/g, "-")
-      .replace(/[^a-zA-Z0-9 \-]/g, "")
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9 \-]/g, '')
       .toLowerCase();
   }
 

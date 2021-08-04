@@ -45,11 +45,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // NOTE: Use useCapture=true to avoid accidentally prevention of the closing
     // of an overlay via event.stopPropagation(). The only way to prevent
     // closing of an overlay should be through its APIs.
-    Polymer.Gestures.add(document, "tap", null);
-    document.addEventListener("tap", this._onCaptureClick.bind(this), true);
-    document.addEventListener("focus", this._onCaptureFocus.bind(this), true);
+    Polymer.Gestures.add(document, 'tap', null);
+    document.addEventListener('tap', this._onCaptureClick.bind(this), true);
+    document.addEventListener('focus', this._onCaptureFocus.bind(this), true);
     document.addEventListener(
-      "keydown",
+      'keydown',
       this._onCaptureKeyDown.bind(this),
       true
     );
@@ -64,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     get backdropElement() {
       if (!this._backdropElement) {
-        this._backdropElement = document.createElement("iron-overlay-backdrop");
+        this._backdropElement = document.createElement('iron-overlay-backdrop');
       }
       return this._backdropElement;
     },
@@ -354,11 +354,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var overlay = /** @type {?} */ (this.currentOverlay());
       if (overlay) {
         if (
-          Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, "esc")
+          Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, 'esc')
         ) {
           overlay._onCaptureEsc(event);
         } else if (
-          Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, "tab")
+          Polymer.IronA11yKeysBehavior.keyboardEventMatchesKeys(event, 'tab')
         ) {
           overlay._onCaptureTab(event);
         }

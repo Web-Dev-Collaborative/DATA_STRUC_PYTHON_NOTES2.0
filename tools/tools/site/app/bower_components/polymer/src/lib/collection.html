@@ -29,7 +29,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var s = this.store;
       for (var i = 0; i < s.length; i++) {
         var item = s[i];
-        if (item && typeof item == "object") {
+        if (item && typeof item == 'object') {
           omap.set(item, i);
         } else {
           pmap[item] = i;
@@ -39,12 +39,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     add: function (item) {
       var key = this.store.push(item) - 1;
-      if (item && typeof item == "object") {
+      if (item && typeof item == 'object') {
         this.omap.set(item, key);
       } else {
         this.pmap[item] = key;
       }
-      return "#" + key;
+      return '#' + key;
     },
 
     removeKey: function (key) {
@@ -55,7 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _removeFromMap: function (item) {
-      if (item && typeof item == "object") {
+      if (item && typeof item == 'object') {
         this.omap.delete(item);
       } else {
         delete this.pmap[item];
@@ -70,24 +70,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     getKey: function (item) {
       var key;
-      if (item && typeof item == "object") {
+      if (item && typeof item == 'object') {
         key = this.omap.get(item);
       } else {
         key = this.pmap[item];
       }
       if (key != undefined) {
-        return "#" + key;
+        return '#' + key;
       }
     },
 
     getKeys: function () {
       return Object.keys(this.store).map(function (key) {
-        return "#" + key;
+        return '#' + key;
       });
     },
 
     _parseKey: function (key) {
-      if (key && key[0] == "#") {
+      if (key && key[0] == '#') {
         return key.slice(1);
       }
     },
@@ -98,7 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (old) {
           this._removeFromMap(old);
         }
-        if (item && typeof item == "object") {
+        if (item && typeof item == 'object') {
           this.omap.set(item, key);
         } else {
           this.pmap[item] = key;

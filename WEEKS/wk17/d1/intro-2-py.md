@@ -832,64 +832,49 @@ In the second example `x` starts with `7` and `x += 2` is just another way to wr
 
 - `=`: simple assignment
 
-  x = 7
-  print(x)
+  x = 7 print(x)
 
   7
 
 - `+=`: addition and assignment
 
-  x = 7
-  x += 2
-  print(x)
+  x = 7 x += 2 print(x)
 
   9
 
 - `-=`: subtraction and assignment
 
-  x = 7
-  x -= 2
-  print(x)
+  x = 7 x -= 2 print(x)
 
   5
 
 - `*=`: multiplication and assignment
 
-  x = 7
-  x \*= 2
-  print(x)
+  x = 7 x \*= 2 print(x)
 
   14
 
 - `/=`: division and assignment
 
-  x = 7
-  x /= 2
-  print(x)
+  x = 7 x /= 2 print(x)
 
   3.5
 
 - `%=`: modulus and assignment
 
-  x = 7
-  x %= 2
-  print(x)
+  x = 7 x %= 2 print(x)
 
   1
 
 - `//=`: floor division and assignment
 
-  x = 7
-  x //= 2
-  print(x)
+  x = 7 x //= 2 print(x)
 
   3
 
 - `**=`: exponentiation and assignment
 
-  x = 7
-  x \*\*= 2
-  print(x)
+  x = 7 x \*\*= 2 print(x)
 
   49
 

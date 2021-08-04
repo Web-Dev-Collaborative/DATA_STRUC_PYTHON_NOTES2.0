@@ -28,26 +28,26 @@
  *
  * @author Jeffrey Arnold
  */
-PR["registerLangHandler"](
-  PR["createSimpleLexer"](
+PR['registerLangHandler'](
+  PR['createSimpleLexer'](
     [
       // whitespace
-      [PR["PR_PLAIN"], /^[\t\n\r \xA0]+/, null, "\t\n\r \xA0"],
+      [PR['PR_PLAIN'], /^[\t\n\r \xA0]+/, null, '\t\n\r \xA0'],
       // all comments begin with '%'
-      [PR["PR_COMMENT"], /^%[^\r\n]*/, null, "%"],
+      [PR['PR_COMMENT'], /^%[^\r\n]*/, null, '%'],
     ],
     [
       // special macros with no args
-      [PR["PR_LITERAL"], /^\\(?:cr|l?dots|R|tab)\b/],
+      [PR['PR_LITERAL'], /^\\(?:cr|l?dots|R|tab)\b/],
       // macros
-      [PR["PR_KEYWORD"], /^\\[a-zA-Z@]+/],
+      [PR['PR_KEYWORD'], /^\\[a-zA-Z@]+/],
       // highlighted as macros, since technically they are
-      [PR["PR_KEYWORD"], /^#(?:ifn?def|endif)/],
+      [PR['PR_KEYWORD'], /^#(?:ifn?def|endif)/],
       // catch escaped brackets
-      [PR["PR_PLAIN"], /^\\[{}]/],
+      [PR['PR_PLAIN'], /^\\[{}]/],
       // punctuation
-      [PR["PR_PUNCTUATION"], /^[{}()\[\]]+/],
+      [PR['PR_PUNCTUATION'], /^[{}()\[\]]+/],
     ]
   ),
-  ["Rd", "rd"]
+  ['Rd', 'rd']
 );

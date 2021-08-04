@@ -120,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _getPropertyInfo: function (property, properties) {
       var p = properties && properties[property];
-      if (typeof p === "function") {
+      if (typeof p === 'function') {
         p = properties[property] = {
           type: p,
         };
@@ -152,12 +152,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // optimization: avoid info'ing properties that are protected and
           // not read only since they are not needed for attributes or
           // configuration.
-          if (i[0] === "_" && !s.readOnly) {
+          if (i[0] === '_' && !s.readOnly) {
             continue;
           }
           if (!target[i]) {
             target[i] = {
-              type: typeof s === "function" ? s : s.type,
+              type: typeof s === 'function' ? s : s.type,
               readOnly: s.readOnly,
               attribute: Polymer.CaseMap.camelToDashCase(i),
             };

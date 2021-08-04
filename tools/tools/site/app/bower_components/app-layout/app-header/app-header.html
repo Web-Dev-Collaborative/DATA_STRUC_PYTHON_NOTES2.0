@@ -248,7 +248,7 @@ Mixin | Description | Default
         left: 0px;
         width: 100%;
         height: 5px;
-        content: "";
+        content: '';
         transition: opacity 0.4s;
         pointer-events: none;
         opacity: 0;
@@ -323,7 +323,7 @@ Mixin | Description | Default
 
   <script>
     Polymer({
-      is: "app-header",
+      is: 'app-header',
 
       behaviors: [
         Polymer.AppScrollEffectsBehavior,
@@ -391,10 +391,10 @@ Mixin | Description | Default
         },
       },
 
-      observers: ["resetLayout(isAttached, condenses, fixed)"],
+      observers: ['resetLayout(isAttached, condenses, fixed)'],
 
       listeners: {
-        "iron-resize": "_resizeHandler",
+        'iron-resize': '_resizeHandler',
       },
 
       /**
@@ -467,7 +467,7 @@ Mixin | Description | Default
         for (var i = 0; i < nodes.length; i++) {
           if (nodes[i].nodeType === Node.ELEMENT_NODE) {
             var node = /** @type {HTMLElement} */ (nodes[i]);
-            if (node.hasAttribute("sticky")) {
+            if (node.hasAttribute('sticky')) {
               stickyEl = node;
               break;
             } else if (!stickyEl) {
@@ -486,7 +486,7 @@ Mixin | Description | Default
        * @method resetLayout
        */
       resetLayout: function () {
-        this.debounce("_resetLayout", function () {
+        this.debounce('_resetLayout', function () {
           // noop if the header isn't visible
           if (this.offsetWidth === 0 && this.offsetHeight === 0) {
             return;
@@ -523,7 +523,7 @@ Mixin | Description | Default
           }
           // restore no transition
           this.disabled = currentDisabled;
-          this.fire("app-header-reset-layout");
+          this.fire('app-header-reset-layout');
         });
       },
 
@@ -559,7 +559,7 @@ Mixin | Description | Default
         if (scrollTop >= this._dHeight) {
           top =
             this.condenses && !this.fixed ? Math.max(this._dHeight, top) : top;
-          this.style.transitionDuration = "0ms";
+          this.style.transitionDuration = '0ms';
         }
 
         if (this.reveals && !this.disabled && absDScrollTop < 100) {
@@ -585,7 +585,7 @@ Mixin | Description | Default
               }
               var scrollVelocity = dScrollTop / (now - this._lastTimestamp);
               this.style.transitionDuration =
-                this._clamp((top - lastTop) / scrollVelocity, 0, 300) + "ms";
+                this._clamp((top - lastTop) / scrollVelocity, 0, 300) + 'ms';
             } else {
               top = this._top;
             }
@@ -666,12 +666,12 @@ Mixin | Description | Default
        * @param {number} y
        */
       _transformHeader: function (y) {
-        this.translate3d(0, -y + "px", 0);
+        this.translate3d(0, -y + 'px', 0);
         if (this._stickyEl) {
           this.translate3d(
             0,
             this.condenses && y >= this._stickyElTop
-              ? Math.min(y, this._dHeight) - this._stickyElTop + "px"
+              ? Math.min(y, this._dHeight) - this._stickyElTop + 'px'
               : 0,
             0,
             this._stickyEl
@@ -689,15 +689,15 @@ Mixin | Description | Default
 
       _ensureBgContainers: function () {
         if (!this._bgContainer) {
-          this._bgContainer = document.createElement("div");
-          this._bgContainer.id = "background";
+          this._bgContainer = document.createElement('div');
+          this._bgContainer.id = 'background';
 
-          this._bgRear = document.createElement("div");
-          this._bgRear.id = "backgroundRearLayer";
+          this._bgRear = document.createElement('div');
+          this._bgRear.id = 'backgroundRearLayer';
           this._bgContainer.appendChild(this._bgRear);
 
-          this._bgFront = document.createElement("div");
-          this._bgFront.id = "backgroundFrontLayer";
+          this._bgFront = document.createElement('div');
+          this._bgFront.id = 'backgroundFrontLayer';
           this._bgContainer.appendChild(this._bgFront);
 
           Polymer.dom(this.root).insertBefore(
@@ -709,19 +709,19 @@ Mixin | Description | Default
 
       _getDOMRef: function (id) {
         switch (id) {
-          case "backgroundFrontLayer":
+          case 'backgroundFrontLayer':
             this._ensureBgContainers();
             return this._bgFront;
-          case "backgroundRearLayer":
+          case 'backgroundRearLayer':
             this._ensureBgContainers();
             return this._bgRear;
-          case "background":
+          case 'background':
             this._ensureBgContainers();
             return this._bgContainer;
-          case "mainTitle":
-            return Polymer.dom(this).querySelector("[main-title]");
-          case "condensedTitle":
-            return Polymer.dom(this).querySelector("[condensed-title]");
+          case 'mainTitle':
+            return Polymer.dom(this).querySelector('[main-title]');
+          case 'condensedTitle':
+            return Polymer.dom(this).querySelector('[condensed-title]');
         }
         return null;
       },

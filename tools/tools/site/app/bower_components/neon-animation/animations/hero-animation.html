@@ -35,7 +35,7 @@ Configuration:
 
 <script>
   Polymer({
-    is: "hero-animation",
+    is: 'hero-animation',
 
     behaviors: [Polymer.NeonSharedElementAnimationBehavior],
 
@@ -58,24 +58,24 @@ Configuration:
         [
           {
             transform:
-              "translate(" +
+              'translate(' +
               deltaLeft +
-              "px," +
+              'px,' +
               deltaTop +
-              "px) scale(" +
+              'px) scale(' +
               deltaWidth +
-              "," +
+              ',' +
               deltaHeight +
-              ")",
+              ')',
           },
-          { transform: "none" },
+          { transform: 'none' },
         ],
         this.timingFromConfig(config)
       );
 
-      this.setPrefixedProperty(shared.to, "transformOrigin", "0 0");
+      this.setPrefixedProperty(shared.to, 'transformOrigin', '0 0');
       shared.to.style.zIndex = 10000;
-      shared.from.style.visibility = "hidden";
+      shared.from.style.visibility = 'hidden';
 
       return this._effect;
     },
@@ -85,8 +85,8 @@ Configuration:
       if (!shared) {
         return null;
       }
-      shared.to.style.zIndex = "";
-      shared.from.style.visibility = "";
+      shared.to.style.zIndex = '';
+      shared.from.style.visibility = '';
     },
   });
 </script>

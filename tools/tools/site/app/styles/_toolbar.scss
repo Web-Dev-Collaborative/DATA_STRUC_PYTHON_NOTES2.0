@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@import "_variables";
+@import '_variables';
 
 #mainToolbar {
   display: flex;
@@ -24,7 +24,7 @@
   color: #fff;
   padding: $keyline * 2;
 
-  paper-icon-button[icon="menu"] {
+  paper-icon-button[icon='menu'] {
     flex-shrink: 0;
   }
 
@@ -85,7 +85,7 @@
   #mainToolbar {
     height: $keyline * 7;
 
-    paper-icon-button[icon="menu"] {
+    paper-icon-button[icon='menu'] {
       width: 40px;
       margin-right: $keyline;
     }

@@ -35,56 +35,56 @@ Displays a page on different device layouts.
         overflow: auto;
       }
 
-      .canvas[device="laptop"] {
+      .canvas[device='laptop'] {
         overflow: hidden;
       }
 
-      #views:not([device="all"]) {
+      #views:not([device='all']) {
         @apply (--layout-horizontal);
         @apply (--layout-center-center);
         margin: auto 0;
       }
 
-      #views:not([device="all"]) device-view:not(.iron-selected) {
+      #views:not([device='all']) device-view:not(.iron-selected) {
         display: none;
       }
 
-      #views[device="all"] {
+      #views[device='all'] {
         display: block;
         width: 1000px;
         height: 600px;
         margin-left: 32px;
       }
 
-      #views[device="all"] device-view {
+      #views[device='all'] device-view {
         position: absolute;
         -webkit-transform-origin: left top;
         transform-origin: left top;
       }
 
-      #views:not([device="all"]) device-view[device="laptop"] {
+      #views:not([device='all']) device-view[device='laptop'] {
         @apply (--layout-fit);
         width: auto;
         height: auto;
       }
 
-      #views[device="all"] device-view[device="laptop"] {
+      #views[device='all'] device-view[device='laptop'] {
         -webkit-transform: translate3d(0px, 40px, 0) scale(0.5);
         transform: translate3d(0px, 40px, 0) scale(0.5);
       }
 
-      #views[device="all"] device-view[device="tablet"] {
+      #views[device='all'] device-view[device='tablet'] {
         -webkit-transform: translate3d(380px, 130px, 0) scale(0.5);
         transform: translate3d(380px, 130px, 0) scale(0.5);
       }
 
-      #views[device="all"] device-view[device="phone"] {
+      #views[device='all'] device-view[device='phone'] {
         -webkit-transform: translate3d(800px, 110px, 0) scale(0.5);
         transform: translate3d(800px, 110px, 0) scale(0.5);
       }
 
       @media (max-width: 1024px) {
-        #views:not([device="all"]):not([device="laptop"]) {
+        #views:not([device='all']):not([device='laptop']) {
           width: 1400px;
           height: 800px;
           -webkit-transform: scale(0.5);
@@ -92,7 +92,7 @@ Displays a page on different device layouts.
           @apply (--layout-flex-none);
         }
 
-        #views[device="all"] {
+        #views[device='all'] {
           width: 500px;
           height: 300px;
           margin-left: -64px;
@@ -104,7 +104,7 @@ Displays a page on different device layouts.
       }
 
       @media (max-width: 600px) {
-        #views:not([device="all"]):not([device="laptop"]) {
+        #views:not([device='all']):not([device='laptop']) {
           width: 1400px;
           height: 800px;
           -webkit-transform: scale(0.5);
@@ -112,7 +112,7 @@ Displays a page on different device layouts.
           @apply (--layout-flex-none);
         }
 
-        #views[device="all"] {
+        #views[device='all'] {
           width: 250px;
           height: 150px;
           margin-left: -80px;
@@ -142,7 +142,7 @@ Displays a page on different device layouts.
 
   <script>
     Polymer({
-      is: "device-layout-viewer",
+      is: 'device-layout-viewer',
 
       properties: {
         /**
@@ -155,8 +155,8 @@ Displays a page on different device layouts.
          */
         device: {
           type: String,
-          value: "all",
-          observer: "_deviceChanged",
+          value: 'all',
+          observer: '_deviceChanged',
         },
       },
 
@@ -171,7 +171,7 @@ Displays a page on different device layouts.
       },
 
       _deviceChanged: function (device) {
-        if (device === "all") {
+        if (device === 'all') {
           this.$.views.items.forEach(function (view) {
             view.landscape = this._defaultLandscapes[view.device];
           }, this);

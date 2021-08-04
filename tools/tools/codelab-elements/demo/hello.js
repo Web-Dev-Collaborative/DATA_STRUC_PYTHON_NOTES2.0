@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-goog.module("googlecodelabs.HelloElement");
+goog.module('googlecodelabs.HelloElement');
 
 /**
  * @extends {HTMLElement}
@@ -26,11 +26,11 @@ class HelloElement extends HTMLElement {
    * @override
    */
   connectedCallback() {
-    console.log("HelloElement: connected");
-    this.innerHTML = "Hello. I have just been <b>upgraded</b>!";
+    console.log('HelloElement: connected');
+    this.innerHTML = 'Hello. I have just been <b>upgraded</b>!';
   }
 }
 
-window.customElements.define("hello-element", HelloElement);
+window.customElements.define('hello-element', HelloElement);
 
 exports = HelloElement;

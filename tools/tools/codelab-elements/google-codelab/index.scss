@@ -23,7 +23,7 @@ body {
   padding: 0;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   transition: opacity ease-in 0.2s;
 }
 
@@ -35,4 +35,4 @@ body {
   display: none !important;
 }
 
-@import "google_codelab.scss";
+@import 'google_codelab.scss';

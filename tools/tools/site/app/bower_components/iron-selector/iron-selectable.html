@@ -85,8 +85,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       activateEvent: {
         type: String,
-        value: "tap",
-        observer: "_activateEventChanged",
+        value: 'tap',
+        observer: '_activateEventChanged',
       },
 
       /**
@@ -100,7 +100,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       selectedClass: {
         type: String,
-        value: "iron-selected",
+        value: 'iron-selected',
       },
 
       /**
@@ -149,9 +149,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     observers: [
-      "_updateAttrForSelected(attrForSelected)",
-      "_updateSelected(selected)",
-      "_checkFallback(fallbackSelection)",
+      '_updateAttrForSelected(attrForSelected)',
+      '_updateSelected(selected)',
+      '_checkFallback(fallbackSelection)',
     ],
 
     created: function () {
@@ -257,11 +257,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _addListener: function (eventName) {
-      this.listen(this, eventName, "_activateHandler");
+      this.listen(this, eventName, '_activateHandler');
     },
 
     _removeListener: function (eventName) {
-      this.unlisten(this, eventName, "_activateHandler");
+      this.unlisten(this, eventName, '_activateHandler');
     },
 
     _activateEventChanged: function (eventName, old) {
@@ -271,7 +271,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _updateItems: function () {
       var nodes = Polymer.dom(this).queryDistributedElements(
-        this.selectable || "*"
+        this.selectable || '*'
       );
       nodes = Array.prototype.filter.call(nodes, this._bindFilterItem);
       this._setItems(nodes);
@@ -347,7 +347,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.toggleAttribute(this.selectedAttribute, isSelected, item);
       }
       this._selectionChange();
-      this.fire("iron-" + (isSelected ? "select" : "deselect"), { item: item });
+      this.fire('iron-' + (isSelected ? 'select' : 'deselect'), { item: item });
     },
 
     _selectionChange: function () {
@@ -365,7 +365,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         // Let other interested parties know about the change so that
         // we don't have to recreate mutation observers everywhere.
-        this.fire("iron-items-changed", mutation, {
+        this.fire('iron-items-changed', mutation, {
           bubbles: false,
           cancelable: false,
         });
@@ -389,7 +389,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _itemActivate: function (value, item) {
       if (
         !this.fire(
-          "iron-activate",
+          'iron-activate',
           { selected: value, item: item },
           { cancelable: true }
         ).defaultPrevented

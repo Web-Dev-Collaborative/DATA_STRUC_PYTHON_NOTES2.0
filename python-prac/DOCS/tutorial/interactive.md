@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](floatingpoint.html "15. Floating Point Arithmetic: Issues and Limitations") |
-- [previous](whatnow.html "13. What Now?") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](floatingpoint.html '15. Floating Point Arithmetic: Issues and Limitations') |
+- [previous](whatnow.html '13. What Now?') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -38,11 +38,11 @@ One alternative enhanced interactive interpreter that has been around for quite 
 
 #### Previous topic
 
-[<span class="section-number">13. </span>What Now?](whatnow.html "previous chapter")
+[<span class="section-number">13. </span>What Now?](whatnow.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">15. </span>Floating Point Arithmetic: Issues and Limitations](floatingpoint.html "next chapter")
+[<span class="section-number">15. </span>Floating Point Arithmetic: Issues and Limitations](floatingpoint.html 'next chapter')
 
 ### This Page
 
@@ -51,10 +51,10 @@ One alternative enhanced interactive interpreter that has been around for quite 
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](floatingpoint.html "15. Floating Point Arithmetic: Issues and Limitations") |
-- [previous](whatnow.html "13. What Now?") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](floatingpoint.html '15. Floating Point Arithmetic: Issues and Limitations') |
+- [previous](whatnow.html '13. What Now?') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

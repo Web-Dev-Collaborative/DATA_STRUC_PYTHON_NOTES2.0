@@ -3,99 +3,99 @@ module.exports = (grunt) => {
   // see https://saucelabs.com/rest/v1/info/browsers/webdriver
   const browsers = [
     {
-      browserName: "iphone",
-      version: "7.0",
+      browserName: 'iphone',
+      version: '7.0',
     },
     {
-      browserName: "iphone",
-      version: "9.2",
+      browserName: 'iphone',
+      version: '9.2',
     },
     {
-      browserName: "android",
-      platform: "Linux",
-      version: "4.0",
+      browserName: 'android',
+      platform: 'Linux',
+      version: '4.0',
     },
     {
-      browserName: "android",
-      platform: "Linux",
-      version: "4.4",
+      browserName: 'android',
+      platform: 'Linux',
+      version: '4.4',
     },
     {
-      browserName: "android",
-      platform: "Linux",
-      version: "5.1",
+      browserName: 'android',
+      platform: 'Linux',
+      version: '5.1',
     },
     {
-      browserName: "firefox",
-      platform: "Windows 10",
+      browserName: 'firefox',
+      platform: 'Windows 10',
     },
     {
-      browserName: "chrome",
-      platform: "Windows 10",
+      browserName: 'chrome',
+      platform: 'Windows 10',
     },
     {
-      browserName: "internet explorer",
-      platform: "XP",
-      version: "7",
+      browserName: 'internet explorer',
+      platform: 'XP',
+      version: '7',
     },
     {
-      browserName: "internet explorer",
-      platform: "Windows 7",
-      version: "8",
+      browserName: 'internet explorer',
+      platform: 'Windows 7',
+      version: '8',
     },
     {
-      browserName: "internet explorer",
-      platform: "Windows 7",
-      version: "9",
+      browserName: 'internet explorer',
+      platform: 'Windows 7',
+      version: '9',
     },
     {
-      browserName: "internet explorer",
-      platform: "Windows 8",
-      version: "10",
+      browserName: 'internet explorer',
+      platform: 'Windows 8',
+      version: '10',
     },
     {
-      browserName: "internet explorer",
-      platform: "Windows 10",
-      version: "11",
+      browserName: 'internet explorer',
+      platform: 'Windows 10',
+      version: '11',
     },
     {
-      browserName: "microsoftedge",
-      platform: "Windows 10",
-      version: "13.10586",
+      browserName: 'microsoftedge',
+      platform: 'Windows 10',
+      version: '13.10586',
     },
     {
-      browserName: "opera",
-      platform: "Windows 2008",
-      version: "12",
+      browserName: 'opera',
+      platform: 'Windows 2008',
+      version: '12',
     },
     {
-      browserName: "safari",
-      platform: "OS X 10.8",
-      version: "6",
+      browserName: 'safari',
+      platform: 'OS X 10.8',
+      version: '6',
     },
     {
-      browserName: "safari",
-      platform: "OS X 10.9",
-      version: "7",
+      browserName: 'safari',
+      platform: 'OS X 10.9',
+      version: '7',
     },
     {
-      browserName: "safari",
-      platform: "OS X 10.10",
-      version: "8",
+      browserName: 'safari',
+      platform: 'OS X 10.10',
+      version: '8',
     },
     {
-      browserName: "safari",
-      platform: "OS X 10.11",
-      version: "9",
+      browserName: 'safari',
+      platform: 'OS X 10.11',
+      version: '9',
     },
   ];
 
   const tags = [];
   if (
     process.env.TRAVIS_PULL_REQUEST &&
-    process.env.TRAVIS_PULL_REQUEST != "false"
+    process.env.TRAVIS_PULL_REQUEST != 'false'
   ) {
-    tags.push("pr" + process.env.TRAVIS_PULL_REQUEST);
+    tags.push('pr' + process.env.TRAVIS_PULL_REQUEST);
   } else if (process.env.TRAVIS_BRANCH) {
     tags.push(process.env.TRAVIS_BRANCH);
   }
@@ -104,38 +104,38 @@ module.exports = (grunt) => {
     connect: {
       server: {
         options: {
-          base: "",
+          base: '',
           port: 9999,
         },
       },
     },
-    "saucelabs-qunit": {
+    'saucelabs-qunit': {
       all: {
         options: {
-          urls: ["http://127.0.0.1:9999/test/index.html"],
+          urls: ['http://127.0.0.1:9999/test/index.html'],
           tunnelTimeout: 5,
           build: process.env.TRAVIS_JOB_ID,
           concurrency: 3,
           browsers: browsers,
-          testname: "qunit tests",
+          testname: 'qunit tests',
           tags: tags,
         },
       },
     },
     jshint: {
       options: {
-        jshintrc: "./.jshintrc",
+        jshintrc: './.jshintrc',
       },
-      all: ["./lib/*.js"],
+      all: ['./lib/*.js'],
     },
     browserify: {
       all: {
         files: {
-          "dist/jszip.js": ["lib/index.js"],
+          'dist/jszip.js': ['lib/index.js'],
         },
         options: {
           browserifyOptions: {
-            standalone: "JSZip",
+            standalone: 'JSZip',
             insertGlobalVars: {
               Buffer() {
                 // instead of the full polyfill, we just use the raw value
@@ -146,11 +146,11 @@ module.exports = (grunt) => {
           },
           postBundleCB(err, src, done) {
             // add the license
-            const license = require("fs").readFileSync("lib/license_header.js");
+            const license = require('fs').readFileSync('lib/license_header.js');
             // remove the source mapping of zlib.js, see #75
             const srcWithoutSourceMapping = src
               .toString()
-              .replace(/\/\/@ sourceMappingURL=raw..flate.min.js.map/g, "");
+              .replace(/\/\/@ sourceMappingURL=raw..flate.min.js.map/g, '');
             done(err, license + srcWithoutSourceMapping);
           },
         },
@@ -158,28 +158,28 @@ module.exports = (grunt) => {
     },
     uglify: {
       options: {
-        report: "gzip",
+        report: 'gzip',
         mangle: true,
-        preserveComments: "some",
+        preserveComments: 'some',
       },
       all: {
-        src: "dist/jszip.js",
-        dest: "dist/jszip.min.js",
+        src: 'dist/jszip.js',
+        dest: 'dist/jszip.min.js',
       },
     },
   });
 
-  grunt.loadNpmTasks("grunt-saucelabs");
-  grunt.loadNpmTasks("grunt-contrib-connect");
-  grunt.loadNpmTasks("grunt-browserify");
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks('grunt-saucelabs');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   if (process.env.SAUCE_USERNAME && process.env.SAUCE_ACCESS_KEY) {
-    grunt.registerTask("test", ["connect", "saucelabs-qunit"]);
+    grunt.registerTask('test', ['connect', 'saucelabs-qunit']);
   } else {
-    grunt.registerTask("test", []);
+    grunt.registerTask('test', []);
   }
-  grunt.registerTask("build", ["browserify", "uglify"]);
-  grunt.registerTask("default", ["jshint", "build"]);
+  grunt.registerTask('build', ['browserify', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'build']);
 };

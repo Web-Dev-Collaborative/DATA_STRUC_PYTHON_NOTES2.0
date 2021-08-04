@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _modelApi: {
       _notifyChange: function (source, event, value) {
         value = value === undefined ? this[source] : value;
-        event = event || Polymer.CaseMap.camelToDashCase(source) + "-changed";
+        event = event || Polymer.CaseMap.camelToDashCase(source) + '-changed';
         this.fire(
           event,
           { value: value },
@@ -47,7 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // x === x is 10x faster, and equivalent to !isNaN(x)
         if (old !== value && (old === old || value === value)) {
           this.__data__[property] = value;
-          if (typeof value == "object") {
+          if (typeof value == 'object') {
             this._clearPath(property);
           }
           if (this._propertyChanged) {
@@ -87,7 +87,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _clearPath: function (path) {
         for (var prop in this.__data__) {
-          if (prop.indexOf(path + ".") === 0) {
+          if (prop.indexOf(path + '.') === 0) {
             this.__data__[prop] = undefined;
           }
         }
@@ -112,7 +112,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var propEffect = {
         kind: kind,
         effect: effect,
-        fn: Polymer.Bind["_" + kind + "Effect"],
+        fn: Polymer.Bind['_' + kind + 'Effect'],
       };
       fx.push(propEffect);
       return propEffect;
@@ -178,7 +178,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // Computed properties are read-only (no property setter), but also don't
         // need a private setter since they should not be called by the user
         if (!info.computed) {
-          model["_set" + this.upper(property)] = setter;
+          model['_set' + this.upper(property)] = setter;
         }
       } else {
         defun.set = setter;
@@ -208,7 +208,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         negated
       );
       var eventName =
-        event || Polymer.CaseMap.camelToDashCase(property) + "-changed";
+        event || Polymer.CaseMap.camelToDashCase(property) + '-changed';
       model._bindListeners.push({
         index: index,
         property: property,
@@ -219,7 +219,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _isStructured: function (path) {
-      return path.indexOf(".") > 0;
+      return path.indexOf('.') > 0;
     },
 
     _isEventBogus: function (e, target) {

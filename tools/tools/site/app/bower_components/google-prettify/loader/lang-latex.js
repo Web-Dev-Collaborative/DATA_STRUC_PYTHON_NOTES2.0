@@ -17,16 +17,16 @@
 PR.registerLangHandler(
   PR.createSimpleLexer(
     [
-      ["pln", /^[\t\n\r \xA0]+/, null, "\t\n\r \u00a0"],
-      ["com", /^%[^\r\n]*/, null, "%"],
+      ['pln', /^[\t\n\r \xA0]+/, null, '\t\n\r \u00a0'],
+      ['com', /^%[^\r\n]*/, null, '%'],
     ],
     [
-      ["kwd", /^\\[a-zA-Z@]+/],
-      ["kwd", /^\\./],
-      ["typ", /^[$&]/],
-      ["lit", /[+-]?(?:\.\d+|\d+(?:\.\d*)?)(cm|em|ex|in|pc|pt|bp|mm)/i],
-      ["pun", /^[{}()\[\]=]+/],
+      ['kwd', /^\\[a-zA-Z@]+/],
+      ['kwd', /^\\./],
+      ['typ', /^[$&]/],
+      ['lit', /[+-]?(?:\.\d+|\d+(?:\.\d*)?)(cm|em|ex|in|pc|pt|bp|mm)/i],
+      ['pun', /^[{}()\[\]=]+/],
     ]
   ),
-  ["latex", "tex"]
+  ['latex', 'tex']
 );

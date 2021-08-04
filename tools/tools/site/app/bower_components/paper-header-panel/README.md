@@ -33,8 +33,7 @@ Using layout classes, you can make the `paper-header-panel` fill the screen
 </body>
 ```
 
-Special support is provided for scrolling modes when one uses a paper-toolbar or equivalent for the
-header section.
+Special support is provided for scrolling modes when one uses a paper-toolbar or equivalent for the header section.
 
 Example:
 
@@ -45,8 +44,7 @@ Example:
 </paper-header-panel>
 ```
 
-If you want to use other than `paper-toolbar` for the header, add `paper-header` class to that
-element.
+If you want to use other than `paper-toolbar` for the header, add `paper-header` class to that element.
 
 Example:
 
@@ -68,17 +66,16 @@ To have the content fit to the main area, use the `fit` class.
 
 ### Modes
 
-Controls header and scrolling behavior. Options are `standard`, `seamed`, `waterfall`, `waterfall-tall`, `scroll` and
-`cover`. Default is `standard`.
+Controls header and scrolling behavior. Options are `standard`, `seamed`, `waterfall`, `waterfall-tall`, `scroll` and `cover`. Default is `standard`.
 
-| Mode             | Description                                                                                                                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `standard`       | The header is a step above the panel. The header will consume the panel at the point of entry, preventing it from passing through to the opposite side.                                       |
-| `seamed`         | The header is presented as seamed with the panel.                                                                                                                                             |
-| `waterfall`      | Similar to standard mode, but header is initially presented as seamed with panel, but then separates to form the step.                                                                        |
+| Mode | Description |
+| --- | --- |
+| `standard` | The header is a step above the panel. The header will consume the panel at the point of entry, preventing it from passing through to the opposite side. |
+| `seamed` | The header is presented as seamed with the panel. |
+| `waterfall` | Similar to standard mode, but header is initially presented as seamed with panel, but then separates to form the step. |
 | `waterfall-tall` | The header is initially taller (`tall` class is added to the header). As the user scrolls, the header separates (forming an edge) while condensing (`tall` class is removed from the header). |
-| `scroll`         | The header keeps its seam with the panel, and is pushed off screen.                                                                                                                           |
-| `cover`          | The panel covers the whole `paper-header-panel` including the header. This allows user to style the panel in such a way that the panel is partially covering the header.                      |
+| `scroll` | The header keeps its seam with the panel, and is pushed off screen. |
+| `cover` | The panel covers the whole `paper-header-panel` including the header. This allows user to style the panel in such a way that the panel is partially covering the header. |
 
 Example:
 
@@ -135,14 +132,14 @@ paper-header-panel {
 
 The following custom properties and mixins are available for styling:
 
-| Custom property                                 | Description                                                             | Default |
-| ----------------------------------------------- | ----------------------------------------------------------------------- | ------- |
-| `--paper-header-panel`                          | Mixin applied to the element                                            | `{}`    |
-| `--paper-header-panel-body`                     | Mixin applied to the element's body (i.e. everything below the toolbar) | `{}`    |
-| `--paper-header-panel-scroll-container`         | Mixin applied to the container when in scroll mode                      | `{}`    |
-| `--paper-header-panel-cover-container`          | Mixin applied to the container when in cover mode                       | `{}`    |
-| `--paper-header-panel-standard-container`       | Mixin applied to the container when in standard mode                    | `{}`    |
-| `--paper-header-panel-seamed-container`         | Mixin applied to the container when in seamed mode                      | `{}`    |
-| `--paper-header-panel-waterfall-container`      | Mixin applied to the container when in waterfall mode                   | `{}`    |
-| `--paper-header-panel-waterfall-tall-container` | Mixin applied to the container when in tall waterfall mode              | `{}`    |
-| `--paper-header-panel-shadow`                   | Mixin applied to the waterfall shadow                                   | `{}`    |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--paper-header-panel` | Mixin applied to the element | `{}` |
+| `--paper-header-panel-body` | Mixin applied to the element's body (i.e. everything below the toolbar) | `{}` |
+| `--paper-header-panel-scroll-container` | Mixin applied to the container when in scroll mode | `{}` |
+| `--paper-header-panel-cover-container` | Mixin applied to the container when in cover mode | `{}` |
+| `--paper-header-panel-standard-container` | Mixin applied to the container when in standard mode | `{}` |
+| `--paper-header-panel-seamed-container` | Mixin applied to the container when in seamed mode | `{}` |
+| `--paper-header-panel-waterfall-container` | Mixin applied to the container when in waterfall mode | `{}` |
+| `--paper-header-panel-waterfall-tall-container` | Mixin applied to the container when in tall waterfall mode | `{}` |
+| `--paper-header-panel-shadow` | Mixin applied to the waterfall shadow | `{}` |

@@ -102,13 +102,13 @@ Custom property | Description | Default
         @apply (--paper-menu-button-content);
       }
 
-      :host([vertical-align="top"]) .dropdown-content {
+      :host([vertical-align='top']) .dropdown-content {
         margin-bottom: 20px;
         margin-top: -10px;
         top: 10px;
       }
 
-      :host([vertical-align="bottom"]) .dropdown-content {
+      :host([vertical-align='bottom']) .dropdown-content {
         bottom: 10px;
         margin-bottom: -10px;
         margin-top: 20px;
@@ -148,15 +148,15 @@ Custom property | Description | Default
 
   <script>
     (function () {
-      "use strict";
+      'use strict';
 
       var config = {
-        ANIMATION_CUBIC_BEZIER: "cubic-bezier(.3,.95,.5,1)",
+        ANIMATION_CUBIC_BEZIER: 'cubic-bezier(.3,.95,.5,1)',
         MAX_ANIMATION_TIME_MS: 400,
       };
 
       var PaperMenuButton = Polymer({
-        is: "paper-menu-button",
+        is: 'paper-menu-button',
 
         /**
          * Fired when the dropdown opens.
@@ -180,7 +180,7 @@ Custom property | Description | Default
             type: Boolean,
             value: false,
             notify: true,
-            observer: "_openedChanged",
+            observer: '_openedChanged',
           },
 
           /**
@@ -189,7 +189,7 @@ Custom property | Description | Default
            */
           horizontalAlign: {
             type: String,
-            value: "left",
+            value: 'left',
             reflectToAttribute: true,
           },
 
@@ -199,7 +199,7 @@ Custom property | Description | Default
            */
           verticalAlign: {
             type: String,
-            value: "top",
+            value: 'top',
             reflectToAttribute: true,
           },
 
@@ -279,14 +279,14 @@ Custom property | Description | Default
             value: function () {
               return [
                 {
-                  name: "fade-in-animation",
+                  name: 'fade-in-animation',
                   timing: {
                     delay: 100,
                     duration: 200,
                   },
                 },
                 {
-                  name: "paper-menu-grow-width-animation",
+                  name: 'paper-menu-grow-width-animation',
                   timing: {
                     delay: 100,
                     duration: 150,
@@ -294,7 +294,7 @@ Custom property | Description | Default
                   },
                 },
                 {
-                  name: "paper-menu-grow-height-animation",
+                  name: 'paper-menu-grow-height-animation',
                   timing: {
                     delay: 100,
                     duration: 275,
@@ -314,13 +314,13 @@ Custom property | Description | Default
             value: function () {
               return [
                 {
-                  name: "fade-out-animation",
+                  name: 'fade-out-animation',
                   timing: {
                     duration: 150,
                   },
                 },
                 {
-                  name: "paper-menu-shrink-width-animation",
+                  name: 'paper-menu-shrink-width-animation',
                   timing: {
                     delay: 100,
                     duration: 50,
@@ -328,10 +328,10 @@ Custom property | Description | Default
                   },
                 },
                 {
-                  name: "paper-menu-shrink-height-animation",
+                  name: 'paper-menu-shrink-height-animation',
                   timing: {
                     duration: 200,
-                    easing: "ease-in",
+                    easing: 'ease-in',
                   },
                 },
               ];
@@ -367,13 +367,13 @@ Custom property | Description | Default
         },
 
         hostAttributes: {
-          role: "group",
-          "aria-haspopup": "true",
+          role: 'group',
+          'aria-haspopup': 'true',
         },
 
         listeners: {
-          "iron-activate": "_onIronActivate",
-          "iron-select": "_onIronSelect",
+          'iron-activate': '_onIronActivate',
+          'iron-select': '_onIronSelect',
         },
 
         /**
@@ -453,9 +453,9 @@ Custom property | Description | Default
             // cause the focus target for the `iron-dropdown` to be updated as
             // necessary:
             this._dropdownContent = this.contentElement;
-            this.fire("paper-dropdown-open");
+            this.fire('paper-dropdown-open');
           } else if (oldOpened != null) {
-            this.fire("paper-dropdown-close");
+            this.fire('paper-dropdown-close');
           }
         },
 

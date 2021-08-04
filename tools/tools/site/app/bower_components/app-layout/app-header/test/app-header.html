@@ -103,7 +103,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (tests.length > 0) {
           var scrollTarget =
             scroller === document.documentElement ? window : scroller;
-          scrollTarget.addEventListener("scroll", scrollEventHandler);
+          scrollTarget.addEventListener('scroll', scrollEventHandler);
           triggerScrollEvent();
         }
       }
@@ -114,12 +114,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         assert.equal(
           headerClientRect.top,
           0,
-          "full sized at " + header._scrollTop
+          'full sized at ' + header._scrollTop
         );
         assert.equal(
           headerClientRect.bottom,
           headerClientRect.height,
-          "full sized " + header._scrollTop
+          'full sized ' + header._scrollTop
         );
       }
 
@@ -129,7 +129,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         assert.equal(
           headerClientRect.top + headerClientRect.height,
           header._stickyEl.offsetHeight,
-          "condensed at " + header._scrollTop
+          'condensed at ' + header._scrollTop
         );
       }
 
@@ -139,11 +139,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         assert.isBelow(
           headerClientRect.bottom,
           0,
-          "hidden at " + header._scrollTop
+          'hidden at ' + header._scrollTop
         );
       }
 
-      suite("basic features", function () {
+      suite('basic features', function () {
         var container, header, toolbar, testEffect;
 
         suiteSetup(function () {
@@ -152,27 +152,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             tearDown: sinon.spy(),
             run: sinon.spy(),
           };
-          Polymer.AppLayout.registerEffect("test-effect", testEffect);
+          Polymer.AppLayout.registerEffect('test-effect', testEffect);
         });
 
         setup(function () {
-          container = fixture("testHeader");
-          header = container.querySelector("app-header");
-          toolbar = container.querySelector("app-toolbar");
+          container = fixture('testHeader');
+          header = container.querySelector('app-header');
+          toolbar = container.querySelector('app-toolbar');
 
           testEffect.setUp.reset();
           testEffect.tearDown.reset();
           testEffect.run.reset();
         });
 
-        test("default values", function () {
+        test('default values', function () {
           assert.isFalse(header.condenses);
           assert.isFalse(header.fixed);
           assert.isFalse(header.reveals);
           assert.isFalse(header.shadow);
         });
 
-        test("condenses", function (done) {
+        test('condenses', function (done) {
           header.condenses = true;
 
           flush(function () {
@@ -212,7 +212,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("fixed", function (done) {
+        test('fixed', function (done) {
           header.fixed = true;
 
           flush(function () {
@@ -234,7 +234,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("reveals", function (done) {
+        test('reveals', function (done) {
           header.reveals = true;
 
           flush(function () {
@@ -262,7 +262,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("condenses and reveals", function (done) {
+        test('condenses and reveals', function (done) {
           header.condenses = true;
           header.reveals = true;
 
@@ -303,7 +303,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("condenses and fixed", function (done) {
+        test('condenses and fixed', function (done) {
           header.condenses = true;
           header.fixed = true;
 
@@ -332,8 +332,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("simple effect", function (done) {
-          header.effects = "test-effect";
+        test('simple effect', function (done) {
+          header.effects = 'test-effect';
 
           flush(function () {
             scrollTestHelper(header.scrollTarget, [
@@ -373,7 +373,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     [2.078125, 133]
                   );
 
-                  header.effects = "";
+                  header.effects = '';
 
                   assert.isTrue(testEffect.tearDown.called);
                   done();
@@ -383,15 +383,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("effect with config", function (done) {
+        test('effect with config', function (done) {
           var testEffectConfig = {
             startsAt: 0.5,
             endsAt: 0.75,
           };
 
-          header.effects = "test-effect";
+          header.effects = 'test-effect';
           header.effectsConfig = {
-            "test-effect": testEffectConfig,
+            'test-effect': testEffectConfig,
           };
 
           flush(function () {
@@ -429,7 +429,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 callback: function () {
                   assert.deepEqual(testEffect.run.lastCall.args, [2, 64]);
 
-                  header.effects = "";
+                  header.effects = '';
 
                   assert.isTrue(testEffect.tearDown.called);
                   done();
@@ -439,8 +439,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("disabled state", function (done) {
-          header.effects = "test-effect";
+        test('disabled state', function (done) {
+          header.effects = 'test-effect';
 
           flush(function () {
             scrollTestHelper(header.scrollTarget, [
@@ -473,7 +473,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("isOnScreen", function (done) {
+        test('isOnScreen', function (done) {
           flush(function () {
             scrollTestHelper(header.scrollTarget, [
               {
@@ -506,30 +506,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
-        test("DOM references", function (done) {
+        test('DOM references', function (done) {
           flush(function () {
-            assert.isNotNull(header._getDOMRef("backgroundFrontLayer"));
-            assert.isNotNull(header._getDOMRef("backgroundRearLayer"));
-            assert.isNotNull(header._getDOMRef("mainTitle"));
-            assert.isNotNull(header._getDOMRef("condensedTitle"));
+            assert.isNotNull(header._getDOMRef('backgroundFrontLayer'));
+            assert.isNotNull(header._getDOMRef('backgroundRearLayer'));
+            assert.isNotNull(header._getDOMRef('mainTitle'));
+            assert.isNotNull(header._getDOMRef('condensedTitle'));
             done();
           });
         });
       });
 
-      suite("Sticky element", function () {
+      suite('Sticky element', function () {
         var container, header;
 
         setup(function () {
-          container = fixture("testStickyElement");
-          header = container.querySelector("app-header");
+          container = fixture('testStickyElement');
+          header = container.querySelector('app-header');
         });
 
-        test("sticky element reference", function () {
-          assert.equal(header._getStickyEl(), header.querySelector("[sticky]"));
+        test('sticky element reference', function () {
+          assert.equal(header._getStickyEl(), header.querySelector('[sticky]'));
         });
 
-        test("should reveal the entire header", function (done) {
+        test('should reveal the entire header', function (done) {
           flush(function () {
             scrollTestHelper(header.scrollTarget, [
               {

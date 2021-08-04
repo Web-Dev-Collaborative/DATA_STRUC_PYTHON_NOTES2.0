@@ -24,7 +24,7 @@ from pybricks.robotics import DriveBase
 
 # Write your program here
 brick.sound.beep()
-# 输出到控制台:
+# :
 print("Hello, robot!")
-# 输出到EV3屏幕:
+# EV3:
 brick.display.text("Hello, robot!")

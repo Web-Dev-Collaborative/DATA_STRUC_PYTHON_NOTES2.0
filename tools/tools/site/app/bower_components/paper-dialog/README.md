@@ -19,14 +19,9 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/paper-dialog)
 
 Material design: [Dialogs](https://www.google.com/design/spec/components/dialogs.html)
 
-`<paper-dialog>` is a dialog with Material Design styling and optional animations when it is
-opened or closed. It provides styles for a header, content area, and an action area for buttons.
-You can use the `<paper-dialog-scrollable>` element (in its own repository) if you need a scrolling
-content area. To autofocus a specific child element after opening the dialog, give it the `autofocus`
-attribute. See `Polymer.PaperDialogBehavior` and `Polymer.IronOverlayBehavior` for specifics.
+`<paper-dialog>` is a dialog with Material Design styling and optional animations when it is opened or closed. It provides styles for a header, content area, and an action area for buttons. You can use the `<paper-dialog-scrollable>` element (in its own repository) if you need a scrolling content area. To autofocus a specific child element after opening the dialog, give it the `autofocus` attribute. See `Polymer.PaperDialogBehavior` and `Polymer.IronOverlayBehavior` for specifics.
 
-For example, the following code implements a dialog with a header, scrolling content area and
-buttons. Focus will be given to the `dialog-confirm` button when the dialog is opened.
+For example, the following code implements a dialog with a header, scrolling content area and buttons. Focus will be given to the `dialog-confirm` button when the dialog is opened.
 
 ```html
 <paper-dialog>
@@ -41,14 +36,11 @@ buttons. Focus will be given to the `dialog-confirm` button when the dialog is o
 
 ### Styling
 
-See the docs for `Polymer.PaperDialogBehavior` for the custom properties available for styling
-this element.
+See the docs for `Polymer.PaperDialogBehavior` for the custom properties available for styling this element.
 
 ### Animations
 
-Set the `entry-animation` and/or `exit-animation` attributes to add an animation when the dialog
-is opened or closed. See the documentation in
-[PolymerElements/neon-animation](https://github.com/PolymerElements/neon-animation) for more info.
+Set the `entry-animation` and/or `exit-animation` attributes to add an animation when the dialog is opened or closed. See the documentation in [PolymerElements/neon-animation](https://github.com/PolymerElements/neon-animation) for more info.
 
 For example:
 
@@ -73,5 +65,4 @@ For example:
 
 ### Accessibility
 
-See the docs for `Polymer.PaperDialogBehavior` for accessibility features implemented by this
-element.
+See the docs for `Polymer.PaperDialogBehavior` for accessibility features implemented by this element.

@@ -19,7 +19,7 @@ https://developers.google.com/youtube/iframe_api_reference
 -->
 <script>
   Polymer({
-    is: "google-youtube-api",
+    is: 'google-youtube-api',
 
     behaviors: [Polymer.IronJsonpLibraryBehavior],
 
@@ -27,7 +27,7 @@ https://developers.google.com/youtube/iframe_api_reference
       /** @private */
       libraryUrl: {
         type: String,
-        value: "https://www.youtube.com/iframe_api",
+        value: 'https://www.youtube.com/iframe_api',
       },
 
       /**
@@ -39,12 +39,12 @@ https://developers.google.com/youtube/iframe_api_reference
        */
       notifyEvent: {
         type: String,
-        value: "api-load",
+        value: 'api-load',
       },
 
       callbackName: {
         type: String,
-        value: "onYouTubeIframeAPIReady",
+        value: 'onYouTubeIframeAPIReady',
       },
     },
 

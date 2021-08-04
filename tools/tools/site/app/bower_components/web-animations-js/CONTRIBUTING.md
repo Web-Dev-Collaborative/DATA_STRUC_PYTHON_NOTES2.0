@@ -10,12 +10,7 @@
 
 ## Debugging tests
 
-You can run the tests in an interactive mode with `grunt debug`. This starts the
-Karma server once for each polyfill target for each test framework.
-Navigate to `http://localhost:9876/debug.html` to open the test runner in your
-browser of choice, all test results appear in the Javascript console.
-Test failures can be accessed via `window.failures` and `window.formattedFailures`
-once the tests have completed.
+You can run the tests in an interactive mode with `grunt debug`. This starts the Karma server once for each polyfill target for each test framework. Navigate to `http://localhost:9876/debug.html` to open the test runner in your browser of choice, all test results appear in the Javascript console. Test failures can be accessed via `window.failures` and `window.formattedFailures` once the tests have completed.
 
 The polyfill target and tests can be specified as arguments to the `debug` task.  
 Example: `grunt debug:web-animations-next:test/web-platform-tests/web-animations/animation/pause.html`  
@@ -40,8 +35,7 @@ Example: `http://localhost:9876/base/test/web-platform-tests/web-animations/anim
 
           * Fixed a bug where nothing worked
 
-    Use the following to generate a summary of commits, but edit the list to contain only
-    relevant information.
+    Use the following to generate a summary of commits, but edit the list to contain only relevant information.
 
         git log --first-parent `git describe --tags --abbrev=0 web-animations-js/master`..web-animations-next/master --pretty=format:"  * %s"
 
@@ -55,9 +49,7 @@ Example: `http://localhost:9876/base/test/web-platform-tests/web-animations/anim
 
 1.  Submit both changes to web-animations-next then follow the procedure to push from web-animations-next to web-animations-js.
 
-1.  Draft a [new release](https://github.com/web-animations/web-animations-js/releases) at the
-    commit pushed to web-animations-js in step #4. Copy the release notes from `History.md`
-    added in step #2.
+1.  Draft a [new release](https://github.com/web-animations/web-animations-js/releases) at the commit pushed to web-animations-js in step #4. Copy the release notes from `History.md` added in step #2.
 
 1.  Once you've pushed to web-animations-js, run `npm publish` from that checked-out folder
 

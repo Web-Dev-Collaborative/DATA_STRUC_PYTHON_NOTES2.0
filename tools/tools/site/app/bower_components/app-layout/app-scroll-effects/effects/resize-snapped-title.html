@@ -15,32 +15,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * Upon scrolling past a threshold, CSS transition the font size of a designated title element
    * between two values.
    */
-  Polymer.AppLayout.registerEffect("resize-snapped-title", {
+  Polymer.AppLayout.registerEffect('resize-snapped-title', {
     /**
      * @this Polymer.AppLayout.ElementWithBackground
      */
     setUp: function setUp(config) {
-      var title = this._getDOMRef("mainTitle");
-      var condensedTitle = this._getDOMRef("condensedTitle");
-      var duration = config.duration || "0.2s";
+      var title = this._getDOMRef('mainTitle');
+      var condensedTitle = this._getDOMRef('condensedTitle');
+      var duration = config.duration || '0.2s';
       var fx = {};
 
       if (!condensedTitle) {
         console.warn(
-          "Scroll effect `resize-snapped-title`: undefined `condensed-title`"
+          'Scroll effect `resize-snapped-title`: undefined `condensed-title`'
         );
         return false;
       }
       if (!title) {
         console.warn(
-          "Scroll effect `resize-snapped-title`: undefined `main-title`"
+          'Scroll effect `resize-snapped-title`: undefined `main-title`'
         );
         return false;
       }
 
-      title.style.transitionProperty = "opacity";
+      title.style.transitionProperty = 'opacity';
       title.style.transitionDuration = duration;
-      condensedTitle.style.transitionProperty = "opacity";
+      condensedTitle.style.transitionProperty = 'opacity';
       condensedTitle.style.transitionDuration = duration;
       fx.condensedTitle = condensedTitle;
       fx.title = title;
@@ -60,8 +60,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /** @this Polymer.AppLayout.ElementWithBackground */
     tearDown: function tearDown() {
       var fx = this._fxResizeSnappedTitle;
-      fx.title.style.transition = "";
-      fx.condensedTitle.style.transition = "";
+      fx.title.style.transition = '';
+      fx.condensedTitle.style.transition = '';
       delete this._fxResizeSnappedTitle;
     },
   });

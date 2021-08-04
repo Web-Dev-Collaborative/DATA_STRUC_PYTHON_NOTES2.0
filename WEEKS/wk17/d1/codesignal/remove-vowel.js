@@ -16,11 +16,11 @@ For this challenge, "y" is not considered a vowel.
 
 */
 function csRemoveTheVowels(input_str) {
-  return input_str.replace(/[aeiouAEIOU]/g, "");
+  return input_str.replace(/[aeiouAEIOU]/g, '');
 }
 
-csRemoveTheVowels("Lambda School is awesome!");
+csRemoveTheVowels('Lambda School is awesome!');
 console.log(
-  "🚀 ~ file: remove-vowel.js ~ line 22 ~ csRemoveTheVowels(Lambda School is awesome!)",
-  csRemoveTheVowels("Lambda School is awesome!")
+  '🚀 ~ file: remove-vowel.js ~ line 22 ~ csRemoveTheVowels(Lambda School is awesome!)',
+  csRemoveTheVowels('Lambda School is awesome!')
 );

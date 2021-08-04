@@ -1,6 +1,4 @@
-author: Sida Chen
-summary: Import Test
-id: import test
+author: Sida Chen summary: Import Test id: import test
 
 <<fragments/import-test-fragment1.md>> <!-- not going to show-->
 

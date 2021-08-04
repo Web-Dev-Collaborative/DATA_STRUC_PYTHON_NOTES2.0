@@ -13,15 +13,14 @@ npm install url-search-params
 The function is exported directly.
 
 ```js
-var URLSearchParams = require("url-search-params");
+var URLSearchParams = require('url-search-params');
 ```
 
 MIT Style License
 
 #### About HTMLAnchorElement.prototype.searchParams
 
-This property is already implemented in Firefox and polyfilled here only for browsers that exposes getters and setters
-through the `HTMLAnchorElement.prototype`.
+This property is already implemented in Firefox and polyfilled here only for browsers that exposes getters and setters through the `HTMLAnchorElement.prototype`.
 
 In order to know if such property is supported, you **must** do the check as such:
 

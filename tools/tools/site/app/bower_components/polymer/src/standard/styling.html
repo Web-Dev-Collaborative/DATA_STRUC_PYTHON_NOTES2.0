@@ -72,7 +72,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // TODO(sorvell): consider dropping support for `styleModules`
       _collectStyles: function () {
         var styles = [];
-        var cssText = "",
+        var cssText = '',
           m$ = this.styleModules;
         if (m$) {
           for (var i = 0, l = m$.length, m; i < l && (m = m$[i]); i++) {
@@ -87,7 +87,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           cssText += styleUtil.cssFromElement(this._template);
         }
         if (cssText) {
-          var style = document.createElement("style");
+          var style = document.createElement('style');
           style.textContent = cssText;
           // extends!!
           if (styleExtends.hasExtends(style.textContent)) {
@@ -142,15 +142,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var self = this;
         var scopify = function (node) {
           if (node.nodeType === Node.ELEMENT_NODE) {
-            var className = node.getAttribute("class");
+            var className = node.getAttribute('class');
             node.setAttribute(
-              "class",
+              'class',
               self._scopeElementClass(node, className)
             );
-            var n$ = node.querySelectorAll("*");
+            var n$ = node.querySelectorAll('*');
             for (var i = 0, n; i < n$.length && (n = n$[i]); i++) {
-              className = n.getAttribute("class");
-              n.setAttribute("class", self._scopeElementClass(n, className));
+              className = n.getAttribute('class');
+              n.setAttribute('class', self._scopeElementClass(n, className));
             }
           }
         };

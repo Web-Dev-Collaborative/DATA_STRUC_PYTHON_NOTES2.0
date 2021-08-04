@@ -1,15 +1,15 @@
 (function () {
-  "use strict";
+  'use strict';
 
   const h =
-    "undefined" != typeof window && window === this
+    'undefined' != typeof window && window === this
       ? this
-      : "undefined" != typeof global && null != global
+      : 'undefined' != typeof global && null != global
       ? global
       : this;
 
   const aa =
-    "function" == typeof Object.create
+    'function' == typeof Object.create
       ? Object.create
       : (a) => {
           function b() {}
@@ -18,7 +18,7 @@
         };
 
   let k;
-  if ("function" == typeof Object.setPrototypeOf) k = Object.setPrototypeOf;
+  if ('function' == typeof Object.setPrototypeOf) k = Object.setPrototypeOf;
   else {
     let m;
     a: {
@@ -34,7 +34,7 @@
     k = m
       ? (a, b) => {
           a.__proto__ = b;
-          if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
+          if (a.__proto__ !== b) throw new TypeError(a + ' is not extensible');
           return a;
         }
       : null;
@@ -46,7 +46,7 @@
     if (da) da(a, b);
     else
       for (const c in b)
-        if ("prototype" != c)
+        if ('prototype' != c)
           if (Object.defineProperties) {
             const d = Object.getOwnPropertyDescriptor(b, c);
             d && Object.defineProperty(a, c, d);
@@ -54,7 +54,7 @@
     a.D = b.prototype;
   }
   const fa =
-    "function" == typeof Object.defineProperties
+    'function' == typeof Object.defineProperties
       ? Object.defineProperty
       : (a, b, c) => {
           a != Array.prototype && a != Object.prototype && (a[b] = c.value);
@@ -66,14 +66,14 @@
   var ia = (() => {
     let a = 0;
     return (b) => {
-      return "jscomp_symbol_" + (b || "") + a++;
+      return 'jscomp_symbol_' + (b || '') + a++;
     };
   })();
   function n() {
     ha();
     let a = h.Symbol.iterator;
-    a || (a = h.Symbol.iterator = h.Symbol("iterator"));
-    "function" != typeof Array.prototype[a] &&
+    a || (a = h.Symbol.iterator = h.Symbol('iterator'));
+    'function' != typeof Array.prototype[a] &&
       fa(Array.prototype, a, {
         configurable: !0,
         writable: !0,
@@ -109,41 +109,41 @@
   }
   const q = this;
   function r(a) {
-    return "string" == typeof a;
+    return 'string' == typeof a;
   }
   function t() {}
   function u(a) {
     const b = typeof a;
-    if ("object" == b)
+    if ('object' == b)
       if (a) {
-        if (a instanceof Array) return "array";
+        if (a instanceof Array) return 'array';
         if (a instanceof Object) return b;
         const c = Object.prototype.toString.call(a);
-        if ("[object Window]" == c) return "object";
+        if ('[object Window]' == c) return 'object';
         if (
-          "[object Array]" == c ||
-          ("number" == typeof a.length &&
-            "undefined" != typeof a.splice &&
-            "undefined" != typeof a.propertyIsEnumerable &&
-            !a.propertyIsEnumerable("splice"))
+          '[object Array]' == c ||
+          ('number' == typeof a.length &&
+            'undefined' != typeof a.splice &&
+            'undefined' != typeof a.propertyIsEnumerable &&
+            !a.propertyIsEnumerable('splice'))
         )
-          return "array";
+          return 'array';
         if (
-          "[object Function]" == c ||
-          ("undefined" != typeof a.call &&
-            "undefined" != typeof a.propertyIsEnumerable &&
-            !a.propertyIsEnumerable("call"))
+          '[object Function]' == c ||
+          ('undefined' != typeof a.call &&
+            'undefined' != typeof a.propertyIsEnumerable &&
+            !a.propertyIsEnumerable('call'))
         )
-          return "function";
-      } else return "null";
-    else if ("function" == b && "undefined" == typeof a.call) return "object";
+          return 'function';
+      } else return 'null';
+    else if ('function' == b && 'undefined' == typeof a.call) return 'object';
     return b;
   }
   function v(a) {
     const b = typeof a;
-    return ("object" == b && null != a) || "function" == b;
+    return ('object' == b && null != a) || 'function' == b;
   }
-  const la = "closure_uid_" + ((1e9 * Math.random()) >>> 0);
+  const la = 'closure_uid_' + ((1e9 * Math.random()) >>> 0);
   let ma = 0;
   function na(a, b, c) {
     return a.call.apply(a.bind, arguments);
@@ -164,7 +164,7 @@
   }
   function w(a, b, c) {
     Function.prototype.bind &&
-    -1 != Function.prototype.bind.toString().indexOf("native code")
+    -1 != Function.prototype.bind.toString().indexOf('native code')
       ? (w = na)
       : (w = oa);
     return w.apply(null, arguments);
@@ -213,15 +213,15 @@
       try {
         this.j.setItem(a, b);
       } catch (c) {
-        if (0 == this.j.length) throw "Storage mechanism: Storage disabled";
-        throw "Storage mechanism: Quota exceeded";
+        if (0 == this.j.length) throw 'Storage mechanism: Storage disabled';
+        throw 'Storage mechanism: Quota exceeded';
       }
     }
 
     get(a) {
       a = this.j.getItem(a);
       if (!r(a) && null !== a)
-        throw "Storage mechanism: Invalid value was encountered";
+        throw 'Storage mechanism: Invalid value was encountered';
       return a;
     }
 
@@ -248,12 +248,12 @@
       };
   function z(a) {
     if (!wa.test(a)) return a;
-    -1 != a.indexOf("&") && (a = a.replace(xa, "&amp;"));
-    -1 != a.indexOf("<") && (a = a.replace(ya, "&lt;"));
-    -1 != a.indexOf(">") && (a = a.replace(za, "&gt;"));
-    -1 != a.indexOf('"') && (a = a.replace(Aa, "&quot;"));
-    -1 != a.indexOf("'") && (a = a.replace(Ba, "&#39;"));
-    -1 != a.indexOf("\x00") && (a = a.replace(Ca, "&#0;"));
+    -1 != a.indexOf('&') && (a = a.replace(xa, '&amp;'));
+    -1 != a.indexOf('<') && (a = a.replace(ya, '&lt;'));
+    -1 != a.indexOf('>') && (a = a.replace(za, '&gt;'));
+    -1 != a.indexOf('"') && (a = a.replace(Aa, '&quot;'));
+    -1 != a.indexOf("'") && (a = a.replace(Ba, '&#39;'));
+    -1 != a.indexOf('\x00') && (a = a.replace(Ca, '&#0;'));
     return a;
   }
   var xa = /&/g,
@@ -272,7 +272,7 @@
 
   class B {
     constructor() {
-      this.a = "";
+      this.a = '';
       this.v = Ea;
     }
 
@@ -293,7 +293,7 @@
     b.a = a;
     return b;
   }
-  Ga("about:blank");
+  Ga('about:blank');
   let C;
   a: {
     const Ha = q.navigator;
@@ -304,7 +304,7 @@
         break a;
       }
     }
-    C = "";
+    C = '';
   }
 
   class D {
@@ -317,7 +317,7 @@
     }
 
     c() {
-      return "";
+      return '';
     }
   }
 
@@ -328,7 +328,7 @@
 
   class F {
     constructor() {
-      throw Error("Do not instantiate directly");
+      throw Error('Do not instantiate directly');
     }
 
     toString() {
@@ -343,26 +343,26 @@
   x(G, F);
   G.prototype.s = E;
   function H(a) {
-    H[" "](a);
+    H[' '](a);
     return a;
   }
-  H[" "] = t;
-  const La = -1 != C.indexOf("Opera"),
-    I = -1 != C.indexOf("Trident") || -1 != C.indexOf("MSIE"),
-    Ma = -1 != C.indexOf("Edge"),
+  H[' '] = t;
+  const La = -1 != C.indexOf('Opera'),
+    I = -1 != C.indexOf('Trident') || -1 != C.indexOf('MSIE'),
+    Ma = -1 != C.indexOf('Edge'),
     Na =
-      -1 != C.indexOf("Gecko") &&
-      !(-1 != C.toLowerCase().indexOf("webkit") && -1 == C.indexOf("Edge")) &&
-      !(-1 != C.indexOf("Trident") || -1 != C.indexOf("MSIE")) &&
-      -1 == C.indexOf("Edge"),
-    Oa = -1 != C.toLowerCase().indexOf("webkit") && -1 == C.indexOf("Edge");
+      -1 != C.indexOf('Gecko') &&
+      !(-1 != C.toLowerCase().indexOf('webkit') && -1 == C.indexOf('Edge')) &&
+      !(-1 != C.indexOf('Trident') || -1 != C.indexOf('MSIE')) &&
+      -1 == C.indexOf('Edge'),
+    Oa = -1 != C.toLowerCase().indexOf('webkit') && -1 == C.indexOf('Edge');
   function Sa() {
     const a = q.document;
     return a ? a.documentMode : void 0;
   }
   let J;
   a: {
-    var K = "";
+    var K = '';
 
     const L = (() => {
       const a = C;
@@ -373,7 +373,7 @@
       if (La) return /(?:Version)[ \/]?(\S+)/.exec(a);
     })();
 
-    L && (K = L ? L[1] : "");
+    L && (K = L ? L[1] : '');
     if (I) {
       const Ta = Sa();
       if (null != Ta && Ta > parseFloat(K)) {
@@ -388,7 +388,7 @@
   const Wa = q.document;
   Va =
     Wa && I
-      ? Sa() || ("CSS1Compat" == Wa.compatMode ? parseInt(J, 10) : 5)
+      ? Sa() || ('CSS1Compat' == Wa.compatMode ? parseInt(J, 10) : 5)
       : void 0;
   function Xa(a) {
     if (null != a)
@@ -408,8 +408,8 @@
       : a instanceof D
       ? N(
           a instanceof D && a.constructor === D && a.a === Ja
-            ? ""
-            : "type_error:SafeHtml",
+            ? ''
+            : 'type_error:SafeHtml',
           a.b()
         )
       : N(z(String(String(a))), Xa(a));
@@ -427,30 +427,30 @@
   })(G);
   function O(a) {
     return null != a && a.s === E
-      ? String(String(a.u).replace(Ya, "").replace(Za, "&lt;")).replace($a, ab)
+      ? String(String(a.u).replace(Ya, '').replace(Za, '&lt;')).replace($a, ab)
       : z(String(a));
   }
   const bb = {
-    "\x00": "&#0;",
-    "\t": "&#9;",
-    "\n": "&#10;",
-    "\x0B": "&#11;",
-    "\f": "&#12;",
-    "\r": "&#13;",
-    " ": "&#32;",
-    '"': "&quot;",
-    "&": "&amp;",
-    "'": "&#39;",
-    "-": "&#45;",
-    "/": "&#47;",
-    "<": "&lt;",
-    "=": "&#61;",
-    ">": "&gt;",
-    "`": "&#96;",
-    "\u0085": "&#133;",
-    "\u00a0": "&#160;",
-    "\u2028": "&#8232;",
-    "\u2029": "&#8233;",
+    '\x00': '&#0;',
+    '\t': '&#9;',
+    '\n': '&#10;',
+    '\x0B': '&#11;',
+    '\f': '&#12;',
+    '\r': '&#13;',
+    ' ': '&#32;',
+    '"': '&quot;',
+    '&': '&amp;',
+    "'": '&#39;',
+    '-': '&#45;',
+    '/': '&#47;',
+    '<': '&lt;',
+    '=': '&#61;',
+    '>': '&gt;',
+    '`': '&#96;',
+    '\u0085': '&#133;',
+    '\u00a0': '&#160;',
+    '\u2028': '&#8232;',
+    '\u2029': '&#8233;',
   };
   function ab(a) {
     return bb[a];
@@ -463,17 +463,17 @@
     a = a.H;
     b =
       '<div id="sort-by-tabs" class="sort-by-inner"><a href="#" sort="alpha"' +
-      ("alpha" == b ? " selected" : "") +
+      ('alpha' == b ? ' selected' : '') +
       '>A-Z</a><a href="#" sort="recent"' +
-      ("recent" == b ? " selected" : "") +
+      ('recent' == b ? ' selected' : '') +
       '>Recent</a><a href="#" sort="duration"' +
-      ("duration" == b ? " selected" : "") +
+      ('duration' == b ? ' selected' : '') +
       '>Duration</a></div><div class="sort-by-inner"><select id="codelab-categories"><option value="">Category</option>';
     for (let c = Math.max(0, Math.ceil(a.length)), d = 0; d < c; d++) {
       const e = d;
-      b += '<option value="' + O(a[e]) + '">' + M(a[e]) + "</option>";
+      b += '<option value="' + O(a[e]) + '">' + M(a[e]) + '</option>';
     }
-    return N(b + "</select></div>");
+    return N(b + '</select></div>');
   }
   const db = ((a) => {
     let b = !1,
@@ -483,10 +483,10 @@
       return c;
     };
   })(() => {
-    const a = document.createElement("div");
-    a.innerHTML = "<div><div></div></div>";
+    const a = document.createElement('div');
+    a.innerHTML = '<div><div></div></div>';
     const b = a.firstChild.firstChild;
-    a.innerHTML = "";
+    a.innerHTML = '';
     return !b.parentElement;
   });
   function eb(a, b) {
@@ -498,7 +498,7 @@
   }
   function gb(a, b) {
     b = a(b || hb, void 0, void 0);
-    a = (qa || (qa = new fb())).a.createElement("DIV");
+    a = (qa || (qa = new fb())).a.createElement('DIV');
     b = ib(b);
     eb(a, b);
     1 == a.childNodes.length &&
@@ -510,7 +510,7 @@
       if (a.s === E) return a.u;
       if (a.s === Ka) return z(a.u);
     }
-    return "zSoyz";
+    return 'zSoyz';
   }
   var hb = {};
 
@@ -538,72 +538,72 @@ limitations under the License.
     }
 
     connectedCallback() {
-      this.hasAttribute("sort") ? jb(this) : this.setAttribute("sort", "alpha");
-      (this.hasAttribute("filter") ||
-        this.hasAttribute("category") ||
-        this.hasAttribute("tags")) &&
+      this.hasAttribute('sort') ? jb(this) : this.setAttribute('sort', 'alpha');
+      (this.hasAttribute('filter') ||
+        this.hasAttribute('category') ||
+        this.hasAttribute('tags')) &&
         kb(this);
     }
 
     attributeChangedCallback(a) {
       switch (a) {
-        case "sort":
+        case 'sort':
           jb(this);
           break;
-        case "filter":
-        case "category":
-        case "tags":
+        case 'filter':
+        case 'category':
+        case 'tags':
           kb(this);
       }
     }
 
     i(a, b) {
       if (!a || !b) return 0;
-      let c = parseFloat(a.getAttribute("duration")) || 0;
-      const d = parseFloat(b.getAttribute("duration")) || 0;
+      let c = parseFloat(a.getAttribute('duration')) || 0;
+      const d = parseFloat(b.getAttribute('duration')) || 0;
       c -= d;
       return 0 === c ? this.c(a, b) : c;
     }
 
     c(a, b) {
       if (!a || !b) return 0;
-      let c = new Date(a.getAttribute("updated") || 0);
-      c = new Date(b.getAttribute("updated") || 0).getTime() - c.getTime();
+      let c = new Date(a.getAttribute('updated') || 0);
+      c = new Date(b.getAttribute('updated') || 0).getTime() - c.getTime();
       return 0 === c ? this.b(a, b) : c;
     }
 
     b(a, b) {
       if (!a || !b) return 0;
-      a = a.getAttribute("title");
-      b = b.getAttribute("title");
+      a = a.getAttribute('title');
+      b = b.getAttribute('title');
       return a < b ? -1 : a > b ? 1 : 0;
     }
 
     G(a) {
-      let b = (a.getAttribute("category") || "")
+      let b = (a.getAttribute('category') || '')
         .toLowerCase()
-        .replace(/\s+/g, "-")
-        .replace(/--+/g, "-")
+        .replace(/\s+/g, '-')
+        .replace(/--+/g, '-')
         .trim()
-        .split(",")
+        .split(',')
         .shift();
-      let c = a.getAttribute("title") || "";
-      const d = parseInt(a.getAttribute("duration"), 10) || 0;
+      let c = a.getAttribute('title') || '';
+      const d = parseInt(a.getAttribute('duration'), 10) || 0;
       let e;
-      (e = a.getAttribute("updated"))
+      (e = a.getAttribute('updated'))
         ? ((e = new Date(e)),
           (e =
-            "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ")[
+            'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ')[
               e.getMonth()
             ] +
-            " " +
+            ' ' +
             e.getUTCDate() +
-            ", " +
+            ', ' +
             e.getFullYear()))
-        : (e = "");
-      e = e || "";
-      a.getAttribute("tags");
-      const f = a.getAttribute("authors") || "";
+        : (e = '');
+      e = e || '';
+      a.getAttribute('tags');
+      const f = a.getAttribute('authors') || '';
       b = N(
         '<div class="card-header ' +
           O(b) +
@@ -613,8 +613,8 @@ limitations under the License.
           (d
             ? '<img src="//codelabs.developers.google.com/images/schedule.svg">' +
               M(d) +
-              " min"
-            : "") +
+              ' min'
+            : '') +
           '</span></div><div class="card-description">' +
           M(c) +
           '</div><div class="card-footer ' +
@@ -622,32 +622,32 @@ limitations under the License.
           '-footer"><span class="card-start ' +
           O(b) +
           '-start">Start</span><span class="card-updated">' +
-          (f ? "<div>" + M(f) + "</div>" : "") +
-          (e ? "<div>Updated " + M(e) + "</div>" : "") +
-          "</span></div>"
+          (f ? '<div>' + M(f) + '</div>' : '') +
+          (e ? '<div>Updated ' + M(e) + '</div>' : '') +
+          '</span></div>'
       );
       eb(a, ib(b));
-      a.classList.add("card");
+      a.classList.add('card');
       b = new URL(a.href, document.location.origin);
-      b.searchParams.has("index") ||
-        b.searchParams.set("index", document.location.pathname);
+      b.searchParams.has('index') ||
+        b.searchParams.set('index', document.location.pathname);
       b = b.href;
       b instanceof B ||
         b instanceof B ||
-        ((b = "object" == typeof b && b.i ? b.c() : String(b)),
-        Fa.test(b) || (b = "about:invalid#zClosurez"),
+        ((b = 'object' == typeof b && b.i ? b.c() : String(b)),
+        Fa.test(b) || (b = 'about:invalid#zClosurez'),
         (b = Ga(b)));
       a.href =
         b instanceof B && b.constructor === B && b.v === Ea
           ? b.a
-          : "type_error:SafeUrl";
-      if ((b = a.getAttribute("id")))
-        (b = this.j.get("progress_" + b)),
-          (c = a.getAttribute("steps")),
+          : 'type_error:SafeUrl';
+      if ((b = a.getAttribute('id')))
+        (b = this.j.get('progress_' + b)),
+          (c = a.getAttribute('steps')),
           b &&
             c &&
             a.setAttribute(
-              "progress",
+              'progress',
               (parseFloat(b) / parseFloat(c) - 1).toFixed(2)
             );
       this.appendChild(a);
@@ -658,42 +658,42 @@ limitations under the License.
   P.prototype.connectedCallback = P.prototype.connectedCallback;
   P.prototype.attributeChangedCallback = P.prototype.attributeChangedCallback;
   function jb(a) {
-    let b = a.getAttribute("sort") || "alpha",
-      c = [].concat(p(a.querySelectorAll(".card")));
+    let b = a.getAttribute('sort') || 'alpha',
+      c = [].concat(p(a.querySelectorAll('.card')));
     if (!(2 > c.length)) {
       switch (b) {
-        case "duration":
+        case 'duration':
           c.sort(a.i.bind(a));
           break;
-        case "recent":
+        case 'recent':
           c.sort(a.c.bind(a));
           break;
         default:
-          (b = "alpha"), c.sort(a.b.bind(a));
+          (b = 'alpha'), c.sort(a.b.bind(a));
       }
       c.forEach((b) => {
         return a.appendChild(b);
       });
       c = new URL(document.location.toString());
-      b && "alpha" !== b
-        ? c.searchParams.set("sort", b)
-        : c.searchParams.delete("sort");
+      b && 'alpha' !== b
+        ? c.searchParams.set('sort', b)
+        : c.searchParams.delete('sort');
       lb(a);
       b = c.pathname + c.search;
       window.history.replaceState({ path: b }, document.title, b);
     }
   }
   function lb(a) {
-    a.setAttribute("num", a.querySelectorAll(".card:not([hidden])").length);
+    a.setAttribute('num', a.querySelectorAll('.card:not([hidden])').length);
   }
   function kb(a) {
-    const b = mb(a.getAttribute("filter")),
-      c = Q((a.getAttribute("tags") || "").split(",")),
-      d = Q((a.getAttribute("category") || "").split(","));
-    [].concat(p(a.querySelectorAll(".card"))).forEach((a) => {
-      const e = mb(a.getAttribute("title"));
-      const f = Q((a.getAttribute("category") || "").split(","));
-      const Sb = Q((a.getAttribute("tags") || "").split(","));
+    const b = mb(a.getAttribute('filter')),
+      c = Q((a.getAttribute('tags') || '').split(',')),
+      d = Q((a.getAttribute('category') || '').split(','));
+    [].concat(p(a.querySelectorAll('.card'))).forEach((a) => {
+      const e = mb(a.getAttribute('title'));
+      const f = Q((a.getAttribute('category') || '').split(','));
+      const Sb = Q((a.getAttribute('tags') || '').split(','));
       let Pa = !0;
       let Qa = !0;
       let Ra = !0;
@@ -701,17 +701,17 @@ limitations under the License.
       c.length && (Qa = nb(Sb, c));
       d.length && (Ra = nb(f, d));
       Pa && Qa && Ra
-        ? a.removeAttribute("hidden")
-        : a.setAttribute("hidden", "");
+        ? a.removeAttribute('hidden')
+        : a.setAttribute('hidden', '');
     });
     const e = new URL(document.location.toString());
     c.length
-      ? e.searchParams.set("tags", c.join(","))
-      : e.searchParams.delete("tags");
+      ? e.searchParams.set('tags', c.join(','))
+      : e.searchParams.delete('tags');
     d.length
-      ? e.searchParams.set("cat", d.join(","))
-      : e.searchParams.delete("cat");
-    b ? e.searchParams.set("filter", b) : e.searchParams.delete("filter");
+      ? e.searchParams.set('cat', d.join(','))
+      : e.searchParams.delete('cat');
+    b ? e.searchParams.set('filter', b) : e.searchParams.delete('filter');
     lb(a);
     a = e.pathname + e.search;
     window.history.replaceState({ path: a }, document.title, a);
@@ -721,11 +721,11 @@ limitations under the License.
     return !1;
   }
   function mb(a) {
-    return (a || "")
+    return (a || '')
       .trim()
       .toLowerCase()
-      .replace("\n", "")
-      .replace(/\s+/g, " ");
+      .replace('\n', '')
+      .replace(/\s+/g, ' ');
   }
   function Q(a) {
     a = a || [];
@@ -741,14 +741,14 @@ limitations under the License.
       configurable: !0,
       enumerable: !0,
       get() {
-        return ["sort", "filter", "category", "tags"];
+        return ['sort', 'filter', 'category', 'tags'];
       },
     },
   });
   try {
-    window.customElements.define("google-codelab-index-cards", P);
+    window.customElements.define('google-codelab-index-cards', P);
   } catch (a) {
-    console.warn("googlecodelabs.CodelabIndex.Cards", a);
+    console.warn('googlecodelabs.CodelabIndex.Cards', a);
   }
   function R() {
     0 != ob && (this[la] || (this[la] = ++ma));
@@ -760,22 +760,22 @@ limitations under the License.
   let rb;
   if ((rb = I)) {
     let sb;
-    if (Object.prototype.hasOwnProperty.call(Ua, "9")) sb = Ua["9"];
+    if (Object.prototype.hasOwnProperty.call(Ua, '9')) sb = Ua['9'];
     else {
       for (
         var S = 0,
-          tb = va(String(J)).split("."),
-          ub = va("9").split("."),
+          tb = va(String(J)).split('.'),
+          ub = va('9').split('.'),
           vb = Math.max(tb.length, ub.length),
           T = 0;
         0 == S && T < vb;
         T++
       ) {
-        let wb = tb[T] || "",
-          xb = ub[T] || "";
+        let wb = tb[T] || '',
+          xb = ub[T] || '';
         do {
-          const U = /(\d*)(\D*)(.*)/.exec(wb) || ["", "", "", ""],
-            V = /(\d*)(\D*)(.*)/.exec(xb) || ["", "", "", ""];
+          const U = /(\d*)(\D*)(.*)/.exec(wb) || ['', '', '', ''],
+            V = /(\d*)(\D*)(.*)/.exec(xb) || ['', '', '', ''];
           if (0 == U[0].length && 0 == V[0].length) break;
           S =
             A(
@@ -788,7 +788,7 @@ limitations under the License.
           xb = V[3];
         } while (0 == S);
       }
-      sb = Ua["9"] = 0 <= S;
+      sb = Ua['9'] = 0 <= S;
     }
     rb = !sb;
   }
@@ -797,14 +797,14 @@ limitations under the License.
       if (!q.addEventListener || !Object.defineProperty) return !1;
       let a = !1;
 
-      const b = Object.defineProperty({}, "passive", {
+      const b = Object.defineProperty({}, 'passive', {
         get() {
           a = !0;
         },
       });
 
-      q.addEventListener("test", t, b);
-      q.removeEventListener("test", t, b);
+      q.addEventListener('test', t, b);
+      q.removeEventListener('test', t, b);
       return a;
     })();
 
@@ -819,7 +819,7 @@ limitations under the License.
 
   class W {
     constructor(a, b) {
-      Ab.call(this, a ? a.type : "");
+      Ab.call(this, a ? a.type : '');
       this.relatedTarget = this.a = this.target = null;
       this.button =
         this.screenY =
@@ -827,10 +827,10 @@ limitations under the License.
         this.clientY =
         this.clientX =
           0;
-      this.key = "";
+      this.key = '';
       this.metaKey = this.shiftKey = this.altKey = this.ctrlKey = !1;
       this.pointerId = 0;
-      this.pointerType = "";
+      this.pointerType = '';
       this.b = null;
       if (a) {
         const c = (this.type = a.type),
@@ -850,9 +850,9 @@ limitations under the License.
             e || (b = null);
           }
         } else
-          "mouseover" == c
+          'mouseover' == c
             ? (b = a.fromElement)
-            : "mouseout" == c && (b = a.toElement);
+            : 'mouseout' == c && (b = a.toElement);
         this.relatedTarget = b;
         null === d
           ? ((this.clientX = void 0 !== a.clientX ? a.clientX : a.pageX),
@@ -864,7 +864,7 @@ limitations under the License.
             (this.screenX = d.screenX || 0),
             (this.screenY = d.screenY || 0));
         this.button = a.button;
-        this.key = a.key || "";
+        this.key = a.key || '';
         this.ctrlKey = a.ctrlKey;
         this.altKey = a.altKey;
         this.shiftKey = a.shiftKey;
@@ -872,7 +872,7 @@ limitations under the License.
         this.pointerId = a.pointerId || 0;
         this.pointerType = r(a.pointerType)
           ? a.pointerType
-          : Bb[a.pointerType] || "";
+          : Bb[a.pointerType] || '';
         this.b = a;
         a.defaultPrevented && this.preventDefault();
       }
@@ -891,8 +891,8 @@ limitations under the License.
   }
 
   x(W, Ab);
-  var Bb = { 2: "touch", 3: "pen", 4: "mouse" };
-  const Cb = "closure_listenable_" + ((1e6 * Math.random()) | 0);
+  var Bb = { 2: 'touch', 3: 'pen', 4: 'mouse' };
+  const Cb = 'closure_listenable_' + ((1e6 * Math.random()) | 0);
   let Db = 0;
   function Eb(a, b, c, d, e) {
     this.listener = a;
@@ -948,12 +948,12 @@ limitations under the License.
       f && (Fb(b), 0 == a.a[c].length && (delete a.a[c], a.b--));
     }
   }
-  const Ib = "closure_lm_" + ((1e6 * Math.random()) | 0);
+  const Ib = 'closure_lm_' + ((1e6 * Math.random()) | 0);
   const Jb = {};
   let Kb = 0;
   function Lb(a, b, c, d, e) {
     if (d && d.once) return Mb(a, b, c, d, e);
-    if ("array" == u(b)) {
+    if ('array' == u(b)) {
       for (let f = 0; f < b.length; f++) Lb(a, b[f], c, d, e);
       return null;
     }
@@ -963,7 +963,7 @@ limitations under the License.
       : Ob(a, b, c, !1, d, e);
   }
   function Ob(a, b, c, d, e, f) {
-    if (!b) throw Error("Invalid event type");
+    if (!b) throw Error('Invalid event type');
     const g = v(e) ? !!e.capture : !!e;
     let l = Pb(a);
     l || (a[Ib] = l = new Gb(a));
@@ -979,7 +979,7 @@ limitations under the License.
         a.addEventListener(b.toString(), d, e);
     else if (a.attachEvent) a.attachEvent(Rb(b.toString()), d);
     else if (a.addListener && a.removeListener) a.addListener(d);
-    else throw Error("addEventListener and attachEvent are unavailable.");
+    else throw Error('addEventListener and attachEvent are unavailable.');
     Kb++;
     return c;
   }
@@ -996,7 +996,7 @@ limitations under the License.
     return b;
   }
   function Mb(a, b, c, d, e) {
-    if ("array" == u(b)) {
+    if ('array' == u(b)) {
       for (let f = 0; f < b.length; f++) Mb(a, b[f], c, d, e);
       return null;
     }
@@ -1006,7 +1006,7 @@ limitations under the License.
       : Ob(a, b, c, !0, d, e);
   }
   function Ub(a) {
-    if ("number" != typeof a && a && !a.o) {
+    if ('number' != typeof a && a && !a.o) {
       const b = a.src;
       if (b && b[Cb]) Hb(b.a, a);
       else {
@@ -1025,7 +1025,7 @@ limitations under the License.
     }
   }
   function Rb(a) {
-    return a in Jb ? Jb[a] : (Jb[a] = "on" + a);
+    return a in Jb ? Jb[a] : (Jb[a] = 'on' + a);
   }
   function Vb(a, b, c, d) {
     let e = !0;
@@ -1048,7 +1048,7 @@ limitations under the License.
     if (!qb) {
       if (!b)
         a: {
-          b = ["window", "event"];
+          b = ['window', 'event'];
           for (var c = q, d = 0; d < b.length; d++)
             if (((c = c[b[d]]), null == c)) {
               b = null;
@@ -1090,9 +1090,9 @@ limitations under the License.
     a = a[Ib];
     return a instanceof Gb ? a : null;
   }
-  const Xb = "__closure_events_fn_" + ((1e9 * Math.random()) >>> 0);
+  const Xb = '__closure_events_fn_' + ((1e9 * Math.random()) >>> 0);
   function Nb(a) {
-    if ("function" == u(a)) return a;
+    if ('function' == u(a)) return a;
     a[Xb] ||
       (a[Xb] = (b) => {
         return a.handleEvent(b);
@@ -1100,9 +1100,9 @@ limitations under the License.
     return a[Xb];
   }
   function Yb(a, b) {
-    if ("function" != u(a))
-      if (a && "function" == typeof a.handleEvent) a = w(a.handleEvent, a);
-      else throw Error("Invalid listener argument");
+    if ('function' != u(a))
+      if (a && 'function' == typeof a.handleEvent) a = w(a.handleEvent, a);
+      else throw Error('Invalid listener argument');
     return 2147483647 < Number(b) ? -1 : q.setTimeout(a, b || 0);
   }
 
@@ -1138,14 +1138,14 @@ limitations under the License.
     }
 
     handleEvent() {
-      throw Error("EventHandler.handleEvent not implemented");
+      throw Error('EventHandler.handleEvent not implemented');
     }
   }
 
   x(Zb, R);
   const $b = [];
   function Y(a, b, c, d) {
-    "array" != u(c) && (c && ($b[0] = c.toString()), (c = $b));
+    'array' != u(c) && (c && ($b[0] = c.toString()), (c = $b));
     for (let e = 0; e < c.length; e++) {
       const f = Lb(b, c[e], d || a.handleEvent, !1, a.b || a);
       if (!f) break;
@@ -1176,10 +1176,10 @@ limitations under the License.
       a.L = new X(() => {
         const b = a.f.value.trim();
         a.l &&
-          ("" === b
-            ? a.l.setAttribute("hide", "")
-            : a.l.removeAttribute("hide"));
-        a.g && a.g.setAttribute("filter", b);
+          ('' === b
+            ? a.l.setAttribute('hide', '')
+            : a.l.removeAttribute('hide'));
+        a.g && a.g.setAttribute('filter', b);
       }, 20);
       return a;
     }
@@ -1188,7 +1188,7 @@ limitations under the License.
       this.C || bc(this);
       cc(this);
       window.requestAnimationFrame(() => {
-        document.body.removeAttribute("unresolved");
+        document.body.removeAttribute('unresolved');
       });
     }
 
@@ -1202,29 +1202,29 @@ limitations under the License.
   Z.prototype.disconnectedCallback = Z.prototype.disconnectedCallback;
   function cc(a) {
     if (a.w) {
-      const b = a.w.querySelector("#sort-by-tabs");
+      const b = a.w.querySelector('#sort-by-tabs');
       b &&
-        Y(a.m, b, "click", (b) => {
+        Y(a.m, b, 'click', (b) => {
           b.preventDefault();
           b = b.target;
-          let c = b.getAttribute("sort");
-          a.g && a.g.setAttribute("sort", c);
-          (c = a.querySelector("[selected]")) && c.removeAttribute("selected");
-          b.setAttribute("selected", "");
+          let c = b.getAttribute('sort');
+          a.g && a.g.setAttribute('sort', c);
+          (c = a.querySelector('[selected]')) && c.removeAttribute('selected');
+          b.setAttribute('selected', '');
         });
     }
     a.f &&
-      Y(a.m, a.f, "keyup", () => {
+      Y(a.m, a.f, 'keyup', () => {
         return dc(a);
       });
     a.l &&
-      Y(a.m, a.l, "click", () => {
-        a.f && (a.f.value = "");
+      Y(a.m, a.l, 'click', () => {
+        a.f && (a.f.value = '');
         dc(a);
       });
     a.h &&
-      Y(a.m, a.h, "change", () => {
-        a.g && a.h && a.g.setAttribute("category", a.h.value);
+      Y(a.m, a.h, 'change', () => {
+        a.g && a.h && a.g.setAttribute('category', a.h.value);
       });
   }
   function dc(a) {
@@ -1233,59 +1233,59 @@ limitations under the License.
     });
   }
   function bc(a) {
-    let b = a.querySelector("main .main-inner");
+    let b = a.querySelector('main .main-inner');
     if (b) {
-      a.f = document.querySelector("#search-field");
-      a.l = document.querySelector("#clear-icon");
-      const c = a.querySelector("main ul");
-      let d = document.createElement("google-codelab-index-cards");
+      a.f = document.querySelector('#search-field');
+      a.l = document.querySelector('#clear-icon');
+      const c = a.querySelector('main ul');
+      let d = document.createElement('google-codelab-index-cards');
       let e = new URL(document.location.toString());
-      e.searchParams.has("tags") &&
-        d.setAttribute("tags", e.searchParams.getAll("tags").join(","));
-      let f = "";
-      if (e.searchParams.has("cat")) {
-        var g = e.searchParams.getAll("cat");
+      e.searchParams.has('tags') &&
+        d.setAttribute('tags', e.searchParams.getAll('tags').join(','));
+      let f = '';
+      if (e.searchParams.has('cat')) {
+        var g = e.searchParams.getAll('cat');
         f = g[0].trim().toLowerCase();
-        d.setAttribute("category", g.join(","));
+        d.setAttribute('category', g.join(','));
       }
-      g = "alpha";
-      e.searchParams.has("sort") &&
-        ((g = e.searchParams.get("sort")), d.setAttribute("sort", g));
+      g = 'alpha';
+      e.searchParams.has('sort') &&
+        ((g = e.searchParams.get('sort')), d.setAttribute('sort', g));
       c
-        ? ([].concat(p(c.querySelectorAll("a"))).forEach((a) => {
+        ? ([].concat(p(c.querySelectorAll('a'))).forEach((a) => {
             d.addCard(a);
           }),
           c && c.parentNode && c.parentNode.removeChild(c),
           b.appendChild(d))
-        : (d = b.querySelector("google-codelab-index-cards"));
+        : (d = b.querySelector('google-codelab-index-cards'));
       if (d) {
         const l = new Set();
-        [].concat(p(d.querySelectorAll(".card"))).forEach((a) => {
-          (a = a.getAttribute("category")) &&
-            a.split(",").forEach((a) => {
+        [].concat(p(d.querySelectorAll('.card'))).forEach((a) => {
+          (a = a.getAttribute('category')) &&
+            a.split(',').forEach((a) => {
               l.add(a.trim());
             });
         });
         b = gb(cb, { H: Array.from(l).sort(), N: f, sort: g });
-        b.setAttribute("id", "sort-by");
+        b.setAttribute('id', 'sort-by');
         d.parentNode && d.parentNode.insertBefore(b, d);
         a.w = b;
         a.g = d;
-        a.h = a.w.querySelector("#codelab-categories");
+        a.h = a.w.querySelector('#codelab-categories');
         f &&
           a.h &&
           [].concat(p(a.h.options)).forEach((a) => {
             a.value.toLowerCase() === f && (a.selected = !0);
           });
       }
-      e.searchParams.has("filter") &&
-        ((e = e.searchParams.get("filter")), a.f && ((a.f.value = e), dc(a)));
+      e.searchParams.has('filter') &&
+        ((e = e.searchParams.get('filter')), a.f && ((a.f.value = e), dc(a)));
       a.C = !0;
     }
   }
   try {
-    window.customElements.define("google-codelab-index", Z);
+    window.customElements.define('google-codelab-index', Z);
   } catch (a) {
-    console.warn("googlecodelabs.CodelabIndex", a);
+    console.warn('googlecodelabs.CodelabIndex', a);
   }
 }.call(this));

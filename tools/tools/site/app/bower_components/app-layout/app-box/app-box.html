@@ -139,7 +139,7 @@ Mixin | Description | Default
 
   <script>
     Polymer({
-      is: "app-box",
+      is: 'app-box',
 
       behaviors: [
         Polymer.AppScrollEffectsBehavior,
@@ -147,7 +147,7 @@ Mixin | Description | Default
       ],
 
       listeners: {
-        "iron-resize": "_resizeHandler",
+        'iron-resize': '_resizeHandler',
       },
 
       /**
@@ -168,7 +168,7 @@ Mixin | Description | Default
        */
       resetLayout: function () {
         this.debounce(
-          "_resetLayout",
+          '_resetLayout',
           function () {
             // noop if the box isn't in the rendered tree
             if (this.offsetWidth === 0 && this.offsetHeight === 0) {
@@ -231,10 +231,10 @@ Mixin | Description | Default
       },
 
       _getDOMRef: function (id) {
-        if (id === "background") {
+        if (id === 'background') {
           return this.$.background;
         }
-        if (id === "backgroundFrontLayer") {
+        if (id === 'backgroundFrontLayer') {
           return this.$.backgroundFrontLayer;
         }
       },

@@ -234,11 +234,11 @@ This element is `display:block` by default, but you can set the `inline` attribu
         @apply (--paper-input-container-label-floating);
       }
 
-      :host-context([dir="rtl"])
+      :host-context([dir='rtl'])
         .input-content.label-is-floating
         ::content
         label,
-      :host-context([dir="rtl"])
+      :host-context([dir='rtl'])
         .input-content.label-is-floating
         ::content
         .paper-input-label {
@@ -358,7 +358,7 @@ This element is `display:block` by default, but you can set the `inline` attribu
 
 <script>
   Polymer({
-    is: "paper-input-container",
+    is: 'paper-input-container',
 
     properties: {
       /**
@@ -383,7 +383,7 @@ This element is `display:block` by default, but you can set the `inline` attribu
        */
       attrForValue: {
         type: String,
-        value: "bind-value",
+        value: 'bind-value',
       },
 
       /**
@@ -399,7 +399,7 @@ This element is `display:block` by default, but you can set the `inline` attribu
        * changes if auto-validating, or when the `iron-input-validate` event is heard from a child.
        */
       invalid: {
-        observer: "_invalidChanged",
+        observer: '_invalidChanged',
         type: Boolean,
         value: false,
       },
@@ -428,7 +428,7 @@ This element is `display:block` by default, but you can set the `inline` attribu
 
       _inputSelector: {
         type: String,
-        value: "input,textarea,.paper-input-input",
+        value: 'input,textarea,.paper-input-input',
       },
 
       _boundOnFocus: {
@@ -461,12 +461,12 @@ This element is `display:block` by default, but you can set the `inline` attribu
     },
 
     listeners: {
-      "addon-attached": "_onAddonAttached",
-      "iron-input-validate": "_onIronInputValidate",
+      'addon-attached': '_onAddonAttached',
+      'iron-input-validate': '_onIronInputValidate',
     },
 
     get _valueChangedEvent() {
-      return this.attrForValue + "-changed";
+      return this.attrForValue + '-changed';
     },
 
     get _propertyForValue() {
@@ -487,8 +487,8 @@ This element is `display:block` by default, but you can set the `inline` attribu
       if (!this._addons) {
         this._addons = [];
       }
-      this.addEventListener("focus", this._boundOnFocus, true);
-      this.addEventListener("blur", this._boundOnBlur, true);
+      this.addEventListener('focus', this._boundOnFocus, true);
+      this.addEventListener('blur', this._boundOnBlur, true);
     },
 
     attached: function () {
@@ -498,11 +498,11 @@ This element is `display:block` by default, but you can set the `inline` attribu
           this._boundValueChanged
         );
       } else {
-        this.addEventListener("input", this._onInput);
+        this.addEventListener('input', this._onInput);
       }
 
       // Only validate when attached if the input already has a value.
-      if (this._inputElementValue != "") {
+      if (this._inputElementValue != '') {
         this._handleValueAndAutoValidate(this._inputElement);
       } else {
         this._handleValue(this._inputElement);
@@ -546,7 +546,7 @@ This element is `display:block` by default, but you can set the `inline` attribu
       if (
         value ||
         value === 0 ||
-        (inputElement.type === "number" && !inputElement.checkValidity())
+        (inputElement.type === 'number' && !inputElement.checkValidity())
       ) {
         this._inputHasContent = true;
       } else {
@@ -602,51 +602,51 @@ This element is `display:block` by default, but you can set the `inline` attribu
       invalid,
       _inputHasContent
     ) {
-      var cls = "input-content";
+      var cls = 'input-content';
       if (!noLabelFloat) {
-        var label = this.querySelector("label");
+        var label = this.querySelector('label');
 
         if (alwaysFloatLabel || _inputHasContent) {
-          cls += " label-is-floating";
+          cls += ' label-is-floating';
           // If the label is floating, ignore any offsets that may have been
           // applied from a prefix element.
-          this.$.labelAndInputContainer.style.position = "static";
+          this.$.labelAndInputContainer.style.position = 'static';
 
           if (invalid) {
-            cls += " is-invalid";
+            cls += ' is-invalid';
           } else if (focused) {
-            cls += " label-is-highlighted";
+            cls += ' label-is-highlighted';
           }
         } else {
           // When the label is not floating, it should overlap the input element.
           if (label) {
-            this.$.labelAndInputContainer.style.position = "relative";
+            this.$.labelAndInputContainer.style.position = 'relative';
           }
         }
       } else {
         if (_inputHasContent) {
-          cls += " label-is-hidden";
+          cls += ' label-is-hidden';
         }
       }
       return cls;
     },
 
     _computeUnderlineClass: function (focused, invalid) {
-      var cls = "underline";
+      var cls = 'underline';
       if (invalid) {
-        cls += " is-invalid";
+        cls += ' is-invalid';
       } else if (focused) {
-        cls += " is-highlighted";
+        cls += ' is-highlighted';
       }
       return cls;
     },
 
     _computeAddOnContentClass: function (focused, invalid) {
-      var cls = "add-on-content";
+      var cls = 'add-on-content';
       if (invalid) {
-        cls += " is-invalid";
+        cls += ' is-invalid';
       } else if (focused) {
-        cls += " is-highlighted";
+        cls += ' is-highlighted';
       }
       return cls;
     },

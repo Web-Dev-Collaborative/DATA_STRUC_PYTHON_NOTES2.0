@@ -33,14 +33,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               }
             }
           }
-          rule.cssText = rule.cssText.replace(self.rx.EXTEND, "");
+          rule.cssText = rule.cssText.replace(self.rx.EXTEND, '');
         });
         // strip unused % selectors
         return styleUtil.toCssText(
           rules,
           function (rule) {
             if (rule.selector.match(self.rx.STRIP)) {
-              rule.cssText = "";
+              rule.cssText = '';
             }
           },
           true
@@ -50,7 +50,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _mapRuleOntoParent: function (rule) {
         if (rule.parent) {
           var map = rule.parent.map || (rule.parent.map = {});
-          var parts = rule.selector.split(",");
+          var parts = rule.selector.split(',');
           for (var i = 0, p; i < parts.length; i++) {
             p = parts[i];
             map[p.trim()] = rule;
@@ -74,9 +74,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         target.extends.push(source);
         // TODO: this misses `%foo, .bar` as an unetended selector but
         // this seems rare and could possibly be unsupported.
-        source.selector = source.selector.replace(this.rx.STRIP, "");
+        source.selector = source.selector.replace(this.rx.STRIP, '');
         source.selector =
-          (source.selector && source.selector + ",\n") + target.selector;
+          (source.selector && source.selector + ',\n') + target.selector;
         if (source.extends) {
           source.extends.forEach(function (e) {
             this._extendRule(target, e);

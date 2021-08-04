@@ -33,33 +33,33 @@
  *
  * @author Nikhil Dabas
  */
-PR["registerLangHandler"](
-  PR["createSimpleLexer"](
+PR['registerLangHandler'](
+  PR['createSimpleLexer'](
     [
       // Whitespace
-      [PR["PR_PLAIN"], /^[\t\n\r \xA0]+/, null, "\t\n\r \xA0"],
+      [PR['PR_PLAIN'], /^[\t\n\r \xA0]+/, null, '\t\n\r \xA0'],
       // A double quoted, possibly multi-line, string.
-      [PR["PR_STRING"], /^!?\"(?:[^\"\\]|\\[\s\S])*(?:\"|$)/, null, '"'],
+      [PR['PR_STRING'], /^!?\"(?:[^\"\\]|\\[\s\S])*(?:\"|$)/, null, '"'],
       // comment.llvm
-      [PR["PR_COMMENT"], /^;[^\r\n]*/, null, ";"],
+      [PR['PR_COMMENT'], /^;[^\r\n]*/, null, ';'],
     ],
     [
       // variable.llvm
-      [PR["PR_PLAIN"], /^[%@!](?:[-a-zA-Z$._][-a-zA-Z$._0-9]*|\d+)/],
+      [PR['PR_PLAIN'], /^[%@!](?:[-a-zA-Z$._][-a-zA-Z$._0-9]*|\d+)/],
 
       // According to http://llvm.org/docs/LangRef.html#well-formedness
       // These reserved words cannot conflict with variable names, because none of them start with a prefix character ('%' or '@').
-      [PR["PR_KEYWORD"], /^[A-Za-z_][0-9A-Za-z_]*/, null],
+      [PR['PR_KEYWORD'], /^[A-Za-z_][0-9A-Za-z_]*/, null],
 
       // constant.numeric.float.llvm
-      [PR["PR_LITERAL"], /^\d+\.\d+/],
+      [PR['PR_LITERAL'], /^\d+\.\d+/],
 
       // constant.numeric.integer.llvm
-      [PR["PR_LITERAL"], /^(?:\d+|0[xX][a-fA-F0-9]+)/],
+      [PR['PR_LITERAL'], /^(?:\d+|0[xX][a-fA-F0-9]+)/],
 
       // punctuation
-      [PR["PR_PUNCTUATION"], /^[()\[\]{},=*<>:]|\.\.\.$/],
+      [PR['PR_PUNCTUATION'], /^[()\[\]{},=*<>:]|\.\.\.$/],
     ]
   ),
-  ["llvm", "ll"]
+  ['llvm', 'll']
 );

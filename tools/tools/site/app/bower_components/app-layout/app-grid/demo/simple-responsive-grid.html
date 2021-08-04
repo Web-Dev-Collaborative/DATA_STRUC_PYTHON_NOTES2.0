@@ -49,7 +49,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           h1 {
-            font-family: "Roboto", "Noto", sans-serif;
+            font-family: 'Roboto', 'Noto', sans-serif;
             text-align: center;
             font-size: 18px;
             line-height: 30px;
@@ -96,7 +96,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <script>
         HTMLImports.whenReady(function () {
           Polymer({
-            is: "x-app",
+            is: 'x-app',
 
             attached: function () {
               this._updateGridStyles =
@@ -104,11 +104,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 function () {
                   this.updateStyles();
                 }.bind(this);
-              window.addEventListener("resize", this._updateGridStyles);
+              window.addEventListener('resize', this._updateGridStyles);
             },
 
             detached: function () {
-              window.removeEventListener("resize", this._updateGridStyles);
+              window.removeEventListener('resize', this._updateGridStyles);
             },
           });
         });

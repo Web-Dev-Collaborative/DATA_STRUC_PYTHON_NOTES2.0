@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 
-def fn(self, name="world"):  # 先定义函数
+def fn(self, name="world"):  # 
     print("Hello, %s." % name)
 
 
-Hello = type("Hello", (object,), dict(hello=fn))  # 创建Hello class
+Hello = type("Hello", (object,), dict(hello=fn))  # Hello class
 
 h = Hello()
 print("call h.hello():")

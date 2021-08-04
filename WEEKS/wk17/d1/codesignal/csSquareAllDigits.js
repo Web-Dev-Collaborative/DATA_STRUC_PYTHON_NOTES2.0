@@ -14,7 +14,7 @@ csSquareAllDigits(2483) -> 416649 because 2^2 = 4, 4^2 = 16, 8^2 = 64, and 3^2 =
 
 */
 function csSquareAllDigits(n) {
-  return +Array.from(n.toString(), (num) => num * num).join("");
+  return +Array.from(n.toString(), (num) => num * num).join('');
 }
 
 // //------------------------Alternative Solution------------------------

@@ -10,6 +10,4 @@
 
 ## {{.Title}}
 
-{{if .Duration}}Duration: {{durationStr .Duration}}{{end}}
-{{.Content | renderMD $.Context}}
-{{end}}{{end}}
+{{if .Duration}}Duration: {{durationStr .Duration}}{{end}} {{.Content | renderMD $.Context}} {{end}}{{end}}

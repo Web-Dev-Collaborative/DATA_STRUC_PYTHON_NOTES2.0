@@ -20,14 +20,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-"use strict";
+'use strict';
 
 function encode(str) {
   return encodeURIComponent(str).replace(find, replacer);
 }
 
 function decode(str) {
-  return decodeURIComponent(str.replace(plus, " "));
+  return decodeURIComponent(str.replace(plus, ' '));
 }
 
 function URLSearchParams(query) {
@@ -36,14 +36,14 @@ function URLSearchParams(query) {
   for (
     let index,
       value,
-      pairs = (query || "").split("&"),
+      pairs = (query || '').split('&'),
       i = 0,
       length = pairs.length;
     i < length;
     i++
   ) {
     value = pairs[i];
-    index = value.indexOf("=");
+    index = value.indexOf('=');
     if (-1 < index) {
       this.append(
         decode(value.slice(0, index)),
@@ -58,13 +58,13 @@ var find = /[!'\(\)~]|%20|%00/g;
 var plus = /\+/g;
 
 const replace = {
-  "!": "%21",
-  "'": "%27",
-  "(": "%28",
-  ")": "%29",
-  "~": "%7E",
-  "%20": "+",
-  "%00": "\x00",
+  '!': '%21',
+  "'": '%27',
+  '(': '%28',
+  ')': '%29',
+  '~': '%7E',
+  '%20': '+',
+  '%00': '\x00',
 };
 
 var replacer = (match) => {
@@ -72,7 +72,7 @@ var replacer = (match) => {
 };
 
 const iterable = isIterable();
-var secret = "__URLSearchParams__:" + Math.random();
+var secret = '__URLSearchParams__:' + Math.random();
 function isIterable() {
   try {
     return !!Symbol.iterator;
@@ -84,9 +84,9 @@ function isIterable() {
 URLSearchParamsProto.append = function append(name, value) {
   const dict = this[secret];
   if (name in dict) {
-    dict[name].push("" + value);
+    dict[name].push('' + value);
   } else {
-    dict[name] = ["" + value];
+    dict[name] = ['' + value];
   }
 };
 
@@ -109,7 +109,7 @@ URLSearchParamsProto.has = function has(name) {
 };
 
 URLSearchParamsProto.set = function set(name, value) {
-  this[secret][name] = ["" + value];
+  this[secret][name] = ['' + value];
 };
 
 URLSearchParamsProto.forEach = function forEach(callback, thisArg) {
@@ -211,10 +211,10 @@ URLSearchParamsProto.toString = function toString() {
   for (key in dict) {
     name = encode(key);
     for (i = 0, value = dict[key]; i < value.length; i++) {
-      query.push(name + "=" + encode(value[i]));
+      query.push(name + '=' + encode(value[i]));
     }
   }
-  return query.join("&");
+  return query.join('&');
 };
 
 module.exports = global.URLSearchParams || URLSearchParams;

@@ -55,10 +55,10 @@ Custom property | Description | Default
 
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     Polymer({
-      is: "iron-overlay-backdrop",
+      is: 'iron-overlay-backdrop',
 
       properties: {
         /**
@@ -68,12 +68,12 @@ Custom property | Description | Default
           reflectToAttribute: true,
           type: Boolean,
           value: false,
-          observer: "_openedChanged",
+          observer: '_openedChanged',
         },
       },
 
       listeners: {
-        transitionend: "_onTransitionend",
+        transitionend: '_onTransitionend',
       },
 
       created: function () {
@@ -135,7 +135,7 @@ Custom property | Description | Default
           // Animation might be disabled via the mixin or opacity custom property.
           // If it is disabled in other ways, it's up to the user to call complete.
           var cs = window.getComputedStyle(this);
-          if (cs.transitionDuration === "0s" || cs.opacity == 0) {
+          if (cs.transitionDuration === '0s' || cs.opacity == 0) {
             this.complete();
           }
         }
@@ -154,7 +154,7 @@ Custom property | Description | Default
         this.__openedRaf = window.requestAnimationFrame(
           function () {
             this.__openedRaf = null;
-            this.toggleClass("opened", this.opened);
+            this.toggleClass('opened', this.opened);
           }.bind(this)
         );
       },

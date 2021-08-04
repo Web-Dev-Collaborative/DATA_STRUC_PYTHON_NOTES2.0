@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-goog.require("claat.ui.cards.Sorter");
+goog.require('claat.ui.cards.Sorter');
 
-window["CardSorter"] = claat.ui.cards.Sorter;
+window['CardSorter'] = claat.ui.cards.Sorter;
 
 /** @export */
 claat.ui.cards.Sorter.prototype.sort;

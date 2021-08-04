@@ -181,13 +181,13 @@ Custom property | Description | Default
       /*
        * mode: scroll
        */
-      :host([mode="scroll"]) #mainContainer {
+      :host([mode='scroll']) #mainContainer {
         @apply (--paper-header-panel-scroll-container);
 
         overflow: visible;
       }
 
-      :host([mode="scroll"]) {
+      :host([mode='scroll']) {
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
@@ -196,7 +196,7 @@ Custom property | Description | Default
       /*
        * mode: cover
        */
-      :host([mode="cover"]) #mainContainer {
+      :host([mode='cover']) #mainContainer {
         @apply (--paper-header-panel-cover-container);
 
         position: absolute;
@@ -206,35 +206,35 @@ Custom property | Description | Default
         left: 0;
       }
 
-      :host([mode="cover"]) #mainPanel {
+      :host([mode='cover']) #mainPanel {
         position: static;
       }
 
       /*
        * mode: standard
        */
-      :host([mode="standard"]) #mainContainer {
+      :host([mode='standard']) #mainContainer {
         @apply (--paper-header-panel-standard-container);
       }
 
       /*
        * mode: seamed
        */
-      :host([mode="seamed"]) #mainContainer {
+      :host([mode='seamed']) #mainContainer {
         @apply (--paper-header-panel-seamed-container);
       }
 
       /*
        * mode: waterfall
        */
-      :host([mode="waterfall"]) #mainContainer {
+      :host([mode='waterfall']) #mainContainer {
         @apply (--paper-header-panel-waterfall-container);
       }
 
       /*
        * mode: waterfall-tall
        */
-      :host([mode="waterfall-tall"]) #mainContainer {
+      :host([mode='waterfall-tall']) #mainContainer {
         @apply (--paper-header-panel-waterfall-tall-container);
       }
 
@@ -270,7 +270,7 @@ Custom property | Description | Default
 
   <script>
     (function () {
-      "use strict";
+      'use strict';
 
       var SHADOW_WHEN_SCROLLING = 1;
       var SHADOW_ALWAYS = 2;
@@ -282,16 +282,16 @@ Custom property | Description | Default
         shadowMode: {
           standard: SHADOW_ALWAYS,
           waterfall: SHADOW_WHEN_SCROLLING,
-          "waterfall-tall": SHADOW_WHEN_SCROLLING,
+          'waterfall-tall': SHADOW_WHEN_SCROLLING,
         },
 
         tallMode: {
-          "waterfall-tall": true,
+          'waterfall-tall': true,
         },
       };
 
       Polymer({
-        is: "paper-header-panel",
+        is: 'paper-header-panel',
 
         /**
          * Fired when the content has been scrolled.  `event.detail.target` returns
@@ -345,8 +345,8 @@ Custom property | Description | Default
            */
           mode: {
             type: String,
-            value: "standard",
-            observer: "_modeChanged",
+            value: 'standard',
+            observer: '_modeChanged',
             reflectToAttribute: true,
           },
 
@@ -364,7 +364,7 @@ Custom property | Description | Default
            */
           tallClass: {
             type: String,
-            value: "tall",
+            value: 'tall',
           },
 
           /**
@@ -379,7 +379,7 @@ Custom property | Description | Default
           },
         },
 
-        observers: ["_computeDropShadowHidden(atTop, mode, shadow)"],
+        observers: ['_computeDropShadowHidden(atTop, mode, shadow)'],
 
         ready: function () {
           this.scrollHandler = this._scroll.bind(this);
@@ -422,20 +422,20 @@ Custom property | Description | Default
          * @type Boolean
          */
         get visibleShadow() {
-          return this.$.dropShadow.classList.contains("has-shadow");
+          return this.$.dropShadow.classList.contains('has-shadow');
         },
 
         _computeDropShadowHidden: function (atTop, mode, shadow) {
           var shadowMode = MODE_CONFIGS.shadowMode[mode];
 
           if (this.shadow) {
-            this.toggleClass("has-shadow", true, this.$.dropShadow);
+            this.toggleClass('has-shadow', true, this.$.dropShadow);
           } else if (shadowMode === SHADOW_ALWAYS) {
-            this.toggleClass("has-shadow", true, this.$.dropShadow);
+            this.toggleClass('has-shadow', true, this.$.dropShadow);
           } else if (shadowMode === SHADOW_WHEN_SCROLLING && !atTop) {
-            this.toggleClass("has-shadow", true, this.$.dropShadow);
+            this.toggleClass('has-shadow', true, this.$.dropShadow);
           } else {
-            this.toggleClass("has-shadow", false, this.$.dropShadow);
+            this.toggleClass('has-shadow', false, this.$.dropShadow);
           }
         },
 
@@ -445,21 +445,21 @@ Custom property | Description | Default
 
           var classes = {};
 
-          classes["flex"] = mode !== "cover";
+          classes['flex'] = mode !== 'cover';
 
           return Object.keys(classes)
             .filter(function (className) {
               return classes[className];
             })
-            .join(" ");
+            .join(' ');
         },
 
         _addListener: function () {
-          this.scroller.addEventListener("scroll", this.scrollHandler, false);
+          this.scroller.addEventListener('scroll', this.scrollHandler, false);
         },
 
         _removeListener: function () {
-          this.scroller.removeEventListener("scroll", this.scrollHandler);
+          this.scroller.removeEventListener('scroll', this.scrollHandler);
         },
 
         _modeChanged: function (newMode, oldMode) {
@@ -473,10 +473,10 @@ Custom property | Description | Default
             if (configs.tallMode[oldMode] && !configs.tallMode[newMode]) {
               header.classList.remove(this.tallClass);
               this.async(function () {
-                header.classList.remove("animate");
+                header.classList.remove('animate');
               }, animateDuration);
             } else {
-              this.toggleClass("animate", configs.tallMode[newMode], header);
+              this.toggleClass('animate', configs.tallMode[newMode], header);
             }
           }
           this._keepScrollingState();
@@ -502,7 +502,7 @@ Custom property | Description | Default
         _scroll: function () {
           this._keepScrollingState();
           this.fire(
-            "content-scroll",
+            'content-scroll',
             { target: this.scroller },
             { bubbles: false }
           );

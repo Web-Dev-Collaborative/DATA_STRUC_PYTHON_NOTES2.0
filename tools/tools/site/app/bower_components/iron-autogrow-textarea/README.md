@@ -17,9 +17,7 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/iron-autogrow
 
 ##&lt;iron-autogrow-textarea&gt;
 
-`iron-autogrow-textarea` is an element containing a textarea that grows in height as more
-lines of input are entered. Unless an explicit height or the `maxRows` property is set, it will
-never scroll.
+`iron-autogrow-textarea` is an element containing a textarea that grows in height as more lines of input are entered. Unless an explicit height or the `maxRows` property is set, it will never scroll.
 
 Example:
 
@@ -31,7 +29,7 @@ Example:
 
 The following custom properties and mixins are available for styling:
 
-| Custom property                        | Description                               | Default |
-| -------------------------------------- | ----------------------------------------- | ------- |
-| `--iron-autogrow-textarea`             | Mixin applied to the textarea             | `{}`    |
-| `--iron-autogrow-textarea-placeholder` | Mixin applied to the textarea placeholder | `{}`    |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--iron-autogrow-textarea` | Mixin applied to the textarea | `{}` |
+| `--iron-autogrow-textarea-placeholder` | Mixin applied to the textarea placeholder | `{}` |

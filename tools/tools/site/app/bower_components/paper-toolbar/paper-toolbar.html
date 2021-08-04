@@ -241,7 +241,7 @@ be used as the label of the toolbar via `aria-labelledby`.
         @apply (--paper-toolbar-title);
       }
 
-      .toolbar-tools > ::content paper-icon-button[icon="menu"] {
+      .toolbar-tools > ::content paper-icon-button[icon='menu'] {
         margin-right: 24px;
       }
 
@@ -303,10 +303,10 @@ be used as the label of the toolbar via `aria-labelledby`.
 
   <script>
     Polymer({
-      is: "paper-toolbar",
+      is: 'paper-toolbar',
 
       hostAttributes: {
-        role: "toolbar",
+        role: 'toolbar',
       },
 
       properties: {
@@ -317,7 +317,7 @@ be used as the label of the toolbar via `aria-labelledby`.
          */
         bottomJustify: {
           type: String,
-          value: "",
+          value: '',
         },
 
         /**
@@ -326,7 +326,7 @@ be used as the label of the toolbar via `aria-labelledby`.
          */
         justify: {
           type: String,
-          value: "",
+          value: '',
         },
 
         /**
@@ -336,7 +336,7 @@ be used as the label of the toolbar via `aria-labelledby`.
          */
         middleJustify: {
           type: String,
-          value: "",
+          value: '',
         },
       },
 
@@ -366,16 +366,16 @@ be used as the label of the toolbar via `aria-labelledby`.
 
       _updateAriaLabelledBy: function () {
         var labelledBy = [];
-        var contents = Polymer.dom(this.root).querySelectorAll("content");
+        var contents = Polymer.dom(this.root).querySelectorAll('content');
         for (var content, index = 0; (content = contents[index]); index++) {
           var nodes = Polymer.dom(content).getDistributedNodes();
           for (var node, jndex = 0; (node = nodes[jndex]); jndex++) {
-            if (node.classList && node.classList.contains("title")) {
+            if (node.classList && node.classList.contains('title')) {
               if (node.id) {
                 labelledBy.push(node.id);
               } else {
                 var id =
-                  "paper-toolbar-label-" + Math.floor(Math.random() * 10000);
+                  'paper-toolbar-label-' + Math.floor(Math.random() * 10000);
                 node.id = id;
                 labelledBy.push(id);
               }
@@ -383,14 +383,14 @@ be used as the label of the toolbar via `aria-labelledby`.
           }
         }
         if (labelledBy.length > 0) {
-          this.setAttribute("aria-labelledby", labelledBy.join(" "));
+          this.setAttribute('aria-labelledby', labelledBy.join(' '));
         }
       },
 
       _computeBarExtraClasses: function (barJustify) {
-        if (!barJustify) return "";
+        if (!barJustify) return '';
 
-        return barJustify + (barJustify === "justified" ? "" : "-justified");
+        return barJustify + (barJustify === 'justified' ? '' : '-justified');
       },
     });
   </script>

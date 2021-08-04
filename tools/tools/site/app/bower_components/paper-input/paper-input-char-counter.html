@@ -45,7 +45,7 @@ Custom property | Description | Default
         display: none !important;
       }
 
-      :host-context([dir="rtl"]) {
+      :host-context([dir='rtl']) {
         float: left;
       }
     </style>
@@ -56,14 +56,14 @@ Custom property | Description | Default
 
 <script>
   Polymer({
-    is: "paper-input-char-counter",
+    is: 'paper-input-char-counter',
 
     behaviors: [Polymer.PaperInputAddonBehavior],
 
     properties: {
       _charCounterStr: {
         type: String,
-        value: "0",
+        value: '0',
       },
     },
 
@@ -83,12 +83,12 @@ Custom property | Description | Default
         return;
       }
 
-      state.value = state.value || "";
+      state.value = state.value || '';
 
       var counter = state.value.toString().length.toString();
 
-      if (state.inputElement.hasAttribute("maxlength")) {
-        counter += "/" + state.inputElement.getAttribute("maxlength");
+      if (state.inputElement.hasAttribute('maxlength')) {
+        counter += '/' + state.inputElement.getAttribute('maxlength');
       }
 
       this._charCounterStr = counter;

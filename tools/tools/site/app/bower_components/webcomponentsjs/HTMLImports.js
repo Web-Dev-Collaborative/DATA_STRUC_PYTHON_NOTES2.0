@@ -8,14 +8,14 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 // @version 0.7.24
-if (typeof WeakMap === "undefined") {
+if (typeof WeakMap === 'undefined') {
   (() => {
     const defineProperty = Object.defineProperty;
     let counter = Date.now() % 1e9;
 
     class WeakMap {
       constructor() {
-        this.name = "__st" + ((Math.random() * 1e9) >>> 0) + (counter++ + "__");
+        this.name = '__st' + ((Math.random() * 1e9) >>> 0) + (counter++ + '__');
       }
 
       set(key, value) {
@@ -67,7 +67,7 @@ if (typeof WeakMap === "undefined") {
   } else {
     let setImmediateQueue = [];
     const sentinel = String(Math.random());
-    window.addEventListener("message", (e) => {
+    window.addEventListener('message', (e) => {
       if (e.data === sentinel) {
         const queue = setImmediateQueue;
         setImmediateQueue = [];
@@ -78,7 +78,7 @@ if (typeof WeakMap === "undefined") {
     });
     setImmediate = (func) => {
       setImmediateQueue.push(func);
-      window.postMessage(sentinel, "*");
+      window.postMessage(sentinel, '*');
     };
   }
   let isScheduled = false;
@@ -278,13 +278,13 @@ if (typeof WeakMap === "undefined") {
     addListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.addEventListener("DOMAttrModified", this, true);
+        node.addEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.addEventListener("DOMCharacterDataModified", this, true);
+        node.addEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.addEventListener("DOMNodeInserted", this, true);
+        node.addEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.addEventListener("DOMNodeRemoved", this, true);
+        node.addEventListener('DOMNodeRemoved', this, true);
     }
 
     removeListeners() {
@@ -294,13 +294,13 @@ if (typeof WeakMap === "undefined") {
     removeListeners_(node) {
       const options = this.options;
       if (options.attributes)
-        node.removeEventListener("DOMAttrModified", this, true);
+        node.removeEventListener('DOMAttrModified', this, true);
       if (options.characterData)
-        node.removeEventListener("DOMCharacterDataModified", this, true);
+        node.removeEventListener('DOMCharacterDataModified', this, true);
       if (options.childList)
-        node.removeEventListener("DOMNodeInserted", this, true);
+        node.removeEventListener('DOMNodeInserted', this, true);
       if (options.childList || options.subtree)
-        node.removeEventListener("DOMNodeRemoved", this, true);
+        node.removeEventListener('DOMNodeRemoved', this, true);
     }
 
     addTransientObserver(node) {
@@ -330,11 +330,11 @@ if (typeof WeakMap === "undefined") {
     handleEvent(e) {
       e.stopImmediatePropagation();
       switch (e.type) {
-        case "DOMAttrModified":
+        case 'DOMAttrModified':
           const name = e.attrName;
           const namespace = e.relatedNode.namespaceURI;
           var target = e.target;
-          var record = new getRecord("attributes", target);
+          var record = new getRecord('attributes', target);
           record.attributeName = name;
           record.attributeNamespace = namespace;
           var oldValue =
@@ -355,9 +355,9 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMCharacterDataModified":
+        case 'DOMCharacterDataModified':
           var target = e.target;
-          var record = getRecord("characterData", target);
+          var record = getRecord('characterData', target);
           var oldValue = e.prevValue;
           forEachAncestorAndObserverEnqueueRecord(target, (options) => {
             if (!options.characterData) return;
@@ -367,13 +367,13 @@ if (typeof WeakMap === "undefined") {
           });
           break;
 
-        case "DOMNodeRemoved":
+        case 'DOMNodeRemoved':
           this.addTransientObserver(e.target);
 
-        case "DOMNodeInserted":
+        case 'DOMNodeInserted':
           const changedNode = e.target;
           let addedNodes, removedNodes;
-          if (e.type === "DOMNodeInserted") {
+          if (e.type === 'DOMNodeInserted') {
             addedNodes = [changedNode];
             removedNodes = [];
           } else {
@@ -382,7 +382,7 @@ if (typeof WeakMap === "undefined") {
           }
           const previousSibling = changedNode.previousSibling;
           const nextSibling = changedNode.nextSibling;
-          var record = getRecord("childList", e.target.parentNode);
+          var record = getRecord('childList', e.target.parentNode);
           record.addedNodes = addedNodes;
           record.removedNodes = removedNodes;
           record.previousSibling = previousSibling;
@@ -404,7 +404,7 @@ if (typeof WeakMap === "undefined") {
 })(self);
 
 ((scope) => {
-  "use strict";
+  'use strict';
   if (!(window.performance && window.performance.now)) {
     const start = Date.now();
     window.performance = {
@@ -440,8 +440,8 @@ if (typeof WeakMap === "undefined") {
     })();
   }
   const workingDefaultPrevented = (() => {
-    const e = document.createEvent("Event");
-    e.initEvent("foo", true, true);
+    const e = document.createEvent('Event');
+    e.initEvent('foo', true, true);
     e.preventDefault();
     return e.defaultPrevented;
   })();
@@ -452,7 +452,7 @@ if (typeof WeakMap === "undefined") {
         return;
       }
       origPreventDefault.call(this);
-      Object.defineProperty(this, "defaultPrevented", {
+      Object.defineProperty(this, 'defaultPrevented', {
         get() {
           return true;
         },
@@ -463,11 +463,11 @@ if (typeof WeakMap === "undefined") {
   const isIE = /Trident/.test(navigator.userAgent);
   if (
     !window.CustomEvent ||
-    (isIE && typeof window.CustomEvent !== "function")
+    (isIE && typeof window.CustomEvent !== 'function')
   ) {
     window.CustomEvent = (inType, params) => {
       params = params || {};
-      const e = document.createEvent("CustomEvent");
+      const e = document.createEvent('CustomEvent');
       e.initCustomEvent(
         inType,
         Boolean(params.bubbles),
@@ -478,11 +478,11 @@ if (typeof WeakMap === "undefined") {
     };
     window.CustomEvent.prototype = window.Event.prototype;
   }
-  if (!window.Event || (isIE && typeof window.Event !== "function")) {
+  if (!window.Event || (isIE && typeof window.Event !== 'function')) {
     const origEvent = window.Event;
     window.Event = (inType, params) => {
       params = params || {};
-      const e = document.createEvent("Event");
+      const e = document.createEvent('Event');
       e.initEvent(inType, Boolean(params.bubbles), Boolean(params.cancelable));
       return e;
     };
@@ -495,8 +495,8 @@ window.HTMLImports = window.HTMLImports || {
 };
 
 ((scope) => {
-  const IMPORT_LINK_TYPE = "import";
-  const useNative = Boolean(IMPORT_LINK_TYPE in document.createElement("link"));
+  const IMPORT_LINK_TYPE = 'import';
+  const useNative = Boolean(IMPORT_LINK_TYPE in document.createElement('link'));
   const hasShadowDOMPolyfill = Boolean(window.ShadowDOMPolyfill);
   const wrap = (node) => {
     return hasShadowDOMPolyfill
@@ -509,17 +509,17 @@ window.HTMLImports = window.HTMLImports || {
       const script =
         window.HTMLImports.currentScript ||
         document.currentScript ||
-        (document.readyState !== "complete"
+        (document.readyState !== 'complete'
           ? document.scripts[document.scripts.length - 1]
           : null);
       return wrap(script);
     },
     configurable: true,
   };
-  Object.defineProperty(document, "_currentScript", currentScriptDescriptor);
+  Object.defineProperty(document, '_currentScript', currentScriptDescriptor);
   Object.defineProperty(
     rootDocument,
-    "_currentScript",
+    '_currentScript',
     currentScriptDescriptor
   );
   const isIE = /Trident/.test(navigator.userAgent);
@@ -529,18 +529,18 @@ window.HTMLImports = window.HTMLImports || {
       watchImportsLoad(callback, doc);
     }, doc);
   }
-  const requiredReadyState = isIE ? "complete" : "interactive";
-  const READY_EVENT = "readystatechange";
+  const requiredReadyState = isIE ? 'complete' : 'interactive';
+  const READY_EVENT = 'readystatechange';
   function isDocumentReady(doc) {
     return (
-      doc.readyState === "complete" || doc.readyState === requiredReadyState
+      doc.readyState === 'complete' || doc.readyState === requiredReadyState
     );
   }
   function whenDocumentReady(callback, doc) {
     if (!isDocumentReady(doc)) {
       const checkReady = () => {
         if (
-          doc.readyState === "complete" ||
+          doc.readyState === 'complete' ||
           doc.readyState === requiredReadyState
         ) {
           doc.removeEventListener(READY_EVENT, checkReady);
@@ -556,7 +556,7 @@ window.HTMLImports = window.HTMLImports || {
     event.target.__loaded = true;
   }
   function watchImportsLoad(callback, doc) {
-    const imports = doc.querySelectorAll("link[rel=import]");
+    const imports = doc.querySelectorAll('link[rel=import]');
     let parsedCount = 0;
     const importCount = imports.length;
     const newImports = [];
@@ -588,8 +588,8 @@ window.HTMLImports = window.HTMLImports || {
           parsedCount++;
           checkDone();
         } else {
-          imp.addEventListener("load", loadedImport);
-          imp.addEventListener("error", errorLoadingImport);
+          imp.addEventListener('load', loadedImport);
+          imp.addEventListener('error', errorLoadingImport);
         }
       }
     } else {
@@ -598,7 +598,7 @@ window.HTMLImports = window.HTMLImports || {
   }
   function isImportLoaded(link) {
     return useNative
-      ? link.__loaded || (link.import && link.import.readyState !== "loading")
+      ? link.__loaded || (link.import && link.import.readyState !== 'loading')
       : link.__importParsed;
   }
   if (useNative) {
@@ -619,7 +619,7 @@ window.HTMLImports = window.HTMLImports || {
       }
     }
     function isImport(element) {
-      return element.localName === "link" && element.rel === "import";
+      return element.localName === 'link' && element.rel === 'import';
     }
     function handleImport(element) {
       const loaded = element.import;
@@ -628,13 +628,13 @@ window.HTMLImports = window.HTMLImports || {
           target: element,
         });
       } else {
-        element.addEventListener("load", markTargetLoaded);
-        element.addEventListener("error", markTargetLoaded);
+        element.addEventListener('load', markTargetLoaded);
+        element.addEventListener('error', markTargetLoaded);
       }
     }
     (() => {
-      if (document.readyState === "loading") {
-        const imports = document.querySelectorAll("link[rel=import]");
+      if (document.readyState === 'loading') {
+        const imports = document.querySelectorAll('link[rel=import]');
         for (
           let i = 0, l = imports.length, imp;
           i < l && (imp = imports[i]);
@@ -648,8 +648,8 @@ window.HTMLImports = window.HTMLImports || {
   whenReady((detail) => {
     window.HTMLImports.ready = true;
     window.HTMLImports.readyTime = new Date().getTime();
-    const evt = rootDocument.createEvent("CustomEvent");
-    evt.initCustomEvent("HTMLImportsLoaded", true, true, detail);
+    const evt = rootDocument.createEvent('CustomEvent');
+    evt.initCustomEvent('HTMLImportsLoaded', true, true, detail);
     rootDocument.dispatchEvent(evt);
   });
   scope.IMPORT_LINK_TYPE = IMPORT_LINK_TYPE;
@@ -679,7 +679,7 @@ window.HTMLImports.addModule((scope) => {
   const path = {
     resolveUrlsInStyle(style, linkUrl) {
       const doc = style.ownerDocument;
-      const resolver = doc.createElement("a");
+      const resolver = doc.createElement('a');
       style.textContent = this.resolveUrlsInCssText(
         style.textContent,
         linkUrl,
@@ -694,7 +694,7 @@ window.HTMLImports.addModule((scope) => {
     },
     replaceUrls(text, urlObj, linkUrl, regexp) {
       return text.replace(regexp, (m, pre, url, post) => {
-        let urlPath = url.replace(/["']/g, "");
+        let urlPath = url.replace(/["']/g, '');
         if (linkUrl) {
           urlPath = new URL(urlPath, linkUrl).href;
         }
@@ -720,17 +720,17 @@ window.HTMLImports.addModule((scope) => {
     load(url, next, nextContext) {
       const request = new XMLHttpRequest();
       if (scope.flags.debug || scope.flags.bust) {
-        url += "?" + Math.random();
+        url += '?' + Math.random();
       }
-      request.open("GET", url, xhr.async);
-      request.addEventListener("readystatechange", (e) => {
+      request.open('GET', url, xhr.async);
+      request.addEventListener('readystatechange', (e) => {
         if (request.readyState === 4) {
           let redirectedUrl = null;
           try {
-            const locationHeader = request.getResponseHeader("Location");
+            const locationHeader = request.getResponseHeader('Location');
             if (locationHeader) {
               redirectedUrl =
-                locationHeader.substr(0, 1) === "/"
+                locationHeader.substr(0, 1) === '/'
                   ? location.origin + locationHeader
                   : locationHeader;
             }
@@ -749,7 +749,7 @@ window.HTMLImports.addModule((scope) => {
       return request;
     },
     loadDocument(url, next, nextContext) {
-      this.load(url, next, nextContext).responseType = "document";
+      this.load(url, next, nextContext).responseType = 'document';
     },
   };
   scope.xhr = xhr;
@@ -806,23 +806,23 @@ window.HTMLImports.addModule((scope) => {
     }
 
     fetch(url, elt) {
-      flags.load && console.log("fetch", url, elt);
+      flags.load && console.log('fetch', url, elt);
       if (!url) {
         setTimeout(() => {
           this.receive(
             url,
             elt,
             {
-              error: "href must be specified",
+              error: 'href must be specified',
             },
             null
           );
         }, 0);
       } else if (url.match(/^data:/)) {
-        const pieces = url.split(",");
+        const pieces = url.split(',');
         const header = pieces[0];
         let body = pieces[1];
-        if (header.indexOf(";base64") > -1) {
+        if (header.indexOf(';base64') > -1) {
           body = atob(body);
         } else {
           body = decodeURIComponent(body);
@@ -876,7 +876,7 @@ window.HTMLImports.addModule((scope) => {
         i < l && (m = mutations[i]);
         i++
       ) {
-        if (m.type === "childList" && m.addedNodes.length) {
+        if (m.type === 'childList' && m.addedNodes.length) {
           this.addedNodes(m.addedNodes);
         }
       }
@@ -914,21 +914,21 @@ window.HTMLImports.addModule((scope) => {
   const flags = scope.flags;
   const isIE = scope.isIE;
   const IMPORT_LINK_TYPE = scope.IMPORT_LINK_TYPE;
-  const IMPORT_SELECTOR = "link[rel=" + IMPORT_LINK_TYPE + "]";
+  const IMPORT_SELECTOR = 'link[rel=' + IMPORT_LINK_TYPE + ']';
   const importParser = {
     documentSelectors: IMPORT_SELECTOR,
     importsSelectors: [
       IMPORT_SELECTOR,
-      "link[rel=stylesheet]:not([type])",
-      "style:not([type])",
-      "script:not([type])",
+      'link[rel=stylesheet]:not([type])',
+      'style:not([type])',
+      'script:not([type])',
       'script[type="application/javascript"]',
       'script[type="text/javascript"]',
-    ].join(","),
+    ].join(','),
     map: {
-      link: "parseLink",
-      script: "parseScript",
-      style: "parseStyle",
+      link: 'parseLink',
+      script: 'parseScript',
+      style: 'parseStyle',
     },
     dynamicElements: [],
     parseNext() {
@@ -939,7 +939,7 @@ window.HTMLImports.addModule((scope) => {
     },
     parse(elt) {
       if (this.isParsed(elt)) {
-        flags.parse && console.log("[%s] is already parsed", elt.localName);
+        flags.parse && console.log('[%s] is already parsed', elt.localName);
         return;
       }
       const fn = this[this.map[elt.localName]];
@@ -955,7 +955,7 @@ window.HTMLImports.addModule((scope) => {
       }
     },
     markParsing(elt) {
-      flags.parse && console.log("parsing", elt);
+      flags.parse && console.log('parsing', elt);
       this.parsingElement = elt;
     },
     markParsingComplete(elt) {
@@ -966,7 +966,7 @@ window.HTMLImports.addModule((scope) => {
         this.markDynamicParsingComplete(elt.__importElement);
       }
       this.parsingElement = null;
-      flags.parse && console.log("completed", elt);
+      flags.parse && console.log('completed', elt);
     },
     markDynamicParsingComplete(elt) {
       const i = this.dynamicElements.indexOf(elt);
@@ -985,13 +985,13 @@ window.HTMLImports.addModule((scope) => {
       this.markParsingComplete(elt);
       if (elt.__resource && !elt.__error) {
         elt.dispatchEvent(
-          new CustomEvent("load", {
+          new CustomEvent('load', {
             bubbles: false,
           })
         );
       } else {
         elt.dispatchEvent(
-          new CustomEvent("error", {
+          new CustomEvent('error', {
             bubbles: false,
           })
         );
@@ -1042,19 +1042,19 @@ window.HTMLImports.addModule((scope) => {
     trackElement(elt, callback) {
       const self = this;
       const done = (e) => {
-        elt.removeEventListener("load", done);
-        elt.removeEventListener("error", done);
+        elt.removeEventListener('load', done);
+        elt.removeEventListener('error', done);
         if (callback) {
           callback(e);
         }
         self.markParsingComplete(elt);
         self.parseNext();
       };
-      elt.addEventListener("load", done);
-      elt.addEventListener("error", done);
-      if (isIE && elt.localName === "style") {
+      elt.addEventListener('load', done);
+      elt.addEventListener('error', done);
+      if (isIE && elt.localName === 'style') {
         let fakeLoad = false;
-        if (elt.textContent.indexOf("@import") == -1) {
+        if (elt.textContent.indexOf('@import') == -1) {
           fakeLoad = true;
         } else if (elt.sheet) {
           fakeLoad = true;
@@ -1069,7 +1069,7 @@ window.HTMLImports.addModule((scope) => {
         if (fakeLoad) {
           setTimeout(() => {
             elt.dispatchEvent(
-              new CustomEvent("load", {
+              new CustomEvent('load', {
                 bubbles: false,
               })
             );
@@ -1078,7 +1078,7 @@ window.HTMLImports.addModule((scope) => {
       }
     },
     parseScript(scriptElt) {
-      const script = document.createElement("script");
+      const script = document.createElement('script');
       script.__importElement = scriptElt;
       script.src = scriptElt.src
         ? scriptElt.src
@@ -1138,12 +1138,12 @@ window.HTMLImports.addModule((scope) => {
     },
   };
   function nodeIsImport(elt) {
-    return elt.localName === "link" && elt.rel === IMPORT_LINK_TYPE;
+    return elt.localName === 'link' && elt.rel === IMPORT_LINK_TYPE;
   }
   function generateScriptDataUrl(script) {
     const scriptContent = generateScriptContent(script);
     return (
-      "data:text/javascript;charset=utf-8," + encodeURIComponent(scriptContent)
+      'data:text/javascript;charset=utf-8,' + encodeURIComponent(scriptContent)
     );
   }
   function generateScriptContent(script) {
@@ -1153,12 +1153,12 @@ window.HTMLImports.addModule((scope) => {
     const owner = script.ownerDocument;
     owner.__importedScripts = owner.__importedScripts || 0;
     const moniker = script.ownerDocument.baseURI;
-    const num = owner.__importedScripts ? "-" + owner.__importedScripts : "";
+    const num = owner.__importedScripts ? '-' + owner.__importedScripts : '';
     owner.__importedScripts++;
-    return "\n//# sourceURL=" + moniker + num + ".js\n";
+    return '\n//# sourceURL=' + moniker + num + '.js\n';
   }
   function cloneStyle(style) {
-    const clone = style.ownerDocument.createElement("style");
+    const clone = style.ownerDocument.createElement('style');
     clone.textContent = style.textContent;
     path.resolveUrlsInStyle(clone);
     return clone;
@@ -1178,7 +1178,7 @@ window.HTMLImports.addModule((scope) => {
   const importer = {
     documents: {},
     documentPreloadSelectors: IMPORT_SELECTOR,
-    importsPreloadSelectors: [IMPORT_SELECTOR].join(","),
+    importsPreloadSelectors: [IMPORT_SELECTOR].join(','),
     loadNode(node) {
       importLoader.addNode(node);
     },
@@ -1196,7 +1196,7 @@ window.HTMLImports.addModule((scope) => {
         : this.importsPreloadSelectors;
     },
     loaded(url, elt, resource, err, redirectedUrl) {
-      flags.load && console.log("loaded", url, elt);
+      flags.load && console.log('loaded', url, elt);
       elt.__resource = resource;
       elt.__error = err;
       if (isImportLink(elt)) {
@@ -1231,23 +1231,23 @@ window.HTMLImports.addModule((scope) => {
     return isLinkRel(elt, IMPORT_LINK_TYPE);
   }
   function isLinkRel(elt, rel) {
-    return elt.localName === "link" && elt.getAttribute("rel") === rel;
+    return elt.localName === 'link' && elt.getAttribute('rel') === rel;
   }
   function hasBaseURIAccessor(doc) {
-    return !!Object.getOwnPropertyDescriptor(doc, "baseURI");
+    return !!Object.getOwnPropertyDescriptor(doc, 'baseURI');
   }
   function makeDocument(resource, url) {
     const doc = document.implementation.createHTMLDocument(IMPORT_LINK_TYPE);
     doc._URL = url;
-    const base = doc.createElement("base");
-    base.setAttribute("href", url);
+    const base = doc.createElement('base');
+    base.setAttribute('href', url);
     if (!doc.baseURI && !hasBaseURIAccessor(doc)) {
-      Object.defineProperty(doc, "baseURI", {
+      Object.defineProperty(doc, 'baseURI', {
         value: url,
       });
     }
-    const meta = doc.createElement("meta");
-    meta.setAttribute("charset", "utf-8");
+    const meta = doc.createElement('meta');
+    meta.setAttribute('charset', 'utf-8');
     doc.head.appendChild(meta);
     doc.head.appendChild(base);
     doc.body.innerHTML = resource;
@@ -1259,13 +1259,13 @@ window.HTMLImports.addModule((scope) => {
   if (!document.baseURI) {
     const baseURIDescriptor = {
       get() {
-        const base = document.querySelector("base");
+        const base = document.querySelector('base');
         return base ? base.href : window.location.href;
       },
       configurable: true,
     };
-    Object.defineProperty(document, "baseURI", baseURIDescriptor);
-    Object.defineProperty(rootDocument, "baseURI", baseURIDescriptor);
+    Object.defineProperty(document, 'baseURI', baseURIDescriptor);
+    Object.defineProperty(rootDocument, 'baseURI', baseURIDescriptor);
   }
   scope.importer = importer;
   scope.importLoader = importLoader;
@@ -1325,11 +1325,11 @@ window.HTMLImports.addModule((scope) => {
     window.HTMLImports.importer.bootDocument(rootDocument);
   }
   if (
-    document.readyState === "complete" ||
-    (document.readyState === "interactive" && !window.attachEvent)
+    document.readyState === 'complete' ||
+    (document.readyState === 'interactive' && !window.attachEvent)
   ) {
     bootstrap();
   } else {
-    document.addEventListener("DOMContentLoaded", bootstrap);
+    document.addEventListener('DOMContentLoaded', bootstrap);
   }
 })(window.HTMLImports);

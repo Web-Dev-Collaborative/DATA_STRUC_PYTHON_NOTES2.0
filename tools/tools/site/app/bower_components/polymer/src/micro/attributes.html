@@ -81,7 +81,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // NOTE: never allow 'class' to be set in hostAttributes
         // since shimming classes would make it work
         // inconsisently under native SD
-        if (!this.hasAttribute(n) && n !== "class") {
+        if (!this.hasAttribute(n) && n !== 'class') {
           var v = attr$[n];
           this.serializeValueToAttribute(v, n, this);
         }
@@ -209,7 +209,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             value = JSON.parse(value);
           } catch (x) {
             value = null;
-            console.warn("Polymer::Attributes: couldn`t decode Array as JSON");
+            console.warn('Polymer::Attributes: couldn`t decode Array as JSON');
           }
           break;
 
@@ -238,17 +238,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     serialize: function (value) {
       /* eslint-disable no-fallthrough */
       switch (typeof value) {
-        case "boolean":
-          return value ? "" : undefined;
+        case 'boolean':
+          return value ? '' : undefined;
 
-        case "object":
+        case 'object':
           if (value instanceof Date) {
             return value.toString();
           } else if (value) {
             try {
               return JSON.stringify(value);
             } catch (x) {
-              return "";
+              return '';
             }
           }
 

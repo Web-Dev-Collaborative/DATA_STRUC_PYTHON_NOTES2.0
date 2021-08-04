@@ -109,7 +109,7 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
 
   <script>
     Polymer({
-      is: "paper-tab",
+      is: 'paper-tab',
 
       behaviors: [
         Polymer.IronControlState,
@@ -130,12 +130,12 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
       },
 
       hostAttributes: {
-        role: "tab",
+        role: 'tab',
       },
 
       listeners: {
-        down: "_updateNoink",
-        tap: "_onTap",
+        down: '_updateNoink',
+        tap: '_onTap',
       },
 
       attached: function () {
@@ -153,7 +153,7 @@ In order to apply the `Roboto` font to this element, make sure you've imported `
 
       _onTap: function (event) {
         if (this.link) {
-          var anchor = this.queryEffectiveChildren("a");
+          var anchor = this.queryEffectiveChildren('a');
 
           if (!anchor) {
             return;

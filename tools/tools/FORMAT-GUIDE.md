@@ -35,9 +35,7 @@ To preview a codelab:
         * **Environment**: A tag that allows use to output some codelabs for a specific environment. All codelabs default to the "Web" environment but given some hardware constraints we might only want to generate them for a "Kiosk" environment where we know people will have the right hardware. \
 
     You can also use this to target specific events, for instance: \
-    "Web, polymer-summit" (without quotes)
-    _ **Status:** One or more of (Draft, Published, Deprecated, Hidden) to indicate the progress and whether the codelab is ready to be published. 'Hidden' implies the codelab is for restricted use, should be available only by direct URL, and should not appear on the main index page.
-    _ **Feedback Link:** The URL that the student should be sent to when they click on the feedback link to report a bug in the codelab. \* **Analytics Account:** This allows you to specify a custom Google Analytics ID for your codelab. If no ID is specified, it defaults to a global codelabs analytics account.
+    "Web, polymer-summit" (without quotes) _ **Status:** One or more of (Draft, Published, Deprecated, Hidden) to indicate the progress and whether the codelab is ready to be published. 'Hidden' implies the codelab is for restricted use, should be available only by direct URL, and should not appear on the main index page. _ **Feedback Link:** The URL that the student should be sent to when they click on the feedback link to report a bug in the codelab. \* **Analytics Account:** This allows you to specify a custom Google Analytics ID for your codelab. If no ID is specified, it defaults to a global codelabs analytics account.
 
 1.  Codelab Metadata (Markdown)
 
@@ -49,11 +47,7 @@ To preview a codelab:
         * **environments**: A tag that allows use to output some codelabs for a specific environment. All codelabs default to the "Web" environment but given some hardware constraints we might only want to generate them for a "Kiosk" environment where we know people will have the right hardware. \
 
     You can also use this to target specific events, for instance: \
-    "Web, polymer-summit" (without quotes)
-    _ **status:** One or more of (Draft, Published, Deprecated, Hidden) to indicate the progress and whether the codelab is ready to be published. 'Hidden' implies the codelab is for restricted use, should be available only by direct URL, and should not appear on the main index page.
-    _ **feedback link:** The URL that the student should be sent to when they click on the feedback link to report a bug in the codelab.
-    _ **analytics account:** This allows you to specify a custom Google Analytics ID for your codelab. If no ID is specified, it defaults to a global codelabs analytics account.
-    _ **tags:** Add relevant tags to make your codelab easily found. \* **authors:** Indicate the author(s) of this specific codelab.
+    "Web, polymer-summit" (without quotes) _ **status:** One or more of (Draft, Published, Deprecated, Hidden) to indicate the progress and whether the codelab is ready to be published. 'Hidden' implies the codelab is for restricted use, should be available only by direct URL, and should not appear on the main index page. _ **feedback link:** The URL that the student should be sent to when they click on the feedback link to report a bug in the codelab. _ **analytics account:** This allows you to specify a custom Google Analytics ID for your codelab. If no ID is specified, it defaults to a global codelabs analytics account. _ **tags:** Add relevant tags to make your codelab easily found. \* **authors:** Indicate the author(s) of this specific codelab.
 
 1.  Headers
 
@@ -114,8 +108,7 @@ To preview a codelab:
 
 1.  Frequently Asked Questions
 
-    As the author of the codelab, you have developed and tested your code. You've probably run into all sorts of common issues or misconceptions. By linking to frequently asked questions, after each step where they often occur, you will reassure the students that they have everything they need to complete the codelab and avoid having to explain everything inline in your codelab.
-    FAQs are easy to add. All the author needs to do is provide an unordered list of hyperlinks and preface it with a **Heading 3** header with the exact text: **Frequently Asked Questions**.
+    As the author of the codelab, you have developed and tested your code. You've probably run into all sorts of common issues or misconceptions. By linking to frequently asked questions, after each step where they often occur, you will reassure the students that they have everything they need to complete the codelab and avoid having to explain everything inline in your codelab. FAQs are easy to add. All the author needs to do is provide an unordered list of hyperlinks and preface it with a **Heading 3** header with the exact text: **Frequently Asked Questions**.
 
     Link icons will be added automatically for stackoverflow.com, developers.google.com, developers.android.com and support.google.com. All links will be configured to open in a new tab.
 

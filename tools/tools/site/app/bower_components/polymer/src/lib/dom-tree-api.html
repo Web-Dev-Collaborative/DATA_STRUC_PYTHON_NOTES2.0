@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="dom-innerHTML.html" />
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     // native add/remove
     var nativeInsertBefore = Element.prototype.insertBefore;
@@ -290,7 +290,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // if dependency ordering is incorrect and as a result upgrade order
       // is unexpected)
       clearChildNodes: function (node) {
-        node.textContent = "";
+        node.textContent = '';
       },
 
       insertBefore: function (parentNode, newChild, refChild) {

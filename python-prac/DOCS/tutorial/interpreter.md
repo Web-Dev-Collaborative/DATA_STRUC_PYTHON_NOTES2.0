@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](introduction.html "3. An Informal Introduction to Python") |
-- [previous](appetite.html "1. Whetting Your Appetite") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](introduction.html '3. An Informal Introduction to Python') |
+- [previous](appetite.html '1. Whetting Your Appetite') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -109,11 +109,11 @@ On Unix, the Python 3.x interpreter is by default not installed with the executa
 
 #### Previous topic
 
-[<span class="section-number">1. </span>Whetting Your Appetite](appetite.html "previous chapter")
+[<span class="section-number">1. </span>Whetting Your Appetite](appetite.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">3. </span>An Informal Introduction to Python](introduction.html "next chapter")
+[<span class="section-number">3. </span>An Informal Introduction to Python](introduction.html 'next chapter')
 
 ### This Page
 
@@ -122,10 +122,10 @@ On Unix, the Python 3.x interpreter is by default not installed with the executa
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](introduction.html "3. An Informal Introduction to Python") |
-- [previous](appetite.html "1. Whetting Your Appetite") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](introduction.html '3. An Informal Introduction to Python') |
+- [previous](appetite.html '1. Whetting Your Appetite') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

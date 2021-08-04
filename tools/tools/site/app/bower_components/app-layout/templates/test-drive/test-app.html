@@ -154,7 +154,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: "test-app",
+      is: 'test-app',
 
       properties: {
         condenses: {
@@ -221,13 +221,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _computeEffects: function () {
         return [
-          this.blendBackground ? "blend-background " : "",
-          this.fadeBackground ? "fade-background " : "",
-          this.parallaxBackground ? "parallax-background " : "",
-          this.resizeSnappedTitle ? "resize-snapped-title " : "",
-          this.resizeTitle ? "resize-title " : "",
-          this.waterfall ? "waterfall " : "",
-        ].join("");
+          this.blendBackground ? 'blend-background ' : '',
+          this.fadeBackground ? 'fade-background ' : '',
+          this.parallaxBackground ? 'parallax-background ' : '',
+          this.resizeSnappedTitle ? 'resize-snapped-title ' : '',
+          this.resizeTitle ? 'resize-title ' : '',
+          this.waterfall ? 'waterfall ' : '',
+        ].join('');
       },
 
       _removeIf: function (propName, value) {

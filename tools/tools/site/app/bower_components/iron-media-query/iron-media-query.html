@@ -26,7 +26,7 @@ Example:
 
 <script>
   Polymer({
-    is: "iron-media-query",
+    is: 'iron-media-query',
 
     properties: {
       /**
@@ -44,7 +44,7 @@ Example:
        */
       query: {
         type: String,
-        observer: "queryChanged",
+        observer: 'queryChanged',
       },
 
       /**
@@ -74,7 +74,7 @@ Example:
     },
 
     attached: function () {
-      this.style.display = "none";
+      this.style.display = 'none';
       this.queryChanged();
     },
 
@@ -101,8 +101,8 @@ Example:
       if (!query) {
         return;
       }
-      if (!this.full && query[0] !== "(") {
-        query = "(" + query + ")";
+      if (!this.full && query[0] !== '(') {
+        query = '(' + query + ')';
       }
       this._mq = window.matchMedia(query);
       this._add();

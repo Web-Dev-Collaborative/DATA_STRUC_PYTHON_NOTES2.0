@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](appendix.html "16. Appendix") |
-- [previous](interactive.html "14. Interactive Input Editing and History Substitution") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](appendix.html '16. Appendix') |
+- [previous](interactive.html '14. Interactive Input Editing and History Substitution') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -215,11 +215,11 @@ The <a href="https://docs.python.org/3/library/fractions.html#module-fractions" 
 
 #### Previous topic
 
-[<span class="section-number">14. </span>Interactive Input Editing and History Substitution](interactive.html "previous chapter")
+[<span class="section-number">14. </span>Interactive Input Editing and History Substitution](interactive.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">16. </span>Appendix](appendix.html "next chapter")
+[<span class="section-number">16. </span>Appendix](appendix.html 'next chapter')
 
 ### This Page
 
@@ -228,10 +228,10 @@ The <a href="https://docs.python.org/3/library/fractions.html#module-fractions" 
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](appendix.html "16. Appendix") |
-- [previous](interactive.html "14. Interactive Input Editing and History Substitution") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](appendix.html '16. Appendix') |
+- [previous](interactive.html '14. Interactive Input Editing and History Substitution') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

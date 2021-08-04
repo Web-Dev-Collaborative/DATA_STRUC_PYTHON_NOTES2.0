@@ -9,7 +9,7 @@
  *
  */
 
-@import url("basic.css");
+@import url('basic.css');
 
 /* -- page layout ----------------------------------------------------------- */
 
@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  font-family: "Lucida Grande", Arial, sans-serif;
+  font-family: 'Lucida Grande', Arial, sans-serif;
   font-size: 100%;
   background-color: white;
   color: #000;
@@ -73,7 +73,7 @@ div.sphinxsidebar {
 }
 
 div.sphinxsidebar h3 {
-  font-family: "Lucida Grande", Arial, sans-serif;
+  font-family: 'Lucida Grande', Arial, sans-serif;
   color: #444444;
   font-size: 1.4em;
   font-weight: normal;
@@ -86,7 +86,7 @@ div.sphinxsidebar h3 a {
 }
 
 div.sphinxsidebar h4 {
-  font-family: "Lucida Grande", Arial, sans-serif;
+  font-family: 'Lucida Grande', Arial, sans-serif;
   color: #444444;
   font-size: 1.3em;
   font-weight: normal;
@@ -147,7 +147,7 @@ div.body h3,
 div.body h4,
 div.body h5,
 div.body h6 {
-  font-family: "Lucida Grande", Arial, sans-serif;
+  font-family: 'Lucida Grande', Arial, sans-serif;
   background-color: white;
   font-weight: normal;
   color: #1a1a1a;
@@ -237,7 +237,7 @@ p.admonition-title {
 }
 
 p.admonition-title:after {
-  content: ":";
+  content: ':';
 }
 
 pre {
@@ -270,7 +270,7 @@ dl.field-list > dt {
 }
 
 .viewcode-back {
-  font-family: "Lucida Grande", Arial, sans-serif;
+  font-family: 'Lucida Grande', Arial, sans-serif;
 }
 
 div.viewcode-block:target {

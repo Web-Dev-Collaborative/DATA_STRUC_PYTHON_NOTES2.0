@@ -64,7 +64,7 @@ is false, `selected` is a property representing the last selected item.  When
 
 <script>
   Polymer({
-    is: "array-selector",
+    is: 'array-selector',
     _template: null,
 
     properties: {
@@ -73,7 +73,7 @@ is false, `selected` is a property representing the last selected item.  When
        */
       items: {
         type: Array,
-        observer: "clearSelection",
+        observer: 'clearSelection',
       },
 
       /**
@@ -84,7 +84,7 @@ is false, `selected` is a property representing the last selected item.  When
       multi: {
         type: Boolean,
         value: false,
-        observer: "clearSelection",
+        observer: 'clearSelection',
       },
 
       /**
@@ -125,11 +125,11 @@ is false, `selected` is a property representing the last selected item.  When
       // Unbind previous selection
       if (Array.isArray(this.selected)) {
         for (var i = 0; i < this.selected.length; i++) {
-          this.unlinkPaths("selected." + i);
+          this.unlinkPaths('selected.' + i);
         }
       } else {
-        this.unlinkPaths("selected");
-        this.unlinkPaths("selectedItem");
+        this.unlinkPaths('selected');
+        this.unlinkPaths('selectedItem');
       }
       // Initialize selection
       if (this.multi) {
@@ -169,14 +169,14 @@ is false, `selected` is a property representing the last selected item.  When
       if (this.multi) {
         if (this.isSelected(item)) {
           var skey = this._selectedColl.getKey(item);
-          this.arrayDelete("selected", item);
-          this.unlinkPaths("selected." + skey);
+          this.arrayDelete('selected', item);
+          this.unlinkPaths('selected.' + skey);
         }
       } else {
         this.selected = null;
         this.selectedItem = null;
-        this.unlinkPaths("selected");
-        this.unlinkPaths("selectedItem");
+        this.unlinkPaths('selected');
+        this.unlinkPaths('selectedItem');
       }
     },
 
@@ -196,9 +196,9 @@ is false, `selected` is a property representing the last selected item.  When
             this.deselect(item);
           }
         } else {
-          this.push("selected", item);
+          this.push('selected', item);
           var skey = this._selectedColl.getKey(item);
-          this.linkPaths("selected." + skey, "items." + key);
+          this.linkPaths('selected.' + skey, 'items.' + key);
         }
       } else {
         if (this.toggle && item == this.selected) {
@@ -206,8 +206,8 @@ is false, `selected` is a property representing the last selected item.  When
         } else {
           this.selected = item;
           this.selectedItem = item;
-          this.linkPaths("selected", "items." + key);
-          this.linkPaths("selectedItem", "items." + key);
+          this.linkPaths('selected', 'items.' + key);
+          this.linkPaths('selectedItem', 'items.' + key);
         }
       }
     },

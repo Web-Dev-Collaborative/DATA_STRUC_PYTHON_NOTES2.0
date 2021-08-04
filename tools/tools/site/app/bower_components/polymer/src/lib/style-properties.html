@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script>
   Polymer.StyleProperties = (function () {
-    "use strict";
+    'use strict';
 
     var nativeShadow = Polymer.Settings.useNativeShadow;
     var matchesSelector = Polymer.DomApi.matchesSelector;
@@ -95,8 +95,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // but not production, so strip out {...}
       collectConsumingCssText: function (cssText) {
         return cssText
-          .replace(this.rx.BRACKETED, "")
-          .replace(this.rx.VAR_ASSIGN, "");
+          .replace(this.rx.BRACKETED, '')
+          .replace(this.rx.VAR_ASSIGN, '');
       },
 
       collectPropertiesInCssText: function (cssText, props) {
@@ -131,7 +131,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // case (1) default
         // case (3) defines a mixin and we have to reify the internals
         if (property) {
-          if (property.indexOf(";") >= 0) {
+          if (property.indexOf(';') >= 0) {
             property = this.valueForProperties(property, props);
           } else {
             // case (2) variable
@@ -142,24 +142,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 (props[fallback]
                   ? self.valueForProperty(props[fallback], props)
                   : fallback);
-              return prefix + (propertyValue || "");
+              return prefix + (propertyValue || '');
             };
             property = property.replace(this.rx.VAR_MATCH, fn);
           }
         }
-        return (property && property.trim()) || "";
+        return (property && property.trim()) || '';
       },
 
       // note: we do not yet support mixin within mixin
       valueForProperties: function (property, props) {
-        var parts = property.split(";");
+        var parts = property.split(';');
         for (var i = 0, p, m; i < parts.length; i++) {
           if ((p = parts[i])) {
             m = p.match(this.rx.MIXIN_MATCH);
             if (m) {
               p = this.valueForProperty(props[m[1]], props);
             } else {
-              var colon = p.indexOf(":");
+              var colon = p.indexOf(':');
               if (colon !== -1) {
                 var pp = p.substring(colon);
                 pp = pp.trim();
@@ -168,17 +168,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               }
             }
             parts[i] =
-              p && p.lastIndexOf(";") === p.length - 1
+              p && p.lastIndexOf(';') === p.length - 1
                 ? // strip trailing ;
                   p.slice(0, -1)
-                : p || "";
+                : p || '';
           }
         }
-        return parts.join(";");
+        return parts.join(';');
       },
 
       applyProperties: function (rule, props) {
-        var output = "";
+        var output = '';
         // dynamically added sheets may not be decorated so ensure they are.
         if (!rule.propertyInfo) {
           this.decorateRule(rule);
@@ -314,7 +314,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           element.extends
         );
         var rxHostSelector = element.extends
-          ? "\\" + hostSelector.slice(0, -1) + "\\]"
+          ? '\\' + hostSelector.slice(0, -1) + '\\]'
           : hostSelector;
         var hostRx = new RegExp(
           this.rx.HOST_PREFIX + rxHostSelector + this.rx.HOST_SUFFIX
@@ -378,8 +378,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // Transforms `@keyframes` names to be unique for the current host.
       // Example: @keyframes foo-anim -> @keyframes foo-anim-x-foo-0
       _scopeKeyframes: function (rule, scopeId) {
-        rule.keyframesNameRx = new RegExp(rule.keyframesName, "g");
-        rule.transformedKeyframesName = rule.keyframesName + "-" + scopeId;
+        rule.keyframesNameRx = new RegExp(rule.keyframesName, 'g');
+        rule.transformedKeyframesName = rule.keyframesName + '-' + scopeId;
         rule.transformedSelector = rule.transformedSelector || rule.selector;
         rule.selector = rule.transformedSelector.replace(
           rule.keyframesName,
@@ -399,29 +399,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         rule.transformedSelector = rule.transformedSelector || rule.selector;
         var selector = rule.transformedSelector;
         var scope = viaAttr
-          ? "[" + styleTransformer.SCOPE_NAME + "~=" + scopeId + "]"
-          : "." + scopeId;
-        var parts = selector.split(",");
+          ? '[' + styleTransformer.SCOPE_NAME + '~=' + scopeId + ']'
+          : '.' + scopeId;
+        var parts = selector.split(',');
         for (var i = 0, l = parts.length, p; i < l && (p = parts[i]); i++) {
           parts[i] = p.match(hostRx)
             ? p.replace(hostSelector, scope)
-            : scope + " " + p;
+            : scope + ' ' + p;
         }
-        rule.selector = parts.join(",");
+        rule.selector = parts.join(',');
       },
 
       applyElementScopeSelector: function (element, selector, old, viaAttr) {
         var c = viaAttr
           ? element.getAttribute(styleTransformer.SCOPE_NAME)
-          : element.getAttribute("class") || "";
+          : element.getAttribute('class') || '';
         var v = old
           ? c.replace(old, selector)
-          : (c ? c + " " : "") + this.XSCOPE_NAME + " " + selector;
+          : (c ? c + ' ' : '') + this.XSCOPE_NAME + ' ' + selector;
         if (c !== v) {
           if (viaAttr) {
             element.setAttribute(styleTransformer.SCOPE_NAME, v);
           } else {
-            element.setAttribute("class", v);
+            element.setAttribute('class', v);
           }
         }
       },
@@ -429,7 +429,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       applyElementStyle: function (element, properties, selector, style) {
         // calculate cssText to apply
         var cssText = style
-          ? style.textContent || ""
+          ? style.textContent || ''
           : this.transformStyles(element, properties, selector);
         // if shady and we have a cached style that is not style, decrement
         var s = element._customStyle;
@@ -498,13 +498,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         ANIMATION_MATCH: /(animation\s*:)|(animation-name\s*:)/,
         IS_VAR: /^--/,
         BRACKETED: /\{[^}]*\}/g,
-        HOST_PREFIX: "(?:^|[^.#[:])",
-        HOST_SUFFIX: "($|[.:[\\s>+~])",
+        HOST_PREFIX: '(?:^|[^.#[:])',
+        HOST_SUFFIX: '($|[.:[\\s>+~])',
       },
 
-      HOST_SELECTORS: [":host"],
-      SCOPE_SELECTORS: [":root"],
-      XSCOPE_NAME: "x-scope",
+      HOST_SELECTORS: [':host'],
+      SCOPE_SELECTORS: [':root'],
+      XSCOPE_NAME: 'x-scope',
     };
 
     function addToBitMask(n, bits) {

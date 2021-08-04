@@ -17,9 +17,7 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/iron-selector
 
 ##&lt;iron-selector&gt;
 
-`iron-selector` is an element which can be used to manage a list of elements
-that can be selected. Tapping on the item will make the item selected. The `selected` indicates
-which item is being selected. The default is to use the index of the item.
+`iron-selector` is an element which can be used to manage a list of elements that can be selected. Tapping on the item will make the item selected. The `selected` indicates which item is being selected. The default is to use the index of the item.
 
 Example:
 
@@ -31,9 +29,7 @@ Example:
 </iron-selector>
 ```
 
-If you want to use the attribute value of an element for `selected` instead of the index,
-set `attrForSelected` to the name of the attribute. For example, if you want to select item by
-`name`, set `attrForSelected` to `name`.
+If you want to use the attribute value of an element for `selected` instead of the index, set `attrForSelected` to the name of the attribute. For example, if you want to select item by `name`, set `attrForSelected` to `name`.
 
 Example:
 
@@ -45,8 +41,7 @@ Example:
 </iron-selector>
 ```
 
-You can specify a default fallback with `fallbackSelection` in case the `selected` attribute does
-not match the `attrForSelected` attribute of any elements.
+You can specify a default fallback with `fallbackSelection` in case the `selected` attribute does not match the `attrForSelected` attribute of any elements.
 
 Example:
 
@@ -62,8 +57,7 @@ Example:
 </iron-selector>
 ```
 
-Note: When the selector is multi, the selection will set to `fallbackSelection` iff
-the number of matching elements is zero.
+Note: When the selector is multi, the selection will set to `fallbackSelection` iff the number of matching elements is zero.
 
 `iron-selector` is not styled. Use the `iron-selected` CSS class to style the selected element.
 

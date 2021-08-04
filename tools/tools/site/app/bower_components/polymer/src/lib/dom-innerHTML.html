@@ -20,16 +20,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     function escapeReplace(c) {
       switch (c) {
-        case "&":
-          return "&amp;";
-        case "<":
-          return "&lt;";
-        case ">":
-          return "&gt;";
+        case '&':
+          return '&amp;';
+        case '<':
+          return '&lt;';
+        case '>':
+          return '&gt;';
         case '"':
-          return "&quot;";
-        case "\u00A0":
-          return "&nbsp;";
+          return '&quot;';
+        case '\u00A0':
+          return '&nbsp;';
       }
     }
 
@@ -51,33 +51,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     // http://www.whatwg.org/specs/web-apps/current-work/#void-elements
     var voidElements = makeSet([
-      "area",
-      "base",
-      "br",
-      "col",
-      "command",
-      "embed",
-      "hr",
-      "img",
-      "input",
-      "keygen",
-      "link",
-      "meta",
-      "param",
-      "source",
-      "track",
-      "wbr",
+      'area',
+      'base',
+      'br',
+      'col',
+      'command',
+      'embed',
+      'hr',
+      'img',
+      'input',
+      'keygen',
+      'link',
+      'meta',
+      'param',
+      'source',
+      'track',
+      'wbr',
     ]);
 
     var plaintextParents = makeSet([
-      "style",
-      "script",
-      "xmp",
-      "iframe",
-      "noembed",
-      "noframes",
-      "plaintext",
-      "noscript",
+      'style',
+      'script',
+      'xmp',
+      'iframe',
+      'noembed',
+      'noframes',
+      'plaintext',
+      'noscript',
     ]);
 
     function getOuterHTML(node, parentNode, composed) {
@@ -85,16 +85,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         case Node.ELEMENT_NODE:
           //var tagName = node.tagName.toLowerCase();
           var tagName = node.localName;
-          var s = "<" + tagName;
+          var s = '<' + tagName;
           var attrs = node.attributes;
           for (var i = 0, attr; (attr = attrs[i]); i++) {
-            s += " " + attr.name + '="' + escapeAttr(attr.value) + '"';
+            s += ' ' + attr.name + '="' + escapeAttr(attr.value) + '"';
           }
-          s += ">";
+          s += '>';
           if (voidElements[tagName]) {
             return s;
           }
-          return s + getInnerHTML(node, composed) + "</" + tagName + ">";
+          return s + getInnerHTML(node, composed) + '</' + tagName + '>';
         case Node.TEXT_NODE:
           var data = node.data;
           if (parentNode && plaintextParents[parentNode.localName]) {
@@ -102,16 +102,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
           return escapeData(data);
         case Node.COMMENT_NODE:
-          return "<!--" + node.data + "-->";
+          return '<!--' + node.data + '-->';
         default:
           console.error(node);
-          throw new Error("not implemented");
+          throw new Error('not implemented');
       }
     }
 
     function getInnerHTML(node, composed) {
       if (node instanceof HTMLTemplateElement) node = node.content;
-      var s = "";
+      var s = '';
       var c$ = Polymer.dom(node).childNodes;
       for (var i = 0, l = c$.length, child; i < l && (child = c$[i]); i++) {
         s += getOuterHTML(child, node, composed);

@@ -11,8 +11,8 @@ See the COPYING file for details.
     <script src="/node_modules/google-closure-library/closure/goog/base.js"></script>
     <script src="all_tests.js"></script>
     <script>
-      goog.require("goog.userAgent.product");
-      goog.require("goog.testing.MultiTestRunner");
+      goog.require('goog.userAgent.product');
+      goog.require('goog.testing.MultiTestRunner');
     </script>
     <link
       rel="stylesheet"
@@ -54,14 +54,14 @@ See the COPYING file for details.
     <script>
       if (
         goog.userAgent.product.CHROME &&
-        window.location.toString().indexOf("file:") == 0
+        window.location.toString().indexOf('file:') == 0
       ) {
         document.write(
           '<div class="warning">' +
             "WARNING: Due to Chrome's security restrictions " +
-            "this test will not be able to load files off your local disk " +
-            "unless you start Chrome with:<br>" +
-            "<code>--allow-file-access-from-files</code></div><br>"
+            'this test will not be able to load files off your local disk ' +
+            'unless you start Chrome with:<br>' +
+            '<code>--allow-file-access-from-files</code></div><br>'
         );
       }
     </script>
@@ -81,12 +81,12 @@ See the COPYING file for details.
       <label for="filter">Run only tests for path</label>
     </form>
     <script>
-      var hidePassesInput = document.getElementById("hidepasses");
-      var parallelInput = document.getElementById("parallel");
-      var filterInput = document.getElementById("filter");
+      var hidePassesInput = document.getElementById('hidepasses');
+      var parallelInput = document.getElementById('parallel');
+      var filterInput = document.getElementById('filter');
 
       function setFilterFunction() {
-        var matchValue = filterInput.value || "";
+        var matchValue = filterInput.value || '';
         testRunner.setFilterFunction(function (testPath) {
           return testPath.indexOf(matchValue) > -1;
         });
@@ -95,23 +95,23 @@ See the COPYING file for details.
       // Create a test runner and render it.
       var testRunner = new goog.testing.MultiTestRunner()
         .setName(document.title)
-        .setBasePath("./")
+        .setBasePath('./')
         .setPoolSize(parallelInput.checked ? 8 : 1)
         .setStatsBucketSizes(5, 500)
         .setHidePasses(hidePassesInput.checked)
         //.setVerbosePasses(true)
         .addTests(allTests);
-      testRunner.render(document.getElementById("runner"));
+      testRunner.render(document.getElementById('runner'));
 
-      goog.events.listen(hidePassesInput, "click", function (e) {
+      goog.events.listen(hidePassesInput, 'click', function (e) {
         testRunner.setHidePasses(e.target.checked);
       });
 
-      goog.events.listen(parallelInput, "click", function (e) {
+      goog.events.listen(parallelInput, 'click', function (e) {
         testRunner.setPoolSize(e.target.checked ? 8 : 1);
       });
 
-      goog.events.listen(filterInput, "keyup", setFilterFunction);
+      goog.events.listen(filterInput, 'keyup', setFilterFunction);
       setFilterFunction();
     </script>
   </body>

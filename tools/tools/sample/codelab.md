@@ -1,10 +1,4 @@
-author: Marc DiPasquale
-summary: Create a CodeLab Using Markdown
-id: codelab-4-codelab-markdown
-categories: codelab,markdown
-environments: Web
-status: Published
-feedback link: https://github.com/Mrc0113/codelab-4-codelab
+author: Marc DiPasquale summary: Create a CodeLab Using Markdown id: codelab-4-codelab-markdown categories: codelab,markdown environments: Web status: Published feedback link: https://github.com/Mrc0113/codelab-4-codelab
 
 # CodeLab to Create a CodeLab
 
@@ -12,16 +6,14 @@ feedback link: https://github.com/Mrc0113/codelab-4-codelab
 
 Duration: 0:02:00
 
-Are you trying to create easy to use, visually appealing content for the tech community? This CodeLab will show you how to quickly create your own Google CodeLab just like the one you're using right now.
-When creating a Codelab you have two authoring options:
+Are you trying to create easy to use, visually appealing content for the tech community? This CodeLab will show you how to quickly create your own Google CodeLab just like the one you're using right now. When creating a Codelab you have two authoring options:
 
 1. Using a Google Doc
 1. Using a markdown file
 
 In this codelab we are going to use the second option and author our codelab using a markdown file. This gives us the flexibility of using our markdown file for other things and also storing it in our github repo with any code that might be used for a tutorial.
 
-Here is an example image of another CodeLab that I created:
-![image_caption](img/codelabexample.png)
+Here is an example image of another CodeLab that I created: ![image_caption](img/codelabexample.png)
 
 **Resources:**
 
@@ -41,8 +33,7 @@ The instructions below are what worked for me on Mac, but you can also find inst
 
 #### Install Go
 
-Install [Go](https://golang.org/dl/) if you don't have it.
-You can use Homebrew if you have it on mac
+Install [Go](https://golang.org/dl/) if you don't have it. You can use Homebrew if you have it on mac
 
 ```bash
 $ brew install go
@@ -79,8 +70,7 @@ Duration: 0:05:00
 
 Now that we have the environment setup let's go ahead and create a markdown file where we'll create the actual codelab.
 
-Negative
-: If you're using Windows make sure to set your text editor to use UNIX line endings!
+Negative : If you're using Windows make sure to set your text editor to use UNIX line endings!
 
 ####
 
@@ -90,8 +80,7 @@ $ vim codelab.md
 
 #### Fill-in the header metadata
 
-Copy and paste the headers below into your markdown file and change the values appropriately.
-Guidelines are available below the sample headers.
+Copy and paste the headers below into your markdown file and change the values appropriately. Guidelines are available below the sample headers.
 
 ```bash
 author: Author Name
@@ -104,28 +93,18 @@ feedback link: A link where users can go to provide feedback (Maybe the git repo
 analytics account: Google Analytics ID
 ```
 
-Metadata consists of key-value pairs of the form "key: value". Keys cannot
-contain colons, and separate metadata fields must be separated by blank lines.
-At present, values must all be on one line. All metadata must come before the
-title. Any arbitrary keys and values may be used; however, only the following
-will be understood by the renderer:
+Metadata consists of key-value pairs of the form "key: value". Keys cannot contain colons, and separate metadata fields must be separated by blank lines. At present, values must all be on one line. All metadata must come before the title. Any arbitrary keys and values may be used; however, only the following will be understood by the renderer:
 
 - Summary: A human-readable summary of the codelab. Defaults to blank.
-- Id: An identifier composed of lowercase letters ideally describing the
-  content of the codelab. This field should be unique among
-  codelabs.
+- Id: An identifier composed of lowercase letters ideally describing the content of the codelab. This field should be unique among codelabs.
 - Categories: A comma-separated list of the topics the codelab covers.
-- Environments: A list of environments the codelab should be discoverable in.
-  Codelabs marked "Web" will be visible at the codelabs index. Codelabs marked
-  "Kiosk" will only be available at codelabs kiosks, which have special
-  equipment attached.
+- Environments: A list of environments the codelab should be discoverable in. Codelabs marked "Web" will be visible at the codelabs index. Codelabs marked "Kiosk" will only be available at codelabs kiosks, which have special equipment attached.
 - Status: The publication status of the codelab. Valid values are:
   - Draft: Codelab is not finished.
   - Published: Codelab is finished and visible.
   - Deprecated: Codelab is considered stale and should not be widely advertised.
   - Hidden: Codelab is not shown in index.
-- Feedback Link: A link to send users to if they wish to leave feedback on the
-  codelab.
+- Feedback Link: A link to send users to if they wish to leave feedback on the codelab.
 - Analytics Account: A Google Analytics ID to include with all codelab pages.
 
 #### Add the Title
@@ -138,9 +117,7 @@ Next add your title using a single '#' character
 
 #### Add Sections and Durations
 
-Then for each section use Header 2 or '##' and specify an optional duration beneath for time remaining calculations
-Optional section times will be used to automatically total and remaining tutorial times
-In markdown I've found that the time is formatted hh:mm:ss
+Then for each section use Header 2 or '##' and specify an optional duration beneath for time remaining calculations Optional section times will be used to automatically total and remaining tutorial times In markdown I've found that the time is formatted hh:mm:ss
 
 Example
 
@@ -154,8 +131,7 @@ Duration: 0:05:00
 
 #### Add Section Content
 
-Now that we have 2 sections to our titled codelab let's go ahead and add some content to each section.
-Make up your own or copy and paste the example below:
+Now that we have 2 sections to our titled codelab let's go ahead and add some content to each section. Make up your own or copy and paste the example below:
 
 Copy into section 1 (Below Duration and above Section 2):
 
@@ -209,8 +185,7 @@ More Markdown Parser examples can be found [here](https://github.com/googlecodel
 
 Duration: 0:02:00
 
-Now that you have an initial codelab defined in your markdown file let's go ahead and generate the static site content.
-We can export and serve the content locally using the `claat` command that we installed earlier.
+Now that you have an initial codelab defined in your markdown file let's go ahead and generate the static site content. We can export and serve the content locally using the `claat` command that we installed earlier.
 
 ```bash
 $ claat export codelab.md
@@ -225,14 +200,10 @@ $ claat serve
 
 Duration: 0:01:00
 
-When you ran the `claat export` command you created the static web content needed to host your codelab.
-It placed static web content in a directory specified by your unique "id" and you can view it locally by opening the index.html page.
+When you ran the `claat export` command you created the static web content needed to host your codelab. It placed static web content in a directory specified by your unique "id" and you can view it locally by opening the index.html page.
 
-Negative
-: Note that when you view it locally by opening index.html some of the graphics may not show up (such as access_time, Next, Back), but they work once online.
+Negative : Note that when you view it locally by opening index.html some of the graphics may not show up (such as access_time, Next, Back), but they work once online.
 
-Now that you have the static content you can host it however you want.
-One option is pushing it to github and serving it up from Netlify.
+Now that you have the static content you can host it however you want. One option is pushing it to github and serving it up from Netlify.
 
-If you'd like to create your own landing page for codelabs, [like this one](https://codelabs.developers.google.com), there is a tool to do that as well!
-Check it out here: [CodeLabs Site](https://github.com/googlecodelabs/tools/blob/master/site/README.md)
+If you'd like to create your own landing page for codelabs, [like this one](https://codelabs.developers.google.com), there is a tool to do that as well! Check it out here: [CodeLabs Site](https://github.com/googlecodelabs/tools/blob/master/site/README.md)

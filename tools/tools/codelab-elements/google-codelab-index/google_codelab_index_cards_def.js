@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-goog.module("googlecodelabs.CodelabIndex.CardsDef");
-const CodelabIndexCards = goog.require("googlecodelabs.CodelabIndex.Cards");
+goog.module('googlecodelabs.CodelabIndex.CardsDef');
+const CodelabIndexCards = goog.require('googlecodelabs.CodelabIndex.Cards');
 
 try {
   window.customElements.define(
@@ -24,5 +24,5 @@ try {
     CodelabIndexCards
   );
 } catch (e) {
-  console.warn("googlecodelabs.CodelabIndex.Cards", e);
+  console.warn('googlecodelabs.CodelabIndex.Cards', e);
 }

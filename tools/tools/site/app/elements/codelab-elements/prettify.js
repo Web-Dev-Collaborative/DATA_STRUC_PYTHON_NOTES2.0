@@ -62,7 +62,7 @@ const IN_GLOBAL_SCOPE = true;
  * UI events.
  * If set to {@code false}, {@code prettyPrint()} is synchronous.
  */
-window["PR_SHOULD_USE_CONTINUATION"] = true;
+window['PR_SHOULD_USE_CONTINUATION'] = true;
 
 /**
  * Pretty print a chunk of code.
@@ -90,76 +90,76 @@ let prettyPrint;
   // Keyword lists for various languages.
   // We use things that coerce to strings to make them compact when minified
   // and to defeat aggressive optimizers that fold large string constants.
-  const FLOW_CONTROL_KEYWORDS = ["break,continue,do,else,for,if,return,while"];
+  const FLOW_CONTROL_KEYWORDS = ['break,continue,do,else,for,if,return,while'];
   const C_KEYWORDS = [
     FLOW_CONTROL_KEYWORDS,
-    "auto,case,char,const,default," +
-      "double,enum,extern,float,goto,inline,int,long,register,short,signed," +
-      "sizeof,static,struct,switch,typedef,union,unsigned,void,volatile",
+    'auto,case,char,const,default,' +
+      'double,enum,extern,float,goto,inline,int,long,register,short,signed,' +
+      'sizeof,static,struct,switch,typedef,union,unsigned,void,volatile',
   ];
   const COMMON_KEYWORDS = [
     C_KEYWORDS,
-    "catch,class,delete,false,import," +
-      "new,operator,private,protected,public,this,throw,true,try,typeof",
+    'catch,class,delete,false,import,' +
+      'new,operator,private,protected,public,this,throw,true,try,typeof',
   ];
   const CPP_KEYWORDS = [
     COMMON_KEYWORDS,
-    "alignof,align_union,asm,axiom,bool," +
-      "concept,concept_map,const_cast,constexpr,decltype,delegate," +
-      "dynamic_cast,explicit,export,friend,generic,late_check," +
-      "mutable,namespace,nullptr,property,reinterpret_cast,static_assert," +
-      "static_cast,template,typeid,typename,using,virtual,where",
+    'alignof,align_union,asm,axiom,bool,' +
+      'concept,concept_map,const_cast,constexpr,decltype,delegate,' +
+      'dynamic_cast,explicit,export,friend,generic,late_check,' +
+      'mutable,namespace,nullptr,property,reinterpret_cast,static_assert,' +
+      'static_cast,template,typeid,typename,using,virtual,where',
   ];
   const JAVA_KEYWORDS = [
     COMMON_KEYWORDS,
-    "abstract,assert,boolean,byte,extends,final,finally,implements,import," +
-      "instanceof,interface,null,native,package,strictfp,super,synchronized," +
-      "throws,transient",
+    'abstract,assert,boolean,byte,extends,final,finally,implements,import,' +
+      'instanceof,interface,null,native,package,strictfp,super,synchronized,' +
+      'throws,transient',
   ];
   const CSHARP_KEYWORDS = [
     JAVA_KEYWORDS,
-    "as,base,by,checked,decimal,delegate,descending,dynamic,event," +
-      "fixed,foreach,from,group,implicit,in,internal,into,is,let," +
-      "lock,object,out,override,orderby,params,partial,readonly,ref,sbyte," +
-      "sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort," +
-      "var,virtual,where",
+    'as,base,by,checked,decimal,delegate,descending,dynamic,event,' +
+      'fixed,foreach,from,group,implicit,in,internal,into,is,let,' +
+      'lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,' +
+      'sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,' +
+      'var,virtual,where',
   ];
   const COFFEE_KEYWORDS =
-    "all,and,by,catch,class,else,extends,false,finally," +
-    "for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then," +
-    "throw,true,try,unless,until,when,while,yes";
+    'all,and,by,catch,class,else,extends,false,finally,' +
+    'for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,' +
+    'throw,true,try,unless,until,when,while,yes';
   const JSCRIPT_KEYWORDS = [
     COMMON_KEYWORDS,
-    "debugger,eval,export,function,get,null,set,undefined,var,with," +
-      "Infinity,NaN",
+    'debugger,eval,export,function,get,null,set,undefined,var,with,' +
+      'Infinity,NaN',
   ];
   const PERL_KEYWORDS =
-    "caller,delete,die,do,dump,elsif,eval,exit,foreach,for," +
-    "goto,if,import,last,local,my,next,no,our,print,package,redo,require," +
-    "sub,undef,unless,until,use,wantarray,while,BEGIN,END";
+    'caller,delete,die,do,dump,elsif,eval,exit,foreach,for,' +
+    'goto,if,import,last,local,my,next,no,our,print,package,redo,require,' +
+    'sub,undef,unless,until,use,wantarray,while,BEGIN,END';
   const PYTHON_KEYWORDS = [
     FLOW_CONTROL_KEYWORDS,
-    "and,as,assert,class,def,del," +
-      "elif,except,exec,finally,from,global,import,in,is,lambda," +
-      "nonlocal,not,or,pass,print,raise,try,with,yield," +
-      "False,True,None",
+    'and,as,assert,class,def,del,' +
+      'elif,except,exec,finally,from,global,import,in,is,lambda,' +
+      'nonlocal,not,or,pass,print,raise,try,with,yield,' +
+      'False,True,None',
   ];
   const RUBY_KEYWORDS = [
     FLOW_CONTROL_KEYWORDS,
-    "alias,and,begin,case,class," +
-      "def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo," +
-      "rescue,retry,self,super,then,true,undef,unless,until,when,yield," +
-      "BEGIN,END",
+    'alias,and,begin,case,class,' +
+      'def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,' +
+      'rescue,retry,self,super,then,true,undef,unless,until,when,yield,' +
+      'BEGIN,END',
   ];
   const RUST_KEYWORDS = [
     FLOW_CONTROL_KEYWORDS,
-    "as,assert,const,copy,drop," +
-      "enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv," +
-      "pub,pure,ref,self,static,struct,true,trait,type,unsafe,use",
+    'as,assert,const,copy,drop,' +
+      'enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,' +
+      'pub,pure,ref,self,static,struct,true,trait,type,unsafe,use',
   ];
   const SH_KEYWORDS = [
     FLOW_CONTROL_KEYWORDS,
-    "case,done,elif,esac,eval,fi," + "function,in,local,set,then,until",
+    'case,done,elif,esac,eval,fi,' + 'function,in,local,set,then,until',
   ];
   const ALL_KEYWORDS = [
     CPP_KEYWORDS,
@@ -178,70 +178,70 @@ let prettyPrint;
    * token style for a string literal
    * @const
    */
-  const PR_STRING = "str";
+  const PR_STRING = 'str';
   /**
    * token style for a keyword
    * @const
    */
-  const PR_KEYWORD = "kwd";
+  const PR_KEYWORD = 'kwd';
   /**
    * token style for a comment
    * @const
    */
-  const PR_COMMENT = "com";
+  const PR_COMMENT = 'com';
   /**
    * token style for a type
    * @const
    */
-  const PR_TYPE = "typ";
+  const PR_TYPE = 'typ';
   /**
    * token style for a literal value.  e.g. 1, null, true.
    * @const
    */
-  const PR_LITERAL = "lit";
+  const PR_LITERAL = 'lit';
   /**
    * token style for a punctuation string.
    * @const
    */
-  const PR_PUNCTUATION = "pun";
+  const PR_PUNCTUATION = 'pun';
   /**
    * token style for plain text.
    * @const
    */
-  const PR_PLAIN = "pln";
+  const PR_PLAIN = 'pln';
 
   /**
    * token style for an sgml tag.
    * @const
    */
-  const PR_TAG = "tag";
+  const PR_TAG = 'tag';
   /**
    * token style for a markup declaration such as a DOCTYPE.
    * @const
    */
-  const PR_DECLARATION = "dec";
+  const PR_DECLARATION = 'dec';
   /**
    * token style for embedded source.
    * @const
    */
-  const PR_SOURCE = "src";
+  const PR_SOURCE = 'src';
   /**
    * token style for an sgml attribute name.
    * @const
    */
-  const PR_ATTRIB_NAME = "atn";
+  const PR_ATTRIB_NAME = 'atn';
   /**
    * token style for an sgml attribute value.
    * @const
    */
-  const PR_ATTRIB_VALUE = "atv";
+  const PR_ATTRIB_VALUE = 'atv';
 
   /**
    * A class that indicates a section of markup that is not code, e.g. to allow
    * embedding of line numbers within code listings.
    * @const
    */
-  const PR_NOCODE = "nocode";
+  const PR_NOCODE = 'nocode';
 
   /**
    * A set of tokens that can precede a regular expression literal in
@@ -263,7 +263,7 @@ let prettyPrint;
    * @const
    */
   const REGEXP_PRECEDER_PATTERN =
-    "(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*";
+    '(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*';
 
   // CAVEAT: this does not properly handle the case where a regular
   // expression immediately follows another since a regular expression may
@@ -290,7 +290,7 @@ let prettyPrint;
         ignoreCase = true;
       } else if (
         /[a-z]/i.test(
-          regex.source.replace(/\\u[0-9a-f]{4}|\\x[0-9a-f]{2}|\\[^ux]/gi, "")
+          regex.source.replace(/\\u[0-9a-f]{4}|\\x[0-9a-f]{2}|\\[^ux]/gi, '')
         )
       ) {
         needToFoldCase = true;
@@ -317,9 +317,9 @@ let prettyPrint;
       cc0 = escapeCharToCodeUnit[c1];
       if (cc0) {
         return cc0;
-      } else if ("0" <= c1 && c1 <= "7") {
+      } else if ('0' <= c1 && c1 <= '7') {
         return parseInt(charsetPart.substring(1), 8);
-      } else if (c1 === "u" || c1 === "x") {
+      } else if (c1 === 'u' || c1 === 'x') {
         return parseInt(charsetPart.substring(2), 16);
       } else {
         return charsetPart.charCodeAt(1);
@@ -328,11 +328,11 @@ let prettyPrint;
 
     function encodeEscape(charCode) {
       if (charCode < 0x20) {
-        return (charCode < 0x10 ? "\\x0" : "\\x") + charCode.toString(16);
+        return (charCode < 0x10 ? '\\x0' : '\\x') + charCode.toString(16);
       }
       const ch = String.fromCharCode(charCode);
-      return ch === "\\" || ch === "-" || ch === "]" || ch === "^"
-        ? "\\" + ch
+      return ch === '\\' || ch === '-' || ch === ']' || ch === '^'
+        ? '\\' + ch
         : ch;
     }
 
@@ -341,22 +341,22 @@ let prettyPrint;
         .substring(1, charSet.length - 1)
         .match(
           new RegExp(
-            "\\\\u[0-9A-Fa-f]{4}" +
-              "|\\\\x[0-9A-Fa-f]{2}" +
-              "|\\\\[0-3][0-7]{0,2}" +
-              "|\\\\[0-7]{1,2}" +
-              "|\\\\[\\s\\S]" +
-              "|-" +
-              "|[^-\\\\]",
-            "g"
+            '\\\\u[0-9A-Fa-f]{4}' +
+              '|\\\\x[0-9A-Fa-f]{2}' +
+              '|\\\\[0-3][0-7]{0,2}' +
+              '|\\\\[0-7]{1,2}' +
+              '|\\\\[\\s\\S]' +
+              '|-' +
+              '|[^-\\\\]',
+            'g'
           )
         );
       const ranges = [];
-      const inverse = charsetParts[0] === "^";
+      const inverse = charsetParts[0] === '^';
 
-      const out = ["["];
+      const out = ['['];
       if (inverse) {
-        out.push("^");
+        out.push('^');
       }
 
       for (var i = inverse ? 1 : 0, n = charsetParts.length; i < n; ++i) {
@@ -367,7 +367,7 @@ let prettyPrint;
         } else {
           const start = decodeEscape(p);
           let end;
-          if (i + 2 < n && "-" === charsetParts[i + 1]) {
+          if (i + 2 < n && '-' === charsetParts[i + 1]) {
             end = decodeEscape(charsetParts[i + 2]);
             i += 2;
           } else {
@@ -413,13 +413,13 @@ let prettyPrint;
         out.push(encodeEscape(range[0]));
         if (range[1] > range[0]) {
           if (range[1] + 1 > range[0]) {
-            out.push("-");
+            out.push('-');
           }
           out.push(encodeEscape(range[1]));
         }
       }
-      out.push("]");
-      return out.join("");
+      out.push(']');
+      return out.join('');
     }
 
     function allowAnywhereFoldCaseAndRenumberGroups(regex) {
@@ -428,17 +428,17 @@ let prettyPrint;
       // include any of the above.
       const parts = regex.source.match(
         new RegExp(
-          "(?:" +
-            "\\[(?:[^\\x5C\\x5D]|\\\\[\\s\\S])*\\]" + // a character set
-            "|\\\\u[A-Fa-f0-9]{4}" + // a unicode escape
-            "|\\\\x[A-Fa-f0-9]{2}" + // a hex escape
-            "|\\\\[0-9]+" + // a back-reference or octal escape
-            "|\\\\[^ux0-9]" + // other escape sequence
-            "|\\(\\?[:!=]" + // start of a non-capturing group
-            "|[\\(\\)\\^]" + // start/end of a group, or line start
-            "|[^\\x5B\\x5C\\(\\)\\^]+" + // run of other characters
-            ")",
-          "g"
+          '(?:' +
+            '\\[(?:[^\\x5C\\x5D]|\\\\[\\s\\S])*\\]' + // a character set
+            '|\\\\u[A-Fa-f0-9]{4}' + // a unicode escape
+            '|\\\\x[A-Fa-f0-9]{2}' + // a hex escape
+            '|\\\\[0-9]+' + // a back-reference or octal escape
+            '|\\\\[^ux0-9]' + // other escape sequence
+            '|\\(\\?[:!=]' + // start of a non-capturing group
+            '|[\\(\\)\\^]' + // start/end of a group, or line start
+            '|[^\\x5B\\x5C\\(\\)\\^]+' + // run of other characters
+            ')',
+          'g'
         )
       );
       const n = parts.length;
@@ -452,10 +452,10 @@ let prettyPrint;
       // mapping.
       for (var i = 0, groupIndex = 0; i < n; ++i) {
         var p = parts[i];
-        if (p === "(") {
+        if (p === '(') {
           // groups are 1-indexed, so max group index is count of '('
           ++groupIndex;
-        } else if ("\\" === p.charAt(0)) {
+        } else if ('\\' === p.charAt(0)) {
           var decimalValue = +p.substring(1);
           if (decimalValue) {
             if (decimalValue <= groupIndex) {
@@ -479,15 +479,15 @@ let prettyPrint;
       }
       for (var i = 0, groupIndex = 0; i < n; ++i) {
         var p = parts[i];
-        if (p === "(") {
+        if (p === '(') {
           ++groupIndex;
           if (!capturedGroups[groupIndex]) {
-            parts[i] = "(?:";
+            parts[i] = '(?:';
           }
-        } else if ("\\" === p.charAt(0)) {
+        } else if ('\\' === p.charAt(0)) {
           var decimalValue = +p.substring(1);
           if (decimalValue && decimalValue <= groupIndex) {
-            parts[i] = "\\" + capturedGroups[decimalValue];
+            parts[i] = '\\' + capturedGroups[decimalValue];
           }
         }
       }
@@ -495,8 +495,8 @@ let prettyPrint;
       // Remove any prefix anchors so that the output will match anywhere.
       // ^^ really does mean an anchored match though.
       for (var i = 0; i < n; ++i) {
-        if ("^" === parts[i] && "^" !== parts[i + 1]) {
-          parts[i] = "";
+        if ('^' === parts[i] && '^' !== parts[i + 1]) {
+          parts[i] = '';
         }
       }
 
@@ -506,33 +506,33 @@ let prettyPrint;
         for (var i = 0; i < n; ++i) {
           var p = parts[i];
           const ch0 = p.charAt(0);
-          if (p.length >= 2 && ch0 === "[") {
+          if (p.length >= 2 && ch0 === '[') {
             parts[i] = caseFoldCharset(p);
-          } else if (ch0 !== "\\") {
+          } else if (ch0 !== '\\') {
             // TODO: handle letters in numeric escapes.
             parts[i] = p.replace(/[a-zA-Z]/g, (ch) => {
               const cc = ch.charCodeAt(0);
-              return "[" + String.fromCharCode(cc & ~32, cc | 32) + "]";
+              return '[' + String.fromCharCode(cc & ~32, cc | 32) + ']';
             });
           }
         }
       }
 
-      return parts.join("");
+      return parts.join('');
     }
 
     const rewritten = [];
     for (var i = 0, n = regexs.length; i < n; ++i) {
       var regex = regexs[i];
       if (regex.global || regex.multiline) {
-        throw new Error("" + regex);
+        throw new Error('' + regex);
       }
       rewritten.push(
-        "(?:" + allowAnywhereFoldCaseAndRenumberGroups(regex) + ")"
+        '(?:' + allowAnywhereFoldCaseAndRenumberGroups(regex) + ')'
       );
     }
 
-    return new RegExp(rewritten.join("|"), ignoreCase ? "gi" : "g");
+    return new RegExp(rewritten.join('|'), ignoreCase ? 'gi' : 'g');
   }
 
   /**
@@ -599,8 +599,8 @@ let prettyPrint;
           walk(child);
         }
         const nodeName = node.nodeName.toLowerCase();
-        if ("br" === nodeName || "li" === nodeName) {
-          chunks[k] = "\n";
+        if ('br' === nodeName || 'li' === nodeName) {
+          chunks[k] = '\n';
           spans[k << 1] = length++;
           spans[(k++ << 1) | 1] = node;
         }
@@ -609,9 +609,9 @@ let prettyPrint;
         let text = node.nodeValue;
         if (text.length) {
           if (!isPreformatted) {
-            text = text.replace(/[ \t\r\n]+/g, " ");
+            text = text.replace(/[ \t\r\n]+/g, ' ');
           } else {
-            text = text.replace(/\r\n?/g, "\n"); // Normalize newlines.
+            text = text.replace(/\r\n?/g, '\n'); // Normalize newlines.
           }
           // TODO: handle tabs here?
           chunks[k] = text;
@@ -625,7 +625,7 @@ let prettyPrint;
     walk(node);
 
     return {
-      sourceCode: chunks.join("").replace(/\n$/, ""),
+      sourceCode: chunks.join('').replace(/\n$/, ''),
       spans: spans,
     };
   }
@@ -743,7 +743,7 @@ let prettyPrint;
           }
         }
         const regex = patternParts[1];
-        const k = "" + regex;
+        const k = '' + regex;
         if (!regexKeys.hasOwnProperty(k)) {
           allRegexs.push(regex);
           regexKeys[k] = null;
@@ -785,7 +785,7 @@ let prettyPrint;
         let match = void 0;
 
         let isEmbedded;
-        if (typeof style === "string") {
+        if (typeof style === 'string') {
           isEmbedded = false;
         } else {
           let patternParts = shortcuts[token.charAt(0)];
@@ -808,8 +808,8 @@ let prettyPrint;
             }
           }
 
-          isEmbedded = style.length >= 5 && "lang-" === style.substring(0, 5);
-          if (isEmbedded && !(match && typeof match[1] === "string")) {
+          isEmbedded = style.length >= 5 && 'lang-' === style.substring(0, 5);
+          if (isEmbedded && !(match && typeof match[1] === 'string')) {
             isEmbedded = false;
             style = PR_SOURCE;
           }
@@ -883,21 +883,21 @@ let prettyPrint;
   function sourceDecorator(options) {
     const shortcutStylePatterns = [],
       fallthroughStylePatterns = [];
-    if (options["tripleQuotedStrings"]) {
+    if (options['tripleQuotedStrings']) {
       // '''multi-line-string''', 'single-line-string', and double-quoted
       shortcutStylePatterns.push([
         PR_STRING,
         /^(?:\'\'\'(?:[^\'\\]|\\[\s\S]|\'{1,2}(?=[^\']))*(?:\'\'\'|$)|\"\"\"(?:[^\"\\]|\\[\s\S]|\"{1,2}(?=[^\"]))*(?:\"\"\"|$)|\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$))/,
         null,
-        "'\"",
+        '\'"',
       ]);
-    } else if (options["multiLineStrings"]) {
+    } else if (options['multiLineStrings']) {
       // 'multi-line-string', "multi-line-string"
       shortcutStylePatterns.push([
         PR_STRING,
         /^(?:\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$)|\`(?:[^\\\`]|\\[\s\S])*(?:\`|$))/,
         null,
-        "'\"`",
+        '\'"`',
       ]);
     } else {
       // 'single-line-string', "single-line-string"
@@ -905,10 +905,10 @@ let prettyPrint;
         PR_STRING,
         /^(?:\'(?:[^\\\'\r\n]|\\.)*(?:\'|$)|\"(?:[^\\\"\r\n]|\\.)*(?:\"|$))/,
         null,
-        "\"'",
+        '"\'',
       ]);
     }
-    if (options["verbatimStrings"]) {
+    if (options['verbatimStrings']) {
       // verbatim-string-literal production from the C# grammar.  See issue 93.
       fallthroughStylePatterns.push([
         PR_STRING,
@@ -916,16 +916,16 @@ let prettyPrint;
         null,
       ]);
     }
-    const hc = options["hashComments"];
+    const hc = options['hashComments'];
     if (hc) {
-      if (options["cStyleComments"]) {
+      if (options['cStyleComments']) {
         if (hc > 1) {
           // multiline hash comments
           shortcutStylePatterns.push([
             PR_COMMENT,
             /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/,
             null,
-            "#",
+            '#',
           ]);
         } else {
           // Stop C preprocessor declarations at an unclosed open comment
@@ -933,7 +933,7 @@ let prettyPrint;
             PR_COMMENT,
             /^#(?:(?:define|e(?:l|nd)if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\r\n]*)/,
             null,
-            "#",
+            '#',
           ]);
         }
         // #include <stdio.h>
@@ -943,10 +943,10 @@ let prettyPrint;
           null,
         ]);
       } else {
-        shortcutStylePatterns.push([PR_COMMENT, /^#[^\r\n]*/, null, "#"]);
+        shortcutStylePatterns.push([PR_COMMENT, /^#[^\r\n]*/, null, '#']);
       }
     }
-    if (options["cStyleComments"]) {
+    if (options['cStyleComments']) {
       fallthroughStylePatterns.push([PR_COMMENT, /^\/\/[^\r\n]*/, null]);
       fallthroughStylePatterns.push([
         PR_COMMENT,
@@ -954,19 +954,19 @@ let prettyPrint;
         null,
       ]);
     }
-    const regexLiterals = options["regexLiterals"];
+    const regexLiterals = options['regexLiterals'];
     if (regexLiterals) {
       /**
        * @const
        */
       const regexExcls =
         regexLiterals > 1
-          ? "" // Multiline regex literals
-          : "\n\r";
+          ? '' // Multiline regex literals
+          : '\n\r';
       /**
        * @const
        */
-      const regexAny = regexExcls ? "." : "[\\S\\s]";
+      const regexAny = regexExcls ? '.' : '[\\S\\s]';
       /**
        * @const
        */
@@ -974,46 +974,46 @@ let prettyPrint;
         // A regular expression literal starts with a slash that is
         // not followed by * or / so that it is not confused with
         // comments.
-        "/(?=[^/*" +
+        '/(?=[^/*' +
         regexExcls +
-        "])" +
+        '])' +
         // and then contains any number of raw characters,
-        "(?:[^/\\x5B\\x5C" +
+        '(?:[^/\\x5B\\x5C' +
         regexExcls +
-        "]" +
+        ']' +
         // escape sequences (\x5C),
-        "|\\x5C" +
+        '|\\x5C' +
         regexAny +
         // or non-nesting character sets (\x5B\x5D);
-        "|\\x5B(?:[^\\x5C\\x5D" +
+        '|\\x5B(?:[^\\x5C\\x5D' +
         regexExcls +
-        "]" +
-        "|\\x5C" +
+        ']' +
+        '|\\x5C' +
         regexAny +
-        ")*(?:\\x5D|$))+" +
+        ')*(?:\\x5D|$))+' +
         // finally closed by a /.
-        "/";
+        '/';
       fallthroughStylePatterns.push([
-        "lang-regex",
-        RegExp("^" + REGEXP_PRECEDER_PATTERN + "(" + REGEX_LITERAL + ")"),
+        'lang-regex',
+        RegExp('^' + REGEXP_PRECEDER_PATTERN + '(' + REGEX_LITERAL + ')'),
       ]);
     }
 
-    const types = options["types"];
+    const types = options['types'];
     if (types) {
       fallthroughStylePatterns.push([PR_TYPE, types]);
     }
 
-    const keywords = ("" + options["keywords"]).replace(/^ | $/g, "");
+    const keywords = ('' + options['keywords']).replace(/^ | $/g, '');
     if (keywords.length) {
       fallthroughStylePatterns.push([
         PR_KEYWORD,
-        new RegExp("^(?:" + keywords.replace(/[\s,]+/g, "|") + ")\\b"),
+        new RegExp('^(?:' + keywords.replace(/[\s,]+/g, '|') + ')\\b'),
         null,
       ]);
     }
 
-    shortcutStylePatterns.push([PR_PLAIN, /^\s+/, null, " \r\n\t\xA0"]);
+    shortcutStylePatterns.push([PR_PLAIN, /^\s+/, null, ' \r\n\t\xA0']);
 
     let punctuation =
       // The Bash man page says
@@ -1051,9 +1051,9 @@ let prettyPrint;
       // If that does turn out to be a problem, we should change the below
       // when hc is truthy to include # in the run of punctuation characters
       // only when not followint [|&;<>].
-      "^.[^\\s\\w.$@'\"`/\\\\]*";
-    if (options["regexLiterals"]) {
-      punctuation += "(?!s*/)";
+      '^.[^\\s\\w.$@\'"`/\\\\]*';
+    if (options['regexLiterals']) {
+      punctuation += '(?!s*/)';
     }
 
     fallthroughStylePatterns.push(
@@ -1064,20 +1064,20 @@ let prettyPrint;
       [
         PR_LITERAL,
         new RegExp(
-          "^(?:" +
+          '^(?:' +
             // A hex number
-            "0x[a-f0-9]+" +
+            '0x[a-f0-9]+' +
             // or an octal or decimal number,
-            "|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)" +
+            '|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)' +
             // possibly in scientific notation
-            "(?:e[+\\-]?\\d+)?" +
-            ")" +
+            '(?:e[+\\-]?\\d+)?' +
+            ')' +
             // with an optional modifier like UL for unsigned long
-            "[a-z]*",
-          "i"
+            '[a-z]*',
+          'i'
         ),
         null,
-        "0123456789",
+        '0123456789',
       ],
       // Don't treat escaped quotes in bash as starting strings.
       // See issue 144.
@@ -1113,7 +1113,7 @@ let prettyPrint;
 
     const document = node.ownerDocument;
 
-    let li = document.createElement("li");
+    let li = document.createElement('li');
     while (node.firstChild) {
       li.appendChild(node.firstChild);
     }
@@ -1125,7 +1125,7 @@ let prettyPrint;
       const type = node.nodeType;
       if (type == 1 && !nocode.test(node.className)) {
         // Element
-        if ("br" === node.nodeName) {
+        if ('br' === node.nodeName) {
           breakAfter(node);
           // Discard the <BR> since it is now flush against a </LI>.
           if (node.parentNode) {
@@ -1220,11 +1220,11 @@ let prettyPrint;
 
     // Make sure numeric indices show correctly.
     if (opt_startLineNum === (opt_startLineNum | 0)) {
-      listItems[0].setAttribute("value", opt_startLineNum);
+      listItems[0].setAttribute('value', opt_startLineNum);
     }
 
-    const ol = document.createElement("ol");
-    ol.className = "linenums";
+    const ol = document.createElement('ol');
+    ol.className = 'linenums';
     const offset =
       Math.max(0, (opt_startLineNum - 1) /* zero index */ | 0) || 0;
     for (const i = 0, n = listItems.length; i < n; ++i) {
@@ -1232,9 +1232,9 @@ let prettyPrint;
       // Stick a class on the LIs so that stylesheets can
       // color odd/even rows, or any other row pattern that
       // is co-prime with 10.
-      li.className = "L" + ((i + offset) % 10);
+      li.className = 'L' + ((i + offset) % 10);
       if (!li.firstChild) {
-        li.appendChild(document.createTextNode("\xA0"));
+        li.appendChild(document.createTextNode('\xA0'));
       }
       ol.appendChild(li);
     }
@@ -1309,7 +1309,7 @@ let prettyPrint;
     let oldDisplay;
     if (sourceNode) {
       oldDisplay = sourceNode.style.display;
-      sourceNode.style.display = "none";
+      sourceNode.style.display = 'none';
     }
     try {
       const decoration = null;
@@ -1334,11 +1334,11 @@ let prettyPrint;
           // space to appear at the beginning of every line but the first.
           // Emitting an old Mac OS 9 line separator makes everything spiffy.
           if (isIE8OrEarlier) {
-            styledText = styledText.replace(newlineRe, "\r");
+            styledText = styledText.replace(newlineRe, '\r');
           }
           textNode.nodeValue = styledText;
           const document = textNode.ownerDocument;
-          const span = document.createElement("span");
+          const span = document.createElement('span');
           span.className = decorations[decorationIndex + 1];
           const parentNode = textNode.parentNode;
           parentNode.replaceChild(span, textNode);
@@ -1391,8 +1391,8 @@ let prettyPrint;
       const ext = fileExtensions[i];
       if (!langHandlerRegistry.hasOwnProperty(ext)) {
         langHandlerRegistry[ext] = handler;
-      } else if (win["console"]) {
-        console["warn"]("cannot override language handler %s", ext);
+      } else if (win['console']) {
+        console['warn']('cannot override language handler %s', ext);
       }
     }
   }
@@ -1400,11 +1400,11 @@ let prettyPrint;
     if (!(extension && langHandlerRegistry.hasOwnProperty(extension))) {
       // Treat it as markup if the first non whitespace character is a < and
       // the last non-whitespace character is a >.
-      extension = /^\s*</.test(source) ? "default-markup" : "default-code";
+      extension = /^\s*</.test(source) ? 'default-markup' : 'default-code';
     }
     return langHandlerRegistry[extension];
   }
-  registerLangHandler(decorateSource, ["default-code"]);
+  registerLangHandler(decorateSource, ['default-code']);
   registerLangHandler(
     createSimpleLexer(
       [],
@@ -1413,42 +1413,42 @@ let prettyPrint;
         [PR_DECLARATION, /^<!\w[^>]*(?:>|$)/],
         [PR_COMMENT, /^<\!--[\s\S]*?(?:-\->|$)/],
         // Unescaped content in an unknown language
-        ["lang-", /^<\?([\s\S]+?)(?:\?>|$)/],
-        ["lang-", /^<%([\s\S]+?)(?:%>|$)/],
+        ['lang-', /^<\?([\s\S]+?)(?:\?>|$)/],
+        ['lang-', /^<%([\s\S]+?)(?:%>|$)/],
         [PR_PUNCTUATION, /^(?:<[%?]|[%?]>)/],
-        ["lang-", /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i],
+        ['lang-', /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i],
         // Unescaped content in javascript.  (Or possibly vbscript).
-        ["lang-js", /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i],
+        ['lang-js', /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i],
         // Contains unescaped stylesheet content
-        ["lang-css", /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],
-        ["lang-in.tag", /^(<\/?[a-z][^<>]*>)/i],
+        ['lang-css', /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],
+        ['lang-in.tag', /^(<\/?[a-z][^<>]*>)/i],
       ]
     ),
-    ["default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl"]
+    ['default-markup', 'htm', 'html', 'mxml', 'xhtml', 'xml', 'xsl']
   );
   registerLangHandler(
     createSimpleLexer(
       [
-        [PR_PLAIN, /^[\s]+/, null, " \t\r\n"],
-        [PR_ATTRIB_VALUE, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, "\"'"],
+        [PR_PLAIN, /^[\s]+/, null, ' \t\r\n'],
+        [PR_ATTRIB_VALUE, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, '"\''],
       ],
       [
         [PR_TAG, /^^<\/?[a-z](?:[\w.:-]*\w)?|\/?>$/i],
         [PR_ATTRIB_NAME, /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i],
-        ["lang-uq.val", /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/],
+        ['lang-uq.val', /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/],
         [PR_PUNCTUATION, /^[=<>\/]+/],
-        ["lang-js", /^on\w+\s*=\s*\"([^\"]+)\"/i],
-        ["lang-js", /^on\w+\s*=\s*\'([^\']+)\'/i],
-        ["lang-js", /^on\w+\s*=\s*([^\"\'>\s]+)/i],
-        ["lang-css", /^style\s*=\s*\"([^\"]+)\"/i],
-        ["lang-css", /^style\s*=\s*\'([^\']+)\'/i],
-        ["lang-css", /^style\s*=\s*([^\"\'>\s]+)/i],
+        ['lang-js', /^on\w+\s*=\s*\"([^\"]+)\"/i],
+        ['lang-js', /^on\w+\s*=\s*\'([^\']+)\'/i],
+        ['lang-js', /^on\w+\s*=\s*([^\"\'>\s]+)/i],
+        ['lang-css', /^style\s*=\s*\"([^\"]+)\"/i],
+        ['lang-css', /^style\s*=\s*\'([^\']+)\'/i],
+        ['lang-css', /^style\s*=\s*([^\"\'>\s]+)/i],
       ]
     ),
-    ["in.tag"]
+    ['in.tag']
   );
   registerLangHandler(createSimpleLexer([], [[PR_ATTRIB_VALUE, /^[\s\S]+/]]), [
-    "uq.val",
+    'uq.val',
   ]);
   registerLangHandler(
     sourceDecorator({
@@ -1457,13 +1457,13 @@ let prettyPrint;
       cStyleComments: true,
       types: C_TYPES,
     }),
-    ["c", "cc", "cpp", "cxx", "cyc", "m"]
+    ['c', 'cc', 'cpp', 'cxx', 'cyc', 'm']
   );
   registerLangHandler(
     sourceDecorator({
-      keywords: "null,true,false",
+      keywords: 'null,true,false',
     }),
-    ["json"]
+    ['json']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1473,14 +1473,14 @@ let prettyPrint;
       verbatimStrings: true,
       types: C_TYPES,
     }),
-    ["cs"]
+    ['cs']
   );
   registerLangHandler(
     sourceDecorator({
       keywords: JAVA_KEYWORDS,
       cStyleComments: true,
     }),
-    ["java"]
+    ['java']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1488,7 +1488,7 @@ let prettyPrint;
       hashComments: true,
       multiLineStrings: true,
     }),
-    ["bash", "bsh", "csh", "sh"]
+    ['bash', 'bsh', 'csh', 'sh']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1497,7 +1497,7 @@ let prettyPrint;
       multiLineStrings: true,
       tripleQuotedStrings: true,
     }),
-    ["cv", "py", "python"]
+    ['cv', 'py', 'python']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1506,7 +1506,7 @@ let prettyPrint;
       multiLineStrings: true,
       regexLiterals: 2, // multiline regex literals
     }),
-    ["perl", "pl", "pm"]
+    ['perl', 'pl', 'pm']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1515,7 +1515,7 @@ let prettyPrint;
       multiLineStrings: true,
       regexLiterals: true,
     }),
-    ["rb", "ruby"]
+    ['rb', 'ruby']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1523,7 +1523,7 @@ let prettyPrint;
       cStyleComments: true,
       regexLiterals: true,
     }),
-    ["javascript", "js"]
+    ['javascript', 'js']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1534,7 +1534,7 @@ let prettyPrint;
       tripleQuotedStrings: true,
       regexLiterals: true,
     }),
-    ["coffee"]
+    ['coffee']
   );
   registerLangHandler(
     sourceDecorator({
@@ -1542,10 +1542,10 @@ let prettyPrint;
       cStyleComments: true,
       multilineStrings: true,
     }),
-    ["rc", "rs", "rust"]
+    ['rc', 'rs', 'rust']
   );
   registerLangHandler(createSimpleLexer([], [[PR_STRING, /^[\s\S]+/]]), [
-    "regex",
+    'regex',
   ]);
 
   function applyDecorator(job) {
@@ -1567,8 +1567,8 @@ let prettyPrint;
       // modifying the sourceNode in place.
       recombineTagsAndDecorations(job);
     } catch (e) {
-      if (win["console"]) {
-        console["log"]((e && e["stack"]) || e);
+      if (win['console']) {
+        console['log']((e && e['stack']) || e);
       }
     }
   }
@@ -1582,7 +1582,7 @@ let prettyPrint;
    *     or the 1-indexed number of the first line in sourceCodeHtml.
    */
   function $prettyPrintOne(sourceCodeHtml, opt_langExtension, opt_numberLines) {
-    let container = document.createElement("div");
+    let container = document.createElement('div');
     // This could cause images to load and onload listeners to fire.
     // E.g. <img onerror="alert(1337)" src="nosuchimage.png">.
     // We assume that the inner HTML is from a trusted source.
@@ -1590,7 +1590,7 @@ let prettyPrint;
     // when it is injected into a <pre> tag.
     // http://stackoverflow.com/questions/451486/pre-tag-loses-line-breaks-when-setting-innerhtml-in-ie
     // http://stackoverflow.com/questions/195363/inserting-a-newline-into-a-pre-tag-ie-javascript
-    container.innerHTML = "<pre>" + sourceCodeHtml + "</pre>";
+    container.innerHTML = '<pre>' + sourceCodeHtml + '</pre>';
     container = container.firstChild;
     if (opt_numberLines) {
       numberLines(container, opt_numberLines, true);
@@ -1622,7 +1622,7 @@ let prettyPrint;
       return root.getElementsByTagName(tn);
     }
     // fetch a list of nodes to rewrite
-    let codeSegments = [byTagName("pre"), byTagName("code"), byTagName("xmp")];
+    let codeSegments = [byTagName('pre'), byTagName('code'), byTagName('xmp')];
     const elements = [];
     for (let i = 0; i < codeSegments.length; ++i) {
       for (let j = 0, n = codeSegments[i].length; j < n; ++j) {
@@ -1632,7 +1632,7 @@ let prettyPrint;
     codeSegments = null;
 
     let clock = Date;
-    if (!clock["now"]) {
+    if (!clock['now']) {
       clock = {
         now() {
           return +new Date();
@@ -1654,10 +1654,10 @@ let prettyPrint;
     const EMPTY = {};
 
     function doWork() {
-      const endTime = win["PR_SHOULD_USE_CONTINUATION"]
-        ? clock["now"]() + 250 /* ms */
+      const endTime = win['PR_SHOULD_USE_CONTINUATION']
+        ? clock['now']() + 250 /* ms */
         : Infinity;
-      for (; k < elements.length && clock["now"]() < endTime; k++) {
+      for (; k < elements.length && clock['now']() < endTime; k++) {
         const cs = elements[k];
 
         // Look for a preceding comment like
@@ -1711,7 +1711,7 @@ let prettyPrint;
           if (!nested) {
             // Mark done.  If we fail to prettyprint for whatever reason,
             // we shouldn't try again.
-            cs.className += " prettyprinted";
+            cs.className += ' prettyprinted';
 
             // If the classes includes a language extensions, use it.
             // Language extensions can be specified like
@@ -1721,7 +1721,7 @@ let prettyPrint;
             // HTML5 recommends that a language be specified using "language-"
             // as the prefix instead.  Google Code Prettify supports both.
             // http://dev.w3.org/html5/spec-author-view/the-code-element.html
-            let langExtension = attrs["lang"];
+            let langExtension = attrs['lang'];
             if (!langExtension) {
               langExtension = className.match(langExtensionRe);
               // Support <pre class="prettyprint"><code class="language-c">
@@ -1743,22 +1743,22 @@ let prettyPrint;
             if (preformattedTagNameRe.test(cs.tagName)) {
               preformatted = 1;
             } else {
-              const currentStyle = cs["currentStyle"];
+              const currentStyle = cs['currentStyle'];
               const defaultView = doc.defaultView;
               const whitespace = currentStyle
-                ? currentStyle["whiteSpace"]
+                ? currentStyle['whiteSpace']
                 : defaultView && defaultView.getComputedStyle
                 ? defaultView
                     .getComputedStyle(cs, null)
-                    .getPropertyValue("white-space")
+                    .getPropertyValue('white-space')
                 : 0;
-              preformatted = whitespace && "pre" === whitespace.substring(0, 3);
+              preformatted = whitespace && 'pre' === whitespace.substring(0, 3);
             }
 
             // Look for a class like linenums or linenums:<n> where <n> is the
             // 1-indexed number of the first line.
-            let lineNums = attrs["linenums"];
-            if (!(lineNums = lineNums === "true" || +lineNums)) {
+            let lineNums = attrs['linenums'];
+            if (!(lineNums = lineNums === 'true' || +lineNums)) {
               lineNums = className.match(/\blinenums\b(?::(\d+))?/);
               lineNums = lineNums
                 ? lineNums[1] && lineNums[1].length
@@ -1784,7 +1784,7 @@ let prettyPrint;
       if (k < elements.length) {
         // finish up in a continuation
         setTimeout(doWork, 250);
-      } else if ("function" === typeof opt_whenDone) {
+      } else if ('function' === typeof opt_whenDone) {
         opt_whenDone();
       }
     }
@@ -1796,7 +1796,7 @@ let prettyPrint;
    * Contains functions for creating and registering new language handlers.
    * @type {Object}
    */
-  const PR = (win["PR"] = {
+  const PR = (win['PR'] = {
     createSimpleLexer: createSimpleLexer,
     registerLangHandler: registerLangHandler,
     sourceDecorator: sourceDecorator,
@@ -1814,10 +1814,10 @@ let prettyPrint;
     PR_TAG: PR_TAG,
     PR_TYPE: PR_TYPE,
     prettyPrintOne: IN_GLOBAL_SCOPE
-      ? (win["prettyPrintOne"] = $prettyPrintOne)
+      ? (win['prettyPrintOne'] = $prettyPrintOne)
       : (prettyPrintOne = $prettyPrintOne),
     prettyPrint: (prettyPrint = IN_GLOBAL_SCOPE
-      ? (win["prettyPrint"] = $prettyPrint)
+      ? (win['prettyPrint'] = $prettyPrint)
       : (prettyPrint = $prettyPrint)),
   });
 
@@ -1833,8 +1833,8 @@ let prettyPrint;
   // whose value is an object. This helps avoid conflict with any
   // other existing JavaScript code that could have defined a define()
   // function that does not conform to the AMD API.
-  if (typeof define === "function" && define["amd"]) {
-    define("google-code-prettify", [], () => {
+  if (typeof define === 'function' && define['amd']) {
+    define('google-code-prettify', [], () => {
       return PR;
     });
   }

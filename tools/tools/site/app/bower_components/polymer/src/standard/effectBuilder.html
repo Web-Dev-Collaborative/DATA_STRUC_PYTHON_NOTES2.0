@@ -33,7 +33,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _addPropertyEffect: function (property, kind, effect) {
       var prop = Polymer.Bind.addPropertyEffect(this, property, kind, effect);
       // memoize path function for faster lookup.
-      prop.pathFn = this["_" + prop.kind + "PathEffect"];
+      prop.pathFn = this['_' + prop.kind + 'PathEffect'];
     },
 
     // prototyping
@@ -60,25 +60,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             this._addComputedEffect(p, prop.computed);
           }
           if (prop.notify) {
-            this._addPropertyEffect(p, "notify", {
-              event: Polymer.CaseMap.camelToDashCase(p) + "-changed",
+            this._addPropertyEffect(p, 'notify', {
+              event: Polymer.CaseMap.camelToDashCase(p) + '-changed',
             });
           }
           if (prop.reflectToAttribute) {
             var attr = Polymer.CaseMap.camelToDashCase(p);
-            if (attr[0] === "-") {
+            if (attr[0] === '-') {
               this._warn(
                 this._logf(
-                  "_addPropertyEffects",
-                  "Property " +
+                  '_addPropertyEffects',
+                  'Property ' +
                     p +
-                    " cannot be reflected to attribute " +
+                    ' cannot be reflected to attribute ' +
                     attr +
                     ' because "-" is not a valid starting attribute name. Use a lowercase first letter for the property instead.'
                 )
               );
             } else {
-              this._addPropertyEffect(p, "reflect", {
+              this._addPropertyEffect(p, 'reflect', {
                 attribute: attr,
               });
             }
@@ -97,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var dynamicFn = sig.dynamicFn;
 
       for (var i = 0, arg; i < sig.args.length && (arg = sig.args[i]); i++) {
-        this._addPropertyEffect(arg.model, "compute", {
+        this._addPropertyEffect(arg.model, 'compute', {
           method: sig.method,
           args: sig.args,
           trigger: arg,
@@ -106,7 +106,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
       }
       if (dynamicFn) {
-        this._addPropertyEffect(sig.method, "compute", {
+        this._addPropertyEffect(sig.method, 'compute', {
           method: sig.method,
           args: sig.args,
           trigger: null,
@@ -117,7 +117,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _addObserverEffect: function (property, observer) {
-      this._addPropertyEffect(property, "observer", {
+      this._addPropertyEffect(property, 'observer', {
         method: observer,
         property: property,
       });
@@ -141,7 +141,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var dynamicFn = sig.dynamicFn;
 
       for (var i = 0, arg; i < sig.args.length && (arg = sig.args[i]); i++) {
-        this._addPropertyEffect(arg.model, "complexObserver", {
+        this._addPropertyEffect(arg.model, 'complexObserver', {
           method: sig.method,
           args: sig.args,
           trigger: arg,
@@ -149,7 +149,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
       }
       if (dynamicFn) {
-        this._addPropertyEffect(sig.method, "complexObserver", {
+        this._addPropertyEffect(sig.method, 'complexObserver', {
           method: sig.method,
           args: sig.args,
           trigger: null,
@@ -188,17 +188,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this._addAnnotatedComputationEffect(note, part, index);
         } else if (!part.literal) {
           // add 'annotation' binding effect for property 'model'
-          if (note.kind === "attribute" && note.name[0] === "-") {
+          if (note.kind === 'attribute' && note.name[0] === '-') {
             this._warn(
               this._logf(
-                "_addAnnotationEffect",
-                "Cannot set attribute " +
+                '_addAnnotationEffect',
+                'Cannot set attribute ' +
                   note.name +
                   ' because "-" is not a valid attribute starting character'
               )
             );
           } else {
-            this._addPropertyEffect(part.model, "annotation", {
+            this._addPropertyEffect(part.model, 'annotation', {
               kind: note.kind,
               index: index,
               name: note.name,
@@ -219,7 +219,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var sig = part.signature;
       if (sig.static) {
         this.__addAnnotatedComputationEffect(
-          "__static__",
+          '__static__',
           index,
           note,
           part,
@@ -260,7 +260,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       part,
       trigger
     ) {
-      this._addPropertyEffect(property, "annotatedComputation", {
+      this._addPropertyEffect(property, 'annotatedComputation', {
         index: index,
         isCompound: note.isCompound,
         compoundIndex: part.compoundIndex,
@@ -287,7 +287,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         if (m[2].trim()) {
           // replace escaped commas with comma entity, split on un-escaped commas
-          var args = m[2].replace(/\\,/g, "&comma;").split(",");
+          var args = m[2].replace(/\\,/g, '&comma;').split(',');
           return this._parseArgs(args, sig);
         } else {
           sig.args = Polymer.nar;
@@ -312,22 +312,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var arg = rawArg
         .trim()
         // replace comma entity with comma
-        .replace(/&comma;/g, ",")
+        .replace(/&comma;/g, ',')
         // repair extra escape sequences; note only commas strictly need
         // escaping, but we allow any other char to be escaped since its
         // likely users will do this
-        .replace(/\\(.)/g, "\$1");
+        .replace(/\\(.)/g, '\$1');
       // basic argument descriptor
       var a = {
         name: arg,
       };
       // detect literal value (must be String or Number)
       var fc = arg[0];
-      if (fc === "-") {
+      if (fc === '-') {
         fc = arg[1];
       }
-      if (fc >= "0" && fc <= "9") {
-        fc = "#";
+      if (fc >= '0' && fc <= '9') {
+        fc = '#';
       }
       switch (fc) {
         case "'":
@@ -335,7 +335,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           a.value = arg.slice(1, -1);
           a.literal = true;
           break;
-        case "#":
+        case '#':
           a.value = Number(arg);
           a.literal = true;
           break;
@@ -344,9 +344,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if (!a.literal) {
         a.model = this._modelForPath(arg);
         // detect structured path (has dots)
-        a.structured = arg.indexOf(".") > 0;
+        a.structured = arg.indexOf('.') > 0;
         if (a.structured) {
-          a.wildcard = arg.slice(-2) == ".*";
+          a.wildcard = arg.slice(-2) == '.*';
           if (a.wildcard) {
             a.name = arg.slice(0, -2);
           }
@@ -375,7 +375,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return;
       }
 
-      if (info.kind == "attribute") {
+      if (info.kind == 'attribute') {
         this.serializeValueToAttribute(value, property, node);
       } else {
         var pinfo = node._propertyInfo && node._propertyInfo[property];
@@ -397,21 +397,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if (info.isCompound) {
         var storage = node.__compoundStorage__[property];
         storage[info.compoundIndex] = value;
-        value = storage.join("");
+        value = storage.join('');
       }
 
-      if (info.kind !== "attribute") {
+      if (info.kind !== 'attribute') {
         // TODO(sorvell): consider pre-processing the following two string
         // comparisons in the hot path so this can be a boolean check
-        if (property === "className") {
+        if (property === 'className') {
           value = this._scopeElementClass(node, value);
         }
         // Some browsers serialize `undefined` to `"undefined"`
         if (
-          property === "textContent" ||
-          (node.localName == "input" && property == "value")
+          property === 'textContent' ||
+          (node.localName == 'input' && property == 'value')
         ) {
-          value = value == undefined ? "" : value;
+          value = value == undefined ? '' : value;
         }
       }
       return value;
@@ -420,7 +420,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _executeStaticEffects: function () {
       if (this._propertyEffects && this._propertyEffects.__static__) {
         this._effectEffects(
-          "__static__",
+          '__static__',
           null,
           this._propertyEffects.__static__
         );

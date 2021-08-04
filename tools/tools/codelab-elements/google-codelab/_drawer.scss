@@ -64,7 +64,7 @@ google-codelab #drawer ol li a {
   line-height: 20px;
   box-sizing: content-box;
   position: relative;
-  font-family: "Roboto", "Noto", sans-serif;
+  font-family: 'Roboto', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   transition: all 300ms ease-in-out;
   border: 1px #dadce0 solid;
@@ -186,7 +186,7 @@ google-codelab #drawer ol {
   }
 
   google-codelab #main::before {
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     right: 0;

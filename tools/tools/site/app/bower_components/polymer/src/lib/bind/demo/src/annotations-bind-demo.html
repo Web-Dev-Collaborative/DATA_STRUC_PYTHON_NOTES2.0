@@ -22,16 +22,16 @@
   // TODO(sjmiles): should 'bind-annotations' blend the other two modules
   // somehow so we don't need to include all three here?
   using(
-    ["Annotations", "bind", "bind-annotations"],
+    ['Annotations', 'bind', 'bind-annotations'],
 
     function (Annotations, Bind, BindAnnotations) {
-      var out = document.querySelector("#abd");
-      out.innerHTML += "<hr><h3>annotations-bind demo</h3><hr>";
+      var out = document.querySelector('#abd');
+      out.innerHTML += '<hr><h3>annotations-bind demo</h3><hr>';
 
       // phase one: prototyping
 
       var prototype = {};
-      var template = currentImport.querySelector("template");
+      var template = currentImport.querySelector('template');
       var list = Templabindinate(prototype, template);
 
       // phase two: instancing
@@ -42,14 +42,14 @@
 
       // affect model
 
-      model.text = "Hello from Model";
-      model.path = "path";
-      model.otherpath = "other.path";
-      model.specialStyle = { backgroundColor: "red" };
+      model.text = 'Hello from Model';
+      model.path = 'path';
+      model.otherpath = 'other.path';
+      model.specialStyle = { backgroundColor: 'red' };
 
       // effects visible in dom
 
-      var foo = dom.querySelector("#foo");
+      var foo = dom.querySelector('#foo');
       out.innerHTML +=
         'foo.<b>path</b> = "' +
         model.path +

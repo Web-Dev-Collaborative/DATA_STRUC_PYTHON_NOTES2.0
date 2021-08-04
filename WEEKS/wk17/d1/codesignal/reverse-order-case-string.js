@@ -1,8 +1,8 @@
 const reverseString = (str) => {
-  return str.split("").reverse().join("");
+  return str.split('').reverse().join('');
 };
 
-console.log(reverseString("geeksForgEeks"));
+console.log(reverseString('geeksForgEeks'));
 
 const reverseCase = (str) => {
   return str.replace(/./g, (c) => {
@@ -20,11 +20,11 @@ function csOppositeReverse(txt) {
 }
 // // csOppositeReverse("geeksForgEeks");
 console.log(
-  "🚀 ~ file: reverse-order-case-string.js ~ line 28 ~ csOppositeReverse(geeksForgEeks)",
-  csOppositeReverse("geeksForgEeks")
+  '🚀 ~ file: reverse-order-case-string.js ~ line 28 ~ csOppositeReverse(geeksForgEeks)',
+  csOppositeReverse('geeksForgEeks')
 );
 // // csOppositeReverse("hello every one");
 console.log(
-  "🚀 ~ file: reverse-order-case-string.js ~ line 30 ~ csOppositeReverse(hello every one)",
-  csOppositeReverse("hello every one")
+  '🚀 ~ file: reverse-order-case-string.js ~ line 30 ~ csOppositeReverse(hello every one)',
+  csOppositeReverse('hello every one')
 );

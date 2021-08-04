@@ -25,20 +25,20 @@ section: main
       <h3>Example</h3>
 
       <script type="text/javascript">
-        imgData = "R0lGODdhBQAFAIACAAAAAP/eACwAAAAABQAFAAACCIwPkWerClIBADs=";
+        imgData = 'R0lGODdhBQAFAIACAAAAAP/eACwAAAAABQAFAAACCIwPkWerClIBADs=';
 
         jQuery(function ($) {
           if (!JSZip.support.blob) {
-            $("#demo-not-supported").removeClass("hidden");
-            $("#demo").hide();
+            $('#demo-not-supported').removeClass('hidden');
+            $('#demo').hide();
             return;
           }
-          $("#demo").click(function () {
+          $('#demo').click(function () {
             try {
-              eval($("#demo-code").val());
-              $("#status").removeClass().addClass("text-success").text("Done!");
+              eval($('#demo-code').val());
+              $('#status').removeClass().addClass('text-success').text('Done!');
             } catch (e) {
-              $("#status").removeClass().addClass("text-danger").text(e);
+              $('#status').removeClass().addClass('text-danger').text(e);
             }
           });
         });

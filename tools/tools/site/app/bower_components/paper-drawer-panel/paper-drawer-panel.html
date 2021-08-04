@@ -316,7 +316,7 @@ Custom property | Description | Default
 
   <script>
     (function () {
-      "use strict";
+      'use strict';
 
       // this would be the only `paper-drawer-panel` in
       // the whole app that can be in `dragging` state
@@ -330,11 +330,11 @@ Custom property | Description | Default
           }
         }
 
-        return classes.join(" ");
+        return classes.join(' ');
       }
 
       Polymer({
-        is: "paper-drawer-panel",
+        is: 'paper-drawer-panel',
 
         behaviors: [Polymer.IronResizableBehavior],
 
@@ -371,7 +371,7 @@ Custom property | Description | Default
            */
           defaultSelected: {
             type: String,
-            value: "main",
+            value: 'main',
           },
 
           /**
@@ -405,7 +405,7 @@ Custom property | Description | Default
            */
           drawerWidth: {
             type: String,
-            value: "256px",
+            value: '256px',
           },
 
           /**
@@ -431,7 +431,7 @@ Custom property | Description | Default
           hasTransform: {
             type: Boolean,
             value: function () {
-              return "transform" in this.style;
+              return 'transform' in this.style;
             },
           },
 
@@ -441,7 +441,7 @@ Custom property | Description | Default
           hasWillChange: {
             type: Boolean,
             value: function () {
-              return "willChange" in this.style;
+              return 'willChange' in this.style;
             },
           },
 
@@ -472,7 +472,7 @@ Custom property | Description | Default
            */
           responsiveWidth: {
             type: String,
-            value: "768px",
+            value: '768px',
           },
 
           /**
@@ -502,7 +502,7 @@ Custom property | Description | Default
            */
           drawerToggleAttribute: {
             type: String,
-            value: "paper-drawer-toggle",
+            value: 'paper-drawer-toggle',
           },
 
           /**
@@ -537,16 +537,16 @@ Custom property | Description | Default
         },
 
         listeners: {
-          tap: "_onTap",
-          track: "_onTrack",
-          down: "_downHandler",
-          up: "_upHandler",
-          transitionend: "_onTransitionEnd",
+          tap: '_onTap',
+          track: '_onTrack',
+          down: '_downHandler',
+          up: '_upHandler',
+          transitionend: '_onTransitionEnd',
         },
 
         observers: [
-          "_forceNarrowChanged(forceNarrow, defaultSelected)",
-          "_toggleFocusListener(selected)",
+          '_forceNarrowChanged(forceNarrow, defaultSelected)',
+          '_toggleFocusListener(selected)',
         ],
 
         ready: function () {
@@ -577,8 +577,8 @@ Custom property | Description | Default
         openDrawer: function () {
           requestAnimationFrame(
             function () {
-              this.toggleClass("transition-drawer", true, this.$.drawer);
-              this.selected = "drawer";
+              this.toggleClass('transition-drawer', true, this.$.drawer);
+              this.selected = 'drawer';
             }.bind(this)
           );
         },
@@ -591,8 +591,8 @@ Custom property | Description | Default
         closeDrawer: function () {
           requestAnimationFrame(
             function () {
-              this.toggleClass("transition-drawer", true, this.$.drawer);
-              this.selected = "main";
+              this.toggleClass('transition-drawer', true, this.$.drawer);
+              this.selected = 'main';
             }.bind(this)
           );
         },
@@ -603,16 +603,16 @@ Custom property | Description | Default
             // ignore events coming from the light dom
             return;
           }
-          if (e.propertyName === "left" || e.propertyName === "right") {
+          if (e.propertyName === 'left' || e.propertyName === 'right') {
             this.notifyResize();
           }
-          if (e.propertyName === "transform") {
+          if (e.propertyName === 'transform') {
             requestAnimationFrame(
               function () {
-                this.toggleClass("transition-drawer", false, this.$.drawer);
+                this.toggleClass('transition-drawer', false, this.$.drawer);
               }.bind(this)
             );
-            if (this.selected === "drawer") {
+            if (this.selected === 'drawer') {
               var focusedChild = this._getAutoFocusedNode();
               focusedChild && focusedChild.focus();
             }
@@ -628,32 +628,32 @@ Custom property | Description | Default
         ) {
           return classNames({
             dragging: dragging,
-            "narrow-layout": narrow,
-            "right-drawer": rightDrawer,
-            "left-drawer": !rightDrawer,
+            'narrow-layout': narrow,
+            'right-drawer': rightDrawer,
+            'left-drawer': !rightDrawer,
             transition: transition,
             peeking: peeking,
           });
         },
 
         _computeDrawerStyle: function (drawerWidth) {
-          return "width:" + drawerWidth + ";";
+          return 'width:' + drawerWidth + ';';
         },
 
         _computeMainStyle: function (narrow, rightDrawer, drawerWidth) {
-          var style = "";
+          var style = '';
 
-          style += "left:" + (narrow || rightDrawer ? "0" : drawerWidth) + ";";
+          style += 'left:' + (narrow || rightDrawer ? '0' : drawerWidth) + ';';
 
           if (rightDrawer) {
-            style += "right:" + (narrow ? "" : drawerWidth) + ";";
+            style += 'right:' + (narrow ? '' : drawerWidth) + ';';
           }
 
           return style;
         },
 
         _computeMediaQuery: function (forceNarrow, responsiveWidth) {
-          return forceNarrow ? "" : "(max-width: " + responsiveWidth + ")";
+          return forceNarrow ? '' : '(max-width: ' + responsiveWidth + ')';
         },
 
         _computeSwipeOverlayHidden: function (narrow, disableEdgeSwipe) {
@@ -665,13 +665,13 @@ Custom property | Description | Default
             return;
           }
           switch (event.detail.state) {
-            case "start":
+            case 'start':
               this._trackStart(event);
               break;
-            case "track":
+            case 'track':
               this._trackX(event);
               break;
-            case "end":
+            case 'end':
               this._trackEnd(event);
               break;
           }
@@ -682,8 +682,8 @@ Custom property | Description | Default
 
           this.selected = this.narrow ? this.defaultSelected : null;
 
-          this.setScrollDirection(this._swipeAllowed() ? "y" : "all");
-          this.fire("paper-responsive-change", { narrow: this.narrow });
+          this.setScrollDirection(this._swipeAllowed() ? 'y' : 'all');
+          this.fire('paper-responsive-change', { narrow: this.narrow });
         },
 
         _onQueryMatchesChanged: function (event) {
@@ -700,7 +700,7 @@ Custom property | Description | Default
         },
 
         _isMainSelected: function () {
-          return this.selected === "main";
+          return this.selected === 'main';
         },
 
         _startEdgePeek: function () {
@@ -819,20 +819,20 @@ Custom property | Description | Default
             this._moveDrawer(null);
 
             if (this.rightDrawer) {
-              this[xDirection ? "closeDrawer" : "openDrawer"]();
+              this[xDirection ? 'closeDrawer' : 'openDrawer']();
             } else {
-              this[xDirection ? "openDrawer" : "closeDrawer"]();
+              this[xDirection ? 'openDrawer' : 'closeDrawer']();
             }
           }
         },
 
         _transformForTranslateX: function (translateX) {
           if (translateX === null) {
-            return "";
+            return '';
           }
           return this.hasWillChange
-            ? "translateX(" + translateX + "px)"
-            : "translate3d(" + translateX + "px, 0, 0)";
+            ? 'translateX(' + translateX + 'px)'
+            : 'translate3d(' + translateX + 'px, 0, 0)';
         },
 
         _moveDrawer: function (translateX) {
@@ -857,10 +857,10 @@ Custom property | Description | Default
         },
 
         _toggleFocusListener: function (selected) {
-          if (selected === "drawer") {
-            this.addEventListener("focus", this._boundFocusListener, true);
+          if (selected === 'drawer') {
+            this.addEventListener('focus', this._boundFocusListener, true);
           } else {
-            this.removeEventListener("focus", this._boundFocusListener, true);
+            this.removeEventListener('focus', this._boundFocusListener, true);
           }
         },
 
@@ -882,7 +882,7 @@ Custom property | Description | Default
         },
 
         _isDrawerClosed: function (narrow, selected) {
-          return !narrow || selected !== "drawer";
+          return !narrow || selected !== 'drawer';
         },
       });
     })();

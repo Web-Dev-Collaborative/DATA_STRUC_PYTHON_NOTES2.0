@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const childprocess = require("child_process");
+const childprocess = require('child_process');
 const spawn = childprocess.spawn;
 
 // claat is a wrapper around the claat tool.
@@ -13,14 +13,14 @@ const spawn = childprocess.spawn;
 //   callback - an async task callback function
 //
 exports.run = (cwd, cmd, env, fmt, ga, args, callback) => {
-  args.unshift(cmd, "-e", env, "-f", fmt, "-ga", ga);
-  const proc = spawn("claat", args, {
-    stdio: "inherit",
+  args.unshift(cmd, '-e', env, '-f', fmt, '-ga', ga);
+  const proc = spawn('claat', args, {
+    stdio: 'inherit',
     cwd: cwd,
     env: process.env,
   });
 
-  proc.on("close", (e) => {
+  proc.on('close', (e) => {
     if (e) {
       throw new Error(e);
     }

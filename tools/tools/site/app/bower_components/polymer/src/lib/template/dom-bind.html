@@ -57,9 +57,9 @@ elements to the template itself as the binding scope.
      * @event dom-change
      */
 
-    is: "dom-bind",
+    is: 'dom-bind',
 
-    extends: "template",
+    extends: 'template',
     _template: null,
 
     created: function () {
@@ -67,8 +67,8 @@ elements to the template itself as the binding scope.
       // have resolved
       var self = this;
       Polymer.RenderStatus.whenReady(function () {
-        if (document.readyState == "loading") {
-          document.addEventListener("DOMContentLoaded", function () {
+        if (document.readyState == 'loading') {
+          document.addEventListener('DOMContentLoaded', function () {
             self._markImportsReady();
           });
         } else {
@@ -161,7 +161,7 @@ elements to the template itself as the binding scope.
         this._children = Polymer.TreeApi.arrayCopyChildNodes(this.root);
       }
       this._insertChildren();
-      this.fire("dom-change");
+      this.fire('dom-change');
     },
   });
 </script>

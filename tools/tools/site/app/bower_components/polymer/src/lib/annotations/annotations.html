@@ -77,7 +77,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._parseNodeAnnotations(
         content,
         list,
-        template.hasAttribute("strip-whitespace")
+        template.hasAttribute('strip-whitespace')
       );
       return list;
     },
@@ -92,21 +92,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _bindingRegex: (function () {
-      var IDENT = "(?:" + "[a-zA-Z_$][\\w.:$\\-*]*" + ")";
-      var NUMBER = "(?:" + "[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?" + ")";
-      var SQUOTE_STRING = "(?:" + "'(?:[^'\\\\]|\\\\.)*'" + ")";
-      var DQUOTE_STRING = "(?:" + '"(?:[^"\\\\]|\\\\.)*"' + ")";
-      var STRING = "(?:" + SQUOTE_STRING + "|" + DQUOTE_STRING + ")";
-      var ARGUMENT = "(?:" + IDENT + "|" + NUMBER + "|" + STRING + "\\s*" + ")";
-      var ARGUMENTS = "(?:" + ARGUMENT + "(?:,\\s*" + ARGUMENT + ")*" + ")";
+      var IDENT = '(?:' + '[a-zA-Z_$][\\w.:$\\-*]*' + ')';
+      var NUMBER = '(?:' + '[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?' + ')';
+      var SQUOTE_STRING = '(?:' + "'(?:[^'\\\\]|\\\\.)*'" + ')';
+      var DQUOTE_STRING = '(?:' + '"(?:[^"\\\\]|\\\\.)*"' + ')';
+      var STRING = '(?:' + SQUOTE_STRING + '|' + DQUOTE_STRING + ')';
+      var ARGUMENT = '(?:' + IDENT + '|' + NUMBER + '|' + STRING + '\\s*' + ')';
+      var ARGUMENTS = '(?:' + ARGUMENT + '(?:,\\s*' + ARGUMENT + ')*' + ')';
       var ARGUMENT_LIST =
-        "(?:" + "\\(\\s*" + "(?:" + ARGUMENTS + "?" + ")" + "\\)\\s*" + ")";
-      var BINDING = "(" + IDENT + "\\s*" + ARGUMENT_LIST + "?" + ")"; // Group 3
-      var OPEN_BRACKET = "(\\[\\[|{{)" + "\\s*";
-      var CLOSE_BRACKET = "(?:]]|}})";
-      var NEGATE = "(?:(!)\\s*)?"; // Group 2
+        '(?:' + '\\(\\s*' + '(?:' + ARGUMENTS + '?' + ')' + '\\)\\s*' + ')';
+      var BINDING = '(' + IDENT + '\\s*' + ARGUMENT_LIST + '?' + ')'; // Group 3
+      var OPEN_BRACKET = '(\\[\\[|{{)' + '\\s*';
+      var CLOSE_BRACKET = '(?:]]|}})';
+      var NEGATE = '(?:(!)\\s*)?'; // Group 2
       var EXPRESSION = OPEN_BRACKET + NEGATE + BINDING + CLOSE_BRACKET;
-      return new RegExp(EXPRESSION, "g");
+      return new RegExp(EXPRESSION, 'g');
     })(),
 
     // TODO(kschaaf): We could modify this to allow an escape mechanism by
@@ -135,7 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var negate = Boolean(m[2]);
         var value = m[3].trim();
         var customEvent, notifyEvent, colon;
-        if (mode == "{" && (colon = value.indexOf("::")) > 0) {
+        if (mode == '{' && (colon = value.indexOf('::')) > 0) {
           notifyEvent = value.substring(colon + 2);
           value = value.substring(0, colon);
           customEvent = true;
@@ -165,10 +165,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _literalFromParts: function (parts) {
-      var s = "";
+      var s = '';
       for (var i = 0; i < parts.length; i++) {
         var literal = parts[i].literal;
-        s += literal || "";
+        s += literal || '';
       }
       return s;
     },
@@ -180,12 +180,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // Initialize the textContent with any literal parts
         // NOTE: default to a space here so the textNode remains; some browsers
         // (IE) evacipate an empty textNode following cloneNode/importNode.
-        node.textContent = this._literalFromParts(parts) || " ";
+        node.textContent = this._literalFromParts(parts) || ' ';
         var annote = {
           bindings: [
             {
-              kind: "text",
-              name: "textContent",
+              kind: 'text',
+              name: 'textContent',
               parts: parts,
               isCompound: parts.length !== 1,
             },
@@ -202,7 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         bindings: [],
         events: [],
       };
-      if (element.localName === "content") {
+      if (element.localName === 'content') {
         list._hasContent = true;
       }
       this._parseChildNodesAnnotations(element, annote, list, stripWhiteSpace);
@@ -238,8 +238,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         while (node) {
           var next = node.nextSibling;
           if (
-            node.localName === "template" &&
-            !node.hasAttribute("preserve-content")
+            node.localName === 'template' &&
+            !node.hasAttribute('preserve-content')
           ) {
             this._parseTemplate(node, i, list, annote);
           }
@@ -317,7 +317,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var v = a.value;
         var b;
         // events (on-*)
-        if (n.slice(0, 3) === "on-") {
+        if (n.slice(0, 3) === 'on-') {
           node.removeAttribute(n);
           annotation.events.push({
             name: n.slice(3),
@@ -329,7 +329,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           annotation.bindings.push(b);
         }
         // static id
-        else if (n === "id") {
+        else if (n === 'id') {
           annotation.id = v;
         }
       }
@@ -341,22 +341,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       if (parts) {
         // Attribute or property
         var origName = name;
-        var kind = "property";
-        if (name[name.length - 1] == "$") {
+        var kind = 'property';
+        if (name[name.length - 1] == '$') {
           name = name.slice(0, -1);
-          kind = "attribute";
+          kind = 'attribute';
         }
         // Initialize attribute bindings with any literal parts
         var literal = this._literalFromParts(parts);
-        if (literal && kind == "attribute") {
+        if (literal && kind == 'attribute') {
           node.setAttribute(name, literal);
         }
         // Clear attribute before removing, since IE won't allow removing
         // `value` attribute if it previously had a value (can't
         // unconditionally set '' before removing since attributes with `$`
         // can't be set using setAttribute)
-        if (node.localName === "input" && origName === "value") {
-          node.setAttribute(origName, "");
+        if (node.localName === 'input' && origName === 'value') {
+          node.setAttribute(origName, '');
         }
         // Remove annotation
         node.removeAttribute(origName);
@@ -365,7 +365,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // camel-case: `foo-bar` becomes `fooBar`.
         // Attribute bindings are excepted.
         var propertyName = Polymer.CaseMap.dashToCamelCase(name);
-        if (kind === "property") {
+        if (kind === 'property') {
           name = propertyName;
         }
         return {

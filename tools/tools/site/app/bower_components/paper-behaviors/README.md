@@ -19,9 +19,7 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/paper-behavio
 
 ##Polymer.PaperCheckedElementBehavior
 
-Use `Polymer.PaperCheckedElementBehavior` to implement a custom element
-that has a `checked` property similar to `Polymer.IronCheckedElementBehavior`
-and is compatible with having a ripple effect.
+Use `Polymer.PaperCheckedElementBehavior` to implement a custom element that has a `checked` property similar to `Polymer.IronCheckedElementBehavior` and is compatible with having a ripple effect.
 
 ##Polymer.PaperInkyFocusBehavior
 
@@ -29,8 +27,6 @@ and is compatible with having a ripple effect.
 
 ##Polymer.PaperRippleBehavior
 
-`Polymer.PaperRippleBehavior` dynamically implements a ripple
-when the element has focus via pointer or keyboard.
+`Polymer.PaperRippleBehavior` dynamically implements a ripple when the element has focus via pointer or keyboard.
 
-NOTE: This behavior is intended to be used in conjunction with and after
-`Polymer.IronButtonState` and `Polymer.IronControlState`.
+NOTE: This behavior is intended to be used in conjunction with and after `Polymer.IronButtonState` and `Polymer.IronControlState`.

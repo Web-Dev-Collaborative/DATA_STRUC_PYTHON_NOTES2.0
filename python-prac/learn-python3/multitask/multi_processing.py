@@ -4,7 +4,7 @@
 from multiprocessing import Process
 import os
 
-# 子进程要执行的代码
+# 
 def run_proc(name):
     print("Run child process %s (%s)..." % (name, os.getpid()))
 

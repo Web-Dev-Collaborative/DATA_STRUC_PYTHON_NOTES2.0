@@ -51,9 +51,9 @@ is separate from validation, and `allowed-pattern` does not affect how the input
 */
 
   Polymer({
-    is: "iron-input",
+    is: 'iron-input',
 
-    extends: "input",
+    extends: 'input',
 
     behaviors: [Polymer.IronValidatableBehavior],
 
@@ -62,7 +62,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
        * Use this property instead of `value` for two-way data binding.
        */
       bindValue: {
-        observer: "_bindValueChanged",
+        observer: '_bindValueChanged',
         type: String,
       },
 
@@ -86,12 +86,12 @@ is separate from validation, and `allowed-pattern` does not affect how the input
        */
       allowedPattern: {
         type: String,
-        observer: "_allowedPatternChanged",
+        observer: '_allowedPatternChanged',
       },
 
       _previousValidInput: {
         type: String,
-        value: "",
+        value: '',
       },
 
       _patternAlreadyChecked: {
@@ -101,8 +101,8 @@ is separate from validation, and `allowed-pattern` does not affect how the input
     },
 
     listeners: {
-      input: "_onInput",
-      keypress: "_onKeypress",
+      input: '_onInput',
+      keypress: '_onKeypress',
     },
 
     /** @suppress {checkTypes} */
@@ -119,16 +119,16 @@ is separate from validation, and `allowed-pattern` does not affect how the input
     },
 
     _canDispatchEventOnDisabled: function () {
-      var input = document.createElement("input");
+      var input = document.createElement('input');
       var canDispatch = false;
       input.disabled = true;
 
-      input.addEventListener("feature-check-dispatch-event", function () {
+      input.addEventListener('feature-check-dispatch-event', function () {
         canDispatch = true;
       });
 
       try {
-        input.dispatchEvent(new Event("feature-check-dispatch-event"));
+        input.dispatchEvent(new Event('feature-check-dispatch-event'));
       } catch (e) {}
 
       return canDispatch;
@@ -152,7 +152,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
         pattern = new RegExp(this.allowedPattern);
       } else {
         switch (this.type) {
-          case "number":
+          case 'number':
             pattern = /[0-9.,e-]/;
             break;
         }
@@ -174,11 +174,11 @@ is separate from validation, and `allowed-pattern` does not affect how the input
           this.bindValue === 0 ||
           this.bindValue === false
         )
-          ? ""
+          ? ''
           : this.bindValue;
       }
       // manually notify because we don't want to notify until after setting value
-      this.fire("bind-value-changed", { value: this.bindValue });
+      this.fire('bind-value-changed', { value: this.bindValue });
     },
 
     _allowedPatternChanged: function () {
@@ -193,7 +193,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
         var valid = this._checkPatternValidity();
         if (!valid) {
           this._announceInvalidCharacter(
-            "Invalid string of characters not entered."
+            'Invalid string of characters not entered.'
           );
           this.value = this._previousValidInput;
         }
@@ -237,7 +237,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
     },
 
     _onKeypress: function (event) {
-      if (!this.preventInvalidInput && this.type !== "number") {
+      if (!this.preventInvalidInput && this.type !== 'number') {
         return;
       }
       var regexp = this._patternRegExp;
@@ -255,7 +255,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       if (this._isPrintable(event) && !regexp.test(thisChar)) {
         event.preventDefault();
         this._announceInvalidCharacter(
-          "Invalid character " + thisChar + " not entered."
+          'Invalid character ' + thisChar + ' not entered.'
         );
       }
     },
@@ -287,7 +287,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       // Only do extra checking if the browser thought this was valid.
       if (valid) {
         // Empty, required input is invalid
-        if (this.required && this.value === "") {
+        if (this.required && this.value === '') {
           valid = false;
         } else if (this.hasValidator()) {
           valid = Polymer.IronValidatableBehavior.validate.call(
@@ -298,12 +298,12 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       }
 
       this.invalid = !valid;
-      this.fire("iron-input-validate");
+      this.fire('iron-input-validate');
       return valid;
     },
 
     _announceInvalidCharacter: function (message) {
-      this.fire("iron-announce", { text: message });
+      this.fire('iron-announce', { text: message });
     },
   });
 

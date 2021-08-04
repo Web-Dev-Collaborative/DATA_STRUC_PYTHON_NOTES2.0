@@ -84,7 +84,7 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
 
   <script>
     Polymer({
-      is: "two-columns-grid",
+      is: 'two-columns-grid',
 
       properties: {
         /**
@@ -113,7 +113,7 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
         },
       },
 
-      observers: ["_updateLayout(columnWidth, gutter)"],
+      observers: ['_updateLayout(columnWidth, gutter)'],
 
       attached: function () {
         // observers may run before attached, and updateStyles() will skip if it is not attached.
@@ -122,14 +122,14 @@ to single column when 2 columns (plus a defined gutter margin) no longer fit on 
       },
 
       _updateLayout: function (columnWidth, gutter) {
-        this.query = "(max-width:" + (2 * columnWidth + 4 * gutter) + "px)";
+        this.query = '(max-width:' + (2 * columnWidth + 4 * gutter) + 'px)';
         this._updateCustomStyles();
       },
 
       _updateCustomStyles: function () {
         this.updateStyles({
-          "--grid-column-width": this.columnWidth + "px",
-          "--grid-gutter": this.gutter + "px",
+          '--grid-column-width': this.columnWidth + 'px',
+          '--grid-gutter': this.gutter + 'px',
         });
       },
     });

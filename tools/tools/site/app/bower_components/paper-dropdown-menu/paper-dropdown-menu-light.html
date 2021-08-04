@@ -149,7 +149,7 @@ To style it:
         @apply (--paper-dropdown-menu-input);
       }
 
-      :host-context([dir="rtl"]) #input {
+      :host-context([dir='rtl']) #input {
         padding-right: 0px;
         padding-left: 20px;
       }
@@ -191,7 +191,7 @@ To style it:
         @apply (--paper-dropdown-menu-label);
       }
 
-      :host-context([dir="rtl"]) label {
+      :host-context([dir='rtl']) label {
         padding-right: 0px;
         padding-left: 20px;
       }
@@ -230,7 +230,7 @@ To style it:
           --primary-color
         );
         bottom: 7px; /* The container has an 8px bottom padding */
-        content: "";
+        content: '';
         height: 2px;
         left: 45%;
         position: absolute;
@@ -264,7 +264,7 @@ To style it:
         @apply (--paper-dropdown-menu-icon);
       }
 
-      :host-context([dir="rtl"]) iron-icon {
+      :host-context([dir='rtl']) iron-icon {
         left: 0;
         right: auto;
       }
@@ -320,10 +320,10 @@ To style it:
 
   <script>
     (function () {
-      "use strict";
+      'use strict';
 
       Polymer({
-        is: "paper-dropdown-menu-light",
+        is: 'paper-dropdown-menu-light',
 
         behaviors: [
           Polymer.IronButtonState,
@@ -367,7 +367,7 @@ To style it:
             type: String,
             notify: true,
             readOnly: true,
-            observer: "_valueChanged",
+            observer: '_valueChanged',
           },
 
           /**
@@ -391,7 +391,7 @@ To style it:
             type: Boolean,
             notify: true,
             value: false,
-            observer: "_openedChanged",
+            observer: '_openedChanged',
           },
 
           /**
@@ -439,7 +439,7 @@ To style it:
            */
           horizontalAlign: {
             type: String,
-            value: "right",
+            value: 'right',
           },
 
           /**
@@ -448,7 +448,7 @@ To style it:
            */
           verticalAlign: {
             type: String,
-            value: "top",
+            value: 'top',
           },
 
           hasContent: {
@@ -458,22 +458,22 @@ To style it:
         },
 
         listeners: {
-          tap: "_onTap",
+          tap: '_onTap',
         },
 
         keyBindings: {
-          "up down": "open",
-          esc: "close",
+          'up down': 'open',
+          esc: 'close',
         },
 
         hostAttributes: {
           tabindex: 0,
-          role: "combobox",
-          "aria-autocomplete": "none",
-          "aria-haspopup": "true",
+          role: 'combobox',
+          'aria-autocomplete': 'none',
+          'aria-haspopup': 'true',
         },
 
-        observers: ["_selectedItemChanged(selectedItem)"],
+        observers: ['_selectedItemChanged(selectedItem)'],
 
         attached: function () {
           // NOTE(cdata): Due to timing, a preselected value in a `IronSelectable`
@@ -543,13 +543,13 @@ To style it:
          * optional `label` property.
          */
         _selectedItemChanged: function (selectedItem) {
-          var value = "";
+          var value = '';
           if (!selectedItem) {
-            value = "";
+            value = '';
           } else {
             value =
               selectedItem.label ||
-              selectedItem.getAttribute("label") ||
+              selectedItem.getAttribute('label') ||
               selectedItem.textContent.trim();
           }
 
@@ -586,10 +586,10 @@ To style it:
         },
 
         _openedChanged: function () {
-          var openState = this.opened ? "true" : "false";
+          var openState = this.opened ? 'true' : 'false';
           var e = this.contentElement;
           if (e) {
-            e.setAttribute("aria-expanded", openState);
+            e.setAttribute('aria-expanded', openState);
           }
         },
 
@@ -598,13 +598,13 @@ To style it:
           alwaysFloatLabel,
           hasContent
         ) {
-          var cls = "";
+          var cls = '';
           if (noLabelFloat === true) {
-            return hasContent ? "label-is-hidden" : "";
+            return hasContent ? 'label-is-hidden' : '';
           }
 
           if (hasContent || alwaysFloatLabel === true) {
-            cls += " label-is-floating";
+            cls += ' label-is-floating';
           }
           return cls;
         },

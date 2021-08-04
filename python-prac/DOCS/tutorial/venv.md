@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](whatnow.html "13. What Now?") |
-- [previous](stdlib2.html "11. Brief Tour of the Standard Library — Part II") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](whatnow.html '13. What Now?') |
+- [previous](stdlib2.html '11. Brief Tour of the Standard Library — Part II') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -151,11 +151,11 @@ The `requirements.txt` can then be committed to version control and shipped as p
 
 #### Previous topic
 
-[<span class="section-number">11. </span>Brief Tour of the Standard Library — Part II](stdlib2.html "previous chapter")
+[<span class="section-number">11. </span>Brief Tour of the Standard Library — Part II](stdlib2.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">13. </span>What Now?](whatnow.html "next chapter")
+[<span class="section-number">13. </span>What Now?](whatnow.html 'next chapter')
 
 ### This Page
 
@@ -164,10 +164,10 @@ The `requirements.txt` can then be committed to version control and shipped as p
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](whatnow.html "13. What Now?") |
-- [previous](stdlib2.html "11. Brief Tour of the Standard Library — Part II") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](whatnow.html '13. What Now?') |
+- [previous](stdlib2.html '11. Brief Tour of the Standard Library — Part II') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

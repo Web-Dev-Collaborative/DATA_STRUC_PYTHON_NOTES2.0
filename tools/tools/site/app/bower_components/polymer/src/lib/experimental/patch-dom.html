@@ -58,7 +58,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     };
 
-    var excluded = ["head"];
+    var excluded = ['head'];
 
     Polymer.telemetry.patched = 0;
 
@@ -116,45 +116,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     var patchImpl = {
       hasPrototypeDescriptors: Boolean(
-        Object.getOwnPropertyDescriptor(Node.prototype, "textContent")
+        Object.getOwnPropertyDescriptor(Node.prototype, 'textContent')
       ),
 
       methods: [
-        "appendChild",
-        "insertBefore",
-        "removeChild",
-        "replaceChild",
-        "querySelector",
-        "querySelectorAll",
-        "getDestinationInsertionPoints",
-        "cloneNode",
-        "setAttribute",
-        "removeAttribute",
+        'appendChild',
+        'insertBefore',
+        'removeChild',
+        'replaceChild',
+        'querySelector',
+        'querySelectorAll',
+        'getDestinationInsertionPoints',
+        'cloneNode',
+        'setAttribute',
+        'removeAttribute',
       ],
       // <content>: getDistributedNodes
 
       accessors: [
-        "parentNode",
-        "childNodes",
-        "firstChild",
-        "lastChild",
-        "nextSibling",
-        "previousSibling",
-        "parentElement",
-        "children",
-        "firstElementChild",
-        "lastElementChild",
-        "nextElementSibling",
-        "previousElementSibling",
+        'parentNode',
+        'childNodes',
+        'firstChild',
+        'lastChild',
+        'nextSibling',
+        'previousSibling',
+        'parentElement',
+        'children',
+        'firstElementChild',
+        'lastElementChild',
+        'nextElementSibling',
+        'previousElementSibling',
       ],
 
-      writableAccessors: ["textContent", "innerHTML"],
+      writableAccessors: ['textContent', 'innerHTML'],
 
       protoCache: {},
 
       patch: function (node) {
         Polymer.telemetry.patched++;
-        log && console.warn("patch node", node);
+        log && console.warn('patch node', node);
         if (this.hasPrototypeDescriptors) {
           this.patchPrototype(node);
         } else {
@@ -165,7 +165,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       patchPrototype: function (node) {
         var name =
           node.is ||
-          (node.getAttribute && node.getAttribute("is")) ||
+          (node.getAttribute && node.getAttribute('is')) ||
           node.localName ||
           node.nodeType;
         var proto = this.protoCache[name];
@@ -197,7 +197,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       patchMethod: function (obj, name) {
         var orig = obj[name];
-        obj["_$" + name + "$_"] = orig;
+        obj['_$' + name + '$_'] = orig;
         obj[name] = function () {
           log && console.log(this, name, arguments);
           return dom(this)[name].apply(this.__domApi, arguments);
@@ -552,7 +552,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (node.__dom && node.__dom.$parentNode) {
           node.__dom.$parentNode.__dom.$childNodes = [];
         }
-        node.textContent = "";
+        node.textContent = '';
       },
 
       saveParentNode: function (node) {

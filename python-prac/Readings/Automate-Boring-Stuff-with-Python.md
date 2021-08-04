@@ -4,7 +4,7 @@
 
 Variables are a fine way to store data while your program is running, but if you want your data to persist even after your program has finished, you need to save it to a file. You can think of a file’s contents as a single string value, potentially gigabytes in size. In this chapter, you will learn how to use Python to create, read, and save files on the hard drive.
 
-A file has two key properties: a _filename_ (usually written as one word) and a _path_. The path specifies the location of a file on the computer. For example, there is a file on my Windows 7 laptop with the filename _project.docx_ in the path _C:\\Users\\asweigart\\Documents_. The part of the filename after the last period is called the file’s _extension_ and tells you a file’s type. _project.docx_ is a Word document, and _Users_, _asweigart_, and _Documents_ all refer to _folders_ (also called _directories_). Folders can contain files and other folders. For example, _project.docx_ is in the _Documents_ folder, which is inside the _asweigart_ folder, which is inside the _Users_ folder. [Figure 8-1](#calibre_link-82 "Figure 8-1. A file in a hierarchy of folders") shows this folder organization.
+A file has two key properties: a _filename_ (usually written as one word) and a _path_. The path specifies the location of a file on the computer. For example, there is a file on my Windows 7 laptop with the filename _project.docx_ in the path _C:\\Users\\asweigart\\Documents_. The part of the filename after the last period is called the file’s _extension_ and tells you a file’s type. _project.docx_ is a Word document, and _Users_, _asweigart_, and _Documents_ all refer to _folders_ (also called _directories_). Folders can contain files and other folders. For example, _project.docx_ is in the _Documents_ folder, which is inside the _asweigart_ folder, which is inside the _Users_ folder. [Figure 8-1](#calibre_link-82 'Figure 8-1. A file in a hierarchy of folders') shows this folder organization.
 
 ![A file in a hierarchy of folders](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/000027.jpg)
 
@@ -63,7 +63,7 @@ There are two ways to specify a file path.
 
 There are also the _dot_ (`.`) and _dot-dot_ (`..`) folders. These are not real folders but special names that can be used in a path. A single period (“dot”) for a folder name is shorthand for “this directory.” Two periods (“dot-dot”) means “the parent folder.”
 
-[Figure 8-2](#calibre_link-83 "Figure 8-2. The relative paths for folders and files in the working directory C:\\bacon") is an example of some folders and files. When the current working directory is set to _C:\\bacon_, the relative paths for the other folders and files are set as they are in the figure.
+[Figure 8-2](#calibre_link-83 'Figure 8-2. The relative paths for folders and files in the working directory C:\\bacon') is an example of some folders and files. When the current working directory is set to _C:\\bacon_, the relative paths for the other folders and files are set as they are in the figure.
 
 ![The relative paths for folders and files in the working directory C:](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/000032.jpg)
 
@@ -117,7 +117,7 @@ Enter the following calls to `os.path.relpath()` into the interactive shell:
 
 > > > **os.path.relpath(‘C:\\\\Windows’, ‘C:\\\\spam\\\\eggs’)** ‘..\\\\..\\\\Windows’ **os.getcwd()** ‘C:\\\\Python34’
 
-Calling `os.path.dirname(`_`path`_`)` will return a string of everything that comes before the last slash in the `path` argument. Calling `os.path.basename(`_`path`_`)` will return a string of everything that comes after the last slash in the `path` argument. The dir name and base name of a path are outlined in [Figure 8-4](#calibre_link-85 "Figure 8-4. The base name follows the last slash in a path and is the same as the filename. The dir name is everything before the last slash.").
+Calling `os.path.dirname(`_`path`_`)` will return a string of everything that comes before the last slash in the `path` argument. Calling `os.path.basename(`_`path`_`)` will return a string of everything that comes after the last slash in the `path` argument. The dir name and base name of a path are outlined in [Figure 8-4](#calibre_link-85 'Figure 8-4. The base name follows the last slash in a path and is the same as the filename. The dir name is everything before the last slash.').
 
 ![The base name follows the last slash in a path and is the same as the filename. The dir name is everything before the last slash.](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/000041.png)
 
@@ -198,7 +198,7 @@ Oops! It looks like I forgot to plug in my flash drive.
 
 Once you are comfortable working with folders and relative paths, you’ll be able to specify the location of files to read and write. The functions covered in the next few sections will apply to plaintext files. _Plaintext files_ contain only basic text characters and do not include font, size, or color information. Text files with the _.txt_ extension or Python script files with the _.py_ extension are examples of plaintext files. These can be opened with Windows’s Notepad or OS X’s TextEdit application. Your programs can easily read the contents of plaintext files and treat them as an ordinary string value.
 
-_Binary files_ are all other file types, such as word processing documents, PDFs, images, spreadsheets, and executable programs. If you open a binary file in Notepad or TextEdit, it will look like scrambled nonsense, like in [Figure 8-5](#calibre_link-86 "Figure 8-5. The Windows calc.exe program opened in Notepad").
+_Binary files_ are all other file types, such as word processing documents, PDFs, images, spreadsheets, and executable programs. If you open a binary file in Notepad or TextEdit, it will look like scrambled nonsense, like in [Figure 8-5](#calibre_link-86 'Figure 8-5. The Windows calc.exe program opened in Notepad').
 
 ![The Windows calc.exe program opened in Notepad](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/000046.jpg)
 
@@ -300,7 +300,7 @@ Just like dictionaries, shelf values have `keys()` and `values()` methods that w
 
 Plaintext is useful for creating files that you’ll read in a text editor such as Notepad or TextEdit, but if you want to save data from your Python programs, use the `shelve` module.
 
-Recall from [Pretty Printing](#calibre_link-87 "Pretty Printing") that the `pprint.pprint()` function will “pretty print” the contents of a list or dictionary to the screen, while the `pprint.pformat()` function will return this same text as a string instead of printing it. Not only is this string formatted to be easy to read, but it is also syntactically correct Python code. Say you have a dictionary stored in a variable and you want to save this variable and its contents for future use. Using `pprint.pformat()` will give you a string that you can write to _.py_ file. This file will be your very own module that you can import whenever you want to use the variable stored in it.
+Recall from [Pretty Printing](#calibre_link-87 'Pretty Printing') that the `pprint.pprint()` function will “pretty print” the contents of a list or dictionary to the screen, while the `pprint.pformat()` function will return this same text as a string instead of printing it. Not only is this string formatted to be easy to read, but it is also syntactically correct Python code. Say you have a dictionary stored in a variable and you want to save this variable and its contents for future use. Using `pprint.pformat()` will give you a string that you can write to _.py_ file. This file will be your very own module that you can import whenever you want to use the variable stored in it.
 
 For example, enter the following into the interactive shell:
 
@@ -561,7 +561,7 @@ Otherwise, you can assume the command line argument is a keyword. If this keywor
 
 And that’s it! Launching this program has different steps depending on what operating system your computer uses. See Appendix B for details for your operating system.
 
-Recall the password locker program you created in [Chapter 6](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/chapter6 "Chapter 6. Manipulating Strings") that stored the passwords in a dictionary. Updating the passwords required changing the source code of the program. This isn’t ideal because average users don’t feel comfortable changing source code to update their software. Also, every time you modify the source code to a program, you run the risk of accidentally introducing new bugs. By storing the data for a program in a different place than the code, you can make your programs easier for others to use and more resistant to bugs.
+Recall the password locker program you created in [Chapter 6](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/chapter6 'Chapter 6. Manipulating Strings') that stored the passwords in a dictionary. Updating the passwords required changing the source code of the program. This isn’t ideal because average users don’t feel comfortable changing source code to update their software. Also, every time you modify the source code to a program, you run the risk of accidentally introducing new bugs. By storing the data for a program in a different place than the code, you can make your programs easier for others to use and more resistant to bugs.
 
 Files are organized into folders (also called directories), and a path describes the location of a file. Every program running on your computer has a current working directory, which allows you to specify file paths relative to the current location instead of always typing the full (or absolute) path. The `os.path` module has many functions for manipulating file paths.
 

@@ -134,7 +134,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         min-height: 100vh;
       }
 
-      [is="article-headline"] {
+      [is='article-headline'] {
         @apply (--shadow-transition);
         @apply (--shadow-elevation-2dp);
         cursor: pointer;
@@ -295,7 +295,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: "blog-app",
+      is: 'blog-app',
 
       properties: {
         /**
@@ -316,12 +316,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         idData: Object,
       },
 
-      observers: ["_updateArticle(articles, categoryData.category, idData.id)"],
+      observers: ['_updateArticle(articles, categoryData.category, idData.id)'],
 
       attached: function () {
         this.async(function () {
           if (!this.route.path) {
-            this.set("route.path", "/art/list");
+            this.set('route.path', '/art/list');
           }
         });
       },

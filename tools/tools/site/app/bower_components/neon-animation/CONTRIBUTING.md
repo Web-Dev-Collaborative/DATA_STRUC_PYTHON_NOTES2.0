@@ -60,11 +60,9 @@ When submitting pull requests, please provide:
 1.  **A reference to the corresponding issue** or issues that will be closed by the pull request. Please refer to these issues in the pull request description using the following syntax:
 
 ```markdown
-(For a single issue)
-Fixes #20
+(For a single issue) Fixes #20
 
-(For multiple issues)
-Fixes #32, fixes #40
+(For multiple issues) Fixes #32, fixes #40
 ```
 
 2.  **A succinct description of the design** used to fix any related issues. For example:

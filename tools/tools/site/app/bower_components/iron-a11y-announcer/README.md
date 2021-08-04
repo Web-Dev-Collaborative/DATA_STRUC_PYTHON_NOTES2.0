@@ -17,16 +17,13 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/iron-a11y-ann
 
 ##&lt;iron-a11y-announcer&gt;
 
-`iron-a11y-announcer` is a singleton element that is intended to add a11y
-to features that require on-demand announcement from screen readers. In
-order to make use of the announcer, it is best to request its availability
-in the announcing element.
+`iron-a11y-announcer` is a singleton element that is intended to add a11y to features that require on-demand announcement from screen readers. In order to make use of the announcer, it is best to request its availability in the announcing element.
 
 Example:
 
 ```javascript
 Polymer({
-  is: "x-chatty",
+  is: 'x-chatty',
 
   attached: function () {
     // This will create the singleton element if it has not
@@ -36,16 +33,15 @@ Polymer({
 });
 ```
 
-After the `iron-a11y-announcer` has been made available, elements can
-make announces by firing bubbling `iron-announce` events.
+After the `iron-a11y-announcer` has been made available, elements can make announces by firing bubbling `iron-announce` events.
 
 Example:
 
 ```javascript
 this.fire(
-  "iron-announce",
+  'iron-announce',
   {
-    text: "This is an announcement!",
+    text: 'This is an announcement!',
   },
   { bubbles: true }
 );

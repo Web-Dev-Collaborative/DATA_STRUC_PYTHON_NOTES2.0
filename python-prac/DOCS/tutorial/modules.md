@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](inputoutput.html "7. Input and Output") |
-- [previous](datastructures.html "5. Data Structures") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](inputoutput.html '7. Input and Output') |
+- [previous](datastructures.html '5. Data Structures') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -390,11 +390,11 @@ In fact function definitions are also ‘statements’ that are ‘executed’; 
 
 #### Previous topic
 
-[<span class="section-number">5. </span>Data Structures](datastructures.html "previous chapter")
+[<span class="section-number">5. </span>Data Structures](datastructures.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">7. </span>Input and Output](inputoutput.html "next chapter")
+[<span class="section-number">7. </span>Input and Output](inputoutput.html 'next chapter')
 
 ### This Page
 
@@ -403,10 +403,10 @@ In fact function definitions are also ‘statements’ that are ‘executed’; 
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](inputoutput.html "7. Input and Output") |
-- [previous](datastructures.html "5. Data Structures") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](inputoutput.html '7. Input and Output') |
+- [previous](datastructures.html '5. Data Structures') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

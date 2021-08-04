@@ -130,11 +130,11 @@ Custom property | Description | Default
 
   <script>
     Polymer({
-      is: "paper-icon-button",
+      is: 'paper-icon-button',
 
       hostAttributes: {
-        role: "button",
-        tabindex: "0",
+        role: 'button',
+        tabindex: '0',
       },
 
       behaviors: [Polymer.PaperInkyFocusBehavior],
@@ -162,16 +162,16 @@ Custom property | Description | Default
          */
         alt: {
           type: String,
-          observer: "_altChanged",
+          observer: '_altChanged',
         },
       },
 
       _altChanged: function (newValue, oldValue) {
-        var label = this.getAttribute("aria-label");
+        var label = this.getAttribute('aria-label');
 
         // Don't stomp over a user-set aria-label.
         if (!label || oldValue == label) {
-          this.setAttribute("aria-label", newValue);
+          this.setAttribute('aria-label', newValue);
         }
       },
     });

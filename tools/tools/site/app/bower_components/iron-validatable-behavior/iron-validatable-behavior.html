@@ -75,28 +75,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       validatorType: {
         type: String,
-        value: "validator",
+        value: 'validator',
       },
 
       _validator: {
         type: Object,
-        computed: "__computeValidator(validator)",
+        computed: '__computeValidator(validator)',
       },
     },
 
-    observers: ["_invalidChanged(invalid)"],
+    observers: ['_invalidChanged(invalid)'],
 
     registered: function () {
       Polymer.IronValidatableBehaviorMeta = new Polymer.IronMeta({
-        type: "validator",
+        type: 'validator',
       });
     },
 
     _invalidChanged: function () {
       if (this.invalid) {
-        this.setAttribute("aria-invalid", "true");
+        this.setAttribute('aria-invalid', 'true');
       } else {
-        this.removeAttribute("aria-invalid");
+        this.removeAttribute('aria-invalid');
       }
     },
 

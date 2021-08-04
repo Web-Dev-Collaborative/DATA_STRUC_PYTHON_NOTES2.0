@@ -1,7 +1,6 @@
 ##&lt;app-toolbar&gt;
 
-app-toolbar is a horizontal toolbar containing items that can be used for
-label, navigation, search and actions.
+app-toolbar is a horizontal toolbar containing items that can be used for label, navigation, search and actions.
 
 ### Example
 
@@ -23,8 +22,7 @@ Add a button to the left and right side of the toolbar.
 </app-toolbar>
 ```
 
-You can use the attributes `top-item` or `bottom-item` to completely fit an element
-to the top or bottom of the toolbar respectively.
+You can use the attributes `top-item` or `bottom-item` to completely fit an element to the top or bottom of the toolbar respectively.
 
 ### Content attributes
 

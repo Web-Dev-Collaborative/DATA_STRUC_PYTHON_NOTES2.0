@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="settings.html" />
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     var settings = Polymer.Settings;
 
@@ -30,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       registerCallback: function () {
         // TODO(sjmiles): perhaps this method should be called from polymer-bootstrap?
         this._desugarBehaviors(); // abstract
-        this._doBehavior("beforeRegister"); // abstract
+        this._doBehavior('beforeRegister'); // abstract
         this._registerFeatures(); // abstract
         if (!settings.lazyRegister) {
           this.ensureRegisterFinished();
@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         Polymer.telemetry.instanceCount++;
         this.root = this;
-        this._doBehavior("created"); // abstract
+        this._doBehavior('created'); // abstract
         this._initFeatures(); // abstract
       },
 
@@ -65,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             proto._finishRegisterFeatures();
           }
           // registration extension point
-          proto._doBehavior("registered");
+          proto._doBehavior('registered');
           // where prototypes are simulated (IE10), element instance
           // must be specfically fixed up.
           if (settings.usePolyfillProto && proto !== this) {
@@ -83,7 +83,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var self = this;
         Polymer.RenderStatus.whenReady(function () {
           self.isAttached = true;
-          self._doBehavior("attached"); // abstract
+          self._doBehavior('attached'); // abstract
         });
       },
 
@@ -93,7 +93,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var self = this;
         Polymer.RenderStatus.whenReady(function () {
           self.isAttached = false;
-          self._doBehavior("detached"); // abstract
+          self._doBehavior('detached'); // abstract
         });
       },
 
@@ -102,7 +102,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         // TODO(sorvell): consider filtering out changes to host attributes
         // note: this was barely measurable with 3 host attributes.
         this._attributeChangedImpl(name); // abstract
-        this._doBehavior("attributeChanged", [name, oldValue, newValue]); // abstract
+        this._doBehavior('attributeChanged', [name, oldValue, newValue]); // abstract
       },
 
       _attributeChangedImpl: function (name) {
@@ -161,24 +161,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         // only accept logging functions
         switch (level) {
-          case "log":
-          case "warn":
-          case "error":
+          case 'log':
+          case 'warn':
+          case 'error':
             console[level].apply(console, args);
             break;
         }
       },
       _log: function () {
         var args = Array.prototype.slice.call(arguments, 0);
-        this._logger("log", args);
+        this._logger('log', args);
       },
       _warn: function () {
         var args = Array.prototype.slice.call(arguments, 0);
-        this._logger("warn", args);
+        this._logger('warn', args);
       },
       _error: function () {
         var args = Array.prototype.slice.call(arguments, 0);
-        this._logger("error", args);
+        this._logger('error', args);
       },
       _logf: function (/* args*/) {
         return this._logPrefix
@@ -193,8 +193,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         (window.chrome && !/edge/i.test(navigator.userAgent)) ||
         /firefox/i.test(navigator.userAgent);
       return color
-        ? ["%c[%s::%s]:", "font-weight: bold; background-color:#EEEE00;"]
-        : ["[%s::%s]:"];
+        ? ['%c[%s::%s]:', 'font-weight: bold; background-color:#EEEE00;']
+        : ['[%s::%s]:'];
     })();
 
     Polymer.Base.chainObject = function (object, inherited) {

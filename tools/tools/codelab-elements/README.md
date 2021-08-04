@@ -1,12 +1,8 @@
 # Codelab Custom Elements
 
-The next generation of the codelab elements without any framework or library
-dependencies, only the [Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html)
-standard spec.
+The next generation of the codelab elements without any framework or library dependencies, only the [Custom Elements](https://html.spec.whatwg.org/multipage/custom-elements.html) standard spec.
 
-If this is a release bundle, produced with a `bazel build :bundle` command,
-you should see `codelab-elements.js`, `codelab-elements.css` and other files,
-ready to be added to an HTML page like the following. Only relevant parts are shown:
+If this is a release bundle, produced with a `bazel build :bundle` command, you should see `codelab-elements.js`, `codelab-elements.css` and other files, ready to be added to an HTML page like the following. Only relevant parts are shown:
 
 ```html
 <!DOCTYPE html>
@@ -50,8 +46,7 @@ ready to be added to an HTML page like the following. Only relevant parts are sh
 </html>
 ```
 
-You can download the latest version
-from https://github.com/googlecodelabs/codelab-elements.
+You can download the latest version from https://github.com/googlecodelabs/codelab-elements.
 
 ## Dev environment
 
@@ -63,10 +58,7 @@ After bazel is installed, try executing the following:
 
     bazel test --test_output=all //codelab-elements/demo:hello_test
 
-It will take some time at the first run because bazel will download and compile
-all dependencies needed to work with the code and run tests. This includes
-Google Closure library and compiler, Go language and browsers to run local JS
-tests on.
+It will take some time at the first run because bazel will download and compile all dependencies needed to work with the code and run tests. This includes Google Closure library and compiler, Go language and browsers to run local JS tests on.
 
 ### Building
 
@@ -86,8 +78,7 @@ It should output something like this:
 
 ### Testing
 
-All elements should have their test targets.
-As a starting point, check out HelloElement tests:
+All elements should have their test targets. As a starting point, check out HelloElement tests:
 
     bazel test --test_output=errors //codelab-elements/demo:hello_test
 
@@ -97,8 +88,7 @@ You should see something like this:
     INFO: Build completed successfully, 2 total actions
     //codelab-elements/demo:hello_test_chromium-local                      PASSED in 4.6s
 
-When things go wrong, it is usually easier to inspect and analyze output
-with debug enabled:
+When things go wrong, it is usually easier to inspect and analyze output with debug enabled:
 
     bazel test -s --verbose_failures --test_output=all --test_arg=-debug codelab-elements/demo/hello_test
 

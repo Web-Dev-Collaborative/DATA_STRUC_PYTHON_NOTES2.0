@@ -33,13 +33,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     observers: [
-      "_calculateElevation(focused, disabled, active, pressed, receivedFocusFromKeyboard)",
-      "_computeKeyboardClass(receivedFocusFromKeyboard)",
+      '_calculateElevation(focused, disabled, active, pressed, receivedFocusFromKeyboard)',
+      '_computeKeyboardClass(receivedFocusFromKeyboard)',
     ],
 
     hostAttributes: {
-      role: "button",
-      tabindex: "0",
+      role: 'button',
+      tabindex: '0',
       animated: true,
     },
 
@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     _computeKeyboardClass: function (receivedFocusFromKeyboard) {
-      this.toggleClass("keyboard-focus", receivedFocusFromKeyboard);
+      this.toggleClass('keyboard-focus', receivedFocusFromKeyboard);
     },
 
     /**

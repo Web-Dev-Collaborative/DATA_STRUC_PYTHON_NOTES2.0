@@ -66,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
     },
 
-    observers: ["_scrollTargetChanged(scrollTarget, isAttached)"],
+    observers: ['_scrollTargetChanged(scrollTarget, isAttached)'],
 
     /**
      * True if the event listener should be installed.
@@ -84,12 +84,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return;
       }
       // Support element id references
-      if (scrollTarget === "document") {
+      if (scrollTarget === 'document') {
         this.scrollTarget = this._doc;
-      } else if (typeof scrollTarget === "string") {
+      } else if (typeof scrollTarget === 'string') {
         this.scrollTarget = this.domHost
           ? this.domHost.$[scrollTarget]
-          : Polymer.dom(this.ownerDocument).querySelector("#" + scrollTarget);
+          : Polymer.dom(this.ownerDocument).querySelector('#' + scrollTarget);
       } else if (this._isValidScrollTarget()) {
         this._boundScrollHandler =
           this._boundScrollHandler || this._scrollHandler.bind(this);
@@ -238,9 +238,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var eventTarget = scrollTarget === this._doc ? window : scrollTarget;
 
       if (yes) {
-        eventTarget.addEventListener("scroll", this._boundScrollHandler);
+        eventTarget.addEventListener('scroll', this._boundScrollHandler);
       } else {
-        eventTarget.removeEventListener("scroll", this._boundScrollHandler);
+        eventTarget.removeEventListener('scroll', this._boundScrollHandler);
       }
     },
 

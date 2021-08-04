@@ -76,7 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <script>
         HTMLImports.whenReady(function () {
           Polymer({
-            is: "x-grid",
+            is: 'x-grid',
           });
         });
       </script>
@@ -99,17 +99,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return rtn;
       }
 
-      suite("basic features", function () {
+      suite('basic features', function () {
         var grid;
 
         setup(function () {
-          grid = fixture("trivialGrid");
+          grid = fixture('trivialGrid');
         });
 
-        test("bounding rectangle for each item", function (done) {
+        test('bounding rectangle for each item', function (done) {
           flush(function () {
             var i, k, currentRect;
-            var gridItems = Polymer.dom(grid.root).querySelectorAll("li");
+            var gridItems = Polymer.dom(grid.root).querySelectorAll('li');
             var expectedBoundingRect = [
               { top: 16, right: 116, bottom: 116, left: 16, width: 100 },
               { top: 16, right: 348, bottom: 116, left: 132, width: 216 },
@@ -134,7 +134,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     expectedBoundingRect[i][k],
                     currentRect[k],
                     4,
-                    " ItemRect[" + i + "]." + k
+                    ' ItemRect[' + i + '].' + k
                   );
                 }
               }

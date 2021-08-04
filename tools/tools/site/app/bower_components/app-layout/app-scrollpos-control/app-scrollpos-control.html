@@ -57,7 +57,7 @@ Example:
 <dom-module id="app-scrollpos-control">
   <script>
     Polymer({
-      is: "app-scrollpos-control",
+      is: 'app-scrollpos-control',
 
       behaviors: [Polymer.IronScrollTargetBehavior],
 
@@ -67,7 +67,7 @@ Example:
          */
         selected: {
           type: String,
-          observer: "_selectedChanged",
+          observer: '_selectedChanged',
         },
 
         /**
@@ -79,7 +79,7 @@ Example:
         },
       },
 
-      observers: ["_updateScrollPos(selected, reset)"],
+      observers: ['_updateScrollPos(selected, reset)'],
 
       created: function () {
         this._scrollposMap = {};
@@ -92,7 +92,7 @@ Example:
       },
 
       _updateScrollPos: function (selected, reset) {
-        this.debounce("_updateScrollPos", function () {
+        this.debounce('_updateScrollPos', function () {
           var pos = this._scrollposMap[this.selected];
           if (pos != null && !this.reset) {
             this.scroll(pos.x, pos.y);

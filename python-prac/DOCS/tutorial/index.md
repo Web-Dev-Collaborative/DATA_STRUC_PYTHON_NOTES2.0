@@ -1,10 +1,10 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [Directory/Playground](./directory.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](appetite.html "1. Whetting Your Appetite") |
-- [previous](https://docs.python.org/3/whatsnew/changelog.html "Changelog") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [Directory/Playground](./directory.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](appetite.html '1. Whetting Your Appetite') |
+- [previous](https://docs.python.org/3/whatsnew/changelog.html 'Changelog') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -164,11 +164,11 @@ The <a href="https://docs.python.org/3/glossary.html#glossary" class="reference 
 
 #### Previous topic
 
-[Changelog](https://docs.python.org/3/whatsnew/changelog.html "previous chapter")
+[Changelog](https://docs.python.org/3/whatsnew/changelog.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">1. </span>Whetting Your Appetite](appetite.html "next chapter")
+[<span class="section-number">1. </span>Whetting Your Appetite](appetite.html 'next chapter')
 
 ### This Page
 
@@ -177,10 +177,10 @@ The <a href="https://docs.python.org/3/glossary.html#glossary" class="reference 
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](appetite.html "1. Whetting Your Appetite") |
-- [previous](https://docs.python.org/3/whatsnew/changelog.html "Changelog") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](appetite.html '1. Whetting Your Appetite') |
+- [previous](https://docs.python.org/3/whatsnew/changelog.html 'Changelog') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

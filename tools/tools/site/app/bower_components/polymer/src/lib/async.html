@@ -13,7 +13,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _lastVal: 0,
     _callbacks: [],
     _twiddleContent: 0,
-    _twiddle: document.createTextNode(""),
+    _twiddle: document.createTextNode(''),
 
     run: function (callback, waitTime) {
       if (waitTime > 0) {
@@ -32,7 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var idx = handle - this._lastVal;
         if (idx >= 0) {
           if (!this._callbacks[idx]) {
-            throw "invalid async handle: " + handle;
+            throw 'invalid async handle: ' + handle;
           }
           this._callbacks[idx] = null;
         }

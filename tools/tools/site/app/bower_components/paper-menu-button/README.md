@@ -19,17 +19,11 @@ _[Demo and API docs](https://elements.polymer-project.org/elements/paper-menu-bu
 
 Material design: [Dropdown buttons](https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons)
 
-`paper-menu-button` allows one to compose a designated "trigger" element with
-another element that represents "content", to create a dropdown menu that
-displays the "content" when the "trigger" is clicked.
+`paper-menu-button` allows one to compose a designated "trigger" element with another element that represents "content", to create a dropdown menu that displays the "content" when the "trigger" is clicked.
 
-The child element with the class `dropdown-trigger` will be used as the
-"trigger" element. The child element with the class `dropdown-content` will be
-used as the "content" element.
+The child element with the class `dropdown-trigger` will be used as the "trigger" element. The child element with the class `dropdown-content` will be used as the "content" element.
 
-The `paper-menu-button` is sensitive to its content's `iron-select` events. If
-the "content" element triggers an `iron-select` event, the `paper-menu-button`
-will close automatically.
+The `paper-menu-button` is sensitive to its content's `iron-select` events. If the "content" element triggers an `iron-select` event, the `paper-menu-button` will close automatically.
 
 Example:
 
@@ -48,13 +42,13 @@ Example:
 
 The following custom properties and mixins are also available for styling:
 
-| Custom property                           | Description                                          | Default                      |
-| ----------------------------------------- | ---------------------------------------------------- | ---------------------------- |
-| `--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown   | `--primary-background-color` |
-| `--paper-menu-button`                     | Mixin applied to the paper-menu-button               | `{}`                         |
-| `--paper-menu-button-disabled`            | Mixin applied to the paper-menu-button when disabled | `{}`                         |
-| `--paper-menu-button-dropdown`            | Mixin applied to the paper-menu-button dropdown      | `{}`                         |
-| `--paper-menu-button-content`             | Mixin applied to the paper-menu-button content       | `{}`                         |
+| Custom property | Description | Default |
+| --- | --- | --- |
+| `--paper-menu-button-dropdown-background` | Background color of the paper-menu-button dropdown | `--primary-background-color` |
+| `--paper-menu-button` | Mixin applied to the paper-menu-button | `{}` |
+| `--paper-menu-button-disabled` | Mixin applied to the paper-menu-button when disabled | `{}` |
+| `--paper-menu-button-dropdown` | Mixin applied to the paper-menu-button dropdown | `{}` |
+| `--paper-menu-button-content` | Mixin applied to the paper-menu-button content | `{}` |
 
 <!-- No docs for <paper-menu-grow-height-animation> found. -->
 

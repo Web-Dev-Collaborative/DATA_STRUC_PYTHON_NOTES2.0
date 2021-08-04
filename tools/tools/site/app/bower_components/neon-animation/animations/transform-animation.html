@@ -31,7 +31,7 @@ Configuration:
 
 <script>
   Polymer({
-    is: "transform-animation",
+    is: 'transform-animation',
 
     behaviors: [Polymer.NeonAnimationBehavior],
 
@@ -46,8 +46,8 @@ Configuration:
      */
     configure: function (config) {
       var node = config.node;
-      var transformFrom = config.transformFrom || "none";
-      var transformTo = config.transformTo || "none";
+      var transformFrom = config.transformFrom || 'none';
+      var transformTo = config.transformTo || 'none';
 
       this._effect = new KeyframeEffect(
         node,
@@ -58,7 +58,7 @@ Configuration:
       if (config.transformOrigin) {
         this.setPrefixedProperty(
           node,
-          "transformOrigin",
+          'transformOrigin',
           config.transformOrigin
         );
       }

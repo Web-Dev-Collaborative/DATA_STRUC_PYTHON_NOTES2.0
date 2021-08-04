@@ -17,7 +17,7 @@ Any number of components can use `<google-realtime-api>` elements, and the libra
 -->
 <script>
   Polymer({
-    is: "google-realtime-api",
+    is: 'google-realtime-api',
 
     behaviors: [Polymer.IronJsonpLibraryBehavior],
 
@@ -26,7 +26,7 @@ Any number of components can use `<google-realtime-api>` elements, and the libra
       libraryUrl: {
         type: String,
         value:
-          "https://apis.google.com/js/drive-realtime.js?onload=%%callback%%",
+          'https://apis.google.com/js/drive-realtime.js?onload=%%callback%%',
       },
 
       /**
@@ -38,7 +38,7 @@ Any number of components can use `<google-realtime-api>` elements, and the libra
        */
       notifyEvent: {
         type: String,
-        value: "api-load",
+        value: 'api-load',
       },
     },
 

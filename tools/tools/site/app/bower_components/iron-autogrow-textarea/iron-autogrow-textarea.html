@@ -130,7 +130,7 @@ Custom property | Description | Default
 
 <script>
   Polymer({
-    is: "iron-autogrow-textarea",
+    is: 'iron-autogrow-textarea',
 
     behaviors: [
       Polymer.IronFormElementBehavior,
@@ -145,7 +145,7 @@ Custom property | Description | Default
        * @type {string|number}
        */
       bindValue: {
-        observer: "_bindValueChanged",
+        observer: '_bindValueChanged',
         type: String,
       },
 
@@ -159,7 +159,7 @@ Custom property | Description | Default
       rows: {
         type: Number,
         value: 1,
-        observer: "_updateCached",
+        observer: '_updateCached',
       },
 
       /**
@@ -173,7 +173,7 @@ Custom property | Description | Default
       maxRows: {
         type: Number,
         value: 0,
-        observer: "_updateCached",
+        observer: '_updateCached',
       },
 
       /**
@@ -181,7 +181,7 @@ Custom property | Description | Default
        */
       autocomplete: {
         type: String,
-        value: "off",
+        value: 'off',
       },
 
       /**
@@ -236,10 +236,10 @@ Custom property | Description | Default
     },
 
     listeners: {
-      input: "_onInput",
+      input: '_onInput',
     },
 
-    observers: ["_onValueChanged(value)"],
+    observers: ['_onValueChanged(value)'],
 
     /**
      * Returns the underlying textarea.
@@ -287,7 +287,7 @@ Custom property | Description | Default
        */
       var IS_IOS = navigator.userAgent.match(/iP(?:[oa]d|hone)/);
       if (IS_IOS) {
-        this.$.textarea.style.marginLeft = "-3px";
+        this.$.textarea.style.marginLeft = '-3px';
       }
     },
 
@@ -299,7 +299,7 @@ Custom property | Description | Default
      */
     validate: function () {
       // Empty, non-required input is valid.
-      if (!this.required && this.value == "") {
+      if (!this.required && this.value == '') {
         this.invalid = false;
         return true;
       }
@@ -311,7 +311,7 @@ Custom property | Description | Default
         valid = this.$.textarea.validity.valid;
         this.invalid = !valid;
       }
-      this.fire("iron-input-validate");
+      this.fire('iron-input-validate');
       return valid;
     },
 
@@ -327,14 +327,14 @@ Custom property | Description | Default
       // the same.
       if (textarea.value !== this.bindValue) {
         textarea.value = !(this.bindValue || this.bindValue === 0)
-          ? ""
+          ? ''
           : this.bindValue;
       }
 
       this.value = this.bindValue;
       this.$.mirror.innerHTML = this._valueForMirror();
       // manually notify because we don't want to notify until after setting value
-      this.fire("bind-value-changed", { value: this.bindValue });
+      this.fire('bind-value-changed', { value: this.bindValue });
     },
 
     _onInput: function (event) {
@@ -343,7 +343,7 @@ Custom property | Description | Default
 
     _constrain: function (tokens) {
       var _tokens;
-      tokens = tokens || [""];
+      tokens = tokens || [''];
       // Enforce the min and max heights for a multiline input to avoid measurement
       if (this.maxRows > 0 && tokens.length > this.maxRows) {
         _tokens = tokens.slice(0, this.maxRows);
@@ -351,10 +351,10 @@ Custom property | Description | Default
         _tokens = tokens.slice(0);
       }
       while (this.rows > 0 && _tokens.length < this.rows) {
-        _tokens.push("");
+        _tokens.push('');
       }
       // Use &#160; instead &nbsp; of to allow this element to be used in XHTML.
-      return _tokens.join("<br/>") + "&#160;";
+      return _tokens.join('<br/>') + '&#160;';
     },
 
     _valueForMirror: function () {
@@ -365,13 +365,13 @@ Custom property | Description | Default
       this.tokens =
         input && input.value
           ? input.value
-              .replace(/&/gm, "&amp;")
-              .replace(/"/gm, "&quot;")
-              .replace(/'/gm, "&#39;")
-              .replace(/</gm, "&lt;")
-              .replace(/>/gm, "&gt;")
-              .split("\n")
-          : [""];
+              .replace(/&/gm, '&amp;')
+              .replace(/"/gm, '&quot;')
+              .replace(/'/gm, '&#39;')
+              .replace(/</gm, '&lt;')
+              .replace(/>/gm, '&gt;')
+              .split('\n')
+          : [''];
       return this._constrain(this.tokens);
     },
 

@@ -14,9 +14,7 @@ _[Demo and API Docs](https://elements.polymer-project.org/elements/iron-media-qu
 
 ##&lt;iron-media-query&gt;
 
-`iron-media-query` can be used to data bind to a CSS media query.
-The `query` property is a bare CSS media query.
-The `query-matches` property is a boolean representing whether the page matches that media query.
+`iron-media-query` can be used to data bind to a CSS media query. The `query` property is a bare CSS media query. The `query-matches` property is a boolean representing whether the page matches that media query.
 
 Example:
 

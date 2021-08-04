@@ -4,7 +4,7 @@
 from datetime import datetime
 
 with open("test.txt", "w") as f:
-    f.write("今天是 ")
+    f.write(" ")
     f.write(datetime.now().strftime("%Y-%m-%d"))
 
 with open("test.txt", "r") as f:

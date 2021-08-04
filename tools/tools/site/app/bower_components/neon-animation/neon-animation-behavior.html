@@ -26,8 +26,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         value: function () {
           return {
             duration: 500,
-            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-            fill: "both",
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            fill: 'both',
           };
         },
       },
@@ -62,8 +62,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     setPrefixedProperty: function (node, property, value) {
       var map = {
-        transform: ["webkitTransform"],
-        transformOrigin: ["mozTransformOrigin", "webkitTransformOrigin"],
+        transform: ['webkitTransform'],
+        transformOrigin: ['mozTransformOrigin', 'webkitTransformOrigin'],
       };
       var prefixes = map[property];
       for (var prefix, index = 0; (prefix = prefixes[index]); index++) {

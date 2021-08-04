@@ -19,7 +19,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script>
   (function () {
-    "use strict";
+    'use strict';
 
     /** @polymerBehavior */
     Polymer.IronOverlayBehaviorImpl = {
@@ -28,7 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * True if the overlay is currently displayed.
          */
         opened: {
-          observer: "_openedChanged",
+          observer: '_openedChanged',
           type: Boolean,
           value: false,
           notify: true,
@@ -38,7 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * True if the overlay was canceled when it was last closed.
          */
         canceled: {
-          observer: "_canceledChanged",
+          observer: '_canceledChanged',
           readOnly: true,
           type: Boolean,
           value: false,
@@ -49,7 +49,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * within the light DOM of the overlay.
          */
         withBackdrop: {
-          observer: "_withBackdropChanged",
+          observer: '_withBackdropChanged',
           type: Boolean,
         },
 
@@ -124,7 +124,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       listeners: {
-        "iron-resize": "_onIronResize",
+        'iron-resize': '_onIronResize',
       },
 
       /**
@@ -142,7 +142,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       get _focusNode() {
         return (
           this._focusedChild ||
-          Polymer.dom(this).querySelector("[autofocus]") ||
+          Polymer.dom(this).querySelector('[autofocus]') ||
           this
         );
       },
@@ -223,7 +223,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {Event=} event The original event
        */
       cancel: function (event) {
-        var cancelEvent = this.fire("iron-overlay-canceled", event, {
+        var cancelEvent = this.fire('iron-overlay-canceled', event, {
           cancelable: true,
         });
         if (cancelEvent.defaultPrevented) {
@@ -247,8 +247,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return;
         }
         this._overlaySetup = true;
-        this.style.outline = "none";
-        this.style.display = "none";
+        this.style.outline = 'none';
+        this.style.display = 'none';
       },
 
       /**
@@ -258,9 +258,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       _openedChanged: function (opened) {
         if (opened) {
-          this.removeAttribute("aria-hidden");
+          this.removeAttribute('aria-hidden');
         } else {
-          this.setAttribute("aria-hidden", "true");
+          this.setAttribute('aria-hidden', 'true');
         }
 
         // Defer any animation-related code on attached
@@ -282,11 +282,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _withBackdropChanged: function () {
         // If tabindex is already set, no need to override it.
-        if (this.withBackdrop && !this.hasAttribute("tabindex")) {
-          this.setAttribute("tabindex", "-1");
+        if (this.withBackdrop && !this.hasAttribute('tabindex')) {
+          this.setAttribute('tabindex', '-1');
           this.__shouldRemoveTabIndex = true;
         } else if (this.__shouldRemoveTabIndex) {
-          this.removeAttribute("tabindex");
+          this.removeAttribute('tabindex');
           this.__shouldRemoveTabIndex = false;
         }
         if (this.opened && this.isAttached) {
@@ -340,7 +340,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.notifyResize();
         this.__isAnimating = false;
 
-        this.fire("iron-overlay-opened");
+        this.fire('iron-overlay-opened');
       },
 
       /**
@@ -349,30 +349,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       _finishRenderClosed: function () {
         // Hide the overlay.
-        this.style.display = "none";
+        this.style.display = 'none';
         // Reset z-index only at the end of the animation.
-        this.style.zIndex = "";
+        this.style.zIndex = '';
         this.notifyResize();
         this.__isAnimating = false;
-        this.fire("iron-overlay-closed", this.closingReason);
+        this.fire('iron-overlay-closed', this.closingReason);
       },
 
       _preparePositioning: function () {
-        this.style.transition = this.style.webkitTransition = "none";
-        this.style.transform = this.style.webkitTransform = "none";
-        this.style.display = "";
+        this.style.transition = this.style.webkitTransition = 'none';
+        this.style.transform = this.style.webkitTransform = 'none';
+        this.style.display = '';
       },
 
       _finishPositioning: function () {
         // First, make it invisible & reactivate animations.
-        this.style.display = "none";
+        this.style.display = 'none';
         // Force reflow before re-enabling animations so that they don't start.
         // Set scrollTop to itself so that Closure Compiler doesn't remove this.
         this.scrollTop = this.scrollTop;
-        this.style.transition = this.style.webkitTransition = "";
-        this.style.transform = this.style.webkitTransform = "";
+        this.style.transition = this.style.webkitTransition = '';
+        this.style.transform = this.style.webkitTransform = '';
         // Now that animations are enabled, make it visible again
-        this.style.display = "";
+        this.style.display = '';
         // Force reflow, so that following animations are properly started.
         // Set scrollTop to itself so that Closure Compiler doesn't remove this.
         this.scrollTop = this.scrollTop;

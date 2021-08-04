@@ -30,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         readOnly: true,
         value: false,
         reflectToAttribute: true,
-        observer: "_pressedChanged",
+        observer: '_pressedChanged',
       },
 
       /**
@@ -79,26 +79,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       ariaActiveAttribute: {
         type: String,
-        value: "aria-pressed",
-        observer: "_ariaActiveAttributeChanged",
+        value: 'aria-pressed',
+        observer: '_ariaActiveAttributeChanged',
       },
     },
 
     listeners: {
-      down: "_downHandler",
-      up: "_upHandler",
-      tap: "_tapHandler",
+      down: '_downHandler',
+      up: '_upHandler',
+      tap: '_tapHandler',
     },
 
     observers: [
-      "_detectKeyboardFocus(focused)",
-      "_activeChanged(active, ariaActiveAttribute)",
+      '_detectKeyboardFocus(focused)',
+      '_activeChanged(active, ariaActiveAttribute)',
     ],
 
     keyBindings: {
-      "enter:keydown": "_asyncClick",
-      "space:keydown": "_spaceKeyDownHandler",
-      "space:keyup": "_spaceKeyUpHandler",
+      'enter:keydown': '_asyncClick',
+      'space:keydown': '_spaceKeyDownHandler',
+      'space:keyup': '_spaceKeyUpHandler',
     },
 
     _mouseEventRe: /^mouse/,
@@ -121,7 +121,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     _userActivate: function (active) {
       if (this.active !== active) {
         this.active = active;
-        this.fire("change");
+        this.fire('change');
       }
     },
 
@@ -191,7 +191,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _activeChanged: function (active, ariaActiveAttribute) {
       if (this.toggles) {
-        this.setAttribute(this.ariaActiveAttribute, active ? "true" : "false");
+        this.setAttribute(this.ariaActiveAttribute, active ? 'true' : 'false');
       } else {
         this.removeAttribute(this.ariaActiveAttribute);
       }

@@ -1,9 +1,9 @@
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](venv.html "12. Virtual Environments and Packages") |
-- [previous](stdlib.html "10. Brief Tour of the Standard Library") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](venv.html '12. Virtual Environments and Packages') |
+- [previous](stdlib.html '10. Brief Tour of the Standard Library') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »
@@ -329,11 +329,11 @@ The <a href="https://docs.python.org/3/library/decimal.html#module-decimal" clas
 
 #### Previous topic
 
-[<span class="section-number">10. </span>Brief Tour of the Standard Library](stdlib.html "previous chapter")
+[<span class="section-number">10. </span>Brief Tour of the Standard Library](stdlib.html 'previous chapter')
 
 #### Next topic
 
-[<span class="section-number">12. </span>Virtual Environments and Packages](venv.html "next chapter")
+[<span class="section-number">12. </span>Virtual Environments and Packages](venv.html 'next chapter')
 
 ### This Page
 
@@ -342,10 +342,10 @@ The <a href="https://docs.python.org/3/library/decimal.html#module-decimal" clas
 
 ### Navigation
 
-- [index](https://docs.python.org/3/genindex.html "General Index")
-- [modules](https://docs.python.org/3/py-modindex.html "Python Module Index") |
-- [next](venv.html "12. Virtual Environments and Packages") |
-- [previous](stdlib.html "10. Brief Tour of the Standard Library") |
+- [index](https://docs.python.org/3/genindex.html 'General Index')
+- [modules](https://docs.python.org/3/py-modindex.html 'Python Module Index') |
+- [next](venv.html '12. Virtual Environments and Packages') |
+- [previous](stdlib.html '10. Brief Tour of the Standard Library') |
 - ![](../_static/py.png)
 - [Python](https://www.python.org/) »
 - [3.9.5 Documentation](https://docs.python.org/3/index.html) »

@@ -13,11 +13,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <script>
   Polymer.StyleUtil = (function () {
     return {
-      MODULE_STYLES_SELECTOR: "style, link[rel=import][type~=css], template",
-      INCLUDE_ATTR: "include",
+      MODULE_STYLES_SELECTOR: 'style, link[rel=import][type~=css], template',
+      INCLUDE_ATTR: 'include',
 
       toCssText: function (rules, callback, preserveProperties) {
-        if (typeof rules === "string") {
+        if (typeof rules === 'string') {
           rules = this.parser.parse(rules);
         }
         if (callback) {
@@ -92,9 +92,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       createScopeStyle: function (cssText, moniker) {
-        var style = document.createElement("style");
+        var style = document.createElement('style');
         if (moniker) {
-          style.setAttribute("scope", moniker);
+          style.setAttribute('scope', moniker);
         }
         style.textContent = cssText;
         return style;
@@ -105,7 +105,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // insert a comment node as a styling position placeholder.
       applyStylePlaceHolder: function (moniker) {
         var placeHolder = document.createComment(
-          " Shady DOM styles for " + moniker + " "
+          ' Shady DOM styles for ' + moniker + ' '
         );
         var after = this.__lastHeadApplyNode
           ? this.__lastHeadApplyNode.nextSibling
@@ -117,8 +117,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       cssFromModules: function (moduleIds, warnIfNotFound) {
-        var modules = moduleIds.trim().split(" ");
-        var cssText = "";
+        var modules = moduleIds.trim().split(' ');
+        var cssText = '';
         for (var i = 0; i < modules.length; i++) {
           cssText += this.cssFromModule(modules[i], warnIfNotFound);
         }
@@ -133,14 +133,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           m._cssText = this.cssFromElement(m);
         }
         if (!m && warnIfNotFound) {
-          console.warn("Could not find style data in module named", moduleId);
+          console.warn('Could not find style data in module named', moduleId);
         }
-        return (m && m._cssText) || "";
+        return (m && m._cssText) || '';
       },
 
       // support lots of ways to discover css...
       cssFromElement: function (element) {
-        var cssText = "";
+        var cssText = '';
         // if element is a template, get content from its .content
         var content = element.content || element;
         var e$ = Polymer.TreeApi.arrayCopy(
@@ -149,12 +149,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         for (var i = 0, e; i < e$.length; i++) {
           e = e$[i];
           // look inside templates for elements
-          if (e.localName === "template") {
+          if (e.localName === 'template') {
             cssText += this.cssFromElement(e);
           } else {
             // style elements inside dom-modules will apply to the main document
             // we don't want this, so we remove them here.
-            if (e.localName === "style") {
+            if (e.localName === 'style') {
               var include = e.getAttribute(this.INCLUDE_ATTR);
               // now support module refs on 'styling' elements
               if (include) {

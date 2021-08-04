@@ -18,50 +18,50 @@ PR.registerLangHandler(
   PR.createSimpleLexer(
     [
       [
-        "str",
+        'str',
         /^(?:\'(?:[^\\\'\r\n]|\\.)*\'|\"(?:[^\\\"\r\n]|\\.)*(?:\"|$))/,
         null,
         '"',
       ],
       [
-        "com",
+        'com',
         /^#(?:(?:define|elif|else|endif|error|ifdef|include|ifndef|line|pragma|undef|warning)\b|[^\r\n]*)/,
         null,
-        "#",
+        '#',
       ],
-      ["pln", /^\s+/, null, " \r\n\t\u00a0"],
+      ['pln', /^\s+/, null, ' \r\n\t\u00a0'],
     ],
     [
-      ["str", /^@\"(?:[^\"]|\"\")*(?:\"|$)/, null],
-      ["str", /^<#(?:[^#>])*(?:#>|$)/, null],
+      ['str', /^@\"(?:[^\"]|\"\")*(?:\"|$)/, null],
+      ['str', /^<#(?:[^#>])*(?:#>|$)/, null],
       [
-        "str",
+        'str',
         /^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h|[a-z]\w*)>/,
         null,
       ],
-      ["com", /^\/\/[^\r\n]*/, null],
-      ["com", /^\/\*[\s\S]*?(?:\*\/|$)/, null],
+      ['com', /^\/\/[^\r\n]*/, null],
+      ['com', /^\/\*[\s\S]*?(?:\*\/|$)/, null],
       [
-        "kwd",
+        'kwd',
         /^(?:abstract|and|as|base|catch|class|def|delegate|enum|event|extern|false|finally|fun|implements|interface|internal|is|macro|match|matches|module|mutable|namespace|new|null|out|override|params|partial|private|protected|public|ref|sealed|static|struct|syntax|this|throw|true|try|type|typeof|using|variant|virtual|volatile|when|where|with|assert|assert2|async|break|checked|continue|do|else|ensures|for|foreach|if|late|lock|new|nolate|otherwise|regexp|repeat|requires|return|surroundwith|unchecked|unless|using|while|yield)\b/,
         null,
       ],
       [
-        "typ",
+        'typ',
         /^(?:array|bool|byte|char|decimal|double|float|int|list|long|object|sbyte|short|string|ulong|uint|ufloat|ulong|ushort|void)\b/,
         null,
       ],
-      ["lit", /^@[a-z_$][a-z_$@0-9]*/i, null],
-      ["typ", /^@[A-Z]+[a-z][A-Za-z_$@0-9]*/, null],
-      ["pln", /^'?[A-Za-z_$][a-z_$@0-9]*/i, null],
+      ['lit', /^@[a-z_$][a-z_$@0-9]*/i, null],
+      ['typ', /^@[A-Z]+[a-z][A-Za-z_$@0-9]*/, null],
+      ['pln', /^'?[A-Za-z_$][a-z_$@0-9]*/i, null],
       [
-        "lit",
+        'lit',
         /^(?:0x[a-f0-9]+|(?:\d(?:_\d+)*\d*(?:\.\d*)?|\.\d\+)(?:e[+\-]?\d+)?)[a-z]*/i,
         null,
-        "0123456789",
+        '0123456789',
       ],
-      ["pun", /^.[^\s\w\.$@\'\"\`\/\#]*/, null],
+      ['pun', /^.[^\s\w\.$@\'\"\`\/\#]*/, null],
     ]
   ),
-  ["n", "nemerle"]
+  ['n', 'nemerle']
 );

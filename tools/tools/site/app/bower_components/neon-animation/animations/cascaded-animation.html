@@ -30,7 +30,7 @@ Configuration:
 
 <script>
   Polymer({
-    is: "cascaded-animation",
+    is: 'cascaded-animation',
 
     behaviors: [Polymer.NeonAnimationBehavior],
 
@@ -64,7 +64,7 @@ Configuration:
           this._animations.push(animation);
           effects.push(effect);
         } else {
-          console.warn(this.is + ":", config.animation, "not found!");
+          console.warn(this.is + ':', config.animation, 'not found!');
           abortedConfigure = true;
           break;
         }

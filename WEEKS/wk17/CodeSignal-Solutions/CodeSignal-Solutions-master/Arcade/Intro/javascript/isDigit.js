@@ -1,3 +1,3 @@
 function isDigit(symbol) {
-    return /\d/.test(symbol)
+  return /\d/.test(symbol);
 }

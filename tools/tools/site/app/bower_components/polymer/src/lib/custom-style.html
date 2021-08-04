@@ -95,8 +95,8 @@ Note, all features of `custom-style` are available when defining styles as part 
     var styleTransformer = Polymer.StyleTransformer;
 
     Polymer({
-      is: "custom-style",
-      extends: "style",
+      is: 'custom-style',
+      extends: 'style',
       _template: null,
 
       properties: {
@@ -124,7 +124,7 @@ Note, all features of `custom-style` are available when defining styles as part 
       _tryApply: function () {
         if (!this._appliesToDocument) {
           // only apply variables iff this style is not inside a dom-module
-          if (this.parentNode && this.parentNode.localName !== "dom-module") {
+          if (this.parentNode && this.parentNode.localName !== 'dom-module') {
             this._appliesToDocument = true;
             // used applied element from HTMLImports polyfill or this
             var e = this.__appliedElement || this;

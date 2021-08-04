@@ -85,14 +85,14 @@ div.sphinxsidebar #searchbox form.search {
   overflow: hidden;
 }
 
-div.sphinxsidebar #searchbox input[type="text"] {
+div.sphinxsidebar #searchbox input[type='text'] {
   float: left;
   width: 80%;
   padding: 0.25em;
   box-sizing: border-box;
 }
 
-div.sphinxsidebar #searchbox input[type="submit"] {
+div.sphinxsidebar #searchbox input[type='submit'] {
   float: left;
   width: 20%;
   border-left: none;
@@ -235,12 +235,12 @@ a.headerlink {
 
 a.brackets:before,
 span.brackets > a:before {
-  content: "[";
+  content: '[';
 }
 
 a.brackets:after,
 span.brackets > a:after {
-  content: "]";
+  content: ']';
 }
 
 h1:hover > a.headerlink,
@@ -526,7 +526,7 @@ dl.citation > dd {
 
 dl.footnote > dd:after,
 dl.citation > dd:after {
-  content: "";
+  content: '';
   clear: both;
 }
 
@@ -543,7 +543,7 @@ dl.field-list > dt {
 }
 
 dl.field-list > dt:after {
-  content: ":";
+  content: ':';
 }
 
 dl.field-list > dd {
@@ -636,7 +636,7 @@ dl.glossary dt {
 .classifier:before {
   font-style: normal;
   margin: 0.5em;
-  content: ":";
+  content: ':';
 }
 
 abbr,
