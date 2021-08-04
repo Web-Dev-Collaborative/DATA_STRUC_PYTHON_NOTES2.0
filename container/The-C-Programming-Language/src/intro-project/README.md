@@ -10,6 +10,4 @@ Go through the files in this repository in the following order:
 - `double_pointer_lesson.c`
 - `review.c`
 
-Work through any exercises presented those files and get them to compile. If you
-don't understand some function that is used in any of these files, definitely
-look them up!
+Work through any exercises presented those files and get them to compile. If you don't understand some function that is used in any of these files, definitely look them up!

@@ -1,26 +1,20 @@
 # Pointers in C
 
-_Pointers are a hard concept. Once they click, they're easy. But they are really
-the only conceptually difficult thing in C._
+_Pointers are a hard concept. Once they click, they're easy. But they are really the only conceptually difficult thing in C._
 
 ## The Main Problems
 
 ### Multiple return values from functions
 
-Functions have one return value. What if you want to have them change multiple
-things?
+Functions have one return value. What if you want to have them change multiple things?
 
-Spoiler: you can pass pointers to those things to the function, and then the
-function can manipulate those things via the pointers.
+Spoiler: you can pass pointers to those things to the function, and then the function can manipulate those things via the pointers.
 
 ### Large objects can be inefficient to copy
 
-When you pass an argument to a function, a copy of that argument is made. If the
-argument is, say, a large `struct`ure, it might take a relatively long time to
-copy on.
+When you pass an argument to a function, a copy of that argument is made. If the argument is, say, a large `struct`ure, it might take a relatively long time to copy on.
 
-Spoiler: a pointer is just a 32-bit or 64-bit number, so it's quick to copy on
-as an argument, so pass a pointer to the `struct` instead.
+Spoiler: a pointer is just a 32-bit or 64-bit number, so it's quick to copy on as an argument, so pass a pointer to the `struct` instead.
 
 ## What's a Pointer?
 
@@ -36,25 +30,20 @@ You can have pointers to specific addresses, like so:
 char *p = (char *)0x372;
 ```
 
-but nearly 100% of the time we're more interested in a pointer to a variable
-we've declared or we're passing into a function. We want to know what its
-address is.
+but nearly 100% of the time we're more interested in a pointer to a variable we've declared or we're passing into a function. We want to know what its address is.
 
 ## Getting the Address of a Variable
 
 _AKA getting the pointer to an object from the object._
 
-Use the _address-of_ operator, and store the result in a variable of
-_pointer-type_:
+Use the _address-of_ operator, and store the result in a variable of _pointer-type_:
 
 ```c
     int a = 12;  // a is a regular variable
     int *p = &a; // int-pointer p points to a
 ```
 
-For the address of the first element in an array, you can just leave off the
-brackets on the array name. This is shorthand for "pointer to the first element
-in the array":
+For the address of the first element in an array, you can just leave off the brackets on the array name. This is shorthand for "pointer to the first element in the array":
 
 ```c
     int a[3] = {10, 20, 30};
@@ -65,8 +54,7 @@ in the array":
 
 _AKA getting the object from a pointer to that object._
 
-If you have a pointer to an object, you can refer to the original object by
-_dereferencing_ the pointer with the `*` operator.
+If you have a pointer to an object, you can refer to the original object by _dereferencing_ the pointer with the `*` operator.
 
 ```c
 	int a = 12;
@@ -133,14 +121,11 @@ We're saying, "Compute the sum `a + b` and then set whatever `results` points at
 
 ## Dynamic Memory
 
-When allocating objects or arrays to use at runtime, pointers are used to track
-the object or the first element of the allocated array.
+When allocating objects or arrays to use at runtime, pointers are used to track the object or the first element of the allocated array.
 
-> You'd dynamically allocate objects if you didn't know at compile-time how many
-> objects you needed.
+> You'd dynamically allocate objects if you didn't know at compile-time how many objects you needed.
 
-**Be sure to free memory when you're done with it!** Failure to do so will
-result in a _memory leak_.
+**Be sure to free memory when you're done with it!** Failure to do so will result in a _memory leak_.
 
 ```c
 // Allocate 10 ints
@@ -170,13 +155,9 @@ free(x);
 
 ## The Heap and Stack
 
-> Though the concept of stack and heap do not appear in the C language
-> specification, and so theoretically do not exist, they are actually
-> things that do exist that all C programmer are aware of.
+> Though the concept of stack and heap do not appear in the C language specification, and so theoretically do not exist, they are actually things that do exist that all C programmer are aware of.
 
-When you allocate memory with `malloc()`, it goes in an area of memory
-called _the heap_. It persists on the heap until explicitly freed with
-`free()`, or until the program exits.
+When you allocate memory with `malloc()`, it goes in an area of memory called _the heap_. It persists on the heap until explicitly freed with `free()`, or until the program exits.
 
 Because the memory persists, it makes it legal to do something like this:
 
@@ -189,9 +170,7 @@ int *give_me_an_int(void)
 }
 ```
 
-On the other hand, local variables, including local arrays, are
-allocated on _the stack_. When a function returns, all its local
-variables are popped off the stack and thrown away.
+On the other hand, local variables, including local arrays, are allocated on _the stack_. When a function returns, all its local variables are popped off the stack and thrown away.
 
 This is why it's bad to do this:
 
@@ -204,9 +183,7 @@ int *give_me_an_int_badly(void)
 }
 ```
 
-When the function returns, the local variable `x` is automatically
-destroyed. The pointer to it is invalid and undefined behavior will
-result if it is accessed.
+When the function returns, the local variable `x` is automatically destroyed. The pointer to it is invalid and undefined behavior will result if it is accessed.
 
 ## `NULL` Pointer
 

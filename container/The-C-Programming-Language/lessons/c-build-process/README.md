@@ -1,9 +1,6 @@
 # C build process
 
-C is a compiled language. This means that the syntax and tokens that you write
-in your `.c` file are converted from the "higher level language" of C directly
-into machine language, and are loaded into and executed deterministically by the
-CPU.
+C is a compiled language. This means that the syntax and tokens that you write in your `.c` file are converted from the "higher level language" of C directly into machine language, and are loaded into and executed deterministically by the CPU.
 
 C is more than compiled, however; C programs are built in a series of steps.
 
@@ -35,8 +32,7 @@ Convert fully preprocessed C language into ASM via lexing and parsing steps.
 
 [Lexical Analysis](https://en.wikipedia.org/wiki/Lexical_analysis)
 
-`clang -Xclang -dump-tokens code.c`
-[OlivierLi](https://stackoverflow.com/a/40209551/498629)
+`clang -Xclang -dump-tokens code.c` [OlivierLi](https://stackoverflow.com/a/40209551/498629)
 
 [Parsing](https://en.wikipedia.org/wiki/Parsing)
 
@@ -75,6 +71,4 @@ int main(void)
 
 ### Assembly Output
 
-Generate assembly for the above program. Examine it and try to figure out which
-instructions correspond to which lines of assembly code correspond to which
-lines of C code.
+Generate assembly for the above program. Examine it and try to figure out which instructions correspond to which lines of assembly code correspond to which lines of C code.

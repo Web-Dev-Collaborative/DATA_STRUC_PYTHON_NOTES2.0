@@ -98,7 +98,7 @@ while (results.prev[u] != undefined) {
   u = results.prev[u];
 }
 
-console.log("Path: " + path);
-console.log("Distance: " + results.dist[b]);
+console.log('Path: ' + path);
+console.log('Distance: ' + results.dist[b]);
 
 export default Dijkstra;

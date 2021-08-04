@@ -16,14 +16,11 @@
     printf("And a double: %lf\n", g);
 ```
 
-The first string argument to `printf` is called the _format string_. The
-significant letter or letters after the `%` are called the _format specifier_.
+The first string argument to `printf` is called the _format string_. The significant letter or letters after the `%` are called the _format specifier_.
 
-`printf` can put leading zeros on, print things in hexadecimal, justify left or
-right, set field widths, and all kinds of stuff.
+`printf` can put leading zeros on, print things in hexadecimal, justify left or right, set field widths, and all kinds of stuff.
 
-> Fun Fact: The `printf` function actually makes an appearance in Python as the
-> `%` string operator.
+> Fun Fact: The `printf` function actually makes an appearance in Python as the `%` string operator.
 
 ## Input with `scanf`
 
@@ -44,9 +41,7 @@ right, set field widths, and all kinds of stuff.
 
 ## File I/O
 
-You can open a file for reading or writing with `fopen()`. Then use `fprintf()`
-to write to it, or `fscanf()` to read from it (just as if it were the screen or
-keyboard).
+You can open a file for reading or writing with `fopen()`. Then use `fprintf()` to write to it, or `fscanf()` to read from it (just as if it were the screen or keyboard).
 
 ```c
     FILE *fp;

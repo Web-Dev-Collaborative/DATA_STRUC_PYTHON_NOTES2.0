@@ -1,35 +1,35 @@
-import sinon from "sinon";
-import Queue from "../src/Queue";
-import Process from "../src/Process";
-import Scheduler from "../src/Scheduler";
+import sinon from 'sinon';
+import Queue from '../src/Queue';
+import Process from '../src/Process';
+import Scheduler from '../src/Scheduler';
 import {
   SchedulerInterrupt,
   QueueType,
   PRIORITY_LEVELS,
-} from "../src/constants/index";
+} from '../src/constants/index';
 
 let queue, scheduler;
 
-describe("Scheduler", () => {
+describe('Scheduler', () => {
   beforeEach(() => {
     scheduler = new Scheduler();
     queue = new Queue(scheduler, 50, 0, QueueType.CPU_QUEUE);
   });
 
   it('should have the methods "run", "allQueuesEmpty", "addNewProcess", and "handleInterrupt"', () => {
-    expect(Object.getPrototypeOf(scheduler).hasOwnProperty("run")).toBe(true);
+    expect(Object.getPrototypeOf(scheduler).hasOwnProperty('run')).toBe(true);
     expect(
-      Object.getPrototypeOf(scheduler).hasOwnProperty("allQueuesEmpty")
+      Object.getPrototypeOf(scheduler).hasOwnProperty('allQueuesEmpty')
     ).toBe(true);
     expect(
-      Object.getPrototypeOf(scheduler).hasOwnProperty("addNewProcess")
+      Object.getPrototypeOf(scheduler).hasOwnProperty('addNewProcess')
     ).toBe(true);
     expect(
-      Object.getPrototypeOf(scheduler).hasOwnProperty("handleInterrupt")
+      Object.getPrototypeOf(scheduler).hasOwnProperty('handleInterrupt')
     ).toBe(true);
   });
 
-  test("addNewProcess and allQueuesEmpty methods", () => {
+  test('addNewProcess and allQueuesEmpty methods', () => {
     expect(scheduler.allQueuesEmpty()).toBe(true);
 
     const process = new Process(0);
@@ -50,10 +50,10 @@ describe("Scheduler", () => {
     expect(scheduler.allQueuesEmpty()).toBe(true);
   });
 
-  test("handleInterrupt method moves a process to blocking queue upon receiving a PROCESS_BLOCKED interrupt", () => {
+  test('handleInterrupt method moves a process to blocking queue upon receiving a PROCESS_BLOCKED interrupt', () => {
     const process = new Process(0);
     const blockingQueue = scheduler._getBlockingQueue();
-    const queueSpy = sinon.spy(blockingQueue, "enqueue");
+    const queueSpy = sinon.spy(blockingQueue, 'enqueue');
     scheduler.handleInterrupt(
       blockingQueue,
       process,
@@ -64,17 +64,17 @@ describe("Scheduler", () => {
     expect(blockingQueue.peek()).toBe(process);
   });
 
-  test("handleInterrupt method moves a process to the top level priority queue upon receiving a PROCESS_READY interrupt", () => {
+  test('handleInterrupt method moves a process to the top level priority queue upon receiving a PROCESS_READY interrupt', () => {
     const process = new Process(0);
     const queue = scheduler._getCPUQueue(0);
-    const schedulerSpy = sinon.spy(scheduler, "addNewProcess");
+    const schedulerSpy = sinon.spy(scheduler, 'addNewProcess');
     scheduler.handleInterrupt(queue, process, SchedulerInterrupt.PROCESS_READY);
 
     expect(schedulerSpy.calledWith(process)).toBe(true);
     expect(queue.peek()).toBe(process);
   });
 
-  test("handleInterrupt method moves a non-blocking process to a lower priority queue upon receiving a LOWER_PRIORITY interrupt", () => {
+  test('handleInterrupt method moves a non-blocking process to a lower priority queue upon receiving a LOWER_PRIORITY interrupt', () => {
     const process = new Process(0);
     const topLevelQueue = scheduler._getCPUQueue(0);
     const nextLevelQueue = scheduler._getCPUQueue(1);
@@ -87,7 +87,7 @@ describe("Scheduler", () => {
     expect(nextLevelQueue.peek()).toBe(process);
   });
 
-  test("handleInterrupt method moves a blocking process to the end of the blocking queue upon receiving a LOWER_PRIORITY interrupt", () => {
+  test('handleInterrupt method moves a blocking process to the end of the blocking queue upon receiving a LOWER_PRIORITY interrupt', () => {
     const process = new Process(0, 0, true);
     const blockingQueue = scheduler._getBlockingQueue();
     scheduler.handleInterrupt(
@@ -99,7 +99,7 @@ describe("Scheduler", () => {
     expect(blockingQueue.peek()).toBe(process);
   });
 
-  test("handleInterrupt method adds a process back to the lowest priority queue if it was already in the lowest priority queue upon receiving a LOWER_PRIORITY interrupt", () => {
+  test('handleInterrupt method adds a process back to the lowest priority queue if it was already in the lowest priority queue upon receiving a LOWER_PRIORITY interrupt', () => {
     const process = new Process(0);
     const lowestLevelQueue = scheduler._getCPUQueue(PRIORITY_LEVELS - 1);
     scheduler.handleInterrupt(
@@ -111,7 +111,7 @@ describe("Scheduler", () => {
     expect(lowestLevelQueue.peek()).toBe(process);
   });
 
-  test("run method runs until all processes have completed execution", () => {
+  test('run method runs until all processes have completed execution', () => {
     const process1 = new Process(0);
     const process2 = new Process(1, 0, true);
     const process3 = new Process(2, 500);
@@ -121,9 +121,9 @@ describe("Scheduler", () => {
     const queue2 = scheduler._getCPUQueue(1);
     const queue3 = scheduler._getCPUQueue(2);
 
-    const schedulerSpy = sinon.spy(scheduler, "allQueuesEmpty");
-    const blockingQueueSpy = sinon.spy(blockingQueue, "doBlockingWork");
-    const queue1Spy = sinon.spy(queue1, "doCPUWork");
+    const schedulerSpy = sinon.spy(scheduler, 'allQueuesEmpty');
+    const blockingQueueSpy = sinon.spy(blockingQueue, 'doBlockingWork');
+    const queue1Spy = sinon.spy(queue1, 'doCPUWork');
 
     scheduler.addNewProcess(process1);
     scheduler.addNewProcess(process2);

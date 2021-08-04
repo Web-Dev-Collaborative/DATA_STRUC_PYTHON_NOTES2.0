@@ -27,22 +27,22 @@ const force = d3.layout
   .charge(-900)
   .chargeDistance(700)
   .gravity(0.007)
-  .on("tick", tick);
+  .on('tick', tick);
 
 // Connect to the html document
 const svg = d3
-  .select("body")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height);
+  .select('body')
+  .append('svg')
+  .attr('width', width)
+  .attr('height', height);
 
 console.log(force);
 console.log(nodes);
 
 // Fix the ROOT node to the center, not necessary with Dijkstra's
-nodes["ROOT"].x = width / 2;
-nodes["ROOT"].y = height / 2;
-nodes["ROOT"].fixed = true;
+nodes['ROOT'].x = width / 2;
+nodes['ROOT'].y = height / 2;
+nodes['ROOT'].fixed = true;
 
 // This looks up the "group" id from d3_demo_data.js and appends it to
 // the existing nodes. This is used for coloring and grouping.
@@ -63,46 +63,46 @@ force.start();
 // Identifying Dijkstra's path would involve bolding these edges.
 // Per-type markers, as they don't inherit styles.
 svg
-  .append("defs")
-  .selectAll("marker")
-  .data(["link"])
+  .append('defs')
+  .selectAll('marker')
+  .data(['link'])
   .enter()
-  .append("marker")
-  .attr("id", (d) => {
+  .append('marker')
+  .attr('id', (d) => {
     return d;
   })
-  .attr("viewBox", "-50 -50 100 100")
-  .attr("refX", 35)
-  .attr("refY", 0)
-  .attr("markerWidth", 16)
-  .attr("markerHeight", 16)
-  .attr("orient", "auto")
-  .append("path")
-  .attr("d", "M-50,-25L-25,0L-50,25"); // this weird code draws the arrow
+  .attr('viewBox', '-50 -50 100 100')
+  .attr('refX', 35)
+  .attr('refY', 0)
+  .attr('markerWidth', 16)
+  .attr('markerHeight', 16)
+  .attr('orient', 'auto')
+  .append('path')
+  .attr('d', 'M-50,-25L-25,0L-50,25'); // this weird code draws the arrow
 
 // Seems like this enables link clicking on the edges - it doesn't seem
 // to do anything and can probably be stripped.
 const path = svg
-  .append("g")
-  .selectAll("path")
+  .append('g')
+  .selectAll('path')
   .data(force.links())
   .enter()
-  .append("path")
-  .attr("class", (d) => {
-    return "link";
+  .append('path')
+  .attr('class', (d) => {
+    return 'link';
   })
-  .attr("marker-end", (d) => {
-    return "url(#link)";
+  .attr('marker-end', (d) => {
+    return 'url(#link)';
   });
 
 // This draws the edge label, great for displaying the weight
 const link_text = svg
-  .append("g")
-  .selectAll("text")
+  .append('g')
+  .selectAll('text')
   .data(force.links())
   .enter()
-  .append("text")
-  .attr("class", "link-text")
+  .append('text')
+  .attr('class', 'link-text')
   .text((d) => {
     return d.label;
   });
@@ -116,26 +116,26 @@ console.log(color(1));
 
 // Drawing code for each node
 const circle = svg
-  .append("g")
-  .selectAll("circle")
+  .append('g')
+  .selectAll('circle')
   .data(force.nodes())
   .enter()
-  .append("circle")
-  .attr("r", 16)
-  .attr("fill", (d) => {
+  .append('circle')
+  .attr('r', 16)
+  .attr('fill', (d) => {
     return color(d.group);
   })
   .call(force.drag);
 
 // Text labelling code for each node
 const text = svg
-  .append("g")
-  .selectAll("text")
+  .append('g')
+  .selectAll('text')
   .data(force.nodes())
   .enter()
-  .append("text")
-  .attr("x", -12)
-  .attr("y", ".31em")
+  .append('text')
+  .attr('x', -12)
+  .attr('y', '.31em')
   .text((d) => {
     return d.name;
   });
@@ -147,16 +147,16 @@ const text = svg
 // function to text objects, and placeText function to link_text.
 // Use elliptical arc path segments to doubly-encode directionality.
 function tick() {
-  path.attr("d", linkArc);
+  path.attr('d', linkArc);
   circle
-    .attr("cx", (d) => {
+    .attr('cx', (d) => {
       return (d.x = Math.max(radius, Math.min(width - radius, d.x)));
     })
-    .attr("cy", (d) => {
+    .attr('cy', (d) => {
       return (d.y = Math.max(radius, Math.min(height - radius, d.y)));
     });
-  text.attr("transform", transform);
-  link_text.attr("transform", placeText);
+  text.attr('transform', transform);
+  link_text.attr('transform', placeText);
 }
 
 // line goes from target to source in x and y, below is an affine matrix
@@ -165,17 +165,17 @@ function linkArc(d) {
     dy = d.target.y - d.source.y,
     dr = 0; //Math.sqrt(dx * dx + dy * dy - 200);
   return (
-    "M" +
+    'M' +
     d.source.x +
-    "," +
+    ',' +
     d.source.y +
-    "A" +
+    'A' +
     dr +
-    "," +
+    ',' +
     dr +
-    " 0 0,1 " +
+    ' 0 0,1 ' +
     d.target.x +
-    "," +
+    ',' +
     d.target.y
   );
 }
@@ -184,17 +184,17 @@ function linkArc(d) {
 function placeText(d) {
   const dx = (d.target.px - d.source.px) / 2 + d.source.px,
     dy = (d.target.py - d.source.py) / 2 + d.source.py;
-  return "translate(" + dx + "," + dy + ")";
+  return 'translate(' + dx + ',' + dy + ')';
 }
 
 // write the text where the circle is
 function transform(d) {
-  return "translate(" + d.x + "," + d.y + ")";
+  return 'translate(' + d.x + ',' + d.y + ')';
 }
 
 // This reloads the data from d3_demo_data.js, then reruns the force code.
 // This would be fly for redrawing new Dijkstra's nodes.
 const updateData = () => {
-  links = d3.json("d3_demo_data.js");
+  links = d3.json('d3_demo_data.js');
   force.resume();
 };

@@ -1,5 +1,5 @@
-import Scheduler from "./Scheduler";
-import Process from "./Process";
+import Scheduler from './Scheduler';
+import Process from './Process';
 
 // An example of a `main` function that adds a bunch of processes
 // to the scheduler, randomly determining if they a running or

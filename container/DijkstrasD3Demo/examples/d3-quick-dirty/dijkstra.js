@@ -105,8 +105,8 @@
       u = results.prev[u];
     }
 
-    console.log("Path: " + path);
-    console.log("Distance: " + results.dist[b]);
+    console.log('Path: ' + path);
+    console.log('Distance: ' + results.dist[b]);
 
     return [path, results.dist[b]];
   }

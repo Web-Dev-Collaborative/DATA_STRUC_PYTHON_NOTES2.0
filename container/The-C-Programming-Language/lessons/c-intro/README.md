@@ -10,13 +10,11 @@ Listed at the top of the program:
 #include <math.h>
 ```
 
-Each `#include`d _header file_ gives access to the functionality declared in
-that header file.
+Each `#include`d _header file_ gives access to the functionality declared in that header file.
 
 - Only `#include` the files you need
 - Consult the `man` page for the function to see what you want to `#include`
-  - If the `man` page doesn't look right, like it's for another language, try
-    other manual sections, especially 2 and 3:
+  - If the `man` page doesn't look right, like it's for another language, try other manual sections, especially 2 and 3:
     - `man 2 fork`
     - `man 3 printf`
 
@@ -62,8 +60,7 @@ int c[] = {10, 50, 100};
 
 ### Strings
 
-Strings are stored as a pointer to the first element. The string terminates with
-a `NUL` (`\0`) character. That is, a `NUL` is found at the end of the string.
+Strings are stored as a pointer to the first element. The string terminates with a `NUL` (`\0`) character. That is, a `NUL` is found at the end of the string.
 
 ```c
 char *s; // s is a pointer to a char, or string
@@ -157,7 +154,6 @@ gcc -Wall -Wextra -o add add.c
 
 ### Square Roots of Integers
 
-Write a function called `intsqrt` that accepts an `int` as as argument, computes
-the square root of the argument, and returns the result as a `double`.
+Write a function called `intsqrt` that accepts an `int` as as argument, computes the square root of the argument, and returns the result as a `double`.
 
 Use Google-fu to help find the answer.
