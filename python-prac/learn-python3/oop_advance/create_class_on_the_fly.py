@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-def fn(self, name="world"):  # 
+def fn(self, name="world"):  #
     print("Hello, %s." % name)
 
 

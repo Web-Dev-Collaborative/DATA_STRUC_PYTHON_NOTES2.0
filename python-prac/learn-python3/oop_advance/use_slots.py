@@ -3,7 +3,7 @@
 
 
 class Student(object):
-    __slots__ = ("name", "age")  #tuple
+    __slots__ = ("name", "age")  # tuple
 
 
 class GraduateStudent(Student):

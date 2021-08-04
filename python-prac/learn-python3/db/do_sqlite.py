@@ -5,7 +5,7 @@ import sqlite3
 
 # SQLite
 # test.db
-#，:
+# ，:
 conn = sqlite3.connect("test.db")
 # Cursor:
 cursor = conn.cursor()

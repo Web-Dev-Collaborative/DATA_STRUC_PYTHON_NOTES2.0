@@ -23,5 +23,5 @@ pencolor("blue")
 forward(100)
 right(90)
 
-#done()，:
+# done()，:
 done()

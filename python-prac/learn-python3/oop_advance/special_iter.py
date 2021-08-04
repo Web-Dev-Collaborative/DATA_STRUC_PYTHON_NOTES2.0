@@ -10,10 +10,10 @@ class Fib(object):
         return self  # ，
 
     def __next__(self):
-        self.a, self.b = self.b, self.a + self.b  # 
-        if self.a > 100000:  # 
+        self.a, self.b = self.b, self.a + self.b  #
+        if self.a > 100000:  #
             raise StopIteration()
-        return self.a  # 
+        return self.a  #
 
 
 for n in Fib():

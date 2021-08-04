@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# 
+#
 # N! = 1 * 2 * 3 * ... * N
 def fact(n):
     if n == 1:

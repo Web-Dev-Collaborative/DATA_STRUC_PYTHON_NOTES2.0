@@ -9,7 +9,7 @@
 
 Array.prototype.slice
   .call(document.querySelectorAll('.Accordion'))
-  .forEach(function(accordion) {
+  .forEach(function (accordion) {
     // Allow for multiple accordion sections to be expanded at the same time
     var allowMultiple = accordion.hasAttribute('data-allow-multiple');
     // Allow for each toggle to both open and close individually
@@ -25,7 +25,7 @@ Array.prototype.slice
       accordion.querySelectorAll('.Accordion-panel')
     );
 
-    accordion.addEventListener('click', function(event) {
+    accordion.addEventListener('click', function (event) {
       var target = event.target;
 
       if (target.classList.contains('Accordion-trigger')) {
@@ -74,7 +74,7 @@ Array.prototype.slice
     });
 
     // Bind keyboard behaviors on the main accordion container
-    accordion.addEventListener('keydown', function(event) {
+    accordion.addEventListener('keydown', function (event) {
       var target = event.target;
       var key = event.which.toString();
 
@@ -117,15 +117,17 @@ Array.prototype.slice
     });
 
     // These are used to style the accordion when one of the buttons has focus
-    accordion.querySelectorAll('.Accordion-trigger').forEach(function(trigger) {
-      trigger.addEventListener('focus', function(event) {
-        accordion.classList.add('focus');
-      });
+    accordion
+      .querySelectorAll('.Accordion-trigger')
+      .forEach(function (trigger) {
+        trigger.addEventListener('focus', function (event) {
+          accordion.classList.add('focus');
+        });
 
-      trigger.addEventListener('blur', function(event) {
-        accordion.classList.remove('focus');
+        trigger.addEventListener('blur', function (event) {
+          accordion.classList.remove('focus');
+        });
       });
-    });
 
     // Minor setup: will set disabled state, via aria-disabled, to an
     // expanded/ active accordion which is not allowed to be toggled close

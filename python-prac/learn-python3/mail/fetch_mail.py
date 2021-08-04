@@ -75,7 +75,7 @@ print("Messages: %s. Size: %s" % server.stat())
 resp, mails, octets = server.list()
 # [b'1 82923', b'2 2184', ...]
 print(mails)
-#, 1:
+# , 1:
 index = len(mails)
 resp, lines, octets = server.retr(index)
 # lines,

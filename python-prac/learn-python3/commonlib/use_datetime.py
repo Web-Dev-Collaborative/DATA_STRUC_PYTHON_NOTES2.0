@@ -8,7 +8,7 @@ now = datetime.now()
 print("now =", now)
 print("type(now) =", type(now))
 
-#datetime:
+# datetime:
 dt = datetime(2015, 4, 19, 12, 20)
 print("dt =", dt)
 
