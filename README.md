@@ -21,6 +21,6 @@
 
 
 
-
+https://bryan-guner.gitbook.io/python/
 
 
