@@ -151,8 +151,6 @@ Guess the author of the following quotes:
 - [In search of the fastest concurrent Union-Find algorithm (2019)](https://arxiv.org/pdf/1911.06347.pdf)
 - [Computer Science 521 Advanced Algorithm Design](https://www.cs.princeton.edu/courses/archive/fall13/cos521/)
 
-![](https://cdn-images-1.medium.com/max/800/0*2fb7io8VD9z8080F.jpg)
-
 ### Data Structures:
 
 - [Data Structures and Algorithms implementation in Go](https://github.com/floyernick/Data-Structures-and-Algorithms)
