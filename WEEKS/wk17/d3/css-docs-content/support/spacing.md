@@ -29,7 +29,7 @@ These variables are encouraged to be used within components and custom CSS. The 
 These are primarily useful for achieving bigger vertical spacing between sections. This scale first steps up with `8px` for spacer 7, then steps in increments of `16px` from spacer 8 up to 12.
 
 | Variable     | Scale | Value |
-| ------------ |-------|-------|
+| ------------ | ----- | ----- |
 | `$spacer-7`  | 7     | 48px  |
 | `$spacer-8`  | 8     | 64px  |
 | `$spacer-9`  | 9     | 80px  |
@@ -45,13 +45,13 @@ Ems are used for spacing within components such as buttons and form elements. We
 
 We aim for whole numbers, however, GitHub's body font-size is 14px which is difficult to work with, so we sometimes can't achieve a whole number. Less desirable values are highlighted in <Text color="red.5">red</Text> below.
 
-| Variable       | Fraction | Y Padding (em) | Total height at 14px             | Total height at 16px |
-| -------------- | -------- | -------------- | -------------------------------- | -------------------- |
-| `$em-spacer-1` | 1/16     | .0625          | <Text color="red.5">22.75</Text> | 26                   |
-| `$em-spacer-2` | 1/8      | .125           | <Text color="red.5">24.5</Text>  | 28                   |
-| `$em-spacer-3` | 1/4      | .25            | 28                               | 32                   |
-| `$em-spacer-4` | 3/8      | .375           | <Text color="red.5">31.5</Text>  | 36                   |
-| `$em-spacer-5` | 1/2      | .5             | 35                               | 40                   |
-| `$em-spacer-6` | 3/4      | .75            | 42                               | 48                   |
+| Variable | Fraction | Y Padding (em) | Total height at 14px | Total height at 16px |
+| --- | --- | --- | --- | --- |
+| `$em-spacer-1` | 1/16 | .0625 | <Text color="red.5">22.75</Text> | 26 |
+| `$em-spacer-2` | 1/8 | .125 | <Text color="red.5">24.5</Text> | 28 |
+| `$em-spacer-3` | 1/4 | .25 | 28 | 32 |
+| `$em-spacer-4` | 3/8 | .375 | <Text color="red.5">31.5</Text> | 36 |
+| `$em-spacer-5` | 1/2 | .5 | 35 | 40 |
+| `$em-spacer-6` | 3/4 | .75 | 42 | 48 |
 
 The variables listed above are preferred for use within components and custom CSS. To calculate values with other font-sizes or em values, we suggest using [Formula](https://jxnblk.github.io/formula/).

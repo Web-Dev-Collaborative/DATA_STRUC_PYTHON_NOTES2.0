@@ -13,6 +13,7 @@ When you are working with the `github/github` codebase, you can link Primer CSS 
 3. The `github/github` folder and the `primer/primer` folder must share the same parent folder.
 
 **Example:**
+
 ```
 ~/codefolder/
 ├── github

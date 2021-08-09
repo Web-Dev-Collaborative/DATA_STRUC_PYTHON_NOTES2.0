@@ -62,8 +62,12 @@ Form controls in Primer CSS currently have no basic layout specified (this is by
 
   <label> <input type="checkbox" /> Remember me </label>
 
-  <label> <input type="radio" id="potato" name="radio-group-example" checked /> Potato </label>
-  <label> <input type="radio" id="tomato" name="radio-group-example" /> Tomato </label>
+  <label>
+    <input type="radio" id="potato" name="radio-group-example" checked /> Potato
+  </label>
+  <label>
+    <input type="radio" id="tomato" name="radio-group-example" /> Tomato
+  </label>
 
   <button class="btn" type="submit">Submit</button>
 </form>
@@ -79,7 +83,12 @@ Make inputs smaller, larger, or full-width with an additional class.
 
 ```html live
 <form>
-  <input class="form-control input-sm" type="text" placeholder="Small input" aria-label="Small input" />
+  <input
+    class="form-control input-sm"
+    type="text"
+    placeholder="Small input"
+    aria-label="Small input"
+  />
 </form>
 ```
 
@@ -87,7 +96,12 @@ Make inputs smaller, larger, or full-width with an additional class.
 
 ```html live
 <form>
-  <input class="form-control input-lg" type="text" placeholder="Large input" aria-label="Large input" />
+  <input
+    class="form-control input-lg"
+    type="text"
+    placeholder="Large input"
+    aria-label="Large input"
+  />
 </form>
 ```
 
@@ -95,7 +109,12 @@ Make inputs smaller, larger, or full-width with an additional class.
 
 ```html live
 <form>
-  <input class="form-control input-block" type="text" placeholder="Full-width input" aria-label="Full-width input" />
+  <input
+    class="form-control input-block"
+    type="text"
+    placeholder="Full-width input"
+    aria-label="Full-width input"
+  />
 </form>
 ```
 
@@ -106,11 +125,28 @@ Attached an input and button to one another.
 ```html live
 <form>
   <div class="input-group">
-    <input class="form-control" type="text" placeholder="Username" aria-label="Username">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Username"
+      aria-label="Username"
+    />
     <span class="input-group-button">
       <button class="btn" type="button" aria-label="Copy to clipboard">
         <!-- <%= octicon "clippy" %> -->
-        <svg class="octicon octicon-clippy" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg>
+        <svg
+          class="octicon octicon-clippy"
+          viewBox="0 0 14 16"
+          version="1.1"
+          width="14"
+          height="16"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"
+          ></path>
+        </svg>
       </button>
     </span>
   </div>
@@ -125,8 +161,18 @@ Textual form controls have a white background by default. You can change this to
 
 ```html live
 <form>
-  <input class="form-control" type="text" placeholder="Default input" aria-label="Default input" />
-  <input class="form-control input-contrast" type="text" placeholder="Input with contrast" aria-label="Input with contrast" />
+  <input
+    class="form-control"
+    type="text"
+    placeholder="Default input"
+    aria-label="Default input"
+  />
+  <input
+    class="form-control input-contrast"
+    type="text"
+    placeholder="Input with contrast"
+    aria-label="Input with contrast"
+  />
 </form>
 ```
 
@@ -136,7 +182,13 @@ Add the `disabled` attribute to make a `.form-control` appear disabled.
 
 ```html live
 <form>
-  <input class="form-control" type="text" placeholder="Disabled input" aria-label="Disabled input" disabled />
+  <input
+    class="form-control"
+    type="text"
+    placeholder="Disabled input"
+    aria-label="Disabled input"
+    disabled
+  />
 </form>
 ```
 
@@ -188,7 +240,7 @@ Use the `.select-sm` class to resize both default and custom `<select>`s to matc
   <option>Battlestar Galactica</option>
 </select>
 
-<button class="btn btn-sm ml-1"> Small button</button>
+<button class="btn btn-sm ml-1">Small button</button>
 ```
 
 ## Form groups
@@ -200,7 +252,12 @@ Use the `.select-sm` class to resize both default and custom `<select>`s to matc
       <label for="example-text">Example Text</label>
     </div>
     <div class="form-group-body">
-      <input class="form-control" type="text" value="Example Value" id="example-text" />
+      <input
+        class="form-control"
+        type="text"
+        value="Example Value"
+        id="example-text"
+      />
     </div>
   </div>
 
@@ -255,7 +312,9 @@ If the input is **valid**, add the `.successed` class to the `<div class="form-g
         aria-describedby="username-input-validation"
       />
     </div>
-    <p class="note success" id="username-input-validation">monalisa is available</p>
+    <p class="note success" id="username-input-validation">
+      monalisa is available
+    </p>
   </div>
 </form>
 ```
@@ -279,16 +338,19 @@ If the input is **not valid**, add the `.errored` class to the `<div class="form
         aria-describedby="username-input-validation"
       />
     </div>
-    <p class="note error" id="username-input-validation">monalisa is not available. monalisa-beep, monalisa-cyber, or monalisa87 are available.</p>
+    <p class="note error" id="username-input-validation">
+      monalisa is not available. monalisa-beep, monalisa-cyber, or monalisa87
+      are available.
+    </p>
   </div>
 </form>
-  ```
+```
 
 ### Warning
 
 If the input should show a **warning**, add the `.warn` class to the `<div class="form-group">` element. Next add/update a warning message to the `.note` element, as well as the `.warning` class.
 
-  ```html live
+```html live
 <form class="pb-6">
   <div class="form-group warn">
     <div class="form-group-header">
@@ -303,7 +365,9 @@ If the input should show a **warning**, add the `.warn` class to the `<div class
         aria-describedby="username-input-validation"
       />
     </div>
-    <p class="note warning" id="username-input-validation">36 of maximum 39 characters entered.</p>
+    <p class="note warning" id="username-input-validation">
+      36 of maximum 39 characters entered.
+    </p>
   </div>
 </form>
 ```
@@ -327,11 +391,16 @@ Utilities to control alignment and styling of checkbox and radio controls.
 <form>
   <div class="form-checkbox">
     <label>
-      <input type="checkbox" checked="checked" aria-describedby="help-text-for-checkbox" />
+      <input
+        type="checkbox"
+        checked="checked"
+        aria-describedby="help-text-for-checkbox"
+      />
       Available for hire
     </label>
     <p class="note" id="help-text-for-checkbox">
-      This will do insanely <strong>awesome</strong> and <strong>amazing</strong> things!
+      This will do insanely <strong>awesome</strong> and
+      <strong>amazing</strong> things!
     </p>
   </div>
 </form>
@@ -368,7 +437,12 @@ Content that is hidden by default should only be done so if it is non-essential 
       Available for hire
       <span class="form-checkbox-details text-normal">
         <span class="d-block mb-1">Available hours per week</span>
-        <input type="text" name="" class="form-control input-contrast" size="3" />
+        <input
+          type="text"
+          name=""
+          class="form-control input-contrast"
+          size="3"
+        />
         <span class="text-small color-text-secondary pl-2">hours per week</span>
       </span>
     </label>
@@ -383,11 +457,11 @@ Radio groups are tab like controls. Their blue border gives extra emphasis to wh
 ```html live
 <form>
   <div class="radio-group">
-    <input class="radio-input" id="option-a" type="radio" name="options">
+    <input class="radio-input" id="option-a" type="radio" name="options" />
     <label class="radio-label" for="option-a">Option A</label>
-    <input class="radio-input" id="option-b" type="radio" name="options">
+    <input class="radio-input" id="option-b" type="radio" name="options" />
     <label class="radio-label" for="option-b">Option B</label>
-    <input class="radio-input" id="option-c" type="radio" name="options">
+    <input class="radio-input" id="option-c" type="radio" name="options" />
     <label class="radio-label" for="option-c">Option C</label>
   </div>
 </form>

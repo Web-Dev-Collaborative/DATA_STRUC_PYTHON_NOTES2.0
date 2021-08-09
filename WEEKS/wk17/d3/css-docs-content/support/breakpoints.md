@@ -11,7 +11,7 @@ Our breakpoints are based on screen widths where our content starts to break. **
 We use abbreviations for each breakpoint to keep the class names concise. This abbreviated syntax is used consistently across responsive styles. Responsive styles allow you to change the styles properties at each breakpoint. For example, when using column widths for grid layouts, you can specify that the width is 12 columns wide by default, 8 columns from the medium breakpoint, and 4 columns wide from the extra large breakpoint: `<div class="col-12 col-md-8 col-xl-4">...</div>`.
 
 | Breakpoint  | Syntax | Breaks at |
-| ----------- | ------ | ----------|
+| ----------- | ------ | --------- |
 | Small       | sm     | `544px`   |
 | Medium      | md     | `768px`   |
 | Large       | lg     | `1012px`  |
@@ -24,7 +24,7 @@ Responsive styles are available for [margin](/utilities/margin#responsive-margin
 In most cases, breakpoints get used with the `min-width` media query. This means that when using a responsive utility class, the class becomes "enabled" from the breakpoint on upwards. Or from the browser's perspective, when the browser's width **is** the breakpoint or **wider**.
 
 | Breakpoint  | Syntax | Is enabled...            |
-| ----------- | ------ | -------------------------|
+| ----------- | ------ | ------------------------ |
 | None        |        | from `0px` upwards ->    |
 | Small       | sm     | from `544px` upwards ->  |
 | Medium      | md     | from `768px` upwards ->  |
@@ -65,13 +65,13 @@ $width-xl: 1280px;
 
 $breakpoints: (
   // Small screen / phone
-    sm: $width-sm,
+  sm: $width-sm,
   // Medium screen / tablet
-    md: $width-md,
+  md: $width-md,
   // Large screen / desktop (980 + (12 * 2)) <= container + gutters
-    lg: $width-lg,
+  lg: $width-lg,
   // Extra large screen / wide desktop
-    xl: $width-xl
+  xl: $width-xl
 ) !default;
 ```
 

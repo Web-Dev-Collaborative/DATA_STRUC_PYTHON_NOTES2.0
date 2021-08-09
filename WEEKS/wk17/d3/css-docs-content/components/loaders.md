@@ -20,7 +20,13 @@ It can also be used in combination with other components.
 
 ```html live
 <h2><span>Loading</span><span class="AnimatedEllipsis"></span></h2>
-<span class="branch-name mt-2"><span>Loading</span><span class="AnimatedEllipsis"></span></span><br>
-<span class="Label mt-3"><span>Loading</span><span class="AnimatedEllipsis"></span></span><br>
-<button class="btn mt-3" aria-disabled="true"><span>Loading</span><span class="AnimatedEllipsis"></span></button>
+<span class="branch-name mt-2"
+  ><span>Loading</span><span class="AnimatedEllipsis"></span></span
+><br />
+<span class="Label mt-3"
+  ><span>Loading</span><span class="AnimatedEllipsis"></span></span
+><br />
+<button class="btn mt-3" aria-disabled="true">
+  <span>Loading</span><span class="AnimatedEllipsis"></span>
+</button>
 ```

@@ -6,12 +6,12 @@ Python String doesn’t have a built-in reverse() function. However, there are v
 
 Some of the common ways to reverse a string are:
 
--   Using [Slicing](https://www.journaldev.com/23584/python-slice-string) to create a reverse copy of the string.
--   Using [for loop](https://www.journaldev.com/14136/python-for-loop-example) and appending characters in reverse order
--   Using [while loop](https://www.journaldev.com/14152/python-while-loop) to iterate string characters in reverse order and append them
--   Using [string join()](https://www.journaldev.com/23571/python-string-join) function with [reversed()](https://www.journaldev.com/23113/python-reversed-function) iterator
--   Creating a [list](https://www.journaldev.com/14353/python-list) from the string and then calling its `reverse()` function
--   Using Recursion
+- Using [Slicing](https://www.journaldev.com/23584/python-slice-string) to create a reverse copy of the string.
+- Using [for loop](https://www.journaldev.com/14136/python-for-loop-example) and appending characters in reverse order
+- Using [while loop](https://www.journaldev.com/14152/python-while-loop) to iterate string characters in reverse order and append them
+- Using [string join()](https://www.journaldev.com/23571/python-string-join) function with [reversed()](https://www.journaldev.com/23113/python-reversed-function) iterator
+- Creating a [list](https://www.journaldev.com/14353/python-list) from the string and then calling its `reverse()` function
+- Using Recursion
 
 ### 1.1) Python Reverse String using Slicing
 
@@ -40,7 +40,7 @@ Reverse String using slicing = FE∂çBA
 def reverse_for_loop(s):
     s1 = ''
     for c in s:
-        s1 = c + s1  
+        s1 = c + s1
     return s1
 
 input_str = 'ABç∂EF'
@@ -182,5 +182,5 @@ You can checkout complete python script and more Python examples from our [GitHu
 
 ## 4\. References
 
--   [reversed() API Doc](https://docs.python.org/3/library/functions.html#reversed)
--   [str.join() API Doc](https://docs.python.org/3/library/stdtypes.html#str.join)
+- [reversed() API Doc](https://docs.python.org/3/library/functions.html#reversed)
+- [str.join() API Doc](https://docs.python.org/3/library/stdtypes.html#str.join)

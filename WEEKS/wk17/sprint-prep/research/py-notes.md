@@ -1,6 +1,5 @@
 ## Python by example:
 
-
 ```py
 
 import math

@@ -15,15 +15,9 @@ Use `.clearfix` on the container and float utilities with columns for a floated 
 
 ```html live title="Float based grid"
 <div class="container-lg clearfix">
-  <div class="col-4 float-left border p-4">
-    My column
-  </div>
-  <div class="col-4 float-left border p-4">
-    Looks better
-  </div>
-  <div class="col-4 float-left border p-4">
-    Than your column
-  </div>
+  <div class="col-4 float-left border p-4">My column</div>
+  <div class="col-4 float-left border p-4">Looks better</div>
+  <div class="col-4 float-left border p-4">Than your column</div>
 </div>
 ```
 
@@ -33,15 +27,9 @@ To reverse the order of columns, use `float-right` to float columns to the right
 
 ```html live title="Float grid reversed"
 <div class="container-lg clearfix">
-  <div class="col-4 float-right border p-4">
-    One
-  </div>
-  <div class="col-4 float-right border p-4">
-    Two
-  </div>
-  <div class="col-4 float-right border p-4">
-    Three
-  </div>
+  <div class="col-4 float-right border p-4">One</div>
+  <div class="col-4 float-right border p-4">Two</div>
+  <div class="col-4 float-right border p-4">Three</div>
 </div>
 ```
 
@@ -164,19 +152,13 @@ Use column widths with `d-inline-block` as an alternative to floated grids.
 
 ```html live title="Inline-block grid"
 <div>
-  <div class="col-4 d-inline-block border">
-    .col-4 .d-inline-block
-  </div>
+  <div class="col-4 d-inline-block border">.col-4 .d-inline-block</div>
   <!--
   -->
-  <div class="col-4 d-inline-block border">
-    .col-4 .d-inline-block
-  </div>
+  <div class="col-4 d-inline-block border">.col-4 .d-inline-block</div>
   <!--
   -->
-  <div class="col-4 d-inline-block border">
-    .col-4 .d-inline-block
-  </div>
+  <div class="col-4 d-inline-block border">.col-4 .d-inline-block</div>
 </div>
 ```
 
@@ -185,41 +167,71 @@ You can use column widths and other utilities on elements such as lists to creat
 ```html live title="Inline-block grid list"
 <ul class="list-style-none">
   <li class="d-inline-block col-2 p-2">
-    <img class="width-full avatar" src="https://github.com/broccolini.png" alt="broccolini" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/broccolini.png"
+      alt="broccolini"
+    />
   </li>
   <!--
   -->
   <li class="d-inline-block col-2 p-2">
-    <img class="width-full avatar" src="https://github.com/jonrohan.png" alt="jonrohan" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/jonrohan.png"
+      alt="jonrohan"
+    />
   </li>
   <!--
   -->
   <li class="d-inline-block col-2 p-2">
-    <img class="width-full avatar" src="https://github.com/muan.png" alt="muan" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/muan.png"
+      alt="muan"
+    />
   </li>
   <!--
   -->
   <li class="d-inline-block col-2 p-2">
-    <img class="width-full avatar" src="https://github.com/pmarsceill.png" alt="pmarsceill" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/pmarsceill.png"
+      alt="pmarsceill"
+    />
   </li>
   <!--
   -->
   <li class="d-inline-block col-2 p-2">
-    <img class="width-full avatar" src="https://github.com/sophshep.png" alt="sophshep" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/sophshep.png"
+      alt="sophshep"
+    />
   </li>
   <!--
   -->
   <li class="d-inline-block col-2 p-2">
-    <img class="width-full avatar" src="https://github.com/cmwinters.png" alt="cmwinters" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/cmwinters.png"
+      alt="cmwinters"
+    />
   </li>
   <!--
   -->
   <li class="d-inline-block col-2 p-2">
-    <img class="width-full avatar" src="https://github.com/jeejkang.png" alt="jeejkang" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/jeejkang.png"
+      alt="jeejkang"
+    />
   </li>
   <!--
   -->
-  <li class="d-inline-block col-2 p-2"><img class="width-full avatar" src="https://github.com/mdo.png" alt="mdo" /></li>
+  <li class="d-inline-block col-2 p-2">
+    <img class="width-full avatar" src="https://github.com/mdo.png" alt="mdo" />
+  </li>
 </ul>
 ```
 
@@ -232,19 +244,22 @@ A useful example is being able to keep the height of the container equal across 
 ```html live title="Table grid"
 <div class="d-table col-12">
   <div class="col-4 d-table-cell border p-2">
-    Bacon ipsum dolor amet leberkas pork pig kielbasa shankle ribeye meatball, salami alcatra venison.
+    Bacon ipsum dolor amet leberkas pork pig kielbasa shankle ribeye meatball,
+    salami alcatra venison.
   </div>
   <!--
   -->
   <div class="col-4 d-table-cell border p-2">
-    Pork chop cupim cow turkey frankfurter, landjaeger fatback hamburger meatball salami spare ribs. Rump tenderloin
-    salami, hamburger frankfurter landjaeger andouille.
+    Pork chop cupim cow turkey frankfurter, landjaeger fatback hamburger
+    meatball salami spare ribs. Rump tenderloin salami, hamburger frankfurter
+    landjaeger andouille.
   </div>
   <!--
   -->
   <div class="col-4 d-table-cell border p-2">
-    Brisket tongue frankfurter cupim strip steak rump picanha pancetta pork pig kevin pastrami biltong. Shankle venison
-    meatball swine sausage ground round. Tail pork loin ribeye kielbasa short ribs pork chop.
+    Brisket tongue frankfurter cupim strip steak rump picanha pancetta pork pig
+    kevin pastrami biltong. Shankle venison meatball swine sausage ground round.
+    Tail pork loin ribeye kielbasa short ribs pork chop.
   </div>
 </div>
 ```
@@ -254,12 +269,20 @@ You can also create an alternative [media object](/utilities/layout#the-media-ob
 ```html live title="Table grid alternative"
 <div class="d-table col-12">
   <div class="col-2 d-table-cell v-align-middle">
-    <img class="width-full avatar" src="https://github.com/github.png" alt="github" />
+    <img
+      class="width-full avatar"
+      src="https://github.com/github.png"
+      alt="github"
+    />
   </div>
   <div class="col-10 d-table-cell v-align-middle pl-4">
     <h1 class="text-normal lh-condensed">GitHub</h1>
-    <p class="h4 color-text-secondary text-normal mb-2">How people build software.</p>
-    <a class="color-text-secondary text-small" href="#url">https://github.com/about</a>
+    <p class="h4 color-text-secondary text-normal mb-2">
+      How people build software.
+    </p>
+    <a class="color-text-secondary text-small" href="#url"
+      >https://github.com/about</a
+    >
   </div>
 </div>
 ```
@@ -268,19 +291,13 @@ Note that table cells will fill the width of their container even when the total
 
 ```html live title="Table grid cells"
 <div class="d-table col-12">
-  <div class="col-4 d-table-cell border">
-    .col-4 .d-table-cell
-  </div>
+  <div class="col-4 d-table-cell border">.col-4 .d-table-cell</div>
   <!--
   -->
-  <div class="col-4 d-table-cell border">
-    .col-4 .d-table-cell
-  </div>
+  <div class="col-4 d-table-cell border">.col-4 .d-table-cell</div>
   <!--
   -->
-  <div class="col-2 d-table-cell border">
-    .col-2 .d-table-cell
-  </div>
+  <div class="col-2 d-table-cell border">.col-2 .d-table-cell</div>
 </div>
 ```
 
@@ -291,14 +308,28 @@ You can use [flex utilities](/utilities/flexbox) on the container and columns to
 This can be useful for keeping columns the same height, justifying content and vertically aligning items. The flexbox grid is also great for working with responsive layouts.
 
 ```html live title="Flexbox grid"
-<div class="d-flex flex-column flex-md-row flex-items-center flex-md-items-center">
-  <div class="col-2 d-flex flex-items-center flex-items-center flex-md-items-start">
-    <img class="width-full avatar mb-2 mb-md-0" src="https://github.com/github.png" alt="github" />
+<div
+  class="d-flex flex-column flex-md-row flex-items-center flex-md-items-center"
+>
+  <div
+    class="col-2 d-flex flex-items-center flex-items-center flex-md-items-start"
+  >
+    <img
+      class="width-full avatar mb-2 mb-md-0"
+      src="https://github.com/github.png"
+      alt="github"
+    />
   </div>
-  <div class="col-12 col-md-10 d-flex flex-column flex-justify-center flex-items-center flex-md-items-start pl-md-4">
+  <div
+    class="col-12 col-md-10 d-flex flex-column flex-justify-center flex-items-center flex-md-items-start pl-md-4"
+  >
     <h1 class="text-normal lh-condensed">GitHub</h1>
-    <p class="h4 color-text-secondary text-normal mb-2">How people build software.</p>
-    <a class="color-text-secondary text-small" href="#url">https://github.com/about</a>
+    <p class="h4 color-text-secondary text-normal mb-2">
+      How people build software.
+    </p>
+    <a class="color-text-secondary text-small" href="#url"
+      >https://github.com/about</a
+    >
   </div>
 </div>
 ```
@@ -351,24 +382,12 @@ For demonstration, this is how the above example would look at the `sm` breakpoi
 
 ```html live title="Responsive grid small"
 <div class="container-lg clearfix">
-  <div class="col-sm-6 float-left p-2 border">
-    .col-sm-6
-  </div>
-  <div class="col-sm-6 float-left p-2 border">
-    .col-sm-6
-  </div>
-  <div class="col-sm-6 float-left p-2 border">
-    .col-sm-6
-  </div>
-  <div class="col-sm-6 float-left p-2 border">
-    .col-sm-6
-  </div>
-  <div class="col-sm-6 float-left p-2 border">
-    .col-sm-6
-  </div>
-  <div class="col-sm-6 float-left p-2 border">
-    .col-sm-6
-  </div>
+  <div class="col-sm-6 float-left p-2 border">.col-sm-6</div>
+  <div class="col-sm-6 float-left p-2 border">.col-sm-6</div>
+  <div class="col-sm-6 float-left p-2 border">.col-sm-6</div>
+  <div class="col-sm-6 float-left p-2 border">.col-sm-6</div>
+  <div class="col-sm-6 float-left p-2 border">.col-sm-6</div>
+  <div class="col-sm-6 float-left p-2 border">.col-sm-6</div>
 </div>
 ```
 
@@ -376,24 +395,12 @@ This is how that same example would look at the `md` breakpoint.
 
 ```html live title="Responsive grid medium"
 <div class="container-lg clearfix">
-  <div class="col-md-3 float-left p-2 border">
-    .col-md-3
-  </div>
-  <div class="col-md-3 float-left p-2 border">
-    .col-md-3
-  </div>
-  <div class="col-md-3 float-left p-2 border">
-    .col-md-3
-  </div>
-  <div class="col-md-3 float-left p-2 border">
-    .col-md-3
-  </div>
-  <div class="col-md-3 float-left p-2 border">
-    .col-md-3
-  </div>
-  <div class="col-md-3 float-left p-2 border">
-    .col-md-3
-  </div>
+  <div class="col-md-3 float-left p-2 border">.col-md-3</div>
+  <div class="col-md-3 float-left p-2 border">.col-md-3</div>
+  <div class="col-md-3 float-left p-2 border">.col-md-3</div>
+  <div class="col-md-3 float-left p-2 border">.col-md-3</div>
+  <div class="col-md-3 float-left p-2 border">.col-md-3</div>
+  <div class="col-md-3 float-left p-2 border">.col-md-3</div>
 </div>
 ```
 
@@ -401,24 +408,12 @@ This is how that example would look at the `lg` breakpoint.
 
 ```html live title="Responsive grid large"
 <div class="container-lg clearfix">
-  <div class="col-lg-2 float-left p-2 border">
-    .col-lg-2
-  </div>
-  <div class="col-lg-2 float-left p-2 border">
-    .col-lg-2
-  </div>
-  <div class="col-lg-2 float-left p-2 border">
-    .col-lg-2
-  </div>
-  <div class="col-lg-2 float-left p-2 border">
-    .col-lg-2
-  </div>
-  <div class="col-lg-2 float-left p-2 border">
-    .col-lg-2
-  </div>
-  <div class="col-lg-2 float-left p-2 border">
-    .col-lg-2
-  </div>
+  <div class="col-lg-2 float-left p-2 border">.col-lg-2</div>
+  <div class="col-lg-2 float-left p-2 border">.col-lg-2</div>
+  <div class="col-lg-2 float-left p-2 border">.col-lg-2</div>
+  <div class="col-lg-2 float-left p-2 border">.col-lg-2</div>
+  <div class="col-lg-2 float-left p-2 border">.col-lg-2</div>
+  <div class="col-lg-2 float-left p-2 border">.col-lg-2</div>
 </div>
 ```
 
@@ -427,19 +422,11 @@ This is how that example would look at the `lg` breakpoint.
 Container widths match our breakpoints and are available at a `sm`, `md`, `lg`, and `xl` size. Containers apply a max-width rather than a fixed width for responsive layouts, and they center the container.
 
 ```html live title="Containers sized"
-<div class="container-sm border">
-  .container-sm, max-width 544px
-</div>
+<div class="container-sm border">.container-sm, max-width 544px</div>
 
-<div class="container-md border">
-  .container-md, max-width 768px
-</div>
+<div class="container-md border">.container-md, max-width 768px</div>
 
-<div class="container-lg border">
-  .container-lg, max-width 1012px
-</div>
+<div class="container-lg border">.container-lg, max-width 1012px</div>
 
-<div class="container-xl border">
-  .container-xl, max-width 1280px
-</div>
+<div class="container-xl border">.container-xl, max-width 1280px</div>
 ```

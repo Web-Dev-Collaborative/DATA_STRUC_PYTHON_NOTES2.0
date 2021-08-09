@@ -43,12 +43,7 @@ Use `.details-reset` to remove the default caret (that little triangle on the le
 
 ## Using button styles with the details summary element
 
-You can add `.btn` and `.btn-*` classes to any
-[`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
-element so that it gains the appearance of a button, and
-selected/active styles when the parent
-[`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
-element is open.
+You can add `.btn` and `.btn-*` classes to any [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element so that it gains the appearance of a button, and selected/active styles when the parent [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element is open.
 
 ```html live
 <details>

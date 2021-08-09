@@ -5,11 +5,9 @@ path: principles/accessibility
 
 Accessibility is everyone’s responsibility, and the purpose of this document is to provide general accessibility guidelines to developers and designers.
 
- 
-
 ## Overview
 
-Our products should be accessible to all. At minimum, features should comply to the requirements listed in [508 Reference Guide - 1194.22](https://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-section-508-standards/guide-to-the-section-508-standards/web-based-intranet-and-internet-information-and-applications-1194-22) from the  US Access Board, and conform to [Web Content Accessibility Guidelines 2.0](https://www.w3.org/TR/WCAG20/#conformance) at Level AA.
+Our products should be accessible to all. At minimum, features should comply to the requirements listed in [508 Reference Guide - 1194.22](https://www.access-board.gov/guidelines-and-standards/communications-and-it/about-the-section-508-standards/guide-to-the-section-508-standards/web-based-intranet-and-internet-information-and-applications-1194-22) from the US Access Board, and conform to [Web Content Accessibility Guidelines 2.0](https://www.w3.org/TR/WCAG20/#conformance) at Level AA.
 
 Making our products accessible benefits everyone, not just people with disabilities. Below are some examples of use cases in which accessibility is important:
 
@@ -96,18 +94,23 @@ Make sure text-based alternative is always available when using icons, images, a
 
 ```html
 <!-- Do: Link text communicates destination. -->
-<p>Find out more about <a href="#url">GitHub Enterprise pricing</a>.<br></p>
+<p>Find out more about <a href="#url">GitHub Enterprise pricing</a>.<br /></p>
 ```
 
 ```html
 <!-- Don't: "Click here" is not meaningful. -->
-<p>To find out more about GitHub Enterprise pricing, <a href="#url">click here</a>.</p>
+<p>
+  To find out more about GitHub Enterprise pricing,
+  <a href="#url">click here</a>.
+</p>
 ```
 
 Use `aria-label` when there is no text.
 
 ```html
-<a href="https://help.github.com/"><%= octicon("question", :"aria-label" => "Help") %></a>
+<a href="https://help.github.com/"
+  ><%= octicon("question", :"aria-label" => "Help") %></a
+>
 ```
 
 ### Link responsibly
@@ -136,16 +139,25 @@ It is common for assistive technology users to jump straight to a form when usin
 
 ```html
 <!-- Do: Click "Email" label to focus on the input, and help text is read out by screen readers when focusing on the input. -->
-<label for="test_input">Email</label><br>
-<input id="test_input" aria-describedby="test_input_help_good" class="width-full my-1" type="email">
-<div id="test_input_help_good" class="f6">Please enter an email ending with @github.com.</div>
+<label for="test_input">Email</label><br />
+<input
+  id="test_input"
+  aria-describedby="test_input_help_good"
+  class="width-full my-1"
+  type="email"
+/>
+<div id="test_input_help_good" class="f6">
+  Please enter an email ending with @github.com.
+</div>
 ```
 
 ```html
 <!-- Don't: Input and label are not associated, and help text is not read out by screen reader when focusing on the input. -->
-<label>Email</label><br>
-<input type="email" class="width-full my-1">
-<div id="test_input_help_bad" class="f6">Please enter an email ending with @github.com.</div>
+<label>Email</label><br />
+<input type="email" class="width-full my-1" />
+<div id="test_input_help_bad" class="f6">
+  Please enter an email ending with @github.com.
+</div>
 ```
 
 ## Development tools
@@ -162,7 +174,7 @@ We do client side scanning of inaccessible elements in development environment. 
 
 - If you're working on a design that uses color to communicate something, grab the [Chromatic Vision Simulator app](https://itunes.apple.com/tw/app/chromatic-vision-simulator/id389310222?mt=8), this will let you use your iPhone camera to see what a colorblind person would see.
 
-- Check out [the Web Accessibility showcase on GitHub](https://github.com/showcases/web-accessibility). GitHubbers are free to  add more projects to the showcase.
+- Check out [the Web Accessibility showcase on GitHub](https://github.com/showcases/web-accessibility). GitHubbers are free to add more projects to the showcase.
 
 ## Manual testing
 
@@ -178,8 +190,8 @@ Keep in mind that behaviors in different screen readers can differ when navigati
 
 1. You can mention these teams when looking for help:
 
-  - [@github/accessibility](https://github.com/orgs/github/teams/accessibility): GitHubbers interested in accessibility related topics and work on website accessibility issues.
-  - [@github/colorblind](https://github.com/orgs/github/teams/colorblind): GitHubbers who are interested in accessibility for colorblindness.
+- [@github/accessibility](https://github.com/orgs/github/teams/accessibility): GitHubbers interested in accessibility related topics and work on website accessibility issues.
+- [@github/colorblind](https://github.com/orgs/github/teams/colorblind): GitHubbers who are interested in accessibility for colorblindness.
 
 2. Go to #accessibility Slack channel to ask questions or discuss accessibility issues.
 3. Check [github/accessibility repository](https://github.com/github/accessibility) for information on events or learning resources.

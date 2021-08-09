@@ -45,10 +45,10 @@ It's usually better to open an issue before investing time in spiking out a new 
 2. Why you think a new pattern is needed (this should answer the relevant questions above).
 3. If you intend to work on these new styles yourself, let us know what your timeline and next steps are. If you need help and this is a dependency for shipping another project, please make that clear here and what the timeline is.
 4. Add the appropriate label(s):
-    - `Type: Enhancement` for new styles
-    - `Type: Bug Fix` for—you guessed it!—bug fixes
-    - `Type: Polish` for refactors of existing styles
-    - `Type: Breaking Change` for any change that [removes CSS selectors or SCSS variables](#removing-styles-and-variables)
+   - `Type: Enhancement` for new styles
+   - `Type: Bug Fix` for—you guessed it!—bug fixes
+   - `Type: Polish` for refactors of existing styles
+   - `Type: Breaking Change` for any change that [removes CSS selectors or SCSS variables](#removing-styles-and-variables)
 
 ### Step 2: Design and build the new styles
 
@@ -70,7 +70,6 @@ If you get to this step you've helped contribute to a style guide that many of y
 
 [Please open an issue](#step-1-open-an-issue) if we can improve these guidelines and make following this process any easier.
 
-
 ## Removing styles and variables
 
 Removing styles and SCSS variables can be scary. How do you know if the thing you're deleting (or just planning to delete) isn't used in other projects? [Semantic versioning] provides us with an answer: We **don't** know, but we can use "major" version increments (from, say, `13.4.0` to `14.0.0`) to signal that the release includes potentially breaking changes. The rule is simple:
@@ -81,30 +80,32 @@ When planning to delete a CSS selector or SCSS variable, you should:
 
 1. Add a [TODO@version comment](#primer-csstodo) above the line in question:
 
-    ```scss
-    // TODO@15.0.0: delete $some-unused-var
-    $some-unused-var: 15px !default;
-    ```
+   ```scss
+   // TODO@15.0.0: delete $some-unused-var
+   $some-unused-var: 15px !default;
+   ```
 
 1. Add it to [deprecations.js]:
 
-    ```js
-    const versionDeprecations = {
-      '15.0.0': [
-        {
-          variables: ['$some-unused-var'],
-          message: '$some-unused-var is unused, and has been deprecated.'
-        }
-      ]
-    }
-    ```
+   ```js
+   const versionDeprecations = {
+     '15.0.0': [
+       {
+         variables: ['$some-unused-var'],
+         message: '$some-unused-var is unused, and has been deprecated.',
+       },
+     ],
+   };
+   ```
 
 We have several checks and tools in place to help us plan, track, and catch both expected and unexpected removals of both CSS selectors and SCSS variables:
 
 ### `deprecations.js`
+
 [This file][deprecations.js] is where we document all of our current and _planned_ CSS selector and SCSS variable deprecations (removals), and is used to generate [deprecation data](../tools/deprecations) for other tools.
 
 ### `primer-css/TODO`
+
 [This stylelint rule][script/stylelint-todo.js] looks for comments in the form:
 
 ```scss

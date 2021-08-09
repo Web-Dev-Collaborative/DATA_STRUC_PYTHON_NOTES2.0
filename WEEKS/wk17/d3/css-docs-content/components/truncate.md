@@ -58,10 +58,18 @@ When there are multiple items in a list, you can add the `.Truncate-text--expand
 ```html live
 <div class="Box p-2" style="resize: horizontal;overflow: scroll;">
   <span class="Truncate">
-    <a href="#" class="Truncate-text Truncate-text--expandable">really-long-repository-owner-name</a>
-    <a href="#" class="Truncate-text Truncate-text--expandable">really-long-repository-owner-name</a>
-    <a href="#" class="Truncate-text Truncate-text--expandable">really-long-repository-owner-name</a>
-    <a href="#" class="Truncate-text Truncate-text--expandable">really-long-repository-owner-name</a>
+    <a href="#" class="Truncate-text Truncate-text--expandable"
+      >really-long-repository-owner-name</a
+    >
+    <a href="#" class="Truncate-text Truncate-text--expandable"
+      >really-long-repository-owner-name</a
+    >
+    <a href="#" class="Truncate-text Truncate-text--expandable"
+      >really-long-repository-owner-name</a
+    >
+    <a href="#" class="Truncate-text Truncate-text--expandable"
+      >really-long-repository-owner-name</a
+    >
   </span>
 </div>
 ```
@@ -73,15 +81,27 @@ It is recommended to use `max-width` as an inline style when you would like to h
 ```html live
 <div class="Box p-2" style="resize: horizontal;overflow: scroll;">
   <div class="Truncate">
-    <span class="Truncate-text Truncate-text--expandable" style="max-width: 300px;">branch-name-that-is-really-long-branch-name-that-is-really-long-branch-name-that-is-really-long</span>
+    <span
+      class="Truncate-text Truncate-text--expandable"
+      style="max-width: 300px;"
+      >branch-name-that-is-really-long-branch-name-that-is-really-long-branch-name-that-is-really-long</span
+    >
   </div>
-  <br>
+  <br />
   <div class="Truncate">
-    <span class="Truncate-text Truncate-text--expandable" style="max-width: 200px;">branch-name-that-is-really-long-branch-name-that-is-really-long-branch-name-that-is-really-long</span>
+    <span
+      class="Truncate-text Truncate-text--expandable"
+      style="max-width: 200px;"
+      >branch-name-that-is-really-long-branch-name-that-is-really-long-branch-name-that-is-really-long</span
+    >
   </div>
-  <br>
+  <br />
   <div class="Truncate">
-    <span class="Truncate-text Truncate-text--expandable" style="max-width: 100px;">branch-name-that-is-really-long-branch-name-that-is-really-long-branch-name-that-is-really-long</span>
+    <span
+      class="Truncate-text Truncate-text--expandable"
+      style="max-width: 100px;"
+      >branch-name-that-is-really-long-branch-name-that-is-really-long-branch-name-that-is-really-long</span
+    >
   </div>
 </div>
 ```

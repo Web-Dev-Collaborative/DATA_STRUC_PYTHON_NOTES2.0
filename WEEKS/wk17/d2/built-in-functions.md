@@ -533,9 +533,7 @@ Character
 
 Meaning
 
-|  |
-|  |
-
+| | | |
 
 |
 

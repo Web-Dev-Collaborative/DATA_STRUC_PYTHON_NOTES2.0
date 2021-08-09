@@ -14,9 +14,7 @@ The `.Box` component can be used for something as simple as a rounded corner box
 A `.Box` is a container with a white background, a light gray border, and rounded corners. By default there are no additional styles such as padding, these can be added as needed with utility classes. Other styles and layouts can be achieved with box elements and modifiers shown in the documentation below.
 
 ```html live
-<div class="Box">
-  This is a box.
-</div>
+<div class="Box">This is a box.</div>
 ```
 
 ## Box elements
@@ -26,16 +24,10 @@ Box elements include `Box-header`, `Box-body`, and `Box-footer`. These elements 
 ```html live
 <div class="Box">
   <div class="Box-header">
-    <h3 class="Box-title">
-      Box title
-    </h3>
+    <h3 class="Box-title">Box title</h3>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
-  <div class="Box-footer">
-    Box footer
-  </div>
+  <div class="Box-body">Box body</div>
+  <div class="Box-footer">Box footer</div>
 </div>
 ```
 
@@ -48,18 +40,10 @@ Use `Box-row` to add rows with borders and maintain the same padding. Box rows h
 ```html live
 <div class="Box">
   <ul>
-    <li class="Box-row">
-      Box row one
-    </li>
-    <li class="Box-row">
-      Box row two
-    </li>
-    <li class="Box-row">
-      Box row three
-    </li>
-    <li class="Box-row">
-      Box row four
-    </li>
+    <li class="Box-row">Box row one</li>
+    <li class="Box-row">Box row two</li>
+    <li class="Box-row">Box row three</li>
+    <li class="Box-row">Box row four</li>
   </ul>
 </div>
 ```
@@ -68,29 +52,17 @@ Rows can be used with or without `Box-header`, `Box-footer`, or `Box-body`.
 
 ```html live
 <div class="Box">
-  <div class="Box-header">
-    Box header
-  </div>
+  <div class="Box-header">Box header</div>
   <div class="Box-body">
     <strong>Box body</strong>
   </div>
   <ul>
-    <li class="Box-row">
-      Box row one
-    </li>
-    <li class="Box-row">
-      Box row two
-    </li>
-    <li class="Box-row">
-      Box row three
-    </li>
-    <li class="Box-row">
-      Box row four
-    </li>
+    <li class="Box-row">Box row one</li>
+    <li class="Box-row">Box row two</li>
+    <li class="Box-row">Box row three</li>
+    <li class="Box-row">Box row four</li>
   </ul>
-  <div class="Box-footer">
-    Box footer
-  </div>
+  <div class="Box-footer">Box footer</div>
 </div>
 ```
 
@@ -102,9 +74,7 @@ Using an unordered list is recommended in order to target the first and last row
 
 ```html live
 <div class="Box">
-  <div class="Box-header">
-    Box header
-  </div>
+  <div class="Box-header">Box header</div>
   <!-- This wrapping div ensures the first and last rows can be targeted for styling. -->
   <div>
     <div class="Box-row">Box row using a div</div>
@@ -122,24 +92,14 @@ Use `Box--condensed` to apply a more condensed line-height and reduce the paddin
 ```html live
 <div class="Box Box--condensed">
   <div class="Box-header">
-    <h3 class="Box-title">
-      Box title
-    </h3>
+    <h3 class="Box-title">Box title</h3>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
   <ul>
-    <li class="Box-row">
-      Box row one
-    </li>
-    <li class="Box-row">
-      Box row two
-    </li>
+    <li class="Box-row">Box row one</li>
+    <li class="Box-row">Box row two</li>
   </ul>
-  <div class="Box-footer">
-    Box footer
-  </div>
+  <div class="Box-footer">Box footer</div>
 </div>
 ```
 
@@ -150,24 +110,14 @@ You may want to increase the overall font size to work with the larger padding, 
 ```html live
 <div class="Box Box--spacious f4">
   <div class="Box-header">
-    <h3 class="Box-title">
-      Box title
-    </h3>
+    <h3 class="Box-title">Box title</h3>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
   <ul>
-    <li class="Box-row">
-      Box row one
-    </li>
-    <li class="Box-row">
-      Box row two
-    </li>
+    <li class="Box-row">Box row one</li>
+    <li class="Box-row">Box row two</li>
   </ul>
-  <div class="Box-footer">
-    Box footer
-  </div>
+  <div class="Box-footer">Box footer</div>
 </div>
 ```
 
@@ -177,20 +127,12 @@ Use `Box--blue` to style the box borders and box header in blue.
 
 ```html live
 <div class="Box Box--blue">
-  <div class="Box-header">
-    Box header
-  </div>
+  <div class="Box-header">Box header</div>
   <ul>
-    <li class="Box-row">
-      Box row one
-    </li>
-    <li class="Box-row">
-      Box row two
-    </li>
+    <li class="Box-row">Box row one</li>
+    <li class="Box-row">Box row two</li>
   </ul>
-  <div class="Box-footer">
-    Box footer
-  </div>
+  <div class="Box-footer">Box footer</div>
 </div>
 ```
 
@@ -203,9 +145,7 @@ Use `Box-header--blue` to add to change the header border and background to blue
   <div class="Box-header Box-header--blue">
     <h3 class="Box-title">Box with blue header</h3>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
 </div>
 ```
 
@@ -217,12 +157,8 @@ Use `Box--danger` to apply a red border to the outside of the box. This theme is
 
 ```html live
 <div class="Box Box--danger">
-  <div class="Box-row">
-    Row one
-  </div>
-  <div class="Box-row">
-    Row two
-  </div>
+  <div class="Box-row">Row one</div>
+  <div class="Box-row">Row two</div>
 </div>
 ```
 
@@ -235,9 +171,7 @@ Use `Box--danger` to apply a red border to the outside of the box. This theme is
   </div>
 
   <div class="Box Box--danger">
-    <div class="Box-body">
-      Box body
-    </div>
+    <div class="Box-body">Box body</div>
   </div>
 </div>
 ```
@@ -248,21 +182,11 @@ You can change the background color for individual rows, or change the color on 
 
 ```html live
 <div class="Box">
-  <div class="Box-row Box-row--gray">
-    .Box-row--gray
-  </div>
-  <div class="Box-row Box-row--hover-gray">
-    .Box-row--hover-gray
-  </div>
-  <div class="Box-row Box-row--yellow">
-    .Box-row--yellow
-  </div>
-  <div class="Box-row Box-row--hover-blue">
-    .Box-row--hover-blue
-  </div>
-  <div class="Box-row Box-row--blue">
-    .Box-row--blue
-  </div>
+  <div class="Box-row Box-row--gray">.Box-row--gray</div>
+  <div class="Box-row Box-row--hover-gray">.Box-row--hover-gray</div>
+  <div class="Box-row Box-row--yellow">.Box-row--yellow</div>
+  <div class="Box-row Box-row--hover-blue">.Box-row--hover-blue</div>
+  <div class="Box-row Box-row--blue">.Box-row--blue</div>
 </div>
 ```
 
@@ -273,15 +197,11 @@ Use `Box-row--focus-gray` or `Box-row--focus-blue` when using along-side `naviga
   <div class="Box-row Box-row--focus-gray navigation-focus">
     .Box-row--focus-gray and .navigation-focus
   </div>
-  <div class="Box-row Box-row--focus-gray">
-    .Box-row--focus-gray
-  </div>
+  <div class="Box-row Box-row--focus-gray">.Box-row--focus-gray</div>
   <div class="Box-row Box-row--focus-blue navigation-focus">
     .Box-row--focus-blue and .navigation-focus
   </div>
-  <div class="Box-row Box-row--focus-blue">
-    .Box-row--focus-blue
-  </div>
+  <div class="Box-row Box-row--focus-blue">.Box-row--focus-blue</div>
 </div>
 ```
 
@@ -291,15 +211,9 @@ Use `.Box-row--unread` to apply a blue vertical line highlight for indicating a 
 
 ```html live
 <div class="Box">
-  <div class="Box-row">
-    Box row
-  </div>
-  <div class="Box-row Box-row--unread">
-    Box row unread
-  </div>
-  <div class="Box-row">
-    Box row
-  </div>
+  <div class="Box-row">Box row</div>
+  <div class="Box-row Box-row--unread">Box row unread</div>
+  <div class="Box-row">Box row</div>
 </div>
 ```
 
@@ -320,9 +234,7 @@ Use .`Box-row-link` when you want a link to appear dark gray and blue on hover o
 Use the `border-dashed` utility to apply a dashed border to a box.
 
 ```html live
-<div class="Box border-dashed p-2">
-  A box with a dashed border
-</div>
+<div class="Box border-dashed p-2">A box with a dashed border</div>
 ```
 
 ## Boxes with flash alerts
@@ -333,32 +245,62 @@ Flash alerts come in three different colors and can be used with icons and butto
 
 ```html live
 <div class="Box">
-  <div class="Box-header">
-    Box header
-  </div>
+  <div class="Box-header">Box header</div>
   <div class="flash flash-full">
     <button class="flash-close js-flash-close">
       <!-- <%= octicon "x" %> -->
-      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+      <svg
+        class="octicon octicon-x"
+        viewBox="0 0 12 16"
+        version="1.1"
+        width="12"
+        height="16"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"
+        ></path>
+      </svg>
     </button>
     <span>Flash message with close button.</span>
   </div>
   <div class="flash flash-full flash-success">
     <!-- <%= octicon("check") %> -->
-    <svg class="octicon octicon-check" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+    <svg
+      class="octicon octicon-check"
+      viewBox="0 0 12 16"
+      version="1.1"
+      width="12"
+      height="16"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"
+      ></path>
+    </svg>
     <span>Flash success with an icon.</span>
   </div>
   <div class="flash flash-full flash-warn">
     <!-- <%= octicon("alert") %> -->
-    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg>
+    <svg
+      class="octicon octicon-alert"
+      viewBox="0 0 16 16"
+      version="1.1"
+      width="16"
+      height="16"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"
+      ></path>
+    </svg>
     <span>Flash warning with an icon.</span>
   </div>
-  <div class="flash flash-full flash-error">
-    Flash error inside a Box.
-  </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="flash flash-full flash-error">Flash error inside a Box.</div>
+  <div class="Box-body">Box body</div>
 </div>
 ```
 
@@ -372,7 +314,19 @@ Use `Box-btn-octicon` with `btn-octicon` when you want the icon to maintain the 
     <span class="pr-2">Box body</span>
     <button href="#" class="Box-btn-octicon btn-octicon">
       <!-- <%= octicon "pencil" %> -->
-      <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"></path></svg>
+      <svg
+        class="octicon octicon-pencil"
+        viewBox="0 0 14 16"
+        version="1.1"
+        width="14"
+        height="16"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"
+        ></path>
+      </svg>
     </button>
   </div>
 </div>
@@ -385,13 +339,26 @@ It's common to want to float icons to the far left or right and stop the `Box-ti
   <div class="Box-header clearfix">
     <button href="#" class="Box-btn-octicon btn-octicon float-right">
       <!-- <%= octicon "x" %> -->
-      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+      <svg
+        class="octicon octicon-x"
+        viewBox="0 0 12 16"
+        version="1.1"
+        width="12"
+        height="16"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"
+        ></path>
+      </svg>
     </button>
-    <h3 class="Box-title overflow-hidden pr-3">A very long title that wraps onto multiple lines without overlapping or wrapping underneath the icon to it's right</h3>
+    <h3 class="Box-title overflow-hidden pr-3">
+      A very long title that wraps onto multiple lines without overlapping or
+      wrapping underneath the icon to it's right
+    </h3>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
 </div>
 ```
 
@@ -400,9 +367,24 @@ It's common to want to float icons to the far left or right and stop the `Box-ti
   <div class="Box-row clearfix">
     <button href="#" class="Box-btn-octicon btn-octicon float-left">
       <!-- <%= octicon "check" %> -->
-      <svg class="octicon octicon-check" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg>
+      <svg
+        class="octicon octicon-check"
+        viewBox="0 0 12 16"
+        version="1.1"
+        width="12"
+        height="16"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"
+        ></path>
+      </svg>
     </button>
-    <p class="overflow-hidden pl-3">A very long paragraph that wraps onto multiple lines without overlapping or wrapping underneath the icon to it's left</p>
+    <p class="overflow-hidden pl-3">
+      A very long paragraph that wraps onto multiple lines without overlapping
+      or wrapping underneath the icon to it's left
+    </p>
   </div>
 </div>
 ```
@@ -421,9 +403,7 @@ Use `Counter--gray` for a counter with a gray background and dark gray text.
       <span class="Counter Counter--gray">12</span>
     </h3>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
 </div>
 ```
 
@@ -437,9 +417,7 @@ Use `Counter--gray-dark` for a counter with a dark gray background and white tex
       <span class="Counter Counter--gray-dark">12</span>
     </h3>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
 </div>
 ```
 
@@ -452,16 +430,10 @@ Use [flexbox utilities](/utilities/flexbox) to center align items, and avoid usi
 ```html live
 <div class="Box Box--condensed">
   <div class="Box-header d-flex flex-items-center">
-    <h3 class="Box-title overflow-hidden flex-auto">
-      Box title
-    </h3>
-    <button class="btn btn-primary btn-sm">
-      Button
-    </button>
+    <h3 class="Box-title overflow-hidden flex-auto">Box title</h3>
+    <button class="btn btn-primary btn-sm">Button</button>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
 </div>
 ```
 
@@ -472,27 +444,21 @@ A similar approach can be used for buttons with multiple lines of text within a 
   <div class="Box-row d-flex flex-items-center">
     <div class="flex-auto">
       <strong>Row title</strong>
-      <div class="text-small color-text-tertiary">
-        Description
-      </div>
+      <div class="text-small color-text-tertiary">Description</div>
     </div>
     <button type="button" class="btn btn-primary" name="button">View</button>
   </div>
   <div class="Box-row d-flex flex-items-center">
     <div class="flex-auto">
       <strong>Row title</strong>
-      <div class="text-small color-text-tertiary">
-        Description
-      </div>
+      <div class="text-small color-text-tertiary">Description</div>
     </div>
     <button type="button" class="btn btn-primary" name="button">View</button>
   </div>
   <div class="Box-row d-flex flex-items-center">
     <div class="flex-auto">
       <strong>Row title</strong>
-      <div class="text-small color-text-tertiary">
-        Description
-      </div>
+      <div class="text-small color-text-tertiary">Description</div>
     </div>
     <button type="button" class="btn btn-primary" name="button">View</button>
   </div>
@@ -510,13 +476,9 @@ Using flexbox along with form, button, and link styles, you can create more comp
         Check it
       </label>
     </form>
-    <button class="btn-link select-menu-button Link--muted">
-      Select menu
-    </button>
+    <button class="btn-link select-menu-button Link--muted">Select menu</button>
   </div>
-  <div class="Box-body">
-    Box body
-  </div>
+  <div class="Box-body">Box body</div>
 </div>
 ```
 
@@ -525,15 +487,15 @@ You can put forms in boxes. Often form submission buttons are aligned to the bot
 ```html live
 <div class="Box">
   <div class="Box-header">
-    <h3 class="Box-title">
-      Example form title
-    </h3>
+    <h3 class="Box-title">Example form title</h3>
   </div>
   <form>
     <div class="Box-body">
       <div class="form-group">
         <div class="form-group-header"><label>Example label</label></div>
-        <div class="form-group-body"><input class="form-control" type="text"></div>
+        <div class="form-group-body">
+          <input class="form-control" type="text" />
+        </div>
       </div>
       <div class="form-checkbox">
         <label>
@@ -543,12 +505,8 @@ You can put forms in boxes. Often form submission buttons are aligned to the bot
       </div>
     </div>
     <div class="Box-footer text-right">
-      <button class="btn btn-secondary mr-1">
-        Cancel
-      </button>
-      <button class="btn btn-primary">
-        Submit
-      </button>
+      <button class="btn btn-secondary mr-1">Cancel</button>
+      <button class="btn btn-primary">Submit</button>
     </div>
   </form>
 </div>
@@ -560,16 +518,14 @@ When a box is all by itself centered on a page you can use [column widths](/obje
 <div class="Box Box--spacious col-6 mx-auto text-center">
   <form>
     <div class="Box-body">
-      <h3 class="f1-light">
-        Example form
-      </h3>
+      <h3 class="f1-light">Example form</h3>
       <div class="form-group mb-4">
         <div class="form-group-header"><label>Example label</label></div>
-        <div class="form-group-body"><input class="form-control" type="text" /></div>
+        <div class="form-group-body">
+          <input class="form-control" type="text" />
+        </div>
       </div>
-      <button class="btn btn-primary btn-block">
-        Submit
-      </button>
+      <button class="btn btn-primary btn-block">Submit</button>
     </div>
   </form>
 </div>

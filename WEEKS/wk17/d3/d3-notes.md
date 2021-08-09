@@ -2,7 +2,6 @@
 
 #### In python dictonaries are hash tables.
 
-
 ```py
 ['__class__',
  '__contains__',
@@ -46,16 +45,11 @@
  'values']
 ```
 
-
-
 # Under the hood : Python Dictionary
 
 > Dictionary has always been a developer's go to tool because of the unique relation between the key an...
 
 ![Cover image for Under the hood : Python Dictionary](https://res.cloudinary.com/practicaldev/image/fetch/s--57ZfvZGb--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/nmsazv0iyivndokrfvi2.jpg)
-
-
-
 
 Dictionary has always been a developer's go to tool because of the unique relation between the key and value pairs. So whenever there is any need of capturing frequencies, unique objects etc. in any algorithm, dictionary is the first thing that pops up to our head.
 
@@ -67,8 +61,7 @@ Dictionary is implemented by using a data structure - hash table. The hash table
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--r-Hk50vQ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://d33wubrfki0l68.cloudfront.net/3d138e7af1264833715e47967d2dbfa8c696fb7e/ee634/images/hash-tables/hash-table-cpython-structure-high-level.svg)
 
-[](#adding-a-new-key)Adding a new key:
---------------------------------------
+## [](#adding-a-new-key)Adding a new key:
 
 Initially a hash-table is always provided with a size of 8, which increases with the increase in num of keys.
 
@@ -95,20 +88,16 @@ The solution that CPython uses for conflict resolution is _re-sizing._
 
 Whenever a new key is added to a dict, CPython checks if the 2/3rd of the existing size is filled or not. This ratio is called the _**load factor**_, and it is an indication of whether re-sizing is required or not. If the load factor is 2/3 then hash table needs a re-sizing
 
-How much new space is to be added is calculated by the num\_of\_occupied spaces \* 3. However the size should be a power of 2, hence the next highest power of 2 is chosen.
+How much new space is to be added is calculated by the num_of_occupied spaces \* 3. However the size should be a power of 2, hence the next highest power of 2 is chosen.
 
 Initaly it starts with a size of 8, let's say 6 out of 8 spaces get occupied, then it should allocate a further more of 18 (6\*3) but it increases the total size of the hash table to 32.
 
 Accordingly the indexes for the hash table are adjusted.
 
-[](#deleting-a-key)Deleting a key:
-----------------------------------
+## [](#deleting-a-key)Deleting a key:
 
 Similarly when an element is deleted or say multiple elements are deleted, the hash-table size undergoes a shrinkage. However delete item operation doesn’t trigger an array resize. If the number of used slots is much less that the total number of slots. However, when a key/value pair is added, the need for resize is based on the number of used slots + dummy slots so it can shrink the array too.
 
+#### In python == is not strict equality
 
-
-
-#### In python == is not strict equality 
 #### strict equality is denoted with keyword 'is' as in: 10 is 10
-

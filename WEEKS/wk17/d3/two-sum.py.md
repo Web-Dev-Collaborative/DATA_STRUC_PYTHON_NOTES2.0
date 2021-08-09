@@ -2,8 +2,6 @@
 
 ![Tylor Borgeson](https://miro.medium.com/fit/c/96/96/2*yPQ43Px-go0EQ_XxuTbVkg.jpeg)
 
-
-
 ](https://medium.com/@tylor.borgeson?source=post_page-----c1d84b029d35--------------------------------)
 
 ![](https://miro.medium.com/max/1400/1*ETTIDamOmYZ7u7YjJvGuFA.jpeg)
@@ -26,18 +24,18 @@ One thing that I really appreciate about this problem is that there are multiple
 The first way you could go about solving this challenge is likely the way that most people come up with when they first see the problem. This solution’s pseudocode looks something like this:
 
 for each number X in list of numbers:  
-    for each number Y in list of numbers starting from X:  
-        if X+Y equal target number, return indices
+ for each number Y in list of numbers starting from X:  
+ if X+Y equal target number, return indices
 
 The issue is that you have a worst case run time of O(n²). If the two numbers you are searching for are at the end of the list, you would need to go through all of the numbers multiple times, once in the “X” loop and each respective time in the “Y” loop.
 
 This would give you the correct answer but the runtime is slow, and in the case of a large number of numbers it could be very problematic.
 
 def twoSum(self, nums: List\[int\], target: int) -> List\[int\]:  
-        for i in range(len(nums)):  
-            for j in range(i+1, len(nums)):  
-                if nums\[i\] + nums\[j\] == target:  
-                    return \[i, j\]
+ for i in range(len(nums)):  
+ for j in range(i+1, len(nums)):  
+ if nums\[i\] + nums\[j\] == target:  
+ return \[i, j\]
 
 ![](https://miro.medium.com/max/60/1*yAjKjrwEN5TvciGpBINZSA.png?q=20)
 
@@ -56,24 +54,24 @@ This solution makes use of a Dictionary (or Key Value Map), which, as I [mention
 The idea was, instead of looking for two numbers to add up to the target number, do the following:
 
 instantiate an empty dictionaryfor each number in list of numbers:  
-    result = subtract number from target number  
-    look for result in the dictionary (instant lookup)  
-    if found:  
-        return index of number and index of dictionary lookup result  
-    else:  
-        add number to dictionary as key with value being the index
+ result = subtract number from target number  
+ look for result in the dictionary (instant lookup)  
+ if found:  
+ return index of number and index of dictionary lookup result  
+ else:  
+ add number to dictionary as key with value being the index
 
 Switching the way of thinking from the “number1 + number2 = target” to “target - number1 = number2” was at first not too easy, but doing so allowed not only for the use of the Key Value Map but also requires only one iteration of the number list, meaning a worst case run time of O(n) which is significantly better than the O(n²) from the Brute Force approach.
 
 def twoSum(self, nums: List\[int\], target: int) -> List\[int\]:  
-        dictionary = {}  
-        answer = \[\]
+ dictionary = {}  
+ answer = \[\]
 
-                for i in range(len(nums)):  
-            secondNumber = target-nums\[i\]  
-            if(secondNumber in dictionary.keys()):  
-                secondIndex = nums.index(secondNumber)  
-                if(i != secondIndex):  
+                for i in range(len(nums)):
+            secondNumber = target-nums\[i\]
+            if(secondNumber in dictionary.keys()):
+                secondIndex = nums.index(secondNumber)
+                if(i != secondIndex):
                     return sorted(\[i, secondIndex\])
 
                             dictionary.update({nums\[i\]: i})

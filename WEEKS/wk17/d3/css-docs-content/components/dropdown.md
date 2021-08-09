@@ -192,9 +192,7 @@ Align the direction of dropdown menus and their arrows with modifier classes.
     </summary>
 
     <div class="dropdown-menu dropdown-menu-se">
-      <div class="dropdown-header">
-        Dropdown header
-      </div>
+      <div class="dropdown-header">Dropdown header</div>
       <ul>
         <li><a class="dropdown-item" href="#url">Dropdown item</a></li>
         <li><a class="dropdown-item" href="#url">Dropdown item</a></li>

@@ -6,7 +6,6 @@ source: 'https://github.com/primer/css/tree/main/src/layout/layout.scss'
 bundle: layout
 ---
 
-
 Build responsive-friendly page layouts with 2 columns.
 
 Use with .container-xx classes to limit the overall layout structure size.
@@ -20,32 +19,25 @@ Use with .container-xx classes to limit the overall layout structure size.
 - `Layout-main-centered-lg`
 - `Layout-main-centered-xl`
 
-Use `Layout-main-centered-xx` to wrap `container-xx` elements inside
-`Layout-main` so the content remains centered on the screen regardless
-of the sidebar position.
+Use `Layout-main-centered-xx` to wrap `container-xx` elements inside `Layout-main` so the content remains centered on the screen regardless of the sidebar position.
 
 ## Default
 
 ```html live
 <div class="Layout">
-  <div class="Layout-main border">
-    .Layout-main
-  </div>
+  <div class="Layout-main border">.Layout-main</div>
 
-  <div class="Layout-sidebar border">
-    .Layout-sidebar
-  </div>
+  <div class="Layout-sidebar border">.Layout-sidebar</div>
 </div>
 ```
 
 ### Dividers
 
-Use `Layout--divided` in conjuction with a `Layout-divider` to show a divider between the main content and the sidebar.
-Flowing as row:
+Use `Layout--divided` in conjuction with a `Layout-divider` to show a divider between the main content and the sidebar. Flowing as row:
+
 - default: shows a `1px` line between main and sidebar
 - `Layout-divider--flowRow-shallow`: shows a filled `8px` divider.
 - `Layout-divider--flowRow-hidden`: hides the divider
-
 
 ```html live
 <div class="Layout Layout--divided">
@@ -76,9 +68,7 @@ Flowing as row:
 <div class="Layout">
   <div class="Layout-main border">
     <div class="Layout-main-centered-md">
-      <div class="container-md border color-border-info">
-        centered md
-      </div>
+      <div class="container-md border color-border-info">centered md</div>
     </div>
   </div>
   <div class="Layout-sidebar border">sidebar</div>
@@ -86,9 +76,7 @@ Flowing as row:
 <div class="Layout">
   <div class="Layout-main border">
     <div class="Layout-main-centered-lg">
-      <div class="container-lg border color-border-info">
-        centered lg
-      </div>
+      <div class="container-lg border color-border-info">centered lg</div>
     </div>
   </div>
   <div class="Layout-sidebar border">sidebar</div>
@@ -96,9 +84,7 @@ Flowing as row:
 <div class="Layout">
   <div class="Layout-main border">
     <div class="Layout-main-centered-xl">
-      <div class="container-xl border color-border-info">
-        centered xl
-      </div>
+      <div class="container-xl border color-border-info">centered xl</div>
     </div>
   </div>
   <div class="Layout-sidebar border">sidebar</div>
@@ -115,22 +101,14 @@ Flowing as row:
 
 ```html live
 <div class="Layout Layout--sidebar-narrow">
-  <div class="Layout-main border">
-    Layout--sidebar-narrow
-  </div>
+  <div class="Layout-main border">Layout--sidebar-narrow</div>
 
-  <div class="Layout-sidebar border">
-    sidebar
-  </div>
+  <div class="Layout-sidebar border">sidebar</div>
 </div>
 <div class="Layout Layout--sidebar-wide">
-  <div class="Layout-main border">
-    Layout--sidebar-wide
-  </div>
+  <div class="Layout-main border">Layout--sidebar-wide</div>
 
-  <div class="Layout-sidebar border">
-    sidebar
-  </div>
+  <div class="Layout-sidebar border">sidebar</div>
 </div>
 ```
 
@@ -143,40 +121,24 @@ Flowing as row:
 
 ```html live
 <div class="Layout Layout--gutter-none">
-  <div class="Layout-main border">
-    Layout--gutter-none
-  </div>
+  <div class="Layout-main border">Layout--gutter-none</div>
 
-  <div class="Layout-sidebar border">
-    sidebar
-  </div>
+  <div class="Layout-sidebar border">sidebar</div>
 </div>
 <div class="Layout Layout--gutter-condensed">
-  <div class="Layout-main border">
-    Layout--gutter-condensed
-  </div>
+  <div class="Layout-main border">Layout--gutter-condensed</div>
 
-  <div class="Layout-sidebar border">
-    sidebar
-  </div>
+  <div class="Layout-sidebar border">sidebar</div>
 </div>
 <div class="Layout">
-  <div class="Layout-main border">
-    Default
-  </div>
+  <div class="Layout-main border">Default</div>
 
-  <div class="Layout-sidebar border">
-    sidebar
-  </div>
+  <div class="Layout-sidebar border">sidebar</div>
 </div>
 <div class="Layout Layout--gutter-spacious">
-  <div class="Layout-main border">
-    Layout--gutter-spacious
-  </div>
+  <div class="Layout-main border">Layout--gutter-spacious</div>
 
-  <div class="Layout-sidebar border">
-    sidebar
-  </div>
+  <div class="Layout-sidebar border">sidebar</div>
 </div>
 ```
 
@@ -250,7 +212,9 @@ It is possible to nest `Layout` components to generate 3-column layouts.
 </div>
 <div class="Layout">
   <div class="Layout-main ">
-    <div class="Layout Layout--sidebarPosition-end Layout--flowRow-until-lg Layout--sidebar-narrow">
+    <div
+      class="Layout Layout--sidebarPosition-end Layout--flowRow-until-lg Layout--sidebar-narrow"
+    >
       <div class="Layout-main border">main content</div>
       <div class="Layout-sidebar border">metadata sidebar</div>
     </div>
@@ -261,6 +225,4 @@ It is possible to nest `Layout` components to generate 3-column layouts.
 
 ## Accessibility and keyboard navigation
 
-Keyboard navigation follows the markup order. Decide carefully how the
-focus order should be be by deciding whether `Layout-main` or `Layout-sidebar`
-comes first in code. The code order won’t affect the visual position.
+Keyboard navigation follows the markup order. Decide carefully how the focus order should be be by deciding whether `Layout-main` or `Layout-sidebar` comes first in code. The code order won’t affect the visual position.

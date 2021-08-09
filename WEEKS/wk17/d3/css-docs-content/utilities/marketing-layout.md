@@ -9,8 +9,6 @@ bundle: marketing-utilities
 
 Marketing layout utilities build on top of [primer-core utilities](/utilities/layout#position), adding the option of responsive positioning.
 
-
-
 ## Position elements with spacing utilities
 
 Position elements from all four element edges (`top`, `right`, `bottom`, and `left`) using any spacing utility from the global spacing scale and the marketing spacing scale (from `$spacer-1` to `$spacer-12`), including negative and 0 values.
@@ -22,8 +20,14 @@ In an effort to reduce the size of our CSS, responsive breakpoints are only supp
 ```html live
 <div class="position-relative p-6 color-bg-secondary">
   <div class="border color-bg-primary position-absolute top-2">.top-2</div>
-  <div class="border color-bg-primary position-absolute position-lg-static right-md-4">.right-md-4</div>
-  <div class="border color-bg-primary position-lg-absolute left-lg-1">.left-lg-1</div>
+  <div
+    class="border color-bg-primary position-absolute position-lg-static right-md-4"
+  >
+    .right-md-4
+  </div>
+  <div class="border color-bg-primary position-lg-absolute left-lg-1">
+    .left-lg-1
+  </div>
 </div>
 ```
 

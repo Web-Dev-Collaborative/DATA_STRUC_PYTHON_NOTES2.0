@@ -9,8 +9,6 @@ bundle: utilities
 
 Flex utilities can be used to apply `flexbox` behaviors to elements by using utility classes.
 
-
-
 ## Required reading
 
 Before using these utilities, **you should be familiar with CSS3 Flexible Box spec**. If you are not, check out MDN's guide:
@@ -24,8 +22,12 @@ Use these classes to make an element lay out its content using the flexbox model
 ### CSS
 
 ```css
-.d-flex { display: flex; }
-.d-inline-flex { display: inline-flex; }
+.d-flex {
+  display: flex;
+}
+.d-inline-flex {
+  display: inline-flex;
+}
 ```
 
 ### Classes
@@ -64,20 +66,28 @@ Use these classes to define the orientation of the main axis (`row` or `column`)
 ### CSS
 
 ```css
-.flex-row            { flex-direction: row; }
-.flex-row-reverse    { flex-direction: row-reverse; }
-.flex-column         { flex-direction: column; }
-.flex-column-reverse { flex-direction: column-reverse; }
+.flex-row {
+  flex-direction: row;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
 ```
 
 ### Classes
 
-| Class | Description |
-| --- | --- |
-| `.flex-row` | The main axis runs left to right (default). |
-| `.flex-row-reverse` | The main axis runs right to left. |
-| `.flex-column` | The main axis runs top to bottom. |
-| `.flex-column-reverse` | The main axis runs bottom to top. |
+| Class                  | Description                                 |
+| ---------------------- | ------------------------------------------- |
+| `.flex-row`            | The main axis runs left to right (default). |
+| `.flex-row-reverse`    | The main axis runs right to left.           |
+| `.flex-column`         | The main axis runs top to bottom.           |
+| `.flex-column-reverse` | The main axis runs bottom to top.           |
 
 ### Example using `.flex-column`
 
@@ -132,9 +142,15 @@ You can choose whether flex items are forced into a single line or wrapped onto 
 ### CSS
 
 ```css
-.flex-wrap           { flex-wrap: wrap; }
-.flex-nowrap         { flex-wrap: nowrap; }
-.flex-wrap-reverse   { flex-wrap: wrap-reverse; }
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
 ```
 
 ### Classes
@@ -235,9 +251,9 @@ Use `.flex-justify-end` to align items to the end line. By default this will be 
 
 ```html live
 <div class="border d-flex flex-justify-end">
- <div class="p-5 border color-bg-secondary">1</div>
- <div class="p-5 border color-bg-secondary">2</div>
- <div class="p-5 border color-bg-secondary">3</div>
+  <div class="p-5 border color-bg-secondary">1</div>
+  <div class="p-5 border color-bg-secondary">2</div>
+  <div class="p-5 border color-bg-secondary">3</div>
 </div>
 ```
 
@@ -247,9 +263,9 @@ Use `.flex-justify-center` to align items in the middle of the container.
 
 ```html live
 <div class="border d-flex flex-justify-center">
- <div class="p-5 border color-bg-secondary">1</div>
- <div class="p-5 border color-bg-secondary">2</div>
- <div class="p-5 border color-bg-secondary">3</div>
+  <div class="p-5 border color-bg-secondary">1</div>
+  <div class="p-5 border color-bg-secondary">2</div>
+  <div class="p-5 border color-bg-secondary">3</div>
 </div>
 ```
 
@@ -259,9 +275,9 @@ Use `.flex-justify-between` to distribute items evenly in the container. The fir
 
 ```html live
 <div class="border d-flex flex-justify-between">
- <div class="p-5 border color-bg-secondary">1</div>
- <div class="p-5 border color-bg-secondary">2</div>
- <div class="p-5 border color-bg-secondary">3</div>
+  <div class="p-5 border color-bg-secondary">1</div>
+  <div class="p-5 border color-bg-secondary">2</div>
+  <div class="p-5 border color-bg-secondary">3</div>
 </div>
 ```
 
@@ -271,9 +287,9 @@ Use `.flex-justify-around` to distribute items evenly, with an equal amount of s
 
 ```html live
 <div class="border d-flex flex-justify-around">
- <div class="p-5 border color-bg-secondary">1</div>
- <div class="p-5 border color-bg-secondary">2</div>
- <div class="p-5 border color-bg-secondary">3</div>
+  <div class="p-5 border color-bg-secondary">1</div>
+  <div class="p-5 border color-bg-secondary">2</div>
+  <div class="p-5 border color-bg-secondary">3</div>
 </div>
 ```
 
@@ -286,18 +302,28 @@ The cross axis runs perpendicular to the main axis. By default the main axis run
 ### CSS
 
 ```css
-.flex-items-start      { align-items: flex-start; }
-.flex-items-end        { align-items: flex-end; }
-.flex-items-center     { align-items: center; }
-.flex-items-baseline   { align-items: baseline; }
-.flex-items-stretch    { align-items: stretch; }
+.flex-items-start {
+  align-items: flex-start;
+}
+.flex-items-end {
+  align-items: flex-end;
+}
+.flex-items-center {
+  align-items: center;
+}
+.flex-items-baseline {
+  align-items: baseline;
+}
+.flex-items-stretch {
+  align-items: stretch;
+}
 ```
 
 ### Classes
 
 | Class | Behavior |
 | --- | --- |
-| `.flex-items-start` | Align items to the start of the cross axis  |
+| `.flex-items-start` | Align items to the start of the cross axis |
 | `.flex-items-end` | Align items to the end of the cross axis |
 | `.flex-items-center` | Align items to the center of the cross axis |
 | `.flex-items-baseline` | Align items along their baselines |
@@ -306,7 +332,7 @@ The cross axis runs perpendicular to the main axis. By default the main axis run
 ### flex-items-start
 
 ```html live
-<div  style="min-height: 150px;" class="border d-flex flex-items-start">
+<div style="min-height: 150px;" class="border d-flex flex-items-start">
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -317,7 +343,7 @@ The cross axis runs perpendicular to the main axis. By default the main axis run
 ### flex-items-end
 
 ```html live
-<div  style="min-height: 150px;" class="border d-flex flex-items-end">
+<div style="min-height: 150px;" class="border d-flex flex-items-end">
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -328,7 +354,7 @@ The cross axis runs perpendicular to the main axis. By default the main axis run
 ### flex-items-center
 
 ```html live
-<div  style="min-height: 150px;" class="border d-flex flex-items-center">
+<div style="min-height: 150px;" class="border d-flex flex-items-center">
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -341,7 +367,7 @@ The cross axis runs perpendicular to the main axis. By default the main axis run
 With `.flex-items-baseline`, items will be aligned along their baselines even if they have different font sizes.
 
 ```html live
-<div  style="min-height: 150px;" class="border d-flex flex-items-baseline">
+<div style="min-height: 150px;" class="border d-flex flex-items-baseline">
   <div class="p-5 border color-bg-secondary f1">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary f3">3</div>
@@ -352,7 +378,7 @@ With `.flex-items-baseline`, items will be aligned along their baselines even if
 ### flex-items-stretch
 
 ```html live
-<div  style="min-height: 150px;" class="border d-flex flex-items-stretch">
+<div style="min-height: 150px;" class="border d-flex flex-items-stretch">
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -367,29 +393,44 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 ### CSS
 
 ```css
-.flex-content-start    { align-content: flex-start; }
-.flex-content-end      { align-content: flex-end; }
-.flex-content-center   { align-content: center; }
-.flex-content-between  { align-content: space-between; }
-.flex-content-around   { align-content: space-around; }
-.flex-content-stretch  { align-content: stretch; }
+.flex-content-start {
+  align-content: flex-start;
+}
+.flex-content-end {
+  align-content: flex-end;
+}
+.flex-content-center {
+  align-content: center;
+}
+.flex-content-between {
+  align-content: space-between;
+}
+.flex-content-around {
+  align-content: space-around;
+}
+.flex-content-stretch {
+  align-content: stretch;
+}
 ```
 
 ### Classes
 
 | Class | Description |
 | --- | --- |
-| `.flex-content-start` | Align content to the start of the cross axis  |
+| `.flex-content-start` | Align content to the start of the cross axis |
 | `.flex-content-end` | Align content to the end of the cross axis |
 | `.flex-content-center` | Align content to the center of the cross axis |
-| `.flex-content-between` | Distribute content evenly. First line is on the start of the cross axis, last line is on the end of the cross axis.  |
+| `.flex-content-between` | Distribute content evenly. First line is on the start of the cross axis, last line is on the end of the cross axis. |
 | `.flex-content-around` | Stretch items from the start of the cross axis to the end of the cross axis. |
-| `.flex-content-stretch` | Lines stretch to occupy available space.  |
+| `.flex-content-stretch` | Lines stretch to occupy available space. |
 
 ### flex-content-start
 
 ```html live
-<div style="min-height: 300px;" class="border d-flex flex-wrap flex-content-start">
+<div
+  style="min-height: 300px;"
+  class="border d-flex flex-wrap flex-content-start"
+>
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -408,7 +449,10 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 ### flex-content-end
 
 ```html live
-<div style="min-height: 300px;" class="border d-flex flex-wrap flex-content-end">
+<div
+  style="min-height: 300px;"
+  class="border d-flex flex-wrap flex-content-end"
+>
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -427,7 +471,10 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 ### flex-content-center
 
 ```html live
-<div style="min-height: 300px;" class="border d-flex flex-wrap flex-content-center">
+<div
+  style="min-height: 300px;"
+  class="border d-flex flex-wrap flex-content-center"
+>
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -446,7 +493,10 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 ### flex-content-between
 
 ```html live
-<div style="min-height: 300px;" class="border d-flex flex-wrap flex-content-between">
+<div
+  style="min-height: 300px;"
+  class="border d-flex flex-wrap flex-content-between"
+>
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -465,7 +515,10 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 ### flex-content-around
 
 ```html live
-<div style="min-height: 300px;" class="border d-flex flex-wrap flex-content-around">
+<div
+  style="min-height: 300px;"
+  class="border d-flex flex-wrap flex-content-around"
+>
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -484,7 +537,10 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 ### flex-content-stretch
 
 ```html live
-<div style="min-height: 300px;" class="border d-flex flex-wrap flex-content-stretch">
+<div
+  style="min-height: 300px;"
+  class="border d-flex flex-wrap flex-content-stretch"
+>
   <div class="p-5 border color-bg-secondary">1</div>
   <div class="p-5 border color-bg-secondary">2</div>
   <div class="p-5 border color-bg-secondary">3</div>
@@ -505,18 +561,26 @@ When the main axis wraps, this creates multiple main axis lines and adds extra s
 Use this class to specify the ability of a flex item to alter its dimensions to fill available space.
 
 ```css
-.flex-1        { flex: 1; }
-.flex-auto     { flex: auto; }
-.flex-grow-0   { flex-grow: 0; }
-.flex-shrink-0 { flex-shrink: 0; }
+.flex-1 {
+  flex: 1;
+}
+.flex-auto {
+  flex: auto;
+}
+.flex-grow-0 {
+  flex-grow: 0;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
 ```
 
-| Class | Description |
-| --- | --- |
-| `.flex-1` | Fills available space |
-| `.flex-auto` | Fills available space and auto-sizes based on the content |
-| `.flex-grow-0` | Prevents growing of a flex item |
-| `.flex-shrink-0` | Prevents shrinking of a flex item |
+| Class            | Description                                               |
+| ---------------- | --------------------------------------------------------- |
+| `.flex-1`        | Fills available space                                     |
+| `.flex-auto`     | Fills available space and auto-sizes based on the content |
+| `.flex-grow-0`   | Prevents growing of a flex item                           |
+| `.flex-shrink-0` | Prevents shrinking of a flex item                         |
 
 ### flex-1
 
@@ -547,7 +611,9 @@ Using `.flex-auto` fills the available space but also takes the size of the cont
 ```html live
 <div class="border d-flex">
   <div class="p-5 border color-bg-secondary flex-1">.flex-1</div>
-  <div class="p-5 border color-bg-secondary flex-auto">.flex-auto with a bit more text</div>
+  <div class="p-5 border color-bg-secondary flex-auto">
+    .flex-auto with a bit more text
+  </div>
   <div class="p-5 border color-bg-secondary flex-1">.flex-1</div>
 </div>
 ```
@@ -559,7 +625,9 @@ Add `.flex-grow-0` to prevent an item from growing. This can be useful when used
 ```html live
 <div class="border d-flex">
   <div class="p-5 border color-bg-secondary">flex item</div>
-  <div class="p-5 border color-bg-secondary flex-auto flex-sm-grow-0">.flex-auto .flex-sm-grow-0</div>
+  <div class="p-5 border color-bg-secondary flex-auto flex-sm-grow-0">
+    .flex-auto .flex-sm-grow-0
+  </div>
   <div class="p-5 border color-bg-secondary">flex item</div>
 </div>
 ```
@@ -583,12 +651,24 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 ### CSS
 
 ```css
-.flex-self-auto        { align-self: auto; }
-.flex-self-start       { align-self: flex-start; }
-.flex-self-end         { align-self: flex-end; }
-.flex-self-center      { align-self: center; }
-.flex-self-baseline    { align-self: baseline; }
-.flex-self-stretch     { align-self: stretch; }
+.flex-self-auto {
+  align-self: auto;
+}
+.flex-self-start {
+  align-self: flex-start;
+}
+.flex-self-end {
+  align-self: flex-end;
+}
+.flex-self-center {
+  align-self: center;
+}
+.flex-self-baseline {
+  align-self: baseline;
+}
+.flex-self-stretch {
+  align-self: stretch;
+}
 ```
 
 ### Classes
@@ -596,7 +676,7 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 | Class | Description |
 | --- | --- |
 | `.flex-self-auto` | Inherit alignment from parent |
-| `.flex-self-start` | Align to the start of the cross axis  |
+| `.flex-self-start` | Align to the start of the cross axis |
 | `.flex-self-end` | Align to the end of the cross axis |
 | `.flex-self-center` | Align to center of cross axis |
 | `.flex-self-baseline` | Align baseline to the start of the cross axis |
@@ -606,7 +686,9 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 
 ```html live
 <div style="min-height: 150px;" class="border d-flex">
-  <div class="p-5 border color-bg-secondary flex-self-auto">.flex-self-auto</div>
+  <div class="p-5 border color-bg-secondary flex-self-auto">
+    .flex-self-auto
+  </div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
 </div>
@@ -616,7 +698,9 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 
 ```html live
 <div style="min-height: 150px;" class="border d-flex">
-  <div class="p-5 border color-bg-secondary flex-self-start">.flex-self-start</div>
+  <div class="p-5 border color-bg-secondary flex-self-start">
+    .flex-self-start
+  </div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
 </div>
@@ -636,7 +720,9 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 
 ```html live
 <div style="min-height: 150px;" class="border d-flex">
-  <div class="p-5 border color-bg-secondary flex-self-center">.flex-self-center</div>
+  <div class="p-5 border color-bg-secondary flex-self-center">
+    .flex-self-center
+  </div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
 </div>
@@ -646,7 +732,9 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 
 ```html live
 <div style="min-height: 150px;" class="border d-flex flex-items-end">
-  <div class="p-5 border color-bg-secondary flex-self-baseline f4">.flex-self-baseline</div>
+  <div class="p-5 border color-bg-secondary flex-self-baseline f4">
+    .flex-self-baseline
+  </div>
   <div class="p-5 border color-bg-secondary f1">item</div>
   <div class="p-5 border color-bg-secondary f00">item</div>
 </div>
@@ -656,7 +744,9 @@ Use these classes to adjust the alignment of an individual flex item on the cros
 
 ```html live
 <div style="min-height: 150px;" class="border d-flex flex-items-start">
-  <div class="p-5 border color-bg-secondary flex-self-stretch">.flex-self-stretch</div>
+  <div class="p-5 border color-bg-secondary flex-self-stretch">
+    .flex-self-stretch
+  </div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
 </div>
@@ -669,18 +759,23 @@ Use these classes to change the order of flex items. Keep in mind that it won't 
 ### CSS
 
 ```css
-.flex-order-1    { order: 1; }
-.flex-order-2    { order: 2; }
-.flex-order-none { order: inherit; }
-
+.flex-order-1 {
+  order: 1;
+}
+.flex-order-2 {
+  order: 2;
+}
+.flex-order-none {
+  order: inherit;
+}
 ```
 
 ### Classes
 
-| Class | Description |
-| --- | --- |
-| `.flex-order-1` | Set order to be 1 |
-| `.flex-order-2` | Set order to be 2  |
+| Class              | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| `.flex-order-1`    | Set order to be 1                                      |
+| `.flex-order-2`    | Set order to be 2                                      |
 | `.flex-order-none` | Remove order (typically used with responsive variants) |
 
 ### flex-order (1+2)
@@ -699,7 +794,9 @@ Resize window to see the effect.
 
 ```html live
 <div class="border d-flex">
-  <div class="p-5 border color-bg-secondary flex-order-1 flex-sm-order-none">1. .flex-order-1 .flex-sm-order-none</div>
+  <div class="p-5 border color-bg-secondary flex-order-1 flex-sm-order-none">
+    1. .flex-order-1 .flex-sm-order-none
+  </div>
   <div class="p-5 border color-bg-secondary">2.</div>
   <div class="p-5 border color-bg-secondary">3.</div>
 </div>
@@ -719,16 +816,23 @@ Each responsive style is applied to the specified breakpoint and up.
 ```css
 /* Example classes */
 
-.d-sm-flex {}
-.d-md-inline-flex {}
+.d-sm-flex {
+}
+.d-md-inline-flex {
+}
 
-.flex-lg-row {}
-.flex-xl-column {}
+.flex-lg-row {
+}
+.flex-xl-column {
+}
 
-.flex-sm-wrap {}
-.flex-lg-nowrap {}
+.flex-sm-wrap {
+}
+.flex-lg-nowrap {
+}
 
-.flex-lg-self-start {}
+.flex-lg-self-start {
+}
 ```
 
 ### Example usage
@@ -736,8 +840,13 @@ Each responsive style is applied to the specified breakpoint and up.
 Mixing flex properties:
 
 ```html live
-<div style="min-height: 150px;" class="border d-flex flex-items-start flex-sm-items-center flex-justify-start flex-lg-justify-between">
-  <div class="p-5 border color-bg-secondary flex-sm-self-stretch">.flex-self-stretch</div>
+<div
+  style="min-height: 150px;"
+  class="border d-flex flex-items-start flex-sm-items-center flex-justify-start flex-lg-justify-between"
+>
+  <div class="p-5 border color-bg-secondary flex-sm-self-stretch">
+    .flex-self-stretch
+  </div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
   <div class="p-5 border color-bg-secondary">&nbsp;</div>
 </div>
@@ -754,7 +863,10 @@ You can use flex utilities to make a simple media object, like this:
 ```html live
 <div class="border d-flex flex-items-center p-4">
   <div class="p-5 border color-bg-secondary">image</div>
-  <p class="pl-4 m-0"><b>Body</b> Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+  <p class="pl-4 m-0">
+    <b>Body</b> Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock
+    filet mignon shoulder hamburger pig venison.
+  </p>
 </div>
 ```
 
@@ -764,15 +876,35 @@ Here is an example of a media object that is **vertically centered on large scre
 
 ```html live
 <div class="border p-3 d-flex flex-column flex-sm-row flex-sm-items-center">
-  <div class="pr-0 pr-sm-3 mb-3 mb-sm-0 d-flex flex-justify-center flex-sm-justify-start">
-    <img style="max-width:100px; max-height:100px;" src="https://github.com/github.png" />
+  <div
+    class="pr-0 pr-sm-3 mb-3 mb-sm-0 d-flex flex-justify-center flex-sm-justify-start"
+  >
+    <img
+      style="max-width:100px; max-height:100px;"
+      src="https://github.com/github.png"
+    />
   </div>
   <div class="d-flex text-center text-sm-left">
-    <p><b>Body</b> Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison.</p>
+    <p>
+      <b>Body</b> Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham
+      hock filet mignon shoulder hamburger pig venison.
+    </p>
   </div>
   <div class="ml-sm-3 d-flex flex-justify-center">
     <!-- <%= octicon "mark-github", :height => '32' %> -->
-    <svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+    <svg
+      height="32"
+      class="octicon octicon-mark-github"
+      viewBox="0 0 16 16"
+      version="1.1"
+      width="32"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+      ></path>
+    </svg>
   </div>
 </div>
 ```
@@ -783,4 +915,4 @@ This section lists flexbox bugs that affect [browsers we currently support](http
 
 1. **Minimum content sizing of flex items not honored.** Some browsers don't respect flex item size. Instead of respecting the minimum content size, items shrink below their minimum size which can create some undesirable results, such as overflowing text. The workaround is to apply `flex-shrink: 0;` to the items using `d-flex`. This can be applied with the `flex-shrink-0` utility. For more information read [philipwalton/flexbugs](https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored).
 
-9. **Some elements can't be flex containers.** Specifically, `<button>`, `<fieldset>`, and `<summary>` elements cannot be styled with `display: flex` in Safari. Instead of using `class="d-flex"` on these elements, you should nest an element within them, e.g. `<summary><div class="d-flex">...</div></summary>`.
+2. **Some elements can't be flex containers.** Specifically, `<button>`, `<fieldset>`, and `<summary>` elements cannot be styled with `display: flex` in Safari. Instead of using `class="d-flex"` on these elements, you should nest an element within them, e.g. `<summary><div class="d-flex">...</div></summary>`.
