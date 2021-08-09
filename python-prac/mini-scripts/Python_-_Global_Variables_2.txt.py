@@ -9,4 +9,4 @@ def myfunc():
 myfunc()
 
 print("Python is " + x)
-# Author:  Bryan G
+

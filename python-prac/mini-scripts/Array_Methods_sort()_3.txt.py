@@ -8,4 +8,4 @@ cars = ["Ford", "Mitsubishi", "BMW", "VW"]
 cars.sort(key=myFunc)
 
 print(cars)
-# Author:  Bryan G
+

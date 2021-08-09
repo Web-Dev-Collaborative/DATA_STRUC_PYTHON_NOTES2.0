@@ -14,7 +14,7 @@
 
 
 def is_palindrome(s):
-    if s[::-1] == s:
+    if input_str[::-1] == input_str:
         return True
     return False
 

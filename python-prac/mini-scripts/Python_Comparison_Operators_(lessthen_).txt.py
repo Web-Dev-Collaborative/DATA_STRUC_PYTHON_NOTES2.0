@@ -4,4 +4,4 @@ y = 3
 print(x < y)
 
 # returns False because 5 is not less than 3
-# Author:  Bryan G
+

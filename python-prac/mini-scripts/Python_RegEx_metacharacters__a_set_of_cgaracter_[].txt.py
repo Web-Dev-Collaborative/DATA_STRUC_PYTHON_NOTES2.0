@@ -6,4 +6,4 @@ txt = "The rain in Spain"
 
 x = re.findall("[a-m]", txt)
 print(x)
-# Author:  Bryan G
+

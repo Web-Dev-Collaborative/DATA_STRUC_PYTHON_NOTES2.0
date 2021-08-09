@@ -3,11 +3,28 @@ def csReverseString(chars):
     print(rev)
     return rev
   
-def csReverseString2(chars):
-   
 
-    return ''.join(reversed(s))  
+# def csReverseString2(chars):
+#     new_string = ''
+#     index = len(chars)
+#     while index:
+#         index -= 1                    # index = index - 1
+#         new_string += chars[index]  # new_string = new_string + character
+#     return new_string
+# 
+# 
+# print(csReverseString2("helloworld"))
   
+
+def csReverseString2(chars):
+    new_string = ''
+    index = len(chars)
+    while index:
+        index -= 1                    # index = index - 1
+        new_string += chars[index] # new_string = new_string + character
+    return new_string
+print (csReverseString2("helloworld"))
+
 # Input:
 # chars:
 # ["r", 

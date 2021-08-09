@@ -6,4 +6,4 @@ def myfunc():
 
 
 myfunc()
-# Author:  Bryan G
+
