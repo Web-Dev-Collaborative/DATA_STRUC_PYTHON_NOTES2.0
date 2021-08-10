@@ -15,11 +15,13 @@
 
 ## Resources
 
+* [Repositories](resources/repositories.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
 
 ## Embeds
 
 * [Trinket](embeds/trinket.md)
+* [Repl.it](embeds/repl.it.md)
 
 ## Wk-18
 
