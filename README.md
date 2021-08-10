@@ -1,12 +1,14 @@
 # Main
 
-{% embed url="https://golden-lobe-519.notion.site/PYTHON-cb857bd3fa4b4940928842a94dce856d" %}
+ 
+
+{% embed url="https://replit.com/@bgoonz/DATASTRUCPYTHONNOTES-2" %}
 
 
 
-Keywords:
+**Keywords**:
 
-```text
+```python
 ***and       del       for       is        raise
 assert    elif      from      lambda    return
 break     else      global    not       try
@@ -24,7 +26,7 @@ def       finally   in        print***
 
 [https://docs.python.org/3/](https://docs.python.org/3/)
 
-```text
+```python
 import math
 
 def say_hi(name):
