@@ -201,7 +201,15 @@ hash_table.get("b");            // returns -1 (not found)
 # The reason you need to use self. is because Python does not use the @ syntax to refer to instance attributes. Python decided to do methods in a way that makes the instance to which the method belongs be passed automatically, but not received automatically: the first parameter of methods is the instance the method is called on. That makes methods entirely the same as functions, and leaves the actual name to use up to you (although self is the convention, and people will generally frown at you when you use something else.) self is not special to the code, it's just another object.
 # 
 # Python could have done something else to distinguish normal names from attributes -- special syntax like Ruby has, or requiring declarations like C++ and Java do, or perhaps something yet more different -- but it didn't. Python's all for making things explicit, making it obvious what's what, and although it doesn't do it entirely everywhere, it does do it for instance attributes. That's why assigning to an instance attribute needs to know what instance to assign to, and that's why it needs self..
-
+"""
+4000    12       89
+["ABC", 10]-->["CBA", 134]-->["BAC", 2342]-->None
+   ^
+   |
+[4000, 9000]
+         | 9000            99            10
+         ["XYZ", 10]-->["ZYX", 134]-->["ZXY", 2342]-->None
+"""
 
 class ListNode:
     def __init__(self, key, value):
@@ -212,6 +220,9 @@ class ListNode:
 class MyHashTable:
     def __init__(self):
         # Your code here
+        self.capacity = 1000
+        self.size = 0# Number of buckets in the hash table
+        self.storage = [None] * self.capacity
 
        
     # Your code here
@@ -219,6 +230,31 @@ class MyHashTable:
     
     
     def put(self, key, value):
+        # Your code here
+        index = self.hash_index(key)
+
+        if self.storage[index] == None:
+          self.size += 1
+          self.storage[index] = ListNode(key, value)
+        else:
+          current_node = self.storage[index]
+          while True:
+            if current_node.key == key:
+              current_node.value = value
+              return
+            if current_node.next == None:
+              break
+            current_node = current_node.next
+            self.size +=1
+            current_node.next = ListNode(key, value)
+        
+
+
+   
+  
+      
+   
+
         # Your code here
 
 
