@@ -3,6 +3,7 @@
 * [Main](README.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
+* [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
 * [index](untitled.md)
 * [My Python DS Websites](my-python-ds-websites.md)
