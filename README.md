@@ -1,6 +1,12 @@
 # Main
 
- 
+{% embed url="https://ds-unit-5-lambda.netlify.app/\#." %}
+
+{% embed url="https://golden-lobe-519.notion.site/PYTHON-cb857bd3fa4b4940928842a94dce856d" caption="My Notion Notes" %}
+
+
+
+
 
 {% embed url="https://replit.com/@bgoonz/DATASTRUCPYTHONNOTES-2" %}
 
