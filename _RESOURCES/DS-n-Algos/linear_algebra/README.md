@@ -40,8 +40,7 @@ This module contains classes and functions for doing linear algebra.
   **Overview about the methods:**
 
   - \_\_str\_\_() : returns a string representation
-  - operator \* : implements the matrix vector multiplication
-    implements the matrix-scalar multiplication.
+  - operator \* : implements the matrix vector multiplication implements the matrix-scalar multiplication.
   - changeComponent(x,y,value) : changes the specified component.
   - component(x,y) : returns the specified component.
   - width() : returns the width of the matrix
@@ -59,15 +58,13 @@ This module contains classes and functions for doing linear algebra.
 
 ## Documentation
 
-This module uses docstrings to enable the use of Python's in-built `help(...)` function.
-For instance, try `help(Vector)`, `help(unitBasisVector)`, and `help(CLASSNAME.METHODNAME)`.
+This module uses docstrings to enable the use of Python's in-built `help(...)` function. For instance, try `help(Vector)`, `help(unitBasisVector)`, and `help(CLASSNAME.METHODNAME)`.
 
 ---
 
 ## Usage
 
-Import the module `lib.py` from the **src** directory into your project.
-Alternatively, you can directly use the Python bytecode file `lib.pyc`.
+Import the module `lib.py` from the **src** directory into your project. Alternatively, you can directly use the Python bytecode file `lib.pyc`.
 
 ---
 

@@ -1,5 +1,4 @@
-Pygorithm
-=========
+# Pygorithm
 
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/OmkarPathak/pygorithm/blob/master/LICENSE)
 
@@ -18,42 +17,34 @@ Purely for educational purposes
 
 [![image](https://images.gitads.io/pygorithm)](https://tracking.gitads.io/?campaign=gitads&repo=pygorithm&redirect=gitads.io)
 
-Features
---------
+## Features
 
--   Super easy to use
--   A very easy to understand
-    [Documentation](http://pygorithm.readthedocs.io/en/latest/)
--   Get the code right in your editor
--   Get time complexities on the go
+- Super easy to use
+- A very easy to understand [Documentation](http://pygorithm.readthedocs.io/en/latest/)
+- Get the code right in your editor
+- Get time complexities on the go
 
-Installation
-------------
+## Installation
 
--   Just fire the following command in your terminal:
+- Just fire the following command in your terminal:
 
 <!-- -->
 
     pip3 install pygorithm
 
--   It's that easy. If you are using Python 2.7 use pip instead.
-    Depending on your\
-    permissions, you might need to use `pip install --user pygorithm` to
-    install.
--   Or you can download the source code from
-    [here](https://github.com/OmkarPathak/pygorithm), and then just
-    install the package using
+- It's that easy. If you are using Python 2.7 use pip instead. Depending on your\
+  permissions, you might need to use `pip install --user pygorithm` to install.
+- Or you can download the source code from [here](https://github.com/OmkarPathak/pygorithm), and then just install the package using
 
 <!-- -->
 
     python setup.py install
 
-Quick Start Guide
------------------
+## Quick Start Guide
 
--   To sort your list
+- To sort your list
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 >>> from pygorithm.sorting import bubble_sort
 >>> my_list = [12, 4, 3, 5, 13, 1, 17, 19, 15]
 >>> sorted_list = bubble_sort.sort(my_list)
@@ -61,26 +52,25 @@ Quick Start Guide
 >>> [1, 3, 4, 5, 12, 13, 15, 17, 19]
 ```
 
--   To get the code for function used
+- To get the code for function used
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 >>> from pygorithm.sorting import bubble_sort
 >>> code = bubble_sort.get_code()
 >>> print(code)
 ```
 
--   To get the time complexity of an algorithm
+- To get the time complexity of an algorithm
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 >>> from pygorithm.sorting import bubble_sort
 >>> time_complexity = bubble_sort.time_complexities()
 >>> print(time_complexity)
 ```
 
--   To see all the available functions in a module, you can just type
-    `help()` with the module name as argument. For example,
+- To see all the available functions in a module, you can just type `help()` with the module name as argument. For example,
 
-``` {.sourceCode .python}
+```{.sourceCode .python}
 >>> from pygorithm import sorting
 >>> help(sorting)
     Help on package pygorithm.sorting in pygorithm:
@@ -101,23 +91,17 @@ Quick Start Guide
         shell_sort
 ```
 
-Tests
------
+## Tests
 
 \* Just type in the following command to run the tests :
 
     python3 -m unittest
 
--   This will run all the tests defined in the files of the `tests/`
-    directory
+- This will run all the tests defined in the files of the `tests/` directory
 
-Donation
---------
+## Donation
 
-If you have found my softwares to be of any use to you, do consider
-helping me pay my internet bills. This would encourage me to create many
-such softwares :)
+If you have found my softwares to be of any use to you, do consider helping me pay my internet bills. This would encourage me to create many such softwares :)
 
--   [PayPal](https://paypal.me/omkarpathak27)
--   [₹ (INR)](https://www.instamojo.com/@omkarpathak/)
-
+- [PayPal](https://paypal.me/omkarpathak27)
+- [₹ (INR)](https://www.instamojo.com/@omkarpathak/)

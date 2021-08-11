@@ -22,7 +22,7 @@
 
 ### Heap
 
-- [x] Heap  implementation
+- [x] Heap implementation
 - [x] Heap Sort
 
 ## Backtracking
