@@ -12,13 +12,14 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
-* [Undecided](practice/untitled.md)
+* [MISC](practice/untitled.md)
 
 ## Resources
 
 * [Misc Resources](resources/misc-resources.md)
 * [Youtube](resources/youtube-1.md)
 * [Links](resources/links.md)
+* [ASCII TAble](resources/ascii-table.md)
 * [Python Keywords](resources/python-keywords.md)
 * [Repositories](resources/repositories.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
@@ -42,8 +43,4 @@
 ## misc
 
 * [Misc](misc/misc.md)
-
----
-
-* [ASCII TAble](ascii-table.md)
 
