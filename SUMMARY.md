@@ -29,19 +29,16 @@
 * [Github/Gists](embeds/github-gists.md)
 * [Repl.it](embeds/repl.it.md)
 
-## Wk-18
+## Wk-18-notes <a id="wk-18"></a>
 
-* [None Keyword](wk-18/none-keyword.md)
+* [D1](wk-18/d1.md)
 * [D2](wk-18/d2.md)
+* [D3](wk-18/d3.md)
+* [None Keyword](wk-18/none-keyword.md)
 * [Big O Notation](wk-18/big-o-notation.md)
 * [Untitled](wk-18/untitled.md)
 
 ## misc
 
 * [Misc](misc/misc.md)
-
----
-
-* [D1](d1.md)
-* [D3](d3.md)
 
