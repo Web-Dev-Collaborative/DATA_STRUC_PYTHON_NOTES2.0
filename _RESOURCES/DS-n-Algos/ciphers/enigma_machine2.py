@@ -12,7 +12,6 @@ Module includes:
 - reflector (aka static rotor)
 - original alphabet
 
-Created by TrapinchO
 """
 
 RotorPositionT = tuple[int, int, int]
@@ -149,7 +148,6 @@ def _plugboard(pbstring: str) -> dict[str, str]:
             tmppbl.add(i)
     del tmppbl
 
-    # Created the dictionary
     pb = {}
     for j in range(0, len(pbstring) - 1, 2):
         pb[pbstring[j]] = pbstring[j + 1]

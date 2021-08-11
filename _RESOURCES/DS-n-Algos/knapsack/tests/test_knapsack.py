@@ -1,5 +1,4 @@
 """
-Created on Fri Oct 16 09:31:07 2020
 
 @author: Dr. Tobias Schröder
 @license: MIT-license

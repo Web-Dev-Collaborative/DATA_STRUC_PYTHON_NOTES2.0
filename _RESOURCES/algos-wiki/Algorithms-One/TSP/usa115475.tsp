@@ -1,7 +1,6 @@
 NAME: usa115475
 TYPE: TSP
 COMMENT: 115,474 towns and cities in the United States
-COMMENT: Created July 7, 2012, www.math.uwaterloo/tsp/data/usa/
 DIMENSION: 115475
 EDGE_WEIGHT_TYPE: EUC_2D
 NODE_COORD_SECTION
