@@ -1,9 +1,5 @@
 # Repositories
 
-
-
-
-
 {% embed url="https://github.com/bgoonz/DATA\_STRUC\_PYTHON\_NOTES" %}
 
 {% embed url="https://github.com/bgoonz/The-Algorithms/pulls" %}
@@ -16,6 +12,4 @@
 
 {% embed url="https://github.com/bgoonz/PYTHON\_PRAC" %}
 
-
-
-* 
+-

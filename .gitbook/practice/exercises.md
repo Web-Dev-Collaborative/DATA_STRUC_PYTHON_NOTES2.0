@@ -5,10 +5,10 @@ _Sample String :_ "Twinkle, twinkle, little star, How I wonder what you are! Up 
 
 ```text
 Twinkle, twinkle, little star,
-	How I wonder what you are! 
-		Up above the world so high,   		
-		Like a diamond in the sky. 
-Twinkle, twinkle, little star, 
+	How I wonder what you are!
+		Up above the world so high,
+		Like a diamond in the sky.
+Twinkle, twinkle, little star,
 	How I wonder what you are
 ```
 
@@ -45,11 +45,11 @@ _Output :_ java
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-7.php)
 
 **8.** Write a Python program to display the first and last colors from the following list. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
-color\_list = \["Red","Green","White" ,"Black"\]  
+color_list = \["Red","Green","White" ,"Black"\]  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-8.php)
 
-**9.** Write a Python program to display the examination schedule. \(extract the date from exam\_st\_date\). [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
-exam\_st\_date = \(11, 12, 2014\)  
+**9.** Write a Python program to display the examination schedule. \(extract the date from exam_st_date\). [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
+exam_st_date = \(11, 12, 2014\)  
 Sample Output : The examination will start from : 11 / 12 / 2014  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-9.php)
 
@@ -129,21 +129,21 @@ _Test Data_ :
 _Sample numbers list_ :
 
 ```text
-numbers = [    
-    386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345, 
-    399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217, 
-    815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717, 
+numbers = [
+    386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345,
+    399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217,
+    815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717,
     958,743, 527
     ]
 ```
 
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-28.php)
 
-**29.** Write a Python program to print out a set containing all the colors from color\_list\_1 which are not present in color\_list\_2. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
-_Test Data_ :  
-color\_list\_1 = set\(\["White", "Black", "Red"\]\)  
-color\_list\_2 = set\(\["Red", "Green"\]\)  
-_Expected Output_ :  
+**29.** Write a Python program to print out a set containing all the colors from color*list_1 which are not present in color_list_2. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
+\_Test Data* :  
+color*list_1 = set\(\["White", "Black", "Red"\]\)  
+color_list_2 = set\(\["Red", "Green"\]\)  
+\_Expected Output* :  
 {'Black', 'White'}  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-29.php)
 
@@ -538,4 +538,3 @@ Note: Do not use built-in functions.
 
 **150.** Write a Python function to check whether a distinct pair of numbers whose product is odd present in a sequence of integer values. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-150.php)
-

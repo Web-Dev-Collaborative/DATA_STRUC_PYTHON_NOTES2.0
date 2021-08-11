@@ -1,13 +1,11 @@
 # Built-in Functions
 
-
-
-## 
+##
 
 The Python interpreter has a number of functions and types built into it that are always available. They are listed here in alphabetical order.
 
 |  |  | Built-in Functions |  |  |
-| :--- | :--- | :--- | :--- | :--- |
+| :-- | :-- | :-- | :-- | :-- |
 | [`abs()`](https://docs.python.org/3/library/functions.html#abs) | [`delattr()`](https://docs.python.org/3/library/functions.html#delattr) | [`hash()`](https://docs.python.org/3/library/functions.html#hash) | [`memoryview()`](https://docs.python.org/3/library/functions.html#func-memoryview) | [`set()`](https://docs.python.org/3/library/functions.html#func-set) |
 | [`all()`](https://docs.python.org/3/library/functions.html#all) | [`dict()`](https://docs.python.org/3/library/functions.html#func-dict) | [`help()`](https://docs.python.org/3/library/functions.html#help) | [`min()`](https://docs.python.org/3/library/functions.html#min) | [`setattr()`](https://docs.python.org/3/library/functions.html#setattr) |
 | [`any()`](https://docs.python.org/3/library/functions.html#any) | [`dir()`](https://docs.python.org/3/library/functions.html#dir) | [`hex()`](https://docs.python.org/3/library/functions.html#hex) | [`next()`](https://docs.python.org/3/library/functions.html#next) | [`slice()`](https://docs.python.org/3/library/functions.html#slice) |
@@ -22,8 +20,6 @@ The Python interpreter has a number of functions and types built into it that ar
 | [`classmethod()`](https://docs.python.org/3/library/functions.html#classmethod) | [`getattr()`](https://docs.python.org/3/library/functions.html#getattr) | [`locals()`](https://docs.python.org/3/library/functions.html#locals) | [`repr()`](https://docs.python.org/3/library/functions.html#repr) | [`zip()`](https://docs.python.org/3/library/functions.html#zip) |
 | [`compile()`](https://docs.python.org/3/library/functions.html#compile) | [`globals()`](https://docs.python.org/3/library/functions.html#globals) | [`map()`](https://docs.python.org/3/library/functions.html#map) | [`reversed()`](https://docs.python.org/3/library/functions.html#reversed) | [`__import__()`](https://docs.python.org/3/library/functions.html#__import__) |
 | [`complex()`](https://docs.python.org/3/library/functions.html#complex) | [`hasattr()`](https://docs.python.org/3/library/functions.html#hasattr) | [`max()`](https://docs.python.org/3/library/functions.html#max) | [`round()`](https://docs.python.org/3/library/functions.html#round) |  |
-
-
 
 `abs`\(_x_\)
 
@@ -89,10 +85,10 @@ Return a new array of bytes. The [`bytearray`](https://docs.python.org/3/library
 
 The optional _source_ parameter can be used to initialize the array in a few different ways:
 
-* If it is a _string_, you must also give the _encoding_ \(and optionally, _errors_\) parameters; [`bytearray()`](https://docs.python.org/3/library/stdtypes.html#bytearray) then converts the string to bytes using [`str.encode()`](https://docs.python.org/3/library/stdtypes.html#str.encode).
-* If it is an _integer_, the array will have that size and will be initialized with null bytes.
-* If it is an object conforming to the [buffer interface](https://docs.python.org/3/c-api/buffer.html#bufferobjects), a read-only buffer of the object will be used to initialize the bytes array.
-* If it is an _iterable_, it must be an iterable of integers in the range `0 <= x < 256`, which are used as the initial contents of the array.
+- If it is a _string_, you must also give the _encoding_ \(and optionally, _errors_\) parameters; [`bytearray()`](https://docs.python.org/3/library/stdtypes.html#bytearray) then converts the string to bytes using [`str.encode()`](https://docs.python.org/3/library/stdtypes.html#str.encode).
+- If it is an _integer_, the array will have that size and will be initialized with null bytes.
+- If it is an object conforming to the [buffer interface](https://docs.python.org/3/c-api/buffer.html#bufferobjects), a read-only buffer of the object will be used to initialize the bytes array.
+- If it is an _iterable_, it must be an iterable of integers in the range `0 <= x < 256`, which are used as the initial contents of the array.
 
 Without an argument, an array of size 0 is created.
 
@@ -130,7 +126,7 @@ A class method can be called either on the class \(such as `C.f()`\) or on an in
 
 Class methods are different than C++ or Java static methods. If you want those, see [`staticmethod()`](https://docs.python.org/3/library/functions.html#staticmethod) in this section. For more information on class methods, see [The standard type hierarchy](https://docs.python.org/3/reference/datamodel.html#types).
 
-Changed in version 3.9: Class methods can now wrap other [descriptors](https://docs.python.org/3/glossary.html#term-descriptor) such as [`property()`](https://docs.python.org/3/library/functions.html#property).`compile`\(_source_, _filename_, _mode_, _flags=0_, _dont\_inherit=False_, _optimize=-1_\)
+Changed in version 3.9: Class methods can now wrap other [descriptors](https://docs.python.org/3/glossary.html#term-descriptor) such as [`property()`](https://docs.python.org/3/library/functions.html#property).`compile`\(_source_, _filename_, _mode_, _flags=0_, _dont_inherit=False_, _optimize=-1_\)
 
 Compile the _source_ into a code or AST object. Code objects can be executed by [`exec()`](https://docs.python.org/3/library/functions.html#exec) or [`eval()`](https://docs.python.org/3/library/functions.html#eval). _source_ can either be a normal string, a byte string, or an AST object. Refer to the [`ast`](https://docs.python.org/3/library/ast.html#module-ast) module documentation for information on how to work with AST objects.
 
@@ -138,7 +134,7 @@ The _filename_ argument should give the file from which the code was read; pass 
 
 The _mode_ argument specifies what kind of code must be compiled; it can be `'exec'` if _source_ consists of a sequence of statements, `'eval'` if it consists of a single expression, or `'single'` if it consists of a single interactive statement \(in the latter case, expression statements that evaluate to something other than `None` will be printed\).
 
-The optional arguments _flags_ and _dont\_inherit_ control which [compiler options](https://docs.python.org/3/library/ast.html#ast-compiler-flags) should be activated and which [future features](https://docs.python.org/3/reference/simple_stmts.html#future) should be allowed. If neither is present \(or both are zero\) the code is compiled with the same flags that affect the code that is calling [`compile()`](https://docs.python.org/3/library/functions.html#compile). If the _flags_ argument is given and _dont\_inherit_ is not \(or is zero\) then the compiler options and the future statements specified by the _flags_ argument are used in addition to those that would be used anyway. If _dont\_inherit_ is a non-zero integer then the _flags_ argument is it – the flags \(future features and compiler options\) in the surrounding code are ignored.
+The optional arguments _flags_ and _dont_inherit_ control which [compiler options](https://docs.python.org/3/library/ast.html#ast-compiler-flags) should be activated and which [future features](https://docs.python.org/3/reference/simple_stmts.html#future) should be allowed. If neither is present \(or both are zero\) the code is compiled with the same flags that affect the code that is calling [`compile()`](https://docs.python.org/3/library/functions.html#compile). If the _flags_ argument is given and _dont_inherit_ is not \(or is zero\) then the compiler options and the future statements specified by the _flags_ argument are used in addition to those that would be used anyway. If _dont_inherit_ is a non-zero integer then the _flags_ argument is it – the flags \(future features and compiler options\) in the surrounding code are ignored.
 
 Compiler options and future statements are specified by bits which can be bitwise ORed together to specify multiple options. The bitfield required to specify a given future feature can be found as the `compiler_flag` attribute on the `_Feature` instance in the [`__future__`](https://docs.python.org/3/library/__future__.html#module-__future__) module. [Compiler flags](https://docs.python.org/3/library/ast.html#ast-compiler-flags) can be found in [`ast`](https://docs.python.org/3/library/ast.html#module-ast) module, with `PyCF_` prefix.
 
@@ -150,11 +146,11 @@ If you want to parse Python code into its AST representation, see [`ast.parse()`
 
 Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) `compile` with arguments `source` and `filename`. This event may also be raised by implicit compilation.
 
-Note 
+Note
 
 When compiling a string with multi-line code in `'single'` or `'eval'` mode, input must be terminated by at least one newline character. This is to facilitate detection of incomplete and complete statements in the [`code`](https://docs.python.org/3/library/code.html#module-code) module.
 
-Warning 
+Warning
 
 It is possible to crash the Python interpreter with a sufficiently large/complex string when compiling to an AST object due to stack depth limitations in Python’s AST compiler.
 
@@ -168,7 +164,7 @@ Return a complex number with the value _real_ + _imag_\*1j or convert a string o
 
 For a general Python object `x`, `complex(x)` delegates to `x.__complex__()`. If `__complex__()` is not defined then it falls back to [`__float__()`](https://docs.python.org/3/reference/datamodel.html#object.__float__). If `__float__()` is not defined then it falls back to [`__index__()`](https://docs.python.org/3/reference/datamodel.html#object.__index__).
 
-Note 
+Note
 
 When converting from a string, the string must not contain whitespace around the central `+` or `-` operator. For example, `complex('1+2j')` is fine, but `complex('1 + 2j')` raises [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError).
 
@@ -192,17 +188,17 @@ If the object does not provide [`__dir__()`](https://docs.python.org/3/reference
 
 The default [`dir()`](https://docs.python.org/3/library/functions.html#dir) mechanism behaves differently with different types of objects, as it attempts to produce the most relevant, rather than complete, information:
 
-* If the object is a module object, the list contains the names of the module’s attributes.
-* If the object is a type or class object, the list contains the names of its attributes, and recursively of the attributes of its bases.
-* Otherwise, the list contains the object’s attributes’ names, the names of its class’s attributes, and recursively of the attributes of its class’s base classes.
+- If the object is a module object, the list contains the names of the module’s attributes.
+- If the object is a type or class object, the list contains the names of its attributes, and recursively of the attributes of its bases.
+- Otherwise, the list contains the object’s attributes’ names, the names of its class’s attributes, and recursively of the attributes of its class’s base classes.
 
 The resulting list is sorted alphabetically. For example:&gt;&gt;&gt;
 
 ```text
 >>> import struct
->>> dir()   # show the names in the module namespace  
+>>> dir()   # show the names in the module namespace
 ['__builtins__', '__name__', 'struct']
->>> dir(struct)   # show the names in the struct module 
+>>> dir(struct)   # show the names in the struct module
 ['Struct', '__all__', '__builtins__', '__cached__', '__doc__', '__file__',
  '__initializing__', '__loader__', '__name__', '__package__',
  '_clearcache', 'calcsize', 'error', 'pack', 'pack_into',
@@ -215,7 +211,7 @@ The resulting list is sorted alphabetically. For example:&gt;&gt;&gt;
 ['area', 'location', 'perimeter']
 ```
 
-Note 
+Note
 
 Because [`dir()`](https://docs.python.org/3/library/functions.html#dir) is supplied primarily as a convenience for use at an interactive prompt, it tries to supply an interesting set of names more than it tries to supply a rigorously or consistently defined set of names, and its detailed behavior may change across releases. For example, metaclass attributes are not in the result list when the argument is a class.`divmod`\(_a_, _b_\)
 
@@ -273,11 +269,11 @@ If the _globals_ dictionary does not contain a value for the key `__builtins__`,
 
 Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) `exec` with the code object as the argument. Code compilation events may also be raised.
 
-Note 
+Note
 
 The built-in functions [`globals()`](https://docs.python.org/3/library/functions.html#globals) and [`locals()`](https://docs.python.org/3/library/functions.html#locals) return the current global and local dictionary, respectively, which may be useful to pass around for use as the second and third argument to [`exec()`](https://docs.python.org/3/library/functions.html#exec).
 
-Note 
+Note
 
 The default _locals_ act as described for function [`locals()`](https://docs.python.org/3/library/functions.html#locals) below: modifications to the default _locals_ dictionary should not be attempted. Pass an explicit _locals_ dictionary if you need to see effects of the code on _locals_ after function [`exec()`](https://docs.python.org/3/library/functions.html#exec) returns.`filter`\(_function_, _iterable_\)
 
@@ -328,15 +324,15 @@ Changed in version 3.6: Grouping digits with underscores as in code literals is 
 
 Changed in version 3.7: _x_ is now a positional-only parameter.
 
-Changed in version 3.8: Falls back to [`__index__()`](https://docs.python.org/3/reference/datamodel.html#object.__index__) if [`__float__()`](https://docs.python.org/3/reference/datamodel.html#object.__float__) is not defined.`format`\(_value_\[, _format\_spec_\]\)
+Changed in version 3.8: Falls back to [`__index__()`](https://docs.python.org/3/reference/datamodel.html#object.__index__) if [`__float__()`](https://docs.python.org/3/reference/datamodel.html#object.__float__) is not defined.`format`\(_value_\[, _format_spec_\]\)
 
-Convert a _value_ to a “formatted” representation, as controlled by _format\_spec_. The interpretation of _format\_spec_ will depend on the type of the _value_ argument, however there is a standard formatting syntax that is used by most built-in types: [Format Specification Mini-Language](https://docs.python.org/3/library/string.html#formatspec).
+Convert a _value_ to a “formatted” representation, as controlled by _format_spec_. The interpretation of _format_spec_ will depend on the type of the _value_ argument, however there is a standard formatting syntax that is used by most built-in types: [Format Specification Mini-Language](https://docs.python.org/3/library/string.html#formatspec).
 
-The default _format\_spec_ is an empty string which usually gives the same effect as calling [`str(value)`](https://docs.python.org/3/library/stdtypes.html#str).
+The default _format_spec_ is an empty string which usually gives the same effect as calling [`str(value)`](https://docs.python.org/3/library/stdtypes.html#str).
 
-A call to `format(value, format_spec)` is translated to `type(value).__format__(value, format_spec)` which bypasses the instance dictionary when searching for the value’s [`__format__()`](https://docs.python.org/3/reference/datamodel.html#object.__format__) method. A [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError) exception is raised if the method search reaches [`object`](https://docs.python.org/3/library/functions.html#object) and the _format\_spec_ is non-empty, or if either the _format\_spec_ or the return value are not strings.
+A call to `format(value, format_spec)` is translated to `type(value).__format__(value, format_spec)` which bypasses the instance dictionary when searching for the value’s [`__format__()`](https://docs.python.org/3/reference/datamodel.html#object.__format__) method. A [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError) exception is raised if the method search reaches [`object`](https://docs.python.org/3/library/functions.html#object) and the _format_spec_ is non-empty, or if either the _format_spec_ or the return value are not strings.
 
-Changed in version 3.4: `object().__format__(format_spec)` raises [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError) if _format\_spec_ is not an empty string._class_ `frozenset`\(\[_iterable_\]\)
+Changed in version 3.4: `object().__format__(format_spec)` raises [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError) if _format_spec_ is not an empty string._class_ `frozenset`\(\[_iterable_\]\)
 
 Return a new [`frozenset`](https://docs.python.org/3/library/stdtypes.html#frozenset) object, optionally with elements taken from _iterable_. `frozenset` is a built-in class. See [`frozenset`](https://docs.python.org/3/library/stdtypes.html#frozenset) and [Set Types — set, frozenset](https://docs.python.org/3/library/stdtypes.html#types-set) for documentation about this class.
 
@@ -344,7 +340,7 @@ For other containers see the built-in [`set`](https://docs.python.org/3/library/
 
 Return the value of the named attribute of _object_. _name_ must be a string. If the string is the name of one of the object’s attributes, the result is the value of that attribute. For example, `getattr(x, 'foobar')` is equivalent to `x.foobar`. If the named attribute does not exist, _default_ is returned if provided, otherwise [`AttributeError`](https://docs.python.org/3/library/exceptions.html#AttributeError) is raised.
 
-Note 
+Note
 
 Since [private name mangling](https://docs.python.org/3/reference/expressions.html#private-name-mangling) happens at compilation time, one must manually mangle a private attribute’s \(attributes with two leading underscores\) name in order to retrieve it with [`getattr()`](https://docs.python.org/3/library/functions.html#getattr).`globals`\(\)
 
@@ -354,7 +350,7 @@ The arguments are an object and a string. The result is `True` if the string is 
 
 Return the hash value of the object \(if it has one\). Hash values are integers. They are used to quickly compare dictionary keys during a dictionary lookup. Numeric values that compare equal have the same hash value \(even if they are of different types, as is the case for 1 and 1.0\).
 
-Note 
+Note
 
 For objects with custom [`__hash__()`](https://docs.python.org/3/reference/datamodel.html#object.__hash__) methods, note that [`hash()`](https://docs.python.org/3/library/functions.html#hash) truncates the return value based on the bit width of the host machine. See [`__hash__()`](https://docs.python.org/3/reference/datamodel.html#object.__hash__) for details.`help`\(\[_object_\]\)
 
@@ -390,7 +386,7 @@ See also [`format()`](https://docs.python.org/3/library/functions.html#format) f
 
 See also [`int()`](https://docs.python.org/3/library/functions.html#int) for converting a hexadecimal string to an integer using a base of 16.
 
-Note 
+Note
 
 To obtain a hexadecimal string representation for a float, use the [`float.hex()`](https://docs.python.org/3/library/stdtypes.html#float.hex) method.`id`\(_object_\)
 
@@ -403,9 +399,9 @@ Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) 
 If the _prompt_ argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string \(stripping a trailing newline\), and returns that. When EOF is read, [`EOFError`](https://docs.python.org/3/library/exceptions.html#EOFError) is raised. Example:&gt;&gt;&gt;
 
 ```text
->>> s = input('--> ')  
+>>> s = input('--> ')
 --> Monty Python's Flying Circus
->>> s  
+>>> s
 "Monty Python's Flying Circus"
 ```
 
@@ -458,7 +454,7 @@ Rather than being a function, [`list`](https://docs.python.org/3/library/stdtype
 
 Update and return a dictionary representing the current local symbol table. Free variables are returned by [`locals()`](https://docs.python.org/3/library/functions.html#locals) when it is called in function blocks, but not in class blocks. Note that at the module level, [`locals()`](https://docs.python.org/3/library/functions.html#locals) and [`globals()`](https://docs.python.org/3/library/functions.html#globals) are the same dictionary.
 
-Note 
+Note
 
 The contents of this dictionary should not be modified; changes may not affect the values of local and free variables used by the interpreter.`map`\(_function_, _iterable_, _..._\)
 
@@ -494,7 +490,7 @@ Retrieve the next item from the _iterator_ by calling its [`__next__()`](https:/
 
 Return a new featureless object. [`object`](https://docs.python.org/3/library/functions.html#object) is a base for all classes. It has the methods that are common to all instances of Python classes. This function does not accept any arguments.
 
-Note 
+Note
 
 [`object`](https://docs.python.org/3/library/functions.html#object) does _not_ have a [`__dict__`](https://docs.python.org/3/library/stdtypes.html#object.__dict__), so you can’t assign arbitrary attributes to an instance of the [`object`](https://docs.python.org/3/library/functions.html#object) class.`oct`\(_x_\)
 
@@ -530,15 +526,15 @@ _file_ is a [path-like object](https://docs.python.org/3/glossary.html#term-path
 
 _mode_ is an optional string that specifies the mode in which the file is opened. It defaults to `'r'` which means open for reading in text mode. Other common values are `'w'` for writing \(truncating the file if it already exists\), `'x'` for exclusive creation and `'a'` for appending \(which on _some_ Unix systems, means that _all_ writes append to the end of the file regardless of the current seek position\). In text mode, if _encoding_ is not specified the encoding used is platform dependent: `locale.getpreferredencoding(False)` is called to get the current locale encoding. \(For reading and writing raw bytes use binary mode and leave _encoding_ unspecified.\) The available modes are:
 
-| Character | Meaning |
-| :--- | :--- |
-| `'r'` | open for reading \(default\) |
-| `'w'` | open for writing, truncating the file first |
-| `'x'` | open for exclusive creation, failing if the file already exists |
-| `'a'` | open for writing, appending to the end of the file if it exists |
-| `'b'` | binary mode |
-| `'t'` | text mode \(default\) |
-| `'+'` | open for updating \(reading and writing\) |
+| Character | Meaning                                                         |
+| :-------- | :-------------------------------------------------------------- |
+| `'r'`     | open for reading \(default\)                                    |
+| `'w'`     | open for writing, truncating the file first                     |
+| `'x'`     | open for exclusive creation, failing if the file already exists |
+| `'a'`     | open for writing, appending to the end of the file if it exists |
+| `'b'`     | binary mode                                                     |
+| `'t'`     | text mode \(default\)                                           |
+| `'+'`     | open for updating \(reading and writing\)                       |
 
 The default mode is `'r'` \(open for reading text, synonym of `'rt'`\). Modes `'w+'` and `'w+b'` open and truncate the file. Modes `'r+'` and `'r+b'` open the file with no truncation.
 
@@ -546,31 +542,31 @@ As mentioned in the [Overview](https://docs.python.org/3/library/io.html#io-over
 
 There is an additional mode character permitted, `'U'`, which no longer has any effect, and is considered deprecated. It previously enabled [universal newlines](https://docs.python.org/3/glossary.html#term-universal-newlines) in text mode, which became the default behaviour in Python 3.0. Refer to the documentation of the [newline](https://docs.python.org/3/library/functions.html#open-newline-parameter) parameter for further details.
 
-Note 
+Note
 
 Python doesn’t depend on the underlying operating system’s notion of text files; all the processing is done by Python itself, and is therefore platform-independent.
 
 _buffering_ is an optional integer used to set the buffering policy. Pass 0 to switch buffering off \(only allowed in binary mode\), 1 to select line buffering \(only usable in text mode\), and an integer &gt; 1 to indicate the size in bytes of a fixed-size chunk buffer. When no _buffering_ argument is given, the default buffering policy works as follows:
 
-* Binary files are buffered in fixed-size chunks; the size of the buffer is chosen using a heuristic trying to determine the underlying device’s “block size” and falling back on [`io.DEFAULT_BUFFER_SIZE`](https://docs.python.org/3/library/io.html#io.DEFAULT_BUFFER_SIZE). On many systems, the buffer will typically be 4096 or 8192 bytes long.
-* “Interactive” text files \(files for which [`isatty()`](https://docs.python.org/3/library/io.html#io.IOBase.isatty) returns `True`\) use line buffering. Other text files use the policy described above for binary files.
+- Binary files are buffered in fixed-size chunks; the size of the buffer is chosen using a heuristic trying to determine the underlying device’s “block size” and falling back on [`io.DEFAULT_BUFFER_SIZE`](https://docs.python.org/3/library/io.html#io.DEFAULT_BUFFER_SIZE). On many systems, the buffer will typically be 4096 or 8192 bytes long.
+- “Interactive” text files \(files for which [`isatty()`](https://docs.python.org/3/library/io.html#io.IOBase.isatty) returns `True`\) use line buffering. Other text files use the policy described above for binary files.
 
 _encoding_ is the name of the encoding used to decode or encode the file. This should only be used in text mode. The default encoding is platform dependent \(whatever [`locale.getpreferredencoding()`](https://docs.python.org/3/library/locale.html#locale.getpreferredencoding) returns\), but any [text encoding](https://docs.python.org/3/glossary.html#term-text-encoding) supported by Python can be used. See the [`codecs`](https://docs.python.org/3/library/codecs.html#module-codecs) module for the list of supported encodings.
 
 _errors_ is an optional string that specifies how encoding and decoding errors are to be handled—this cannot be used in binary mode. A variety of standard error handlers are available \(listed under [Error Handlers](https://docs.python.org/3/library/codecs.html#error-handlers)\), though any error handling name that has been registered with [`codecs.register_error()`](https://docs.python.org/3/library/codecs.html#codecs.register_error) is also valid. The standard names include:
 
-* `'strict'` to raise a [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError) exception if there is an encoding error. The default value of `None` has the same effect.
-* `'ignore'` ignores errors. Note that ignoring encoding errors can lead to data loss.
-* `'replace'` causes a replacement marker \(such as `'?'`\) to be inserted where there is malformed data.
-* `'surrogateescape'` will represent any incorrect bytes as low surrogate code units ranging from U+DC80 to U+DCFF. These surrogate code units will then be turned back into the same bytes when the `surrogateescape` error handler is used when writing data. This is useful for processing files in an unknown encoding.
-* `'xmlcharrefreplace'` is only supported when writing to a file. Characters not supported by the encoding are replaced with the appropriate XML character reference `&#nnn;`.
-* `'backslashreplace'` replaces malformed data by Python’s backslashed escape sequences.
-* `'namereplace'` \(also only supported when writing\) replaces unsupported characters with `\N{...}` escape sequences.
+- `'strict'` to raise a [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError) exception if there is an encoding error. The default value of `None` has the same effect.
+- `'ignore'` ignores errors. Note that ignoring encoding errors can lead to data loss.
+- `'replace'` causes a replacement marker \(such as `'?'`\) to be inserted where there is malformed data.
+- `'surrogateescape'` will represent any incorrect bytes as low surrogate code units ranging from U+DC80 to U+DCFF. These surrogate code units will then be turned back into the same bytes when the `surrogateescape` error handler is used when writing data. This is useful for processing files in an unknown encoding.
+- `'xmlcharrefreplace'` is only supported when writing to a file. Characters not supported by the encoding are replaced with the appropriate XML character reference `&#nnn;`.
+- `'backslashreplace'` replaces malformed data by Python’s backslashed escape sequences.
+- `'namereplace'` \(also only supported when writing\) replaces unsupported characters with `\N{...}` escape sequences.
 
 _newline_ controls how [universal newlines](https://docs.python.org/3/glossary.html#term-universal-newlines) mode works \(it only applies to text mode\). It can be `None`, `''`, `'\n'`, `'\r'`, and `'\r\n'`. It works as follows:
 
-* When reading input from the stream, if _newline_ is `None`, universal newlines mode is enabled. Lines in the input can end in `'\n'`, `'\r'`, or `'\r\n'`, and these are translated into `'\n'` before being returned to the caller. If it is `''`, universal newlines mode is enabled, but line endings are returned to the caller untranslated. If it has any of the other legal values, input lines are only terminated by the given string, and the line ending is returned to the caller untranslated.
-* When writing output to the stream, if _newline_ is `None`, any `'\n'` characters written are translated to the system default line separator, [`os.linesep`](https://docs.python.org/3/library/os.html#os.linesep). If _newline_ is `''` or `'\n'`, no translation takes place. If _newline_ is any of the other legal values, any `'\n'` characters written are translated to the given string.
+- When reading input from the stream, if _newline_ is `None`, universal newlines mode is enabled. Lines in the input can end in `'\n'`, `'\r'`, or `'\r\n'`, and these are translated into `'\n'` before being returned to the caller. If it is `''`, universal newlines mode is enabled, but line endings are returned to the caller untranslated. If it has any of the other legal values, input lines are only terminated by the given string, and the line ending is returned to the caller untranslated.
+- When writing output to the stream, if _newline_ is `None`, any `'\n'` characters written are translated to the system default line separator, [`os.linesep`](https://docs.python.org/3/library/os.html#os.linesep). If _newline_ is `''` or `'\n'`, no translation takes place. If _newline_ is any of the other legal values, any `'\n'` characters written are translated to the given string.
 
 If _closefd_ is `False` and a file descriptor rather than a filename was given, the underlying file descriptor will be kept open when the file is closed. If a filename is given _closefd_ must be `True` \(the default\) otherwise an error will be raised.
 
@@ -578,7 +574,7 @@ A custom opener can be used by passing a callable as _opener_. The underlying fi
 
 The newly created file is [non-inheritable](https://docs.python.org/3/library/os.html#fd-inheritance).
 
-The following example uses the [dir\_fd](https://docs.python.org/3/library/os.html#dir-fd) parameter of the [`os.open()`](https://docs.python.org/3/library/os.html#os.open) function to open a file relative to a given directory:&gt;&gt;&gt;
+The following example uses the [dir_fd](https://docs.python.org/3/library/os.html#dir-fd) parameter of the [`os.open()`](https://docs.python.org/3/library/os.html#os.open) function to open a file relative to a given directory:&gt;&gt;&gt;
 
 ```text
 >>> import os
@@ -602,26 +598,26 @@ The `mode` and `flags` arguments may have been modified or inferred from the ori
 
 > Changed in version 3.3:
 >
-> * The _opener_ parameter was added.
-> * The `'x'` mode was added.
-> * [`IOError`](https://docs.python.org/3/library/exceptions.html#IOError) used to be raised, it is now an alias of [`OSError`](https://docs.python.org/3/library/exceptions.html#OSError).
-> * [`FileExistsError`](https://docs.python.org/3/library/exceptions.html#FileExistsError) is now raised if the file opened in exclusive creation mode \(`'x'`\) already exists.
+> - The _opener_ parameter was added.
+> - The `'x'` mode was added.
+> - [`IOError`](https://docs.python.org/3/library/exceptions.html#IOError) used to be raised, it is now an alias of [`OSError`](https://docs.python.org/3/library/exceptions.html#OSError).
+> - [`FileExistsError`](https://docs.python.org/3/library/exceptions.html#FileExistsError) is now raised if the file opened in exclusive creation mode \(`'x'`\) already exists.
 
 > Changed in version 3.4:
 >
-> * The file is now non-inheritable.
+> - The file is now non-inheritable.
 
 Deprecated since version 3.4, will be removed in version 3.10: The `'U'` mode.
 
 > Changed in version 3.5:
 >
-> * If the system call is interrupted and the signal handler does not raise an exception, the function now retries the system call instead of raising an [`InterruptedError`](https://docs.python.org/3/library/exceptions.html#InterruptedError) exception \(see [**PEP 475**](https://www.python.org/dev/peps/pep-0475) for the rationale\).
-> * The `'namereplace'` error handler was added.
+> - If the system call is interrupted and the signal handler does not raise an exception, the function now retries the system call instead of raising an [`InterruptedError`](https://docs.python.org/3/library/exceptions.html#InterruptedError) exception \(see [**PEP 475**](https://www.python.org/dev/peps/pep-0475) for the rationale\).
+> - The `'namereplace'` error handler was added.
 
 > Changed in version 3.6:
 >
-> * Support added to accept objects implementing [`os.PathLike`](https://docs.python.org/3/library/os.html#os.PathLike).
-> * On Windows, opening a console buffer may return a subclass of [`io.RawIOBase`](https://docs.python.org/3/library/io.html#io.RawIOBase) other than [`io.FileIO`](https://docs.python.org/3/library/io.html#io.FileIO).
+> - Support added to accept objects implementing [`os.PathLike`](https://docs.python.org/3/library/os.html#os.PathLike).
+> - On Windows, opening a console buffer may return a subclass of [`io.RawIOBase`](https://docs.python.org/3/library/io.html#io.RawIOBase) other than [`io.FileIO`](https://docs.python.org/3/library/io.html#io.FileIO).
 
 `ord`\(_c_\)
 
@@ -631,7 +627,7 @@ Return _base_ to the power _exp_; if _mod_ is present, return _base_ to the powe
 
 The arguments must have numeric types. With mixed operand types, the coercion rules for binary arithmetic operators apply. For [`int`](https://docs.python.org/3/library/functions.html#int) operands, the result has the same type as the operands \(after coercion\) unless the second argument is negative; in that case, all arguments are converted to float and a float result is delivered. For example, `10**2` returns `100`, but `10**-2` returns `0.01`.
 
-For [`int`](https://docs.python.org/3/library/functions.html#int) operands _base_ and _exp_, if _mod_ is present, _mod_ must also be of integer type and _mod_ must be nonzero. If _mod_ is present and _exp_ is negative, _base_ must be relatively prime to _mod_. In that case, `pow(inv_base, -exp, mod)` is returned, where _inv\_base_ is an inverse to _base_ modulo _mod_.
+For [`int`](https://docs.python.org/3/library/functions.html#int) operands _base_ and _exp_, if _mod_ is present, _mod_ must also be of integer type and _mod_ must be nonzero. If _mod_ is present and _exp_ is negative, _base_ must be relatively prime to _mod_. In that case, `pow(inv_base, -exp, mod)` is returned, where _inv_base_ is an inverse to _base_ modulo _mod_.
 
 Here’s an example of computing an inverse for `38` modulo `97`:&gt;&gt;&gt;
 
@@ -735,7 +731,7 @@ For the built-in types supporting [`round()`](https://docs.python.org/3/library/
 
 For a general Python object `number`, `round` delegates to `number.__round__`.
 
-Note 
+Note
 
 The behavior of [`round()`](https://docs.python.org/3/library/functions.html#round) for floats can be surprising: for example, `round(2.675, 2)` gives `2.67` instead of the expected `2.68`. This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. See [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues) for more information._class_ `set`\(\[_iterable_\]\)
 
@@ -745,7 +741,7 @@ For other containers see the built-in [`frozenset`](https://docs.python.org/3/li
 
 This is the counterpart of [`getattr()`](https://docs.python.org/3/library/functions.html#getattr). The arguments are an object, a string and an arbitrary value. The string may name an existing attribute or a new attribute. The function assigns the value to the attribute, provided the object allows it. For example, `setattr(x, 'foobar', 123)` is equivalent to `x.foobar = 123`.
 
-Note 
+Note
 
 Since [private name mangling](https://docs.python.org/3/reference/expressions.html#private-name-mangling) happens at compilation time, one must manually mangle a private attribute’s \(attributes with two leading underscores\) name in order to set it with [`setattr()`](https://docs.python.org/3/library/functions.html#setattr)._class_ `slice`\(_stop_\)_class_ `slice`\(_start_, _stop_\[, _step_\]\)
 
@@ -900,7 +896,7 @@ True
 
 `__import__`\(_name_, _globals=None_, _locals=None_, _fromlist=\(\)_, _level=0_\)
 
-Note 
+Note
 
 This is an advanced function that is not needed in everyday Python programming, unlike [`importlib.import_module()`](https://docs.python.org/3/library/importlib.html#importlib.import_module).
 
@@ -933,4 +929,3 @@ _temp = __import__('spam.ham', globals(), locals(), ['eggs', 'sausage'], 0)
 eggs = _temp.eggs
 saus = _temp.sausage
 ```
-
