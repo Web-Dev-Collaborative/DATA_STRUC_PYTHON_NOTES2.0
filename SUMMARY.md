@@ -26,6 +26,7 @@
 ## Embeds
 
 * [Trinket](embeds/trinket.md)
+* [Github/Gists](embeds/github-gists.md)
 * [Repl.it](embeds/repl.it.md)
 
 ## Wk-18
