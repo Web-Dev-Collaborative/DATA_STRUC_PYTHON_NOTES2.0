@@ -30,6 +30,7 @@
 
 ## Wk-18
 
+* [D2](wk-18/d2.md)
 * [Big O Notation](wk-18/big-o-notation.md)
 * [Untitled](wk-18/untitled.md)
 
