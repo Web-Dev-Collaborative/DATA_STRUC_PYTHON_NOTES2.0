@@ -19,6 +19,6 @@
     "prettier": "1.17.1"
   },
   "dependencies": {
-    "@bgoonz11/repoutils": "^1.0.5"
+    "@bgoonz11/repoutils": "1.0.5"
   }
 }
