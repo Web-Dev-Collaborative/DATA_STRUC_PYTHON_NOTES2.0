@@ -16,6 +16,7 @@
 
 ## Resources
 
+* [Misc Resources](resources/misc-resources.md)
 * [Youtube](resources/youtube-1.md)
 * [Links](resources/links.md)
 * [Python Keywords](resources/python-keywords.md)
