@@ -40,3 +40,8 @@
 
 * [Misc](misc/misc.md)
 
+---
+
+* [D1](d1.md)
+* [D3](d3.md)
+
