@@ -9,7 +9,9 @@ return it.
 Example: aabbabbaababa as input will return
          aabbabbaa as output
 """
-def manacher_algo_lps(s,n):
+
+
+def manacher_algo_lps(s, n):
     """
     PARAMETER
     --------------
@@ -28,35 +30,37 @@ def manacher_algo_lps(s,n):
 
     # Main Algorithm
     for i in range(n):
-        mirror = 2*c-i # Finding the Mirror(i.e. Pivort to break) of the string
+        mirror = 2 * c - i  # Finding the Mirror(i.e. Pivort to break) of the string
         if i < r:
             p[i] = (r - i) if (r - i) < p[mirror] else p[mirror]
         a = i + (1 + p[i])
         b = i - (1 + p[i])
 
-        # Attempt to expand palindrome centered at currentRightPosition i 
-        # Here for odd positions, we compare characters and 
-        # if match then increment LPS Length by ONE 
-        # If even position, we just increment LPS by ONE without 
+        # Attempt to expand palindrome centered at currentRightPosition i
+        # Here for odd positions, we compare characters and
+        # if match then increment LPS Length by ONE
+        # If even position, we just increment LPS by ONE without
         # any character comparison
-        while a<n and b>=0 and s[a] == s[b]:
+        while a < n and b >= 0 and s[a] == s[b]:
             p[i] += 1
             a += 1
             b -= 1
         if (i + p[i]) > r:
             c = i
             r = i + p[i]
-            if p[i] > maxlen:               # Track maxLPSLength
+            if p[i] > maxlen:  # Track maxLPSLength
                 maxlen = p[i]
     i = p.index(maxlen)
-    return s[i-maxlen:maxlen+i][1::2]
+    return s[i - maxlen : maxlen + i][1::2]
+
 
 def longest_palindrome(s: str) -> str:
-    s = '#'.join(s)
-    s = '#'+s+'#'
+    s = "#".join(s)
+    s = "#" + s + "#"
 
     # Calling Manacher Algorithm
-    return manacher_algo_lps(s,len(s))
+    return manacher_algo_lps(s, len(s))
+
 
 def main():
 
@@ -67,9 +71,8 @@ def main():
     s = longest_palindrome(input_string)
     print("LPS Using Manacher Algorithm {}".format(s))
 
+
 # Calling Main Function
 if __name__ == "__main__":
 
     main()
-
-    

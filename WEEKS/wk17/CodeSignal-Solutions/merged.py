@@ -1,11 +1,14 @@
 def add(param1, param2):
     return param1 + param2
 
+
 def centuryFromYear(year):
     return ((year - 1) // 100) + 1
 
+
 def checkPalindrome(inputString):
     return inputString == inputString[::-1]
+
 
 def adjacentElementsProduct(inputArray):
     max = inputArray[0] * inputArray[1]
@@ -14,22 +17,25 @@ def adjacentElementsProduct(inputArray):
             max = inputArray[i] * inputArray[i + 1]
     return max
 
+
 def shapeArea(n):
     sum = n * 2 - 1
     for i in range(1, (n * 2) - 1, 2):
         sum += i * 2
     return sum
 
+
 def makeArrayConsecutive2(statues):
     return max(statues) - min(statues) - len(statues) + 1
+
 
 def almostIncreasingSequence(sequence):
     i = 0
     while i < len(sequence) - 1:
         if not sequence[i] < sequence[i + 1]:
             if increasingSequence(
-                sequence[:i] + sequence[i + 1:]
-            ) or increasingSequence(sequence[: i + 1] + sequence[i + 2:]):
+                sequence[:i] + sequence[i + 1 :]
+            ) or increasingSequence(sequence[: i + 1] + sequence[i + 2 :]):
                 return True
             else:
                 return False
@@ -43,6 +49,7 @@ def increasingSequence(sequence):
             return False
     return True
 
+
 def matrixElementsSum(matrix):
     if len(matrix) > 1:
         for row in range(1, len(matrix)):
@@ -54,6 +61,7 @@ def matrixElementsSum(matrix):
         for room in row:
             sum += room
     return sum
+
 
 def allLongestStrings(inputArray):
     length = max([len(word) for word in inputArray])
@@ -70,11 +78,13 @@ def commonCharacterCount(s1, s2):
             count += 1
     return count
 
+
 def isLucky(n):
     string = str(n)
     top = [int(x) for x in string[: len(string) // 2]]
-    bottom = [int(x) for x in string[len(string) // 2:]]
+    bottom = [int(x) for x in string[len(string) // 2 :]]
     return sum(top) == sum(bottom)
+
 
 def sortByHeight(a):
     treePositions = [x for x in range(len(a)) if a[x] == -1]
@@ -83,23 +93,24 @@ def sortByHeight(a):
         people.insert(tree, -1)
     return people
 
+
 import re
 
 
 def reverseParentheses(s):
     while "(" in s:
         match = re.search("\([^()]*\)", s)
-        match_string = match.group(0)[1: len(match.group(0)) - 1]
+        match_string = match.group(0)[1 : len(match.group(0)) - 1]
         reversed_match_string = match_string[::-1]
-        s = s[: match.start()] + reversed_match_string + s[match.end():]
+        s = s[: match.start()] + reversed_match_string + s[match.end() :]
     return s
-
 
 
 def alternatingSums(a):
     team1 = sum(a[0::2])
     team2 = sum(a[1::2])
     return [team1, team2]
+
 
 def addBorder(picture):
     picture = ["*" + string + "*" for string in picture]
@@ -143,11 +154,13 @@ def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
     differentHands = yourLeft == friendsRight and yourRight == friendsLeft
     return sameHands or differentHands
 
+
 def arrayMaximalAdjacentDifference(inputArray):
     diffs = []
     for i in range(len(inputArray) - 1):
         diffs.append(abs(inputArray[i] - inputArray[i + 1]))
     return max(diffs)
+
 
 def isIPv4Address(inputString):
     strings = [string for string in inputString.split(".")]
@@ -156,6 +169,7 @@ def isIPv4Address(inputString):
             return False
     nums = [int(num) for num in strings]
     return max(nums) <= 255 and min(nums) >= 0 and len(nums) == 4
+
 
 def avoidObstacles(inputArray):
     for length in range(2, max(inputArray) + 2):
@@ -168,6 +182,7 @@ def avoidObstacles(inputArray):
             jump += length
         if done:
             return length
+
 
 def boxBlur(image):
     outImage = []
@@ -188,6 +203,7 @@ def boxBlur(image):
             line.append(total // 9)
         outImage.append(line)
     return outImage
+
 
 def minesweeper(matrix):
     TOP = 0
@@ -219,27 +235,34 @@ def minesweeper(matrix):
         outMatrix.append(outRow)
     return outMatrix
 
+
 def arrayReplace(inputArray, elemToReplace, substitutionElem):
     return [x if x != elemToReplace else substitutionElem for x in inputArray]
+
 
 def evenDigitsOnly(n):
     return all(
         (True if digit in ("0", "2", "4", "6", "8") else False for digit in str(n))
     )
 
+
 def variableName(name):
     return name.replace("_", "").isalnum() and not name[0].isdigit()
 
+
 def alphabeticShift(inputString):
     return "".join([chr(ord(x) + 1) if x != "z" else "a" for x in inputString])
+
 
 def chessBoardCellColor(cell1, cell2):
     color1 = ((ord(cell1[0]) - ord("A")) + ord(cell1[1]) - ord("1")) % 2 == 0
     color2 = ((ord(cell2[0]) - ord("A")) + ord(cell2[1]) - ord("1")) % 2 == 0
     return color1 == color2
 
+
 def circleOfNumbers(n, firstNumber):
     return (firstNumber + (n / 2)) % n
+
 
 def depositProfit(deposit, rate, threshold):
     year = 0
@@ -247,6 +270,7 @@ def depositProfit(deposit, rate, threshold):
         deposit *= 1 + (rate / 100)
         year += 1
     return year
+
 
 def absoluteValuesSumMinimization(a):
     sums = {}
@@ -258,6 +282,7 @@ def absoluteValuesSumMinimization(a):
             sums[total] = num
         print(sums)
     return sums[min(sums)]
+
 
 import itertools
 
@@ -276,22 +301,27 @@ def testArrangement(array):
             return False
     return True
 
+
 def extractEachKth(inputArray, k):
     return [inputArray[x] for x in range(len(inputArray)) if (x + 1) % k != 0]
+
 
 def firstDigit(inputString):
     for char in inputString:
         if char.isdigit():
             return char
 
+
 def differentSymbolsNaive(s):
     return len(set(s))
+
 
 def arrayMaxConsecutiveSum(inputArray, k):
     sums = [sum(inputArray[:k])]
     for i in range(1, len(inputArray) - k + 1):
         sums.append(sums[i - 1] - inputArray[i - 1] + inputArray[i + k - 1])
     return max(sums)
+
 
 def growingPlant(upSpeed, downSpeed, desiredHeight):
     height = 0
@@ -303,6 +333,7 @@ def growingPlant(upSpeed, downSpeed, desiredHeight):
         height += upSpeed
     return days
 
+
 def knapsackLight(value1, weight1, value2, weight2, maxW):
     if weight1 + weight2 <= maxW:
         return value1 + value2
@@ -312,11 +343,13 @@ def knapsackLight(value1, weight1, value2, weight2, maxW):
         return value2
     return 0
 
+
 def longestDigitsPrefix(inputString):
     for char in range(len(inputString)):
         if not inputString[char].isdigit():
             return inputString[:char]
     return inputString
+
 
 def digitDegree(n):
     degree = 0
@@ -325,8 +358,10 @@ def digitDegree(n):
         degree += 1
     return degree
 
+
 def bishopAndPawn(bishop, pawn):
     return abs(ord(bishop[0]) - ord(pawn[0])) == abs(ord(bishop[1]) - ord(pawn[1]))
+
 
 def isBeautifulString(inputString):
     for letter in range(ord("a"), ord("z")):
@@ -334,8 +369,10 @@ def isBeautifulString(inputString):
             return False
     return True
 
+
 def findEmailDomain(address):
-    return address[address.rfind("@") + 1:]
+    return address[address.rfind("@") + 1 :]
+
 
 def buildPalindrome(st):
     if st == st[::-1]:  # Check for initial palindrome
@@ -345,7 +382,8 @@ def buildPalindrome(st):
     while subStr != subStr[::-1]:  # while substring is not a palindrome
         index += 1
         subStr = st[index:]
-    return st + st[index - 1:: -1]
+    return st + st[index - 1 :: -1]
+
 
 def electionsWinners(votes, k):
     winners = 0
@@ -356,6 +394,7 @@ def electionsWinners(votes, k):
         if k == 0 and candidate == current_winner and votes.count(candidate) == 1:
             winners += 1
     return winners
+
 
 def isMAC48Address(inputString):
     hex_chars = (
@@ -391,8 +430,10 @@ def isMAC48Address(inputString):
         return False
     return True
 
+
 def isDigit(symbol):
     return symbol.isdigit()
+
 
 def lineEncoding(s):
     count = 1
@@ -411,6 +452,7 @@ def lineEncoding(s):
     else:
         output.append(s[len(s) - 1])
     return "".join(output)
+
 
 def chessKnight(cell):
     moves = 0
@@ -434,14 +476,16 @@ def chessKnight(cell):
 
     return moves
 
+
 def deleteDigit(n):
     num = str(n)
     highest = 0
     for digit in range(len(num)):
-        output = num[:digit] + num[digit + 1:]
+        output = num[:digit] + num[digit + 1 :]
         if int(output) > int(highest):
             highest = output
     return int(highest)
+
 
 def longestWord(text):
     longest = []
@@ -457,6 +501,7 @@ def longestWord(text):
         longest = word
     return "".join(longest)
 
+
 def validTime(time):
     groups = time.split(":")
     if len(groups) != 2:
@@ -466,6 +511,7 @@ def validTime(time):
     if int(groups[0]) > 23 or int(groups[1]) > 59:
         return False
     return True
+
 
 def sumUpNumbers(inputString):
     total = 0
@@ -483,6 +529,7 @@ def sumUpNumbers(inputString):
         total += num
     return total
 
+
 def differentSquares(matrix):
     squares = set()
     for row in range(len(matrix) - 1):
@@ -493,6 +540,7 @@ def differentSquares(matrix):
             )
             squares.add(square)
     return len(squares)
+
 
 def digitsProduct(product):
     # New idea: add product to factors
@@ -539,6 +587,7 @@ def findFactors(n):
             return i, n // i
     return False
 
+
 def fileNaming(names):
     outnames = []
     for name in names:
@@ -550,12 +599,14 @@ def fileNaming(names):
         outnames.append(name)
     return outnames
 
+
 def messageFromBinaryCode(code):
     output = []
     for i in range(0, len(code), 8):
         letter = chr(int(code[i : i + 8], 2))
         output.append(letter)
     return "".join(output)
+
 
 def spiralNumbers(n):
     LEFT = "left"
@@ -597,6 +648,7 @@ def spiralNumbers(n):
 
 print(spiralNumbers(5))
 
+
 def sudoku(grid):
     match = [i for i in range(1, 10)]
     for row in grid:
@@ -616,17 +668,22 @@ def sudoku(grid):
                 return False
     return True
 
+
 def addTwoDigits(n):
     return (n // 10) + (n % 10)
+
 
 def largestNumber(n):
     return int("9" * n)
 
+
 def candies(n, m):
     return (m // n) * n
 
+
 def seatsInTheater(nCols, nRows, col, row):
     return (nCols - col + 1) * (nRows - row)
+
 
 def maxMultiple(divisor, bound):
     for num in range(bound, 1, -1):
@@ -634,13 +691,16 @@ def maxMultiple(divisor, bound):
             return num
     return 0
 
+
 def circleOfNumbers(n, firstNumber):
     return (firstNumber + (n // 2)) % n
+
 
 def lateRide(n):
     hours = n // 60
     minutes = n % 60
     return (hours // 10) + (hours % 10) + (minutes // 10) + (minutes % 10)
+
 
 def phoneCall(min1, min2_10, min11, s):
     if s < min1:
@@ -654,8 +714,10 @@ def phoneCall(min1, min2_10, min11, s):
     s -= min2_10 * 9
     return (s // min11) + 10
 
+
 def reachNextLevel(experience, threshold, reward):
     return experience + reward >= threshold
+
 
 def knapsackLight(value1, weight1, value2, weight2, maxW):
     if weight1 + weight2 <= maxW:
@@ -668,6 +730,7 @@ def knapsackLight(value1, weight1, value2, weight2, maxW):
         return value2
     return 0
 
+
 def extraNumber(a, b, c):
     if a == b:
         return c
@@ -675,11 +738,14 @@ def extraNumber(a, b, c):
         return b
     return a
 
+
 def isInfiniteProcess(a, b):
     return a > b or (a % 2 != b % 2)
 
+
 def arithmeticExpression(a, b, c):
     return a + b == c or a - b == c or a * b == c or a / b == c
+
 
 def tennisSet(score1, score2):
     if max(score1, score2) == 6 and min(score1, score2) < 5:
@@ -688,21 +754,26 @@ def tennisSet(score1, score2):
         return True
     return False
 
+
 def willYou(young, beautiful, loved):
     return (young and beautiful) != loved
+
 
 def metroCard(lastNumberOfDays):
     if lastNumberOfDays == 30 or lastNumberOfDays == 28:
         return [31]
     return [28, 30, 31]
 
+
 def killKthBit(n, k):
     return n & ~(2 ** (k - 1))
+
 
 def arrayPacking(a):
     binary_array = [bin(num)[2:].rjust(8, "0") for num in a]
     out_string = "".join(binary_array[::-1])
     return int(out_string, 2)
+
 
 def rangeBitCount(a, b):
     array = list(range(a, b + 1))
@@ -710,21 +781,27 @@ def rangeBitCount(a, b):
     count_array = [binary.count("1") for binary in binary_array]
     return sum(count_array)
 
+
 def mirrorBits(a):
     binary = bin(a)[2:]
     return int(binary[::-1], 2)
 
+
 def secondRightmostZeroBit(n):
     return 2 ** bin(n)[::-1].find("0", bin(n)[::-1].find("0") + 1)
+
 
 def swapAdjacentBits(n):
     return ((n >> 1) & 1431655765) | ((n << 1) & 2863311530)
 
+
 def differentRightmostBit(n, m):
     return 2 ** bin((n ^ m))[::-1].find("1")
 
+
 def equalPairOfBits(n, m):
     return 2 ** bin(~(n ^ m))[::-1].find("1")
+
 
 def leastFactorial(n):
     factorial = 1
@@ -733,6 +810,7 @@ def leastFactorial(n):
         index += 1
         factorial *= index
     return factorial
+
 
 def countSumOfTwoRepresentations2(n, l, r):
     count = 0
@@ -744,6 +822,7 @@ def countSumOfTwoRepresentations2(n, l, r):
         b -= 1
     return count
 
+
 def magicalWell(a, b, n):
     total = 0
     for i in range(n):
@@ -751,6 +830,7 @@ def magicalWell(a, b, n):
         a += 1
         b += 1
     return total
+
 
 def lineUp(commands):
     count = 0
@@ -771,6 +851,7 @@ def lineUp(commands):
             count += 1
     return count
 
+
 def additionWithoutCarrying(param1, param2):
     # Convert numbers to strings
     str1 = str(param1)
@@ -785,6 +866,7 @@ def additionWithoutCarrying(param1, param2):
         output.append(result)
     return int("".join(output))
 
+
 def appleBoxes(k):
     red = 0
     yellow = 0
@@ -794,6 +876,7 @@ def appleBoxes(k):
         red += i * i
 
     return red - yellow
+
 
 def increaseNumberRoundness(n):
     string = str(n)
@@ -813,12 +896,14 @@ def increaseNumberRoundness(n):
     zero_sandwich = string[first_zero:]
     return zero_sandwich.count("0") != len(zero_sandwich)
 
+
 def rounders(value):
     length = len(str(value))
     magnitude = length - 1
     for i in range(length - 1):
         value = int((value / 10) + 0.5)
     return value * (10 ** magnitude)
+
 
 def candles(candlesNumber, makeNew):
     totalBurned = 0
@@ -830,6 +915,7 @@ def candles(candlesNumber, makeNew):
         candlesNumber = leftovers // makeNew
         leftovers = leftovers % makeNew
     return totalBurned
+
 
 def countBlackCells(n, m):
     gcd = find_gcd(n, m)
@@ -843,14 +929,17 @@ def find_gcd(a, b):
         a, b = b, a % b
     return a
 
+
 def createArray(size):
     return [1] * size
+
 
 def arrayReplace(inputArray, elemToReplace, substitutionElem):
     output = [
         elem if elem != elemToReplace else substitutionElem for elem in inputArray
     ]
     return output
+
 
 def firstReverseTry(arr):
     if len(arr) < 2:
@@ -859,11 +948,14 @@ def firstReverseTry(arr):
         return arr[::-1]
     return arr[-1:] + arr[1:-1] + arr[:1]
 
+
 def concatenateArrays(a, b):
     return a + b
 
+
 def removeArrayPart(inputArray, l, r):
     return inputArray[:l] + inputArray[r + 1 :]
+
 
 def isSmooth(arr):
     if arr[0] != arr[-1]:
@@ -875,10 +967,6 @@ def isSmooth(arr):
     return arr[0] == middle
 
 
-
-
-
-
 def replaceMiddle(arr):
     if len(arr) % 2 != 0:
         return arr
@@ -886,12 +974,14 @@ def replaceMiddle(arr):
     middle_value = arr[right_middle] + arr[right_middle - 1]
     return arr[: right_middle - 1] + [middle_value] + arr[right_middle + 1 :]
 
+
 def makeArrayConsecutive2(statues):
     count = 0
     for i in range(min(statues), max(statues)):
         if i not in statues:
             count += 1
     return count
+
 
 def isPower(n):
     if n == 1:
@@ -907,6 +997,7 @@ def isPower(n):
         b = 2
         a += 1
     return False
+
 
 def isSumOfConsecutive2(n):
     count = 0
@@ -924,6 +1015,7 @@ def isSumOfConsecutive2(n):
             del arr[0]
     return count
 
+
 def squareDigitsSequence(a0):
     sequence = [a0]
     while sequence[-1] not in sequence[:-1]:
@@ -933,6 +1025,7 @@ def squareDigitsSequence(a0):
         sequence.append(next_value)
     return len(sequence)
 
+
 def pagesNumberingWithInk(current, numberOfDigits):
     numberOfDigits -= len(str(current))
     next_digits = len(str(current + 1))
@@ -941,6 +1034,7 @@ def pagesNumberingWithInk(current, numberOfDigits):
         numberOfDigits -= next_digits
         next_digits = len(str(current))
     return current
+
 
 def comfortableNumbers(l, r):
     count = 0
@@ -952,17 +1046,18 @@ def comfortableNumbers(l, r):
                 count += 1
     return count
 
+
 def weakNumbers(n):
     all_factors = [count_factors(num) for num in range(1, n + 1)]
     weaknesses = []
     for num, num_factors in enumerate(all_factors, 1):
-            weakness = 0
-            for factor in all_factors[:num]:
-                if factor > num_factors:
-                    weakness += 1
-            weaknesses.append(weakness)
-            weakest = max(weaknesses)
-            return [weakest, weaknesses.count(weakest)]
+        weakness = 0
+        for factor in all_factors[:num]:
+            if factor > num_factors:
+                weakness += 1
+        weaknesses.append(weakness)
+        weakest = max(weaknesses)
+        return [weakest, weaknesses.count(weakest)]
 
 
 def count_factors(n):
@@ -989,4 +1084,3 @@ def rectangleRotation(a, b):
 
 # rectangleRotation(6, 4)
 print(rectangleRotation(8, 6))
-

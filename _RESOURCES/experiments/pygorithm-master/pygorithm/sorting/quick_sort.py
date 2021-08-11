@@ -8,7 +8,6 @@ Created On: 31st July 2017
 import inspect
 
 
-
 def sort(_list):
     """
     quick_sort algorithm
@@ -31,7 +30,7 @@ def time_complexities():
     time complexity
     :return: string
     """
-    return '''Best Case: O(nlogn), Average Case: O(nlogn), Worst Case: O(n ^ 2)'''
+    return """Best Case: O(nlogn), Average Case: O(nlogn), Worst Case: O(n ^ 2)"""
 
 
 def get_code():

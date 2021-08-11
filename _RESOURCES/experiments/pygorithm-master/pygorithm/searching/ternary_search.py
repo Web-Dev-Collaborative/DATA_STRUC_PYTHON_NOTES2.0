@@ -1,13 +1,14 @@
-'''
+"""
 Author: OMKAR PATHAK
 Created at: 26th August 2017
 
 Time complexity: O(logn)
 
 More Info: https://en.wikipedia.org/wiki/Ternary_search
-'''
+"""
 from __future__ import division
 import inspect
+
 
 def search(_list, left, right, target):
     if right >= left:
@@ -34,6 +35,7 @@ def search(_list, left, right, target):
         return search(_list, mid1 + 1, mid2 - 1, target)
 
     return False
+
 
 def time_complexities():
     """

@@ -12,6 +12,7 @@ Created On: 26th August 2017
 from __future__ import division
 import inspect
 
+
 def binary_search(_list, left, right, target):
     if right >= left:
         mid = (left + right) // 2
@@ -30,6 +31,7 @@ def binary_search(_list, left, right, target):
 
     return False
 
+
 def search(_list, target):
     """
     This function performs a exponential search
@@ -42,7 +44,9 @@ def search(_list, target):
     """
 
     if type(_list) is not list:
-        raise TypeError("Exponential search only excepts lists, not {}".format(str(type(_list))))
+        raise TypeError(
+            "Exponential search only excepts lists, not {}".format(str(type(_list)))
+        )
 
     # is target is at the first position itself
     if _list[0] == target:
@@ -53,7 +57,7 @@ def search(_list, target):
     while i < len(_list) and _list[i] <= target:
         i = i * 2
 
-    return binary_search(_list, i//2, min(i, len(_list)), target)
+    return binary_search(_list, i // 2, min(i, len(_list)), target)
 
 
 def time_complexities():

@@ -6,8 +6,3 @@ def isSmooth(arr):
     else:
         middle = arr[len(arr) // 2]
     return arr[0] == middle
-
-
-
-
-

@@ -11,12 +11,12 @@ from . import quick_select
 from . import ternary_search
 
 __all__ = [
-    'binary_search',
-    'breadth_first_search',
-    'depth_first_search',
-    'exponential_search',
-    'interpolation_search',
-    'linear_search',
-    'quick_select',
-    'ternary_search'
+    "binary_search",
+    "breadth_first_search",
+    "depth_first_search",
+    "exponential_search",
+    "interpolation_search",
+    "linear_search",
+    "quick_select",
+    "ternary_search",
 ]

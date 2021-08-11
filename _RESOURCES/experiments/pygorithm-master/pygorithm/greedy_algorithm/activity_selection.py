@@ -18,13 +18,23 @@ def activity_selection(start_times, finish_times):
     """
 
     if type(start_times) is not list:
-        raise TypeError("Activity selection problem only accepts lists, not {}".format(str(type(start_times))))
+        raise TypeError(
+            "Activity selection problem only accepts lists, not {}".format(
+                str(type(start_times))
+            )
+        )
 
     if type(finish_times) is not list:
-        raise TypeError("Activity selection problem only accepts lists, not {}".format(str(type(finish_times))))
+        raise TypeError(
+            "Activity selection problem only accepts lists, not {}".format(
+                str(type(finish_times))
+            )
+        )
 
     if len(start_times) != len(finish_times):
-        raise ValueError('Length of start_times list and finish_times list must be same')
+        raise ValueError(
+            "Length of start_times list and finish_times list must be same"
+        )
 
     n = len(start_times)
     activity = []

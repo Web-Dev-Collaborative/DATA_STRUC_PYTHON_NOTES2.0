@@ -93,28 +93,29 @@ Explanation: The input array represents the integer 999. 999 + 1 = 1000.
 n = 3
 idx = 3 - 1 - 2
 """
+
+
 def plus_one(digits):
     # Your code here
     n = len(digits)
     # iterate over the list from right to left
     for i in range(n - 1, -1, -1):
-      # idx = n - 1 - i
-      idx = i
-      # if the current digit is a 9 then set it to a 0
-      if digits[idx] == 9:
-        digits[idx] = 0
-      # otherwise increment the current digit and return digits
-      else:
-        digits[idx] += 1
-        return digits
-        
+        # idx = n - 1 - i
+        idx = i
+        # if the current digit is a 9 then set it to a 0
+        if digits[idx] == 9:
+            digits[idx] = 0
+        # otherwise increment the current digit and return digits
+        else:
+            digits[idx] += 1
+            return digits
 
     # return digits we only get here if the list was all 9's
     return [1] + digits
 
 
-print(plus_one([1, 3, 2])) # [1, 3, 3]
-print(plus_one([3, 2, 1, 9])) # [3, 2, 2, 0]
-print(plus_one([9, 9, 9])) # [1, 0, 0, 0]
+print(plus_one([1, 3, 2]))  # [1, 3, 3]
+print(plus_one([3, 2, 1, 9]))  # [3, 2, 2, 0]
+print(plus_one([9, 9, 9]))  # [1, 0, 0, 0]
 
 """# **CODE**: 3672"""

@@ -19,14 +19,15 @@ class TestFibonacciImplementations(unittest.TestCase):
         fibonacci_implementations = [generator, goldenratio, memoization, recursion]
 
         for implementation in fibonacci_implementations:
-            result = getattr(implementation, 'get_sequence')(0)
+            result = getattr(implementation, "get_sequence")(0)
             self.assertEqual([0], result)
 
-            result = getattr(implementation, 'get_sequence')(1)
+            result = getattr(implementation, "get_sequence")(1)
             self.assertEqual([0, 1], result)
 
-            result = getattr(implementation, 'get_sequence')(10)
+            result = getattr(implementation, "get_sequence")(10)
             self.assertEqual([0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55], result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

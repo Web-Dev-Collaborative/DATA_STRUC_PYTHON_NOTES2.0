@@ -60,6 +60,7 @@ def tim_sort(arr, run=32):
         size = 2 * size
     return arr
 
+
 def merge(arr, left, mid, right):
     """
     Merge of two sections of array, both of which are individually

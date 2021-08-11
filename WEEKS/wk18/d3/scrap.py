@@ -1,7 +1,5 @@
-
-
 def top_k_frequent(words, k):
-   # Initializing a dictionary
+    # Initializing a dictionary
     d = dict()
 
     # Iterating through the wordsay
@@ -27,7 +25,7 @@ def top_k_frequent(words, k):
     # less than K, then we cant find
     # the elements whose occurrence is
     # K-th most occurring.
-    if(len(d) < K):
+    if len(d) < K:
         return []
 
     # Initializing a new dictionary
@@ -42,7 +40,7 @@ def top_k_frequent(words, k):
         # the dictionary, then store
         # the element in an wordsay
         # with key as the frequency
-        if(freq not in occu):
+        if freq not in occu:
             occu[freq] = [num]
 
         # Else, add the element to
@@ -63,14 +61,13 @@ def top_k_frequent(words, k):
     # through the dictionary and
     # return the element
     for num, a in occu.items():
-        if(K == 0):
+        if K == 0:
             return a
         K -= 1
 
 
 # Driver code
 if __name__ == "__main__":
- words = ["the", "sky", "is", "cloudy", "the",
-         "the", "the", "cloudy", "is", "is"]
+    words = ["the", "sky", "is", "cloudy", "the", "the", "the", "cloudy", "is", "is"]
 K = 3
 print(top_k_frequent(words, K))

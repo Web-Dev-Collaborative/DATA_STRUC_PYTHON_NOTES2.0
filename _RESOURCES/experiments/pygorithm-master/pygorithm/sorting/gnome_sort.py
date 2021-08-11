@@ -1,15 +1,12 @@
-'''
+"""
 Created by: Pratik Narola (https://github.com/Pratiknarola)
 last modified: 14-10-2019
-'''
-
-
-
+"""
 
 
 # A function to sort the given list using Gnome sort
 def gnome_sort(arr):
-    '''
+    """
     Gnome Sort also called Stupid sort is based on the concept of a Garden Gnome sorting his flower pots.
     A garden gnome sorts the flower pots by the following method-
 
@@ -22,7 +19,7 @@ def gnome_sort(arr):
 
     :param arr: the array of values to sort
     :return: the sorted array, which is the same reference as arr
-    '''
+    """
     index = 0
     while index < len(arr):
         if index == 0:

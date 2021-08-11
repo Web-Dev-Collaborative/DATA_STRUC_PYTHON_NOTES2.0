@@ -17,6 +17,7 @@ if intersections will occur.
     
 """
 
+
 def calculate_one_moving_point_and_one_stationary_line(point, velocity, line, offset):
     """
     Determine if the point moving at velocity will intersect the line.
@@ -42,8 +43,11 @@ def calculate_one_moving_point_and_one_stationary_line(point, velocity, line, of
     :rtype: bool, :class:`numbers.Number` or None
     """
     return False, -1
-    
-def calculate_one_moving_line_and_one_stationary_line(line1, offset1, velocity1, _line2, offset2):
+
+
+def calculate_one_moving_line_and_one_stationary_line(
+    line1, offset1, velocity1, _line2, offset2
+):
     """
     Determine if the moving line will intersect the stationary line.
     
@@ -64,8 +68,11 @@ def calculate_one_moving_line_and_one_stationary_line(line1, offset1, velocity1,
     :rtype: bool, :class:`numbers.Number` or None
     """
     return False, -1
-    
-def calculate_one_moving_and_one_stationary(poly1, poly1_offset, poly1_velocity, poly2, poly2_offset):
+
+
+def calculate_one_moving_and_one_stationary(
+    poly1, poly1_offset, poly1_velocity, poly2, poly2_offset
+):
     """
     Determine if the moving polygon will intersect the stationary polygon.
     
@@ -88,7 +95,10 @@ def calculate_one_moving_and_one_stationary(poly1, poly1_offset, poly1_velocity,
     """
     return -1
 
-def calculate_one_moving_one_stationary_distancelimit(poly1, poly1_offset, poly1_velocity, poly2, poly2_offset, max_distance):
+
+def calculate_one_moving_one_stationary_distancelimit(
+    poly1, poly1_offset, poly1_velocity, poly2, poly2_offset, max_distance
+):
     """
     Determine if the moving polygon will intersect the stationary polygon 
     within some distance.
@@ -115,7 +125,10 @@ def calculate_one_moving_one_stationary_distancelimit(poly1, poly1_offset, poly1
     """
     pass
 
-def calculate_one_moving_one_stationary_along_path(poly1, poly1_start, poly1_end, poly2, poly2_offset):
+
+def calculate_one_moving_one_stationary_along_path(
+    poly1, poly1_start, poly1_end, poly2, poly2_offset
+):
     """
     Determine if the moving polygon will intersect the stationary polygon as 
     it moves from the start to the end.
@@ -139,9 +152,11 @@ def calculate_one_moving_one_stationary_along_path(poly1, poly1_start, poly1_end
     :rtype: bool
     """
     pass
-    
 
-def calculate_one_moving_many_stationary(poly1, poly1_offset, poly1_velocity, other_poly_offset_tuples):
+
+def calculate_one_moving_many_stationary(
+    poly1, poly1_offset, poly1_velocity, other_poly_offset_tuples
+):
     """
     Determine if the moving polygon will intersect anything as it 
     moves at a constant direction and speed forever.
@@ -167,7 +182,10 @@ def calculate_one_moving_many_stationary(poly1, poly1_offset, poly1_velocity, ot
     """
     pass
 
-def calculate_one_moving_many_stationary_distancelimit(poly1, poly1_offset, poly1_velocity, max_distance, other_poly_offset_tuples):
+
+def calculate_one_moving_many_stationary_distancelimit(
+    poly1, poly1_offset, poly1_velocity, max_distance, other_poly_offset_tuples
+):
     """
     Determine if the moving polygon will intersect anyything as 
     it moves in a constant direction and speed for a certain 
@@ -189,8 +207,11 @@ def calculate_one_moving_many_stationary_distancelimit(poly1, poly1_offset, poly
     :rtype: bool
     """
     pass
-    
-def calculate_one_moving_many_stationary_along_path(poly1, poly1_start, poly1_end, other_poly_offset_tuples):
+
+
+def calculate_one_moving_many_stationary_along_path(
+    poly1, poly1_start, poly1_end, other_poly_offset_tuples
+):
     """
     Determine if a polygon that moves from one point to another
     will intersect anything.
@@ -212,8 +233,11 @@ def calculate_one_moving_many_stationary_along_path(poly1, poly1_start, poly1_en
     :returns: if an intersection will occur
     :rtype: bool
     """
-    
-def calculate_two_moving(poly1, poly1_offset, poly1_vel, poly2, poly2_offset, poly2_vel):
+
+
+def calculate_two_moving(
+    poly1, poly1_offset, poly1_vel, poly2, poly2_offset, poly2_vel
+):
     """
     Determine if two moving polygons will intersect at some point.
     

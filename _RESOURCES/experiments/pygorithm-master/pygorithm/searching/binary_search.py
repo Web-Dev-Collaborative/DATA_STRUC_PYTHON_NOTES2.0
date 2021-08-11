@@ -22,7 +22,9 @@ def search(_list, target):
     """
 
     if type(_list) is not list:
-        raise TypeError("binary search only excepts lists, not {}".format(str(type(_list))))
+        raise TypeError(
+            "binary search only excepts lists, not {}".format(str(type(_list)))
+        )
 
     # First position of the list
     left = 0

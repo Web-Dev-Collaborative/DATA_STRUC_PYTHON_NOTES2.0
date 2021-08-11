@@ -14,6 +14,7 @@ class Node(object):
     Each node has its data and a pointer
     that points to next node in the Linked List
     """
+
     def __init__(self, data=None):
         self.left = None
         self.right = None
@@ -67,6 +68,7 @@ class BinaryTree(object):
     """
     BinaryTree class to create a binary tree
     """
+
     def __init__(self):
         self._in_order = []
         self._pre_order = []
@@ -77,11 +79,11 @@ class BinaryTree(object):
         insert data to root or create a root node
         """
         if self.root:
-           self.root.set_data(data)
+            self.root.set_data(data)
         else:
-           self.root = Node()
-           self.root.set_data(data)
-        
+            self.root = Node()
+            self.root.set_data(data)
+
     def inorder(self, root):
         """
         in this we traverse first to the leftmost node,
@@ -132,19 +134,19 @@ class BinaryTree(object):
         counting number of nodes
         """
         # need testing
-        left_number = 0;
-        right_number = 0;
+        left_number = 0
+        right_number = 0
 
-        #number of nodes left side
+        # number of nodes left side
         if root.get_left():
             left_number = self.number_of_nodes(root.get_left())
 
-        #numbeof nodes right side
+        # numbeof nodes right side
         if root.get_right():
             right_number = self.number_of_nodes(root.get_right())
 
         return left_number + right_number + 1
-    
+
     @staticmethod
     def get_code():
         """
@@ -157,6 +159,7 @@ class BSTNode(object):
     """
     class for creating a node for binary Search tree
     """
+
     def __init__(self, data):
         self.data = data
         self.left_child = None
@@ -312,7 +315,7 @@ class BSTNode(object):
             # traverse to leftmost child
             self.preorder(root.get_left())
             # traverse to rightmost child
-            self.preorder(root.get_right())              
+            self.preorder(root.get_right())
         return self._pre_order
 
     def postorder(self, root):
@@ -327,7 +330,7 @@ class BSTNode(object):
             # traverse to rightmost child
             self.postorder(root.get_right())
             # get the data of current node
-            self._post_order.append(root.get_data())      
+            self._post_order.append(root.get_data())
         return self._post_order
 
     @staticmethod
@@ -339,7 +342,6 @@ class BSTNode(object):
 
 
 class BinarySearchTree(object):
-   
     def __init__(self):
         self.root = None
 
@@ -386,25 +388,25 @@ class BinarySearchTree(object):
         """
         if self.root is not None:
             return self.root.postorder(self.root)
-    
+
     def number_of_nodes(self, root):
         """
         counting number of nodes
         """
         # need testing
-        left_number = 0;
-        right_number = 0;
+        left_number = 0
+        right_number = 0
 
-        #number of nodes left side
+        # number of nodes left side
         if root.get_left():
             left_number = self.number_of_nodes(root.get_left())
 
-        #numbeof nodes right side
+        # numbeof nodes right side
         if root.get_right():
             right_number = self.number_of_nodes(root.get_right())
 
         return left_number + right_number + 1
-    
+
     @staticmethod
     def get_code():
         """

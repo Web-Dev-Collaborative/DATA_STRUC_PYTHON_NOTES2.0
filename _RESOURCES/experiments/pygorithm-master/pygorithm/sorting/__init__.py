@@ -13,14 +13,14 @@ from . import selection_sort
 from . import shell_sort
 
 __all__ = [
-    'bubble_sort',
-    'bucket_sort',
-    'counting_sort',
-    'heap_sort',
-    'insertion_sort',
-    'merge_sort',
-    'quick_sort',
-    'radix_sort',
-    'selection_sort',
-    'shell_sort'
+    "bubble_sort",
+    "bucket_sort",
+    "counting_sort",
+    "heap_sort",
+    "insertion_sort",
+    "merge_sort",
+    "quick_sort",
+    "radix_sort",
+    "selection_sort",
+    "shell_sort",
 ]

@@ -8,12 +8,24 @@ Conversions from base2 to:
 
 Author: Ian Doarn
 """
-BINARY_HEX_VALUES = {"0000": "0", "0001": "1", "0010": "2",
-                     "0011": "3", "0100": "4", "0101": "5",
-                     "0110": "6", "0111": "7", "1000": "8",
-                     "1001": "9", "1010": "A", "1011": "B",
-                     "1100": "C", "1101": "D", "1110": "E",
-                     "1111": "F"}
+BINARY_HEX_VALUES = {
+    "0000": "0",
+    "0001": "1",
+    "0010": "2",
+    "0011": "3",
+    "0100": "4",
+    "0101": "5",
+    "0110": "6",
+    "0111": "7",
+    "1000": "8",
+    "1001": "9",
+    "1010": "A",
+    "1011": "B",
+    "1100": "C",
+    "1101": "D",
+    "1110": "E",
+    "1111": "F",
+}
 
 
 def to_ascii(b, visualize=False):
@@ -27,18 +39,19 @@ def to_ascii(b, visualize=False):
     binary = b
     # Make sure give binary is a str array
     if type(b) is str:
-        binary = b.split(' ')
+        binary = b.split(" ")
     elif type(b) is list:
         binary = b
 
-    string = ''
+    string = ""
 
     for b_value in binary:
         if visualize:
-            print("{} -> {} -> {}".format(
-                b_value, to_base10(int(b_value)),
-                chr(to_base10(int(b_value)))
-            ))
+            print(
+                "{} -> {} -> {}".format(
+                    b_value, to_base10(int(b_value)), chr(to_base10(int(b_value)))
+                )
+            )
         value = to_base10(int(b_value))
         string += chr(value)
     return string
@@ -67,7 +80,7 @@ def to_base10(n, visualize=False):
     :return: decimal number
     """
     if type(n) is str:
-        raise ValueError('value must be int not type {}'.format(str(type(n))))
+        raise ValueError("value must be int not type {}".format(str(type(n))))
 
     x = 0
     _list = [int(i) for i in str(n)]
@@ -99,7 +112,7 @@ def to_base16(n, visualize=False):
         # current value from the grouped_list
         _list.append(BINARY_HEX_VALUES[value])
 
-    return ''.join(_list)
+    return "".join(_list)
 
 
 def __create_group_list(n):
@@ -162,10 +175,10 @@ def __create_group_list(n):
         if len(reversed_number_list) < 4:
             # remaining values can not make a group
             # join remaining values
-            value = ''.join(reversed_number_list)
+            value = "".join(reversed_number_list)
             # find the missing amount needed then add that many
             # zeros to the end of the value
-            f_value = value + ('0' * (4 - len(value)))
+            f_value = value + ("0" * (4 - len(value)))
             # add to the group
             grouped_list.append(f_value)
             break
@@ -175,7 +188,7 @@ def __create_group_list(n):
                 # go until temp list does not have 4 values
                 temp_list.append(reversed_number_list.pop(0))
         # join each value in temp list and add to group
-        grouped_list.append(''.join(temp_list))
+        grouped_list.append("".join(temp_list))
 
     # reverse the entire grouped_list
     # then reverse each value in the grouped_list

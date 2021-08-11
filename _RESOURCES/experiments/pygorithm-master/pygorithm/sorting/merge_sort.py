@@ -43,12 +43,15 @@ def sort(_list):
     if len(_list) == 0 or len(_list) == 1:
         return list(_list)
     else:
-        middle = len(_list)//2
+        middle = len(_list) // 2
         a = sort(_list[:middle])
         b = sort(_list[middle:])
         return merge(a, b)
 
+
 from itertools import zip_longest
+
+
 def sorti(_list, verbose=True):
     """
     Function to sort an array
@@ -60,14 +63,13 @@ def sorti(_list, verbose=True):
     # breakdown every element into its own list
     series = [[i] for i in _list]
     while len(series) > 1:
-        if verbose: print(series)
+        if verbose:
+            print(series)
         # iterator to handle two at a time in the zip_longest below
         isl = iter(series)
-        series = [
-            merge(a, b) if b else a
-            for a, b in zip_longest(isl, isl)
-        ]
+        series = [merge(a, b) if b else a for a, b in zip_longest(isl, isl)]
     return series[0]
+
 
 # TODO: Are these necessary?
 def time_complexities():
@@ -86,6 +88,6 @@ def get_code(iter=False):
 
     :return: source code
     """
-    if iter: 
+    if iter:
         return inspect.getsource(sorti) + "\n"
     return inspect.getsource(sort) + "\n" + inspect.getsource(merge)

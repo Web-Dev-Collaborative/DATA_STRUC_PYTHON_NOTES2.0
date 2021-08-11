@@ -47,10 +47,12 @@ def time_complexities():
     time complexity
     :return: string
     """
-    return "Best Case: O(n), " \
-           "Average Case: O(n ^ 2), " \
-           "Worst Case: O(n ^ 2).\n\n" \
-           "For Improved Bubble Sort:\nBest Case: O(n); Average Case: O(n * (n - 1) / 4); Worst Case: O(n ^ 2)"
+    return (
+        "Best Case: O(n), "
+        "Average Case: O(n ^ 2), "
+        "Worst Case: O(n ^ 2).\n\n"
+        "For Improved Bubble Sort:\nBest Case: O(n); Average Case: O(n * (n - 1) / 4); Worst Case: O(n ^ 2)"
+    )
 
 
 def get_code():

@@ -19,9 +19,17 @@ def knapsack(w, item_values, item_weights):
     """
 
     if type(item_values) is not list:
-        raise TypeError("fractional knapsack only accepts lists, not {}".format(str(type(item_values))))
+        raise TypeError(
+            "fractional knapsack only accepts lists, not {}".format(
+                str(type(item_values))
+            )
+        )
     if type(item_weights) is not list:
-        raise TypeError("fractional knapsack only accepts lists, not {}".format(str(type(item_weights))))
+        raise TypeError(
+            "fractional knapsack only accepts lists, not {}".format(
+                str(type(item_weights))
+            )
+        )
 
     if len(item_values) != len(item_weights):
         raise ValueError("length of both lists must be same")
@@ -39,7 +47,10 @@ def knapsack(w, item_values, item_weights):
             if fractional_weights[maximum] < fractional_weights[j]:
                 maximum = j
 
-        fractional_weights[i], fractional_weights[maximum] = fractional_weights[maximum], fractional_weights[i]
+        fractional_weights[i], fractional_weights[maximum] = (
+            fractional_weights[maximum],
+            fractional_weights[i],
+        )
         item_values[i], item_values[maximum] = item_values[maximum], item_values[i]
         item_weights[i], item_weights[maximum] = item_weights[maximum], item_weights[i]
 

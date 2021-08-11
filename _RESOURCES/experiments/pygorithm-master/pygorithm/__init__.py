@@ -34,17 +34,14 @@ Ashey 'asheywalke' Walke
 
 """
 
-__version__ = '1.0.3'
-__author__ = 'Omkar Pathak'
+__version__ = "1.0.3"
+__author__ = "Omkar Pathak"
 
 # List maintainers here
-__maintainers__ = [
-    'Omkar Pathak'
-]
+__maintainers__ = ["Omkar Pathak"]
 # List contributors here
 __contributors__ = [
-	"Omkar 'OmkarPathak' Pathak"
-    "Mohamed 'MohamedKiouaz' Kiouaz",
+    "Omkar 'OmkarPathak' Pathak" "Mohamed 'MohamedKiouaz' Kiouaz",
     "Ashutosh 'ashu01' Gupta",
     "Allston 'AllstonMickey' Mickey",
     "Dmytro 'dmytrostriletskyi' Striletskyi",
@@ -59,19 +56,18 @@ __contributors__ = [
     "Ian 'IanDoarn' Doarn",
     "Timothy 'Tjstretchalot' Moore",
     "Sharad 'sharadbhat' Bhat",
-    "Ashey 'asheywalke' Walke"
+    "Ashey 'asheywalke' Walke",
 ]
 
 __all__ = [
-    'binary',
-    'data_structures',
-    'dynamic_programming',
-    'fibonacci',
-    'math',
-    'searching',
-    'sorting',
-    'strings',
-    'pathfinding'
-    'geometry',
-    'greedy_algorithm'
+    "binary",
+    "data_structures",
+    "dynamic_programming",
+    "fibonacci",
+    "math",
+    "searching",
+    "sorting",
+    "strings",
+    "pathfinding" "geometry",
+    "greedy_algorithm",
 ]

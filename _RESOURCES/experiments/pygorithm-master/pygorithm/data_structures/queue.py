@@ -9,6 +9,7 @@ class Queue(object):
     """Queue
     Queue implementation
     """
+
     def __init__(self, limit=10):
         """
         :param limit: Queue limit size, default @ 10
@@ -20,7 +21,7 @@ class Queue(object):
         self.size = 0
 
     def __str__(self):
-        return ' '.join([str(i) for i in self.queue])
+        return " ".join([str(i) for i in self.queue])
 
     def size(self):
         """
@@ -79,12 +80,13 @@ class Deque(object):
     """Deque
     Deque implementation
     """
+
     def __init__(self, limit=10):
         self.queue = []
         self.limit = limit
 
     def __str__(self):
-        return ' '.join([str(i) for i in self.queue])
+        return " ".join([str(i) for i in self.queue])
 
     def is_empty(self):
         """

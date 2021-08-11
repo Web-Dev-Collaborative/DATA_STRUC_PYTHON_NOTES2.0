@@ -10,6 +10,7 @@ class Stack(object):
     """
     Stack object
     """
+
     def __init__(self, limit=10):
         """
         :param limit: the stack size
@@ -18,7 +19,7 @@ class Stack(object):
         self.limit = limit
 
     def __str__(self):
-        return ' '.join([str(i) for i in self.stack])
+        return " ".join([str(i) for i in self.stack])
 
     def push(self, data):
         """
@@ -27,7 +28,7 @@ class Stack(object):
         """
         if len(self.stack) >= self.limit:
             # indicates stack overflow
-            return -1       
+            return -1
         else:
             self.stack.append(data)
 
@@ -38,7 +39,7 @@ class Stack(object):
         """
         if len(self.stack) <= 0:
             # indicates stack underflow
-            return -1       
+            return -1
         else:
             return self.stack.pop()
 
@@ -49,7 +50,7 @@ class Stack(object):
         """
         if len(self.stack) <= 0:
             # stack underflow
-            return -1       
+            return -1
         else:
             return self.stack[len(self.stack) - 1]
 
@@ -102,11 +103,11 @@ class InfixToPostfix(object):
         """
         utility function to find precedence of the specified character
         """
-        if char == '+' or char == '-':
+        if char == "+" or char == "-":
             return 1
-        elif char == '*' or char == '/':
+        elif char == "*" or char == "/":
             return 2
-        elif char == '^':
+        elif char == "^":
             return 3
         else:
             return -1
@@ -120,22 +121,23 @@ class InfixToPostfix(object):
         for i in range(len(self.expression)):
             if self._is_operand(self.expression[i]):
                 postfix.append(self.expression[i])
-            elif self.expression[i] == '(':
+            elif self.expression[i] == "(":
                 self.my_stack.push(self.expression[i])
-            elif self.expression[i] == ')':
+            elif self.expression[i] == ")":
                 top_operator = self.my_stack.pop()
-                while not self.my_stack.is_empty() and top_operator != '(':
+                while not self.my_stack.is_empty() and top_operator != "(":
                     postfix.append(top_operator)
                     top_operator = self.my_stack.pop()
             else:
-                while not self.my_stack.is_empty() and self._precedence(self.expression[i]) <= self._precedence(
-                        self.my_stack.peek()):
+                while not self.my_stack.is_empty() and self._precedence(
+                    self.expression[i]
+                ) <= self._precedence(self.my_stack.peek()):
                     postfix.append(self.my_stack.pop())
                 self.my_stack.push(self.expression[i])
 
         while not self.my_stack.is_empty():
             postfix.append(self.my_stack.pop())
-        return ' '.join(postfix)
+        return " ".join(postfix)
 
     @staticmethod
     def get_code():

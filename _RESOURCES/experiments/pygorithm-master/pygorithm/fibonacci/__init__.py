@@ -6,9 +6,4 @@ from . import goldenratio
 from . import memoization
 from . import recursion
 
-__all__ = [
-    'generator',
-    'goldenratio',
-    'memoization',
-    'recursion'
-]
+__all__ = ["generator", "goldenratio", "memoization", "recursion"]

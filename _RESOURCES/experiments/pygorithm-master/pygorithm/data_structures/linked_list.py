@@ -15,6 +15,7 @@ class Node(object):
     Each node has its data and a pointer that
     points to next node in the Linked l_list
     """
+
     def __init__(self, data, next_node=None):
         """
         constructor
@@ -36,6 +37,7 @@ class SinglyLinkedList(object):
     """
     Defining the head of the linked list
     """
+
     def __init__(self):
         """
         constructor
@@ -136,6 +138,7 @@ class DoublyLinkedList(object):
     """DoublyLinkedList
     DoublyLinkedList Class
     """
+
     def __init__(self):
         """
         constructor
@@ -215,17 +218,19 @@ class DoublyLinkedList(object):
         """
         return inspect.getsource(DoublyLinkedList)
 
+
 class CircularLinkedList(object):
-    '''
+    """
     Class for circular linked list
-    '''
+    """
+
     def __init__(self):
         self.head = None
         self.tail = None
         self.size = 0
 
     def clear(self):
-        ''' clears the head and tails of the linked list '''
+        """ clears the head and tails of the linked list """
         self.tail = None
         self.head = None
 
@@ -243,7 +248,7 @@ class CircularLinkedList(object):
         return l_list
 
     def insert(self, data):
-        ''' inserts the data in to the linked list '''
+        """ inserts the data in to the linked list """
         node = Node(data)
         if self.head:
             self.head.next = node
@@ -255,7 +260,7 @@ class CircularLinkedList(object):
         self.size += 1
 
     def delete(self, data):
-        ''' deletes the specified element from linked list '''
+        """ deletes the specified element from linked list """
         current = self.tail
         prev = self.tail
         while prev == current or prev != self.head:
@@ -277,7 +282,8 @@ class CircularLinkedList(object):
         """
         return inspect.getsource(CircularLinkedList)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     cll = CircularLinkedList()
     cll.insert(1)
     cll.insert(2)

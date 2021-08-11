@@ -1,11 +1,9 @@
 # Big O Notation
 
-
-
 ### Common Data Structure Operations <a id="data-structures"></a>
 
 | Data Structure | Time Complexity | Space Complexity |  |  |  |  |  |  |  |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
 |  | Average | Worst | Worst |  |  |  |  |  |  |
 |  | Access | Search | Insertion | Deletion | Access | Search | Insertion | Deletion |  |
 | [Array](http://en.wikipedia.org/wiki/Array_data_structure) | `Θ(1)` | `Θ(n)` | `Θ(n)` | `Θ(n)` | `O(1)` | `O(n)` | `O(n)` | `O(n)` | `O(n)` |
@@ -26,7 +24,7 @@
 ### Array Sorting Algorithms <a id="sorting"></a>
 
 | Algorithm | Time Complexity | Space Complexity |  |  |
-| :--- | :--- | :--- | :--- | :--- |
+| :-- | :-- | :-- | :-- | :-- |
 |  | Best | Average | Worst | Worst |
 | [Quicksort](http://en.wikipedia.org/wiki/Quicksort) | `Ω(n log(n))` | `Θ(n log(n))` | `O(n^2)` | `O(log(n))` |
 | [Mergesort](http://en.wikipedia.org/wiki/Merge_sort) | `Ω(n log(n))` | `Θ(n log(n))` | `O(n log(n))` | `O(n)` |
@@ -41,4 +39,3 @@
 | [Radix Sort](http://en.wikipedia.org/wiki/Radix_sort) | `Ω(nk)` | `Θ(nk)` | `O(nk)` | `O(n+k)` |
 | [Counting Sort](https://en.wikipedia.org/wiki/Counting_sort) | `Ω(n+k)` | `Θ(n+k)` | `O(n+k)` | `O(k)` |
 | [Cubesort](https://en.wikipedia.org/wiki/Cubesort) | `Ω(n)` | `Θ(n log(n))` | `O(n log(n))` | `O(n)` |
-

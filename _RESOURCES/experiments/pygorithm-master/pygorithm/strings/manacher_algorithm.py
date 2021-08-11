@@ -1,7 +1,7 @@
-'''
+"""
 Author: OMKAR PATHAK
 Created at: 27th August 2017
-'''
+"""
 
 
 def manacher(string):
@@ -25,12 +25,14 @@ def manacher(string):
     index 9 and avoid costly computation.
     """
     if type(string) is not str:
-        raise TypeError("Manacher Algorithm only excepts strings, not {}".format(str(type(string))))
+        raise TypeError(
+            "Manacher Algorithm only excepts strings, not {}".format(str(type(string)))
+        )
 
     # Get the interleaved version of a given string. 'aaa' --> '^#a#a#a#$'.
     # Thanks to this we don't have to deal with even/odd palindrome
     # length problem.
-    string_with_bounds = '#'.join('^{}$'.format(string))
+    string_with_bounds = "#".join("^{}$".format(string))
     length = len(string_with_bounds)
     P = [0] * length
     center = right = 0
@@ -49,7 +51,8 @@ def manacher(string):
 
     # Find the maximum element in P and return the string
     maxLen, centerIndex = max((n, i) for i, n in enumerate(P))
-    return string[(centerIndex  - maxLen)//2: (centerIndex  + maxLen)//2]
+    return string[(centerIndex - maxLen) // 2 : (centerIndex + maxLen) // 2]
+
 
 def get_code():
     """

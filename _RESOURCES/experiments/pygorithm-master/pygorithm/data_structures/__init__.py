@@ -9,12 +9,4 @@ from . import stack
 from . import tree
 from . import trie
 
-__all__ = [
-    'graph',
-    'heap',
-    'linked_list',
-    'queue',
-    'stack',
-    'tree',
-    'trie'
-]
+__all__ = ["graph", "heap", "linked_list", "queue", "stack", "tree", "trie"]

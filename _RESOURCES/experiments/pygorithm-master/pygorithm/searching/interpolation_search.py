@@ -9,6 +9,7 @@ Created On: 22nd August 2017
 
 import inspect
 
+
 def search(_list, target):
     """
     This function performs an interpolation search
@@ -21,7 +22,9 @@ def search(_list, target):
     """
 
     if type(_list) is not list:
-        raise TypeError("interpolation search only accepts lists, not {}".format(str(type(_list))))
+        raise TypeError(
+            "interpolation search only accepts lists, not {}".format(str(type(_list)))
+        )
 
     # First element
     low = 0
@@ -30,7 +33,9 @@ def search(_list, target):
 
     # List is assumed to be sorted
     while low <= high and target >= _list[low] and target <= _list[high]:
-        position = low + int(((float(high - low) / (_list[high] - _list[low])) * (target - _list[low])))
+        position = low + int(
+            ((float(high - low) / (_list[high] - _list[low])) * (target - _list[low]))
+        )
 
         if _list[position] == target:
             return position
@@ -44,7 +49,6 @@ def search(_list, target):
             high = position - 1
 
     return False
-
 
 
 def time_complexities():

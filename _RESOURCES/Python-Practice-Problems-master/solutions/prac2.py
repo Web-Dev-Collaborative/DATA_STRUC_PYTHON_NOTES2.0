@@ -13,7 +13,7 @@ Extras:
       If not, print a different appropriate message.
 """
 
-num1  = int( input ("Enter a number: "))
+num1 = int(input("Enter a number: "))
 
 if num1 % 4 == 0:
     print("The number is a multiple of 4.")
@@ -21,12 +21,12 @@ elif num1 % 2 == 0:
     print("The number is a Even number.")
 else:
     print("The number is a Odd number.")
-    
-num = int ( input("Again, enter a number: "))
-check = int ( input("Enter another number: "))
+
+num = int(input("Again, enter a number: "))
+check = int(input("Enter another number: "))
 res = num / check
 
-if type(res) ==  int:
+if type(res) == int:
     print(check, " divides evenly into ", num)
 else:
     print(check, " doesn't divide evenly into ", num)

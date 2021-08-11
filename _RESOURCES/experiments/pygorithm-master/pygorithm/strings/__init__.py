@@ -7,10 +7,4 @@ from . import isogram
 from . import palindrome
 from . import manacher_algorithm
 
-__all__ = [
-    'anagram',
-    'pangram',
-    'isogram',
-    'manacher_algorithm',
-    'palindrome'
-]
+__all__ = ["anagram", "pangram", "isogram", "manacher_algorithm", "palindrome"]

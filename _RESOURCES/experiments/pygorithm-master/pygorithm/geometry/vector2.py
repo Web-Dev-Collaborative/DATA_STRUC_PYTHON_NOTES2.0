@@ -8,6 +8,7 @@ Defines a simple two-dimensional, mutable vector.
 
 import math
 
+
 class Vector2(object):
     """
     Define a simple two-dimensional, mutable vector.
@@ -23,7 +24,7 @@ class Vector2(object):
     :ivar y: The second component of this vector.
     :vartype y: :class:`numbers.Number`
     """
-    
+
     def __init__(self, *args, **kwargs):
         """
         Create a new Vector2 from the two components.
@@ -50,7 +51,7 @@ class Vector2(object):
         :param args: unnamed arguments (purpose guessed by order)
         :param kwargs: named arguments (purpose known by name)
         """
-        
+
         if len(args) == 2:
             self.x = args[0]
             self.y = args[1]
@@ -62,11 +63,11 @@ class Vector2(object):
                 self.x = args[0].x
                 self.y = args[0].y
         else:
-            assert(len(args) == 0)
-            
-            self.x = kwargs['x']
-            self.y = kwargs['y']
-    
+            assert len(args) == 0
+
+            self.x = kwargs["x"]
+            self.y = kwargs["y"]
+
     def __add__(self, other):
         """
         Adds the two vectors component wise. 
@@ -90,9 +91,9 @@ class Vector2(object):
         :returns: a new vector that is the sum of self and other
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         """
-        
+
         return Vector2(self.x + other.x, self.y + other.y)
-    
+
     def __sub__(self, other):
         """
         Subtract the two vectors component wise. 
@@ -120,9 +121,9 @@ class Vector2(object):
         :returns: a new vector two that is the difference of self and other
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         """
-        
+
         return Vector2(self.x - other.x, self.y - other.y)
-        
+
     def __mul__(self, scale_factor):
         """
         Scale the vector by the specified factor.
@@ -151,12 +152,12 @@ class Vector2(object):
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         :raises TypeError: if scale_factor is a Vector2
         """
-        
+
         if type(scale_factor) == Vector2:
-            raise TypeError('scale_factor cannot be a Vector2 (use dot!)')
-        
+            raise TypeError("scale_factor cannot be a Vector2 (use dot!)")
+
         return Vector2(self.x * scale_factor, self.y * scale_factor)
-    
+
     def __rmul__(self, scale_factor):
         """
         Scale the vector by the specified factor.
@@ -185,12 +186,12 @@ class Vector2(object):
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         :raises TypeError: if scale_factor is a Vector2
         """
-        
+
         if type(scale_factor) == Vector2:
-            raise TypeError('scale_factor cannot be a Vector2 (use dot!)')
-        
+            raise TypeError("scale_factor cannot be a Vector2 (use dot!)")
+
         return Vector2(self.x * scale_factor, self.y * scale_factor)
-    
+
     def __repr__(self):
         """
         Create an unambiguous representation of this vector
@@ -209,9 +210,9 @@ class Vector2(object):
         :returns: an unambiguous representation of this vector
         :rtype: string
         """
-        
+
         return "vector2(x={}, y={})".format(self.x, self.y)
-    
+
     def __str__(self):
         """
         Create a human-readable representation of this vector.
@@ -235,17 +236,17 @@ class Vector2(object):
         :returns: a human-readable representation of this vector
         :rtype: string
         """
-        
+
         pretty_x = round(self.x * 1000) / 1000
         if pretty_x == math.floor(pretty_x):
             pretty_x = math.floor(pretty_x)
-            
+
         pretty_y = round(self.y * 1000) / 1000
         if pretty_y == math.floor(pretty_y):
             pretty_y = math.floor(pretty_y)
-        
+
         return "<{}, {}>".format(pretty_x, pretty_y)
-    
+
     def dot(self, other):
         """
         Calculate the dot product between this vector and other.
@@ -276,9 +277,9 @@ class Vector2(object):
         :returns: the dot product of self and other
         :rtype: :class:`numbers.Number`
         """
-        
+
         return self.x * other.x + self.y * other.y
-    
+
     def cross(self, other):
         """
         Calculate the z-component of the cross product between this vector and other.
@@ -295,9 +296,9 @@ class Vector2(object):
             This is the special case of a cross product in 2 dimensions returning 1 
             value. This is really a vector in the z direction!
         """
-        
+
         return self.x * other.y - self.y * other.x
-    
+
     def rotate(self, *args, **kwargs):
         """
         The named argument "degrees" or "radians" may be passed in to rotate 
@@ -344,44 +345,44 @@ class Vector2(object):
         :returns: the new vector formed by rotating this vector
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         """
-        
+
         args_counter = 0
         deg_rads = None
         about = None
-        
-        if 'radians' in kwargs:
-            deg_rads = kwargs['radians']
-        elif 'degrees' in kwargs:
-            deg_rads = kwargs['degrees'] * math.pi / 180
+
+        if "radians" in kwargs:
+            deg_rads = kwargs["radians"]
+        elif "degrees" in kwargs:
+            deg_rads = kwargs["degrees"] * math.pi / 180
         else:
             deg_rads = args[args_counter]
             args_counter = args_counter + 1
-        
-        if 'about' in kwargs:
-            about = kwargs['about']
+
+        if "about" in kwargs:
+            about = kwargs["about"]
         else:
             if len(args) > args_counter:
                 about = args[args_counter]
-        
+
         fixed_x = self.x
         fixed_y = self.y
-        
+
         if about is not None:
             fixed_x -= about.x
             fixed_y -= about.y
-        
+
         rotated_x = fixed_x * math.cos(deg_rads) - fixed_y * math.sin(deg_rads)
         rotated_y = fixed_y * math.cos(deg_rads) + fixed_x * math.sin(deg_rads)
-        
+
         final_x = rotated_x
         final_y = rotated_y
-        
+
         if about is not None:
             final_x += about.x
             final_y += about.y
-            
+
         return Vector2(final_x, final_y)
-    
+
     def normalize(self):
         """
         Create the normalized version of this vector
@@ -410,9 +411,9 @@ class Vector2(object):
         :returns: a new normalized version of this vector
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         """
-        
+
         return self * (1 / self.magnitude())
-    
+
     def magnitude_squared(self):
         """
         Calculate the square of the magnitude of this vector.
@@ -432,9 +433,9 @@ class Vector2(object):
         :returns: square of the magnitude of this vector
         :rtype: :class:`numbers.Number`
         """
-        
+
         return self.x * self.x + self.y * self.y
-        
+
     def magnitude(self):
         """
         Calculate the magnitude of this vector
@@ -459,5 +460,5 @@ class Vector2(object):
         :returns: magnitude of this vector
         :rtype: :class:`numbers.Number`
         """
-        
+
         return math.sqrt(self.magnitude_squared())

@@ -12,7 +12,10 @@ Example: Weight of knapsack to carry, Items and there weights as input will retu
          Items in fraction to put in the knapsack as per weight as output
 """
 
-def fractional_knapsack(value: list[int], weight: list[int], capacity: int) -> tuple[int, list[int]]:
+
+def fractional_knapsack(
+    value: list[int], weight: list[int], capacity: int
+) -> tuple[int, list[int]]:
     """
     >>> value = [1, 3, 5, 7, 9]
     >>> weight = [0.9, 0.7, 0.5, 0.3, 0.1]
@@ -63,5 +66,3 @@ if __name__ == "__main__":
     max_value, fractions = fractional_knapsack(value, weight, capacity)
     print("The maximum value of items that can be carried:", max_value)
     print("The fractions in which the items should be taken:", fractions)
-
-    

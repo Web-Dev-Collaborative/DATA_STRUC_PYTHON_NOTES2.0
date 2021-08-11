@@ -1,11 +1,11 @@
-'''
+"""
 Created by: Pratik Narola (https://github.com/Pratiknarola)
 last modified: 14-10-2019
-'''
+"""
 
 
 def cocktail_sort(arr):
-    '''
+    """
     Cocktail Sort is a variation of Bubble sort.
     The Bubble sort algorithm always traverses elements from left
     and moves the largest element to its correct position in first iteration
@@ -16,7 +16,7 @@ def cocktail_sort(arr):
 
     :param arr: the array to sort
     :return: the sorted array, which is the same reference as arr
-    '''
+    """
     swapped = True
     start = 0
     end = len(arr) - 1

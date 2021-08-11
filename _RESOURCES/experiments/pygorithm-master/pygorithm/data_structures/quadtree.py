@@ -9,7 +9,8 @@ import inspect
 import math
 from collections import deque
 
-from pygorithm.geometry import (vector2, polygon2, rect2)
+from pygorithm.geometry import vector2, polygon2, rect2
+
 
 class QuadTreeEntity(object):
     """
@@ -20,6 +21,7 @@ class QuadTreeEntity(object):
     :ivar aabb: the axis-aligned bounding box of this entity
     :type aabb: :class:`pygorithm.geometry.rect2.Rect2`
     """
+
     def __init__(self, aabb):
         """
         Create a new quad tree entity with the specified aabb
@@ -28,7 +30,7 @@ class QuadTreeEntity(object):
         :type aabb: :class:`pygorithm.geometry.rect2.Rect2`
         """
         self.aabb = aabb
-    
+
     def __repr__(self):
         """
         Create an unambiguous representation of this entity.
@@ -49,7 +51,7 @@ class QuadTreeEntity(object):
         :rtype: string
         """
         return "quadtreeentity(aabb={})".format(repr(self.aabb))
-    
+
     def __str__(self):
         """
         Create a human readable representation of this entity
@@ -70,7 +72,8 @@ class QuadTreeEntity(object):
         :rtype: string
         """
         return "entity(at {})".format(str(self.aabb))
-        
+
+
 class QuadTree(object):
     """
     A quadtree is a sorting tool for two-dimensional space, most
@@ -109,8 +112,8 @@ class QuadTree(object):
     :ivar children: either None or the 4 :class:`.QuadTree` children of this node
     :type children: None or list of :class:`.QuadTree`
     """
-    
-    def __init__(self, bucket_size, max_depth, location, depth = 0, entities = None):
+
+    def __init__(self, bucket_size, max_depth, location, depth=0, entities=None):
         """
         Initialize a new quad tree. 
         
@@ -137,8 +140,8 @@ class QuadTree(object):
         self.depth = depth
         self.entities = entities if entities is not None else []
         self.children = None
-    
-    def think(self, recursive = False):
+
+    def think(self, recursive=False):
         """
         Call :py:meth:`.split` if appropriate
         
@@ -152,14 +155,18 @@ class QuadTree(object):
         :param recursive: if `think(True)` should be called on :py:attr:`.children` (if there are any)
         :type recursive: bool
         """
-        if not self.children and self.depth < self.max_depth and len(self.entities) > self.bucket_size:
+        if (
+            not self.children
+            and self.depth < self.max_depth
+            and len(self.entities) > self.bucket_size
+        ):
             self.split()
-        
+
         if recursive:
             if self.children:
                 for child in self.children:
                     child.think(True)
-    
+
     def split(self):
         """
         Split this quadtree.
@@ -179,34 +186,48 @@ class QuadTree(object):
         """
         if self.children:
             raise ValueError("cannot split twice")
-        
+
         _cls = type(self)
+
         def _cstr(r):
             return _cls(self.bucket_size, self.max_depth, r, self.depth + 1)
-        
+
         _halfwidth = self.location.width / 2
         _halfheight = self.location.height / 2
         _x = self.location.mincorner.x
         _y = self.location.mincorner.y
-        
+
         self.children = [
             _cstr(rect2.Rect2(_halfwidth, _halfheight, vector2.Vector2(_x, _y))),
-            _cstr(rect2.Rect2(_halfwidth, _halfheight, vector2.Vector2(_x + _halfwidth, _y))),
-            _cstr(rect2.Rect2(_halfwidth, _halfheight, vector2.Vector2(_x + _halfwidth, _y + _halfheight))),
-            _cstr(rect2.Rect2(_halfwidth, _halfheight, vector2.Vector2(_x, _y + _halfheight))) ]
-            
+            _cstr(
+                rect2.Rect2(
+                    _halfwidth, _halfheight, vector2.Vector2(_x + _halfwidth, _y)
+                )
+            ),
+            _cstr(
+                rect2.Rect2(
+                    _halfwidth,
+                    _halfheight,
+                    vector2.Vector2(_x + _halfwidth, _y + _halfheight),
+                )
+            ),
+            _cstr(
+                rect2.Rect2(
+                    _halfwidth, _halfheight, vector2.Vector2(_x, _y + _halfheight)
+                )
+            ),
+        ]
+
         _newents = []
         for ent in self.entities:
             quad = self.get_quadrant(ent)
-            
+
             if quad < 0:
                 _newents.append(ent)
             else:
                 self.children[quad].entities.append(ent)
         self.entities = _newents
-        
-        
-    
+
     def get_quadrant(self, entity):
         """
         Calculate the quadrant that the specified entity belongs to.
@@ -233,13 +254,13 @@ class QuadTree(object):
         :returns: quadrant
         :rtype: int
         """
-        
+
         _aabb = entity.aabb
         _halfwidth = self.location.width / 2
         _halfheight = self.location.height / 2
         _x = self.location.mincorner.x
         _y = self.location.mincorner.y
-        
+
         if math.isclose(_aabb.mincorner.x, _x + _halfwidth):
             return -1
         if math.isclose(_aabb.mincorner.x + _aabb.width, _x + _halfwidth):
@@ -248,22 +269,22 @@ class QuadTree(object):
             return -1
         if math.isclose(_aabb.mincorner.y + _aabb.height, _y + _halfheight):
             return -1
-        
+
         _leftside_isleft = _aabb.mincorner.x < _x + _halfwidth
         _rightside_isleft = _aabb.mincorner.x + _aabb.width < _x + _halfwidth
-        
+
         if _leftside_isleft != _rightside_isleft:
             return -1
-        
+
         _topside_istop = _aabb.mincorner.y < _y + _halfheight
         _botside_istop = _aabb.mincorner.y + _aabb.height < _y + _halfheight
-        
+
         if _topside_istop != _botside_istop:
             return -1
-            
+
         _left = _leftside_isleft
         _top = _topside_istop
-        
+
         if _left:
             if _top:
                 return 0
@@ -274,8 +295,7 @@ class QuadTree(object):
                 return 1
             else:
                 return 2
-        
-    
+
     def insert_and_think(self, entity):
         """
         Insert the entity into this or the appropriate child.
@@ -289,16 +309,20 @@ class QuadTree(object):
         :param entity: the entity to insert
         :type entity: :class:`.QuadTreeEntity`
         """
-        if not self.children and len(self.entities) == self.bucket_size and self.depth < self.max_depth:
+        if (
+            not self.children
+            and len(self.entities) == self.bucket_size
+            and self.depth < self.max_depth
+        ):
             self.split()
-        
+
         quad = self.get_quadrant(entity) if self.children else -1
         if quad < 0:
             self.entities.append(entity)
         else:
             self.children[quad].insert_and_think(entity)
-        
-    def retrieve_collidables(self, entity, predicate = None):
+
+    def retrieve_collidables(self, entity, predicate=None):
         """
         Find all entities that could collide with the specified entity.
         
@@ -321,17 +345,21 @@ class QuadTree(object):
         """
         result = list(filter(predicate, self.entities))
         quadrant = self.get_quadrant(entity) if self.children else -1
-        
+
         if quadrant >= 0:
-            result.extend(self.children[quadrant].retrieve_collidables(entity, predicate))
+            result.extend(
+                self.children[quadrant].retrieve_collidables(entity, predicate)
+            )
         elif self.children:
             for child in self.children:
-                touching, overlapping, alwaysNone = rect2.Rect2.find_intersection(entity.aabb, child.location, find_mtv=False)
+                touching, overlapping, alwaysNone = rect2.Rect2.find_intersection(
+                    entity.aabb, child.location, find_mtv=False
+                )
                 if touching or overlapping:
                     result.extend(child.retrieve_collidables(entity, predicate))
-        
+
         return result
-        
+
     def _iter_helper(self, pred):
         """
         Calls pred on each child and childs child, iteratively.
@@ -341,18 +369,18 @@ class QuadTree(object):
         :param pred: function to call
         :type pred: `types.FunctionType`
         """
-        
+
         _stack = deque()
         _stack.append(self)
-        
+
         while _stack:
             curr = _stack.pop()
             if curr.children:
                 for child in curr.children:
                     _stack.append(child)
-            
+
             pred(curr)
-    
+
     def find_entities_per_depth(self):
         """
         Calculate the number of nodes and entities at each depth level in this
@@ -363,14 +391,18 @@ class QuadTree(object):
         :returns: dict of depth level to number of entities
         :rtype: dict int: int
         """
-        
-        container = { 'result': {} }
+
+        container = {"result": {}}
+
         def handler(curr, container=container):
-            container['result'][curr.depth] = container['result'].get(curr.depth, 0) + len(curr.entities)
+            container["result"][curr.depth] = container["result"].get(
+                curr.depth, 0
+            ) + len(curr.entities)
+
         self._iter_helper(handler)
-        
-        return container['result']
-    
+
+        return container["result"]
+
     def find_nodes_per_depth(self):
         """
         Calculate the number of nodes at each depth level.
@@ -380,11 +412,15 @@ class QuadTree(object):
         :returns: dict of depth level to number of nodes
         :rtype: dict int: int
         """
-        
+
         nodes_per_depth = {}
-        self._iter_helper(lambda curr, d=nodes_per_depth: d.update({ (curr.depth, d.get(curr.depth, 0) + 1) }))
+        self._iter_helper(
+            lambda curr, d=nodes_per_depth: d.update(
+                {(curr.depth, d.get(curr.depth, 0) + 1)}
+            )
+        )
         return nodes_per_depth
-        
+
     def sum_entities(self, entities_per_depth=None):
         """
         Sum the number of entities in this quad tree and all lower quad trees.
@@ -400,14 +436,16 @@ class QuadTree(object):
         """
         if entities_per_depth is not None:
             return sum(entities_per_depth.values())
-            
-        container = { 'result': 0 }
+
+        container = {"result": 0}
+
         def handler(curr, container=container):
-            container['result'] += len(curr.entities)
+            container["result"] += len(curr.entities)
+
         self._iter_helper(handler)
-        
-        return container['result']
-        
+
+        return container["result"]
+
     def calculate_avg_ents_per_leaf(self):
         """
         Calculate the average number of entities per leaf node on this and child
@@ -422,14 +460,16 @@ class QuadTree(object):
         :returns: average number of entities at each leaf node
         :rtype: :class:`numbers.Number`
         """
-        container = { 'leafs': 0, 'total': 0 }
+        container = {"leafs": 0, "total": 0}
+
         def handler(curr, container=container):
             if not curr.children:
-                container['leafs'] += 1
-                container['total'] += len(curr.entities)
+                container["leafs"] += 1
+                container["total"] += len(curr.entities)
+
         self._iter_helper(handler)
-        return container['total'] / container['leafs']
-        
+        return container["total"] / container["leafs"]
+
     def calculate_weight_misplaced_ents(self, sum_entities=None):
         """
         Calculate a rating for misplaced entities.
@@ -451,13 +491,13 @@ class QuadTree(object):
         :returns: weight of misplaced entities
         :rtype: :class:`numbers.Number`
         """
-        
+
         # this iteration requires more context than _iter_helper provides.
         # we must keep track of parents as well in order to correctly update
         # weights
-        
+
         nonleaf_to_max_child_depth_dict = {}
-        
+
         # stack will be (quadtree, list (of parents) or None)
         _stack = deque()
         _stack.append((self, None))
@@ -465,21 +505,23 @@ class QuadTree(object):
             curr, parents = _stack.pop()
             if parents:
                 for p in parents:
-                    nonleaf_to_max_child_depth_dict[p] = max(nonleaf_to_max_child_depth_dict.get(p, 0), curr.depth)
-            
+                    nonleaf_to_max_child_depth_dict[p] = max(
+                        nonleaf_to_max_child_depth_dict.get(p, 0), curr.depth
+                    )
+
             if curr.children:
                 new_parents = list(parents) if parents else []
                 new_parents.append(curr)
                 for child in curr.children:
                     _stack.append((child, new_parents))
-        
+
         _weight = 0
         for nonleaf, maxchilddepth in nonleaf_to_max_child_depth_dict.items():
             _weight += len(nonleaf.entities) * 4 * (maxchilddepth - nonleaf.depth)
-        
+
         _sum = self.sum_entities() if sum_entities is None else sum_entities
         return _weight / _sum
-    
+
     def __repr__(self):
         """
         Create an unambiguous representation of this quad tree.
@@ -506,8 +548,15 @@ class QuadTree(object):
         :returns: unambiguous, recursive representation of this quad tree
         :rtype: string
         """
-        return "quadtree(bucket_size={}, max_depth={}, location={}, depth={}, entities={}, children={})".format(self.bucket_size, self.max_depth, repr(self.location), self.depth, self.entities, self.children)
-    
+        return "quadtree(bucket_size={}, max_depth={}, location={}, depth={}, entities={}, children={})".format(
+            self.bucket_size,
+            self.max_depth,
+            repr(self.location),
+            self.depth,
+            self.entities,
+            self.children,
+        )
+
     def __str__(self):
         """
         Create a human-readable representation of this quad tree
@@ -539,18 +588,33 @@ class QuadTree(object):
         :returns: human-readable representation of this quad tree
         :rtype: string
         """
-        
+
         nodes_per_depth = self.find_nodes_per_depth()
         _ents_per_depth = self.find_entities_per_depth()
-        
-        _nodes_ents_per_depth_str = "[ {} ]".format(', '.join("{}: ({}, {})".format(dep, nodes_per_depth[dep], _ents_per_depth[dep]) for dep in nodes_per_depth.keys()))
-        
+
+        _nodes_ents_per_depth_str = "[ {} ]".format(
+            ", ".join(
+                "{}: ({}, {})".format(dep, nodes_per_depth[dep], _ents_per_depth[dep])
+                for dep in nodes_per_depth.keys()
+            )
+        )
+
         _sum = self.sum_entities(entities_per_depth=_ents_per_depth)
         _max_depth = max(_ents_per_depth.keys())
         _avg_ent_leaf = self.calculate_avg_ents_per_leaf()
         _mispl_weight = self.calculate_weight_misplaced_ents(sum_entities=_sum)
-        return "quadtree(at {} with {} entities here ({} in total); (nodes, entities) per depth: {} (allowed max depth: {}, actual: {}), avg ent/leaf: {} (target {}), misplaced weight {} (0 best, >1 bad)".format(self.location, len(self.entities), _sum, _nodes_ents_per_depth_str, self.max_depth, _max_depth, _avg_ent_leaf, self.bucket_size, _mispl_weight)
-        
+        return "quadtree(at {} with {} entities here ({} in total); (nodes, entities) per depth: {} (allowed max depth: {}, actual: {}), avg ent/leaf: {} (target {}), misplaced weight {} (0 best, >1 bad)".format(
+            self.location,
+            len(self.entities),
+            _sum,
+            _nodes_ents_per_depth_str,
+            self.max_depth,
+            _max_depth,
+            _avg_ent_leaf,
+            self.bucket_size,
+            _mispl_weight,
+        )
+
     @staticmethod
     def get_code():
         """

@@ -14,7 +14,7 @@ def is_pangram(sentence):
     :return: bool
     """
 
-    f_string = ''.join(c for c in sentence if c.isalpha()).lower()
+    f_string = "".join(c for c in sentence if c.isalpha()).lower()
     return set(ascii_lowercase) == set(f_string)
 
 

@@ -58,7 +58,10 @@ class Heap(queue.Queue):
         parent = self.parent_idx(child)
         while self.queue[child] < self.queue[self.parent_idx(child)]:
             # Swap (sift up) and update child:parent relation
-            self.queue[child], self.queue[parent] = self.queue[parent], self.queue[child]
+            self.queue[child], self.queue[parent] = (
+                self.queue[parent],
+                self.queue[child],
+            )
             child = parent
             parent = self.parent_idx(child)
 

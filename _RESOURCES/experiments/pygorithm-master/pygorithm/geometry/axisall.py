@@ -13,6 +13,7 @@ https://en.wikipedia.org/wiki/Axis-aligned_object
 
 import math
 
+
 class AxisAlignedLine(object):
     """
     Define an axis aligned line.
@@ -47,7 +48,7 @@ class AxisAlignedLine(object):
     :ivar max: the point closest to positive infinity
     :vartype max: :class:`numbers.Number`
     """
-    
+
     def __init__(self, axis, point1, point2):
         """
         Construct an axis aligned line with the appropriate min and max.
@@ -59,11 +60,11 @@ class AxisAlignedLine(object):
         :param point2: a different point on this line
         :type point2: :class:`numbers.Number`
         """
-    
+
         self.axis = axis
         self.min = min(point1, point2)
         self.max = max(point1, point2)
-    
+
     @staticmethod
     def intersects(line1, line2):
         """
@@ -90,7 +91,7 @@ class AxisAlignedLine(object):
         :returns: (touching, overlapping)
         :rtype: (bool, bool)
         """
-        
+
         if math.isclose(line1.max, line2.min):
             return True, False
         elif math.isclose(line1.min, line2.max):
@@ -99,9 +100,9 @@ class AxisAlignedLine(object):
             return False, False
         elif line1.min > line2.max:
             return False, False
-        
+
         return False, True
-    
+
     @staticmethod
     def find_intersection(line1, line2):
         """
@@ -128,7 +129,7 @@ class AxisAlignedLine(object):
         :returns: (touching, (mtv against 1, intersection min, intersection max))
         :rtype: (bool, (:class:`numbers.Number` or None, :class:`numbers.Number`, :class:`numbers.Number`) or None)
         """
-        
+
         if math.isclose(line1.max, line2.min):
             return True, (None, line2.min, line2.min)
         elif math.isclose(line1.min, line2.max):
@@ -138,15 +139,15 @@ class AxisAlignedLine(object):
         else:
             opt_1 = line2.min - line1.max
             opt_2 = line2.max - line1.min
-            
+
             res_min = max(line1.min, line2.min)
             res_max = min(line1.max, line2.max)
-            
+
             if abs(opt_1) < abs(opt_2):
                 return True, (opt_1, res_min, res_max)
             else:
                 return True, (opt_2, res_min, res_max)
-    
+
     @staticmethod
     def contains_point(line, point):
         """
@@ -165,14 +166,14 @@ class AxisAlignedLine(object):
         :returns: (if the point is an edge of the line, if the point is contained by the line)
         :rtype: (bool, bool)
         """
-        
+
         if math.isclose(line.min, point) or math.isclose(line.max, point):
             return True, False
         elif point < line.min or point > line.max:
             return False, False
         else:
             return False, True
-            
+
     def __repr__(self):
         """
         Create an unambiguous representation of this axis aligned
@@ -192,9 +193,11 @@ class AxisAlignedLine(object):
         :returns: un-ambiguous representation of this line
         :rtype: string
         """
-        
-        return "AxisAlignedLine(axis={}, min={}, max={})".format(repr(self.axis), self.min, self.max)
-    
+
+        return "AxisAlignedLine(axis={}, min={}, max={})".format(
+            repr(self.axis), self.min, self.max
+        )
+
     def __str__(self):
         """
         Create a human-readable representation of this axis aligned line.
@@ -213,13 +216,15 @@ class AxisAlignedLine(object):
         :returns: human-readable representation of this line
         :rtype: string
         """
-        
+
         pretty_min = round(self.min * 1000) / 1000
         if pretty_min == math.floor(pretty_min):
             pretty_min = math.floor(pretty_min)
-            
+
         pretty_max = round(self.max * 1000) / 1000
         if pretty_max == math.floor(pretty_max):
             pretty_max = math.floor(pretty_max)
-        
-        return "axisall(along {} from {} to {})".format(str(self.axis), pretty_min, pretty_max)
+
+        return "axisall(along {} from {} to {})".format(
+            str(self.axis), pretty_min, pretty_max
+        )

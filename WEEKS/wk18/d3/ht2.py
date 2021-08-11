@@ -21,10 +21,13 @@ Original file is located at
 1. Write the delete method with the assumption that linked list chaining was used for collision resolution.
 2. Write the get method with the assumption that linked list chaining was used for collision resolution.
 """
+
+
 class HashTableEntry:
     """
     Linked List hash table key/value pair
     """
+
     def __init__(self, key, value):
         self.key = key
         self.value = value
@@ -48,7 +51,6 @@ class HashTable:
         self.item_count = 0
         self.MIN_CAPACITY = 8
 
-
     def get_num_slots(self):
         """
         Return the length of the list you're using to hold the hash
@@ -59,14 +61,12 @@ class HashTable:
         """
         return len(self.storage)
 
-
     def get_load_factor(self):
         """
         Return the load factor for this hash table.
         Implement this.
         """
         return self.item_count / self.capacity
-
 
     def djb2(self, key):
         """
@@ -83,10 +83,9 @@ class HashTable:
         # Bit-shift and sum value for each character
         for b in str_key:
             hash_value = ((hash_value << 5) + hash_value) + b
-            hash_value &= 0xffffffff  # DJB2 is a 32-bit hash, only keep 32 bits
+            hash_value &= 0xFFFFFFFF  # DJB2 is a 32-bit hash, only keep 32 bits
 
         return hash_value
-
 
     def hash_index(self, key):
         """
@@ -114,14 +113,12 @@ class HashTable:
             new_entry = HashTableEntry(key, value)
             new_entry.next = self.storage[index]
             self.storage[index] = new_entry
-        
+
         # increment the item count
         self.item_count += 1
 
         if self.get_load_factor() > 0.7:
-          self.resize(self.capacity * 2)
-
-
+            self.resize(self.capacity * 2)
 
     def delete(self, key):
         """
@@ -148,19 +145,17 @@ class HashTable:
 
             # decrement the item count
             self.item_count -= 1
-        
+
         # TODO:  resizing?
         if self.get_load_factor() < 0.2:
-          # check if capacity is greater than the minimum
-          if self.capacity > self.MIN_CAPACITY:
-            new_capacity = self.capacity // 2
+            # check if capacity is greater than the minimum
+            if self.capacity > self.MIN_CAPACITY:
+                new_capacity = self.capacity // 2
 
-            if new_capacity < self.MIN_CAPACITY:
-              new_capacity = self.MIN_CAPACITY
-          
-          self.resize(new_capacity)
+                if new_capacity < self.MIN_CAPACITY:
+                    new_capacity = self.MIN_CAPACITY
 
-
+            self.resize(new_capacity)
 
     def get(self, key):
         """
@@ -180,10 +175,10 @@ class HashTable:
                 return current_entry.value
             # traverse to the next entry
             current_entry = current_entry.next
-        
+
         return None
 
-    def resize(self, new_capacity): # O(n * k)
+    def resize(self, new_capacity):  # O(n * k)
         """
         Changes the capacity of the hash table and rehashes all of the key / value pairs
         """
@@ -204,19 +199,18 @@ class HashTable:
 
         # itearate over each bucket in old storage
         for bucket_item in old_storage:
-          # keep track of current entry
-          current_entry = bucket_item
+            # keep track of current entry
+            current_entry = bucket_item
 
-          # while the current entry exisits
-          while current_entry is not None:
-            # put the current entry key value pair in to the new storage
-            self.put(current_entry.key, current_entry.value)
-            # traverse to the next entry
-            current_entry = current_entry.next
+            # while the current entry exisits
+            while current_entry is not None:
+                # put the current entry key value pair in to the new storage
+                self.put(current_entry.key, current_entry.value)
+                # traverse to the next entry
+                current_entry = current_entry.next
 
         # restore the old item count
         self.item_count = old_item_count
-
 
 
 if __name__ == "__main__":
@@ -291,6 +285,8 @@ Notes:
 - words in the input list only contain lowercase letters.
 ```
 """
+
+
 def top_k_frequent(words, k):
     """
     Input:

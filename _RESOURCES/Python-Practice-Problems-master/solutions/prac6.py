@@ -3,12 +3,13 @@
 
 
 """
-#using function
+# using function
 def reverse(string):
     str = ""
     for x in string:
         str = x + str
     return str
+
 
 string = input("Enter a string: ")
 
@@ -18,10 +19,11 @@ else:
     print(string + " is not a palindrome.")
 
 
-#using reversed built-in function
+# using reversed built-in function
 def reverse(string):
     str = "".join(reversed(string))
     return str
+
 
 string = input("Enter another string: ")
 

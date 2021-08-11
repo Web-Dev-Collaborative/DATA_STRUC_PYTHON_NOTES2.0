@@ -35,7 +35,7 @@ def sort(_list):
         return _list
 
     except TypeError as error:
-        print('Counting Sort can only be applied to integers. {}'.format(error))
+        print("Counting Sort can only be applied to integers. {}".format(error))
 
 
 # TODO: Are these necessary?

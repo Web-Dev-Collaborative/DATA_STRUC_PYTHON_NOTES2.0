@@ -4,6 +4,7 @@ Created At: 25th August 2017
 """
 import inspect
 
+
 def longest_increasing_subsequence(_list):
     """
     The Longest Increasing Subsequence (LIS) problem is to find the length of the longest subsequence of a
@@ -22,7 +23,7 @@ def longest_increasing_subsequence(_list):
     for i in range(1, len(_list)):
         for j in range(0, i):
             if _list[i] > _list[j] and lis[i] < lis[j] + 1:
-                lis[i] = lis[j]+1
+                lis[i] = lis[j] + 1
                 elements[i] = j
 
     # find the maximum of the whole list and get its index in idx

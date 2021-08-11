@@ -8,7 +8,8 @@ Defines a simple two-dimensional line segment
 
 import math
 
-from pygorithm.geometry import (vector2, axisall)
+from pygorithm.geometry import vector2, axisall
+
 
 class Line2(object):
     """
@@ -42,7 +43,7 @@ class Line2(object):
     :ivar end: the end of this line
     :vartype end: :class:`pygorithm.geometry.vector2.Vector2`
     """
-    
+
     def __init__(self, start, end):
         """
         Create a new line from start to end.
@@ -54,10 +55,10 @@ class Line2(object):
         
         :raises ValueError: if start and end are at the same point
         """
-        
+
         if start.x == end.x and start.y == end.y:
-            raise ValueError('start and end are the same point')
-        
+            raise ValueError("start and end are the same point")
+
         self.start = start
         self.end = end
         self._delta = None
@@ -73,8 +74,7 @@ class Line2(object):
         self._y_intercept = None
         self._horizontal = None
         self._vertical = None
-        
-        
+
     @property
     def delta(self):
         """
@@ -83,12 +83,12 @@ class Line2(object):
         :returns: delta from start to end
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         """
-        
+
         if self._delta is None:
             self._delta = self.end - self.start
-        
+
         return self._delta
-        
+
     @property
     def axis(self):
         """
@@ -97,12 +97,12 @@ class Line2(object):
         :returns: normalized delta
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         """
-        
+
         if self._axis is None:
             self._axis = self.delta * (1 / self.magnitude)
-            
+
         return self._axis
-    
+
     @property
     def normal(self):
         """
@@ -114,12 +114,12 @@ class Line2(object):
         :returns: normalized normal to axis
         :rtype: :class:`pygorithm.geometry.vector2.Vector2`
         """
-        
+
         if self._normal is None:
             self._normal = vector2.Vector2(-self.axis.y, self.axis.x)
-            
+
         return self._normal
-    
+
     @property
     def magnitude_squared(self):
         """
@@ -128,12 +128,12 @@ class Line2(object):
         :returns: square of magnitude of delta
         :rtype: :class:`numbers.Number`
         """
-        
+
         if self._magnitude_squared is None:
             self._magnitude_squared = self.delta.magnitude_squared()
-        
+
         return self._magnitude_squared
-        
+
     @property
     def magnitude(self):
         """
@@ -147,12 +147,12 @@ class Line2(object):
         :returns: magnitude of delta
         :rtype: :class:`numbers.Number`
         """
-        
+
         if self._magnitude is None:
             self._magnitude = math.sqrt(self.magnitude_squared)
-            
+
         return self._magnitude
-    
+
     @property
     def min_x(self):
         """
@@ -161,12 +161,12 @@ class Line2(object):
         :returns: minimum x this line contains
         :rtype: :class:`numbers.Number`
         """
-        
+
         if self._min_x is None:
             self._min_x = min(self.start.x, self.end.x)
-        
+
         return self._min_x
-        
+
     @property
     def min_y(self):
         """
@@ -175,12 +175,12 @@ class Line2(object):
         :returns: minimum x this line contains
         :rtype: :class:`numbers.Number`
         """
-        
+
         if self._min_y is None:
             self._min_y = min(self.start.y, self.end.y)
-        
+
         return self._min_y
-    
+
     @property
     def max_x(self):
         """
@@ -189,12 +189,12 @@ class Line2(object):
         :returns: maximum x this line contains
         :rtype: :class:`numbers.Number`
         """
-        
+
         if self._max_x is None:
             self._max_x = max(self.start.x, self.end.x)
-            
+
         return self._max_x
-    
+
     @property
     def max_y(self):
         """
@@ -203,12 +203,12 @@ class Line2(object):
         :returns: maximum x this line contains 
         :rtype: :class:`numbers.Number`
         """
-        
+
         if self._max_y is None:
             self._max_y = max(self.start.y, self.end.y)
-            
+
         return self._max_y
-        
+
     @property
     def slope(self):
         """
@@ -226,18 +226,18 @@ class Line2(object):
         :returns: the slope of this line (rise over run).
         :rtype: :class:`numbers.Number`
         """
-        
+
         if self._slope is None:
             if self.delta.x == 0:
                 if self.delta.y > 0:
-                    self._slope = float('+inf')
+                    self._slope = float("+inf")
                 else:
-                    self._slope = float('-inf')
+                    self._slope = float("-inf")
             else:
                 self._slope = self.delta.y / self.delta.x
-        
+
         return self._slope
-    
+
     @property
     def y_intercept(self):
         """
@@ -261,16 +261,15 @@ class Line2(object):
         :returns: the y-intercept of this line when unshifted
         :rtype: :class:`numbers.Number` or None
         """
-        
+
         if self.vertical:
             return None
-        
+
         if self._y_intercept is None:
             self._y_intercept = self.start.y - self.slope * self.start.x
-        
+
         return self._y_intercept
-        
-        
+
     @property
     def horizontal(self):
         """
@@ -282,12 +281,12 @@ class Line2(object):
         :returns: if this line is horizontal
         :rtype: bool
         """
-        
+
         if self._horizontal is None:
             self._horizontal = self.delta.y == 0
-        
+
         return self._horizontal
-        
+
     @property
     def vertical(self):
         """
@@ -299,12 +298,12 @@ class Line2(object):
         :returns: if this line is vertical
         :rtype: bool
         """
-        
+
         if self._vertical is None:
             self._vertical = self.delta.x == 0
-            
+
         return self._vertical
-        
+
     def __repr__(self):
         """
         Get an unambiguous representation of this line
@@ -326,9 +325,9 @@ class Line2(object):
         :returns: unambiguous representation of this line
         :rtype: string
         """
-            
+
         return "line2(start={}, end={})".format(repr(self.start), repr(self.end))
-    
+
     def __str__(self):
         """
         Get a human-readable representation of this line
@@ -353,9 +352,9 @@ class Line2(object):
         :returns: human-readable representation of this line
         :rtype: string
         """
-        
+
         return "{} -> {}".format(self.start, self.end)
-    
+
     def calculate_y_intercept(self, offset):
         """
         Calculate the y-intercept of this line when it is at the
@@ -368,15 +367,15 @@ class Line2(object):
         :returns: the y-intercept of this line when at offset
         :rtype: :class:`numbers.Number`
         """
-        
+
         if offset is None:
             return self.y_intercept
-        
+
         if self.vertical:
             return None
         # y = mx + b -> b = y - mx
         return self.start.y + offset.y - self.slope * (self.start.x + offset.x)
-    
+
     @staticmethod
     def are_parallel(line1, line2):
         """
@@ -391,15 +390,15 @@ class Line2(object):
         :returns: if the lines are parallel
         :rtype: bool
         """
-        
+
         if line1.vertical and line2.vertical:
             return True
-        
+
         return math.isclose(line1.slope, line2.slope)
-    
+
     @staticmethod
-    def contains_point(line, point, offset = None):
-      """
+    def contains_point(line, point, offset=None):
+        """
       Determine if the line contains the specified point.
       
       Optionally, specify an offset for the line. Being
@@ -414,36 +413,38 @@ class Line2(object):
       :returns: if the point is on the line
       :rtype: bool
       """
-      
-      if line.vertical:
-        x = line.start.x + offset.x if offset is not None else line.start.x
-        if not math.isclose(point.x, x, abs_tol=1e-07):
-          return False
-        ymin = line.min_y + offset.y if offset is not None else line.min_y
-        ymax = line.max_y + offset.y if offset is not None else line.max_y
-        if math.isclose(point.y, ymin, abs_tol=1e-07) or math.isclose(point.y, ymax, abs_tol=1e-07):
-          return True
-        return point.y > ymin and point.y < ymax
-      
-      xmin = line.min_x + offset.x if offset is not None else line.min_x
-      xmax = line.max_x + offset.x if offset is not None else line.max_x
-      
-      if not (math.isclose(point.x, xmin, abs_tol=1e-07) or point.x > xmin):
-        return False
-      
-      if not (math.isclose(point.x, xmax, abs_tol=1e-07) or point.x < xmax):
-        return False
-        
-      ystart = line.start.y + offset.y if offset is not None else line.start.y
-      if line.horizontal:
-        return math.isclose(ystart, point.y, abs_tol=1e-07)
-      
-      yint = line.calculate_y_intercept(offset)
-      yatx = line.slope * point.x + yint
-      return math.isclose(point.y, yatx, abs_tol=1e-07)
-      
+
+        if line.vertical:
+            x = line.start.x + offset.x if offset is not None else line.start.x
+            if not math.isclose(point.x, x, abs_tol=1e-07):
+                return False
+            ymin = line.min_y + offset.y if offset is not None else line.min_y
+            ymax = line.max_y + offset.y if offset is not None else line.max_y
+            if math.isclose(point.y, ymin, abs_tol=1e-07) or math.isclose(
+                point.y, ymax, abs_tol=1e-07
+            ):
+                return True
+            return point.y > ymin and point.y < ymax
+
+        xmin = line.min_x + offset.x if offset is not None else line.min_x
+        xmax = line.max_x + offset.x if offset is not None else line.max_x
+
+        if not (math.isclose(point.x, xmin, abs_tol=1e-07) or point.x > xmin):
+            return False
+
+        if not (math.isclose(point.x, xmax, abs_tol=1e-07) or point.x < xmax):
+            return False
+
+        ystart = line.start.y + offset.y if offset is not None else line.start.y
+        if line.horizontal:
+            return math.isclose(ystart, point.y, abs_tol=1e-07)
+
+        yint = line.calculate_y_intercept(offset)
+        yatx = line.slope * point.x + yint
+        return math.isclose(point.y, yatx, abs_tol=1e-07)
+
     @staticmethod
-    def find_intersection(line1, line2, offset1 = None, offset2 = None):
+    def find_intersection(line1, line2, offset1=None, offset2=None):
         """
         Find the intersection between the two lines.
         
@@ -471,175 +472,212 @@ class Line2(object):
         :returns: (touching, overlapping, intersection_location)
         :rtype: (bool, bool, :class:`pygorithm.geometry.line2.Line2` or :class:`pygorithm.geometry.vector2.Vector2` or None)
         """
-        
-        
-        # We will ensure that: 
+
+        # We will ensure that:
         #  - If one line is vertical and one horizontal, line1 is the vertical line
         #  - If only one line is vertical, line1 is the vertical line
         #  - If only one line is horizontal, line1 is the horizontal line
-        
+
         if line2.vertical and not line1.vertical:
             return Line2.find_intersection(line2, line1, offset2, offset1)
         if line2.horizontal and not line1.horizontal and not line1.vertical:
             return Line2.find_intersection(line2, line1, offset2, offset1)
-            
+
         l1_st_x = line1.start.x + (offset1.x if offset1 is not None else 0)
         l1_st_y = line1.start.y + (offset1.y if offset1 is not None else 0)
         l1_en_x = line1.end.x + (offset1.x if offset1 is not None else 0)
         l1_en_y = line1.end.y + (offset1.y if offset1 is not None else 0)
-        
+
         l2_st_x = line2.start.x + (offset2.x if offset2 is not None else 0)
         l2_st_y = line2.start.y + (offset2.y if offset2 is not None else 0)
         l2_en_x = line2.end.x + (offset2.x if offset2 is not None else 0)
         l2_en_y = line2.end.y + (offset2.y if offset2 is not None else 0)
-        
+
         if line1.vertical and line2.vertical:
             # Two vertical lines
             if not math.isclose(l1_st_x, l2_st_x):
                 return False, False, None
-            
+
             aal1 = axisall.AxisAlignedLine(None, l1_st_y, l1_en_y)
             aal2 = axisall.AxisAlignedLine(None, l2_st_y, l2_en_y)
-            
+
             touch, mtv = axisall.AxisAlignedLine.find_intersection(aal1, aal2)
-            
+
             if not touch:
                 return False, False, None
             elif mtv[0] is None:
                 return True, False, vector2.Vector2(l1_st_x, mtv[1])
             else:
-                return False, True, Line2(vector2.Vector2(l1_st_x, mtv[1]), vector2.Vector2(l1_st_x, mtv[2]))
-            
+                return (
+                    False,
+                    True,
+                    Line2(
+                        vector2.Vector2(l1_st_x, mtv[1]),
+                        vector2.Vector2(l1_st_x, mtv[2]),
+                    ),
+                )
+
         if line1.horizontal and line2.horizontal:
             # Two horizontal lines
             if not math.isclose(l1_st_y, l2_st_y):
                 return False, False, None
-            
+
             aal1 = axisall.AxisAlignedLine(None, l1_st_x, l1_en_x)
             aal2 = axisall.AxisAlignedLine(None, l2_st_x, l2_st_y)
-            
+
             touch, mtv = axisall.AxisAlignedLine.find_intersection(aal1, aal2)
-            
+
             if not touch:
                 return False, False, None
             elif mtv[0] is None:
                 return True, False, vector2.Vector2(mtv[1], l1_st_y)
             else:
-                return False, True, Line2(vector2.Vector2(mtv[1], l1_st_x), vector2.Vector2(mtv[2], l1_st_y))
-        
+                return (
+                    False,
+                    True,
+                    Line2(
+                        vector2.Vector2(mtv[1], l1_st_x),
+                        vector2.Vector2(mtv[2], l1_st_y),
+                    ),
+                )
+
         if Line2.are_parallel(line1, line2):
             # Two non-vertical, non-horizontal, parallel lines
             yintr1 = line1.calculate_y_intercept(offset1)
             yintr2 = line2.calculate_y_intercept(offset2)
             if not math.isclose(yintr1, yintr2):
                 return False, False, None
-            
+
             axis = line1.axis
-            aal1 = axisall.AxisAlignedLine(axis, l1_st_x * axis.x + l1_st_y * axis.y, l1_en_x * axis.x + l1_en_y * axis.y)
-            aal2 = axisall.AxisAlignedLine(axis, l2_st_x * axis.x + l2_st_y * axis.y, l2_en_x * axis.x + l2_en_y * axis.y)
-            
+            aal1 = axisall.AxisAlignedLine(
+                axis,
+                l1_st_x * axis.x + l1_st_y * axis.y,
+                l1_en_x * axis.x + l1_en_y * axis.y,
+            )
+            aal2 = axisall.AxisAlignedLine(
+                axis,
+                l2_st_x * axis.x + l2_st_y * axis.y,
+                l2_en_x * axis.x + l2_en_y * axis.y,
+            )
+
             touch, mtv = axisall.AxisAlignedLine.find_intersection(aal1, aal2)
-            
+
             def unshift_vec(vec):
                 numerator = line1.slope * vec.x - yintr1 * axis.x * axis.x
                 denominator = axis.x * axis.y + line1.slope * axis.y * axis.y
-                
+
                 new_x = numerator / denominator
                 new_y = line1.slope * new_x + yintr1
-                
+
                 return vector2.Vector2(new_x, new_y)
-                
+
             if not touch:
                 return False, False, None
             elif mtv[0] is None:
                 return True, False, unshift_vec(axis * mtv[1])
             else:
-                return False, True, Line2(unshift_vec(axis * mtv[1]), unshift_vec(axis * mtv[2]))
-                
+                return (
+                    False,
+                    True,
+                    Line2(unshift_vec(axis * mtv[1]), unshift_vec(axis * mtv[2])),
+                )
+
         if line1.vertical and line2.horizontal:
             # A vertical and horizontal line
             l1_min = min(l1_st_y, l1_en_y) if offset1 is not None else line1.min_y
             l1_max = max(l1_st_y, l1_en_y) if offset1 is not None else line1.max_y
-            
+
             if l2_st_y < l1_min or l2_st_y > l2_max:
                 return False, False, None
-            
+
             l2_min = min(l2_st_x, l2_en_x) if offset2 is not None else line2.min_x
             l2_max = max(l2_st_x, l2_en_x) if offset2 is not None else line2.max_x
-            
+
             if l1_st_x < l2_min or l1_st_x > l2_max:
                 return False, False, None
-            
+
             pt = vector2.Vector2(l1_st_x, l2_st_y)
-            
-            if math.isclose(l2_st_y, l1_min) or math.isclose(l2_st_y, l2_max) or math.isclose(l1_st_x, l2_min) or math.isclose(l2_st_y, l2_max):
+
+            if (
+                math.isclose(l2_st_y, l1_min)
+                or math.isclose(l2_st_y, l2_max)
+                or math.isclose(l1_st_x, l2_min)
+                or math.isclose(l2_st_y, l2_max)
+            ):
                 return True, False, pt
             else:
                 return False, True, pt
-        
+
         if line1.vertical:
             # A vertical and non-horizontal, non-vertical line
-            line2_y_at_line1_x = line2.slope * l1_st_x + line2.calculate_y_intercept(offset2)
-            
+            line2_y_at_line1_x = line2.slope * l1_st_x + line2.calculate_y_intercept(
+                offset2
+            )
+
             l1_min = min(l1_st_y, l1_en_y) if offset1 is not None else line1.min_y
             l1_max = max(l1_st_y, l1_en_y) if offset1 is not None else line1.max_y
-            
-            if math.isclose(line2_y_at_line1_x, l1_min) or math.isclose(line2_y_at_line1_x, l1_max):
+
+            if math.isclose(line2_y_at_line1_x, l1_min) or math.isclose(
+                line2_y_at_line1_x, l1_max
+            ):
                 return True, False, vector2.Vector2(l1_st_x, line2_y_at_line1_x)
             elif line2_y_at_line1_x < l1_min or line2_y_at_line1_x > l2_max:
                 return False, False, None
             else:
                 return False, True, vector2.Vector2(l1_st_x, line2_y_at_line1_x)
-        
+
         if line1.horizontal:
             # A horizontal and non-vertical, non-horizontal line
             # y = mx + b -> x = (y - b) / m
-            line2_x_at_line1_y = (l1_st_y - line2.calculate_y_intercept(offset2)) / line2.slope
-            
+            line2_x_at_line1_y = (
+                l1_st_y - line2.calculate_y_intercept(offset2)
+            ) / line2.slope
+
             l1_min = min(l1_st_x, l1_en_x) if offset1 is not None else line1.min_x
             l1_max = max(l1_st_x, l1_en_x) if offset1 is not None else line1.max_x
-            
-            if math.isclose(line2_x_at_line1_y, l1_min) or math.isclose(line2_x_at_line1_y, l1_max):
+
+            if math.isclose(line2_x_at_line1_y, l1_min) or math.isclose(
+                line2_x_at_line1_y, l1_max
+            ):
                 return True, False, vector2.Vector2(line2_x_at_line1_y, l1_st_y)
             elif line2_x_at_line1_y < l1_min or line2_x_at_line1_y > l1_max:
                 return False, False, None
             else:
                 return False, True, vector2.Vector2(line2_x_at_line1_y, l1_st_y)
-        
+
         # Two non-vertical, non-horizontal, non-parallel lines
-        
-        # y = m1 x + b1 
+
+        # y = m1 x + b1
         # y = m2 x + b2
         # m1 x + b1 = m2 x + b2
         # m1 x - m2 x = b2 - b1
         # x = (b2 - b1) / (m1 - m2)
-        
+
         yintr1 = line1.calculate_y_intercept(offset1)
         yintr2 = line2.calculate_y_intercept(offset2)
         intr_x = (yintr2 - yintr1) / (line1.slope - line2.slope)
-        
+
         # Some caution needs to be taken here to ensure we do approximately before range
         # checks. It's possible for _approx(a, b) to be True and a < b to be True
-        
+
         on_edge1 = math.isclose(intr_x, l1_st_x) or math.isclose(intr_x, l1_en_x)
         on_edge2 = math.isclose(intr_x, l2_st_x) or math.isclose(intr_x, l2_en_x)
-        
+
         if on_edge1 and on_edge2:
             intr_y = line1.slope * intr_x + yintr1
             return True, False, vector2.Vector2(intr_x, intr_y)
-        
+
         l1_min_x = min(l1_st_x, l1_en_x) if offset1 is not None else line1.min_x
         l1_max_x = max(l1_st_x, l1_en_x) if offset1 is not None else line1.max_x
         l2_min_x = min(l2_st_x, l2_en_x) if offset2 is not None else line2.min_x
         l2_max_x = max(l2_st_x, l2_en_x) if offset2 is not None else line2.max_x
-        
+
         on_line1 = on_edge1 or (intr_x > l1_min_x and intr_x < l1_max_x)
         on_line2 = on_edge2 or (intr_x > l2_min_x and intr_x < l2_max_x)
-        
+
         if on_line1 and on_line2:
             intr_y = line1.slope * intr_x + yintr1
             is_edge = on_edge1 or on_edge2
             return is_edge, not is_edge, vector2.Vector2(intr_x, intr_y)
-        
+
         return False, False, None
-        

@@ -12,4 +12,3 @@ cars = [
 cars.sort(key=myFunc)
 
 print(cars)
-

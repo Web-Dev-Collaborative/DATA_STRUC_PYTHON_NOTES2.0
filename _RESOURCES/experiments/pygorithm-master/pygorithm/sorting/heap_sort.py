@@ -22,9 +22,9 @@ def sort(_list):
     :param _list: list of values to sort
     :return: sorted values
     """
-    
+
     # create the heap
-    heapify(_list)              
+    heapify(_list)
     end = len(_list) - 1
     while end > 0:
         _list[end], _list[0] = _list[0], _list[end]

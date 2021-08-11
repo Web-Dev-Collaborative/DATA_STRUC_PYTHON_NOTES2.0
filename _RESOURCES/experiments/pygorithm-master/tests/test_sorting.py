@@ -14,29 +14,28 @@ from pygorithm.sorting import (
     brick_sort,
     tim_sort,
     cocktail_sort,
-    gnome_sort
+    gnome_sort,
 )
 
 
 class TestSortingAlgorithm:
     def test_test_setup(self):
-        self.assertIsNotNone(getattr(self, 'sort', None))
-        self.assertIsNotNone(getattr(self, 'inplace', None))
-        self.assertIsNotNone(getattr(self, 'alph_support', None))
+        self.assertIsNotNone(getattr(self, "sort", None))
+        self.assertIsNotNone(getattr(self, "inplace", None))
+        self.assertIsNotNone(getattr(self, "alph_support", None))
 
     def _check_sort_list(self, arr, expected):
         cp_arr = list(arr)
         sarr = self.sort(cp_arr)
 
-        self.assertTrue(
-            isinstance(sarr, list), 'weird result type: ' + str(type(sarr)))
+        self.assertTrue(isinstance(sarr, list), "weird result type: " + str(type(sarr)))
         self.assertEqual(len(sarr), len(arr))
         self.assertEqual(sarr, expected)
         if self.inplace:
-            self.assertTrue(cp_arr is sarr, 'was not inplace')
+            self.assertTrue(cp_arr is sarr, "was not inplace")
         else:
-            self.assertTrue(cp_arr is not sarr, 'was inplace')
-            self.assertEqual(cp_arr, arr, 'inplace modified list')
+            self.assertTrue(cp_arr is not sarr, "was inplace")
+            self.assertEqual(cp_arr, arr, "inplace modified list")
 
     def _check_sort_alph(self, inp, expected):
         if not self.alph_support:
@@ -51,7 +50,7 @@ class TestSortingAlgorithm:
         self._check_sort_list([5], [5])
 
     def test_sort_single_alph(self):
-        self._check_sort_alph('a', 'a')
+        self._check_sort_alph("a", "a")
 
     def test_sort_two_inorder(self):
         self._check_sort_list([1, 2], [1, 2])
@@ -70,15 +69,15 @@ class TestSortingAlgorithm:
         self._check_sort_list(arr, list(range(15)))
 
     def test_sort_5_random_alph(self):
-        arr = ['a', 'b', 'c', 'd', 'e']
+        arr = ["a", "b", "c", "d", "e"]
         random.shuffle(arr)
-        self._check_sort_alph(''.join(arr), 'abcde')
+        self._check_sort_alph("".join(arr), "abcde")
 
     def test_sort_15_random_alph(self):
-        arr = [chr(ord('a') + i) for i in range(15)]
-        exp = ''.join(arr)
+        arr = [chr(ord("a") + i) for i in range(15)]
+        exp = "".join(arr)
         random.shuffle(arr)
-        self._check_sort_alph(''.join(arr), exp)
+        self._check_sort_alph("".join(arr), exp)
 
 
 class TestBubbleSort(unittest.TestCase, TestSortingAlgorithm):
@@ -116,6 +115,7 @@ class TestMergeSort(unittest.TestCase, TestSortingAlgorithm):
     def sort(arr):
         return merge_sort.sort(arr)
 
+
 class TestMergeSortIterative(unittest.TestCase, TestSortingAlgorithm):
     inplace = False
     alph_support = True
@@ -123,6 +123,7 @@ class TestMergeSortIterative(unittest.TestCase, TestSortingAlgorithm):
     @staticmethod
     def sort(arr):
         return merge_sort.sorti(arr, verbose=False)
+
 
 class TestQuickSort(unittest.TestCase, TestSortingAlgorithm):
     inplace = False
@@ -205,5 +206,6 @@ class TestGnomeSort(unittest.TestCase, TestSortingAlgorithm):
     def sort(arr):
         return gnome_sort.gnome_sort(arr)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

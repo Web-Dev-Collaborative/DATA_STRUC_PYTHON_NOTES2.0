@@ -34,5 +34,5 @@ def sort(_list, base=10):
     return result_list
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(sort([170, 45, 75, 90, 802, 24, 2, 66]))

@@ -9,10 +9,10 @@ from . import pascals_triangle
 from . import sieve_of_eratosthenes
 
 __all__ = [
-    'conversion',
-    'factorial',
-    'lcm_using_gcd',
-    'lcm',
-    'pascals_triangle',
-    'sieve_of_eratosthenes'
+    "conversion",
+    "factorial",
+    "lcm_using_gcd",
+    "lcm",
+    "pascals_triangle",
+    "sieve_of_eratosthenes",
 ]

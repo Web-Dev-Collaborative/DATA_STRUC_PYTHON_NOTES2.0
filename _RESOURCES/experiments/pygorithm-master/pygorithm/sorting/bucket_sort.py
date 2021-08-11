@@ -47,7 +47,9 @@ def sort(_list, bucket_size=5):
     # For putting values in buckets
     for i in range(0, len(_list)):
         # TODO: floor expects floats but could be receiving int or slice
-        buckets[math.floor(float((_list[i] - min_value) / bucket_size))].append(_list[i])
+        buckets[math.floor(float((_list[i] - min_value) / bucket_size))].append(
+            _list[i]
+        )
 
     # Sort buckets and place back into input array
     sorted_array = []

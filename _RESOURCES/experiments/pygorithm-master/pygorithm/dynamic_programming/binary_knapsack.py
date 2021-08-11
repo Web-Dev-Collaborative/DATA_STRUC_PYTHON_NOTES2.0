@@ -18,9 +18,13 @@ def knapsack(w, value, weight):
     :param weight: an array of weights of items in the knapsack
     """
     if type(value) is not list:
-        raise TypeError("binary knapsack only accepts lists, not {}".format(str(type(value))))
+        raise TypeError(
+            "binary knapsack only accepts lists, not {}".format(str(type(value)))
+        )
     if type(weight) is not list:
-        raise TypeError("binary knapsack only accepts lists, not {}".format(str(type(weight))))
+        raise TypeError(
+            "binary knapsack only accepts lists, not {}".format(str(type(weight)))
+        )
 
     if len(value) != len(weight):
         raise ValueError("both the lists must be of same length")
@@ -28,7 +32,7 @@ def knapsack(w, value, weight):
     # n = number of items
     n = len(value)
 
-    knap_sack = [[0 for _ in range(w+1)] for _ in range(n+1)]
+    knap_sack = [[0 for _ in range(w + 1)] for _ in range(n + 1)]
 
     for j in range(w + 1):
         knap_sack[0][j] = 0
@@ -36,7 +40,10 @@ def knapsack(w, value, weight):
     for i in range(n + 1):
         for w in range(w + 1):
             if weight[i - 1] <= w:
-                knap_sack[i][w] = max(value[i - 1] + knap_sack[i - 1][w - weight[i - 1]], knap_sack[i - 1][w])
+                knap_sack[i][w] = max(
+                    value[i - 1] + knap_sack[i - 1][w - weight[i - 1]],
+                    knap_sack[i - 1][w],
+                )
             else:
                 knap_sack[i][w] = knap_sack[i - 1][w]
 
