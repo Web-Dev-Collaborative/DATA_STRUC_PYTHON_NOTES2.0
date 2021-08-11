@@ -5,7 +5,7 @@
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
-* [index](untitled.md)
+* [Examples](untitled.md)
 * [My Python DS Websites](my-python-ds-websites.md)
 * [Built-in Functions](built-in-functions.md)
 
@@ -36,4 +36,5 @@
 ---
 
 * [Youtube](youtube-1.md)
+* [Big O Notation](big-o-notation.md)
 
