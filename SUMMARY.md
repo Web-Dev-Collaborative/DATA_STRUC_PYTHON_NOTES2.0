@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Main](README.md)
+* [Python Data Structures Repo & Website](README.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
