@@ -18,7 +18,13 @@
   bottom: 0px;
   width: 64px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-icon .marker {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-icon
+  .marker {
   background: #eee;
   padding: 4px;
   cursor: pointer;
@@ -33,7 +39,13 @@
   user-select: none;
   -webkit-user-select: none;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-icon .marker:hover {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-icon
+  .marker:hover {
   background: #ddd;
 }
 .book .book-body .page-wrapper .page-inner .comments-section .comments-area {
@@ -44,7 +56,13 @@
   top: 0px;
   font-size: 12px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area input {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  input {
   width: 100%;
   resize: none;
   outline: none;
@@ -54,52 +72,142 @@
   margin: 0px;
   padding: 0px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area input + input {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  input
+  + input {
   margin-top: 8px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comments-toolbar {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comments-toolbar {
   margin-top: 6px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comments-toolbar a {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comments-toolbar
+  a {
   display: inline-block;
   margin-right: 12px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comments-threads {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comments-threads {
   margin-bottom: 15px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .thread {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .thread {
   padding: 0px;
   padding-bottom: 6px;
   margin-bottom: 6px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   cursor: pointer;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .thread:hover .thread-body .thread-title {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .thread:hover
+  .thread-body
+  .thread-title {
   text-decoration: underline;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .thread .thread-body .thread-user {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .thread
+  .thread-body
+  .thread-user {
   opacity: 0.8;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .thread .thread-body .thread-title {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .thread
+  .thread-body
+  .thread-title {
   font-weight: bold;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comments-list {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comments-list {
   margin-bottom: 15px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comments-list .comments-toolbar {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comments-list
+  .comments-toolbar {
   margin: 6px 0px 12px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comments-list .comments-toolbar a {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comments-list
+  .comments-toolbar
+  a {
   color: inherit;
   opacity: 0.4;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comment {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comment {
   padding: 0px;
   padding-bottom: 6px;
   margin-bottom: 6px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comment .comment-avatar {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comment
+  .comment-avatar {
   margin-top: 4px;
   width: 24px;
   height: 24px;
@@ -108,36 +216,109 @@
   border-radius: 24px;
   float: left;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comment .comment-avatar img {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comment
+  .comment-avatar
+  img {
   width: 100%;
   height: 100%;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comment .comment-body {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comment
+  .comment-body {
   margin-left: 30px;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comment .comment-body .comment-user {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comment
+  .comment-body
+  .comment-user {
   font-weight: bold;
   color: inherit;
 }
-.book .book-body .page-wrapper .page-inner .comments-section .comments-area .comment .comment-body .comment-content {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section
+  .comments-area
+  .comment
+  .comment-body
+  .comment-content {
   opacity: 0.8;
 }
-.book .book-body .page-wrapper .page-inner .comments-section.has-highlight-comments {
-  background-image: linear-gradient(to bottom, rgba(39, 243, 106, 0.1), rgba(39, 243, 106, 0.1));
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section.has-highlight-comments {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(39, 243, 106, 0.1),
+    rgba(39, 243, 106, 0.1)
+  );
 }
-.book .book-body .page-wrapper .page-inner .comments-section.has-comments .comments-icon,
-.book .book-body .page-wrapper .page-inner .comments-section:hover .comments-icon {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section.has-comments
+  .comments-icon,
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section:hover
+  .comments-icon {
   display: block;
 }
 .book .book-body .page-wrapper .page-inner .comments-section.has-comments-open {
-  background-image: linear-gradient(to bottom, rgba(39, 243, 106, 0.1), rgba(39, 243, 106, 0.1));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(39, 243, 106, 0.1),
+    rgba(39, 243, 106, 0.1)
+  );
 }
-.book .book-body .page-wrapper .page-inner .comments-section.has-comments-open .comments-icon {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section.has-comments-open
+  .comments-icon {
   display: block;
 }
-.book .book-body .page-wrapper .page-inner .comments-section.has-comments-open .comments-icon .marker {
-  background-image: linear-gradient(to bottom, rgba(39, 243, 106, 0.1), rgba(39, 243, 106, 0.1));
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section.has-comments-open
+  .comments-icon
+  .marker {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(39, 243, 106, 0.1),
+    rgba(39, 243, 106, 0.1)
+  );
 }
-.book .book-body .page-wrapper .page-inner .comments-section.has-comments-open .comments-area {
+.book
+  .book-body
+  .page-wrapper
+  .page-inner
+  .comments-section.has-comments-open
+  .comments-area {
   display: block;
 }
