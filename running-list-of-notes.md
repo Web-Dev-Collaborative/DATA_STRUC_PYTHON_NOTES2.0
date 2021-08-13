@@ -1,22 +1,13 @@
 # Running List Of Notes
 
-
-
 | [https://lambda-6.gitbook.io/python/](https://lambda-6.gitbook.io/python/) | This Gitbook As A Website |
-| :---: | :--- |
-
+| :-: | :-- |
 
 {% embed url="https://ds-unit-5-lambda.netlify.app/\#." %}
 
 {% embed url="https://golden-lobe-519.notion.site/PYTHON-cb857bd3fa4b4940928842a94dce856d" caption="My Notion Notes" %}
 
-
-
-
-
 {% embed url="https://replit.com/@bgoonz/DATASTRUCPYTHONNOTES-2" %}
-
-
 
 **Keywords**:
 
@@ -548,14 +539,14 @@ for i in range(len(l)):             # error: not indented
 
 [Mar 5](https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb?source=post_page-----5cfdf3d2bdfb--------------------------------) · 15 min read
 
-![https://miro.medium.com/max/1400/1\*3V9VOfPk\_hrFdbEAd3j-QQ.png](https://miro.medium.com/max/1400/1*3V9VOfPk_hrFdbEAd3j-QQ.png)
+![https://miro.medium.com/max/1400/1*3V9VOfPk_hrFdbEAd3j-QQ.png](https://miro.medium.com/max/1400/1*3V9VOfPk_hrFdbEAd3j-QQ.png)
 
 ## **Applications of Tutorial & Cheat Sheet Respectivley \(At Bottom Of Tutorial\):**
 
 ## **Basics**
 
-* **PEP8** : Python Enhancement Proposals, style-guide for Python.
-* `print` is the equivalent of `console.log`.
+- **PEP8** : Python Enhancement Proposals, style-guide for Python.
+- `print` is the equivalent of `console.log`.
 
 > ‘print\(\) == console.log\(\)’
 
@@ -575,7 +566,7 @@ def foo():
 
 ## **Numbers**
 
-* Python has three types of numbers:
+- Python has three types of numbers:
 
 1. **Integer**
 2. **Positive and Negative Counting Numbers.**
@@ -621,7 +612,7 @@ print(complex(17)) # => 17+0j
 print(complex()) # => 0j
 ```
 
-* **Type Casting** : The process of converting one number to another.
+- **Type Casting** : The process of converting one number to another.
 
 ```text
 # Using Float
@@ -634,17 +625,17 @@ print(str(17.0) + ' and ' + str(17))        # => 17.0 and 17
 
 **The arithmetic operators are the same between JS and Python, with two additions:**
 
-* _“\*\*” : Double asterisk for exponent._
-* _“//” : Integer Division._
-* **There are no spaces between math operations in Python.**
-* **Integer Division gives the other part of the number from Module; it is a way to do round down numbers replacing `Math.floor()` in JS.**
-* **There are no `++` and `-` in Python, the only shorthand operators are:**
+- _“\*\*” : Double asterisk for exponent._
+- _“//” : Integer Division._
+- **There are no spaces between math operations in Python.**
+- **Integer Division gives the other part of the number from Module; it is a way to do round down numbers replacing `Math.floor()` in JS.**
+- **There are no `++` and `-` in Python, the only shorthand operators are:**
 
 ## **Strings**
 
-* Python uses both single and double quotes.
-* You can escape strings like so `'Jodi asked, "What\\'s up, Sam?"'`
-* Multiline strings use triple quotes.
+- Python uses both single and double quotes.
+- You can escape strings like so `'Jodi asked, "What\\'s up, Sam?"'`
+- Multiline strings use triple quotes.
 
 ```text
 print('''My instructions are very long so to make them
@@ -668,7 +659,7 @@ print(len(“Spaghetti”)) # => 9
 print(“Spaghetti”[-1]) # => i print(“Spaghetti”[-4]) # => e
 ```
 
-* Python let’s you use ranges
+- Python let’s you use ranges
 
 You can think of this as roughly equivalent to the slice method called on a JavaScript object or string… _\(mind you that in JS … strings are wrapped in an object \(under the hood\)… upon which the string methods are actually called. As a immutable privative type **by textbook definition**, a string literal could not hope to invoke most of it’s methods without violating the state it was bound to on initialization if it were not for this bit of syntactic sugar.\)_
 
@@ -678,7 +669,7 @@ print(“Spaghetti”[4:-1]) # => hett
 print(“Spaghetti”[4:4]) # => (empty string)
 ```
 
-* The end range is exclusive just like `slice` in JS.
+- The end range is exclusive just like `slice` in JS.
 
 ```text
 # Shortcut to get from the beginning of a string to a certain index.
@@ -688,14 +679,14 @@ print("Spaghetti"[1:])  # => paghetti
 print("Spaghetti"[-4:])    # => etti
 ```
 
-* The `index` string function is the equiv. of `indexOf()` in JS
+- The `index` string function is the equiv. of `indexOf()` in JS
 
 ```text
 print("Spaghetti".index("h"))    # => 4
 print("Spaghetti".index("t"))    # => 6
 ```
 
-* The `count` function finds out how many times a substring appears in a string… pretty nifty for a hard coded feature of the language.
+- The `count` function finds out how many times a substring appears in a string… pretty nifty for a hard coded feature of the language.
 
 ```text
 print("Spaghetti".count("h"))    # => 1
@@ -709,9 +700,9 @@ postpone, and one which we intend to win, and the others, too.
 '''.count('the '))                # => 4
 ```
 
-* **You can use `+` to concatenate strings, just like in JS.**
-* **You can also use “\*” to repeat strings or multiply strings.**
-* **Use the `format()` function to use placeholders in a string to input values later on.**
+- **You can use `+` to concatenate strings, just like in JS.**
+- **You can also use “\*” to repeat strings or multiply strings.**
+- **Use the `format()` function to use placeholders in a string to input values later on.**
 
 ```text
 first_name = "Billy"
@@ -719,23 +710,23 @@ last_name = "Bob"
 print('Your name is {0} {1}'.format(first_name, last_name))  # => Your name is Billy Bob
 ```
 
-* _Shorthand way to use format function is:_`print(f'Your name is {first_name} {last_name}')`
+- _Shorthand way to use format function is:_`print(f'Your name is {first_name} {last_name}')`
 
 ### **Some useful string methods.**
 
-* **Note that in JS `join` is used on an Array, in Python it is used on String.**
+- **Note that in JS `join` is used on an Array, in Python it is used on String.**
 
-![https://miro.medium.com/max/630/0\*eE3E5H0AoqkhqK1z.png](https://miro.medium.com/max/630/0*eE3E5H0AoqkhqK1z.png)
+![https://miro.medium.com/max/630/0*eE3E5H0AoqkhqK1z.png](https://miro.medium.com/max/630/0*eE3E5H0AoqkhqK1z.png)
 
-* There are also many handy testing methods.
+- There are also many handy testing methods.
 
-![https://miro.medium.com/max/630/0\*Q0CMqFd4PozLDFPB.png](https://miro.medium.com/max/630/0*Q0CMqFd4PozLDFPB.png)
+![https://miro.medium.com/max/630/0*Q0CMqFd4PozLDFPB.png](https://miro.medium.com/max/630/0*Q0CMqFd4PozLDFPB.png)
 
 ## **Variables and Expressions**
 
-* **Duck-Typing** : Programming Style which avoids checking an object’s type to figure out what it can do.
-* Duck Typing is the fundamental approach of Python.
-* Assignment of a value automatically declares a variable.
+- **Duck-Typing** : Programming Style which avoids checking an object’s type to figure out what it can do.
+- Duck Typing is the fundamental approach of Python.
+- Assignment of a value automatically declares a variable.
 
 ```text
 a = 7
@@ -744,7 +735,7 @@ print(a)         # => 7
 print(b)         # => Marbles
 ```
 
-* _**You can chain variable assignments to give multiple var names the same value.**_
+- _**You can chain variable assignments to give multiple var names the same value.**_
 
 ### **Use with caution as this is highly unreadable**
 
@@ -764,17 +755,17 @@ a = 'seventeen'
 print(a)         # => seventeen
 ```
 
-* _`NaN` does not exist in Python, but you can 'create' it like so:**`print(float("nan"))`**_
-* _Python replaces `null` with `none`._
-* _**`none` is an object** and can be directly assigned to a variable._
+- _`NaN` does not exist in Python, but you can 'create' it like so:**`print(float("nan"))`**_
+- _Python replaces `null` with `none`._
+- _**`none` is an object** and can be directly assigned to a variable._
 
 > Using none is a convenient way to check to see why an action may not be operating correctly in your program.
 
 ## **Boolean Data Type**
 
-* One of the biggest benefits of Python is that it reads more like English than JS does.
+- One of the biggest benefits of Python is that it reads more like English than JS does.
 
-![https://miro.medium.com/max/1400/0\*HQpndNhm1Z\_xSoHb.png](https://miro.medium.com/max/1400/0*HQpndNhm1Z_xSoHb.png)
+![https://miro.medium.com/max/1400/0*HQpndNhm1Z_xSoHb.png](https://miro.medium.com/max/1400/0*HQpndNhm1Z_xSoHb.png)
 
 ```text
 # Logical AND
@@ -789,17 +780,17 @@ print(not False and True)   # => True
 print(not True or False)    # => False
 ```
 
-* By default, Python considers an object to be true UNLESS it is one of the following:
-* Constant `None` or `False`
-* Zero of any numeric type.
-* Empty Sequence or Collection.
-* `True` and `False` must be capitalized
+- By default, Python considers an object to be true UNLESS it is one of the following:
+- Constant `None` or `False`
+- Zero of any numeric type.
+- Empty Sequence or Collection.
+- `True` and `False` must be capitalized
 
 ## **Comparison Operators**
 
-* Python uses all the same equality operators as JS.
-* In Python, equality operators are processed from left to right.
-* Logical operators are processed in this order:
+- Python uses all the same equality operators as JS.
+- In Python, equality operators are processed from left to right.
+- Logical operators are processed in this order:
 
 1. **NOT**
 2. **AND**
@@ -807,15 +798,14 @@ print(not True or False)    # => False
 
 > Just like in JS, you can use parentheses to change the inherent order of operations.Short Circuit : Stopping a program when a true or false has been reached.
 
-![https://miro.medium.com/max/630/0\*qHzGRLTOMTf30miT.png](https://miro.medium.com/max/630/0*qHzGRLTOMTf30miT.png)
+![https://miro.medium.com/max/630/0*qHzGRLTOMTf30miT.png](https://miro.medium.com/max/630/0*qHzGRLTOMTf30miT.png)
 
 ## **Identity vs Equality**
 
 \*\*\*\*
 
-|  |  |
-| :---: | :--- |
-
+|     |     |
+| :-: | :-- |
 
 ```text
 print (2 == '2')    # => False
@@ -825,7 +815,7 @@ print (2 == 2.0)    # => True
 print (2 is 2.0)    # => False
 ```
 
-* In the Python community it is better to use `is` and `is not` over `==` or `!=`
+- In the Python community it is better to use `is` and `is not` over `==` or `!=`
 
 **If Statements**
 
@@ -840,7 +830,7 @@ while spam < 5:
   spam = spam + 1
 ```
 
-* `Break` statement also exists in Python.
+- `Break` statement also exists in Python.
 
 ```text
 spam = 0
@@ -851,7 +841,7 @@ while True:
     break
 ```
 
-* As are `continue` statements
+- As are `continue` statements
 
 ```text
 spam = 0
@@ -865,7 +855,7 @@ while True:
 
 ## **Try/Except Statements**
 
-* Python equivalent to `try/catch`
+- Python equivalent to `try/catch`
 
 ```text
 a = 321
@@ -883,7 +873,7 @@ except:
     print(len(a))
 ```
 
-* You can name an error to give the output more specificity.
+- You can name an error to give the output more specificity.
 
 ```text
 a = 100
@@ -895,7 +885,7 @@ except ZeroDivisionError:
 print(c)
 ```
 
-* You can also use the `pass` commmand to by pass a certain error.
+- You can also use the `pass` commmand to by pass a certain error.
 
 ```text
 a = 100
@@ -906,7 +896,7 @@ except ZeroDivisionError:
     pass
 ```
 
-* The `pass` method won't allow you to bypass every single error so you can chain an exception series like so:
+- The `pass` method won't allow you to bypass every single error so you can chain an exception series like so:
 
 ```text
 a = 100
@@ -919,7 +909,7 @@ except (TypeError, NameError):
     print("ERROR!")
 ```
 
-* You can use an `else` statement to end a chain of `except` statements.
+- You can use an `else` statement to end a chain of `except` statements.
 
 ```text
 # tuple of file names
@@ -938,7 +928,7 @@ for filename in files:
         f.close()
 ```
 
-* `finally` is used at the end to clean up all actions under any circumstance.
+- `finally` is used at the end to clean up all actions under any circumstance.
 
 ```text
 def divide(x, y):
@@ -952,7 +942,7 @@ def divide(x, y):
         print("Finally...")
 ```
 
-* Using duck typing to check to see if some value is able to use a certain method.
+- Using duck typing to check to see if some value is able to use a certain method.
 
 ```text
 # Try a number - nothing will print out
@@ -966,7 +956,7 @@ if hasattr(b, '__len__'):
 
 ## **Pass**
 
-* Pass Keyword is required to write the JS equivalent of :
+- Pass Keyword is required to write the JS equivalent of :
 
 ```text
 if (true) {
@@ -977,13 +967,13 @@ if (true) {
 
 ## **Functions**
 
-* **Function definition includes:**
-* **The `def` keyword**
-* **The name of the function**
-* **A list of parameters enclosed in parentheses.**
-* **A colon at the end of the line.**
-* **One tab indentation for the code to run.**
-* **You can use default parameters just like in JS**
+- **Function definition includes:**
+- **The `def` keyword**
+- **The name of the function**
+- **A list of parameters enclosed in parentheses.**
+- **A colon at the end of the line.**
+- **One tab indentation for the code to run.**
+- **You can use default parameters just like in JS**
 
 ```text
 def greeting(name, saying="Hello"):
@@ -1000,7 +990,7 @@ def increment(delta=1, value):
     return delta + value
 ```
 
-* _You can specify arguments by name without destructuring in Python._
+- _You can specify arguments by name without destructuring in Python._
 
 ```text
 def greeting(name, saying="Hello"):
@@ -1009,7 +999,7 @@ def greeting(name, saying="Hello"):
 greeting("Monica", saying="Hi")
 ```
 
-* The `lambda` keyword is used to create anonymous functions and are supposed to be `one-liners`.
+- The `lambda` keyword is used to create anonymous functions and are supposed to be `one-liners`.
 
 `toUpper = lambda s: s.upper()`
 
@@ -1286,74 +1276,6 @@ print(‘Index ‘ + str(i) + ‘ in supplies is: ‘ + supplies[i])
 
 \*\*\*\*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **You can loop and destructure at the same time.**
 
 ```text
@@ -1420,11 +1342,11 @@ print(c)
 
 _formal positional args._
 
-* args
+- args
 
 _keyword args with default values_
 
-* \*kwargs
+- \*kwargs
 
 ```text
 def example(arg_1, arg_2, *args, **kwargs):
@@ -1532,13 +1454,13 @@ _class_ **`bytes`**\(\[_source_\[, _encoding_\[, _errors_\]\]\]\)Return a new �
 
 The `@classmethod` form is a function [decorator](https://docs.python.org/3/glossary.html#term-decorator) – see [Function definitions](https://docs.python.org/3/reference/compound_stmts.html#function) for details. A class method can be called either on the class \(such as `C.f()`\) or on an instance \(such as `C().f()`\). The instance is ignored except for its class. If a class method is called for a derived class, the derived class object is passed as the implied first argument. Class methods are different than C++ or Java static methods. If you want those, see `[staticmethod()](<https://docs.python.org/3/library/functions.html#staticmethod>)` in this section. For more information on class methods, see [The standard type hierarchy](https://docs.python.org/3/reference/datamodel.html#types). _Changed in version 3.9:_ Class methods can now wrap other [descriptors](https://docs.python.org/3/glossary.html#term-descriptor) such as `[property()](<https://docs.python.org/3/library/functions.html#property>)`.
 
-**`compile`**\(_source_, _filename_, _mode_, _flags=0_, _dont\_inherit=False_, _optimize=-1_\)Compile the _source_ into a code or AST object. Code objects can be executed by `[exec()](<https://docs.python.org/3/library/functions.html#exec>)` or `[eval()](<https://docs.python.org/3/library/functions.html#eval>)`. _source_ can either be a normal string, a byte string, or an AST object. Refer to the `[ast](<https://docs.python.org/3/library/ast.html#module-ast>)` module documentation for information on how to work with AST objects. The _filename_ argument should give the file from which the code was read; pass some recognizable value if it wasn’t read from a file \(`'<string>'` is commonly used\). The _mode_ argument specifies what kind of code must be compiled; it can be `'exec'` if _source_ consists of a sequence of statements, `'eval'` if it consists of a single expression, or `'single'` if it consists of a single interactive statement \(in the latter case, expression statements that evaluate to something other than `None` will be printed\). The optional arguments _flags_ and _dont\_inherit_ control which [compiler options](https://docs.python.org/3/library/ast.html#ast-compiler-flags) should be activated and which [future features](https://docs.python.org/3/reference/simple_stmts.html#future) should be allowed. If neither is present \(or both are zero\) the code is compiled with the same flags that affect the code that is calling `[compile()](<https://docs.python.org/3/library/functions.html#compile>)`. If the _flags_ argument is given and _dont\_inherit_ is not \(or is zero\) then the compiler options and the future statements specified by the _flags_ argument are used in addition to those that would be used anyway. If _dont\_inherit_ is a non-zero integer then the _flags_ argument is it – the flags \(future features and compiler options\) in the surrounding code are ignored. Compiler options and future statements are specified by bits which can be bitwise ORed together to specify multiple options. The bitfield required to specify a given future feature can be found as the `compiler_flag` attribute on the `_Feature` instance in the `[__future__](<https://docs.python.org/3/library/__future__.html#module-__future__>)` module. [Compiler flags](https://docs.python.org/3/library/ast.html#ast-compiler-flags) can be found in `[ast](<https://docs.python.org/3/library/ast.html#module-ast>)` module, with `PyCF_` prefix. The argument _optimize_ specifies the optimization level of the compiler; the default value of `-1` selects the optimization level of the interpreter as given by `[-O](<https://docs.python.org/3/using/cmdline.html#cmdoption-o>)` options. Explicit levels are `0` \(no optimization; `__debug__` is true\), `1` \(asserts are removed, `__debug__` is false\) or `2` \(docstrings are removed too\). This function raises `[SyntaxError](<https://docs.python.org/3/library/exceptions.html#SyntaxError>)` if the compiled source is invalid, and `[ValueError](<https://docs.python.org/3/library/exceptions.html#ValueError>)` if the source contains null bytes. If you want to parse Python code into its AST representation, see `[ast.parse()](<https://docs.python.org/3/library/ast.html#ast.parse>)`.
+**`compile`**\(_source_, _filename_, _mode_, _flags=0_, _dont_inherit=False_, _optimize=-1_\)Compile the _source_ into a code or AST object. Code objects can be executed by `[exec()](<https://docs.python.org/3/library/functions.html#exec>)` or `[eval()](<https://docs.python.org/3/library/functions.html#eval>)`. _source_ can either be a normal string, a byte string, or an AST object. Refer to the `[ast](<https://docs.python.org/3/library/ast.html#module-ast>)` module documentation for information on how to work with AST objects. The _filename_ argument should give the file from which the code was read; pass some recognizable value if it wasn’t read from a file \(`'<string>'` is commonly used\). The _mode_ argument specifies what kind of code must be compiled; it can be `'exec'` if _source_ consists of a sequence of statements, `'eval'` if it consists of a single expression, or `'single'` if it consists of a single interactive statement \(in the latter case, expression statements that evaluate to something other than `None` will be printed\). The optional arguments _flags_ and _dont_inherit_ control which [compiler options](https://docs.python.org/3/library/ast.html#ast-compiler-flags) should be activated and which [future features](https://docs.python.org/3/reference/simple_stmts.html#future) should be allowed. If neither is present \(or both are zero\) the code is compiled with the same flags that affect the code that is calling `[compile()](<https://docs.python.org/3/library/functions.html#compile>)`. If the _flags_ argument is given and _dont_inherit_ is not \(or is zero\) then the compiler options and the future statements specified by the _flags_ argument are used in addition to those that would be used anyway. If _dont_inherit_ is a non-zero integer then the _flags_ argument is it – the flags \(future features and compiler options\) in the surrounding code are ignored. Compiler options and future statements are specified by bits which can be bitwise ORed together to specify multiple options. The bitfield required to specify a given future feature can be found as the `compiler_flag` attribute on the `_Feature` instance in the `[__future__](<https://docs.python.org/3/library/__future__.html#module-__future__>)` module. [Compiler flags](https://docs.python.org/3/library/ast.html#ast-compiler-flags) can be found in `[ast](<https://docs.python.org/3/library/ast.html#module-ast>)` module, with `PyCF_` prefix. The argument _optimize_ specifies the optimization level of the compiler; the default value of `-1` selects the optimization level of the interpreter as given by `[-O](<https://docs.python.org/3/using/cmdline.html#cmdoption-o>)` options. Explicit levels are `0` \(no optimization; `__debug__` is true\), `1` \(asserts are removed, `__debug__` is false\) or `2` \(docstrings are removed too\). This function raises `[SyntaxError](<https://docs.python.org/3/library/exceptions.html#SyntaxError>)` if the compiled source is invalid, and `[ValueError](<https://docs.python.org/3/library/exceptions.html#ValueError>)` if the source contains null bytes. If you want to parse Python code into its AST representation, see `[ast.parse()](<https://docs.python.org/3/library/ast.html#ast.parse>)`.
 
 Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) `compile` with arguments `source` and `filename`. This event may also be raised by implicit compilation.
 
-**Note**  When compiling a string with multi-line code in `'single'` or `'eval'` mode, input must be terminated by at least one newline character. This is to facilitate detection of incomplete and complete statements in the `[code](<https://docs.python.org/3/library/code.html#module-code>)` module. **Warning**  It is possible to crash the Python interpreter with a sufficiently large/complex string when compiling to an AST object due to stack depth limitations in Python’s AST compiler. _Changed in version 3.2:_ Allowed use of Windows and Mac newlines. Also input in `'exec'` mode does not have to end in a newline anymore. Added the _optimize_ parameter. _Changed in version 3.5:_ Previously, `[TypeError](<https://docs.python.org/3/library/exceptions.html#TypeError>)` was raised when null bytes were encountered in _source_. _New in version 3.8:_ `ast.PyCF_ALLOW_TOP_LEVEL_AWAIT` can now be passed in flags to enable support for top-level `await`, `async for`, and `async with`.
+**Note** When compiling a string with multi-line code in `'single'` or `'eval'` mode, input must be terminated by at least one newline character. This is to facilitate detection of incomplete and complete statements in the `[code](<https://docs.python.org/3/library/code.html#module-code>)` module. **Warning** It is possible to crash the Python interpreter with a sufficiently large/complex string when compiling to an AST object due to stack depth limitations in Python’s AST compiler. _Changed in version 3.2:_ Allowed use of Windows and Mac newlines. Also input in `'exec'` mode does not have to end in a newline anymore. Added the _optimize_ parameter. _Changed in version 3.5:_ Previously, `[TypeError](<https://docs.python.org/3/library/exceptions.html#TypeError>)` was raised when null bytes were encountered in _source_. _New in version 3.8:_ `ast.PyCF_ALLOW_TOP_LEVEL_AWAIT` can now be passed in flags to enable support for top-level `await`, `async for`, and `async with`.
 
-_class_ **`complex`**\(\[_real_\[, _imag_\]\]\)Return a complex number with the value _real_ + \*imag\*\*1j or convert a string or number to a complex number. If the first parameter is a string, it will be interpreted as a complex number and the function must be called without a second parameter. The second parameter can never be a string. Each argument may be any numeric type \(including complex\). If _imag_ is omitted, it defaults to zero and the constructor serves as a numeric conversion like `[int](<https://docs.python.org/3/library/functions.html#int>)` and `[float](<https://docs.python.org/3/library/functions.html#float>)`. If both arguments are omitted, returns `0j`. For a general Python object `x`, `complex(x)` delegates to `x.__complex__()`. If `__complex__()` is not defined then it falls back to `[__float__()](<https://docs.python.org/3/reference/datamodel.html#object.__float__>)`. If `__float__()` is not defined then it falls back to `[__index__()](<https://docs.python.org/3/reference/datamodel.html#object.__index__>)`. **Note**  When converting from a string, the string must not contain whitespace around the central `+` or `-` operator. For example, `complex('1+2j')` is fine, but `complex('1 + 2j')` raises `[ValueError](<https://docs.python.org/3/library/exceptions.html#ValueError>)`. The complex type is described in [Numeric Types — int, float, complex](https://docs.python.org/3/library/stdtypes.html#typesnumeric). _Changed in version 3.6:_ Grouping digits with underscores as in code literals is allowed. _Changed in version 3.8:_ Falls back to `[__index__()](<https://docs.python.org/3/reference/datamodel.html#object.__index__>)` if `[__complex__()](<https://docs.python.org/3/reference/datamodel.html#object.__complex__>)` and `[__float__()](<https://docs.python.org/3/reference/datamodel.html#object.__float__>)` are not defined.
+_class_ **`complex`**\(\[_real_\[, _imag_\]\]\)Return a complex number with the value _real_ + \*imag\*\*1j or convert a string or number to a complex number. If the first parameter is a string, it will be interpreted as a complex number and the function must be called without a second parameter. The second parameter can never be a string. Each argument may be any numeric type \(including complex\). If _imag_ is omitted, it defaults to zero and the constructor serves as a numeric conversion like `[int](<https://docs.python.org/3/library/functions.html#int>)` and `[float](<https://docs.python.org/3/library/functions.html#float>)`. If both arguments are omitted, returns `0j`. For a general Python object `x`, `complex(x)` delegates to `x.__complex__()`. If `__complex__()` is not defined then it falls back to `[__float__()](<https://docs.python.org/3/reference/datamodel.html#object.__float__>)`. If `__float__()` is not defined then it falls back to `[__index__()](<https://docs.python.org/3/reference/datamodel.html#object.__index__>)`. **Note** When converting from a string, the string must not contain whitespace around the central `+` or `-` operator. For example, `complex('1+2j')` is fine, but `complex('1 + 2j')` raises `[ValueError](<https://docs.python.org/3/library/exceptions.html#ValueError>)`. The complex type is described in [Numeric Types — int, float, complex](https://docs.python.org/3/library/stdtypes.html#typesnumeric). _Changed in version 3.6:_ Grouping digits with underscores as in code literals is allowed. _Changed in version 3.8:_ Falls back to `[__index__()](<https://docs.python.org/3/reference/datamodel.html#object.__index__>)` if `[__complex__()](<https://docs.python.org/3/reference/datamodel.html#object.__complex__>)` and `[__float__()](<https://docs.python.org/3/reference/datamodel.html#object.__float__>)` are not defined.
 
 **`delattr`**\(_object_, _name_\)This is a relative of `[setattr()](<https://docs.python.org/3/library/functions.html#setattr>)`. The arguments are an object and a string. The string must be the name of one of the object’s attributes. The function deletes the named attribute, provided the object allows it. For example, `delattr(x, 'foobar')` is equivalent to `del x.foobar`.
 
@@ -1548,7 +1470,7 @@ _class_ **`dict`**\(\*\*_kwarg_\)_class_ **`dict`**\(_mapping_, \*\*_kwarg_\)_cl
 
 \*\*`>>> import** **struct>>>** dir() *# show the names in the module namespace* ['__builtins__', '__name__', 'struct'] **>>>** dir(struct) *# show the names in the struct module* ['Struct', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__initializing__', '__loader__', '__name__', '__package__', '_clearcache', 'calcsize', 'error', 'pack', 'pack_into', 'unpack', 'unpack_from'] **>>> class** **Shape**: **...** **def** __dir__(self): **...** **return** ['area', 'perimeter', 'location'] **>>>** s = Shape() **>>>** dir(s) ['area', 'location', 'perimeter']`
 
-**Note**  Because `[dir()](<https://docs.python.org/3/library/functions.html#dir>)` is supplied primarily as a convenience for use at an interactive prompt, it tries to supply an interesting set of names more than it tries to supply a rigorously or consistently defined set of names, and its detailed behavior may change across releases. For example, metaclass attributes are not in the result list when the argument is a class.
+**Note** Because `[dir()](<https://docs.python.org/3/library/functions.html#dir>)` is supplied primarily as a convenience for use at an interactive prompt, it tries to supply an interesting set of names more than it tries to supply a rigorously or consistently defined set of names, and its detailed behavior may change across releases. For example, metaclass attributes are not in the result list when the argument is a class.
 
 **`divmod`**\(_a_, _b_\)Take two \(non complex\) numbers as arguments and return a pair of numbers consisting of their quotient and remainder when using integer division. With mixed operand types, the rules for binary arithmetic operators apply. For integers, the result is the same as `(a // b, a % b)`. For floating point numbers the result is `(q, a % b)`, where _q_ is usually `math.floor(a / b)` but may be 1 less than that. In any case `q * b + a % b` is very close to _a_, if `a % b` is non-zero it has the same sign as _b_, and `0 <= abs(a % b) < abs(b)`.
 
@@ -1572,7 +1494,7 @@ Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) 
 
 Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) `exec` with the code object as the argument. Code compilation events may also be raised.
 
-**Note**  The built-in functions `[globals()](<https://docs.python.org/3/library/functions.html#globals>)` and `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` return the current global and local dictionary, respectively, which may be useful to pass around for use as the second and third argument to `[exec()](<https://docs.python.org/3/library/functions.html#exec>)`. **Note**  The default _locals_ act as described for function `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` below: modifications to the default _locals_ dictionary should not be attempted. Pass an explicit _locals_ dictionary if you need to see effects of the code on _locals_ after function `[exec()](<https://docs.python.org/3/library/functions.html#exec>)` returns.
+**Note** The built-in functions `[globals()](<https://docs.python.org/3/library/functions.html#globals>)` and `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` return the current global and local dictionary, respectively, which may be useful to pass around for use as the second and third argument to `[exec()](<https://docs.python.org/3/library/functions.html#exec>)`. **Note** The default _locals_ act as described for function `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` below: modifications to the default _locals_ dictionary should not be attempted. Pass an explicit _locals_ dictionary if you need to see effects of the code on _locals_ after function `[exec()](<https://docs.python.org/3/library/functions.html#exec>)` returns.
 
 **`filter`**\(_function_, _iterable_\)Construct an iterator from those elements of _iterable_ for which _function_ returns true. _iterable_ may be either a sequence, a container which supports iteration, or an iterator. If _function_ is `None`, the identity function is assumed, that is, all elements of _iterable_ that are false are removed. Note that `filter(function, iterable)` is equivalent to the generator expression `(item for item in iterable if function(item))` if function is not `None` and `(item for item in iterable if item)` if function is `None`. See `[itertools.filterfalse()](<https://docs.python.org/3/library/itertools.html#itertools.filterfalse>)` for the complementary function that returns elements of _iterable_ for which _function_ returns false.
 
@@ -1584,17 +1506,17 @@ _class_ **`float`**\(\[_x_\]\)Return a floating point number constructed from a 
 
 The float type is described in [Numeric Types — int, float, complex](https://docs.python.org/3/library/stdtypes.html#typesnumeric). _Changed in version 3.6:_ Grouping digits with underscores as in code literals is allowed. _Changed in version 3.7: x_ is now a positional-only parameter. _Changed in version 3.8:_ Falls back to `[__index__()](<https://docs.python.org/3/reference/datamodel.html#object.__index__>)` if `[__float__()](<https://docs.python.org/3/reference/datamodel.html#object.__float__>)` is not defined.
 
-**`format`**\(_value_\[, _format\_spec_\]\)Convert a _value_ to a “formatted” representation, as controlled by _format\_spec_. The interpretation of _format\_spec_ will depend on the type of the _value_ argument, however there is a standard formatting syntax that is used by most built-in types: [Format Specification Mini-Language](https://docs.python.org/3/library/string.html#formatspec). The default _format\_spec_ is an empty string which usually gives the same effect as calling `[str(value)](<https://docs.python.org/3/library/stdtypes.html#str>)`. A call to `format(value, format_spec)` is translated to `type(value).__format__(value, format_spec)` which bypasses the instance dictionary when searching for the value’s `[__format__()](<https://docs.python.org/3/reference/datamodel.html#object.__format__>)` method. A `[TypeError](<https://docs.python.org/3/library/exceptions.html#TypeError>)` exception is raised if the method search reaches `[object](<https://docs.python.org/3/library/functions.html#object>)` and the _format\_spec_ is non-empty, or if either the _format\_spec_ or the return value are not strings. _Changed in version 3.4:_ `object().__format__(format_spec)` raises `[TypeError](<https://docs.python.org/3/library/exceptions.html#TypeError>)` if _format\_spec_ is not an empty string.
+**`format`**\(_value_\[, _format_spec_\]\)Convert a _value_ to a “formatted” representation, as controlled by _format_spec_. The interpretation of _format_spec_ will depend on the type of the _value_ argument, however there is a standard formatting syntax that is used by most built-in types: [Format Specification Mini-Language](https://docs.python.org/3/library/string.html#formatspec). The default _format_spec_ is an empty string which usually gives the same effect as calling `[str(value)](<https://docs.python.org/3/library/stdtypes.html#str>)`. A call to `format(value, format_spec)` is translated to `type(value).__format__(value, format_spec)` which bypasses the instance dictionary when searching for the value’s `[__format__()](<https://docs.python.org/3/reference/datamodel.html#object.__format__>)` method. A `[TypeError](<https://docs.python.org/3/library/exceptions.html#TypeError>)` exception is raised if the method search reaches `[object](<https://docs.python.org/3/library/functions.html#object>)` and the _format_spec_ is non-empty, or if either the _format_spec_ or the return value are not strings. _Changed in version 3.4:_ `object().__format__(format_spec)` raises `[TypeError](<https://docs.python.org/3/library/exceptions.html#TypeError>)` if _format_spec_ is not an empty string.
 
 _class_ **`frozenset`**\(\[_iterable_\]\)Return a new `[frozenset](<https://docs.python.org/3/library/stdtypes.html#frozenset>)` object, optionally with elements taken from _iterable_. `frozenset` is a built-in class. See `[frozenset](<https://docs.python.org/3/library/stdtypes.html#frozenset>)` and [Set Types — set, frozenset](https://docs.python.org/3/library/stdtypes.html#types-set) for documentation about this class. For other containers see the built-in `[set](<https://docs.python.org/3/library/stdtypes.html#set>)`, `[list](<https://docs.python.org/3/library/stdtypes.html#list>)`, `[tuple](<https://docs.python.org/3/library/stdtypes.html#tuple>)`, and `[dict](<https://docs.python.org/3/library/stdtypes.html#dict>)` classes, as well as the `[collections](<https://docs.python.org/3/library/collections.html#module-collections>)` module.
 
-**`getattr`**\(_object_, _name_\[, _default_\]\)Return the value of the named attribute of _object_. _name_ must be a string. If the string is the name of one of the object’s attributes, the result is the value of that attribute. For example, `getattr(x, 'foobar')` is equivalent to `x.foobar`. If the named attribute does not exist, _default_ is returned if provided, otherwise `[AttributeError](<https://docs.python.org/3/library/exceptions.html#AttributeError>)` is raised. **Note**  Since [private name mangling](https://docs.python.org/3/reference/expressions.html#private-name-mangling) happens at compilation time, one must manually mangle a private attribute’s \(attributes with two leading underscores\) name in order to retrieve it with `[getattr()](<https://docs.python.org/3/library/functions.html#getattr>)`.
+**`getattr`**\(_object_, _name_\[, _default_\]\)Return the value of the named attribute of _object_. _name_ must be a string. If the string is the name of one of the object’s attributes, the result is the value of that attribute. For example, `getattr(x, 'foobar')` is equivalent to `x.foobar`. If the named attribute does not exist, _default_ is returned if provided, otherwise `[AttributeError](<https://docs.python.org/3/library/exceptions.html#AttributeError>)` is raised. **Note** Since [private name mangling](https://docs.python.org/3/reference/expressions.html#private-name-mangling) happens at compilation time, one must manually mangle a private attribute’s \(attributes with two leading underscores\) name in order to retrieve it with `[getattr()](<https://docs.python.org/3/library/functions.html#getattr>)`.
 
 **`globals`**\(\)Return a dictionary representing the current global symbol table. This is always the dictionary of the current module \(inside a function or method, this is the module where it is defined, not the module from which it is called\).
 
 **`hasattr`**\(_object_, _name_\)The arguments are an object and a string. The result is `True` if the string is the name of one of the object’s attributes, `False` if not. \(This is implemented by calling `getattr(object, name)` and seeing whether it raises an `[AttributeError](<https://docs.python.org/3/library/exceptions.html#AttributeError>)` or not.\)
 
-**`hash`**\(_object_\)Return the hash value of the object \(if it has one\). Hash values are integers. They are used to quickly compare dictionary keys during a dictionary lookup. Numeric values that compare equal have the same hash value \(even if they are of different types, as is the case for 1 and 1.0\). **Note**  For objects with custom `[__hash__()](<https://docs.python.org/3/reference/datamodel.html#object.__hash__>)` methods, note that `[hash()](<https://docs.python.org/3/library/functions.html#hash>)` truncates the return value based on the bit width of the host machine. See `[__hash__()](<https://docs.python.org/3/reference/datamodel.html#object.__hash__>)` for details.
+**`hash`**\(_object_\)Return the hash value of the object \(if it has one\). Hash values are integers. They are used to quickly compare dictionary keys during a dictionary lookup. Numeric values that compare equal have the same hash value \(even if they are of different types, as is the case for 1 and 1.0\). **Note** For objects with custom `[__hash__()](<https://docs.python.org/3/reference/datamodel.html#object.__hash__>)` methods, note that `[hash()](<https://docs.python.org/3/library/functions.html#hash>)` truncates the return value based on the bit width of the host machine. See `[__hash__()](<https://docs.python.org/3/reference/datamodel.html#object.__hash__>)` for details.
 
 **`help`**\(\[_object_\]\)Invoke the built-in help system. \(This function is intended for interactive use.\) If no argument is given, the interactive help system starts on the interpreter console. If the argument is a string, then the string is looked up as the name of a module, function, class, method, keyword, or documentation topic, and a help page is printed on the console. If the argument is any other kind of object, a help page on the object is generated. Note that if a slash\(/\) appears in the parameter list of a function, when invoking `[help()](<https://docs.python.org/3/library/functions.html#help>)`, it means that the parameters prior to the slash are positional-only. For more info, see [the FAQ entry on positional-only parameters](https://docs.python.org/3/faq/programming.html#faq-positional-only-arguments). This function is added to the built-in namespace by the `[site](<https://docs.python.org/3/library/site.html#module-site>)` module. _Changed in version 3.4:_ Changes to `[pydoc](<https://docs.python.org/3/library/pydoc.html#module-pydoc>)` and `[inspect](<https://docs.python.org/3/library/inspect.html#module-inspect>)` mean that the reported signatures for callables are now more comprehensive and consistent.
 
@@ -1606,7 +1528,7 @@ If you want to convert an integer number to an uppercase or lower hexadecimal st
 
 \*\*`>>>** '*%#x*' % 255, '*%x*' % 255, '*%X*' % 255 ('0xff', 'ff', 'FF') **>>>** format(255, '#x'), format(255, 'x'), format(255, 'X') ('0xff', 'ff', 'FF') **>>>** f'*{*255*:*#x*}*', f'*{*255*:*x*}*', f'*{*255*:*X*}*' ('0xff', 'ff', 'FF')`
 
-See also `[format()](<https://docs.python.org/3/library/functions.html#format>)` for more information. See also `[int()](<https://docs.python.org/3/library/functions.html#int>)` for converting a hexadecimal string to an integer using a base of 16. **Note**  To obtain a hexadecimal string representation for a float, use the `[float.hex()](<https://docs.python.org/3/library/stdtypes.html#float.hex>)` method.
+See also `[format()](<https://docs.python.org/3/library/functions.html#format>)` for more information. See also `[int()](<https://docs.python.org/3/library/functions.html#int>)` for converting a hexadecimal string to an integer using a base of 16. **Note** To obtain a hexadecimal string representation for a float, use the `[float.hex()](<https://docs.python.org/3/library/stdtypes.html#float.hex>)` method.
 
 **`id`**\(_object_\)Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime. Two objects with non-overlapping lifetimes may have the same `[id()](<https://docs.python.org/3/library/functions.html#id>)` value. **CPython implementation detail:** This is the address of the object in memory. Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) `builtins.id` with argument `id`.
 
@@ -1634,7 +1556,7 @@ _class_ **`int`**\(\[_x_\]\)_class_ **`int`**\(_x_, _base=10_\)Return an integer
 
 _class_ **`list`**\(\[_iterable_\]\)Rather than being a function, `[list](<https://docs.python.org/3/library/stdtypes.html#list>)` is actually a mutable sequence type, as documented in [Lists](https://docs.python.org/3/library/stdtypes.html#typesseq-list) and [Sequence Types — list, tuple, range](https://docs.python.org/3/library/stdtypes.html#typesseq).
 
-**`locals`**\(\)Update and return a dictionary representing the current local symbol table. Free variables are returned by `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` when it is called in function blocks, but not in class blocks. Note that at the module level, `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` and `[globals()](<https://docs.python.org/3/library/functions.html#globals>)` are the same dictionary. **Note**  The contents of this dictionary should not be modified; changes may not affect the values of local and free variables used by the interpreter.
+**`locals`**\(\)Update and return a dictionary representing the current local symbol table. Free variables are returned by `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` when it is called in function blocks, but not in class blocks. Note that at the module level, `[locals()](<https://docs.python.org/3/library/functions.html#locals>)` and `[globals()](<https://docs.python.org/3/library/functions.html#globals>)` are the same dictionary. **Note** The contents of this dictionary should not be modified; changes may not affect the values of local and free variables used by the interpreter.
 
 **`map`**\(_function_, _iterable_, _..._\)Return an iterator that applies _function_ to every item of _iterable_, yielding the results. If additional _iterable_ arguments are passed, _function_ must take that many arguments and is applied to the items from all iterables in parallel. With multiple iterables, the iterator stops when the shortest iterable is exhausted. For cases where the function inputs are already arranged into argument tuples, see `[itertools.starmap()](<https://docs.python.org/3/library/itertools.html#itertools.starmap>)`.
 
@@ -1646,7 +1568,7 @@ _class_ **`memoryview`**\(_object_\)Return a “memory view” object created fr
 
 **`next`**\(_iterator_\[, _default_\]\)Retrieve the next item from the _iterator_ by calling its `[__next__()](<https://docs.python.org/3/library/stdtypes.html#iterator.__next__>)` method. If _default_ is given, it is returned if the iterator is exhausted, otherwise `[StopIteration](<https://docs.python.org/3/library/exceptions.html#StopIteration>)` is raised.
 
-_class_ \*\*`object`\*\*Return a new featureless object. `[object](<https://docs.python.org/3/library/functions.html#object>)` is a base for all classes. It has the methods that are common to all instances of Python classes. This function does not accept any arguments. **Note**  `[object](<https://docs.python.org/3/library/functions.html#object>)` does _not_ have a `[__dict__](<https://docs.python.org/3/library/stdtypes.html#object.__dict__>)`, so you can’t assign arbitrary attributes to an instance of the `[object](<https://docs.python.org/3/library/functions.html#object>)` class.
+_class_ \*\*`object`\*\*Return a new featureless object. `[object](<https://docs.python.org/3/library/functions.html#object>)` is a base for all classes. It has the methods that are common to all instances of Python classes. This function does not accept any arguments. **Note** `[object](<https://docs.python.org/3/library/functions.html#object>)` does _not_ have a `[__dict__](<https://docs.python.org/3/library/stdtypes.html#object.__dict__>)`, so you can’t assign arbitrary attributes to an instance of the `[object](<https://docs.python.org/3/library/functions.html#object>)` class.
 
 **`oct`**\(_x_\)Convert an integer number to an octal string prefixed with “0o”. The result is a valid Python expression. If _x_ is not a Python `[int](<https://docs.python.org/3/library/functions.html#int>)` object, it has to define an `[__index__()](<https://docs.python.org/3/reference/datamodel.html#object.__index__>)` method that returns an integer. For example:&gt;&gt;&gt;
 
@@ -1658,13 +1580,13 @@ If you want to convert an integer number to octal string either with prefix “0
 
 See also `[format()](<https://docs.python.org/3/library/functions.html#format>)` for more information.
 
-**`open`**\(_file_, _mode='r'_, _buffering=-1_, _encoding=None_, _errors=None_, _newline=None_, _closefd=True_, _opener=None_\)Open _file_ and return a corresponding [file object](https://docs.python.org/3/glossary.html#term-file-object). If the file cannot be opened, an `[OSError](<https://docs.python.org/3/library/exceptions.html#OSError>)` is raised. See [Reading and Writing Files](https://docs.python.org/3/tutorial/inputoutput.html#tut-files) for more examples of how to use this function. _file_ is a [path-like object](https://docs.python.org/3/glossary.html#term-path-like-object) giving the pathname \(absolute or relative to the current working directory\) of the file to be opened or an integer file descriptor of the file to be wrapped. \(If a file descriptor is given, it is closed when the returned I/O object is closed, unless _closefd_ is set to `False`.\) _mode_ is an optional string that specifies the mode in which the file is opened. It defaults to `'r'` which means open for reading in text mode. Other common values are `'w'` for writing \(truncating the file if it already exists\), `'x'` for exclusive creation and `'a'` for appending \(which on _some_ Unix systems, means that _all_ writes append to the end of the file regardless of the current seek position\). In text mode, if _encoding_ is not specified the encoding used is platform dependent: `locale.getpreferredencoding(False)` is called to get the current locale encoding. \(For reading and writing raw bytes use binary mode and leave _encoding_ unspecified.\) The available modes are:CharacterMeaning`'r'`open for reading \(default\)`'w'`open for writing, truncating the file first`'x'`open for exclusive creation, failing if the file already exists`'a'`open for writing, appending to the end of the file if it exists`'b'`binary mode`'t'`text mode \(default\)`'+'`open for updating \(reading and writing\) The default mode is `'r'` \(open for reading text, synonym of `'rt'`\). Modes `'w+'` and `'w+b'` open and truncate the file. Modes `'r+'` and `'r+b'` open the file with no truncation. As mentioned in the [Overview](https://docs.python.org/3/library/io.html#io-overview), Python distinguishes between binary and text I/O. Files opened in binary mode \(including `'b'` in the _mode_ argument\) return contents as `[bytes](<https://docs.python.org/3/library/stdtypes.html#bytes>)` objects without any decoding. In text mode \(the default, or when `'t'` is included in the _mode_ argument\), the contents of the file are returned as `[str](<https://docs.python.org/3/library/stdtypes.html#str>)`, the bytes having been first decoded using a platform-dependent encoding or using the specified _encoding_ if given. There is an additional mode character permitted, `'U'`, which no longer has any effect, and is considered deprecated. It previously enabled [universal newlines](https://docs.python.org/3/glossary.html#term-universal-newlines) in text mode, which became the default behaviour in Python 3.0. Refer to the documentation of the [newline](https://docs.python.org/3/library/functions.html#open-newline-parameter) parameter for further details. **Note**  Python doesn’t depend on the underlying operating system’s notion of text files; all the processing is done by Python itself, and is therefore platform-independent. _buffering_ is an optional integer used to set the buffering policy. Pass 0 to switch buffering off \(only allowed in binary mode\), 1 to select line buffering \(only usable in text mode\), and an integer &gt; 1 to indicate the size in bytes of a fixed-size chunk buffer. When no _buffering_ argument is given, the default buffering policy works as follows: • Binary files are buffered in fixed-size chunks; the size of the buffer is chosen using a heuristic trying to determine the underlying device’s “block size” and falling back on `[io.DEFAULT_BUFFER_SIZE](<https://docs.python.org/3/library/io.html#io.DEFAULT_BUFFER_SIZE>)`. On many systems, the buffer will typically be 4096 or 8192 bytes long. • “Interactive” text files \(files for which `[isatty()](<https://docs.python.org/3/library/io.html#io.IOBase.isatty>)` returns `True`\) use line buffering. Other text files use the policy described above for binary files. _encoding_ is the name of the encoding used to decode or encode the file. This should only be used in text mode. The default encoding is platform dependent \(whatever `[locale.getpreferredencoding()](<https://docs.python.org/3/library/locale.html#locale.getpreferredencoding>)` returns\), but any [text encoding](https://docs.python.org/3/glossary.html#term-text-encoding) supported by Python can be used. See the `[codecs](<https://docs.python.org/3/library/codecs.html#module-codecs>)` module for the list of supported encodings. _errors_ is an optional string that specifies how encoding and decoding errors are to be handled—this cannot be used in binary mode. A variety of standard error handlers are available \(listed under [Error Handlers](https://docs.python.org/3/library/codecs.html#error-handlers)\), though any error handling name that has been registered with `[codecs.register_error()](<https://docs.python.org/3/library/codecs.html#codecs.register_error>)` is also valid. The standard names include: • `'strict'` to raise a `[ValueError](<https://docs.python.org/3/library/exceptions.html#ValueError>)` exception if there is an encoding error. The default value of `None` has the same effect. • `'ignore'` ignores errors. Note that ignoring encoding errors can lead to data loss. • `'replace'` causes a replacement marker \(such as `'?'`\) to be inserted where there is malformed data. • `'surrogateescape'` will represent any incorrect bytes as code points in the Unicode Private Use Area ranging from U+DC80 to U+DCFF. These private code points will then be turned back into the same bytes when the `surrogateescape` error handler is used when writing data. This is useful for processing files in an unknown encoding. • `'xmlcharrefreplace'` is only supported when writing to a file. Characters not supported by the encoding are replaced with the appropriate XML character reference `&#nnn;`. • `'backslashreplace'` replaces malformed data by Python’s backslashed escape sequences. • `'namereplace'` \(also only supported when writing\) replaces unsupported characters with `\\N{...}` escape sequences. _newline_ controls how [universal newlines](https://docs.python.org/3/glossary.html#term-universal-newlines) mode works \(it only applies to text mode\). It can be `None`, `''`, `'\\n'`, `'\\r'`, and `'\\r\\n'`. It works as follows: • When reading input from the stream, if _newline_ is `None`, universal newlines mode is enabled. Lines in the input can end in `'\\n'`, `'\\r'`, or `'\\r\\n'`, and these are translated into `'\\n'` before being returned to the caller. If it is `''`, universal newlines mode is enabled, but line endings are returned to the caller untranslated. If it has any of the other legal values, input lines are only terminated by the given string, and the line ending is returned to the caller untranslated. • When writing output to the stream, if _newline_ is `None`, any `'\\n'` characters written are translated to the system default line separator, `[os.linesep](<https://docs.python.org/3/library/os.html#os.linesep>)`. If _newline_ is `''` or `'\\n'`, no translation takes place. If _newline_ is any of the other legal values, any `'\\n'` characters written are translated to the given string. If _closefd_ is `False` and a file descriptor rather than a filename was given, the underlying file descriptor will be kept open when the file is closed. If a filename is given _closefd_ must be `True` \(the default\) otherwise an error will be raised. A custom opener can be used by passing a callable as _opener_. The underlying file descriptor for the file object is then obtained by calling _opener_ with \(_file_, _flags_\). _opener_ must return an open file descriptor \(passing `[os.open](<https://docs.python.org/3/library/os.html#os.open>)` as _opener_ results in functionality similar to passing `None`\). The newly created file is [non-inheritable](https://docs.python.org/3/library/os.html#fd-inheritance). The following example uses the [dir\_fd](https://docs.python.org/3/library/os.html#dir-fd) parameter of the `[os.open()](<https://docs.python.org/3/library/os.html#os.open>)` function to open a file relative to a given directory:&gt;&gt;&gt;
+**`open`**\(_file_, _mode='r'_, _buffering=-1_, _encoding=None_, _errors=None_, _newline=None_, _closefd=True_, _opener=None_\)Open _file_ and return a corresponding [file object](https://docs.python.org/3/glossary.html#term-file-object). If the file cannot be opened, an `[OSError](<https://docs.python.org/3/library/exceptions.html#OSError>)` is raised. See [Reading and Writing Files](https://docs.python.org/3/tutorial/inputoutput.html#tut-files) for more examples of how to use this function. _file_ is a [path-like object](https://docs.python.org/3/glossary.html#term-path-like-object) giving the pathname \(absolute or relative to the current working directory\) of the file to be opened or an integer file descriptor of the file to be wrapped. \(If a file descriptor is given, it is closed when the returned I/O object is closed, unless _closefd_ is set to `False`.\) _mode_ is an optional string that specifies the mode in which the file is opened. It defaults to `'r'` which means open for reading in text mode. Other common values are `'w'` for writing \(truncating the file if it already exists\), `'x'` for exclusive creation and `'a'` for appending \(which on _some_ Unix systems, means that _all_ writes append to the end of the file regardless of the current seek position\). In text mode, if _encoding_ is not specified the encoding used is platform dependent: `locale.getpreferredencoding(False)` is called to get the current locale encoding. \(For reading and writing raw bytes use binary mode and leave _encoding_ unspecified.\) The available modes are:CharacterMeaning`'r'`open for reading \(default\)`'w'`open for writing, truncating the file first`'x'`open for exclusive creation, failing if the file already exists`'a'`open for writing, appending to the end of the file if it exists`'b'`binary mode`'t'`text mode \(default\)`'+'`open for updating \(reading and writing\) The default mode is `'r'` \(open for reading text, synonym of `'rt'`\). Modes `'w+'` and `'w+b'` open and truncate the file. Modes `'r+'` and `'r+b'` open the file with no truncation. As mentioned in the [Overview](https://docs.python.org/3/library/io.html#io-overview), Python distinguishes between binary and text I/O. Files opened in binary mode \(including `'b'` in the _mode_ argument\) return contents as `[bytes](<https://docs.python.org/3/library/stdtypes.html#bytes>)` objects without any decoding. In text mode \(the default, or when `'t'` is included in the _mode_ argument\), the contents of the file are returned as `[str](<https://docs.python.org/3/library/stdtypes.html#str>)`, the bytes having been first decoded using a platform-dependent encoding or using the specified _encoding_ if given. There is an additional mode character permitted, `'U'`, which no longer has any effect, and is considered deprecated. It previously enabled [universal newlines](https://docs.python.org/3/glossary.html#term-universal-newlines) in text mode, which became the default behaviour in Python 3.0. Refer to the documentation of the [newline](https://docs.python.org/3/library/functions.html#open-newline-parameter) parameter for further details. **Note** Python doesn’t depend on the underlying operating system’s notion of text files; all the processing is done by Python itself, and is therefore platform-independent. _buffering_ is an optional integer used to set the buffering policy. Pass 0 to switch buffering off \(only allowed in binary mode\), 1 to select line buffering \(only usable in text mode\), and an integer &gt; 1 to indicate the size in bytes of a fixed-size chunk buffer. When no _buffering_ argument is given, the default buffering policy works as follows: • Binary files are buffered in fixed-size chunks; the size of the buffer is chosen using a heuristic trying to determine the underlying device’s “block size” and falling back on `[io.DEFAULT_BUFFER_SIZE](<https://docs.python.org/3/library/io.html#io.DEFAULT_BUFFER_SIZE>)`. On many systems, the buffer will typically be 4096 or 8192 bytes long. • “Interactive” text files \(files for which `[isatty()](<https://docs.python.org/3/library/io.html#io.IOBase.isatty>)` returns `True`\) use line buffering. Other text files use the policy described above for binary files. _encoding_ is the name of the encoding used to decode or encode the file. This should only be used in text mode. The default encoding is platform dependent \(whatever `[locale.getpreferredencoding()](<https://docs.python.org/3/library/locale.html#locale.getpreferredencoding>)` returns\), but any [text encoding](https://docs.python.org/3/glossary.html#term-text-encoding) supported by Python can be used. See the `[codecs](<https://docs.python.org/3/library/codecs.html#module-codecs>)` module for the list of supported encodings. _errors_ is an optional string that specifies how encoding and decoding errors are to be handled—this cannot be used in binary mode. A variety of standard error handlers are available \(listed under [Error Handlers](https://docs.python.org/3/library/codecs.html#error-handlers)\), though any error handling name that has been registered with `[codecs.register_error()](<https://docs.python.org/3/library/codecs.html#codecs.register_error>)` is also valid. The standard names include: • `'strict'` to raise a `[ValueError](<https://docs.python.org/3/library/exceptions.html#ValueError>)` exception if there is an encoding error. The default value of `None` has the same effect. • `'ignore'` ignores errors. Note that ignoring encoding errors can lead to data loss. • `'replace'` causes a replacement marker \(such as `'?'`\) to be inserted where there is malformed data. • `'surrogateescape'` will represent any incorrect bytes as code points in the Unicode Private Use Area ranging from U+DC80 to U+DCFF. These private code points will then be turned back into the same bytes when the `surrogateescape` error handler is used when writing data. This is useful for processing files in an unknown encoding. • `'xmlcharrefreplace'` is only supported when writing to a file. Characters not supported by the encoding are replaced with the appropriate XML character reference `&#nnn;`. • `'backslashreplace'` replaces malformed data by Python’s backslashed escape sequences. • `'namereplace'` \(also only supported when writing\) replaces unsupported characters with `\\N{...}` escape sequences. _newline_ controls how [universal newlines](https://docs.python.org/3/glossary.html#term-universal-newlines) mode works \(it only applies to text mode\). It can be `None`, `''`, `'\\n'`, `'\\r'`, and `'\\r\\n'`. It works as follows: • When reading input from the stream, if _newline_ is `None`, universal newlines mode is enabled. Lines in the input can end in `'\\n'`, `'\\r'`, or `'\\r\\n'`, and these are translated into `'\\n'` before being returned to the caller. If it is `''`, universal newlines mode is enabled, but line endings are returned to the caller untranslated. If it has any of the other legal values, input lines are only terminated by the given string, and the line ending is returned to the caller untranslated. • When writing output to the stream, if _newline_ is `None`, any `'\\n'` characters written are translated to the system default line separator, `[os.linesep](<https://docs.python.org/3/library/os.html#os.linesep>)`. If _newline_ is `''` or `'\\n'`, no translation takes place. If _newline_ is any of the other legal values, any `'\\n'` characters written are translated to the given string. If _closefd_ is `False` and a file descriptor rather than a filename was given, the underlying file descriptor will be kept open when the file is closed. If a filename is given _closefd_ must be `True` \(the default\) otherwise an error will be raised. A custom opener can be used by passing a callable as _opener_. The underlying file descriptor for the file object is then obtained by calling _opener_ with \(_file_, _flags_\). _opener_ must return an open file descriptor \(passing `[os.open](<https://docs.python.org/3/library/os.html#os.open>)` as _opener_ results in functionality similar to passing `None`\). The newly created file is [non-inheritable](https://docs.python.org/3/library/os.html#fd-inheritance). The following example uses the [dir_fd](https://docs.python.org/3/library/os.html#dir-fd) parameter of the `[os.open()](<https://docs.python.org/3/library/os.html#os.open>)` function to open a file relative to a given directory:&gt;&gt;&gt;
 
 \*\*`>>> import** **os>>>** dir_fd = os.open('somedir', os.O_RDONLY) **>>> def** opener(path, flags): **...** **return** os.open(path, flags, dir_fd=dir_fd) **...>>> with** open('spamspam.txt', 'w', opener=opener) **as** f: **...** print('This will be written to somedir/spamspam.txt', file=f) **...>>>** os.close(dir_fd) *# don't leak a file descriptor*` The type of [file object](https://docs.python.org/3/glossary.html#term-file-object) returned by the `[open()](<https://docs.python.org/3/library/functions.html#open>)` function depends on the mode. When `[open()](<https://docs.python.org/3/library/functions.html#open>)` is used to open a file in a text mode \(`'w'`, `'r'`, `'wt'`, `'rt'`, etc.\), it returns a subclass of `[io.TextIOBase](<https://docs.python.org/3/library/io.html#io.TextIOBase>)` \(specifically `[io.TextIOWrapper](<https://docs.python.org/3/library/io.html#io.TextIOWrapper>)`\). When used to open a file in a binary mode with buffering, the returned class is a subclass of `[io.BufferedIOBase](<https://docs.python.org/3/library/io.html#io.BufferedIOBase>)`. The exact class varies: in read binary mode, it returns an `[io.BufferedReader](<https://docs.python.org/3/library/io.html#io.BufferedReader>)`; in write binary and append binary modes, it returns an `[io.BufferedWriter](<https://docs.python.org/3/library/io.html#io.BufferedWriter>)`, and in read/write mode, it returns an `[io.BufferedRandom](<https://docs.python.org/3/library/io.html#io.BufferedRandom>)`. When buffering is disabled, the raw stream, a subclass of `[io.RawIOBase](<https://docs.python.org/3/library/io.html#io.RawIOBase>)`, `[io.FileIO](<https://docs.python.org/3/library/io.html#io.FileIO>)`, is returned. See also the file handling modules, such as, `[fileinput](<https://docs.python.org/3/library/fileinput.html#module-fileinput>)`, `[io](<https://docs.python.org/3/library/io.html#module-io>)` \(where `[open()](<https://docs.python.org/3/library/functions.html#open>)` is declared\), `[os](<https://docs.python.org/3/library/os.html#module-os>)`, `[os.path](<https://docs.python.org/3/library/os.path.html#module-os.path>)`, `[tempfile](<https://docs.python.org/3/library/tempfile.html#module-tempfile>)`, and `[shutil](<https://docs.python.org/3/library/shutil.html#module-shutil>)`. Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) `open` with arguments `file`, `mode`, `flags`. The `mode` and `flags` arguments may have been modified or inferred from the original call._Changed in version 3.3:_ • The _opener_ parameter was added. • The `'x'` mode was added. • `[IOError](<https://docs.python.org/3/library/exceptions.html#IOError>)` used to be raised, it is now an alias of `[OSError](<https://docs.python.org/3/library/exceptions.html#OSError>)`. • `[FileExistsError](<https://docs.python.org/3/library/exceptions.html#FileExistsError>)` is now raised if the file opened in exclusive creation mode \(`'x'`\) already exists._Changed in version 3.4:_ • The file is now non-inheritable. _Deprecated since version 3.4, will be removed in version 3.10:_ The `'U'` mode._Changed in version 3.5:_ • If the system call is interrupted and the signal handler does not raise an exception, the function now retries the system call instead of raising an `[InterruptedError](<https://docs.python.org/3/library/exceptions.html#InterruptedError>)` exception \(see [**PEP 475**](https://www.python.org/dev/peps/pep-0475) for the rationale\). • The `'namereplace'` error handler was added._Changed in version 3.6:_ • Support added to accept objects implementing `[os.PathLike](<https://docs.python.org/3/library/os.html#os.PathLike>)`. • On Windows, opening a console buffer may return a subclass of `[io.RawIOBase](<https://docs.python.org/3/library/io.html#io.RawIOBase>)` other than `[io.FileIO](<https://docs.python.org/3/library/io.html#io.FileIO>)`.
 
 **`ord`**\(_c_\)Given a string representing one Unicode character, return an integer representing the Unicode code point of that character. For example, `ord('a')` returns the integer `97` and `ord('€')` \(Euro sign\) returns `8364`. This is the inverse of `[chr()](<https://docs.python.org/3/library/functions.html#chr>)`.
 
-**`pow`**\(_base_, _exp_\[, _mod_\]\)Return _base_ to the power _exp_; if _mod_ is present, return _base_ to the power _exp_, modulo _mod_ \(computed more efficiently than `pow(base, exp) % mod`\). The two-argument form `pow(base, exp)` is equivalent to using the power operator: `base**exp`. The arguments must have numeric types. With mixed operand types, the coercion rules for binary arithmetic operators apply. For `[int](<https://docs.python.org/3/library/functions.html#int>)` operands, the result has the same type as the operands \(after coercion\) unless the second argument is negative; in that case, all arguments are converted to float and a float result is delivered. For example, `10**2` returns `100`, but `10**-2` returns `0.01`. For `[int](<https://docs.python.org/3/library/functions.html#int>)` operands _base_ and _exp_, if _mod_ is present, _mod_ must also be of integer type and _mod_ must be nonzero. If _mod_ is present and _exp_ is negative, _base_ must be relatively prime to _mod_. In that case, `pow(inv_base, -exp, mod)` is returned, where _inv\_base_ is an inverse to _base_ modulo _mod_. Here’s an example of computing an inverse for `38` modulo `97`:&gt;&gt;&gt;
+**`pow`**\(_base_, _exp_\[, _mod_\]\)Return _base_ to the power _exp_; if _mod_ is present, return _base_ to the power _exp_, modulo _mod_ \(computed more efficiently than `pow(base, exp) % mod`\). The two-argument form `pow(base, exp)` is equivalent to using the power operator: `base**exp`. The arguments must have numeric types. With mixed operand types, the coercion rules for binary arithmetic operators apply. For `[int](<https://docs.python.org/3/library/functions.html#int>)` operands, the result has the same type as the operands \(after coercion\) unless the second argument is negative; in that case, all arguments are converted to float and a float result is delivered. For example, `10**2` returns `100`, but `10**-2` returns `0.01`. For `[int](<https://docs.python.org/3/library/functions.html#int>)` operands _base_ and _exp_, if _mod_ is present, _mod_ must also be of integer type and _mod_ must be nonzero. If _mod_ is present and _exp_ is negative, _base_ must be relatively prime to _mod_. In that case, `pow(inv_base, -exp, mod)` is returned, where _inv_base_ is an inverse to _base_ modulo _mod_. Here’s an example of computing an inverse for `38` modulo `97`:&gt;&gt;&gt;
 
 \*\*`>>>** pow(38, -1, mod=97) 23 **>>>** 23 * 38 % 97 == 1 True`
 
@@ -1717,11 +1639,11 @@ _class_ **`range`**\(_stop_\)_class_ **`range`**\(_start_, _stop_\[, _step_\]\)R
 
 **`reversed`**\(_seq_\)Return a reverse [iterator](https://docs.python.org/3/glossary.html#term-iterator). _seq_ must be an object which has a `[__reversed__()](<https://docs.python.org/3/reference/datamodel.html#object.__reversed__>)` method or supports the sequence protocol \(the `[__len__()](<https://docs.python.org/3/reference/datamodel.html#object.__len__>)` method and the `[__getitem__()](<https://docs.python.org/3/reference/datamodel.html#object.__getitem__>)` method with integer arguments starting at `0`\).
 
-**`round`**\(_number_\[, _ndigits_\]\)Return _number_ rounded to _ndigits_ precision after the decimal point. If _ndigits_ is omitted or is `None`, it returns the nearest integer to its input. For the built-in types supporting `[round()](<https://docs.python.org/3/library/functions.html#round>)`, values are rounded to the closest multiple of 10 to the power minus _ndigits_; if two multiples are equally close, rounding is done toward the even choice \(so, for example, both `round(0.5)` and `round(-0.5)` are `0`, and `round(1.5)` is `2`\). Any integer value is valid for _ndigits_ \(positive, zero, or negative\). The return value is an integer if _ndigits_ is omitted or `None`. Otherwise the return value has the same type as _number_. For a general Python object `number`, `round` delegates to `number.__round__`. **Note**  The behavior of `[round()](<https://docs.python.org/3/library/functions.html#round>)` for floats can be surprising: for example, `round(2.675, 2)` gives `2.67` instead of the expected `2.68`. This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. See [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues) for more information.
+**`round`**\(_number_\[, _ndigits_\]\)Return _number_ rounded to _ndigits_ precision after the decimal point. If _ndigits_ is omitted or is `None`, it returns the nearest integer to its input. For the built-in types supporting `[round()](<https://docs.python.org/3/library/functions.html#round>)`, values are rounded to the closest multiple of 10 to the power minus _ndigits_; if two multiples are equally close, rounding is done toward the even choice \(so, for example, both `round(0.5)` and `round(-0.5)` are `0`, and `round(1.5)` is `2`\). Any integer value is valid for _ndigits_ \(positive, zero, or negative\). The return value is an integer if _ndigits_ is omitted or `None`. Otherwise the return value has the same type as _number_. For a general Python object `number`, `round` delegates to `number.__round__`. **Note** The behavior of `[round()](<https://docs.python.org/3/library/functions.html#round>)` for floats can be surprising: for example, `round(2.675, 2)` gives `2.67` instead of the expected `2.68`. This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. See [Floating Point Arithmetic: Issues and Limitations](https://docs.python.org/3/tutorial/floatingpoint.html#tut-fp-issues) for more information.
 
 _class_ **`set`**\(\[_iterable_\]\)Return a new `[set](<https://docs.python.org/3/library/stdtypes.html#set>)` object, optionally with elements taken from _iterable_. `set` is a built-in class. See `[set](<https://docs.python.org/3/library/stdtypes.html#set>)` and [Set Types — set, frozenset](https://docs.python.org/3/library/stdtypes.html#types-set) for documentation about this class. For other containers see the built-in `[frozenset](<https://docs.python.org/3/library/stdtypes.html#frozenset>)`, `[list](<https://docs.python.org/3/library/stdtypes.html#list>)`, `[tuple](<https://docs.python.org/3/library/stdtypes.html#tuple>)`, and `[dict](<https://docs.python.org/3/library/stdtypes.html#dict>)` classes, as well as the `[collections](<https://docs.python.org/3/library/collections.html#module-collections>)` module.
 
-**`setattr`**\(_object_, _name_, _value_\)This is the counterpart of `[getattr()](<https://docs.python.org/3/library/functions.html#getattr>)`. The arguments are an object, a string and an arbitrary value. The string may name an existing attribute or a new attribute. The function assigns the value to the attribute, provided the object allows it. For example, `setattr(x, 'foobar', 123)` is equivalent to `x.foobar = 123`. **Note**  Since [private name mangling](https://docs.python.org/3/reference/expressions.html#private-name-mangling) happens at compilation time, one must manually mangle a private attribute’s \(attributes with two leading underscores\) name in order to set it with `[setattr()](<https://docs.python.org/3/library/functions.html#setattr>)`.
+**`setattr`**\(_object_, _name_, _value_\)This is the counterpart of `[getattr()](<https://docs.python.org/3/library/functions.html#getattr>)`. The arguments are an object, a string and an arbitrary value. The string may name an existing attribute or a new attribute. The function assigns the value to the attribute, provided the object allows it. For example, `setattr(x, 'foobar', 123)` is equivalent to `x.foobar = 123`. **Note** Since [private name mangling](https://docs.python.org/3/reference/expressions.html#private-name-mangling) happens at compilation time, one must manually mangle a private attribute’s \(attributes with two leading underscores\) name in order to set it with `[setattr()](<https://docs.python.org/3/library/functions.html#setattr>)`.
 
 _class_ **`slice`**\(_stop_\)_class_ **`slice`**\(_start_, _stop_\[, _step_\]\)Return a [slice](https://docs.python.org/3/glossary.html#term-slice) object representing the set of indices specified by `range(start, stop, step)`. The _start_ and _step_ arguments default to `None`. Slice objects have read-only data attributes `start`, `stop` and `step` which merely return the argument values \(or their default\). They have no other explicit functionality; however they are used by Numerical Python and other third party extensions. Slice objects are also generated when extended indexing syntax is used. For example: `a[start:stop:step]` or `a[start:stop, i]`. See `[itertools.islice()](<https://docs.python.org/3/library/itertools.html#itertools.islice>)` for an alternate version that returns an iterator.
 
@@ -1763,7 +1685,7 @@ The left-to-right evaluation order of the iterables is guaranteed. This makes po
 
 \*\*`>>>** x = [1, 2, 3] **>>>** y = [4, 5, 6] **>>>** zipped = zip(x, y) **>>>** list(zipped) [(1, 4), (2, 5), (3, 6)] **>>>** x2, y2 = zip(*zip(x, y)) **>>>** x == list(x2) **and** y == list(y2) True`
 
-**`__import__`**\(_name_, _globals=None_, _locals=None_, _fromlist=\(\)_, _level=0_\)**Note**  This is an advanced function that is not needed in everyday Python programming, unlike `[importlib.import_module()](<https://docs.python.org/3/library/importlib.html#importlib.import_module>)`. This function is invoked by the `[import](<https://docs.python.org/3/reference/simple_stmts.html#import>)` statement. It can be replaced \(by importing the `[builtins](<https://docs.python.org/3/library/builtins.html#module-builtins>)` module and assigning to `builtins.__import__`\) in order to change semantics of the `import` statement, but doing so is **strongly** discouraged as it is usually simpler to use import hooks \(see [**PEP 302**](https://www.python.org/dev/peps/pep-0302)\) to attain the same goals and does not cause issues with code which assumes the default import implementation is in use. Direct use of `[__import__()](<https://docs.python.org/3/library/functions.html#__import__>)` is also discouraged in favor of `[importlib.import_module()](<https://docs.python.org/3/library/importlib.html#importlib.import_module>)`. The function imports the module _name_, potentially using the given _globals_ and _locals_ to determine how to interpret the name in a package context. The _fromlist_ gives the names of objects or submodules that should be imported from the module given by _name_. The standard implementation does not use its _locals_ argument at all, and uses its _globals_ only to determine the package context of the `[import](<https://docs.python.org/3/reference/simple_stmts.html#import>)` statement. _level_ specifies whether to use absolute or relative imports. `0` \(the default\) means only perform absolute imports. Positive values for _level_ indicate the number of parent directories to search relative to the directory of the module calling `[__import__()](<https://docs.python.org/3/library/functions.html#__import__>)` \(see [**PEP 328**](https://www.python.org/dev/peps/pep-0328) for the details\). When the _name_ variable is of the form `package.module`, normally, the top-level package \(the name up till the first dot\) is returned, _not_ the module named by _name_. However, when a non-empty _fromlist_ argument is given, the module named by _name_ is returned. For example, the statement `import spam` results in bytecode resembling the following code:
+**`__import__`**\(_name_, _globals=None_, _locals=None_, _fromlist=\(\)_, _level=0_\)**Note** This is an advanced function that is not needed in everyday Python programming, unlike `[importlib.import_module()](<https://docs.python.org/3/library/importlib.html#importlib.import_module>)`. This function is invoked by the `[import](<https://docs.python.org/3/reference/simple_stmts.html#import>)` statement. It can be replaced \(by importing the `[builtins](<https://docs.python.org/3/library/builtins.html#module-builtins>)` module and assigning to `builtins.__import__`\) in order to change semantics of the `import` statement, but doing so is **strongly** discouraged as it is usually simpler to use import hooks \(see [**PEP 302**](https://www.python.org/dev/peps/pep-0302)\) to attain the same goals and does not cause issues with code which assumes the default import implementation is in use. Direct use of `[__import__()](<https://docs.python.org/3/library/functions.html#__import__>)` is also discouraged in favor of `[importlib.import_module()](<https://docs.python.org/3/library/importlib.html#importlib.import_module>)`. The function imports the module _name_, potentially using the given _globals_ and _locals_ to determine how to interpret the name in a package context. The _fromlist_ gives the names of objects or submodules that should be imported from the module given by _name_. The standard implementation does not use its _locals_ argument at all, and uses its _globals_ only to determine the package context of the `[import](<https://docs.python.org/3/reference/simple_stmts.html#import>)` statement. _level_ specifies whether to use absolute or relative imports. `0` \(the default\) means only perform absolute imports. Positive values for _level_ indicate the number of parent directories to search relative to the directory of the module calling `[__import__()](<https://docs.python.org/3/library/functions.html#__import__>)` \(see [**PEP 328**](https://www.python.org/dev/peps/pep-0328) for the details\). When the _name_ variable is of the form `package.module`, normally, the top-level package \(the name up till the first dot\) is returned, _not_ the module named by _name_. However, when a non-empty _fromlist_ argument is given, the module named by _name_ is returned. For example, the statement `import spam` results in bytecode resembling the following code:
 
 `spam = __import__('spam', globals(), locals(), [], 0)`
 
@@ -1777,7 +1699,6 @@ Note how `[__import__()](<https://docs.python.org/3/library/functions.html#__imp
 
 Here, the `spam.ham` module is returned from `[__import__()](<https://docs.python.org/3/library/functions.html#__import__>)`. From this object, the names to import are retrieved and assigned to their respective names. If you simply want to import a module \(potentially within a package\) by name, use `[importlib.import_module()](<https://docs.python.org/3/library/importlib.html#importlib.import_module>)`.
 
-[2021-03-06\_Python-Study-Guide-for-a-JavaScript-Programmer-](https://www.notion.so/2021-03-06_Python-Study-Guide-for-a-JavaScript-Programmer-ebc5827f851743d2bd7fd5b73a84559d)
+[2021-03-06_Python-Study-Guide-for-a-JavaScript-Programmer-](https://www.notion.so/2021-03-06_Python-Study-Guide-for-a-JavaScript-Programmer-ebc5827f851743d2bd7fd5b73a84559d)
 
- [Built-in Types](https://www.notion.so/Built-in-Types-96a0c35183e34972b518e460cb13006c)
-
+[Built-in Types](https://www.notion.so/Built-in-Types-96a0c35183e34972b518e460cb13006c)

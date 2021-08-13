@@ -1,7 +1,5 @@
 # Python Keywords
 
-
-
 ### In the Beginning were Python’s Keywords <a id="in-the-beginning-were-python-s-keywords"></a>
 
 Let’s face it, learning to _write_ computer programs is _hard_. Doing so involves picking up a lot of specialized skills and jargon, most of which is unfamiliar, and it also means cultivating a mental approach to the world that, at first, might seem downright _alien_. It’s a long journey, but fluency starts with learning how to _read_ computer programs, and that _really_ shouldn’t be so hard.
@@ -992,7 +990,7 @@ print(unit.radius)
 And we can also call any of its methods, but notice how we never have to pass the radius of the circle as an argument, since the methods can all access that via **self**:
 
 ```text
-print(unit.diameter())  
+print(unit.diameter())
 print(unit.circumference())
 print(unit.area())
 ```
@@ -1007,7 +1005,7 @@ Unless the language you’re working in provides a convenient means of ensuring 
 
 A Middle English preposition that takes its pronunciation from one Old English term, _**wið**_ \(“against”\), but takes its modern meaning from another, _**mid**_ \(“in association with”\) which in turn comes from the German _**mit**_. The meaning in Python derives from _**within**_, meaning “inside the scope or context of \[some thing or event\]“.
 
-Any use of [`with`](https://yawpitchroll.com/posts/the-35-words-you-need-to-python/#with) requires an EXPRESSION that evaluates to an OBJECT that satisfies the [context manager type](https://docs.python.org/3/library/stdtypes.html#context-manager-types)’s interface, and thus has implemented both the **\_\_enter\_\_** and **\_\_exit\_\_** “dunder” methods. From now on we’ll call that EXPRESSION a CONTEXT\_MANAGER, to make the examples clearer.
+Any use of [`with`](https://yawpitchroll.com/posts/the-35-words-you-need-to-python/#with) requires an EXPRESSION that evaluates to an OBJECT that satisfies the [context manager type](https://docs.python.org/3/library/stdtypes.html#context-manager-types)’s interface, and thus has implemented both the **\_\_enter\_\_** and **\_\_exit\_\_** “dunder” methods. From now on we’ll call that EXPRESSION a CONTEXT_MANAGER, to make the examples clearer.
 
 In the most basic usage you simply start a new BLOCK:
 
@@ -1042,7 +1040,7 @@ finally:
     src.close()
 ```
 
-Occasionally you’ll want to work within more than one CONTEXT\_MANAGER:
+Occasionally you’ll want to work within more than one CONTEXT_MANAGER:
 
 ```text
 with CONTEXT_MANAGER_A as NAME_A, CONTEXT_MANAGER_B as NAME_B:
@@ -1124,4 +1122,3 @@ There you have them, Python’s 35 keywords: in and of themselves not enough to 
 1. Technically **def** is a [final clipping](https://en.wikipedia.org/wiki/Clipping_%28morphology%29%29) or [apocope](https://en.wikipedia.org/wiki/Apocope), a specific kind of contraction. English is hard enough already, so I’ll use the more general term. [↑](https://yawpitchroll.com/posts/the-35-words-you-need-to-python/#fnref:1)
 2. There are 35 keywords as of Python 3.7, the current major version of the language as of the time of writing. New Python keywords are added quite rarely, and it’s even more rare for keywords to be removed, but in whatever version you’re on you can use `from keyword import kwlist; print(kwlist)` to view the current list. [↑](https://yawpitchroll.com/posts/the-35-words-you-need-to-python/#fnref:2)
 3. Putting [`def`](https://yawpitchroll.com/posts/the-35-words-you-need-to-python/#def) on a single line makes the equivalence with [`lambda`](https://yawpitchroll.com/posts/the-35-words-you-need-to-python/#lambda) more obvious, but for the sake of readability don’t do this very often. [↑](https://yawpitchroll.com/posts/the-35-words-you-need-to-python/#fnref:3)
-

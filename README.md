@@ -12,8 +12,6 @@ My Notion:
 
 {% embed url="https://golden-lobe-519.notion.site/Data-Structures-c3fe3debbe494b929ed2f20070b631f8" %}
 
-
-
 My Trinket:
 
 {% embed url="https://trinket.io/python/fc8a8b85eb" %}
@@ -21,6 +19,3 @@ My Trinket:
 {% embed url="http://number-base-converter-react.vercel.app/" %}
 
 {% page-ref page="./" %}
-
-
-

@@ -2,8 +2,6 @@
 
 {% embed url="https://youtube.com/playlist?list=PLWX9jswdDQ0UIXis8yYWQFD2uAV1Qmrz9" %}
 
-
-
 **Here are the best YouTube channels to learn Python programming for beginners:**
 
 1. [**Al Sweigart**](https://mikkegoes.com/youtube-channels-learn-python/#al-sweigart)\*\*\*\*
@@ -25,4 +23,3 @@
 17. \*\*\*\*[**Telusko**](https://mikkegoes.com/youtube-channels-learn-python/#telusko)\*\*\*\*
 18. \*\*\*\*[**thenewboston**](https://mikkegoes.com/youtube-channels-learn-python/#thenewboston)\*\*\*\*
 19. \*\*\*\*[**Traversy Media**](https://mikkegoes.com/youtube-channels-learn-python/#traversy-media)\*\*\*\*
-
