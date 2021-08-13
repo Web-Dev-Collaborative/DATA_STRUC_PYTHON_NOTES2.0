@@ -32,7 +32,8 @@
 
 ## Wk-18-notes <a id="wk-18"></a>
 
-* [D1](wk-18/d1.md)
+* [D1](wk-18/d1/README.md)
+  * [Convert Bases](wk-18/d1/untitled-1.md)
 * [D2](wk-18/d2.md)
 * [D3](wk-18/d3.md)
 * [D4](wk-18/d4.md)
