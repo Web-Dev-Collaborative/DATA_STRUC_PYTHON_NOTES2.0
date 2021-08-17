@@ -6,7 +6,7 @@ We can assign `None` to any variable, but you can not create other `NoneType` ob
 
 > **Note**: All variables that are assigned `None` point to the _same_ object. New instances of `None` are not created.
 
-### Syntax
+## Syntax
 
 The syntax of `None` statement is:
 
@@ -16,14 +16,14 @@ None
 
 > **Note:** `None` statement supports both `is` and `==` operators.
 
-### Interesting Facts
+## Interesting Facts
 
-- `None` is not the same as `False`.
-- `None` is not _0_.
-- `None` is not an empty `string`.
-- Comparing `None` to anything will always return `False` except `None` itself.
+* `None` is not the same as `False`.
+* `None` is not _0_.
+* `None` is not an empty `string`.
+* Comparing `None` to anything will always return `False` except `None` itself.
 
-### Examples
+## Examples
 
 1. Checking if a variable is `None` using `is` operator:
 
@@ -48,3 +48,4 @@ None
 1. Comparing `None` with empty `string`:
 
 1234\# Declaring an empty stringstr = ""\# Comparing None with empty string and printing the resultprint \(str == None\)Run
+
