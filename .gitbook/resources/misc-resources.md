@@ -2,4 +2,5 @@
 
 Gitbook Docs:
 
-{% embed url="https://docs.gitbook.com/" %}
+{% embed url="https://docs.gitbook.com/" caption="" %}
+

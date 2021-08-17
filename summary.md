@@ -1,6 +1,6 @@
-# Table of contents
+# summary
 
-* [Python Data Structures Repo & Website](README.md)
+* [Python Data Structures Repo & Website](./)
 * [summary](summary.md)
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
@@ -32,7 +32,7 @@
 
 ## Wk-18-notes <a id="wk-18"></a>
 
-* [D1](wk-18/d1/README.md)
+* [D1](wk-18/d1/)
   * [Convert Bases](wk-18/d1/untitled-1.md)
 * [D2](wk-18/d2.md)
 * [D3](wk-18/d3.md)
@@ -44,11 +44,4 @@
 ## misc
 
 * [Misc](misc/misc.md)
-
-## Wk-19-Notes
-
-* [D1](wk-19-notes/d1.md)
-* [D2](wk-19-notes/d2.md)
-* [D3](wk-19-notes/d3.md)
-* [D4](wk-19-notes/untitled.md)
 
