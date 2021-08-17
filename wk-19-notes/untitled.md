@@ -1,4 +1,4 @@
-# index
+# D4
 
 ## Overview
 
@@ -67,7 +67,7 @@ Below is the visualization for how this would type of traversal would look.
 
 Here is one possible way to code a depth-first preorder traversal in Python:
 
-```text
+```python
 class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
