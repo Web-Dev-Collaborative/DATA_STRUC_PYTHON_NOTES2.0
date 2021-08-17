@@ -1,6 +1,3 @@
-
-
-
 from datetime import datetime
 
 date = datetime(10_000, 1, 1)

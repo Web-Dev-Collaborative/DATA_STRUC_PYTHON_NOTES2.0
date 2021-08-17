@@ -1,4 +1,4 @@
-'''
+"""
 Given an array of integers nums and an integer threshold, we will choose a positive integer divisor and divide all the array by it and sum the result of the division. Find the smallest divisor such that the result mentioned above is less than or equal to threshold.
 
 Each result of division is rounded to the nearest integer greater than or equal to that element. (For example: 7/3 = 3 and 10/2 = 5).
@@ -21,7 +21,9 @@ Example 3:
 
 Input: nums = [19], threshold = 5
 Output: 4
-'''
+"""
+
+
 class Solution(object):
     def smallestDivisor(self, nums, threshold):
         """
@@ -29,15 +31,16 @@ class Solution(object):
         :type threshold: int
         :rtype: int
         """
+
         def getSum(divisor, xs):
             return sum([x // divisor + 1 if x % divisor else x // divisor for x in xs])
-		
+
         left, right = 1, 10 ** 6
         while left + 1 < right:
-            mid = (left + right) // 2            
-            if getSum(mid, nums) > threshold: 
+            mid = (left + right) // 2
+            if getSum(mid, nums) > threshold:
                 left = mid
-            else: 
+            else:
                 right = mid
-        
+
         return left if getSum(left, nums) <= threshold else right

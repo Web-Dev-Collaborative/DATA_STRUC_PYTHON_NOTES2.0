@@ -1,6 +1,3 @@
-
-
-
 def get_attr(obj, name):
     """Emulate built in getattr"""
     if name in obj.__dict__:

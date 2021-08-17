@@ -1,6 +1,3 @@
-
-
-
 name = "Waldo"
 text = "Can you find where Wally is?"
 

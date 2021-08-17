@@ -1,4 +1,4 @@
-'''
+"""
 You have N gardens, labelled 1 to N.  In each garden, you want to plant one of 4 types of flowers.
 
 paths[i] = [x, y] describes the existence of a bidirectional path from garden x to garden y.
@@ -31,7 +31,8 @@ Note:
 0 <= paths.size <= 20000
 No garden has 4 or more paths coming into or leaving it.
 It is guaranteed an answer exists.
-'''
+"""
+
 
 class Solution(object):
     def gardenNoAdj(self, N, paths):
@@ -39,27 +40,27 @@ class Solution(object):
         :type N: int
         :type paths: List[List[int]]
         :rtype: List[int]
-        """            
+        """
         plant = [1, 2, 3, 4]
         result = [0 for _ in range(N)]
         if not paths:
-            return [plant[index%4] for index in range(N)]
+            return [plant[index % 4] for index in range(N)]
         # print result
         change = {}
         update = []
         for path in paths:
-            x, y = path[0]-1, path[1]-1
-                
+            x, y = path[0] - 1, path[1] - 1
+
             if x in change:
                 change[x].append(y)
             else:
                 change[x] = [y]
-                
+
             if y in change:
                 change[y].append(x)
             else:
                 change[y] = [x]
-        
+
         for garden in range(N):
             color_used = []
             if garden in change:
@@ -72,4 +73,3 @@ class Solution(object):
                 result[garden] = color
                 break
         return result
- 

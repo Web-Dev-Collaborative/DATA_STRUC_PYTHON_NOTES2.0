@@ -1,5 +1,8 @@
 # Python Data Structures Repo & Website
 
+- [Deploy](https://ds-unit-5-lambda.netlify.app/)
+
+
 Gitbook Website:
 
 {% embed url="https://bootcamp42.gitbook.io/python/" caption="" %}

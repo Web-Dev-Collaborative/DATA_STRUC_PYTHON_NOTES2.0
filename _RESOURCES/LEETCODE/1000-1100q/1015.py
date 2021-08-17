@@ -1,4 +1,4 @@
-'''
+"""
 Given a positive integer K, you need find the smallest positive integer N such that N is divisible by K, and N only contains the digit 1.
 
 Return the length of N.  If there is no such N, return -1.
@@ -20,7 +20,8 @@ Example 3:
 Input: 3
 Output: 3
 Explanation: The smallest answer is N = 111, which has length 3.
-'''
+"""
+
 
 class Solution(object):
     def smallestRepunitDivByK(self, K):
@@ -30,7 +31,7 @@ class Solution(object):
         """
         length, value = 0, 0
         for no_one in range(100000):
-            value = (10*value + 1)%K
+            value = (10 * value + 1) % K
             length += 1
             if value == 0:
                 return length

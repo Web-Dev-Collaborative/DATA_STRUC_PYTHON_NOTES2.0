@@ -1,4 +1,4 @@
-'''
+"""
     Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
 
     For example:
@@ -17,7 +17,7 @@
       [20,9],
       [15,7]
     ]
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -25,6 +25,7 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
 
 class Solution(object):
     def zigzagLevelOrder(self, root):
@@ -34,22 +35,22 @@ class Solution(object):
         """
 
         if not root:
-        	return []
+            return []
 
         queue = [(root, 0)]
         levelMap = {}
 
         while queue:
-        	node, level = queue.pop(0)
-        	if node.left:
-        		queue.append((node.left, level+1))
-        	if node.right:
-        		queue.append((node.right, level+1))
+            node, level = queue.pop(0)
+            if node.left:
+                queue.append((node.left, level + 1))
+            if node.right:
+                queue.append((node.right, level + 1))
 
-        	if level in levelMap:
-        		levelMap[level].append(node.val)
-        	else:
-        		levelMap[level] = [node.val]
+            if level in levelMap:
+                levelMap[level].append(node.val)
+            else:
+                levelMap[level] = [node.val]
 
         result = []
         spiral = False

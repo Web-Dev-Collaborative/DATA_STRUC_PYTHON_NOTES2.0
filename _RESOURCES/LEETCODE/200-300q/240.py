@@ -1,4 +1,4 @@
-'''
+"""
 	Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
 
 	Integers in each row are sorted in ascending from left to right.
@@ -16,7 +16,8 @@
 
 	Input: matrix, target = 5
 	Output: true
-'''
+"""
+
 
 class Solution(object):
     def searchMatrix(self, matrix, target):
@@ -25,16 +26,16 @@ class Solution(object):
         :type target: int
         :rtype: bool
         """
-        
-        if not matrix:
-        	return False
 
-        left, right = 0, len(matrix[0])-1
+        if not matrix:
+            return False
+
+        left, right = 0, len(matrix[0]) - 1
         while left < len(matrix) and right >= 0:
-        	if matrix[left][right] == target:
-        		return True
-        	elif matrix[left][right] < target:
-        		left += 1
-        	else:
-        		right -= 1
+            if matrix[left][right] == target:
+                return True
+            elif matrix[left][right] < target:
+                left += 1
+            else:
+                right -= 1
         return False

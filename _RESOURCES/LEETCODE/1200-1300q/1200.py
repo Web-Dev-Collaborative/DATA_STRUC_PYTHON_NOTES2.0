@@ -1,4 +1,4 @@
-'''
+"""
 Given an array of distinct integers arr, find all pairs of elements with the minimum absolute difference of any two elements. 
 
 Return a list of pairs in ascending order(with respect to pairs), each pair [a, b] follows
@@ -27,7 +27,8 @@ Constraints:
 
 2 <= arr.length <= 10^5
 -10^6 <= arr[i] <= 10^6
-'''
+"""
+
 
 class Solution(object):
     def minimumAbsDifference(self, arr):
@@ -37,15 +38,14 @@ class Solution(object):
         """
         if not arr:
             return []
-        
+
         arr.sort()
         mindiff = arr[1] - arr[0]
         for index in range(2, len(arr)):
-            mindiff = min(mindiff, (arr[index] - arr[index-1]))
-        
+            mindiff = min(mindiff, (arr[index] - arr[index - 1]))
+
         result = []
         for index in range(1, len(arr)):
-            if arr[index] - arr[index-1] == mindiff:
-                result.append([arr[index-1], arr[index]])
+            if arr[index] - arr[index - 1] == mindiff:
+                result.append([arr[index - 1], arr[index]])
         return result
- 

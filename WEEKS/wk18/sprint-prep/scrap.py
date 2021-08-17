@@ -1,4 +1,4 @@
-languages = ['Java', 'Python', 'JavaScript']
+languages = ["Java", "Python", "JavaScript"]
 versions = [14, 3, 6]
 
 result = zip(languages, versions)

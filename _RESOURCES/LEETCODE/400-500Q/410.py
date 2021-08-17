@@ -1,4 +1,4 @@
-'''
+"""
 Given an array which consists of non-negative integers and an integer m, you can split the array into m non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these m subarrays.
 
 Note:
@@ -19,7 +19,8 @@ Explanation:
 There are four ways to split nums into two subarrays.
 The best way is to split it into [7,2,5] and [10,8],
 where the largest sum among the two subarrays is only 18.
-'''
+"""
+
 
 class Solution(object):
     def splitArray(self, nums, m):
@@ -28,11 +29,11 @@ class Solution(object):
         :type m: int
         :rtype: int
         """
-        
+
         left, right = max(nums), sum(nums)
-        
+
         while left < right:
-            mid = left + ((right-left) >> 1)
+            mid = left + ((right - left) >> 1)
             curr_sum, invalid, groups = 0, True, 0
             for num in nums:
                 if num > mid:
@@ -47,4 +48,3 @@ class Solution(object):
             else:
                 left = mid + 1
         return left
- 

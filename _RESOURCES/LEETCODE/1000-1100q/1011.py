@@ -1,4 +1,4 @@
-'''
+"""
 A conveyor belt has packages that must be shipped from one port to another within D days.
 
 The i-th package on the conveyor belt has a weight of weights[i].  Each day, we load the ship with packages on the conveyor belt (in the order given by weights). We may not load more weight than the maximum weight capacity of the ship.
@@ -35,7 +35,7 @@ Note:
 1 <= D <= weights.length <= 50000
 1 <= weights[i] <= 500
 
-'''
+"""
 
 
 class Solution(object):
@@ -45,25 +45,25 @@ class Solution(object):
         :type D: int
         :rtype: int
         """
-        high, low = sum(weights)+1, max(weights)
-        
-        while(low < high):
-            mid = (high+low)/2
+        high, low = sum(weights) + 1, max(weights)
+
+        while low < high:
+            mid = (high + low) / 2
             temp_left = mid
-            packet_at_left = D-1
+            packet_at_left = D - 1
             for weight in weights:
                 if weight <= mid:
                     if temp_left < weight:
                         if packet_at_left == 0:
-                            low = mid+1
+                            low = mid + 1
                             break
                         packet_at_left -= 1
-                        temp_left = mid-weight
+                        temp_left = mid - weight
                     else:
                         temp_left -= weight
             else:
                 high = mid
-                
+
         return low
 
 
@@ -75,10 +75,10 @@ class Solution(object):
         :rtype: int
         """
         left, right = max(weights), sum(weights)
-        
+
         while left < right:
             curr_sum, groups, invalid = 0, 0, True
-            mid = left + ((right-left) >> 1)
+            mid = left + ((right - left) >> 1)
             for weight in weights:
                 if weight > mid:
                     invalid = False

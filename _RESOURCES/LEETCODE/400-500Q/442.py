@@ -1,4 +1,4 @@
-'''
+"""
 Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
 Find all the elements that appear twice in this array.
@@ -11,7 +11,8 @@ Input:
 
 Output:
 [2,3]
-'''
+"""
+
 
 class Solution(object):
     def findDuplicates(self, nums):
@@ -21,11 +22,11 @@ class Solution(object):
         """
         if not nums:
             return []
-        
+
         result = []
         for _, num in enumerate(nums):
-            index = abs(num)-1
+            index = abs(num) - 1
             if nums[index] < 0:
-                result.append(index+1)
-            nums[index]*=-1
+                result.append(index + 1)
+            nums[index] *= -1
         return result

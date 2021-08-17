@@ -1,4 +1,4 @@
-'''
+"""
 	Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
 
 	Note:
@@ -10,7 +10,7 @@
 	Input: s = "leetcode", wordDict = ["leet", "code"]
 	Output: true
 	Explanation: Return true because "leetcode" can be segmented as "leet code".
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -18,6 +18,7 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
 
 class Solution(object):
     def buildTree(self, preorder, inorder):
@@ -27,23 +28,24 @@ class Solution(object):
         :rtype: TreeNode
         """
         self.index = 0
+
         def recursive(preorder, inorder, start, end):
-        	if start > end:
-        		return None
+            if start > end:
+                return None
 
-        	node = TreeNode(preorder[self.index])
-        	self.index += 1
-        	if start == end:
-        		return node
+            node = TreeNode(preorder[self.index])
+            self.index += 1
+            if start == end:
+                return node
 
-        	search_index = 0
-        	for i in range(start, end+1):
-        		if inorder[i] == node.val:
-        			search_index = i
-        			break
+            search_index = 0
+            for i in range(start, end + 1):
+                if inorder[i] == node.val:
+                    search_index = i
+                    break
 
-        	node.left = recursive(preorder, inorder, start, search_index-1)
-        	node.right = recursive(preorder, inorder, search_index+1, end)
-        	return node
+            node.left = recursive(preorder, inorder, start, search_index - 1)
+            node.right = recursive(preorder, inorder, search_index + 1, end)
+            return node
 
-        return recursive(preorder, inorder, 0, len(inorder)-1)
+        return recursive(preorder, inorder, 0, len(inorder) - 1)

@@ -1,4 +1,4 @@
-'''
+"""
 Given a list of scores of different students, return the average score of each student's top five scores in the order of each student's id.
 
 Each entry items[i] has items[i][0] the student's id, and items[i][1] the student's score.  The average score is calculated using integer division.
@@ -21,7 +21,8 @@ items[i].length == 2
 The IDs of the students is between 1 to 1000
 The score of the students is between 1 to 100
 For each student, there are at least 5 scores
-'''
+"""
+
 
 class Solution(object):
     def highFive(self, items):
@@ -29,17 +30,17 @@ class Solution(object):
         :type items: List[List[int]]
         :rtype: List[List[int]]
         """
-        
+
         if not items:
             return []
-        
+
         score_map = {}
         for item in items:
             if item[0] in score_map:
                 score_map[item[0]].append(item[1])
             else:
                 score_map[item[0]] = [item[1]]
-                
+
         result = []
         for key, value in score_map.items():
             value.sort(reverse=True)
@@ -47,7 +48,7 @@ class Solution(object):
                 average = value[:5]
             else:
                 average = value
-            score_map[key] = sum(average)/len(average)
-            result.append([key, score_map[key] ])
-        
+            score_map[key] = sum(average) / len(average)
+            result.append([key, score_map[key]])
+
         return result

@@ -17,15 +17,17 @@
 
 # [output] integer
 
+
 def csAnythingButFive(start, end):
     count = 0
     new_list = []
     for num in range(start, end + 1):
         str_num = str(num)
-        if '5' in str_num :
+        if "5" in str_num:
             continue
         count += 1
     return count
+
 
 print(csAnythingButFive(1, 5))
 print(csAnythingButFive(1, 9))
@@ -33,7 +35,7 @@ print(csAnythingButFive(4, 17))
 print(csAnythingButFive(-4, 17))
 print(csAnythingButFive(0, 7))
 print(csAnythingButFive(-14, -5))
-#uper
+# uper
 # input 2 integers
 # output 1 integer = a count of numbers in range(start, end)
 # start < end

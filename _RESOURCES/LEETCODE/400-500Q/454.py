@@ -7,19 +7,18 @@ class Solution(object):
         :type D: List[int]
         :rtype: int
         """
-        hashTable ={}
-        
+        hashTable = {}
+
         for a in A:
             for b in B:
-                if a+b in hashTable:
-                    hashTable[a+b] += 1
+                if a + b in hashTable:
+                    hashTable[a + b] += 1
                 else:
-                    hashTable[a+b] = 1
-                    
+                    hashTable[a + b] = 1
+
         result = 0
         for c in C:
             for d in D:
-                if -(c+d) in hashTable:
-                    result += hashTable[-(c+d)]
+                if -(c + d) in hashTable:
+                    result += hashTable[-(c + d)]
         return result
-        

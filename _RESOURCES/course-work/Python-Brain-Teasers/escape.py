@@ -1,6 +1,3 @@
-
-
-
 s1 = "\x61"  # \x - 2 digits
 print(s1)  # a
 

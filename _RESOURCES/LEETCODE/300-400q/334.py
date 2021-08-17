@@ -1,4 +1,4 @@
-'''
+"""
 	Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
 
 	Formally the function should:
@@ -12,7 +12,8 @@
 
 	Given [5, 4, 3, 2, 1],
 	return false.
-'''
+"""
+
 
 class Solution(object):
     def increasingTriplet(self, nums):
@@ -20,14 +21,14 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        
-        first, second = float('inf'), float('inf')
+
+        first, second = float("inf"), float("inf")
         for val in nums:
-        	if val <= first:
-        		first = val
-        	elif val <= second:
-        		second = val
-        	else:
-        		return True
+            if val <= first:
+                first = val
+            elif val <= second:
+                second = val
+            else:
+                return True
 
         return False

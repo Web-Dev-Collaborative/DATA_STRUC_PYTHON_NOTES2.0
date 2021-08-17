@@ -1,4 +1,4 @@
-'''
+"""
 Given an array A of integers, we must modify the array in the following way: we choose an i and replace A[i] with -A[i], and we repeat this process K times in total.  (We may choose the same index i multiple times.)
 
 Return the largest possible sum of the array after modifying it in this way.
@@ -27,7 +27,8 @@ Note:
 1 <= A.length <= 10000
 1 <= K <= 10000
 -100 <= A[i] <= 100
-'''
+"""
+
 
 class Solution(object):
     def largestSumAfterKNegations(self, A, K):
@@ -41,7 +42,7 @@ class Solution(object):
         while K > 0:
             if A[index] < 0:
                 A[index] *= -1
-                if A[index+1] < A[index] and index < len(A)-1:
+                if A[index + 1] < A[index] and index < len(A) - 1:
                     index += 1
             else:
                 A[index] *= -1

@@ -1,4 +1,4 @@
-'''
+"""
 Given an array of strings products and a string searchWord. We want to design a system that suggests at most three product names from products after each character of searchWord is typed. Suggested products should have common prefix with the searchWord. If there are more than three products with a common prefix return the three lexicographically minimums products.
 
 Return list of lists of the suggested products after each character of searchWord is typed. 
@@ -40,16 +40,19 @@ There are no repeated elements in products.
 All characters of products[i] are lower-case English letters.
 1 <= searchWord.length <= 1000
 All characters of searchWord are lower-case English letters.
-'''
+"""
+
+
 class TrieNode(object):
     def __init__(self):
         self.words = []
         self.children = {}
-        
+
+
 class Trie(object):
     def __init__(self):
         self.root = TrieNode()
-        
+
     def insert(self, word):
         node = self.root
         for char in word:
@@ -60,7 +63,7 @@ class Trie(object):
             node.words.sort()
             if len(node.words) > 3:
                 node.words = node.words[:3]
-                
+
     def search(self, word):
         result, node = [], self.root
         for char in word:
@@ -71,7 +74,8 @@ class Trie(object):
         for _ in range(len(word) - len(result)):
             result.append([])
         return result
-            
+
+
 class Solution(object):
     def suggestedProducts(self, products, searchWord):
         """

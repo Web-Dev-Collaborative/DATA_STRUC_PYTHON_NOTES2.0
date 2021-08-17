@@ -1,4 +1,4 @@
-'''
+"""
 	Given inorder and postorder traversal of a tree, construct the binary tree.
 
 	Note:
@@ -15,14 +15,15 @@
 	  9  20
 	    /  \
 	   15   7
- '''
+ """
 
- # Definition for a binary tree node.
+# Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
 
 class Solution(object):
     def buildTree(self, inorder, postorder):
@@ -31,23 +32,24 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
-        self.index = len(inorder)-1
+        self.index = len(inorder) - 1
+
         def recursive(postorder, inorder, start, end):
-        	if start > end:
-        		return None
+            if start > end:
+                return None
 
-        	node = TreeNode(postorder[self.index])
-        	self.index -= 1
-        	if start == end:
-        		return node
+            node = TreeNode(postorder[self.index])
+            self.index -= 1
+            if start == end:
+                return node
 
-        	search_index = 0
-        	for i in range(start, end+1):
-        		if inorder[i] == node.val:
-        			search_index = i
-        			break
-        	node.right = recursive(postorder, inorder, search_index+1, end)
-        	node.left = recursive(postorder, inorder, start, search_index-1)
-        	return node
+            search_index = 0
+            for i in range(start, end + 1):
+                if inorder[i] == node.val:
+                    search_index = i
+                    break
+            node.right = recursive(postorder, inorder, search_index + 1, end)
+            node.left = recursive(postorder, inorder, start, search_index - 1)
+            return node
 
-        return recursive(postorder, inorder, 0, len(inorder)-1)
+        return recursive(postorder, inorder, 0, len(inorder) - 1)

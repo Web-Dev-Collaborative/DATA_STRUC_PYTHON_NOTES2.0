@@ -1,6 +1,3 @@
-
-
-
 class Seeker:
     def __getattribute__(self, name):
         if name not in self.__dict__:

@@ -1,4 +1,4 @@
-'''
+"""
 Given an array A of 0s and 1s, we may change up to K values from 0 to 1.
 
 Return the length of the longest (contiguous) subarray that contains only 1s. 
@@ -26,7 +26,8 @@ Note:
 1 <= A.length <= 20000
 0 <= K <= A.length
 A[i] is 0 or 1 
-'''
+"""
+
 
 class Solution(object):
     def longestOnes(self, A, K):
@@ -37,8 +38,8 @@ class Solution(object):
         """
         start_index = 0
         for end_index in range(0, len(A)):
-            K -= 1-A[end_index]
+            K -= 1 - A[end_index]
             if K < 0:
-                K += 1-A[start_index]
+                K += 1 - A[start_index]
                 start_index += 1
-        return end_index-start_index+1
+        return end_index - start_index + 1

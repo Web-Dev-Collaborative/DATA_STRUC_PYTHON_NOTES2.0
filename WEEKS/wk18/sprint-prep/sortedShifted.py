@@ -1,4 +1,3 @@
-
 def binarySearch(arr, key):
     min = 0
     max = len(arr) - 1
@@ -19,7 +18,7 @@ def findValueSortedShiftedArray(nums, target):
     if nums[pivot] == target:
         return pivot
     if nums[pivot] >= target:
-        value = binarySearch(nums[pivot + 1:], target)
+        value = binarySearch(nums[pivot + 1 :], target)
         print(value)
         if value == target:
             return nums.index(value)

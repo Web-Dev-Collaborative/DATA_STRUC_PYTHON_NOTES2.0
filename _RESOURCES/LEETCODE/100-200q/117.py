@@ -1,4 +1,4 @@
-'''
+"""
 	Given a binary tree
 
 	struct TreeLinkNode {
@@ -26,7 +26,7 @@
 	  2 -> 3 -> NULL
 	 / \    \
 	4-> 5 -> 7 -> NULL
-'''
+"""
 
 # Definition for binary tree with next pointer.
 # class TreeLinkNode:
@@ -36,25 +36,26 @@
 #         self.right = None
 #         self.next = None
 
+
 class Solution:
     # @param root, a tree link node
     # @return nothing
     def connect(self, root):
-    	if root == None:
-    		return 
-    	queue = [root]
-    	queue.append(None)
+        if root == None:
+            return
+        queue = [root]
+        queue.append(None)
 
-    	while queue:
-    		front = queue.pop(0)
-    		if front is not None:
-    			front.next = queue[0]
-    			if front.left:
-    				queue.append(front.left)
-    			if front.right:
-    				queue.append(front.right)
-    		elif queue:
-    			queue.append(None)
+        while queue:
+            front = queue.pop(0)
+            if front is not None:
+                front.next = queue[0]
+                if front.left:
+                    queue.append(front.left)
+                if front.right:
+                    queue.append(front.right)
+            elif queue:
+                queue.append(None)
 
 
 # Definition for binary tree with next pointer.
@@ -65,40 +66,41 @@ class Solution:
 #         self.right = None
 #         self.next = None
 
+
 class Solution:
     # @param root, a tree link node
     # @return nothing
     def connect(self, root):
-    	if not root:
-    		return None
+        if not root:
+            return None
 
-    	root.next = None
+        root.next = None
 
-    	while root:
-    		temp = root
-    		while temp:
-    			if temp.left:
-    				if temp.right:
-    					temp.left.next = temp.right
-    				else:
-    					temp.left.next = self.getNext(temp)
-    			if temp.right:
-    				temp.right.next = self.getNext(temp)
+        while root:
+            temp = root
+            while temp:
+                if temp.left:
+                    if temp.right:
+                        temp.left.next = temp.right
+                    else:
+                        temp.left.next = self.getNext(temp)
+                if temp.right:
+                    temp.right.next = self.getNext(temp)
 
-    			temp = temp.next
-    		if root.left:
-    			root = root.left
-    		elif root.right:
-    			root = root.right
-    		else:
-    			root = self.getNext(root)
+                temp = temp.next
+            if root.left:
+                root = root.left
+            elif root.right:
+                root = root.right
+            else:
+                root = self.getNext(root)
 
     def getNext(self, node):
-    	node = node.next
-    	while node:
-    		if node.left:
-    			return node.left
-    		if node.right:
-    			return node.right
-    		node = node.next
-    	return None
+        node = node.next
+        while node:
+            if node.left:
+                return node.left
+            if node.right:
+                return node.right
+            node = node.next
+        return None

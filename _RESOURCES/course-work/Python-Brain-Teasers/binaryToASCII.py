@@ -23,16 +23,17 @@
 
 # [output] string
 
+
 def csBinaryToASCII(binary):
     binary_letters = []
-    letters = ''
+    letters = ""
     if binary == "":
         return ""
     for index in range(0, len(binary), 8):
-        binary_letters.append(binary[index:index + 8])
+        binary_letters.append(binary[index : index + 8])
     print(binary_letters)
     for string in binary_letters:
-        binary_int = v=chr(int(string, 2))
+        binary_int = v = chr(int(string, 2))
         print(binary_int)
         letters += binary_int
     return letters

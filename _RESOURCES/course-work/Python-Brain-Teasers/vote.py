@@ -1,6 +1,3 @@
-
-
-
 import re
 
 text = "The vote was 21 in favour, 13 against and 10 abstentions"

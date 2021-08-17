@@ -1,4 +1,4 @@
-'''
+"""
 Given two integers tomatoSlices and cheeseSlices. The ingredients of different burgers are as follows:
 
 Jumbo Burger: 4 tomato slices and 1 cheese slice.
@@ -36,7 +36,9 @@ Constraints:
 
 0 <= tomatoSlices <= 10^7
 0 <= cheeseSlices <= 10^7
-'''
+"""
+
+
 class Solution(object):
     def numOfBurgers(self, tomatoSlices, cheeseSlices):
         """
@@ -44,13 +46,12 @@ class Solution(object):
         :type cheeseSlices: int
         :rtype: List[int]
         """
-        jumbo = tomatoSlices - 2*cheeseSlices
-        if jumbo >= 0 and jumbo%2 == 0:
-            x = jumbo/2
-            y = cheeseSlices-(jumbo/2)
+        jumbo = tomatoSlices - 2 * cheeseSlices
+        if jumbo >= 0 and jumbo % 2 == 0:
+            x = jumbo / 2
+            y = cheeseSlices - (jumbo / 2)
             if x >= 0 and y >= 0:
                 return [x, y]
             else:
                 return []
         return []
-        

@@ -1,4 +1,4 @@
-'''
+"""
 Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.
 
 Return the decimal value of the number in the linked list.
@@ -27,7 +27,7 @@ Example 5:
 
 Input: head = [0,0]
 Output: 0
-'''
+"""
 
 # Definition for singly-linked list.
 # class ListNode(object):
@@ -35,16 +35,17 @@ Output: 0
 #         self.val = x
 #         self.next = None
 
+
 class Solution(object):
     def getDecimalValue(self, head):
         """
         :type head: ListNode
         :rtype: int
         """
-        result = ''
+        result = ""
         if not head:
             return 0
         while head:
-            result+= str(head.val)
+            result += str(head.val)
             head = head.next
         return int(result, 2)

@@ -1,4 +1,4 @@
-'''
+"""
 Given a 2-dimensional grid of integers, each value in the grid represents the color of the grid square at that location.
 
 Two squares belong to the same connected component if and only if they have the same color and are next to each other in any of the 4 directions.
@@ -29,7 +29,8 @@ Note:
 0 <= r0 < grid.length
 0 <= c0 < grid[0].length
 1 <= color <= 1000
-'''
+"""
+
 
 class Solution(object):
     def colorBorder(self, grid, r0, c0, color):
@@ -44,25 +45,37 @@ class Solution(object):
             return grid
         visited, border = [], []
         m, n = len(grid), len(grid[0])
-        
+
         def dfs(r, c):
-            if r < 0 or c < 0 or r >= m or c >= n or grid[r][c] != grid[r0][c0] or (r,c) in visited:
+            if (
+                r < 0
+                or c < 0
+                or r >= m
+                or c >= n
+                or grid[r][c] != grid[r0][c0]
+                or (r, c) in visited
+            ):
                 return
-            visited.append((r,c))
-            
+            visited.append((r, c))
+
             # check if the current row, col index is edge of the matrix
             # if not then check adjacent cells doesnt have same value as grid[r0][c0] then add in border
-            if (r == 0 or c == 0 or r == m-1 or c == n-1 or 
-                (r+1 < m and grid[r+1][c] != grid[r0][c0]) or
-                (r-1 >= 0 and grid[r-1][c] != grid[r0][c0]) or
-                (c+1 < n and grid[r][c+1] != grid[r0][c0]) or
-                (c-1 >= 0 and grid[r][c-1] != grid[r0][c0])):
-                    border.append((r,c))
-            dfs(r-1, c)
-            dfs(r+1, c)
-            dfs(r, c-1)
-            dfs(r, c+1)
-            
+            if (
+                r == 0
+                or c == 0
+                or r == m - 1
+                or c == n - 1
+                or (r + 1 < m and grid[r + 1][c] != grid[r0][c0])
+                or (r - 1 >= 0 and grid[r - 1][c] != grid[r0][c0])
+                or (c + 1 < n and grid[r][c + 1] != grid[r0][c0])
+                or (c - 1 >= 0 and grid[r][c - 1] != grid[r0][c0])
+            ):
+                border.append((r, c))
+            dfs(r - 1, c)
+            dfs(r + 1, c)
+            dfs(r, c - 1)
+            dfs(r, c + 1)
+
         dfs(r0, c0)
         for (x, y) in border:
             grid[x][y] = color

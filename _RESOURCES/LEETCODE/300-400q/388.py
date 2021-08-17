@@ -1,4 +1,4 @@
-'''
+"""
 Suppose we abstract our file system by a string in the following manner:
 
 The string "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext" represents:
@@ -30,7 +30,8 @@ The name of a directory or sub-directory will not contain a ..
 Time complexity required: O(n) where n is the size of the input string.
 
 Notice that a/aa/aaa/file1.txt is not the longest file path, if there is another path aaaaaaaaaaaaaaaaaaaaa/sth.png
-'''
+"""
+
 
 class Solution(object):
     def lengthLongestPath(self, input):
@@ -40,14 +41,14 @@ class Solution(object):
         """
         if not input:
             return 0
-        directories = input.split('\n')
-        stack = [[-1, 0]] # \t level, total dir length
+        directories = input.split("\n")
+        stack = [[-1, 0]]  # \t level, total dir length
         result = 0
         for direct in directories:
-            n_tabs = direct.count('\t')
+            n_tabs = direct.count("\t")
             while stack and stack[-1][0] >= n_tabs:
                 stack.pop()
             if "." in direct:
-                result = max(result, stack[-1][1] + len(direct)-n_tabs)
-            stack.append([n_tabs, stack[-1][1] + len(direct) + 1 -n_tabs])
+                result = max(result, stack[-1][1] + len(direct) - n_tabs)
+            stack.append([n_tabs, stack[-1][1] + len(direct) + 1 - n_tabs])
         return result

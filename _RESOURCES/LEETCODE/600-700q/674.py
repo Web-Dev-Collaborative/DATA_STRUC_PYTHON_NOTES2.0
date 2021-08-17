@@ -1,4 +1,4 @@
-'''
+"""
 Given an unsorted array of integers, find the length of longest continuous increasing subsequence (subarray).
 
 Example 1:
@@ -13,7 +13,8 @@ Output: 1
 
 Explanation: The longest continuous increasing subsequence is [2], its length is 1. 
 Note: Length of the array will not exceed 10,000.
-'''
+"""
+
 
 class Solution(object):
     def findLengthOfLCIS(self, nums):
@@ -25,7 +26,7 @@ class Solution(object):
             return 0
         start, result = 0, 1
         for end in range(1, len(nums)):
-            if nums[end-1] >= nums[end]:
+            if nums[end - 1] >= nums[end]:
                 start = end
-            result = max(result, end-start+1)
+            result = max(result, end - start + 1)
         return result

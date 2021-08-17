@@ -1,4 +1,4 @@
-'''
+"""
 For strings S and T, we say "T divides S" if and only if S = T + ... + T  (T concatenated with itself 1 or more times)
 
 Return the largest string X such that X divides str1 and X divides str2.
@@ -25,7 +25,9 @@ Note:
 1 <= str2.length <= 1000
 str1[i] and str2[i] are English uppercase letters.
 
-'''
+"""
+
+
 class Solution(object):
     def gcdOfStrings(self, str1, str2):
         """
@@ -33,21 +35,21 @@ class Solution(object):
         :type str2: str
         :rtype: str
         """
-        if len(str1)  > len(str2):
+        if len(str1) > len(str2):
             str1, str2 = str2, str1
-            
+
         l_str1 = len(str1)
-        for index in range(1, len(str1)+1):
-            if l_str1%index != 0:
+        for index in range(1, len(str1) + 1):
+            if l_str1 % index != 0:
                 continue
-                
-            size_to_take = int(l_str1/index)
+
+            size_to_take = int(l_str1 / index)
             substr1 = str1[:size_to_take]
             substr2 = str2
-            
+
             while substr1 == substr2[:size_to_take]:
                 substr2 = substr2[size_to_take:]
-                
+
             if substr2 == "":
                 return substr1
         return ""

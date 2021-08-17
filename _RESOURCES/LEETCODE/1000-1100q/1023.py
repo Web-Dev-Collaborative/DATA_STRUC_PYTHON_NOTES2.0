@@ -1,4 +1,4 @@
-'''
+"""
 A query word matches a given pattern if we can insert lowercase letters to the pattern word so that it equals the query. (We may insert each character at any position, and may insert 0 characters.)
 
 Given a list of queries, and a pattern, return an answer list of booleans, where answer[i] is true if and only if queries[i] matches the pattern.
@@ -34,7 +34,8 @@ Note:
 2. 1 <= queries[i].length <= 100
 3. 1 <= pattern.length <= 100
 4. All strings consists only of lower and upper case English letters.
-'''
+"""
+
 
 class Solution(object):
     def camelMatch(self, queries, pattern):
@@ -44,11 +45,12 @@ class Solution(object):
         :rtype: List[bool]
         """
         import re
+
         result = []
-        patterns = re.findall('[A-Z][a-z]*', pattern)
-        
+        patterns = re.findall("[A-Z][a-z]*", pattern)
+
         for query in queries:
-            splitter = re.findall('[A-Z][a-z]*', query)
+            splitter = re.findall("[A-Z][a-z]*", query)
             flag = True
             if len(patterns) == len(splitter):
                 for index in range(len(patterns)):

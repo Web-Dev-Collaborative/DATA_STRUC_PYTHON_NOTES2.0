@@ -1,4 +1,4 @@
-'''
+"""
 Normally, the factorial of a positive integer n is the product of all positive integers less than or equal to n.  For example, factorial(10) = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1.
 
 We instead make a clumsy factorial: using the integers in decreasing order, we swap out the multiply operations for a fixed rotation of operations: multiply (*), divide (/), add (+) and subtract (-) in this order.
@@ -27,7 +27,8 @@ Note:
 
 1 <= N <= 10000
 -2^31 <= answer <= 2^31 - 1  (The answer is guaranteed to fit within a 32-bit integer.)
-'''
+"""
+
 
 class Solution(object):
     def clumsy(self, N):
@@ -35,4 +36,4 @@ class Solution(object):
         :type N: int
         :rtype: int
         """
-        return [0, 1, 2, 6, 7][N] if N < 5 else N + [1, 2, 2, - 1][N % 4]
+        return [0, 1, 2, 6, 7][N] if N < 5 else N + [1, 2, 2, -1][N % 4]

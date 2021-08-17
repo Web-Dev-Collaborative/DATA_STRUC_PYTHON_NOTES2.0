@@ -1,4 +1,4 @@
-'''
+"""
 	Given a binary tree, return the preorder traversal of its nodes' values.
 
 	Example:
@@ -12,7 +12,7 @@
 
 	Output: [1,2,3]
 	Follow up: Recursive solution is trivial, could you do it iteratively?
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -21,6 +21,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def preorderTraversal(self, root):
         """
@@ -28,17 +29,17 @@ class Solution(object):
         :rtype: List[int]
         """
         if not root:
-        	return []
+            return []
 
         stack, result = [root], []
         while stack:
-        	element = stack.pop()
-        	result.append(element.val)
+            element = stack.pop()
+            result.append(element.val)
 
-        	if element.right:
-        		stack.append(element.right)
-        	if element.left:
-        		stack.append(element.left)
+            if element.right:
+                stack.append(element.right)
+            if element.left:
+                stack.append(element.left)
 
         return result
 
@@ -50,6 +51,7 @@ class Solution(object):
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def preorderTraversal(self, root):
         """
@@ -59,11 +61,11 @@ class Solution(object):
         result = []
 
         def recursive(root, result):
-        	if not root:
-        		return 
-        	result.append(root.val)
-        	recursive(root.left, result)
-        	recursive(root.right, result)
+            if not root:
+                return
+            result.append(root.val)
+            recursive(root.left, result)
+            recursive(root.right, result)
 
         recursive(root, result)
         return result

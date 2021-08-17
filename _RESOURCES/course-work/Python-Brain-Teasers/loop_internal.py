@@ -1,6 +1,3 @@
-
-
-
 iterable = range(5)  # range is the iterable
 iterator = iter(iterable)  # extract iterator from iterable
 while True:

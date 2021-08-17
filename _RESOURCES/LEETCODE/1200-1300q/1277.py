@@ -1,4 +1,4 @@
-'''
+"""
 Given a m * n matrix of ones and zeros, return how many square submatrices have all ones.
 
  
@@ -37,20 +37,31 @@ Constraints:
 1 <= arr.length <= 300
 1 <= arr[0].length <= 300
 0 <= arr[i][j] <= 1
-'''
+"""
+
+
 class Solution(object):
     def countSquares(self, matrix):
         """
         :type matrix: List[List[int]]
         :rtype: int
-        """  
-    
-        p_arr = [[0 for i in range(len(matrix[0]))] for j in range(len(matrix))]  
+        """
+
+        p_arr = [[0 for i in range(len(matrix[0]))] for j in range(len(matrix))]
         result = 0
 
         for index_i in range(1, len(matrix)):
             for index_j in range(1, len(matrix[0])):
                 if matrix[index_i][index_j] == 1:
-                    matrix[index_i][index_j] = min(matrix[index_i-1][index_j-1], min(matrix[index_i-1][index_j], matrix[index_i][index_j-1]))+1
+                    matrix[index_i][index_j] = (
+                        min(
+                            matrix[index_i - 1][index_j - 1],
+                            min(
+                                matrix[index_i - 1][index_j],
+                                matrix[index_i][index_j - 1],
+                            ),
+                        )
+                        + 1
+                    )
         # print p_arr
-        return sum([ sum(x) for x in matrix])  
+        return sum([sum(x) for x in matrix])

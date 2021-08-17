@@ -1,4 +1,4 @@
-'''
+"""
 We are given a matrix with R rows and C columns has cells with integer coordinates (r, c), where 0 <= r < R and 0 <= c < C.
 
 Additionally, we are given a cell in that matrix with coordinates (r0, c0).
@@ -32,7 +32,8 @@ Note:
 1 <= C <= 100
 0 <= r0 < R
 0 <= c0 < C
-'''
+"""
+
 
 class Solution(object):
     def allCellsDistOrder(self, R, C, r0, c0):
@@ -46,7 +47,7 @@ class Solution(object):
         cells = [[x, y] for x in range(R) for y in range(C)]
         distance = {}
         for cell in cells:
-            diff = abs(cell[0]-r0) + abs(cell[1]-c0)
+            diff = abs(cell[0] - r0) + abs(cell[1] - c0)
             if diff in distance:
                 distance[diff].append(cell)
             else:

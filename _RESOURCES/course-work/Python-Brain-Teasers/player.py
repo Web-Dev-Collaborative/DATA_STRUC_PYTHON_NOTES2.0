@@ -1,6 +1,3 @@
-
-
-
 class Player:
     # Number of players in the Game
     count = 0

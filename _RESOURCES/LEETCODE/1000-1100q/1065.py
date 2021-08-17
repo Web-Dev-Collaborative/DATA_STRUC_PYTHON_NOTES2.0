@@ -1,4 +1,4 @@
-'''
+"""
 Given a text string and words (a list of strings), return all index pairs [i, j] so that the substring text[i]...text[j] is in the list of words.
 
  
@@ -23,7 +23,8 @@ It's guaranteed that all strings in words are different.
 1 <= words.length <= 20
 1 <= words[i].length <= 50
 Return the pairs [i,j] in sorted order (i.e. sort them by their first coordinate in case of ties sort them by their second coordinate).
-'''
+"""
+
 
 class Solution(object):
     def indexPairs(self, text, words):
@@ -36,10 +37,11 @@ class Solution(object):
             return []
         result = []
         for word in words:
-            starting = [index for index in range(len(text)) if text.startswith(word, index)]
+            starting = [
+                index for index in range(len(text)) if text.startswith(word, index)
+            ]
             for start in starting:
-                result.append([start, start+len(word)-1])
+                result.append([start, start + len(word) - 1])
             # print starting
         result.sort()
         return result
-            

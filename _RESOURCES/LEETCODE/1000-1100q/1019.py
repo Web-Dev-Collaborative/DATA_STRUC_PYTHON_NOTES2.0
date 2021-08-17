@@ -1,4 +1,4 @@
-'''
+"""
 We are given a linked list with head as the first node.  Let's number the nodes in the list: node_1, node_2, node_3, ... etc.
 
 Each node may have a next larger value: for node_i, next_larger(node_i) is the node_j.val such that j > i, node_j.val > node_i.val, and j is the smallest possible choice.  If such a j does not exist, the next larger value is 0.
@@ -27,13 +27,14 @@ Note:
 
 1 <= node.val <= 10^9 for each node in the linked list.
 The given list has length in the range [0, 10000].
-'''
+"""
 
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+
 
 class Solution(object):
     def nextLargerNodes(self, head):
@@ -45,10 +46,10 @@ class Solution(object):
         while head:
             result.append(head.val)
             head = head.next
-        
+
         stack = [result[-1]]
         ans = [0]
-        for val in range(len(result)-2, -1, -1):
+        for val in range(len(result) - 2, -1, -1):
             if result[val] < stack[-1]:
                 ans.append(stack[-1])
             else:

@@ -1,4 +1,4 @@
-'''
+"""
 	Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
 
 	Note: 
@@ -8,7 +8,7 @@
 
 	Input: root = [3,1,4,null,2], k = 1
 	Output: 1
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -17,6 +17,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def kthSmallest(self, root, k):
         """
@@ -24,25 +25,24 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        
+
         if not root:
-        	return 0
+            return 0
 
         stack = [root]
         count, curr = 0, root
 
-
         while stack:
-        	if curr.left:
-        		stack.append(curr.left)
-        		curr = curr.left
-        	else:
-        		val = stack.pop()
-        		count += 1
-        		if count == k:
-        			return val.val
+            if curr.left:
+                stack.append(curr.left)
+                curr = curr.left
+            else:
+                val = stack.pop()
+                count += 1
+                if count == k:
+                    return val.val
 
-        		if val.right:
-        			stack.append(val.right)
-        			curr = val.right
-        return float('-inf')
+                if val.right:
+                    stack.append(val.right)
+                    curr = val.right
+        return float("-inf")

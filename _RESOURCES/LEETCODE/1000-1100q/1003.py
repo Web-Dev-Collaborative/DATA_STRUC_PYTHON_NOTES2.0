@@ -1,4 +1,4 @@
-'''
+"""
 We are given that the string "abc" is valid.
 
 From any valid string V, we may split V into two pieces X and Y such that X + Y (X concatenated with Y) is equal to V.  (X or Y may be empty.)  Then, X + "abc" + Y is also valid.
@@ -37,7 +37,8 @@ Note:
 
 1 <= S.length <= 20000
 S[i] is 'a', 'b', or 'c'
-'''
+"""
+
 
 class Solution(object):
     def isValid(self, S):
@@ -48,20 +49,19 @@ class Solution(object):
         stack = []
         if not S:
             return False
-        
+
         for char in S:
-            if char == 'a':
-                stack.append('a')
-            if char == 'b':
+            if char == "a":
+                stack.append("a")
+            if char == "b":
                 if not stack:
                     return False
-                if stack[-1] == 'a':
+                if stack[-1] == "a":
                     stack.pop()
                     stack.append(char)
-            if char == 'c':
+            if char == "c":
                 if not stack:
                     return False
-                if stack[-1] == 'b':
+                if stack[-1] == "b":
                     stack.pop()
         return len(stack) == 0
- 

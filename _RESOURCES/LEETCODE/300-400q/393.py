@@ -1,4 +1,4 @@
-'''
+"""
 A character in UTF8 can be from 1 to 4 bytes long, subjected to the following rules:
 
 For 1-byte character, the first bit is a 0, followed by its unicode code.
@@ -31,7 +31,8 @@ Return false.
 The first 3 bits are all one's and the 4th bit is 0 means it is a 3-bytes character.
 The next byte is a continuation byte which starts with 10 and that's correct.
 But the second continuation byte does not start with 10, so it is invalid.
-'''
+"""
+
 
 class Solution(object):
     def validUtf8(self, data):
@@ -42,25 +43,25 @@ class Solution(object):
         seveneth_mask = 1 << 7
         sixth_mask = 1 << 6
         no_bytes = 0
-        
+
         if len(data) == 1:
-            return not(data[0] & seveneth_mask)
-        
+            return not (data[0] & seveneth_mask)
+
         for num in data:
             if no_bytes == 0:
                 mask = 1 << 7
-                
+
                 while num & mask:
                     no_bytes += 1
                     mask >>= 1
-                    
+
                 if no_bytes == 0:
                     continue
-                    
+
                 if no_bytes == 1 or no_bytes > 4:
                     return False
             else:
-                if not(num & seveneth_mask and not(num & sixth_mask)):
+                if not (num & seveneth_mask and not (num & sixth_mask)):
                     return False
             no_bytes -= 1
         return no_bytes == 0

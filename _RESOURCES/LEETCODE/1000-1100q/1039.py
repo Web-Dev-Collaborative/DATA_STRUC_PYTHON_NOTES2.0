@@ -1,4 +1,4 @@
-'''
+"""
 Given N, consider a convex N-sided polygon with vertices labelled A[0], A[i], ..., A[N-1] in clockwise order.
 
 Suppose you triangulate the polygon into N-2 triangles.  For each triangle, the value of that triangle is the product of the labels of the vertices, and the total score of the triangulation is the sum of these values over all N-2 triangles in the triangulation.
@@ -32,7 +32,8 @@ Note:
 
 3 <= A.length <= 50
 1 <= A[i] <= 100
-'''
+"""
+
 
 class Solution(object):
     def minScoreTriangulation(self, A):
@@ -40,18 +41,22 @@ class Solution(object):
         :type A: List[int]
         :rtype: int
         """
-        
+
         n = len(A)
-        dp = [[0]*n for _ in range(n)]
+        dp = [[0] * n for _ in range(n)]
         for length in range(n):
             index_i = 0
             for index_j in range(length, n):
-                if index_j < index_i+2:
+                if index_j < index_i + 2:
                     dp[index_i][index_j] = 0
                 else:
-                    dp[index_i][index_j] = float('inf')
-                    for index_k in range(index_i+1, index_j):
-                        val = dp[index_i][index_k] + dp[index_k][index_j] + (A[index_i]*A[index_k]*A[index_j])
+                    dp[index_i][index_j] = float("inf")
+                    for index_k in range(index_i + 1, index_j):
+                        val = (
+                            dp[index_i][index_k]
+                            + dp[index_k][index_j]
+                            + (A[index_i] * A[index_k] * A[index_j])
+                        )
                         dp[index_i][index_j] = min(dp[index_i][index_j], val)
                 index_i += 1
-        return dp[0][n-1]
+        return dp[0][n - 1]

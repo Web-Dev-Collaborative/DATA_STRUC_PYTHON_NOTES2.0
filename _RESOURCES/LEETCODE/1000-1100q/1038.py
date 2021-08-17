@@ -1,4 +1,4 @@
-'''
+"""
 Given the root of a binary search tree with distinct values, modify it so that every node has a new value equal to the sum of the values of the original tree that are greater than or equal to node.val.
 
 As a reminder, a binary search tree is a tree that satisfies these constraints:
@@ -18,7 +18,7 @@ Note:
 The number of nodes in the tree is between 1 and 100.
 Each node will have value between 0 and 100.
 The given tree is a binary search tree.
-'''
+"""
 
 
 # Definition for a binary tree node.
@@ -28,6 +28,7 @@ The given tree is a binary search tree.
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def bstToGst(self, root):
         """
@@ -35,13 +36,14 @@ class Solution(object):
         :rtype: TreeNode
         """
         self.curr_sum = 0
+
         def greaterSum(root):
             if not root:
-                return 
+                return
             greaterSum(root.right)
             self.curr_sum += root.val
             root.val = self.curr_sum
             greaterSum(root.left)
-        
+
         greaterSum(root)
         return root

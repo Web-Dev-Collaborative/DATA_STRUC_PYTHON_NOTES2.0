@@ -1,4 +1,4 @@
-'''
+"""
 Given an array A of non-negative integers, return the maximum sum of elements in two non-overlapping (contiguous) subarrays, which have lengths L and M.  (For clarification, the L-length subarray could occur before or after the M-length subarray.)
 
 Formally, return the largest V for which V = (A[i] + A[i+1] + ... + A[i+L-1]) + (A[j] + A[j+1] + ... + A[j+M-1]) and either:
@@ -30,7 +30,8 @@ L >= 1
 M >= 1
 L + M <= A.length <= 1000
 0 <= A[i] <= 1000
-'''
+"""
+
 
 class Solution(object):
     def maxSumTwoNoOverlap(self, A, L, M):
@@ -42,14 +43,24 @@ class Solution(object):
         """
         cumm_sum = [0]
         for index in range(len(A)):
-            cumm_sum.append(cumm_sum[index]+A[index])
+            cumm_sum.append(cumm_sum[index] + A[index])
         result = 0
-        
+
         def valid(index_i, index_j):
-            return index_i+L <=len(A) and index_j+M <= len(A) and(index_j>=index_i+L or index_i>=index_j+M)
-    
+            return (
+                index_i + L <= len(A)
+                and index_j + M <= len(A)
+                and (index_j >= index_i + L or index_i >= index_j + M)
+            )
+
         for index_i in range(len(A)):
             for index_j in range(len(A)):
                 if valid(index_i, index_j):
-                    result = max(result, cumm_sum[index_i+L]-cumm_sum[index_i] + cumm_sum[index_j+M]-cumm_sum[index_j])
+                    result = max(
+                        result,
+                        cumm_sum[index_i + L]
+                        - cumm_sum[index_i]
+                        + cumm_sum[index_j + M]
+                        - cumm_sum[index_j],
+                    )
         return result

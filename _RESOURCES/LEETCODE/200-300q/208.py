@@ -1,12 +1,14 @@
-'''
+"""
 	Implement a trie with insert, search, and startsWith methods.
-'''
+"""
+
+
 class TreeNode(object):
-	self.word = False
-	self.children = {}
+    self.word = False
+    self.children = {}
+
 
 class Trie(object):
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -21,9 +23,9 @@ class Trie(object):
         """
         node = self.root
         for char in word:
-        	if char not in node.children:
-        		node.children[char] = TreeNode()
-        	node = node.children[char]
+            if char not in node.children:
+                node.children[char] = TreeNode()
+            node = node.children[char]
         node.word = True
 
     def search(self, word):
@@ -34,11 +36,10 @@ class Trie(object):
         """
         node = self.root
         for char in word:
-        	if char not in node.children:
-        		return False
-        	node = node.children[char]
-        return node.word 
-        
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return node.word
 
     def startsWith(self, prefix):
         """
@@ -48,11 +49,10 @@ class Trie(object):
         """
         node = self.root
         for char in prefix:
-        	if char not in node.children:
-        		return False
-        	node = node.children[char]
+            if char not in node.children:
+                return False
+            node = node.children[char]
         return True
-        
 
 
 # Your Trie object will be instantiated and called as such:

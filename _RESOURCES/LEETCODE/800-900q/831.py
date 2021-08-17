@@ -1,4 +1,4 @@
-'''
+"""
 We are given a personal information string S, which may represent either an email address or a phone number.
 
 We would like to mask this personal information according to the following rules:
@@ -61,25 +61,27 @@ Notes:
 S.length <= 40.
 Emails have length at least 8.
 Phone numbers have length at least 10.
-'''
+"""
+
+
 class Solution(object):
     def maskPII(self, S):
         """
         :type S: str
         :rtype: str
         """
-        if '@' in S:
+        if "@" in S:
             S = S.lower()
             firstChar = S[0]
-            asterix = S.find('@')
-            return S[0] + "*****" + S[asterix-1:]
+            asterix = S.find("@")
+            return S[0] + "*****" + S[asterix - 1 :]
         else:
-            S = S.replace('+', "")
-            S = S.replace('(', '')
-            S = S.replace('-', '')
-            S = S.replace(')', '')
-            S = S.replace(' ', '')
-            
+            S = S.replace("+", "")
+            S = S.replace("(", "")
+            S = S.replace("-", "")
+            S = S.replace(")", "")
+            S = S.replace(" ", "")
+
             if len(S) == 10:
                 return "***-***-" + S[-4:]
             else:

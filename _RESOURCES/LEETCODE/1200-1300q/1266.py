@@ -1,4 +1,4 @@
-'''
+"""
 On a plane there are n points with integer coordinates points[i] = [xi, yi]. Your task is to find the minimum time in seconds to visit all points.
 
 You can move according to the next rules:
@@ -24,7 +24,8 @@ points.length == n
 1 <= n <= 100
 points[i].length == 2
 -1000 <= points[i][0], points[i][1] <= 1000
-'''
+"""
+
 
 class Solution(object):
     def minTimeToVisitAllPoints(self, points):
@@ -36,5 +37,8 @@ class Solution(object):
             return 0
         result = 0
         for index in range(1, len(points)):
-            result += max(abs(points[index][0]-points[index-1][0]), abs(points[index][1]-points[index-1][1]))
+            result += max(
+                abs(points[index][0] - points[index - 1][0]),
+                abs(points[index][1] - points[index - 1][1]),
+            )
         return result

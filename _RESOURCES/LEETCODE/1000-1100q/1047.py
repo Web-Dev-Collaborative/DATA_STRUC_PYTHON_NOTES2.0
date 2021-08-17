@@ -1,4 +1,4 @@
-'''
+"""
 Given a string S of lowercase letters, a duplicate removal consists of choosing two adjacent and equal letters, and removing them.
 
 We repeatedly make duplicate removals on S until we no longer can.
@@ -19,7 +19,8 @@ Note:
 
 1 <= S.length <= 20000
 S consists only of English lowercase letters.
-'''
+"""
+
 
 class Solution(object):
     def removeDuplicates(self, S):
@@ -41,4 +42,4 @@ class Solution(object):
                     stack.append(char)
         if not stack:
             return ""
-        return ''.join(stack)
+        return "".join(stack)

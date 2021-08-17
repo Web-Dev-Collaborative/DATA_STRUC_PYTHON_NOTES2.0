@@ -1,4 +1,4 @@
-'''
+"""
 Given an array A of positive integers, let S be the sum of the digits of the minimal element of A.
 
 Return 0 if S is odd, otherwise return 1.
@@ -23,7 +23,9 @@ Note:
 
 1 <= A.length <= 100
 1 <= A[i].length <= 100
-'''
+"""
+
+
 class Solution(object):
     def sumOfDigits(self, A):
         """
@@ -32,13 +34,13 @@ class Solution(object):
         """
         if not A:
             return 0
-        
+
         mini = min(A)
         result = 0
         while mini > 0:
-            quo = mini%10
-            rem = mini/10
+            quo = mini % 10
+            rem = mini / 10
             result += quo
             mini = rem
-            
-        return 0 if result%2 else 1
+
+        return 0 if result % 2 else 1

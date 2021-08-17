@@ -1,4 +1,4 @@
-'''
+"""
 Given an array A of 0s and 1s, consider N_i: the i-th subarray from A[0] to A[i] interpreted as a binary number (from most-significant-bit to least-significant-bit.)
 
 Return a list of booleans answer, where answer[i] is true if and only if N_i is divisible by 5.
@@ -18,7 +18,8 @@ Note:
 
 1 <= A.length <= 30000
 A[i] is 0 or 1
-'''
+"""
+
 
 class Solution(object):
     def prefixesDivBy5(self, A):
@@ -29,10 +30,10 @@ class Solution(object):
         result = []
         if not A:
             return []
-        str_bin = ''
+        str_bin = ""
         for val in A:
             str_bin += str(val)
-            if(int(str_bin, 2)%5 == 0):
+            if int(str_bin, 2) % 5 == 0:
                 result.append(True)
             else:
                 result.append(False)

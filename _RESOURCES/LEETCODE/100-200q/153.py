@@ -1,4 +1,4 @@
-'''
+"""
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
 (i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]).
@@ -15,7 +15,8 @@ Example 2:
 
 Input: [4,5,6,7,0,1,2]
 Output: 0
-'''
+"""
+
 
 class Solution(object):
     def findMin(self, nums):
@@ -24,24 +25,24 @@ class Solution(object):
         :rtype: int
         """
         if not nums:
-        	return 0
+            return 0
 
         if len(nums) == 1:
-        	return nums[0]
-        left, right = 0, len(nums)-1
+            return nums[0]
+        left, right = 0, len(nums) - 1
 
         if nums[left] < nums[right]:
-        	return nums[left]
+            return nums[left]
         while left <= right:
-        	while nums[left] == nums[right] and left != right:
-        		left += 1
-        		
-        	if nums[left] <= nums[right]:
-        		return nums[left]
+            while nums[left] == nums[right] and left != right:
+                left += 1
 
-        	mid = (left + right)/2
-        	if nums[mid] >= nums[left]:
-        		left = mid+1
-        	else:
-        		right = mid
+            if nums[left] <= nums[right]:
+                return nums[left]
+
+            mid = (left + right) / 2
+            if nums[mid] >= nums[left]:
+                left = mid + 1
+            else:
+                right = mid
         return -1

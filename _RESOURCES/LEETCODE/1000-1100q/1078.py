@@ -1,4 +1,4 @@
-'''
+"""
 Given words first and second, consider occurrences in some text of the form "first second third", where second comes immediately after first, and third comes immediately after second.
 
 For each such occurrence, add "third" to the answer, and return the answer.
@@ -21,7 +21,8 @@ Note:
 text consists of space separated words, where each word consists of lowercase English letters.
 1 <= first.length, second.length <= 10
 first and second consist of lowercase English letters.
-'''
+"""
+
 
 class Solution(object):
     def findOcurrences(self, text, first, second):
@@ -34,11 +35,11 @@ class Solution(object):
         result = []
         if not text:
             return []
-        splitted_text = text.split(' ')
+        splitted_text = text.split(" ")
         indi = 0
-        for index in range(len(splitted_text)-1):
-            if splitted_text[index] == first and splitted_text[index+1] == second:
-                index = index+2
+        for index in range(len(splitted_text) - 1):
+            if splitted_text[index] == first and splitted_text[index + 1] == second:
+                index = index + 2
                 if index < len(splitted_text):
                     result.append(splitted_text[index])
         return result

@@ -1,4 +1,4 @@
-'''
+"""
 Implement the StreamChecker class as follows:
 
 StreamChecker(words): Constructor, init the data structure with the given words.
@@ -29,15 +29,16 @@ Note:
 Words will only consist of lowercase English letters.
 Queries will only consist of lowercase English letters.
 The number of queries is at most 40000.
-'''
+"""
+
 
 class Trie(object):
     def __init__(self):
         self.nodes = {}
         self.word = False
-        
-class StreamChecker(object):
 
+
+class StreamChecker(object):
     def __init__(self, words):
         """
         :type words: List[str]
@@ -51,7 +52,6 @@ class StreamChecker(object):
                 ptr = ptr.nodes[char]
             ptr.word = True
         self.stream = []
-        
 
     def query(self, letter):
         """
@@ -66,10 +66,9 @@ class StreamChecker(object):
             if root.nodes[char].word:
                 return True
             root = root.nodes[char]
-            
+
         return root.word
-            
- 
+
 
 # Your StreamChecker object will be instantiated and called as such:
 # obj = StreamChecker(words)

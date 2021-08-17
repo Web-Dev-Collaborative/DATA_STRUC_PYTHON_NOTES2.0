@@ -1,4 +1,4 @@
-'''
+"""
 	Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 
 	For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
@@ -14,7 +14,7 @@
 	   -3   9
 	   /   /
 	 -10  5
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -22,6 +22,7 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
 
 class Solution(object):
     def sortedArrayToBST(self, nums):
@@ -31,17 +32,17 @@ class Solution(object):
         """
 
         def constructTree(nums, start, end):
-        	if start > end:
-        		return None
+            if start > end:
+                return None
 
-        	mid = (start+end)/2
-        	node = TreeNode(nums[mid])
+            mid = (start + end) / 2
+            node = TreeNode(nums[mid])
 
-        	if start == end:
-        		return node
+            if start == end:
+                return node
 
-        	node.left = constructTree(nums, start, mid-1)
-        	node.right = constructTree(nums, mid+1, end)
-        	return node
+            node.left = constructTree(nums, start, mid - 1)
+            node.right = constructTree(nums, mid + 1, end)
+            return node
 
-        return constructTree(nums, 0, len(nums)-1)
+        return constructTree(nums, 0, len(nums) - 1)

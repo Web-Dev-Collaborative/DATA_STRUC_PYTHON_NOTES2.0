@@ -1,4 +1,4 @@
-'''
+"""
 We have a collection of rocks, each rock has a positive integer weight.
 
 Each turn, we choose the two heaviest rocks and smash them together.  Suppose the stones have weights x and y with x <= y.  The result of this smash is:
@@ -24,7 +24,8 @@ Note:
 
 1 <= stones.length <= 30
 1 <= stones[i] <= 1000
-'''
+"""
+
 
 class Solution(object):
     def lastStoneWeight(self, stones):
@@ -37,7 +38,7 @@ class Solution(object):
             stones.remove(max_x)
             max_y = max(stones)
             stones.remove(max_y)
-            
+
             if max_x != max_y:
-                stones.append(max_x-max_y)
+                stones.append(max_x - max_y)
         return stones[0] if stones else 0

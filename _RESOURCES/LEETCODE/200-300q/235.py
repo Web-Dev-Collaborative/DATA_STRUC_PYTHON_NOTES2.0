@@ -1,4 +1,4 @@
-'''
+"""
 	Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
 	According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
@@ -25,7 +25,7 @@
 	Output: 2
 	Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself 
 	             according to the LCA definition
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -33,6 +33,7 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+
 
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
@@ -43,11 +44,11 @@ class Solution(object):
         :rtype: TreeNode
         """
         if not root:
-        	return None
-        
+            return None
+
         if root.val > p.val and root.val > q.val:
-        	return self.lowestCommonAncestor(root.left, p, q)
+            return self.lowestCommonAncestor(root.left, p, q)
         elif root.val < p.val and root.val < q.val:
-        	return self.lowestCommonAncestor(root.right, p, q)
+            return self.lowestCommonAncestor(root.right, p, q)
         else:
-        	return root
+            return root

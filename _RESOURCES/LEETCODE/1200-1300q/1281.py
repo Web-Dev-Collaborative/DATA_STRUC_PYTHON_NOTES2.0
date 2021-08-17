@@ -1,4 +1,4 @@
-'''
+"""
 Given an integer number n, return the difference between the product of its digits and the sum of its digits.
  
 
@@ -18,7 +18,8 @@ Explanation:
 Product of digits = 4 * 4 * 2 * 1 = 32 
 Sum of digits = 4 + 4 + 2 + 1 = 11 
 Result = 32 - 11 = 21
-'''
+"""
+
 
 class Solution(object):
     def subtractProductAndSum(self, n):
@@ -26,8 +27,9 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        
+
         from functools import reduce
         from operator import mul
+
         digits = [int(x) for x in str(n)]
         return reduce(mul, digits) - sum(digits)

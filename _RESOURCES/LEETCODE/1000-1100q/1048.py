@@ -1,4 +1,4 @@
-'''
+"""
 Given a list of words, each word consists of English lowercase letters.
 
 Let's say word1 is a predecessor of word2 if and only if we can add exactly one letter anywhere in word1 to make it equal to word2.  For example, "abc" is a predecessor of "abac".
@@ -21,8 +21,9 @@ Note:
 1 <= words.length <= 1000
 1 <= words[i].length <= 16
 words[i] only consists of English lowercase letters.
-'''
-        
+"""
+
+
 class Solution(object):
     def longestStrChain(self, words):
         """
@@ -36,9 +37,9 @@ class Solution(object):
         result = 0
         for word in words:
             for index in range(len(word)):
-                char_excluded_string = word[:index] + word[index+1:]
+                char_excluded_string = word[:index] + word[index + 1 :]
                 if char_excluded_string in dp:
-                    dp[word] = max(dp[char_excluded_string]+1, dp[word])
+                    dp[word] = max(dp[char_excluded_string] + 1, dp[word])
                 else:
                     dp[word] = max(dp[word], 1)
             result = max(dp[word], result)

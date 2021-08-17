@@ -1,4 +1,4 @@
-'''
+"""
 A string of '0's and '1's is monotone increasing if it consists of some number of '0's (possibly 0), followed by some number of '1's (also possibly 0.)
 
 We are given a string S of '0's and '1's, and we may flip any '0' to a '1' or a '1' to a '0'.
@@ -28,7 +28,8 @@ Note:
 
 1 <= S.length <= 20000
 S only consists of '0' and '1' characters.
-'''
+"""
+
 
 class Solution(object):
     def minFlipsMonoIncr(self, S):
@@ -40,8 +41,8 @@ class Solution(object):
         for char in S:
             ones.append(ones[-1] + int(char))
         # print ones
-        result = float('inf')
+        result = float("inf")
         for index in range(len(ones)):
-            zeroes = len(S) - index - (ones[-1]-ones[index])
-            result = min(zeroes+ones[index], result)
+            zeroes = len(S) - index - (ones[-1] - ones[index])
+            result = min(zeroes + ones[index], result)
         return result

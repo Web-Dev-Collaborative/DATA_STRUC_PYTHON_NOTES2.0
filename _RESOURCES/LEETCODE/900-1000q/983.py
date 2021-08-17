@@ -1,4 +1,4 @@
-'''
+"""
 In a country popular for train travel, you have planned some train travelling one year in advance.  The days of the year that you will travel is given as an array days.  Each day is an integer from 1 to 365.
 
 Train tickets are sold in 3 different ways:
@@ -16,15 +16,21 @@ Example 1:
 
 Input: days = [1,4,6,7,8,20], costs = [2,7,15]
 Output: 11
-'''
+"""
+
 
 class Solution:
-    def mincostTickets(self, days: 'List[int]', costs: 'List[int]') -> 'int':
+    def mincostTickets(self, days: "List[int]", costs: "List[int]") -> "int":
         def get_days_ago(day, ago):
             for i in range(len(days)):
-                if days[i] > days[day-1] - ago:
+                if days[i] > days[day - 1] - ago:
                     return i
+
         out = [0] * (len(days) + 1)
         for i in range(1, len(days) + 1):
-            out[i] = min(out[i-1] + costs[0], out[get_days_ago(i,7)] + costs[1], out[get_days_ago(i,30)] + costs[2])
+            out[i] = min(
+                out[i - 1] + costs[0],
+                out[get_days_ago(i, 7)] + costs[1],
+                out[get_days_ago(i, 30)] + costs[2],
+            )
         return out[-1]

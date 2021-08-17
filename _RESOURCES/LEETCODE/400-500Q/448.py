@@ -1,4 +1,4 @@
-'''
+"""
 Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
 Find all the elements of [1, n] inclusive that do not appear in this array.
@@ -12,7 +12,8 @@ Input:
 
 Output:
 [5,6]
-'''
+"""
+
 
 class Solution(object):
     def findDisappearedNumbers(self, nums):
@@ -24,10 +25,10 @@ class Solution(object):
             return []
         result = []
         for num in nums:
-            index = abs(num)-1
+            index = abs(num) - 1
             if nums[index] > 0:
-                nums[index]*=-1
+                nums[index] *= -1
         for index, num in enumerate(nums):
-            if num >0:
-                result.append(index+1)
+            if num > 0:
+                result.append(index + 1)
         return result

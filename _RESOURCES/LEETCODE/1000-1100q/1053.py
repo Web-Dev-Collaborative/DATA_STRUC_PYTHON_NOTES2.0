@@ -1,4 +1,4 @@
-'''
+"""
 Given an array A of positive integers (not necessarily distinct), return the lexicographically largest permutation that is smaller than A, that can be made with one swap (A swap exchanges the positions of two numbers A[i] and A[j]).  If it cannot be done, then return the same array.
 
  
@@ -29,21 +29,22 @@ Note:
 
 1 <= A.length <= 10000
 1 <= A[i] <= 10000
-'''
+"""
+
+
 class Solution(object):
     def prevPermOpt1(self, A):
         """
         :type A: List[int]
         :rtype: List[int]
         """
-    
-        left, right = len(A)-2, len(A)-1
-        for left in range(len(A)-2, -1, -1):
-            if A[left] > A[left+1]:
+
+        left, right = len(A) - 2, len(A) - 1
+        for left in range(len(A) - 2, -1, -1):
+            if A[left] > A[left + 1]:
                 break
         else:
             return A
-        right = A.index(max(ele for ele in A[left+1:] if ele < A[left]), left)
+        right = A.index(max(ele for ele in A[left + 1 :] if ele < A[left]), left)
         A[left], A[right] = A[right], A[left]
         return A
- 

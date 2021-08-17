@@ -1,4 +1,4 @@
-'''
+"""
 In a town, there are N people labelled from 1 to N.  There is a rumor that one of these people is secretly the town judge.
 
 If the town judge exists, then:
@@ -20,7 +20,8 @@ Example 2:
 
 Input: N = 3, trust = [[1,3],[2,3]]
 Output: 3
-'''
+"""
+
 
 class Solution(object):
     def findJudge(self, N, trust):
@@ -39,10 +40,9 @@ class Solution(object):
                 mapping[truste_list[1]] += 1
             else:
                 mapping[truste_list[1]] = 1
-            
+
         unique_set = len(unique)
         for key, value in mapping.items():
             if value == unique_set:
                 return key
         return -1
-        

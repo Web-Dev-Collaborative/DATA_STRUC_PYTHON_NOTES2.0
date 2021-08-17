@@ -1,4 +1,4 @@
-'''
+"""
 In a string S of lowercase letters, these letters form consecutive groups of the same character.
 
 For example, a string like S = "abbxxxxzyy" has the groups "a", "bb", "xxxx", "z" and "yy".
@@ -23,7 +23,8 @@ Example 3:
 
 Input: "abcdddeeeeaabbbcd"
 Output: [[3,5],[6,9],[12,14]]
-'''
+"""
+
 
 class Solution(object):
     def largeGroupPositions(self, S):
@@ -33,22 +34,22 @@ class Solution(object):
         """
         if not S:
             return []
-        
+
         result = []
         count = 1
         prevChar = S[0]
         index_i = 0
-        for index in range(1,len(S)):
+        for index in range(1, len(S)):
             if S[index] == prevChar:
                 count += 1
             else:
                 if count >= 3:
-                    result.append([index_i, index-1])
-                
+                    result.append([index_i, index - 1])
+
                 count = 1
                 prevChar = S[index]
                 index_i = index
-                
+
         if count >= 3:
-            result.append([index_i, len(S)-1])
+            result.append([index_i, len(S) - 1])
         return result

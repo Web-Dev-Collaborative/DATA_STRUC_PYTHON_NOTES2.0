@@ -1,6 +1,3 @@
-
-
-
 # Create UI
 display = []
 buttons = []

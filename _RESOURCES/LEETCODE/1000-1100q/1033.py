@@ -1,4 +1,4 @@
-'''
+"""
 Three stones are on a number line at positions a, b, and c.
 
 Each turn, let's say the stones are currently at positions x, y, z with x < y < z.  You pick up the stone at either position x or position z, and move that stone to an integer position k, with x < k < z and k != y.
@@ -27,7 +27,8 @@ Note:
 1 <= b <= 100
 1 <= c <= 100
 a != b, b != c, c != a
-'''
+"""
+
 
 class Solution(object):
     def numMovesStones(self, a, b, c):
@@ -41,10 +42,10 @@ class Solution(object):
         lista.sort()
         a, b, c = lista[0], lista[1], lista[2]
         minsteps = 0
-        if b == a+1 and c == a+2:
+        if b == a + 1 and c == a + 2:
             return [0, 0]
-        elif b == a+1 or c == b+1 or c == b+2 or  b == a+2:
+        elif b == a + 1 or c == b + 1 or c == b + 2 or b == a + 2:
             minsteps = 1
         else:
             minsteps = 2
-        return [minsteps, b-a-1+c-b-1]
+        return [minsteps, b - a - 1 + c - b - 1]

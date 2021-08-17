@@ -1,4 +1,4 @@
-'''
+"""
 A string S represents a list of words.
 
 Each letter in the word has 1 or more options.  If there is one option, the letter is represented as is.  If there is more than one option, then curly braces delimit the options.  For example, "{a,b,c}" represents options ["a", "b", "c"].
@@ -24,7 +24,8 @@ Note:
 1 <= S.length <= 50
 There are no nested curly brackets.
 All characters inside a pair of consecutive opening and ending curly brackets are different.
-'''
+"""
+
 
 class Solution(object):
     def permute(self, S):
@@ -32,17 +33,17 @@ class Solution(object):
         :type S: str
         :rtype: List[str]
         """
-        
+
         if not S:
             return []
-        if '{' not in S:
+        if "{" not in S:
             return [S]
         stack, stack2 = [], []
         brace = 0
         for char in S:
-            if char == '{':
+            if char == "{":
                 brace = 1
-            elif char == '}':
+            elif char == "}":
                 if not stack:
                     stack = stack2
                 else:
@@ -50,11 +51,11 @@ class Solution(object):
                     for char in stack:
                         for char2 in stack2:
                             new_stack.append(char + char2)
-                                
+
                     stack = new_stack
                 stack2 = []
                 brace = 2
-            elif char != ',':
+            elif char != ",":
                 if brace == 1:
                     stack2.append(char)
                 elif brace == 2:
@@ -63,7 +64,7 @@ class Solution(object):
                 else:
                     stack.append(char)
                 # print stack
-                
-        stack.sort() 
-        stack.sort(key = len) 
+
+        stack.sort()
+        stack.sort(key=len)
         return stack

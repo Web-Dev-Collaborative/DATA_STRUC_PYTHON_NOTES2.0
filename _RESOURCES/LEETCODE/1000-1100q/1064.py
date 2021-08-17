@@ -1,4 +1,4 @@
-'''
+"""
 Given an array A of distinct integers sorted in ascending order, return the smallest index i that satisfies A[i] == i.  Return -1 if no such i exists.
 
  
@@ -21,7 +21,8 @@ Input: [-10,-5,3,4,7,9]
 Output: -1
 Explanation: 
 There is no such i that A[i] = i, thus the output is -1.
-'''
+"""
+
 
 class Solution(object):
     def fixedPoint(self, A):

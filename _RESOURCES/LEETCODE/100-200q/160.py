@@ -1,4 +1,4 @@
-'''
+"""
 	Write a program to find the node at which the intersection of two singly linked lists begins.
 
 
@@ -10,13 +10,14 @@
 	                   ↗            
 	B:     b1 → b2 → b3
 	begin to intersect at node c1.
-'''
+"""
 
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
+
 
 class Solution(object):
     def getIntersectionNode(self, headA, headB):
@@ -25,11 +26,11 @@ class Solution(object):
         :rtype: ListNode
         """
         if not headA or not headB:
-        	return None
+            return None
 
-       	pa, pb = headA, headB
-       	while pa != pb:
-       		pa = pa.next if pa is not None else headB
-       		pb = pb.next if pb is not None else headA
+        pa, pb = headA, headB
+        while pa != pb:
+            pa = pa.next if pa is not None else headB
+            pb = pb.next if pb is not None else headA
 
-       	return pa if pa else None
+        return pa if pa else None

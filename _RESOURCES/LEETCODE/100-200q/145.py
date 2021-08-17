@@ -1,4 +1,4 @@
-'''
+"""
 	Given a binary tree, return the postorder traversal of its nodes' values.
 
 	Example:
@@ -12,7 +12,7 @@
 
 	Output: [3,2,1]
 	Follow up: Recursive solution is trivial, could you do it iteratively?
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -21,21 +21,23 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def postorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        
+
         result = []
 
         def recursive(root, result):
-        	if not root:
-        		return
-        	recursive(root.left, result)
-        	recursive(root.right, result)
-        	result.append(root.val)
+            if not root:
+                return
+            recursive(root.left, result)
+            recursive(root.right, result)
+            result.append(root.val)
+
         recursive(root, result)
         return result
 
@@ -47,6 +49,7 @@ class Solution(object):
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def postorderTraversal(self, root):
         """
@@ -55,28 +58,28 @@ class Solution(object):
         """
 
         if not root:
-        	return []
+            return []
 
         stack, result = [], []
 
         while True:
-        	while root:
-        		if root.right:
-        			stack.append(root.right)
-        		stack.append(root)
-        		root = root.left
+            while root:
+                if root.right:
+                    stack.append(root.right)
+                stack.append(root)
+                root = root.left
 
-        	root = stack.pop()
+            root = stack.pop()
 
-        	if root.right and stack and stack[-1] == root.right:
-        		stack.pop()
-        		stack.append(root)
-        		root = root.right
-        	else:
-        		result.append(root.val)
-        		root = None
+            if root.right and stack and stack[-1] == root.right:
+                stack.pop()
+                stack.append(root)
+                root = root.right
+            else:
+                result.append(root.val)
+                root = None
 
-        	if  len(stack)<=0:
-        		break
+            if len(stack) <= 0:
+                break
 
         return result

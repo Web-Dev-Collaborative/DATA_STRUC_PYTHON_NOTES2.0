@@ -1,6 +1,3 @@
-
-
-
 from heapq import heappush, heappop
 
 # Tasks priority queue

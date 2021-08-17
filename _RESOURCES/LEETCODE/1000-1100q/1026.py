@@ -1,4 +1,4 @@
-'''
+"""
 Given the root of a binary tree, find the maximum value V for which there exists different nodes A and B where V = |A.val - B.val| and A is an ancestor of B.
 (A node A is an ancestor of B if either: any child of A is equal to B, or any child of A is an ancestor of B.)
 
@@ -27,7 +27,7 @@ Note:
 
 The number of nodes in the tree is between 2 and 5000.
 Each node will have value between 0 and 100000.
-'''
+"""
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -36,14 +36,14 @@ Each node will have value between 0 and 100000.
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
-    
     def maxAncestorDiff(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
-        
+
         def utility_fun(root, res):
             if not root:
                 return 2147483648, -2147483648, res
@@ -53,10 +53,10 @@ class Solution(object):
             right_t, rmax_t, res = utility_fun(root.right, res)
             m_val = min(left_t, right_t)
             max_val = max(lmax_t, rmax_t)
-                
-            res = max(res, max(abs(root.val-m_val), abs(root.val-max_val)))
+
+            res = max(res, max(abs(root.val - m_val), abs(root.val - max_val)))
             # print res
             return min(m_val, root.val), max(max_val, root.val), res
-        
+
         x, x2, res = utility_fun(root, -2147483648)
         return abs(res)

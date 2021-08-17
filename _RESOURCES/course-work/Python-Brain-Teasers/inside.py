@@ -1,6 +1,3 @@
-
-
-
 def add_n(items, n):
     items += range(n)
 
