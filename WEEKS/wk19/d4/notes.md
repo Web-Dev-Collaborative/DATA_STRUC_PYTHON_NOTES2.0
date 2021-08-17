@@ -1,8 +1,6 @@
-Objective 01 - Recall the different traversal types for a binary tree and implement a function to complete the traversal for each type
-======================================================================================================================================
+# Objective 01 - Recall the different traversal types for a binary tree and implement a function to complete the traversal for each type
 
-Overview
---------
+## Overview
 
 There is only one way to traverse linear data structures like arrays, linked lists, queues, and stacks. The linear nature of the structure itself forces a particular type of traversal.
 
@@ -19,8 +17,7 @@ Furthermore, there are three different types of depth-first traversals:
 
 Let's dive deeper into each of the traversal types.
 
-Follow Along
-------------
+## Follow Along
 
 ### Depth-First Inorder Traversal
 
@@ -170,14 +167,12 @@ def breadth_first_traversal(root):
     return result
 ```
 
-Challenge
----------
+## Challenge
 
 1.  What data structure could you use to write an *iterative* depth-first traversal method?
 2.  In your own words, explain how a depth-first traversal and a breadth-first traversal are different?
 
-Additional Resources
---------------------
+## Additional Resources
 
--   [https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/ (Links to an external site.)](https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/)
--   [https://www.geeksforgeeks.org/level-order-tree-traversal/ (Links to an external site.)](https://www.geeksforgeeks.org/level-order-tree-traversal/)
+- [https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/ (Links to an external site.)](https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/)
+- [https://www.geeksforgeeks.org/level-order-tree-traversal/ (Links to an external site.)](https://www.geeksforgeeks.org/level-order-tree-traversal/)

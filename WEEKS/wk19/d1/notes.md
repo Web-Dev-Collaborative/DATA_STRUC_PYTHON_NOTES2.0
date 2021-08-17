@@ -1,13 +1,10 @@
-Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a linked list
-=======================================================================================================================
+# Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a linked list
 
-Overview
---------
+## Overview
 
 What is a linked list, and how is it different from an array? How efficient or inefficient are its operations? What are its strengths and weaknesses? How can I construct and interact with a linked list? By the end of this objective, you will be able to answer all of these questions confidently.
 
-Follow Along
-------------
+## Follow Along
 
 ### Basic Properties of a Linked List
 
@@ -147,20 +144,15 @@ Now, let's use our simple class definitions for `LinkedListNode` and `LinkedL
 
 You must be able to understand and interact with linked lists. You now know the basic properties and types of linked lists, what makes a linked list different from an array, what problem it solves, and how to represent them both graphically and in code. You now know enough about linked lists that you should be able to solve algorithmic code challenges that require a basic understanding of linked lists.
 
-Challenge
----------
+## Challenge
 
 1.  Draw out a model of a singly-linked list that stores the following integers in order: `3,2,6,5,7,9`.
 2.  Draw out a model of a doubly-linked list that stores the following integers in order: `5,2,6,4,7,8`.
 
-Additional Resources
---------------------
+## Additional Resources
 
--   [https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf (Links to an external site.)](https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf)
--   [https://www.youtube.com/watch?v=njTh_OwMljA (Links to an external site.)](https://www.youtube.com/watch?v=njTh_OwMljA)[![](https://lambdaschool.instructure.com/images/play_overlay.png)](https://www.youtube.com/watch?v=njTh_OwMljA)
-
-
-
+- [https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf (Links to an external site.)](https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf)
+- [https://www.youtube.com/watch?v=njTh_OwMljA (Links to an external site.)](https://www.youtube.com/watch?v=njTh_OwMljA)[![](https://lambdaschool.instructure.com/images/play_overlay.png)](https://www.youtube.com/watch?v=njTh_OwMljA)
 
 ```py
 # -*- coding: utf-8 -*-
@@ -177,18 +169,18 @@ Original file is located at
 - Next (A pointer or reference to the next node in the list)
 
 ```
-L1 = Node(34)
-L1.next = Node(45)
-L1.next.next = Node(90)
+
+L1 = Node(34) L1.next = Node(45) L1.next.next = Node(90)
 
 # while the current node is not none
-  # do something with the data
-  # traverse to next node
+
+# do something with the data
+
+# traverse to next node
 
 L1 = [34]-> [45]-> [90] -> None
 
-Node(45)
-Node(90)
+Node(45) Node(90)
 
 ```py
 """
@@ -226,7 +218,7 @@ class LinkedListNode:
     new_node.next = current.next
     # set the current nodes next to point to the new node
     current.next = new_node
-    
+
 ll_storage = []
 L1 = LinkedListNode(34)
 L1.next = LinkedListNode(45)
@@ -287,7 +279,7 @@ once.
 *Note: If you get stuck, try drawing a picture of a small linked list and
 running your function by hand. Does it actually work? Also, don't forget to
 consider edge cases (like a list with only 1 or 0 elements).*
-          cn         p                
+          cn         p
         None        [1] -> [2] ->[3] -> None
 
 

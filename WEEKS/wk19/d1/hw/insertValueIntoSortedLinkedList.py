@@ -37,9 +37,27 @@
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------
 # Singly-linked lists are already defined with this interface:
-class ListNode(object):
+class ListNode(object):  # def __init__(self, value):
   def __init__(self, x):
-    self.value = x
-    self.next = None
+    self.value = x  # self.value = value
+    self.next = None  # self.next = None
+    
 
 def insertValueIntoSortedLinkedList(l, value):
+    head = l
+    new_item = ListNode(value)
+    if head is None:
+        new_item.next = head
+        head = new_item
+        return head
+    elif head.value >= new_item.value:
+        new_item.next = head
+        head = new_item
+        return head
+    else:
+        current = l
+        while current.next is not None and current.next.value < new_item.value:
+            current = current.next
+        new_item.next = current.next
+        current.next = new_item
+        return l

@@ -1,13 +1,10 @@
-Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a queue
-=================================================================================================================
+# Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a queue
 
-Overview
---------
+## Overview
 
 A queue is a data structure that stores its items in a first-in, first-out (FIFO) order. That is precisely why it is called a queue. It functions just like a queue (or a line) would in everyday life. If you are the first to arrive at the check-in desk at a hotel, you will be the first to be served (and therefore, the first person to exit the queue). So, in other words, the items that are added to the queue first are the first items to be removed from the queue.
 
-Follow Along
-------------
+## Follow Along
 
 ### Time and Space Complexity
 
@@ -39,34 +36,26 @@ There are no weaknesses in this data structure. The reason is that it is a very 
 
 Queues are useful data structures in any situation where you want to make sure things are processes in a FIFO order. Think of a web server. The server might be trying to service thousands of page requests per minute. It would make the most sense for the server to process and respond to the requests in the same order that they were received. That way, the first client to request a page is the first client to receive a response. Also, you'll learn soon enough about traversing hierarchical data structures. One of the ways you do that is called a breadth-first traversal. To conduct a breadth-first traversal, a queue can be used.
 
-Challenge
----------
+## Challenge
 
 1.  In your own words, explain the strengths of a queue data structure.
 2.  If a queue only allows operations at the ends (front and back), what other data structure would be a perfect one to build the queue?
 
-Additional Resources
---------------------
+## Additional Resources
 
--   [https://www.geeksforgeeks.org/queue-data-structure/ (Links to an external site.)](https://www.geeksforgeeks.org/queue-data-structure/)
-
-
-
+- [https://www.geeksforgeeks.org/queue-data-structure/ (Links to an external site.)](https://www.geeksforgeeks.org/queue-data-structure/)
 
 ---
+
 ---
 
+# Objective 02 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a stack
 
-Objective 02 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a stack
-=================================================================================================================
-
-Overview
---------
+## Overview
 
 A stack data structure handles information in a last-in, first-out order. This means that the last item added to the storage will be the first item removed from the storage. A stack is like having a paper tray inbox on your desk. Anytime a person walks by and drops a piece of paper or a letter in your inbox, it will go on the top of your inbox. So, when you process your inbox, the first item you would remove from the top of the stack of papers would be the last item added to it.
 
-Follow Along
-------------
+## Follow Along
 
 ### Time and Space Complexity
 
@@ -100,35 +89,28 @@ Stacks can be useful in any situation where you desire a LIFO order. One common 
 
 Additionally, function calls and execution contexts are managed on a call stack. When you call a function, it's added to the call stack. When it returns, it gets popped off of the stack. Last, an iterative depth-first-search can be done using a stack.
 
-Challenge
----------
+## Challenge
 
 1.  In your own words, explain the strengths of a stack data structure.
 2.  What two data structures would work well for implementing a stack?
 
-Additional Resources
---------------------
+## Additional Resources
 
--   [https://www.geeksforgeeks.org/stack-data-structure/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure/)
-
-
-
+- [https://www.geeksforgeeks.org/stack-data-structure/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure/)
 
 ---
+
 ---
 
-Objective 03 - Implement a queue using a linked list
-====================================================
+# Objective 03 - Implement a queue using a linked list
 
-Overview
---------
+## Overview
 
 To implement a queue, we need to maintain two pointers. One pointer will point at the front (the first item) of the queue, and another pointer will point at the rear (the last item) of the queue.
 
 Additionally, we need to have two methods available: `enqueue()` and `dequeue()`. `enqueue()` adds a new item after the rear. `dequeue()` removes the front node and resets the front pointer to the next node.
 
-Follow Along
-------------
+## Follow Along
 
 We will use a `LinkedListNode` class for each of the items in the queue.
 
@@ -204,39 +186,25 @@ class Queue:
 
 Now we have a `Queue` class that uses a singly-linked list as the underlying data structure.
 
-Challenge
----------
+## Challenge
 
-Additional Resources
---------------------
+## Additional Resources
 
--   <https://www.geeksforgeeks.org/queue-linked-list-implementation/>
-
-
-
-
-
-
-
-
-
+- <https://www.geeksforgeeks.org/queue-linked-list-implementation/>
 
 ---
+
 ---
 
+# Objective 04 - Implement a stack using a dynamic array
 
-Objective 04 - Implement a stack using a dynamic array
-======================================================
-
-Overview
---------
+## Overview
 
 There are two common ways to implement a stack. One is by using a linked list, and the other is by using a dynamic array. Both of these implementations work well.
 
 In the implementation that uses a dynamic array (a list in Python), the `push` method appends to the array, and the `pop` method removes the last element from the array.
 
-Follow Along
-------------
+## Follow Along
 
 First we need to define our `Stack` class and define the `__init__` method:
 
@@ -273,38 +241,27 @@ class Stack:
         return "The stack is empty"
 ```
 
-Challenge
----------
+## Challenge
 
-Additional Resources
---------------------
+## Additional Resources
 
--   [https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
-
-
-
-
-
-
+- [https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
 
 ---
----
 
+---
 
 Immersive Reader
 
-Objective 04 - Implement a stack using a dynamic array
-======================================================
+# Objective 04 - Implement a stack using a dynamic array
 
-Overview
---------
+## Overview
 
 There are two common ways to implement a stack. One is by using a linked list, and the other is by using a dynamic array. Both of these implementations work well.
 
 In the implementation that uses a dynamic array (a list in Python), the `push` method appends to the array, and the `pop` method removes the last element from the array.
 
-Follow Along
-------------
+## Follow Along
 
 First we need to define our `Stack` class and define the `__init__` method:
 
@@ -341,30 +298,25 @@ class Stack:
         return "The stack is empty"
 ```
 
-Challenge
----------
+## Challenge
 
-Additional Resources
---------------------
+## Additional Resources
 
--   [https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
-
+- [https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
 
 ---
+
 ---
 
-Objective 05 - Implement a stack using a linked list
-====================================================
+# Objective 05 - Implement a stack using a linked list
 
-Overview
---------
+## Overview
 
 There are two common ways to implement a stack. One is by using a linked list, and the other is by using a dynamic array. Both of these implementations work well.
 
 In the implementation that uses a linked list, the `push` method inserts a new node at the linked list's head, and the `pop` method removes the node at the linked list's head.
 
-Follow Along
-------------
+## Follow Along
 
 First, let's define our `Stack` class and its `__init__` method:
 
@@ -431,10 +383,8 @@ class Stack:
             return popped_node.data
 ```
 
-Challenge
----------
+## Challenge
 
-Additional Resources
---------------------
+## Additional Resources
 
--   [https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
+- [https://www.geeksforgeeks.org/stack-data-structure-introduction-program/ (Links to an external site.)](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
