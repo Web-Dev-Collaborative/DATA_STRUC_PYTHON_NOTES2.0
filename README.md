@@ -2,24 +2,15 @@
 
 - [Deploy](https://ds-unit-5-lambda.netlify.app/)
 
+- [Gitbook Website:](https://bootcamp42.gitbook.io/python/)
 
-Gitbook Website:
+- [My Website:](https://ds-unit-5-lambda.netlify.app/")
 
-{% embed url="https://bootcamp42.gitbook.io/python/" caption="" %}
+- [My Notion:](https://golden-lobe-519.notion.site/Data-Structures-c3fe3debbe494b929ed2f20070b631f8")
 
-My Website:
+- [My Trinket:](https://trinket.io/python/fc8a8b85eb")
 
-{% embed url="https://ds-unit-5-lambda.netlify.app/" caption="" %}
+- [Base Number Converter](http://number-base-converter-react.vercel.app/)
 
-My Notion:
 
-{% embed url="https://golden-lobe-519.notion.site/Data-Structures-c3fe3debbe494b929ed2f20070b631f8" caption="" %}
-
-My Trinket:
-
-{% embed url="https://trinket.io/python/fc8a8b85eb" caption="" %}
-
-{% embed url="http://number-base-converter-react.vercel.app/" caption="" %}
-
-{% page-ref page="./" %}
 

@@ -4,7 +4,7 @@
 
 There are lots of different types of tree data structures. A binary tree is a specific type of tree. It is called a binary tree because each node in the tree can only have a maximum of two child nodes. It is common for a node's children to be called either `left` or `right`. Here is an example of a what a class for a binary tree node might look like:
 
-```
+```PY
 class BinaryTreeNode:
     def __init__(self, value):
         self.value = value
@@ -95,7 +95,7 @@ To create a binary search tree, we need to define two different classes: one for
 
 Let's start by creating a `BSTNode` class. An instance of `BSTNode` should have a `value`, a `right` node, and a `left` node.
 
-```
+```PY
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -105,7 +105,7 @@ class BSTNode:
 
 Now that we have our basic `BSTNode` class defined with an initialization method let's define our `BST` class. This class will have an initialization method and an `insert` method.
 
-```
+```PY
 class BST:
     def __init__(self, value):
         self.root = BSTNode(value)
@@ -115,7 +115,7 @@ class BST:
 
 Notice that our `BST` class expects each `BSTNode` to have an `insert` method available on an instance object. But, we haven't yet added an `insert` method on the `BSTNode` class. Let's do that now.
 
-```
+```PY
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -136,7 +136,7 @@ class BSTNode:
 
 Now that we can insert nodes into our binary search tree let's define a `search` method that can lookup values in our binary search tree.
 
-```
+```PY
 class BST:
     def __init__(self, value):
         self.root = BSTNode(value)
@@ -148,7 +148,7 @@ class BST:
 
 Our `BST` class expects there to be a `search` method available on the `BSTNode` instance stored at the root. Let's go ahead and define that now.
 
-```
+```PY
 class BSTNode:
     def __init__(self, value):
         self.value = value

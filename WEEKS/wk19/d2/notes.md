@@ -114,7 +114,7 @@ Additionally, we need to have two methods available: `enqueue()` and `dequeue
 
 We will use a `LinkedListNode` class for each of the items in the queue.
 
-```
+```PY
 class LinkedListNode:
     def __init__(self, data):
         self.data = data
@@ -123,7 +123,7 @@ class LinkedListNode:
 
 For our `Queue` class, we first need to define an `__init__` method. This method should initialize our instance variables `front` and `rear`.
 
-```
+```PY
 class Queue:
     def __init__(self):
         self.front = None
@@ -132,7 +132,7 @@ class Queue:
 
 Next, we need to define our `enqueue` method:
 
-```
+```PY
 class Queue:
     def __init__(self):
         self.front = None
@@ -152,7 +152,7 @@ class Queue:
 
 Now, we need to define our `dequeue` method:
 
-```
+```PY
 class Queue:
     def __init__(self):
         self.front = None
@@ -208,7 +208,7 @@ In the implementation that uses a dynamic array (a list in Python), the `push`�
 
 First we need to define our `Stack` class and define the `__init__` method:
 
-```
+```PY
 class Stack:
     def __init__(self):
         self.data = []
@@ -216,7 +216,7 @@ class Stack:
 
 Now we need to define a `push` method to add an item to the top of our stack:
 
-```
+```PY
 class Stack:
     def __init__(self):
         self.data = []
@@ -227,7 +227,7 @@ class Stack:
 
 Next, we need to define a `pop` method to remove the top item from the stack:
 
-```
+```PY
 class Stack:
     def __init__(self):
         self.data = []
@@ -265,7 +265,7 @@ In the implementation that uses a dynamic array (a list in Python), the `push`�
 
 First we need to define our `Stack` class and define the `__init__` method:
 
-```
+```PY
 class Stack:
     def __init__(self):
         self.data = []
@@ -273,7 +273,7 @@ class Stack:
 
 Now we need to define a `push` method to add an item to the top of our stack:
 
-```
+```PY
 class Stack:
     def __init__(self):
         self.data = []
@@ -284,7 +284,7 @@ class Stack:
 
 Next, we need to define a `pop` method to remove the top item from the stack:
 
-```
+```PY
 class Stack:
     def __init__(self):
         self.data = []
@@ -320,7 +320,7 @@ In the implementation that uses a linked list, the `push` method inserts a new
 
 First, let's define our `Stack` class and its `__init__` method:
 
-```
+```PY
 class LinkedListNode:
     def __init__(self, data):
         self.data = data
@@ -333,7 +333,7 @@ class Stack:
 
 Now we need to define our `push` method to add items to the top of the stack.
 
-```
+```PY
 class LinkedListNode:
     def __init__(self, data):
         self.data = data
@@ -354,7 +354,7 @@ class Stack:
 
 Next, we need to define our `pop` method to get items off the top of our stack.
 
-```
+```PY
 class LinkedListNode:
     def __init__(self, data):
         self.data = data
