@@ -550,25 +550,41 @@ find . -name 'left.html' -type f -prune -exec rm -rf '{}' +
 
 
 ---
-# 19. 
+# 19. Remove lines containing string:
+
 
 ### Description:
 
 
->Notes:
+>Notes: Remove lines not containing `'.js'`
+```sh
 
+sudo sed -i '/\.js/!d' ./*scrap2.md
+
+
+```
 
 ###### code:
 
 
 ```sh
+sudo sed -i '/githubusercontent/d' ./*sandbox.md
 
+
+sudo sed -i '/githubusercontent/d' ./*scrap2.md
+
+
+
+sudo sed -i '/github\.com/d' ./*out.md
+
+
+sudo sed -i '/author/d' ./*
 
 ```
 
 
 ---
-# 20. 
+# 20. Remove duplicate lines from a text file
 
 ### Description:
 
@@ -580,7 +596,8 @@ find . -name 'left.html' -type f -prune -exec rm -rf '{}' +
 
 
 ```sh
-
+sudo apt install uniq
+uniq -u input.txt output.txt
 
 ```
 
@@ -2151,18 +2168,23 @@ cmd $listing --sort=extension >>$html
 
 
 ---
-# 97. 
-
-### Description:
-
-
->Notes:
+# 97. Embed Repl.it In Medium Post:
 
 
 ###### code:
 
 
-```sh
+```txt
+
+https://repl.it/@bgoonz/Data-Structures-Algos-Codebase?lite=true&amp;referrer=https%3A%2F%2Fbryanguner.medium.com
+
+
+https://repl.it/@bgoonz/node-db1-project?lite=true&amp;referrer=https%3A%2F%2Fbryanguner.medium.com
+
+https://repl.it/@bgoonz/interview-prac?lite=true&amp;referrer=https%3A%2F%2Fbryanguner.medium.com
+
+
+https://repl.it/@bgoonz/Database-Prac?lite=true&amp;referrer=https%3A%2F%2Fbryanguner.medium.com
 
 
 ```

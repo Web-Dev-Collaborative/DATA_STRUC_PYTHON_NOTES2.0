@@ -1,6 +1,6 @@
-# summary
+# Table of contents
 
-* [Python Data Structures Repo & Website](./)
+* [Python Data Structures Repo & Website](README.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
@@ -12,6 +12,7 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
+* [LEETCODE](practice/leetcode.md)
 * [MISC](practice/untitled.md)
 
 ## Resources
@@ -32,7 +33,7 @@
 
 ## Wk-18-notes <a id="wk-18"></a>
 
-* [D1](wk-18/d1/)
+* [D1](wk-18/d1/README.md)
   * [Convert Bases](wk-18/d1/untitled-1.md)
 * [D2](wk-18/d2.md)
 * [D3](wk-18/d3.md)
@@ -44,4 +45,12 @@
 ## misc
 
 * [Misc](misc/misc.md)
+
+## Wk-19-Notes
+
+* [D1](wk-19-notes/d1.md)
+* [D2](wk-19-notes/d2.md)
+* [D3](wk-19-notes/d3.md)
+* [D4](wk-19-notes/untitled.md)
+* [How To Reverse A Stack](wk-19-notes/how-to-reverse-a-stack.md)
 
