@@ -19,6 +19,7 @@
     "prettier": "2.3.2"
   },
   "dependencies": {
+    "@algolia/netlify-plugin-crawler": "^1.0.8",
     "@bgoonz11/repoutils": "1.0.5"
   }
 }
