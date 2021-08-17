@@ -12,6 +12,7 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
+* [LEETCODE](practice/leetcode.md)
 * [MISC](practice/untitled.md)
 
 ## Resources
