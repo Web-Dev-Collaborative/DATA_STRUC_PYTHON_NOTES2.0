@@ -47,5 +47,8 @@
 
 ## Wk-19-Notes
 
-* [Untitled](wk-19-notes/untitled.md)
+* [D1](wk-19-notes/d1.md)
+* [D2](wk-19-notes/d2.md)
+* [D3](wk-19-notes/d3.md)
+* [D4](wk-19-notes/untitled.md)
 
