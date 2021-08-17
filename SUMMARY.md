@@ -12,6 +12,7 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
+* [LEETCODE](practice/leetcode.md)
 * [MISC](practice/untitled.md)
 
 ## Resources
@@ -51,4 +52,5 @@
 * [D2](wk-19-notes/d2.md)
 * [D3](wk-19-notes/d3.md)
 * [D4](wk-19-notes/untitled.md)
+* [How To Reverse A Stack](wk-19-notes/how-to-reverse-a-stack.md)
 
