@@ -1,5 +1,27 @@
 # Youtube
 
+{% embed url="https://youtu.be/PC0w44UH7Mo" %}
+
+{% embed url="https://youtu.be/MQmxFxERdCY" %}
+
+
+
+{% embed url="https://youtu.be/-S5CwtII718" %}
+
+{% embed url="https://youtu.be/7bxLcOqwL2c" %}
+
+{% embed url="https://youtu.be/BJ8YtWWFUnw" %}
+
+
+
+{% embed url="https://youtu.be/kByGrAty4Z8" %}
+
+{% embed url="https://youtu.be/4GoKgSCGCmU" %}
+
+{% embed url="https://youtu.be/bS8X3x2FtK8" %}
+
+
+
 {% embed url="https://youtube.com/playlist?list=PLWX9jswdDQ0UIXis8yYWQFD2uAV1Qmrz9" caption="" %}
 
 **Here are the best YouTube channels to learn Python programming for beginners:**
