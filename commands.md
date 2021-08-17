@@ -1,5 +1,35 @@
-# 1. Appendir.js
+# Resources:
 
+- [holy grail](https://gist.github.com/bgoonz/df74dfa73bb5edd239ac738a14104eee)
+
+
+# 1. Remove spaces from file and folder names and then remove numbers from files and folder names....
+
+### Description: need to : `sudo apt install rename`
+
+
+>Notes: Issue when renaming file without numbers collides with existing file name...
+
+
+###### code:
+
+
+```sh
+find . -name "* *" -type d | rename 's/ /_/g'   
+find . -name "* *" -type f | rename 's/ /_/g'
+```
+```sh
+
+```sh
+find $dir -type f | sed 's|\(.*/\)[^A-Z]*\([A-Z].*\)|mv \"&\" \"\1\2\"|' | sh
+
+find $dir -type d | sed 's|\(.*/\)[^A-Z]*\([A-Z].*\)|mv \"&\" \"\1\2\"|' | sh
+
+for i in *.html; do mv "$i" "${i%-*}.html"; done
+
+for i in *.*; do mv "$i" "${i%-*}.${i##*.}"; done
+
+---
 ### Description: combine the contents of every file in the contaning directory.
 
 
@@ -209,7 +239,7 @@ git stash pop
 
 
 ---
-# 8. 
+# 8. Prettier Code Formatter:
 
 ### Description:
 
@@ -309,7 +339,7 @@ npm i @bgoonz11/repoutils
 
 
 ---
-# 12. 
+# 12.  Unix Tree Package Usage:
 
 ### Description:
 
@@ -340,7 +370,7 @@ tree -f >README.md
 
 
 ---
-# 13. 
+# 13. Find & Replace string in file & folder names recursively..
 
 ### Description:
 
@@ -352,13 +382,36 @@ tree -f >README.md
 
 
 ```sh
+
+find . -type f -exec rename 's/string1/string2/g' {} +
+
+
+find . -type d -exec rename 's/-master//g' {} +
+
+
+find . -type f -exec rename 's/\.download//g' {} +
+
+
+
+
+find . -type d -exec rename 's/-main//g' {} +
+
+
+
+rename 's/\.js\.download$/.js/' *.js\.download 
+
+
+rename 's/\.html\.markdown$/.md/' *.html\.markdown 
+
+
+find . -type d -exec rename 's/es6//g' {} +
 
 
 ```
 
 
 ---
-# 14. 
+# 14. Remove double extensions :
 
 ### Description:
 
@@ -370,31 +423,104 @@ tree -f >README.md
 
 
 ```sh
+#!/bin/bash
+
+for file in *.md.md
+do
+    mv "${file}" "${file%.md}"
+done
+
+#!/bin/bash
+
+for file in *.html.html
+do
+    mv "${file}" "${file%.html}"
+done
+```
+```sh
+
+
+#!/bin/bash
+
+for file in *.html.png
+do
+    mv "${file}" "${file%.png}"
+done
+
+for file in *.jpg.jpg
+do
+    mv "${file}" "${file%.png}"
+done
+
+```
+
+---
+# 15. Truncate folder names down to 12 characters:
+
+### Description:
+
+
+>Notes:
+
+
+###### code:
+
+
+```sh
+
+for d in ./*; do mv $d ${d:0:12}; done
+
+```
+
+
+---
+# 16.Appendir.js
+
+### Description: combine the contents of every file in the contaning directory.
+
+
+>Notes: this includes the contents of the file it's self...
+
+
+###### code:
+
+
+```js
+//APPEND-DIR.js
+const fs = require('fs');
+let cat = require('child_process')
+  .execSync('cat *')
+  .toString('UTF-8');
+fs.writeFile('output.md', cat, err => {
+  if (err) throw err;
+});
 
 
 ```
 
 
 ---
-# 15. 
+# 17. Replace space in filename with underscore
 
-### Description:
+### Description: followed by replace `'#' with '_'` in directory name
 
 
->Notes:
+>Notes: Can be re-purposed to find and replace any set of strings in file or folder names. 
 
 
 ###### code:
 
 
 ```sh
+find . -name "* *" -type f | rename 's/_//g'
 
+find . -name "* *" -type d | rename 's/#/_/g'   
 
 ```
 
 
 ---
-# 16. 
+# 18. Filter & delete files by name and extension
 
 ### Description:
 
@@ -406,43 +532,19 @@ tree -f >README.md
 
 
 ```sh
+find . -name '.bin' -type d -prune -exec rm -rf '{}' +
 
+find . -name '*.html' -type d -prune -exec rm -rf '{}' +
 
-```
+find . -name 'nav-index' -type d -prune -exec rm -rf '{}' +
 
+find . -name 'node-gyp' -type d -prune -exec rm -rf '{}' +
 
----
-# 17. 
+find . -name 'deleteme.txt' -type f -prune -exec rm -rf '{}' +
 
-### Description:
+find . -name 'right.html' -type f -prune -exec rm -rf '{}' +
 
-
->Notes:
-
-
-###### code:
-
-
-```sh
-
-
-```
-
-
----
-# 18. 
-
-### Description:
-
-
->Notes:
-
-
-###### code:
-
-
-```sh
-
+find . -name 'left.html' -type f -prune -exec rm -rf '{}' +
 
 ```
 
