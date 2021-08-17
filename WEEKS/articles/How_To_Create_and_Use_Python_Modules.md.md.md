@@ -1,8 +1,4 @@
-[![Aayushi Johari](https://miro.medium.com/fit/c/96/96/0*qi14KVra23cQqJzE)](https://medium.com/@aayushijohari?source=post_page-----abb0145a5963--------------------------------)
-
-![](https://miro.medium.com/max/1280/1*-c7tpdhf5UnfeE2OSU95Yw.png)
-
-Python Modules — Edureka
+# Python Modules
 
 Python programming language is one of the most popular language nowadays. It has numerous applications and developers are switching over to python for the implementation it provides us with. The modular programming approach where the code is broken down into separate parts is where python modules come into the picture. This article will help you understand the above topic in detail.
 
