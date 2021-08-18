@@ -100,8 +100,7 @@
 
 <span class="text-4505230f--TextH200-a3425406--textUIFamily-5ebd8e40">Powered by **GitBook**</span>
 
-<span class="text-4505230f--DisplayH900-bfb998fa--textContentFamily-49a318e1">Repositories</span>
-=================================================================================================
+# <span class="text-4505230f--DisplayH900-bfb998fa--textContentFamily-49a318e1">Repositories</span>
 
 <span class="text-4505230f--UIH300-2063425d--textUIFamily-5ebd8e40--text-8ee2c8b2"></span>
 
@@ -109,9 +108,9 @@
 
 <a href="https://github.com/bgoonz/DATA_STRUC_PYTHON_NOTES" class="reset-3c756112--card-6570f064--whiteCard-fff091a4--embedLink-55aeec7a"></a>
 
-<span class="text-4505230f--UIH400-4e41e82a--textContentFamily-49a318e1">GitHub - bgoonz/DATA\_STRUC\_PYTHON\_NOTES</span>
+<span class="text-4505230f--UIH400-4e41e82a--textContentFamily-49a318e1">GitHub - bgoonz/DATA_STRUC_PYTHON_NOTES</span>
 
-<span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1">Contribute to bgoonz/DATA\_STRUC\_PYTHON\_NOTES development by creating an account on GitHub.</span>
+<span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1">Contribute to bgoonz/DATA_STRUC_PYTHON_NOTES development by creating an account on GitHub.</span>
 
 <span class="text-4505230f--TextH200-a3425406--textContentFamily-49a318e1">github.com</span>
 
@@ -149,9 +148,9 @@
 
 <a href="https://github.com/bgoonz/PYTHON_PRAC" class="reset-3c756112--card-6570f064--whiteCard-fff091a4--embedLink-55aeec7a"></a>
 
-<span class="text-4505230f--UIH400-4e41e82a--textContentFamily-49a318e1">GitHub - bgoonz/PYTHON\_PRAC</span>
+<span class="text-4505230f--UIH400-4e41e82a--textContentFamily-49a318e1">GitHub - bgoonz/PYTHON_PRAC</span>
 
-<span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1">Contribute to bgoonz/PYTHON\_PRAC development by creating an account on GitHub.</span>
+<span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1">Contribute to bgoonz/PYTHON_PRAC development by creating an account on GitHub.</span>
 
 <span class="text-4505230f--TextH200-a3425406--textContentFamily-49a318e1">github.com</span>
 

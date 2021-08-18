@@ -65,5 +65,5 @@ for edge in edges:
     # set outdeg0[u] <- false
     outdeg0[u] = False
 
-print('All possible paths:')
+# print('All possible paths:')
 csFindAllPathsFromAToB(graph)
