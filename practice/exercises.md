@@ -5,11 +5,11 @@ _Sample String :_ "Twinkle, twinkle, little star, How I wonder what you are! Up 
 
 ```text
 Twinkle, twinkle, little star,
-	How I wonder what you are! 
-		Up above the world so high,   		
-		Like a diamond in the sky. 
-Twinkle, twinkle, little star, 
-	How I wonder what you are
+    How I wonder what you are!
+        Up above the world so high,
+        Like a diamond in the sky.
+Twinkle, twinkle, little star,
+    How I wonder what you are
 ```
 
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-1.php)
@@ -129,21 +129,21 @@ _Test Data_ :
 _Sample numbers list_ :
 
 ```text
-numbers = [    
-    386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345, 
-    399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217, 
-    815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717, 
+numbers = [
+    386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345,
+    399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217,
+    815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717,
     958,743, 527
     ]
 ```
 
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-28.php)
 
-**29.** Write a Python program to print out a set containing all the colors from color\_list\_1 which are not present in color\_list\_2. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
-_Test Data_ :  
-color\_list\_1 = set\(\["White", "Black", "Red"\]\)  
+**29.** Write a Python program to print out a set containing all the colors from color_list\_1 which are not present in color\_list\_2._ [_Go to the editor_](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
+_\_Test Data_ :  
+color_list\_1 = set\(\["White", "Black", "Red"\]\)  
 color\_list\_2 = set\(\["Red", "Green"\]\)  
-_Expected Output_ :  
+\_Expected Output_ :  
 {'Black', 'White'}  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-29.php)
 
@@ -159,7 +159,7 @@ _Expected Output_ :
 **33.** Write a Python program to sum of three given integers. However, if two values are equal sum will be zero. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-33.php)
 
-**34.** Write a Python program to sum of two given integers. However, if the sum is between 15 to 20 it will return 20. [Go to the editor  
+**34.** Write a Python program to sum of two given integers. However, if the sum is between 15 to 20 it will return 20. [Go to the editor    
 ](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)[Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-34.php)
 
 **35.** Write a Python program that will return true if the two given integer values are equal or their sum or difference is 5. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  

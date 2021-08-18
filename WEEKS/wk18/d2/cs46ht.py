@@ -113,10 +113,10 @@ storage = [None] * 10
 """
 
 class HashTable:
-"""
-A hash table with `capacity` buckets
-that accepts string keys
-"""
+# """
+# A hash table with `capacity` buckets
+# that accepts string keys
+# """
 
 def __init__(self, capacity):
     self.capacity = capacity  # Number of buckets in the hash table
