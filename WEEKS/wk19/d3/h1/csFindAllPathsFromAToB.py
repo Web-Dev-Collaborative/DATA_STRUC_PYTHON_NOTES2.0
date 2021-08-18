@@ -66,4 +66,4 @@ for edge in edges:
     outdeg0[u] = False
 
 print('All possible paths:')
-print_all_paths(graph)
+csFindAllPathsFromAToB(graph)
