@@ -100,8 +100,7 @@
 
 <span class="text-4505230f--TextH200-a3425406--textUIFamily-5ebd8e40">Powered by **GitBook**</span>
 
-<span class="text-4505230f--DisplayH900-bfb998fa--textContentFamily-49a318e1">How To Reverse A Stack</span>
-===========================================================================================================
+# <span class="text-4505230f--DisplayH900-bfb998fa--textContentFamily-49a318e1">How To Reverse A Stack</span>
 
 <span class="text-4505230f--UIH300-2063425d--textUIFamily-5ebd8e40--text-8ee2c8b2"></span>
 
@@ -141,13 +140,13 @@
 
 <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="503e8efd70ad4db5b710f0c615450248"><span data-offset-key="503e8efd70ad4db5b710f0c615450248:0">Our pseudo-code is as below;</span></span></span>
 
-### 
+###
 
 <span class="text-4505230f--HeadingH400-686c0942--textContentFamily-49a318e1"><span data-key="074c4c9df2814d95a010aed355e254c2"><span data-offset-key="074c4c9df2814d95a010aed355e254c2:0">Enqueue Operation</span></span></span>
 
     Push every input element to the Input Stack
 
-### 
+###
 
 <span class="text-4505230f--HeadingH400-686c0942--textContentFamily-49a318e1"><span data-key="7acb67f822a9424fae9f98f29ba3b0cc"><span data-offset-key="7acb67f822a9424fae9f98f29ba3b0cc:0">Dequeue Operation</span></span></span>
 

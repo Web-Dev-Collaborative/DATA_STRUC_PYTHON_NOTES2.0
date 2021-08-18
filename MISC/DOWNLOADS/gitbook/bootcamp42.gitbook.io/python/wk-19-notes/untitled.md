@@ -100,8 +100,7 @@
 
 <span class="text-4505230f--TextH200-a3425406--textUIFamily-5ebd8e40">Powered by **GitBook**</span>
 
-<span class="text-4505230f--DisplayH900-bfb998fa--textContentFamily-49a318e1">D4</span>
-=======================================================================================
+# <span class="text-4505230f--DisplayH900-bfb998fa--textContentFamily-49a318e1">D4</span>
 
 <span class="text-4505230f--UIH300-2063425d--textUIFamily-5ebd8e40--text-8ee2c8b2"></span>
 
@@ -207,15 +206,15 @@
 
 <span class="text-4505230f--HeadingH700-04e1a2a3--textContentFamily-49a318e1"><span data-key="2b85d81e31df4f17af39d7ddb1d7f5cb"><span data-offset-key="2b85d81e31df4f17af39d7ddb1d7f5cb:0">Challenge</span></span></span>
 
-1.  <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="c8f3fdea4d5046cfb64275aa27e32404"><span data-offset-key="c8f3fdea4d5046cfb64275aa27e32404:0">What data structure could you use to write an </span><span data-offset-key="c8f3fdea4d5046cfb64275aa27e32404:1">*iterative*</span><span data-offset-key="c8f3fdea4d5046cfb64275aa27e32404:2"> depth-first traversal method?</span></span></span>
+1.  <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="c8f3fdea4d5046cfb64275aa27e32404"><span data-offset-key="c8f3fdea4d5046cfb64275aa27e32404:0">What data structure could you use to write an </span><span data-offset-key="c8f3fdea4d5046cfb64275aa27e32404:1">_iterative_</span><span data-offset-key="c8f3fdea4d5046cfb64275aa27e32404:2"> depth-first traversal method?</span></span></span>
 
 2.  <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="c2ebebcd561b4dabbb9aa97b904a84cd"><span data-offset-key="c2ebebcd561b4dabbb9aa97b904a84cd:0">In your own words, explain how a depth-first traversal and a breadth-first traversal are different?</span></span></span>
 
 <span class="text-4505230f--HeadingH700-04e1a2a3--textContentFamily-49a318e1"><span data-key="34eec9d9d1c44d179901960ac59db080"><span data-offset-key="34eec9d9d1c44d179901960ac59db080:0">Additional Resources</span></span></span>
 
--   <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="1206a893f0bb4ee59355756b951689f4"><span data-offset-key="1206a893f0bb4ee59355756b951689f4:0"><span data-slate-zero-width="z">​</span></span></span><a href="https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/" class="link-a079aa82--primary-53a25e66--link-faf6c434"><span data-key="cd81d8d6a4c44502b68076ad50e0176a"><span data-offset-key="cd81d8d6a4c44502b68076ad50e0176a:0">https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/ (Links to an external site.)</span></span></a><span data-key="6e2f5ced7b3c4256b458631f2f87809b"><span data-offset-key="6e2f5ced7b3c4256b458631f2f87809b:0"><span data-slate-zero-width="z">​</span></span></span></span>
+- <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="1206a893f0bb4ee59355756b951689f4"><span data-offset-key="1206a893f0bb4ee59355756b951689f4:0"><span data-slate-zero-width="z">​</span></span></span><a href="https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/" class="link-a079aa82--primary-53a25e66--link-faf6c434"><span data-key="cd81d8d6a4c44502b68076ad50e0176a"><span data-offset-key="cd81d8d6a4c44502b68076ad50e0176a:0">https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/ (Links to an external site.)</span></span></a><span data-key="6e2f5ced7b3c4256b458631f2f87809b"><span data-offset-key="6e2f5ced7b3c4256b458631f2f87809b:0"><span data-slate-zero-width="z">​</span></span></span></span>
 
--   <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="05724ee2b48f491587479e01afec274b"><span data-offset-key="05724ee2b48f491587479e01afec274b:0"><span data-slate-zero-width="z">​</span></span></span><a href="https://www.geeksforgeeks.org/level-order-tree-traversal/" class="link-a079aa82--primary-53a25e66--link-faf6c434"><span data-key="032eff7571de45d391421cd82f633338"><span data-offset-key="032eff7571de45d391421cd82f633338:0">https://www.geeksforgeeks.org/level-order-tree-traversal/ (Links to an external site.)</span></span></a><span data-key="4b25ebb4a4e54ae3ba62eee1bb07f01c"><span data-offset-key="4b25ebb4a4e54ae3ba62eee1bb07f01c:0"><span data-slate-zero-width="z">​</span></span></span></span>
+- <span class="text-4505230f--TextH400-3033861f--textContentFamily-49a318e1"><span data-key="05724ee2b48f491587479e01afec274b"><span data-offset-key="05724ee2b48f491587479e01afec274b:0"><span data-slate-zero-width="z">​</span></span></span><a href="https://www.geeksforgeeks.org/level-order-tree-traversal/" class="link-a079aa82--primary-53a25e66--link-faf6c434"><span data-key="032eff7571de45d391421cd82f633338"><span data-offset-key="032eff7571de45d391421cd82f633338:0">https://www.geeksforgeeks.org/level-order-tree-traversal/ (Links to an external site.)</span></span></a><span data-key="4b25ebb4a4e54ae3ba62eee1bb07f01c"><span data-offset-key="4b25ebb4a4e54ae3ba62eee1bb07f01c:0"><span data-slate-zero-width="z">​</span></span></span></span>
 
 <a href="d3.html" class="reset-3c756112--card-6570f064--whiteCard-fff091a4--cardPrevious-56a5e674"></a>
 
