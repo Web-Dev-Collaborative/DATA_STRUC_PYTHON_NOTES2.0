@@ -603,7 +603,7 @@ uniq -u input.txt output.txt
 
 
 ---
-# 21. 
+# 21. Remove lines containing string:
 
 ### Description:
 
@@ -615,13 +615,31 @@ uniq -u input.txt output.txt
 
 
 ```sh
+sudo sed -i '/githubusercontent/d' ./*sandbox.md
+
+
+sudo sed -i '/githubusercontent/d' ./*scrap2.md
+
+
+sudo sed -i '/github\.com/d' ./*out.md
+
+
+sudo sed -i '/badstring/d' ./*
+
+
+sudo sed -i '/stargazers/d' ./repo.txt
+sudo sed -i '/node_modules/d' ./index.html
+sudo sed -i '/right\.html/d' ./index.html
+sudo sed -i '/right\.html/d' ./right.html
+
 
 
 ```
 
 
 ---
-# 22. 
+# 22. Zip directory excluding .git and node_modules all the way down (Linux)
+
 
 ### Description:
 
@@ -633,13 +651,28 @@ uniq -u input.txt output.txt
 
 
 ```sh
+
+
+#!/bin/bash
+TSTAMP=`date '+%Y%m%d-%H%M%S'`
+zip -r $1.$TSTAMP.zip $1 -x "**.git/*" -x "**node_modules/*" `shift; echo $@;`
+
+printf "\nCreated: $1.$TSTAMP.zip\n"
+
+# usage: 
+# - zipdir thedir
+# - zip thedir -x "**anotherexcludedsubdir/*"    (important the double quotes to prevent glob expansion)
+
+# if in windows/git-bash, add 'zip' command this way: 
+# https://stackoverflow.com/a/55749636/1482990
 
 
 ```
 
 
 ---
-# 23. 
+# 23. Delete files containing a certain string:
+
 
 ### Description:
 
@@ -651,7 +684,9 @@ uniq -u input.txt output.txt
 
 
 ```sh
-
+find . | xargs grep -l www.redhat.com | awk '{print "rm "$1}' > doit.sh
+vi doit.sh // check for murphy and his law
+source doit.sh
 
 ```
 
@@ -890,7 +925,7 @@ cmd $listing --sort=extension >>$html
 
 
 ---
-# 26. 
+# 26. Filter Corrupted Git Repo For Troublesome File:
 
 ### Description:
 
@@ -902,13 +937,79 @@ cmd $listing --sort=extension >>$html
 
 
 ```sh
+
+git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch assets/_index.html' HEAD
 
 
 ```
 
 
 ---
-# 27. 
+# 27.  OVERWRITE LOCAL CHANGES:
+
+### Description: 
+Important: If you have any local changes, they will be lost. With or without --hard option, any local commits that haven't been pushed will be lost.[*]
+If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.
+
+
+>Notes: 
+First, run a fetch to update all origin/<branch> refs to latest:
+
+
+
+
+###### code:
+
+
+```sh
+
+git fetch --all
+# Backup your current branch:
+
+git branch backup-master
+# Then, you have two options:
+
+git reset --hard origin/master
+# OR If you are on some other branch:
+
+git reset --hard origin/<branch_name>
+# Explanation:
+# git fetch downloads the latest from remote without trying to merge or rebase anything.
+
+# Then the git reset resets the master branch to what you just fetched. The --hard option changes all the files in your working tree to match the files in origin/master
+git fetch --all
+git reset --hard origin/master
+
+```
+
+
+---
+# 28. Remove Submodules:
+
+### Description: To remove a submodule you need to:
+
+
+>Notes:
+
+
+> Delete the relevant section from the .gitmodules file.
+Stage the .gitmodules changes git add .gitmodules
+Delete the relevant section from .git/config.
+Run git rm --cached path_to_submodule (no trailing slash).
+Run rm -rf .git/modules/path_to_submodule (no trailing slash).
+Commit git commit -m "Removed submodule "
+Delete the now untracked submodule files rm -rf path_to_submodule
+
+###### code:
+
+
+```sh
+git submodule deinit
+```
+
+
+---
+# 29. GET GISTS
 
 ### Description:
 
@@ -920,13 +1021,26 @@ cmd $listing --sort=extension >>$html
 
 
 ```sh
+sudo apt install wget
+
+
+
+wget -q -O - https://api.github.com/users/bgoonz/gists | grep raw_url | awk -F\" '{print $4}' | xargs -n3 wget
+
+
+wget -q -O - https://api.github.com/users/amitness/gists | grep raw_url | awk -F\" '{print $4}' | xargs -n3 wget
+
+
+wget -q -O - https://api.github.com/users/drodsou/gists | grep raw_url | awk -F\" '{print $4}' | xargs -n1 wget
+
+wget -q -O - https://api.github.com/users/thomasmb/gists | grep raw_url | awk -F\" '{print $4}' | xargs -n1 wget
 
 
 ```
 
 
 ---
-# 28. 
+# 30. Remove Remote OriginL
 
 ### Description:
 
@@ -938,15 +1052,56 @@ cmd $listing --sort=extension >>$html
 
 
 ```sh
+
+git remote remove origin
+
+```
+
+
+---
+# 31. just clone .git folder:
+
+### Description:
+
+
+>Notes:
+
+
+###### code:
+
+
+```sh
+
+
+git clone --bare --branch=master --single-branch https://github.com/bgoonz/My-Web-Dev-Archive.git
+
+```
+
+
+---
+# 32. Undo recent pull request:
+
+### Description:
+
+
+>Notes:
+
+
+###### code:
+
+
+```sh
+
+git reset --hard master@{"10 minutes ago"}
 
 
 ```
 
 
 ---
-# 29. 
+# 33. Lebab
 
-### Description:
+### Description: ES5 --> ES6
 
 
 >Notes:
@@ -956,15 +1111,60 @@ cmd $listing --sort=extension >>$html
 
 
 ```sh
+# Safe:
+
+ lebab --replace ./ --transform arrow
+ lebab --replace ./ --transform arrow-return
+ lebab --replace ./ --transform for-of
+ lebab --replace ./ --transform for-each
+ lebab --replace ./ --transform arg-rest
+ lebab --replace ./ --transform arg-spread
+ lebab --replace ./ --transform obj-method
+ lebab --replace ./ --transform obj-shorthand
+ lebab --replace ./ --transform multi-var
+
+
+# ALL:
+
+
+lebab --replace ./ --transform obj-method
+lebab --replace ./ --transform class
+lebab --replace ./ --transform arrow
+lebab --replace ./ --transform let
+lebab --replace ./ --transform arg-spread
+lebab --replace ./ --transform arg-rest
+lebab --replace ./ --transform for-each
+lebab --replace ./ --transform for-of
+lebab --replace ./ --transform commonjs 
+lebab --replace ./ --transform exponent
+lebab --replace ./ --transform multi-var
+lebab --replace ./ --transform template
+lebab --replace ./ --transform default-param
+lebab --replace ./ --transform  destruct-param 
+lebab --replace ./ --transform includes
+lebab --replace ./ --transform obj-method
+lebab --replace ./ --transform class
+lebab --replace ./ --transform arrow
+lebab --replace ./ --transform arg-spread
+lebab --replace ./ --transform arg-rest
+lebab --replace ./ --transform for-each
+lebab --replace ./ --transform for-of
+lebab --replace ./ --transform commonjs 
+lebab --replace ./ --transform exponent
+lebab --replace ./ --transform multi-var
+lebab --replace ./ --transform template
+lebab --replace ./ --transform default-param
+lebab --replace ./ --transform  destruct-param 
+lebab --replace ./ --transform includes
 
 
 ```
 
 
 ---
-# 30. 
+# 34. Troubleshoot Ubuntu Input/Output Error
 
-### Description:
+### Description: Open Powershell as Administrator...
 
 
 >Notes:
@@ -973,14 +1173,18 @@ cmd $listing --sort=extension >>$html
 ###### code:
 
 
-```sh
+```ps1
+
+ wsl.exe --shutdown
+
+ Get-Service LxssManager | Restart-Service
 
 
 ```
 
 
 ---
-# 31. 
+# 35. Export Medium as Markdown
 
 ### Description:
 
@@ -992,13 +1196,17 @@ cmd $listing --sort=extension >>$html
 
 
 ```sh
+npm i mediumexporter -g
+
+
+mediumexporter https://medium.com/codex/fundamental-data-structures-in-javascript-8f9f709c15b4 >ds.md
 
 
 ```
 
 
 ---
-# 32. 
+# 36. Delete files in violation of a given size range (100MB for git)
 
 ### Description:
 
@@ -1011,12 +1219,18 @@ cmd $listing --sort=extension >>$html
 
 ```sh
 
+find . -size +75M -a -print -a -exec rm -f {} \;
+
+
+
+
+find . -size +98M -a -print -a -exec rm -f {} \;
 
 ```
 
 
 ---
-# 33. 
+# 37. download all links of given file type
 
 ### Description:
 
@@ -1030,76 +1244,7 @@ cmd $listing --sort=extension >>$html
 ```sh
 
 
-```
-
-
----
-# 34. 
-
-### Description:
-
-
->Notes:
-
-
-###### code:
-
-
-```sh
-
-
-```
-
-
----
-# 35. 
-
-### Description:
-
-
->Notes:
-
-
-###### code:
-
-
-```sh
-
-
-```
-
-
----
-# 36. 
-
-### Description:
-
-
->Notes:
-
-
-###### code:
-
-
-```sh
-
-
-```
-
-
----
-# 37. 
-
-### Description:
-
-
->Notes:
-
-
-###### code:
-
-
-```sh
+wget -r -A.pdf https://overapi.com/git
 
 
 ```
@@ -2060,7 +2205,7 @@ cmd $listing --sort=extension >>$html
 
 
 ---
-# 91. 
+# 91. Unzip PowerShell
 
 ### Description:
 
@@ -2071,14 +2216,34 @@ cmd $listing --sort=extension >>$html
 ###### code:
 
 
-```sh
+```ps1
+
+PARAM (
+    [string] $ZipFilesPath = "./",
+    [string] $UnzipPath = "./RESULT"
+)
+ 
+$Shell = New-Object -com Shell.Application
+$Location = $Shell.NameSpace($UnzipPath)
+ 
+$ZipFiles = Get-Childitem $ZipFilesPath -Recurse -Include *.ZIP
+ 
+$progress = 1
+foreach ($ZipFile in $ZipFiles) {
+    Write-Progress -Activity "Unzipping to $($UnzipPath)" -PercentComplete (($progress / ($ZipFiles.Count + 1)) * 100) -CurrentOperation $ZipFile.FullName -Status "File $($Progress) of $($ZipFiles.Count)"
+    $ZipFolder = $Shell.NameSpace($ZipFile.fullname)
+ 
+ 
+    $Location.Copyhere($ZipFolder.items(), 1040) # 1040 - No msgboxes to the user - http://msdn.microsoft.com/en-us/library/bb787866%28VS.85%29.aspx
+    $progress++
+}
 
 
 ```
 
 
 ---
-# 92. 
+# 92. return to bash from zsh
 
 ### Description:
 
@@ -2090,13 +2255,54 @@ cmd $listing --sort=extension >>$html
 
 
 ```sh
+ sudo apt --purge remove zsh
+
+```
+
+
+---
+# 93. Symbolic Link
+
+### Description: to working directory
+
+
+>Notes:
+
+
+###### code:
+
+
+```sh
+
+ln -s "$(pwd)" ~/NameOfLink
+
+ln -s "$(pwd)" ~/Downloads
+
+```
+
+
+---
+# 94. auto generate readme
+
+### Description: rename existing readme to blueprint.md
+
+
+>Notes:
+
+
+###### code:
+
+
+```sh
+
+npx @appnest/readme generate
 
 
 ```
 
 
 ---
-# 93. 
+# 95. Log into postgres:
 
 ### Description:
 
@@ -2108,13 +2314,12 @@ cmd $listing --sort=extension >>$html
 
 
 ```sh
-
-
+sudo -u postgres psql
 ```
 
 
 ---
-# 94. 
+# 96. URL To Subscribe To YouTube Channel
 
 ### Description:
 
@@ -2125,44 +2330,9 @@ cmd $listing --sort=extension >>$html
 ###### code:
 
 
-```sh
+```txt
 
-
-```
-
-
----
-# 95. 
-
-### Description:
-
-
->Notes:
-
-
-###### code:
-
-
-```sh
-
-
-```
-
-
----
-# 96. 
-
-### Description:
-
-
->Notes:
-
-
-###### code:
-
-
-```sh
-
+https://www.youtube.com/channel/UC1HDa0wWnIKUf-b4yY9JecQ?sub_confirmation=1
 
 ```
 

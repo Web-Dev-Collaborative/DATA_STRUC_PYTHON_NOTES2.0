@@ -21,28 +21,29 @@ What data structure could be of use as an underlying data storage for a stack or
 
 # lets write a simple stack
 class Stack:
-  def __init__(self):
-    self.storage = []
-  
-  def push(self, item):
-    """
+    def __init__(self):
+        self.storage = []
+
+    def push(self, item):
+        """
     push the item on to the top of the stack
     """
-    self.storage.append(item)
+        self.storage.append(item)
 
-  def pop(self):
-    """
+    def pop(self):
+        """
     pop the item from the top of the stack returning said item if there is anything on the stack.
     otherwise return "The Stack is Empty"
     """
-    if len(self.storage) > 0:
-      return self.storage.pop()
-    return "The Stack is Empty"
-  
-  def peek(self):
-    if len(self.storage) > 0:
-      return self.storage[-1]
-    return "The Stack is Empty"
+        if len(self.storage) > 0:
+            return self.storage.pop()
+        return "The Stack is Empty"
+
+    def peek(self):
+        if len(self.storage) > 0:
+            return self.storage[-1]
+        return "The Stack is Empty"
+
 
 s = Stack()
 s.push(10)
@@ -56,23 +57,24 @@ print(l)
 
 # lets write a simple queue
 class Queue:
-  def __init__(self):
-    self.storage = []
-  
-  def enqueue(self, item):
-    """
+    def __init__(self):
+        self.storage = []
+
+    def enqueue(self, item):
+        """
     enqueues the item in to the queue
     """
-    self.storage.append(item)
+        self.storage.append(item)
 
-  def dequeue(self):
-    """
+    def dequeue(self):
+        """
     dequeue the item from the front of the queue returning said item if there is anything on the queue.
     otherwise return "The Queue is Empty"
     """
-    if len(self.storage) > 0:
-      return self.storage.pop(0)
-    return "The Queue is Empty"
+        if len(self.storage) > 0:
+            return self.storage.pop(0)
+        return "The Queue is Empty"
+
 
 q = Queue()
 q.enqueue(10)
@@ -91,39 +93,43 @@ print(l2)
   F      R
 [10]-> [20]-> None
 """
-class LLNode:
-  def __init__(self, data):
-    self.data = data
-    self.next = None
 
-  def __repr__(self):
-    return f"[{self.data}]"
+
+class LLNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def __repr__(self):
+        return f"[{self.data}]"
+
 
 class LLQueue:
-  def __init__(self):
-    self.front = None
-    self.rear = None
+    def __init__(self):
+        self.front = None
+        self.rear = None
 
-  def enqueue(self, item):
-    new_node = LLNode(item)
+    def enqueue(self, item):
+        new_node = LLNode(item)
 
-    if self.rear is None:
-      self.front = new_node
-      self.rear = new_node
-    else:
-      self.rear.next = new_node
-      self.rear = new_node
+        if self.rear is None:
+            self.front = new_node
+            self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
 
-  def dequeue(self):
-    old_front = "The Queue is Empty"
-    if self.front is not None:
-      old_front = self.front
-      self.front = old_front.next
-    
-    if self.front is None:
-      self.rear = None
-    
-    return old_front
+    def dequeue(self):
+        old_front = "The Queue is Empty"
+        if self.front is not None:
+            old_front = self.front
+            self.front = old_front.next
+
+        if self.front is None:
+            self.rear = None
+
+        return old_front
+
 
 q = LLQueue()
 q.enqueue(10)
@@ -144,30 +150,32 @@ print(l2)
 
 # lets write a more performant stack
 class LLNode:
-  def __init__(self, data):
-    self.data = data
-    self.next = None
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-  def __repr__(self):
-    return f"[{self.data}]"
+    def __repr__(self):
+        return f"[{self.data}]"
+
 
 class LLStack:
-  def __init__(self):
-    self.top = None
+    def __init__(self):
+        self.top = None
 
-  def push(self, data):
-    new_node = LLNode(data)
-    new_node.next = self.top
-    self.top = new_node
+    def push(self, data):
+        new_node = LLNode(data)
+        new_node.next = self.top
+        self.top = new_node
 
-  def pop(self):
-    if self.top is not None:
-      poped_node = self.top
-      self.top = poped_node.next
+    def pop(self):
+        if self.top is not None:
+            poped_node = self.top
+            self.top = poped_node.next
 
-      return poped_node
-    else:
-      return "The Stack is Empty"
+            return poped_node
+        else:
+            return "The Stack is Empty"
+
 
 """# Demos"""
 
@@ -181,6 +189,8 @@ not remove the item.
 *Note: Your stacks will contain only integers. You should be able to get a
 runtime of O(1) for push(), pop(), and get_max().*
 """
+
+
 class Stack:
     def __init__(self):
         """Initialize an empty stack"""
@@ -205,12 +215,12 @@ class Stack:
             return None
         return self.items[-1]
 
+
 class MaxStack:
     def __init__(self):
         # Your code here
         self.stack = Stack()
         self.maxes_stack = Stack()
-
 
     def push(self, item):
         """Add a new item onto the top of our stack."""
@@ -218,8 +228,7 @@ class MaxStack:
         self.stack.push(item)
 
         if self.maxes_stack.peek() is None or item >= self.maxes_stack.peek():
-          self.maxes_stack.push(item)
-
+            self.maxes_stack.push(item)
 
     def pop(self):
         """Remove and return the top item from our stack."""
@@ -227,15 +236,15 @@ class MaxStack:
         item = self.stack.pop()
 
         if item == self.maxes_stack.peek():
-          self.maxes_stack.pop()
-        
-        return item
+            self.maxes_stack.pop()
 
+        return item
 
     def get_max(self):
         """The last item in maxes_stack is the max item in our stack."""
         # Your code here
         return self.maxes_stack.peek()
+
 
 ms = MaxStack()
 ms.push(20)
@@ -259,26 +268,31 @@ As you write your methods, you should optimize for time on the `enqueue()` and
 `dequeue()` method calls.
 The Stack class that you will use has been provided to you.
 """
-class Song:
-  def __init__(self, name, link):
-    self.name = name
-    self.link = link
 
-  def __repr__(self):
-    return f"{self.name}: {self.link}"
+
+class Song:
+    def __init__(self, name, link):
+        self.name = name
+        self.link = link
+
+    def __repr__(self):
+        return f"{self.name}: {self.link}"
+
 
 s1 = Song("Bob The Builder", "http://www.gogle.co.uk/")
-s2 = Song("Eclipse - Pink Floyd 1", "http://www.yashoo.com") 
+s2 = Song("Eclipse - Pink Floyd 1", "http://www.yashoo.com")
 s3 = Song("Bob The Builder 2", "http://www.gogle.co.uk/")
-s4 = Song("Eclipse - Pink Floyd 2", "http://www.yashoo.com") 
+s4 = Song("Eclipse - Pink Floyd 2", "http://www.yashoo.com")
 s5 = Song("Bob The Builder 3", "http://www.gogle.co.uk/")
-s6 = Song("Eclipse - Pink Floyd 3", "http://www.yashoo.com") 
+s6 = Song("Eclipse - Pink Floyd 3", "http://www.yashoo.com")
 s7 = Song("Bob The Builder", "http://www.gogle.co.uk/")
-s8 = Song("Eclipse - Pink Floyd Uncut", "http://www.yashoo.com") 
+s8 = Song("Eclipse - Pink Floyd Uncut", "http://www.yashoo.com")
+
+
 class Stack:
     def __init__(self):
         self.data = []
-        
+
     def push(self, item):
         self.data.append(item)
 
@@ -287,28 +301,28 @@ class Stack:
             return self.data.pop()
         return "The stack is empty"
 
+
 class QueueTwoStacks:
     def __init__(self):
         # Your code here
         self.in_stack = Stack()
         self.out_stack = Stack()
 
-        
     def enqueue(self, item):
         # Your code here
         self.in_stack.push(item)
 
-
     def dequeue(self):
         # Your code here
         if len(self.out_stack.data) == 0:
-          while len(self.in_stack.data) > 0:
-            stack_item = self.in_stack.pop()
-            self.out_stack.push(stack_item)
-          if len(self.out_stack.data) == 0:
-            return "can not dequeue from an empty queue"
-        
+            while len(self.in_stack.data) > 0:
+                stack_item = self.in_stack.pop()
+                self.out_stack.push(stack_item)
+            if len(self.out_stack.data) == 0:
+                return "can not dequeue from an empty queue"
+
         return self.out_stack.pop()
+
 
 # q = QueueTwoStacks()
 # q.enqueue(20)
