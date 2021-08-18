@@ -1,6 +1,6 @@
-# Table of contents
+# summary
 
-* [Python Data Structures Repo & Website](README.md)
+* [Python Data Structures Repo & Website](./)
 * [summary](summary.md)
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
@@ -32,8 +32,5 @@
 ## misc
 
 * [Misc](misc/misc.md)
-
----
-
-* [Youtube](youtube-1.md)
+* [Youtube](https://github.com/bgoonz/DATA_STRUC_PYTHON_NOTES/tree/0b6600193e71a6b6d3d03a6f7b29dff6fd56f920/youtube-1.md)
 
