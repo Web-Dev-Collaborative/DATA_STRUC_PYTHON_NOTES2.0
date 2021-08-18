@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JavaScript Crash Course - w3resource</title>
+    <meta
+      name="description"
+      content="JavaScript Crash Course: A Crash Course in JavaScript covering basic, numbers, strings, conditional logic, arrays, loops, functions, objects with live examples"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="css/reveal.min.css" />
+    <link rel="stylesheet" href="css/theme/default.css" id="theme" />
+
+    <link rel="stylesheet" href="lib/css/zenburn.css" />
+
+    <script>
+      if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+      }
+    </script>
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="//www.w3resource.com/images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="images/apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="images/apple-touch-icon-114x114.png"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>JavaScript</h1>
+          <h3 class="highlight">Course</h3>
+          <p>
+            <small
+              >Created by
+              <a href="http://wwww.w3resource.com">w3resource.com</a> /
+              <a href="https://twitter.com/w3resource">@w3resource</a></small
+            >
+          </p>
+        </section>
+        <section id="slide-instructions">
+          <h2>Instructions</h2>
+          <ul style="width: 22em; font-size: 32px">
+            <li>Go through major sections using left or right arrow key</li>
+            <li>Play within a section using up or down arrow key</li>
+            <li>Press escape to see a slide overview</li>
+            <li>
+              Click on Live JSBin (available in most slides) to access JSBin
+              editor with code
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>JavaScript, The Language of the Web</h2>
+        </section>
+        <section>
+          <h2>JAVASCRIPT IS EVERYWHERE</h2>
+          <h4>Write once, run everywhere</h4>
+          <ul>
+            <li>Web Browser</li>
+            <li>Desktop (browser, command line)</li>
+            <li>Mobile Phone & Apps</li>
+            <li>Server (node.js)</li>
+            <li>Embeded System</li>
+          </ul>
+        </section>
+        <section>
+          <h2>JAVASCRIPT LANGUAGE</h2>
+          <ul>
+            <li>Interpreted</li>
+            <li>C-style syntax</li>
+            <li>Dynamic Typing</li>
+            <li>Object-Oriented</li>
+            <li>Prototype-based</li>
+            <li>Functions</li>
+            <li>Single-Threaded</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>JAVASCRIPT BASICS</h2>
+          </section>
+          <section>
+            <h2>Hello world</h2>
+            <a
+              class="jsbin-embed"
+              href="http://jsbin.com/zatuba/1/embed?js,console"
+              >JS Bin</a
+            >
+            <script src="https://static.jsbin.com/js/embed.js"></script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						##JavaScript : Case sensitivity
+
+              						JavaScript is case sensitive. Therefore a variable name "empcode" is not the same as "Empcode" or a function name "PayCalculation" is not the same as "paycalculation".
+              						```
+              var empcode ='E1001';
+              console.log('Empcode :'+Empcode);
+
+              //Error- Empcode is not defined
+               ```
+
+              <a href="http://jsbin.com/jelugi/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Whitespace
+
+              						In general, whitespace is not visible on the screen, including spaces, tabs and newline characters. Whitespace enhances readability of the JavaScript code. If used within string constant, JavaScript considers it, but if not so, it ignores whitespace.
+              						```
+              						var x = 1000;
+              						```
+              						the space between var and 'x' cannot be removed, but the other spaces can be
+              removed.
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## The Semi-Colon
+
+              						In general JavaScript does not require a semi-colon at the end of a statement. If you write two statements in a single line then a semi-colon is required at the end of the first statement.
+              						```
+              var x = 1000
+              console.log(x)
+              var y = 2000;console.log(y)
+              // output
+              //1000
+              //2000
+               ```
+
+              <a href="http://jsbin.com/sezano/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## JavaScript Comments
+
+              						Code written within comments are not processed by the interpreter.  Comments are good way to write notations to explain what a script does.
+              						```
+              						var x = 1000;
+              						// This is a single line comment
+              						var str1 = 'abcd';
+              						/* Multiple line comments start here
+              alert("Good Morning");
+              Multiple line comments end here*/
+              						```
+            </script>
+          </section>
+        </section>
+        <section>
+          <h2>Values</h2>
+          <p>JavaScript recognizes the following types of primitive values.</p>
+          <ul>
+            <li>Numbers : 125, 14.24586</li>
+            <li>Logical (Boolean) : true, false</li>
+            <li>Strings : "JavaScript"</li>
+            <li>
+              null : A special keyword denoting a null value; null is also a
+              primitive value.
+            </li>
+            <li>undefined : A top-level property whose value is undefined.</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>VARIABLES</h2>
+            <p>
+              A JavaScript variable must start with a letter (A-Z, a-z),
+              underscore (_), or dollar sign ($), subsequent characters can also
+              be digits (0-9).
+            </p>
+            <p>- Declaring variables -</p>
+            <ul>
+              <li>
+                Using the keyword var. For example, var x = 100. Can be used to
+                declare both local and global variables.
+              </li>
+              <li>
+                Assigning it a value. For example, x = 100. It declares a global
+                variable and cannot be changed at the local level.
+              </li>
+            </ul>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## A variable with "local" scope
+
+              						```
+              function add_numbers(x, y)
+              {
+                var local_result = x + y;
+                console.log("The local result is: " + local_result);
+              }
+              add_numbers(4, 5);
+              console.log(local_result);
+
+              //Output
+              //"The local result is: 9"
+              // Error- local_result is not defined
+               ```
+
+              <a href="http://jsbin.com/zayove/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## A variable with "global" scope
+              						```
+              var global_result = 15;
+              function add_numbers(x, y) {
+                var global_result = x + y;
+                console.log("The local result is: " + global_result);
+              }
+              add_numbers(4, 5);
+              console.log(global_result); //Output 15
+               ```
+              <a href="http://jsbin.com/juwiwi/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h1>ALWAYS DECLARE YOUR VARIABLES WITH VAR!!!</h1>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Literals & Expressions</h2>
+            <p>
+              Use literals to represent values in JavaScript which are fixed
+              values, not variables.
+            </p>
+            <ul>
+              <li>Array literals</li>
+              <li>Boolean literals</li>
+              <li>Integers</li>
+              <li>Floating-point literals</li>
+              <li>Object literals</li>
+              <li>String literals</li>
+            </ul>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Array Literals
+
+              						In Javascript an array literal is a list of expressions, each of which represents an array element, enclosed in a pair of square brackets '[ ]'
+              						```
+              //Creating an empty array
+              var fruits = [];
+              //Creating an array with four elements.
+              var fruits = ["Orange", "Apple", "Banana", "Mango"]
+              //Display  an array element
+              console.log(fruits[1]);
+              //No need to specify all elements in an array literal
+              var fruits = ["Orange", , "Banana", "Mango"]
+              console.log(fruits[1]);
+
+              //Output
+              //"Apple"
+              //undefined
+               ```
+
+              <a href="http://jsbin.com/qawili/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h2>Boolean literals</h2>
+            <p>The Boolean type has two literal values :</p>
+            <ul>
+              <li>true</li>
+              <li>false</li>
+            </ul>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example : Boolean literals
+              						```
+              //If comparison or logical operator is not used JS tries to figure out if the value is "truth".
+              var isArray = true;
+              if (isArray) {
+                console.log('Yes it is an array!');
+              }
+
+              //Empty string (""), number(0), undefined, null are false value.
+              var name = '';
+              if (name)
+                console.log('My name is : ' + name);
+
+              var rollno = 0;
+              if (rollno)
+                console.log('Your roll no. is '+ rollno);
+
+              var address;
+              if (address)
+                console.log('Your name is ' + firstName);
+
+               ```
+              <a href="http://jsbin.com/vuyevo/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h2>Integers</h2>
+            <p>
+              Integers can be expressed in decimal (base 10), hexadecimal (base
+              16), and octal (base 8). An integer must have at least one digit
+              (0-9).
+            </p>
+            <ul>
+              <li>No comma or blanks are allowed within an integer.</li>
+              <li>It does not contain any fractional part.</li>
+              <li>
+                It can be either positive or negative, if no sign precedes it is
+                assumed to be positive.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Floating-point literals</h2>
+            <p>A floating number has the following parts.</p>
+            <ul>
+              <li>A decimal integer.</li>
+              <li>A decimal point ('.').</li>
+              <li>A fraction.</li>
+              <li>An exponent.</li>
+            </ul>
+            <p>
+              The exponent part is an "e" or "E" followed by an integer, which
+              can be signed (preceded by "+" or "-").
+            </p>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Object Literals
+
+              						An object literal is zero or more pairs of comma separated list of property names and associated values, enclosed by a pair of curly braces.
+              						```
+              var student = {
+                stu_class: "VI",
+                stu_name: "Simon",
+                stu_roll_no: 1,
+                marks: { language: 75, math: 90 }
+              };
+              console.log(student.stu_name);
+              console.log('Class: '+student.stu_class +' Roll No. : '+student.stu_roll_no);
+              console.log('Marks in Math :'+student.marks.math );
+
+              // Output
+              // "Simon"
+              // "Class: VI Roll No. : 1"
+              // "Marks in Math :90"
+               ```
+
+              <a href="http://jsbin.com/tukaqe/2/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## String Literals
+
+              						A string literal is zero or more characters, either enclosed in single quotation (') marks or double quotation (") marks. You can also use + operator to join strings.
+              						```
+              string1 = "w3resource.com"
+              string2 = 'w3resource.com'
+              string3 ="First line \n Second line"
+              string4 = "google" + ".com"
+              console.log(string1);
+              console.log(string2);
+              console.log(string3);
+              console.log(string4);
+
+              // Output
+              // "w3resource.com"
+              // "w3resource.com"
+              // "First line
+              // Second line"
+              // "google.com"
+               ```
+
+              <a href="http://jsbin.com/keyilo/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h2>Expressions</h2>
+            <p>
+              An expression is any valid unit of code that resolves to a value.
+              Conceptually, there are two types of expressions: those that
+              assign a value to a variable (a = 12) and those that simply have a
+              value (5-3).
+            </p>
+            <p>Expression categories</p>
+            <ul>
+              <li>Arithmetic: evaluates to a number, for example 120.230.</li>
+              <li>
+                String: evaluates to a character string, for example, "w3r" or
+                "2001".
+              </li>
+              <li>Logical: evaluates to true or false.</li>
+              <li>Object: evaluates to an object.</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Operators</h2>
+            <p>JavaScript has the following types of operators.</p>
+            <ul>
+              <li>Assignment operators</li>
+              <li>Comparison operators</li>
+              <li>Arithmetic operators</li>
+              <li>Bitwise operators</li>
+              <li>Logical operators</li>
+              <li>String operators</li>
+              <li>Special operators</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Arithmetic operators</h2>
+            <p>
+              addition (+), subtraction (-), multiplication (*), and division
+              (/). In addition, JavaScript provides the following arithmetic
+              operators.
+            </p>
+            <table>
+              <tr>
+                <td>% (Modulus)</td>
+                <td>
+                  Returns the integer remainder of dividing the two operands.
+                </td>
+                <td>16 % 5 returns 1.</td>
+              </tr>
+              <tr>
+                <td>++ (Increment)</td>
+                <td>Unary operator. Adds one to its operand.</td>
+                <td>If x is 3, then ++x returns 4, whereas x++ returns 3.</td>
+              </tr>
+              <tr>
+                <td>-- (Decrement)</td>
+                <td>Unary operator.</td>
+                <td>If x is 3, then --x returns 2, whereas x-- returns 3.</td>
+              </tr>
+              <tr>
+                <td>- (Unary negation)</td>
+                <td>Unary operator. Returns the negation of its operand.</td>
+                <td>If x is 3, then -x returns -3.</td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Assignment operators (1/2)</h2>
+            <table>
+              <tr>
+                <th><strong>Shorthand</strong></th>
+                <th><strong>Expression</strong></th>
+                <th><strong>Description</strong></th>
+              </tr>
+              <tr>
+                <td><span class="even">a +=b</span></td>
+                <td>a = a + b</td>
+                <td>
+                  <span class="even"
+                    >Adds 2 numbers and assigns the result to the first.</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><span class="odd">a -= b</span></td>
+                <td>a = a - b</td>
+                <td>
+                  <span class="odd"
+                    >Subtracts 2 numbers and assigns the result to the
+                    first.</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><span class="even">a *= b</span></td>
+                <td>a = a*b</td>
+                <td>
+                  <span class="even"
+                    >Multiplies 2 numbers and assigns the result to the
+                    first.</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><span class="odd">a /=b</span></td>
+                <td><span class="odd">a = a/b</span></td>
+                <td>
+                  <span class="odd"
+                    >Divides 2 numbers and assigns the result to the
+                    first.</span
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><span class="even">a %= b </span></td>
+                <td>a = a%b</td>
+                <td>
+                  Computes the modulus of 2 numbers and assigns the result to
+                  the first.
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Assignment operators (2/2)</h2>
+            <table>
+              <tr>
+                <td>a&lt;&lt;=b</td>
+                <td>a = a&lt;&lt;b</td>
+                <td>
+                  Performs a left shift and assigns the result to the first
+                  operand.
+                </td>
+              </tr>
+              <tr>
+                <td>a&gt;&gt;=b</td>
+                <td>a = a&gt;&gt;b</td>
+                <td>
+                  Performs a sign-propagating right shift and assigns the result
+                  to the first operand.
+                </td>
+              </tr>
+              <tr>
+                <td>a&gt;&gt;&gt;=b</td>
+                <td>a = a&gt;&gt;&gt;b</td>
+                <td>
+                  Performs a zero-fill right shift and assigns the result to the
+                  first operand.
+                </td>
+              </tr>
+              <tr>
+                <td>a&amp;= b</td>
+                <td>a = a&amp;b</td>
+                <td>
+                  Performs a bitwise AND and assigns the result to the first
+                  operand.
+                </td>
+              </tr>
+              <tr>
+                <td>a^= b</td>
+                <td>a = a^b</td>
+                <td>
+                  Performs a bitwise XOR and assigns the result to the first
+                  operand.
+                </td>
+              </tr>
+              <tr>
+                <td>a |=b</td>
+                <td>a = a|b</td>
+                <td>
+                  Performs a bitwise OR and assigns the result to the first
+                  operand.
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Comparison Operators(1/2)</h2>
+            <table>
+              <tr>
+                <th>Operator</th>
+                <th>Comparisons<br /></th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>Equal (==)</td>
+                <td>x == y</td>
+                <td>Returns true if the operands are equal.</td>
+              </tr>
+              <tr>
+                <td>Strict equal (===)</td>
+                <td>x === y</td>
+                <td>
+                  Returns true if the operands are equal and of the same type.
+                </td>
+              </tr>
+              <tr>
+                <td>Not equal (!=)</td>
+                <td>x != y</td>
+                <td>Returns true if the operands are not equal.</td>
+              </tr>
+              <tr>
+                <td>Strict not equal (!==)</td>
+                <td>x !== y</td>
+                <td>
+                  Returns true if the operands are not equal and/or not of the
+                  same type.
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Comparison Operators(2/2)</h2>
+            <table>
+              <tr>
+                <th>Operator</th>
+                <th>Comparisons<br /></th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>Greater than (&gt;)</td>
+                <td>x&gt;y</td>
+                <td>
+                  Returns true if the left operand is greater than the right
+                  operand.
+                </td>
+              </tr>
+              <tr>
+                <td>Greater than or equal (&gt;=)</td>
+                <td>x&gt;=y</td>
+                <td>
+                  Returns true if the left operand is greater than or equal to
+                  the right operand.
+                </td>
+              </tr>
+              <tr>
+                <td>Less than (&lt;)</td>
+                <td>x&lt;y</td>
+                <td>
+                  Returns true if the left operand is less than the right
+                  operand.
+                </td>
+              </tr>
+              <tr>
+                <td>Less than or equal (&lt;=)</td>
+                <td>x&lt;=y</td>
+                <td>
+                  Returns true if the left operand is less than or equal to the
+                  right operand.
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Bitwise Operators(1/2)</h2>
+            <table>
+              <tr>
+                <th><strong>Operator</strong></th>
+                <th><strong>Usage</strong></th>
+                <th><strong>Description</strong></th>
+              </tr>
+              <tr>
+                <td>Bitwise AND</td>
+                <td>a &amp; b</td>
+                <td>
+                  Returns a one in each bit position if bits of both left and
+                  right operands are ones.
+                </td>
+              </tr>
+              <tr>
+                <td>Bitwise OR</td>
+                <td>a | b</td>
+                <td>
+                  Returns a one in each bit if bits of either left or right
+                  operand is one.
+                </td>
+              </tr>
+              <tr>
+                <td>Bitwise XOR</td>
+                <td>a ^ b</td>
+                <td>
+                  Returns a one in a bit position if bits of one but not both
+                  left and right operand are one.
+                </td>
+              </tr>
+              <tr>
+                <td>Bitwise NOT</td>
+                <td>~ a</td>
+                <td>Flips the bits of its operand.</td>
+              </tr>
+              <tr></tr>
+            </table>
+          </section>
+          <section>
+            <h2>Bitwise Operators(2/2)</h2>
+            <table>
+              <tr>
+                <th><strong>Operator</strong></th>
+                <th><strong>Usage</strong></th>
+                <th><strong>Description</strong></th>
+              </tr>
+              <tr>
+                <td>Left shift</td>
+                <td>a &lt;&lt; b</td>
+                <td>
+                  Shifts a in binary representation b bits to the left, shifting
+                  in zeros from the right.
+                </td>
+              </tr>
+              <tr>
+                <td>Sign-propagating right shift</td>
+                <td>a &gt;&gt; b</td>
+                <td>
+                  Shifts a in binary representation b bits to the right,
+                  discarding bits shifted off.
+                </td>
+              </tr>
+              <tr>
+                <td>Zero-fill right shift</td>
+                <td>a &gt;&gt;&gt; b</td>
+                <td>
+                  Shifts a in binary representation b bits to the right,
+                  discarding bits shifted off, and shifting in zeros from the
+                  left.
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>Logical Operators</h2>
+            <table style="margin-left: 170px">
+              <tr>
+                <th>Operator</th>
+                <th>Usage</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>Logical AND &&</td>
+                <td>a && b</td>
+                <td>is true if both a and b are true.</td>
+              </tr>
+              <tr>
+                <td>Logical OR ||</td>
+                <td>a || b</td>
+                <td>is true if either a or b is true.</td>
+              </tr>
+              <tr>
+                <td>Logical NOT !</td>
+                <td>!a</td>
+                <td>is true if a is not true.</td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <h2>String Operators</h2>
+            <p>
+              When working with JavaScript strings sometimes you need to join
+              two or more strings together in to a single string. Joining
+              multiple strings together is known as concatenation.
+            </p>
+            <p>
+              The concatenation operator (+) concatenates two or more string
+              values together and return another string which is the union of
+              the two operand strings.
+            </p>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Conditional Operator
+
+              						The conditional operator is used as a shortcut for standard if statement. It takes three operands.
+              						Syntax : Condition ? expr1 : expr2
+              						```
+              marks = 75;
+              var result = (marks >= 40) ? "Pass" : "Fail";
+              console.log(result);
+              marks = 39;
+              var result = (marks >= 40) ? "Pass" : "Fail";
+              console.log(result);
+
+              // Output
+              // "Pass"
+              // "Fail"
+               ```
+
+              <a href="http://jsbin.com/wemiji/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h2>Special Operators</h2>
+            <p>JavaScript has the following special operators.</p>
+            <ul>
+              <li>Comma operator</li>
+              <li>new operators</li>
+              <li>delete operators</li>
+              <li>in operators</li>
+              <li>instanceof operators</li>
+              <li>this operators</li>
+              <li>typeof operators</li>
+              <li>void operators</li>
+            </ul>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Comma Operator
+
+              						The comma operator (,) is used to execute two expressions sequentially.
+              						```
+              for (var i=1, j=10; i <=3; i++, j++)
+              {
+              console.log('Sl. No. : '+i+' Employee Code : '+j)
+              }
+              // Output
+              // "Sl. No. : 1 Employee Code : 10"
+              // "Sl. No. : 2 Employee Code : 11"
+              // "Sl. No. : 3 Employee Code : 12"
+               ```
+
+              <a href="http://jsbin.com/golibe/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h2>new Operator</h2>
+            <p>
+              The new operator is used to create an instance of a user-defined
+              object type or of one of the predefined object types Array,
+              Boolean, Date, Function, Image, Number, Object, Option, RegExp, or
+              String.
+            </p>
+            <p>
+              Syntax : var objectName = new objectType([param1, param2, ...,
+              paramN]);
+            </p>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Delete Operator
+
+              						The delete operator deletes an object, an object's property, or an element from an array. The operator can also delete variables which are not declared with the var statement.
+              						```
+              //delete objectName;
+              //delete objectName.property;
+              //delete objectName[index];
+              //delete property; // legal only within a with statement
+
+              x = 55;
+              var y = 53;
+              myobj = new Number();
+              myobj.g = 14;    // create property g
+              delete x;       // returns true (can delete if declared implicitly)
+              delete y;       // returns true (can delete if declared with var)
+              delete myobj.g; // returns true (can delete user-defined properties)
+              delete myobj;   // returns true (can delete if declared implicitly)
+               ```
+
+              <a href="http://jsbin.com/pusele/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## in Operator
+
+              						The in operator is used to check whether a given property is available in an object.
+              						```
+              var employeeobj = {name:"Robert",designation:"Officer",age:"34"};
+
+              if ("designation" in employeeobj)
+              console.log('Designation property is present');
+              else
+              console.log('Designation property is not present');
+
+              //Output
+              // "Designation property is present"
+               ```
+
+              <a href="http://jsbin.com/yiroto/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## instanceof Operator
+
+              						The instanceof operator is used to check the type of an object at run time. The instanceof operator returns a boolean value that indicates if an object is an instance of a particular class.
+              						```
+              var string1 = "w3resource"; //Declaring string object
+              var date1 = new Date();  //Declaring Date object
+              if (string1 instanceof String)
+              console.log('The type of string1 object is String');
+              if (date1 instanceof Date)
+              console.log('The type of date1 object is Date');
+
+              // Output
+              // "The type of date1 object is Date"
+               ```
+
+              <a href="http://jsbin.com/yasur/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h2>this Operator</h2>
+            <p>
+              The this operator is used to refer the current object. In general,
+              this refers to the calling object in a method.
+            </p>
+            Syntax : this["propertyName"]
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## typeof Operator
+
+              						The typeof operator is used to get the data type (returns a string) of its operand.
+              Syntax : typeof operand or typeof (operand)
+              						```
+              var myFunction = new Function("23-11");
+              var color = "red";
+              var length = 12;
+              var today = new Date();
+
+              console.log(typeof myfunction);
+              console.log(typeof color);
+              console.log(typeof length);
+              console.log(typeof today);
+              console.log(typeof dontExist);
+
+              // Output
+              // "undefined"
+              // "string"
+              // "number"
+              // "object"
+              // "undefined"
+               ```
+
+              <a href="http://jsbin.com/cixola/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## void Operator
+
+              						The void operator is used to evaluate a JavaScript expression without returning a value.
+
+              						Syntax : void (expression) or void expression
+              						```
+              <!DOCTYPE html>
+              <html>
+              <head>
+                <meta charset="utf-8">
+                <title>JS Bin</title>
+              </head>
+              <body>
+              <a href="javascript:void(0)">Click here to do nothing</a>
+              </body>
+              </html>
+
+              // Output
+              // Click here to do nothing
+               ```
+
+              <a href="http://jsbin.com/zukome/1/embed?html,output" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Javascript Statements (Control Flow)
+              						###Block Statement
+
+              						Block statements are commonly used with control flow statements i.e. while, for, if etc. The block is delimited by a pair of curly brackets.
+              						```
+              {
+               statement_1
+               statement_2
+               . . .
+               statement_n
+              }
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Conditional Statements
+              						###if else
+
+              						Executes a group of statements if a logical condition is true. Use the optional else clause to execute another group of statements.
+              						```
+              For single statement :
+              if (condition)
+              statement_1
+              [else
+              statement_2]
+
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## if...else if statement
+
+              						For multiple conditions we can use else if.
+              						```
+              if (condition_1)
+              statement_1
+
+              [else if (condition_2)
+
+              statement_2]
+
+              ...
+
+              [else if (condition_n_1)
+
+              statement_n_1]
+
+              [else
+
+              statement_n]
+
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example : if..else if
+
+              						Here the if else if.. statement checks the grade of total marks on some conditions.
+              						```
+              function marksgrade(x)
+              {
+              if (x >=90)
+              console.log('Grade A+');
+              else if (x >=80 && x <90)
+              {
+              console.log('Grade A');
+              }
+              else if (x >=70 && x <80)
+              {
+              console.log('Grade B+');
+              }
+              else if (x >=60 && x <70)
+              {
+              console.log('Grade B');
+              }
+              else
+              console.log('Grade C');
+              }
+              marksgrade(85); // "Grade A"
+              marksgrade(41); // "Grade C"
+               ```
+
+              <a href="http://jsbin.com/ricudu/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Switch statement
+
+              						The switch statement allows to make a decision from the number of choices.
+              						```
+              switch (expression){
+                case label :
+                  statements;
+                  break;
+                case label :
+                  statements;
+                  break;
+                ............
+               default : statements;
+              }
+
+              Where :
+              expression :	Value matched against label.
+              label : An Identifier to be matched against expression.
+              statements :	Group of statements that are executed once if expression matches label.
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example : Switch Statement
+
+              						In the following example switch statment is used to display the marks range against a particular grade.
+              						```
+              function marksgrade(marks_grade)
+              {
+              grade = marks_grade;
+              switch (grade)
+              {
+              case 'A+':
+               console.log("Marks >= 90");
+                break;
+              case 'A':
+                console.log("Marks [ >= 80 and <90 ]");
+                break;
+              case 'B+':
+                console.log("Marks [ >= 70 and <80 ]");
+                break;
+              case 'B':
+                console.log("Marks [ >= 60 and <70 ]");
+                break;
+              case 'C':
+                console.log("Marks < 60");
+                break;
+              default:
+                console.log("Wrong grade.........");
+              }
+              }
+              marksgrade('A+'); //"Marks >= 90"
+              marksgrade('L'); //"Wrong grade........."
+               ```
+
+              <a href="http://jsbin.com/zereba/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Loop Statements
+              						###for loop
+
+              						A JavaScript for loop executes a block of statements until a specified condition is true.
+              						```
+              for ([initial-expression]; [condition]; [increment-expression])
+              {
+              statements
+              }
+
+              Parameters :
+              initial-expression : Statement or variable declaration.
+              condition : Evaluated on each pass through the loop.
+              increment-expression : Generally used to update or increment the counter variable.
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example: for Loop
+
+              						Write a JavaScript program to sum the multiples of 3 and 5 under 1000.
+              						```
+              var sum = 0;
+              for (var x = 0; x < 1000; x++)
+              {
+                  if (x % 3 === 0 || x % 5 === 0)
+                  {
+                      sum ++;
+                  }
+              }
+              console.log(sum); //467
+               ```
+
+              <a href="http://jsbin.com/pebato/2/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Do while Loop
+
+              						do while loop executes a statement block once and then repeats the execution until a specified condition evaluates to false.
+              						```
+              do
+              {
+                statement block
+              }
+              while (condition)
+
+               In while loop, the given condition is tested at the beginning, i.e. before executing any of the statements within the while loop.
+               In case of do while loop the condition is tested after execution of the statements within the while loop.
+               This means that do-while would execute the statements at least once, even if the condition fails for the first time itself.
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example: do while Loop
+
+              						In the following example, the statements in the do...while loop continue to execute as long as the variable n is less than 5.
+              						```
+              var n = 0;
+              do {
+                  console.log(n + " ");
+                  n++;
+              } while (n < 5);
+              /* Output
+              "0 "
+              "1 "
+              "2 "
+              "3 "
+              "4 "*/
+               ```
+
+              <a href="http://jsbin.com/zoyulu/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## while loop
+
+              						The while loop is simple, it executes its statements repeatedly as long as the condition is true.
+              						```
+              while (condition)
+              {
+              statements
+              }
+
+               The condition is checked every time at the beginning of the loop.
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						##Example: while Loop
+
+              						Write a JavaScript program to compute the greatest common divisor (GCD) of two positive integers.
+              						```
+              var a = 2154; //First number
+              var b = 458;  //Second number
+              var gcd;
+              while (a!=b)
+              {
+              	if (a>b)
+              	{
+              		a = a -b;
+              	}
+              	else
+              	{
+              		b = b - a;
+              	}
+              }
+              gcd = a;
+              console.log(gcd); //2
+               ```
+
+              <a href="http://jsbin.com/hebiti/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section>
+            <h2>Label statement</h2>
+            <p>
+              Label statement provides an identifier for a statement that lets
+              you refer to it using a break or continue statement.
+            </p>
+            <a
+              class="jsbin-embed"
+              href="http://jsbin.com/somubo/1/embed?js,console"
+              >JS Bin</a
+            >
+            <script src="https://static.jsbin.com/js/embed.js"></script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Break Statement
+
+              						The break statement is used to terminate a loop, switch or label statement.
+              						```
+              break [label1]
+
+              lable1: Identifier associated with the label of the statement.
+              The parameter is required if the statement is not a loop or switch.
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example: Break statement
+
+              						In this example, the counter is set up to count from 1 to 19; however, the break statement terminates the loop after 4 counts.
+              						```
+              for (var i = 1; i < 19; i++)
+              {
+                  if (i == 4) {
+                      break;
+                  }
+                  console.log(i);
+              }
+
+              // Output
+              // 1
+              // 2
+              // 3
+               ```
+
+              <a href="http://jsbin.com/haluru/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Continue Statement
+
+              						The continue statement is used to restart a do-while, while, for, or label statement.
+              						```
+              continue [label]
+
+              label : Identifier associated with the label of the statement.
+              The parameter is required if the statement is not a loop or switch.
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example: Continue statement
+
+              						Here, a loop iterates from 1 through 6. The statements between continue and the end of the for body are skipped because of the use of the continue statement together with the expression (n < 3).
+              						```
+              for (var n = 1; n < 7; n++) {
+                  if (n < 3) {
+                      continue;
+                  }
+                  console.log(n);
+                  }
+
+              // Output
+              // 3
+              // 4
+              // 5
+              // 6
+               ```
+
+              <a href="http://jsbin.com/hetuze/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## for in Statement
+
+              						The for...in statement iterates a specified variable over all the properties of an object and execute one or more statements for each property of the object.
+              						```
+              for (variable in object)
+              {
+              statements
+              }
+
+              Variable : Variable to iterate over every property of the object and the variable is accessible outside the loop, after completing the loop.
+              statements : The statement to be executed for each property of an object. For multiple statements within the loop use a block statement ({..}).
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example: for in statement
+
+              						The following example illustrates the use of the for...in statement with an object used as an associative array.
+              						```
+              color_list = {"r" : "Red" , "b" : "Black", "w" : "White"}
+
+              // Iterate over the properties.
+              var s = ""
+              for (var key in color_list) {
+                  s += key + ": " + color_list[key]+" ";
+                   }
+              console.log(s);
+
+              // output
+              // "r: Red b: Black w: White "
+               ```
+
+              <a href="http://jsbin.com/tobecu/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## try...catch statement
+
+              						The try...catch statement marks a block of statements to try and a block of statement to catch errors if an exception is thrown.
+              						```
+              try
+              {
+              // statements
+              }
+              catch (error)
+              {
+              // statements
+              }
+
+              The try block contains one or more statements enclosed by brackets.
+              The catch block also contains one or more statements enclosed by brackets that specify what to do if an exception is thrown in the try block.
+              If any statement within the try block throws an exception, control immediately shifts to the catch block.
+              If no exception is thrown in the try block, the catch block is skipped.
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Example: try...catch statement
+
+              						The following example causes a ReferenceError exception to be thrown and displays the name of the error and its message.
+              						```
+              try {
+                  addalert("Wrong call");
+              }
+              catch(e) {
+                  console.log("Error Message: " + e.message);
+                  console.log("Error Name: " + e.name);
+              }
+
+              // Output
+              // "Error Message: addalert is not defined"
+              // "Error Name: ReferenceError"
+
+               ```
+
+              <a href="http://jsbin.com/filubo/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## throw statement
+
+              						The throw statement creates an user define exception.
+              You can create your own exception for unexpected events and control the script properly to throw the exception in a try block and handle it in the catch block.
+              						```
+              throw exception;
+
+              throw "Error2";   //String type
+              throw 58;         //Number type
+              throw true;       //Boolean type
+              throw {toString: function() { return "This is an object!"; } };
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## return statement
+
+              						The return statement returns a value and exits from the current function.
+              						```
+              return expression
+
+              The following example shows the use of the return statement.
+
+              function myfunction(arg1, arg2){
+                 var r;
+                 r = arg1 * arg2;
+                 return(r);
+              }
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## const Statement
+
+              						The return statement returns a value and exits from the current function.
+              						```
+              return expression
+
+              The following example shows the use of the return statement.
+
+              function myfunction(arg1, arg2){
+                 var r;
+                 r = arg1 * arg2;
+                 return(r);
+              }
+                ```
+            </script>
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+              						##JavaScript function
+
+              						```
+              Like other programming and scripting languages, functions are one of the fundamental building blocks in JavaScript.
+              Functions are used repetitively in a program and it saves time while developing a web page.
+              To use a function, you must define it somewhere in the scope from which you wish to call it. Defining your own function in JavaScript is a simple task.
+              Syntax : JavaScript function
+
+              function functionName(argument1,argument2..argumentN)
+              {
+              // block of code in JavaScript
+              }
+
+              A function declaration always begins with the keyword function, followed by
+
+              The name of the newly created function
+              A list of arguments the function accepts, enclosed in parentheses and separated by commas.
+              Block of JavaScript code enclosed in curly braces, { }, to be executed when the function is called.
+              The opening curly brace ({) indicates the beginning of the function code and the closing curly brace (}) marks the termination of a function.
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						##Declare a function
+
+              						```
+              For example, to declare a function that calculate the cube of argument passed to it, you can do it in one of two ways
+              Example - 1 :
+              function cube(n)
+               {
+                  return n*n*n;
+               }
+
+              Example - 2 :
+              var cube = function(n)
+                {
+                  return n*n*n;
+                };
+              The function "cube" takes one argument, called n. There is only one JavaScript statement in function body which instructs
+              to return the argument (n) of the function after multiply by itself twice. Here the return statement
+              returns the calculated value.
+                ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Calling JavaScript functions
+
+              						Calling the function actually executes the instructions written within the function with the indicated parameters.
+              						```
+              function cube(n)
+              {
+              return n*n*n;
+              }
+              console.log(cube(2));
+
+              // Output
+              // 8
+               ```
+
+              <a href="http://jsbin.com/kebiqa/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						##Function scope
+
+              						```
+              The origin from where a function can be accessed is called the function scope. When you defined variables inside a function, they are defined only in the scope of the function, therefore you can not access those variables outside the function. A function defined in the global scope can access all variables defined in the global scope. A function defined inside another function can also access all variables defined in its parent function and any other variable to which the parent function can access.
+              Example - 1 :
+              // The following variables are defined in the global scope
+              var x = 12, y = 25;
+              // This function is defined in the global scope
+              function add(){
+                return (x + y);
+              }
+              add(); // Returns 37
+              In the above example x, y and add() are declared in global scope.
+              Therefore add() function can access the values of x and y and return the value of (x+y).
+              Example - 2 :
+              // The following variables are defined in the global scope
+              var x = 12, y = 25;
+              // This function is defined in the global scope
+              function add(){
+                return (x + y);
+              }
+              add(); // Returns 37
+              In the second example there is a function called calculation() and add() function is nested inside calculation().
+              Therefore add() can access all variables defined in its parent function and return the value of (x+y).
+                ```
+            </script>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>JavaScript Objects</h2>
+            <p>
+              In JavaScript all values except the primitive types of JavaScript
+              (true, false, numbers, strings, null and undefined) are objects.
+            </p>
+            <p>Here objects contain -> propertyName: propertyValue pairs.</p>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Create an Object
+              						###You can create an object in following ways:
+
+              literal way
+              ```
+
+              {
+               var object = {};
+              }
+               ```
+              Object oriented way
+              ```
+              {
+                var object = new Object();
+              }
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Object's property
+              You can specify properties when creating an object or later. Property name can be only a string. Properties are separated by commas.
+
+              ```
+              var student = {
+                  studentName: 'David',
+                  sClass: 'V',
+                  sRollno: 2,
+                  marks:{
+                      language: 79,
+                      math: 89
+                  },
+                  getStudentMarks: function(){
+                      return this.marks.language + " " + this.marks.math;
+                  }
+              };
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Access property value
+              The following code demonstates how to access a property's value.
+
+              ```
+              var student_name = student.studentName;
+               // student_name contains "David" string.
+              var student_name = language['studentName'];
+               // The lines above do the same thing. The difference is that the second one lets you use litteraly any string as a property name, but it's less readable.
+              var math_marks = student.marks.math
+               // vmath_marks contains math marks of "David".
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Add/Modify a property
+              The following codes show how to add a new property or modify an existing one.
+
+              ```
+              student.sAddress = 'Address-1';
+              // Now the object has a new property sAddress.
+
+              student.sRollno = 15;
+              // The above property already exists, therefore its value will be replaced.
+
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Prototype
+
+              ```
+              After creating an object (there is no concept of class in JavaScript) you
+              can augment your own object or create new objects from it.
+
+              Every object is linked to a prototype object from which it inherits properties.
+
+              All objects created from object literals ({}) are automatically
+              linked to Object.prototype, which is an object.
+
+              Next->Example
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Prototype - Example
+              ```
+              //Define a functional object to hold student in JavaScript
+              var Student = function(sname) {
+                this.name = sname;
+              };
+              //Add dynamically to the already defined object a new getter
+              Student.prototype.getName = function() {
+                return this.name;
+              };
+              //Create a new object of type Student
+              var david = new Student("David");
+              //Try the getter
+              console.log(david.getName());
+              // Output - "David"
+              //If now modify student, John will also get the updates
+              Student.prototype.newStudentName = function() {
+                console.log('Hello, my name is ' + this.getName());
+              };
+              //let call the new method on david
+              david.newStudentName();
+              // Output - "Hello, my name is David"
+               ```
+            </script>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Predefined Core Objects</h2>
+            <p>JavaScript has the following predefined objects.</p>
+            <ul>
+              <li>Array Object</li>
+              <li>Boolean Object</li>
+              <li>Date Object</li>
+              <li>Function Object</li>
+              <li>Math Object</li>
+              <li>Number Object</li>
+              <li>RegExp Object</li>
+              <li>String Object</li>
+            </ul>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Array Object
+              ```
+              // JavaScript does not have an explicit array data type, but we can use the predefined
+              // Array object and its methods to work with arrays in our applications.
+              // Creating an Array
+              // The following statements create same arrays:
+              var arr = new Array(element0, element1, ..., elementN);
+              var arr = Array(element0, element1, ..., elementN);
+              var arr = [element0, element1, ..., elementN];
+              // Populating an Array
+              var colors = [];
+              colors[0] = "White";
+              colors[1] = "Red";
+              colors[2] = "Green";
+              // Referring to Array Elements
+              var colors = [];
+              colors[0] = "White";
+              colors[1] = "Red";
+              colors[2] = "Green";
+              console.log(colors[0]);  // White
+              console.log(colors[1]);  // Red
+              console.log(colors[2]);  // Green
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Array Length
+              ```
+              var colors = ['White', 'Red', 'Green'];
+              //length of an array
+              console.log(colors.length); // 3
+
+              // You can also assign to the length property.
+              colors.length = 2;
+              console.log(colors); // ["White", "Red"] - Green has been removed
+
+              colors.length = 0;
+              console.log(colors); // colors array is empty
+
+              colors.length = 3;
+              console.log(colors); // Empty array [undefined, undefined, undefined]
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Iterating over arrays
+              ```
+              A common operation is to iterate over the values of an array,
+              processing each one in some way. Here is simplest format:
+
+              var colors = ['White', 'Red', 'Green'];
+
+              for (var n = 0; n < colors.length; n++) {
+                console.log(colors[n]);
+              }
+
+              // Output
+              // "White"
+              // "Red"
+              // "Green"
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Array Methods
+              ```
+              //concat() method is used to join two or more arrays and returns a new array.
+              var myArray = new Array("x", "y", "z");
+              myArray = myArray.concat("1", "2", "3");
+              console.log(myArray); //Output ["x", "y", "z", "1", "2", "3"]
+
+              //join() method is used to join all elements of an array into a string. The elements are separated by a specified separator.
+              var myArray = new Array("1", "2", "3");
+              var list = myArray.join(" - ");
+              console.log(myArray); //Output ["1", "2", "3"]
+
+              //push() adds one or more elements at the end of an array and returns the resulting length of the array.
+              var myArray = new Array("a", "b");
+              console.log(myArray.push("c")); //output 3
+
+              //pop() method is used to remove the last element from an array.
+              var myArray = new Array("a", "b", "c");
+              var last = myArray.pop();
+              console.log(myArray);//Output ["a", "b"]
+
+              //shift() removes the first element from an array and returns that element.
+              var myArray = new Array ("a", "b", "c");
+              var x = myArray.shift();
+              console.log(myArray); //Output // myArray is now ["b", "c"], x is "a"
+
+              //The unshift() method is used to add one or more elements to the beginning of an array and return the length of the array.
+              var myArray = new Array ("a", "b", "c");
+              myArray.unshift("d", "e");
+              console.log(myArray); //Output myArray becomes ["d", "e", "a", "b", "c"]
+
+              //slice(start_index, upto_index) extracts a section of an array and returns a new array.
+              var myArray = new Array ("1", "2", "3", "4", "5");
+              myArray = myArray.slice(1, 4);
+              console.log(myArray); /* starts at index 1 and extracts all elements
+                until index 3, returning [ "2", "3", "4"] */
+
+              //splice(index, count_to_remove, addelement1, addelement2, ...) removes elements from an array and (optionally) replaces them.
+              var myArray = new Array ("10", "20", "30", "40", "50");
+              myArray.splice(1, 3, "a", "b", "c", "d");
+              console.log(myArray); //output ["10", "a", "b", "c", "d", "50"]
+              // The above code started at index one (or where the "20" was), removed 3 elements there, and then inserted all consecutive elements in its place.
+
+              //The reverse() method is used to reverse the order of the elements in an array, i.e. first array element becomes the last and the last becomes the first.
+              var myArray = new Array ("a", "b", "c");
+              myArray.reverse();
+              console.log(myArray); //Output myArray becomes ["c", "b", "a"]
+
+              //sort() method is used to sort the elements of an array.
+              var myArray = new Array(202, 201, 204);
+              myArray.sort();
+              console.log(myArray); //Output myArray becomes [201, 202, 204]
+
+               ```
+              <a href="http://jsbin.com/gizile/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Boolean Object
+
+              						An boolean object is an object which holds boolean values. Use the following syntax to create a Boolean object:
+              						```
+              var myBooleanObject = new Boolean(value);
+
+              // primitive Boolean values true and false are not same of the true and
+              false values of the Boolean object.  Any object whose value is not undefined,
+              null, 0, NaN, or the empty string, including a Boolean object whose value is
+              false, evaluates to true when passed to a conditional statement.
+               ```
+
+              <a href="http://jsbin.com/ricudu/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## JavaScript date object
+              						 JavaScript date object is used to create dates and times. The Date object range is -100,000,000 days to 100,000,000 days relative to 01 January, 1970 UTC.
+
+              						```
+              These are the ways to create a date object in JavaScript :
+
+              a) new Date().
+              [for example today = new Date() ].
+
+              b) new Date(milliseconds).
+              [for example inauguration_day = new Date("August 15, 1997 10:05:00") ].
+
+              c) new Date(dateString).
+              [for example inauguration_day = new Date(97,8,15) ].
+
+              new Date(year, month, day, hours, minutes, seconds, milliseconds).
+              [for example inauguration_day = new Date(97,8,15,10,05,0) ].
+
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## JavaScript date object - Methods
+
+              						```
+              date.getDate();             // Returns the day of the month (from 1-31).
+              date.getDay();              // Returns the day of the week (from 0-6).
+              date.getFullYear();         // Returns the year (four digits).
+              date.getHours();            // Returns the hour (from 0-23).
+              date.getMilliseconds();     // Returns the milliseconds (from 0-999).
+              date.getMinutes();          // Returns the minutes (from 0-59).
+              date.getMonth();            // Returns the month (from 0-11).
+              date.getSeconds();          // Returns the seconds (from 0-59).
+              date.getTime();             // Returns the number of milliseconds since midnight Jan 1, 1970.
+              date.getTimezoneOffset();   // Returns the time difference between UTC time and local time, in minutes.
+
+              date.getUTCDate();          // Returns the day of the month, according to universal time (from 1-31).
+              date.getUTCDay();           // Returns the day of the week, according to universal time (from 0-6).
+              date.getUTCFullYear();      // Returns the year, according to universal time (four digits).
+              date.getUTCHours();         // Returns the hour, according to universal time (from 0-23).
+              date.getUTCMilliseconds();  // Returns the milliseconds, according to universal time (from 0-999).
+              date.getUTCMinutes();       // Returns the minutes, according to universal time (from 0-59).
+              date.getUTCMonth();         // Returns the month, according to universal time (from 0-11).
+              date.getUTCSeconds();       // Returns the seconds, according to universal time (from 0-59).
+
+              date.setDate(day);                           // Sets the day of the month of a date object.
+              date.setFullYear(year, month, day);          // Sets the year (four digits) of a date object.
+              date.setHours(hour, min, sec, millisec);     // Sets the hour of a date object.
+              date.setMilliseconds(millisec);              // Sets the milliseconds of a date object.
+              date.setMinutes(min, sec, millisec);         // Set the minutes of a date object.
+              date.setMonth(month, day);                   // Sets the month of a date object.
+              date.setSeconds(sec, millisec);              // Sets the seconds of a date object.
+              date.setTime(millisec);                      // Sets a date and time by adding or subtracting a specified number of milliseconds to/from midnight January 1, 1970.
+
+              date.setUTCDate(day);                        // Sets the day of the month of a date object, according to universal time.
+              date.setUTCFullYear(year, month, day);       // Sets the year of a date object, according to universal time (four digits).
+              date.setUTCHours(hour, min, sec, millisec);  // Sets the hour of a date object, according to universal time.
+              date.setUTCMilliseconds(millisec);           // Sets the milliseconds of a date object, according to universal time.
+              date.setUTCMinutes(min, sec, millisec);      // Set the minutes of a date object, according to universal time.
+              date.setUTCMonth(month, day);                // Sets the month of a date object, according to universal time.
+              date.setUTCSeconds(sec, millisec);           // Set the seconds of a date object, according to universal time.
+
+              date.toDateString();        // Converts the date portion of a Date object into a readable string.
+              date.toISOString();         // Returns the date as a string, using the ISO standard.
+              date.toJSON();              // Returns the date as a string, formatted as a JSON date.
+              date.toLocaleDateString();  // Returns the date portion of a Date object as a string, using locale conventions.
+              date.toLocaleTimeString();  // Returns the time portion of a Date object as a string, using locale conventions.
+              date.toLocaleString();      // Converts a Date object to a string, using locale conventions.
+              date.toString();            // Converts a Date object to a string.
+              date.toTimeString();        // Convert the time portion of a Date object to a string.
+              date.toUTCString();         // Converts a Date object to a string, according to universal time.
+              date.valueOf();             // Returns the primitive value of a Date object.
+
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## JavaScript function object
+              						 Use the following code to create a Function object:
+
+              						```
+              var MyfunctionObjectName = new Function ([arg1, arg2, ... argn], functionBody);
+
+              //MyfunctionObjectName is the name of a variable or a property of an existing object.
+
+              //arg1, arg2, ... argn are arguments to be used by the function as argument names.
+
+              //Each must be a string that corresponds to a valid JavaScript
+              //identifier; for example "parmeter1" or "a".
+
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## JavaScript Math Object
+              						 JavaScript math object is a top level, predefined object for mathematical constants and functions. Math Objects Property are :
+
+              						```
+              //Returns the mathematical constant E, the base of natural logarithms, approximately 2.718.
+              console.log(Math.E); //Output 2.718281828459045
+
+              //Returns the natural logarithm of 10, approximately 2.302.
+              console.log(Math.LN10); //Output 2.302585092994046
+
+              //Returns the natural logarithm of 2, approximately 0.693.
+              console.log(Math.LN2); //Output 0.6931471805599453
+
+              //Returns the base 10 logarithm of E (approximately equal to 0.434).
+              console.log(Math.LOG10E); //Output 0.4342944819032518
+
+              //Returns the base 2 logarithm of E (approximately equal to 1.442).
+              console.log(Math.LOG2E); //Output 1.4426950408889634
+
+              //Returns the ratio of the circumference of a circle to its diameter ( approximately 3.14159).
+              console.log(Math.PI); //Output 3.141592653589793
+
+              //Returns the square root of 1/2 i.e. 0.5, approximately 0.707.
+              console.log(Math.SQRT1_2); //Output 0.7071067811865476
+
+              //Returns the square root of 2 (approximately 1.414).
+              console.log(Math.SQRT2); //Output 1.4142135623730951
+               ```
+              <a href="http://jsbin.com/kasuhe/2/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## JavaScript Math Object - Methods
+              						 JavaScript math object is a top level, predefined object for mathematical constants and functions. Math Objects Property are :
+
+              						```
+              //The abs() method of math object is used to get the absolute value of a number.
+              console.log(Math.abs(-87.56)); //Output  87.56
+
+              //The acos() method of math object is used to get the arccosine (in radians) of a number.
+              console.log(Math.acos(0.65)); //Output 0.863211890069541
+
+              //The asin() method of math object is used to get the arcsine (in radians) of a number.
+              console.log(Math.asin(0.65)); //Output 0.7075844367253556
+
+              //The atan() method of math object is used to get the arctangent (in radians) of a number.
+              console.log(Math.atan(0.65)); //Output 0.5763752205911837
+
+              //The atan2() method of math object is used to get the arctangent of the quotient of its arguments.
+              console.log(Math.atan2(0.50,0.50)); //Output 0.7853981633974483
+
+              //The ceil() method of math object is used to get the smallest integer, greater than or equal to a number.
+              console.log(Math.ceil(0.65)); //Output 1
+
+              //The cos() method of math object is used to get the the cosine of a number.
+              console.log(Math.cos(0)); //Output 1
+
+              //The exp() method of math object returns Ex, where x is the argument, and E is Euler's constant, the base of the natural logarithms.
+              console.log(Math.exp(5)); //Output 148.41315910257657
+
+              //The floor() method of math object is used to get the largest integer, less than or equal to a number.
+              console.log(Math.floor(15.99)); //Output 15
+
+              //The log() method of math object is used to get the natural logarithm (base E) of a number.
+              console.log(Math.log(2)); //Output 0.6931471805599453
+
+              //The max() method of math object is used to get the larger of two given numbers.
+              console.log(Math.max(25, 23)); //Output 25
+
+              //The min() method of math object is used to get the smaller of two given numbers.
+              console.log(Math.min(25, 23)); //Output 23
+
+              //The pow() method of math object returns base to the exponent power.
+              console.log(Math.pow(2, 4)); //Output 16
+
+              //The random() method of math object is used to get the pseudo-random number between 0 and 1. The random number generator is seeded from the current time, as in Java.
+              console.log(Math.random());
+
+              //The round() method of math object is used to get the value of a number rounded to the nearest integer. If the fractional part of the number is greater than or equal to .5, the argument is rounded to the next higher integer. If the fractional part of number is less than .5, the argument is rounded to the next lower integer.
+              console.log(Math.round(22.45)); //Output 22
+
+              //The sin() method of math object is used to get the sine of a number. The sin method returns a numeric value between -1 and 1, which represents the sine of the argument.
+              console.log(Math.sin(45)); //Output 0.8509035245341184
+
+              //The sqrt() method of math object is used to get the square root of a number.
+              console.log(Math.sqrt(17)); //Output 4.123105625617661
+
+              //The tan() method of math object is used to get the the tangent of a number.
+              console.log(Math.tan(45)); //Output 1.6197751905438615
+               ```
+              <a href="http://jsbin.com/zihoq/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Number Object
+
+              						The Number object has properties for numerical constants, such as maximum value, not-a-number, and infinity and values of these properties cannot be changed. You can use them as follows:
+              						```
+              // MAX_VALUE - The largest representable number
+              var biggest_Number = Number.MAX_VALUE;
+              console.log(biggest_Number); //Output 1.7976931348623157e+308
+
+              //MIN_VALUE - The smallest representable number
+              var smallest_Number = Number.MIN_VALUE;
+              console.log(smallest_Number); //Output 5e-324
+
+              //POSITIVE_INFINITY - Special positive infinite value; returned on overflow
+              var infinite_Number = Number.POSITIVE_INFINITY;
+              console.log(infinite_Number); //Output Infinity
+
+              //NEGATIVE_INFINITY - Special negative infinite value; returned on overflow
+              var negInfinite_Number = Number.NEGATIVE_INFINITY;
+              console.log( negInfinite_Number); //Output -Infinity
+
+              //NaN -	Special "not a number" value
+              var notANumber = Number.NaN;
+              console.log(notANumber); //Output NaN
+               ```
+
+              <a href="http://jsbin.com/dogiga/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Number Object - Methods
+
+              						The Number prototype provides methods for retrieving information from Number objects in various formats. You can use them as follows:
+              						```
+              //toExponential - Returns a string representing the number in exponential notation.
+              var num = 257.0254;
+              console.log(num.toExponential()); //Output "2.570254e+2"
+
+              //toFixed - Returns a string representing the number in fixed-point notation.
+              var num = 302.2547;
+              console.log(num.toFixed());  //Output "302"
+
+              //toPrecision - Returns a string representing the number to a specified precision in fixed-point notation.
+              var num = 5.254;
+              console.log(num.toPrecision(2));  //Output "5.3"
+
+              //Returns a string representing the specified object. Overrides the Object.toString method.
+              var x = Number(301);
+              console.log(x.toString());  //Output "301"
+
+              //Returns the primitive value of the specified object. Overrides the Object.valueOf method.
+              var x = Number(701);
+              console.log(x.valueOf());  //Output 701
+               ```
+
+              <a href="http://jsbin.com/kiguti/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Number Object - Methods
+
+              						The Number prototype provides methods for retrieving information from Number objects in various formats. You can use them as follows:
+              						```
+              //toExponential - Returns a string representing the number in exponential notation.
+              var num = 257.0254;
+              console.log(num.toExponential()); //Output "2.570254e+2"
+
+              //toFixed - Returns a string representing the number in fixed-point notation.
+              var num = 302.2547;
+              console.log(num.toFixed());  //Output "302"
+
+              //toPrecision - Returns a string representing the number to a specified precision in fixed-point notation.
+              var num = 5.254;
+              console.log(num.toPrecision(2));  //Output "5.3"
+
+              //Returns a string representing the specified object. Overrides the Object.toString method.
+              var x = Number(301);
+              console.log(x.toString());  //Output "301"
+
+              //Returns the primitive value of the specified object. Overrides the Object.valueOf method.
+              var x = Number(701);
+              console.log(x.valueOf());  //Output 701
+               ```
+
+              <a href="http://jsbin.com/kiguti/1/embed?js,console" target="_blank">Live JS Bin</a>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## RegExp Object
+
+              						A regular expression (sometimes abbreviated to "regex") is a pattern used to match character combinations in a string.
+              						```
+              Creating Regular Expression
+
+              There are two ways to construct regular expression.
+
+              Using an object initializer, as follows :
+
+              var colorName = /Green/;
+
+              The above code creates a new RegExp object called colorName and assigns the pattern Green. In the above notation the forward slash character (/) is used to designate the starting and end of the pattern.
+
+              Using the constructor function, as follows :
+
+              re = new RegExp("Green")
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## Regular Expressions patterns
+
+              						```
+              \  -> Indicates that the next character is special and not to be interpreted literally
+              For example, /d/ matches the character 'd'. By placing a backslash in front of d, that is by using /\d/, the character becomes special to mean matches any character which is a digit.
+              -or-
+              Indicates that the next character is not special and should be interpreted literally.
+
+              ^ -> Matches the beginning of the string or line.
+              For example /^A/ does not match the 'A' in "about Articles" but does match it in "Articles of life"
+
+              $ -> Matches the end of the string or line.
+              For example, /e$/ does not match the 't' in "exact", but does match it in "w3resource"
+
+              * -> Matches the previous character 0 or more times.
+              For example, /bo*/ matches 'boo' in "A bootable usb" and 'b' in "A beautiful mind", but nothing in "A going concern".
+
+              + -> Matches the previous character 1 or more times.
+              For example, /a+/ matches the 'a' in "Daniel" and all the a's in "Daaam"
+
+              ? -> Matches the previous character 0 or 1 time.
+              For example, /r?eu?/ matches the 're' in "w3resource" and the 'eu' in "europe ."
+
+              . -> The decimal point matches any single character except a new line.
+              For example, /.n/ matches 'an' and 'on' in "an orange is on the table".
+
+              (x) -> Matches 'x' and remembers the match character. For example, /(go)/ matches and remembers 'go' in "go there"
+
+              x|y -> Matches either 'x' or 'y'.
+              For example, /green|red/ matches 'green' in "green color" and blue in "blue color."
+
+              {n} -> Matches exactly n (a positive integer) occurrences of the preceding character.
+              For example, /a{2}/ doesn't match the 'a' in "dam," but it matches all of the a's in "daam," and the first two a's in "daaam"
+
+              {n,} -> Matches at least n (a positive integer) occurrences of the preceding character.
+              For example, /a{2,}/ doesn't match the 'a' in "dam," but it matches all of the a's in "daam," and the first two a's in "daaam"
+
+              {n,m} -> Matches at least n and at maximum m (n and m are positive integer) occurrences of the preceding character.
+              For example, /a{1,3}/ matches nothing in "dom", the 'a' in "dam," the first two a's in "daam" and the first three a's in "daaaaaam". Notice that when matching "daaaaaam", the match is "aaa" as the maximum value of m is 3 though the original string had more a's in it.
+
+              [xyz] -> Matches any one from the character set, using a hyphen you can specify a range of characters.
+              For example. [uvwxyz] is the same as [u-z]. The match 'y' in "yellow" and the 'u' in "blue".
+
+              [^xyz] -> Matches any character that is not enclosed in the brackets, using a hyphen you can specify a range of characters.
+              For example, [^wxyz] is the same as [^w-z]. They initially match 'b' in "blue" and 's' in "specify".
+
+              [\b] -> Matches a backspace. \b Matches a word boundary (position between a word character and a non-word character), such as a space.
+              For example, /\bn\w/ matches the 'on' in "sooner"
+
+              \B -> Matches the position which is beyond a word character and a non-word character boundary.
+              For example, /\w\Bn/ matches 'on' in "sooner".
+
+              \cX -> Matches a control character (X) in a string. For example, /\cM/ matches control-M in a string.
+
+              \d -> Matches any character which is a digit. Equivalent to [0-9].
+              For example, /\d/ or /[0-9]/ matches '2' in "E2 means second example."
+
+              \D -> Matches any character which is a non-digit. Equivalent to [^0-9].
+              For example, /\D/ or /[^0-9]/ matches 'C' in "E2 means second example."
+
+              \f -> Matches a Form feed \n Matches a New line \r Matches a Carriage return.
+
+              \s -> Matches any white space character (including tab, new line, carriage return, form feed, vertical tab). [ \t\n\r\f\v].
+              For example, /\s\w*/ matches ' apple' in "An apple."
+
+              \S -> Matches any non-white space character. Equivalent to [^ \f\n\r\t\v].
+              For example, /\S/\w* matches 'An' in "An apple"
+
+              \t -> Matches a tab
+
+              \v -> Matches a vertical tab.
+
+              \w -> Matches any word character (alphanumeric) including the underscore. Equivalent to [A-Za-z0-9_].
+              For example, /\w/ matches 'g' in "green," '8' in "12.86," and '3' in "3G."
+
+              \W -> Matches any non-word character, equivalent to [^A-Za-z0-9_].
+              For example, /\W/ or /[^$A-Za-z0-9_]/ matches '$' in "150$"
+
+              \n -> Where n is a positive integer. A back reference to the last sub string matching the n parenthetical in the regular expression
+              For example, /red(,)\sgreen\1/ matches 'red, green', in "red, green, white, black."
+
+              \ooctal -> An octal escape value allows to embed ASCII codes into regular expressions.
+
+              \xhex -> An hexadecimal escape value allows to embed ASCII codes into regular expressions. -
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						## String Object
+
+              						JavaScript string object refers to a string. Can be created by the string constructor.
+
+              						```
+              Do not confuse a string literal with the String object.
+              For example, the following code creates the string literal
+              str1 and also the  String object str2:
+
+              //creates a string literal value
+              var s1 = "w3resource";
+              //creates a String object
+              var s2 = new String("w3esource");
+
+              //length property indicates the number of characters in the string
+
+              var mystring = "w3resource";
+              console.log(mystring.length); // Output 10
+               ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              						##  String Object - Methods
+
+              						Here the if else if.. statement checks the grade of total marks on some conditions.
+              						```
+              //The anchor method() of string object is used to create an HTML anchor that is used as a hypertext target.
+              var text="Learn Javascript";
+              console.log(text.anchor("txtanchor")); //Output "<a name=\"txtanchor\">Learn Javascript</a>"
+
+              //The big method() of the string object is used to display a string in a big font as if it were in <big> tag.
+              var txt="w3resource.com";
+              console.log(txt.big()); //Output "<big>w3resource.com</big>"
+
+              //The blink method() of the string object is used to blink a string as if it were within a <blink> tag.
+              var Str="Blinking Text";
+              console.log(Str.blink()); //output "<blink>Blinking Text</blink>"
+
+              //The bold method() of the string object is used to display a string bold as if it were in a <b> tag.
+              var txt="Father of Computer:-Charles Babbage";
+              console.log(txt.bold());  //output "<b>Father of Computer:-Charles Babbage</b>"
+
+              //The italics() method is used to display a string as italics, as if it were within an <i> tag.
+              var str="Italics";
+              console.log(str.italics()); //"<i>Italics</i>"
+
+              //The charAt() method of the string object returns the specified character from a string.
+              var str="Merits Of Computer Use";
+              console.log("First character is:" + str.charAt(0)); //"The first character is: M"
+              console.log("Seventh character is:" + str.charAt(7)); //"The seventh character is: O"
+
+              //The concat() method is used to join the text of two or more strings and returns a new string.
+              st1="Thank You";
+              st2=" for visit our site";
+              st3=" - W3resouce.com" ;
+              st4=st1.concat(st2,st3);
+              console.log(st4); //Output "Thank You for visit our site - W3resouce.com"
+
+              //The fixed() method is used to display a string in fixed-pitch font as if it were in a <tt> tag.
+              var str="Learn Javascript Easily";
+              console.log(str.fixed());  //Output "<tt>Learn Javascript Easily</tt>"
+
+              //The indexOf() method returns the index within the calling string object of the first occurrence of the specified value, starting the search at startIndex. It returns -1 if the value is not found.
+              var Str="Brave new world";
+              console.log("The index of the first w from the beginning is " + Str.indexOf("w"));
+              //Output "The index of the first w from the beginning is 8"
+              console.log("The index of 'new' from the beginning is " + Str.indexOf("new"));
+              //output "The index of 'new' from the beginning is 6"
+
+              //The lastIndexOf() method returns the index within the calling string object of the last occurrence of the specified value. It returns -1 if not found. The calling string is search in reverse order, starting at startIndex.
+              var str="Learn Javascript";
+              console.log(str.lastIndexOf("Learn")); //Output 0
+              console.log(str.lastIndexOf("Javascript")); //Output 6
+              console.log(str.lastIndexOf("Easily")); //Output -1
+
+              //The match() method is used to match a regular expression against a string.
+              str = "abcDdcba";
+              newArray = str.match(/d/gi);
+              console.log(newArray);
+
+              //The replace() method is used to find a match between a regular expression and a string and replaces the matched substring (within the main string) with a given string.
+              regex = /brown/gi;
+              str1 = "The Quick Brown Fox Jumps Over The Lazy Dog";
+              console.log("Searched string : brown");
+              console.log("New string : white ");
+              newstr=str1.replace(regex, "white");
+              console.log(newstr);
+
+              //The search() method is used to search for a match between a regular expression and a specified string. If a match is found, search returns the index of the regular expression inside the string, otherwise it returns -1.
+              newRe = new RegExp('Fox','g');
+              // Define a string.
+              str1 = 'The Quick Brown Fox Jumps Over The Lazy Dog';
+              // Check whether regular expression exists in the string.
+              ans = str1.search(newRe);
+              if (ans == -1)
+              {
+              console.log("'Fox' is not found in "+str1);
+              }
+              else
+              {
+              console.log("'Fox' is found in "+str1);
+              }
+
+              //The slice() method is used to extract a section of a string and returns a new string.
+              str1 = 'The Quick Brown Fox Jumps Over The Lazy Dog';
+              console.log("Make a slice starting position : 4 and end position 8.");
+              str2=str1.slice(3,9);
+              console.log(str2);
+               ```
+            </script>
+          </section>
+        </section>
+        <section>
+          <p>
+            Thank you for your time and attention,
+            <a href="https://www.w3resource.com">Go to Home page</a>
+          </p>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          {
+            src: 'lib/js/classList.js',
+            condition: function () {
+              return !document.body.classList;
+            },
+          },
+          {
+            src: 'plugin/markdown/marked.js',
+            condition: function () {
+              return !!document.querySelector('[data-markdown]');
+            },
+          },
+          {
+            src: 'plugin/markdown/markdown.js',
+            condition: function () {
+              return !!document.querySelector('[data-markdown]');
+            },
+          },
+          {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function () {
+              hljs.initHighlightingOnLoad();
+            },
+          },
+          {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true,
+            condition: function () {
+              return !!document.body.classList;
+            },
+          },
+          {
+            src: 'plugin/notes/notes.js',
+            async: true,
+            condition: function () {
+              return !!document.body.classList;
+            },
+          },
+        ],
+      });
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21234995-1']);
+      _gaq.push(['_trackPageview']);
+      //setTimeout("_gaq.push(['_trackEvent', '59_seconds', 'read'])",59000);
+      (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src =
+          ('https:' == document.location.protocol
+            ? 'https://ssl'
+            : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
