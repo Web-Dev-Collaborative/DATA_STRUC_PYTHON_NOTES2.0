@@ -43,12 +43,21 @@ def reverseLinkedList(l):
 # Code:
 
 ```py
-
-
-
-
-
-
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+def reverseLinkedList(l):
+  prev = None
+  current = l
+  while current:
+    next = current.next
+    current.next = prev
+    prev = current
+    current = next
+  return prev
 
 ```
 
@@ -60,8 +69,19 @@ def reverseLinkedList(l):
 specific obstacles or difficulties did you encounter in the process of solving it?
 
 
+>The idea is to use three-pointers: next . current , previous and move them down the list. Here. current is the main pointer running down the list, next leads it, and previous trails it. For each step, reverse the current pointer and then advance all three to get the next node.
 
 
+Iterate through the linked list. In loop, do following. 
+- Before changing next of current, 
+- store next node 
+next = curr->next
+- Now change next of current 
+- This is where actual reversing happens 
+curr->next = prev 
+- Move prev and curr one step forward 
+prev = curr 
+curr = next
 
 
 ---

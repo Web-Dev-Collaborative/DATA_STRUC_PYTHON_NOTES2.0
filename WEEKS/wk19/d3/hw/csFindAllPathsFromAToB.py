@@ -44,15 +44,14 @@ visited = [False] * (graph + 1)
 path = []
 
 # edges = (a, b): a -> b
-edges = [(5, 0), (5, 2), (2, 3),
-         (4, 0), (4, 1), (3, 1)]
+edges = [(5, 0), (5, 2), (2, 3), (4, 0), (4, 1), (3, 1)]
 
 # adjacency list for nodes
 adj = defaultdict(list)
 
 # indeg0 and outdeg0 arrays
-indeg0 = [True]*graph
-outdeg0 = [True]*graph
+indeg0 = [True] * graph
+outdeg0 = [True] * graph
 
 for edge in edges:
     u, v = edge[0], edge[1]

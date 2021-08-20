@@ -1,17 +1,20 @@
 class ListNode(object):
-  def __init__(self, x):
-    self.value = x
-    self.next = None
+    def __init__(self, x):
+        self.value = x
+        self.next = None
+        # Function to initialize head
 
-    def reverseLinkedList(l):
-       prev = None
-       current = self.head
-       while(current is not None):
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-            self.head = prevself.head = prev
-        
+        def __init__(self):
+            self.head = None
 
-    
+            def reverseLinkedList(l):
+                previous = None
+                current = head
+                while current:
+                    next = current.next
+                    current.next = previous
+                    previous = current
+                    current = next
+                    return previous
+
+            head = reverseLinkedList(head)
