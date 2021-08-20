@@ -28,7 +28,6 @@ def insert(root, node):
 
 
 class TreeTests(unittest.TestCase):
-
     def test_1(self):
         """Returns lowest common ancestor."""
         root = Node(8)
@@ -47,9 +46,8 @@ class TreeTests(unittest.TestCase):
         node_14 = root.right.right
 
         self.assertEqual(obj.lowestCommonAncestor(root, node_3, node_10), root)
-        self.assertEqual(obj.lowestCommonAncestor(
-            root, node_14, node_10), node_10)
+        self.assertEqual(obj.lowestCommonAncestor(root, node_14, node_10), node_10)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

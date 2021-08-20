@@ -3,7 +3,9 @@ import unittest
 
 
 class TestAirport(unittest.TestCase):
-    def test_constructor_accepts_name_and_abbreviation_and_new_airport_has_zero_planes(self):
+    def test_constructor_accepts_name_and_abbreviation_and_new_airport_has_zero_planes(
+        self
+    ):
         from problem_05_class import Airport
 
         airport = Airport("Bush Intercontinental", "IAH")

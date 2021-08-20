@@ -5,10 +5,9 @@ obj = Solution()
 
 
 class StringTests(unittest.TestCase):
-
     def test_1(self):
         """'cbbd' returns 'bb'"""
-        self.assertEqual(obj.longestPalindrome('cbbd'), 'bb')
+        self.assertEqual(obj.longestPalindrome("cbbd"), "bb")
 
     def test_2(self):
         """'abba' returns 'abba'"""
@@ -23,5 +22,5 @@ class StringTests(unittest.TestCase):
         self.assertEqual(obj.longestPalindrome("a"), "a")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

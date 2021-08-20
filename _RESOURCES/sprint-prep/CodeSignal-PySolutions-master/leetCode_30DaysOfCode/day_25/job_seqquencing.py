@@ -27,6 +27,6 @@ def jobSeq(profit, deadline):
 
 
 # the profit is a sorted list
-profit= [35, 40, 25, 20, 15, 10]
+profit = [35, 40, 25, 20, 15, 10]
 deadline = [3, 4, 4, 2, 3, 1]
 print(jobSeq(profit, deadline))

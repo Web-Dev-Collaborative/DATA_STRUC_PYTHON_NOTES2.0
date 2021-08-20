@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class ArrayTests(unittest.TestCase):
-
     def test_1(self):
         """Works"""
         self.assertEqual(obj.search([1], 1), 0)
@@ -16,5 +15,5 @@ class ArrayTests(unittest.TestCase):
         self.assertEqual(obj.search([4, 5, 6, 7, 0, 1, 2], 0), 4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

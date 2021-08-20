@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class PracticeTests(unittest.TestCase):
-
     def test_1(self):
         """returns True correctly"""
         self.assertEqual(obj.backspaceCompare("y#fo##f", "y#f#o##f"), True)
@@ -16,5 +15,5 @@ class PracticeTests(unittest.TestCase):
         self.assertEqual(obj.backspaceCompare("a#c", "b"), False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

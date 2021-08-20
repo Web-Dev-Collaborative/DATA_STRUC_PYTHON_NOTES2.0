@@ -9,9 +9,8 @@ def firstDuplicate(a):
         else:
             d[a[i]] = 1
 
-        if(d[a[i]] == 2):
+        if d[a[i]] == 2:
             return a[i]
 
     if not found:
         return -1
-

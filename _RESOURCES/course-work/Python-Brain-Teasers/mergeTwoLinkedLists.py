@@ -1,6 +1,6 @@
 # Note: Your solution should have O(l1.length + l2.length) time complexity, since this is what you will be asked to accomplish in an interview.
 
-# 
+#
 
 # Example
 

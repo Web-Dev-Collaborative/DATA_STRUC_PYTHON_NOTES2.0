@@ -7,7 +7,7 @@ color = (20, 40, 60)
 print(color[0])
 
 # use a named tuple for better readability because of the object notation it has
-Color = namedtuple('Color', ["red", "green", "blue"])
+Color = namedtuple("Color", ["red", "green", "blue"])
 color = Color(20, 40, 60)
 # you can use object notation or indexing to extract data
 print(color.red)

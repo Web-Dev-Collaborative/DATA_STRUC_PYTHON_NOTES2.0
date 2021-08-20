@@ -13,7 +13,7 @@ def isPossible(a, b, c, d):
         b = check(b, a, d)
         a = check(a, b, c)
     if a != c or b != d:
-            return "No"
+        return "No"
     return "Yes"
 
 

@@ -28,7 +28,6 @@ def insert(root, node):
 
 
 class TreeTests(unittest.TestCase):
-
     def test_1(self):
         """Inverts tree"""
         root = Node(8)
@@ -64,5 +63,5 @@ class TreeTests(unittest.TestCase):
         self.assertEqual(root.val, 8)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

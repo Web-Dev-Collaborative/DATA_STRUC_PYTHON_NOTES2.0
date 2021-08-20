@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class DPTests(unittest.TestCase):
-
     def test_1(self):
         """[1, 2, 5], 11 should return 3 for 5 + 5 + 1"""
         self.assertEqual(obj.coinChange([1, 2, 5], 11), 3)
@@ -19,5 +18,5 @@ class DPTests(unittest.TestCase):
         self.assertEqual(obj.coinChange([2], 3), -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

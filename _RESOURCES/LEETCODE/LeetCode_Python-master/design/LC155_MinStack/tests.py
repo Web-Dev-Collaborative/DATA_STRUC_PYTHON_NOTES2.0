@@ -3,7 +3,6 @@ from main import MinStack
 
 
 class DesignTests(unittest.TestCase):
-
     def test_1(self):
         """top() works for empty and filled out stack"""
         min_stack = MinStack()
@@ -29,5 +28,5 @@ class DesignTests(unittest.TestCase):
         self.assertEqual(min_stack.getMin(), -2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

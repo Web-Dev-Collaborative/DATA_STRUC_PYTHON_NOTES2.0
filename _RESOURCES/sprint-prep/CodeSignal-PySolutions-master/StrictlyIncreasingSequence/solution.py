@@ -11,5 +11,4 @@ def almostIncreasingSequence(sequence):
     return True
 
 
-
 print(almostIncreasingSequence([50, 60, 70, 10, 20]))

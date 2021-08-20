@@ -5,11 +5,9 @@ obj = Solution()
 
 
 class HeapTests(unittest.TestCase):
-
     def test_1(self):
         """topKFrequent([1,1,1,2,2,3], 2) returns [1,2]"""
-        self.assertEqual(
-            sorted(obj.topKFrequent([1, 1, 1, 2, 2, 3], 2)), [1, 2])
+        self.assertEqual(sorted(obj.topKFrequent([1, 1, 1, 2, 2, 3], 2)), [1, 2])
 
     def test_2(self):
         """topKFrequent([1], 1) returns [1]"""
@@ -20,5 +18,5 @@ class HeapTests(unittest.TestCase):
         self.assertEqual(obj.topKFrequent([], 10), [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

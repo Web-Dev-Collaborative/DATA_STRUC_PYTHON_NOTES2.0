@@ -3,6 +3,7 @@ Given an array that contains numbers (0, 1, 2) that represents colors (red, blue
 such that all red colors comes first, then blue, then black.
 """
 
+
 def maxHeapify(arr, len_arr, i):
     f_child = 2 * i + 1
     s_child = 2 * i + 2
@@ -35,4 +36,5 @@ def sortColors(nums):
         maxHeapify(nums, i, 0)
     return nums
 
-print(sortColors([2,0,2,1,1,0]))
+
+print(sortColors([2, 0, 2, 1, 1, 0]))

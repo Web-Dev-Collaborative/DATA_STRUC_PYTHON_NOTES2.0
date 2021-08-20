@@ -15,7 +15,11 @@ def deleteDuplicates(self, head):
                 head = head.next
             current = head
         # case_2 if nodes are duplicate after the head
-        elif current.next and current.next.next and current.next.val == current.next.next.val:
+        elif (
+            current.next
+            and current.next.next
+            and current.next.val == current.next.next.val
+        ):
             n = current.next.next.next
             while n and current.next.val == n.val:
                 n = n.next

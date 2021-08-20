@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class HeapTests(unittest.TestCase):
-
     def test_1(self):
         """[[3,5,7], [0,6], [0,6,28]] returns head of [0,0,3,5,6,6,7,28]"""
         head1 = ListNode(3)
@@ -41,5 +40,5 @@ class HeapTests(unittest.TestCase):
         self.assertEqual(res_list_head, None)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

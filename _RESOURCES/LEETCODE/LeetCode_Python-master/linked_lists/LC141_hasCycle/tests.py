@@ -11,7 +11,6 @@ class ListNode(object):
 
 
 class LinkedListTests(unittest.TestCase):
-
     def test_1(self):
         """Return False on empty list"""
         self.assertEqual(obj.hasCycle({}), False)
@@ -40,5 +39,5 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(obj.hasCycle(a_node), False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

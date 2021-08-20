@@ -9,7 +9,7 @@ def reverseInParentheses(s):
             ind = len(stack) - 1
             while stack[ind] != "(":
                 ind -= 1
-            stack[ind: len(stack)+1] = stack[ind: len(stack)+1][::-1]
+            stack[ind : len(stack) + 1] = stack[ind : len(stack) + 1][::-1]
             stack.pop()
         else:
             stack.append(i)

@@ -11,7 +11,6 @@ class ListNode(object):
 
 
 class LinkedListTests(unittest.TestCase):
-
     def test_1(self):
         """reverses the list"""
         head = ListNode("A")
@@ -23,5 +22,5 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(head.next, None)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

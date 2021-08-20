@@ -33,7 +33,9 @@ def jobOffers(scores, lowerLimits, upperLimits):
     scores.sort()
     n = len(scores)
     for index in range(len(lowerLimits)):
-        yield findUpper(scores, n, upperLimits[index]) - findLower(scores, n, lowerLimits[index]) + 1
+        yield findUpper(scores, n, upperLimits[index]) - findLower(
+            scores, n, lowerLimits[index]
+        ) + 1
 
 
 for i in jobOffers([1, 2, 2, 3, 5, 6, 7], [1], [7]):

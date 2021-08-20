@@ -38,5 +38,5 @@ def checkValidString(s):
                 return False
     return open_p == 0
 
-print(checkValidString("(())((())()()(*)(*()(())())())()()((()())((()))(*"))
 
+print(checkValidString("(())((())()()(*)(*()(())())())()()((()())((()))(*"))

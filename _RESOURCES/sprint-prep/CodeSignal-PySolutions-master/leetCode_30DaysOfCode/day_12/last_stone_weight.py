@@ -31,4 +31,4 @@ def lastStoneWeight(stones):
     return 0
 
 
-print(lastStoneWeight([5,3,2,10]))
+print(lastStoneWeight([5, 3, 2, 10]))

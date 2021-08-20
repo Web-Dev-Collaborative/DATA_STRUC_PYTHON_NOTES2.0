@@ -28,7 +28,6 @@ def insert(root, node):
 
 
 class TreeTests(unittest.TestCase):
-
     def test_1(self):
         """Works for Binary Search Tree of 1, 2, and 3 levels"""
         root = Node(8)
@@ -50,5 +49,5 @@ class TreeTests(unittest.TestCase):
         self.assertEqual(obj.maxDepth(root), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

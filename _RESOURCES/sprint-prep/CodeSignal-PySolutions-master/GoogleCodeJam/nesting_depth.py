@@ -26,7 +26,7 @@ def nestingDepth(s):
             open_p += new_p
         else:
             out += l[i]
-        if i+1 < len(l):
+        if i + 1 < len(l):
             n = int(l[i + 1][0])
             if n < int(l[i][0]):
                 close_p = open_p - n

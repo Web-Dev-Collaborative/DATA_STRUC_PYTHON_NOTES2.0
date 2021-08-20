@@ -3,7 +3,6 @@ from main import RandomizedSet
 
 
 class DesignTests(unittest.TestCase):
-
     def test_1(self):
         """insert(val) returns True for successful insertion, False for duplicate insertion"""
         random_set = RandomizedSet()
@@ -44,5 +43,5 @@ class DesignTests(unittest.TestCase):
         self.assertEqual(thirteen_count, 1000)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

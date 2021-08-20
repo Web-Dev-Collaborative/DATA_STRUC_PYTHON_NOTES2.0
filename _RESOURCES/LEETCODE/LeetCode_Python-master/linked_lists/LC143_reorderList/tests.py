@@ -11,7 +11,6 @@ class ListNode:
 
 
 class LinkedListTests(unittest.TestCase):
-
     def test_1(self):
         """[1,2,3,4,5,6] returns head of [1, 6, 2, 5, 3, 4]"""
         head = ListNode(1)
@@ -55,5 +54,5 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(head, None)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -13,6 +13,4 @@ def matrix_elements_sum(matrix):
     return total
 
 
-print(matrix_elements_sum([[0, 1, 5, 1],
-                           [0, 2, 0, 3],
-                           [0, 0, 1, 1]]))
+print(matrix_elements_sum([[0, 1, 5, 1], [0, 2, 0, 3], [0, 0, 1, 1]]))

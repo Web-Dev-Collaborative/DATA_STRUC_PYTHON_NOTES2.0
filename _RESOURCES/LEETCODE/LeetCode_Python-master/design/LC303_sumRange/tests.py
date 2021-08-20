@@ -3,7 +3,6 @@ from main import NumArray
 
 
 class DesignTests(unittest.TestCase):
-
     def test_1(self):
         """sumRange works"""
         obj = NumArray([-2, 0, 3, -5, 2, -1])
@@ -13,5 +12,5 @@ class DesignTests(unittest.TestCase):
         self.assertEqual(obj.sumRange(2, 2), 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

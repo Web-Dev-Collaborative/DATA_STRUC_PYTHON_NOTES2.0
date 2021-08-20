@@ -16,7 +16,3 @@ def binarySearch(arr, searchValue):
 def binarySearchRec(arr, search_value):
     if len(arr) == 0:
         return False
-    
-
-
-

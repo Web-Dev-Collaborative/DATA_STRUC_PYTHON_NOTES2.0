@@ -28,7 +28,6 @@ def insert(root, node):
 
 
 class TreeTests(unittest.TestCase):
-
     def test_1(self):
         """Returns True correctly."""
         root1 = Node(8)
@@ -79,5 +78,5 @@ class TreeTests(unittest.TestCase):
         self.assertEqual(obj.isSubtree(root1, Node(13)), False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

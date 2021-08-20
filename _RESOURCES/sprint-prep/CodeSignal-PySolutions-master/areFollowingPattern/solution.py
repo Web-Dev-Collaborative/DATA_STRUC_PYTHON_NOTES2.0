@@ -11,11 +11,7 @@ def areFollowingPatterns(strings, patterns):
     return True
 
 
-strings = ["cat",
-           "dog",
-           "doggy"]
-patterns = ["a",
-            "b",
-            "b"]
+strings = ["cat", "dog", "doggy"]
+patterns = ["a", "b", "b"]
 
 print(areFollowingPatterns(strings, patterns))

@@ -6,7 +6,7 @@ def powerOfTwo(n):
     while i + i <= n:
         i += i
         l.append(i)
-    return (l)
+    return l
 
 
 print(powerOfTwo(10))

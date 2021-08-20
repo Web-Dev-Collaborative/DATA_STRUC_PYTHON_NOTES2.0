@@ -11,7 +11,6 @@ class Interval:
 
 
 class IntervalTests(unittest.TestCase):
-
     def test_1(self):
         """[] --> returns 0"""
         self.assertEqual(obj.minMeetingRooms([]), 0)
@@ -22,14 +21,14 @@ class IntervalTests(unittest.TestCase):
 
     def test_3(self):
         """[[7, 10], [2, 4]] --> returns 1"""
-        self.assertEqual(obj.minMeetingRooms(
-            [Interval(7, 10), Interval(2, 4)]), 1)
+        self.assertEqual(obj.minMeetingRooms([Interval(7, 10), Interval(2, 4)]), 1)
 
     def test_4(self):
         """[[0, 30], [5, 10], [15, 20]] --> returns 2"""
-        self.assertEqual(obj.minMeetingRooms(
-            [Interval(0, 30), Interval(5, 10), Interval(15, 20)]), 2)
+        self.assertEqual(
+            obj.minMeetingRooms([Interval(0, 30), Interval(5, 10), Interval(15, 20)]), 2
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

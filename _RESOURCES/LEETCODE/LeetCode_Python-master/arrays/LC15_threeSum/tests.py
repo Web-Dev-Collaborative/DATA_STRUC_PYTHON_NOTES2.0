@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class ArrayTests(unittest.TestCase):
-
     def test_1(self):
         """threeSum([2, 0, 1, -1]) returns [[-1, 0, 1]]"""
         res = obj.threeSum([2, 0, 1, -1])
@@ -31,5 +30,5 @@ class ArrayTests(unittest.TestCase):
         self.assertEqual(res, [[-2, 0, 2]])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

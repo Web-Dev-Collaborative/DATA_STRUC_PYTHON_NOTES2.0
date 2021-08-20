@@ -3,7 +3,6 @@ from main import MovingAverage
 
 
 class DesignTests(unittest.TestCase):
-
     def test_1(self):
         """MovingAverage Works"""
         m = MovingAverage(3)
@@ -13,5 +12,5 @@ class DesignTests(unittest.TestCase):
         self.assertEqual(m.next(5), 6)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

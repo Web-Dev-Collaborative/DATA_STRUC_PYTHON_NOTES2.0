@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class PracticeTests(unittest.TestCase):
-
     def test_1(self):
         """[1,2,3,4,5,6], val = 6 returns [1,2,3,4,5]"""
         head = ListNode(1)
@@ -38,5 +37,5 @@ class PracticeTests(unittest.TestCase):
         self.assertEqual(res_list, [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

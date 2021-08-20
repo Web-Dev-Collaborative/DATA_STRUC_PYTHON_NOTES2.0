@@ -1,18 +1,18 @@
 def areSimilar(a, b):
- 
+
     left = None
     right = None
-   
+
     areSimilar = True
-    
+
     mism = 0
     for i in range(len(a)):
-        
+
         if a[i] != b[i]:
             mism += 1
         else:
             continue
-            
+
         if mism == 1:
             left = a[i]
             right = b[i]
@@ -24,6 +24,5 @@ def areSimilar(a, b):
         elif mism > 2:
             areSimilar = False
             break
-    
-    return areSimilar
 
+    return areSimilar

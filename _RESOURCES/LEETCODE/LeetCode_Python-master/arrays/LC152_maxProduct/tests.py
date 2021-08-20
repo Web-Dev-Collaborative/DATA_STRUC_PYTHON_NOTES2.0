@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class ArrayTests(unittest.TestCase):
-
     def test_1(self):
         """[-2, 3, -4] --> 24"""
         self.assertEqual(obj.maxProduct([-2, 3, -4]), 24)
@@ -28,8 +27,7 @@ class ArrayTests(unittest.TestCase):
 
     def test_6(self):
         """[1,2,-1,-2,2,1,-2,1,4,-5,4] --> 1280"""
-        self.assertEqual(obj.maxProduct(
-            [1, 2, -1, -2, 2, 1, -2, 1, 4, -5, 4]), 1280)
+        self.assertEqual(obj.maxProduct([1, 2, -1, -2, 2, 1, -2, 1, 4, -5, 4]), 1280)
 
     def test_7(self):
         """[0, 2] --> 2"""
@@ -44,5 +42,5 @@ class ArrayTests(unittest.TestCase):
         self.assertEqual(obj.maxProduct([2, -5, -2, -4, 3]), 24)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -18,6 +18,6 @@ class Solution:
         return root
 
 
-preorder = [19,4,8,11]
+preorder = [19, 4, 8, 11]
 bst = Solution()
 bst.bstFromPreorder(preorder)

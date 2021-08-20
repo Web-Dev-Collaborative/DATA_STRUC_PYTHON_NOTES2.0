@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class LinkedListTests(unittest.TestCase):
-
     def test_1(self):
         """[1,3], [2,4,6] returns head of [1,2,3,4,6]"""
         one_node = ListNode(1)
@@ -57,5 +56,5 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(res_list, [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

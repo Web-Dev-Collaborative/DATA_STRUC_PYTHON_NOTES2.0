@@ -2,7 +2,7 @@ import re
 
 
 def nthNumber(s, n):
-    pattern = rf'([0-9]+){n}'
+    pattern = rf"([0-9]+){n}"
     return re.match(pattern, s).group(1)
 
 

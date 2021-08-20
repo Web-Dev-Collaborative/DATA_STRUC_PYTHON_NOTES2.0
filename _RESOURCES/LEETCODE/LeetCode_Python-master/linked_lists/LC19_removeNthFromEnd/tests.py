@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class LinkedListTests(unittest.TestCase):
-
     def test_1(self):
         """removeNthFromEnd([a, b, c, d, e], 2) becomes [a, b, c, e]"""
         a_node = ListNode("A")
@@ -37,5 +36,5 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(obj.removeNthFromEnd(a_node, 1), None)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

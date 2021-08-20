@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class PracticeTests(unittest.TestCase):
-
     def test_1(self):
         """works"""
         input1 = [2, 0, 2, 1, 1, 0]
@@ -17,5 +16,5 @@ class PracticeTests(unittest.TestCase):
         self.assertEqual(input2, [2])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

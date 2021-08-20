@@ -35,6 +35,7 @@ class MinStack:
         if self.stack:
             return self.stack[-1][1]
 
+
 minStack = MinStack()
 minStack.push(-2)
 minStack.push(0)

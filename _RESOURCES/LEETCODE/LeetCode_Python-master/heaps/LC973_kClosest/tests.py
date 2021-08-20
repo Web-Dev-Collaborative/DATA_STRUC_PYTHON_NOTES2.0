@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class HeapTests(unittest.TestCase):
-
     def test_1(self):
         """kClosest works"""
         res = obj.kClosest([[1, 3], [-2, 2]], 1)[0]
@@ -20,5 +19,5 @@ class HeapTests(unittest.TestCase):
         self.assertEqual([-2, 4] in res, True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

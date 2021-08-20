@@ -3,7 +3,6 @@ from main import Solution
 
 
 class DesignTests(unittest.TestCase):
-
     def test_1(self):
         """Shuffle works"""
         deck_of_cards = Solution([num for num in range(52)])
@@ -22,5 +21,5 @@ class DesignTests(unittest.TestCase):
         self.assertEqual(obj.reset(), array_100_nums)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

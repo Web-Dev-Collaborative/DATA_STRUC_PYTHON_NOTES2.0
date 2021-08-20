@@ -6,7 +6,7 @@ nums = [1, 2, 3, 4, 5, 6, 7]
 pos_val = list(filter(lambda x: x % 2 == 0, nums))
 print(pos_val)
 
-names = ["AHMED", 'mohamed', 'khaled']
+names = ["AHMED", "mohamed", "khaled"]
 # get all element with upper case in the list
 upper_names = list(filter(lambda name: name.isupper(), names))
 print(upper_names)
@@ -20,7 +20,9 @@ print(int_nums)
 
 # convert grades to pass, fail
 grades = [70, 50, 20, 40]
-final = list(map(lambda x: "pass" if x > 50 else "fail" if x > 30 else "FUCKED UP", grades))
+final = list(
+    map(lambda x: "pass" if x > 50 else "fail" if x > 30 else "FUCKED UP", grades)
+)
 print(final)
 
 """
@@ -41,4 +43,3 @@ def grades_state(*args, **kwargs):
 
 print(grades_state.__doc__)
 grades_state(*[1, 2, 3, 4, 5], ahmed=10)
-

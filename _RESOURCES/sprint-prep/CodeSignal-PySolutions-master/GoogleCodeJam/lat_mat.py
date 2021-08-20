@@ -30,4 +30,3 @@ for i in range(1, t + 1):
     rows = int(input())
     for i in range(1, rows + 1):
         m.append([int(s) for s in input().split(" ")])
-

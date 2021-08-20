@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class StringTests(unittest.TestCase):
-
     def test_1(self):
         """'abcabcbb' returns 3"""
         self.assertEqual(obj.lengthOfLongestSubstring("abcabcbb"), 3)
@@ -23,5 +22,5 @@ class StringTests(unittest.TestCase):
         self.assertEqual(obj.lengthOfLongestSubstring("bbb"), 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

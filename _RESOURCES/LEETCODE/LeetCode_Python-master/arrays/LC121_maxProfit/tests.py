@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class ArrayTests(unittest.TestCase):
-
     def test_1(self):
         """maxProfit([7, 1, 5, 3, 6, 4]) --> 5"""
         self.assertEqual(obj.maxProfit([7, 1, 5, 3, 6, 4]), 5)
@@ -15,5 +14,5 @@ class ArrayTests(unittest.TestCase):
         self.assertEqual(obj.maxProfit([7, 6, 4, 3, 1]), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

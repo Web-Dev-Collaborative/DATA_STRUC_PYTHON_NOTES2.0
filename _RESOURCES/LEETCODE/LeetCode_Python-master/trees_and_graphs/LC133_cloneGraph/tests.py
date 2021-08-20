@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class GraphTests(unittest.TestCase):
-
     def test_1(self):
         """Works for valid graph"""
         one_node = Node(1, [])
@@ -24,5 +23,5 @@ class GraphTests(unittest.TestCase):
         self.assertEqual(two_node_clone.neighbors[0] == res_node, True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

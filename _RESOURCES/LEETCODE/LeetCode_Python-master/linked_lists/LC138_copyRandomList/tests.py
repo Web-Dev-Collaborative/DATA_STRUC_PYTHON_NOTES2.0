@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class LinkedListTests(unittest.TestCase):
-
     def test_1(self):
         """Works when random pointers point to valid node"""
         one_node = Node(1, None, None)
@@ -61,5 +60,5 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(res_head, None)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

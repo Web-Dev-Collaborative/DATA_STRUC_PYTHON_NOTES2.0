@@ -27,7 +27,13 @@ def onesGroups(grid, quires):
 def dfs(grid, i, j, tot):
     # using global tot, to not be considered in the recursive stack
     # global tot
-    if (i < 0) or (j < 0) or (j >= len(grid[0])) or (i >= len(grid)) or (grid[i][j] == 0):
+    if (
+        (i < 0)
+        or (j < 0)
+        or (j >= len(grid[0]))
+        or (i >= len(grid))
+        or (grid[i][j] == 0)
+    ):
         return tot
     if grid[i][j] == 1:
         tot += 1
@@ -39,8 +45,6 @@ def dfs(grid, i, j, tot):
     return tot
 
 
-grid = [[1, 1, 1, 0, 0],
-        [1, 1, 1, 0, 1],
-        [0, 0, 0, 1, 0]]
+grid = [[1, 1, 1, 0, 0], [1, 1, 1, 0, 1], [0, 0, 0, 1, 0]]
 quires = [1, 2, 6]
 print(onesGroups(grid, quires))

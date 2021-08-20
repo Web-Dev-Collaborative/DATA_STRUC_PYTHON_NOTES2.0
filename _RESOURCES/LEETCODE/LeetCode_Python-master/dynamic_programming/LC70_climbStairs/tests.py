@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class DPTests(unittest.TestCase):
-
     def test_1(self):
         """Returns 1 way to climb 1 stair"""
         self.assertEqual(obj.climbStairs(1), 1)
@@ -23,5 +22,5 @@ class DPTests(unittest.TestCase):
         self.assertEqual(obj.climbStairs(4), 5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

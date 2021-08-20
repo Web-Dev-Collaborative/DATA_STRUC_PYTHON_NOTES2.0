@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class DPTests(unittest.TestCase):
-
     def test_1(self):
         """lengthOfLIS([10,9,2,5,3,7,101,4]) returns 4 since LIS is [2,3,7,101]"""
         self.assertEqual(obj.lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 4]), 4)
@@ -23,5 +22,5 @@ class DPTests(unittest.TestCase):
         self.assertEqual(obj.lengthOfLIS([]), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

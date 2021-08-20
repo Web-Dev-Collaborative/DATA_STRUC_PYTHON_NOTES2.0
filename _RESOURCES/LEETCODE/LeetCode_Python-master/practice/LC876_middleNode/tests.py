@@ -11,7 +11,6 @@ class ListNode(object):
 
 
 class LinkedListTests(unittest.TestCase):
-
     def test_1(self):
         """Work for LL with odd number of nodes"""
         a_node = ListNode("A")
@@ -35,5 +34,5 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(obj.middleNode(a_node).val, "C")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -9,11 +9,12 @@
 
 # WRITE YOUR CODE HERE
 def my_filter(dictionary):
-  newdict = {}
-  for dict_key in dictionary.keys():
-    if len(dict_key) >= 5:
-      newdict[dict_key] = dictionary.get(dict_key)
-  return newdict
+    newdict = {}
+    for dict_key in dictionary.keys():
+        if len(dict_key) >= 5:
+            newdict[dict_key] = dictionary.get(dict_key)
+    return newdict
+
 
 # TEST DATA
 print(my_filter({".": 1, "..": 2, ".....": 5}))  # > {".....": 5}

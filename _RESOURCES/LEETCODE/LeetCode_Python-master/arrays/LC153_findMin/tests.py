@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class ArrayTests(unittest.TestCase):
-
     def test_1(self):
         """[1] returns 1"""
         self.assertEqual(obj.findMin([1]), 1)
@@ -27,5 +26,5 @@ class ArrayTests(unittest.TestCase):
         self.assertEqual(obj.findMin([2, 3, 4, 5, 6, 1]), 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -14,7 +14,9 @@
 def bind_argument(value, func):
     def bound():
         return func(value)
+
     return bound
+
 
 # Example calls
 

@@ -2,7 +2,7 @@ from collections import defaultdict
 
 
 def showFruits(d):
-    fruits = sorted(d, key= lambda x: x[0])
+    fruits = sorted(d, key=lambda x: x[0])
     out = []
     for fruit in fruits:
         l = min(d[fruit])
@@ -13,7 +13,7 @@ def showFruits(d):
 
 
 loops = int(input())
-for i in range(1, loops+1):
+for i in range(1, loops + 1):
     d = defaultdict(list)
     input()
     no_of_products = int(input())

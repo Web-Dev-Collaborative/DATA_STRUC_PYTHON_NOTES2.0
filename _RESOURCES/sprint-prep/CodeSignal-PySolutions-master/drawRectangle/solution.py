@@ -7,10 +7,12 @@ def drawRectangle(canvas, r):
     return canvas
 
 
-canvas = [["a", "a", "a", "a", "a", "a", "a", "a"],
-          ["a", "a", "a", "a", "a", "a", "a", "a"],
-          ["a", "a", "a", "a", "a", "a", "a", "a"],
-          ["b", "b", "b", "b", "b", "b", "b", "b"],
-          ["b", "b", "b", "b", "b", "b", "b", "b"]]
+canvas = [
+    ["a", "a", "a", "a", "a", "a", "a", "a"],
+    ["a", "a", "a", "a", "a", "a", "a", "a"],
+    ["a", "a", "a", "a", "a", "a", "a", "a"],
+    ["b", "b", "b", "b", "b", "b", "b", "b"],
+    ["b", "b", "b", "b", "b", "b", "b", "b"],
+]
 rectangle = [1, 1, 4, 3]
 print(drawRectangle(canvas, rectangle))

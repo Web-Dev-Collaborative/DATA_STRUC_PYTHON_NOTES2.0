@@ -1,4 +1,3 @@
-
 def countPalindromes(s):
     """
     countPalindromes(s) takes in a string s and returns the number of palindrome in the string

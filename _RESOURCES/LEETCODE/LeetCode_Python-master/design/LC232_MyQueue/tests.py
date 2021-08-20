@@ -3,7 +3,6 @@ from main import MyQueue
 
 
 class DesignTests(unittest.TestCase):
-
     def test_1(self):
         """Push and pop work"""
         queue = MyQueue()
@@ -35,5 +34,5 @@ class DesignTests(unittest.TestCase):
         self.assertEqual(queue.empty(), True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

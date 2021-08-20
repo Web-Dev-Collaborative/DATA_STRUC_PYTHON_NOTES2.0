@@ -12,5 +12,3 @@
 #     return [x if x == -1 else b.pop(0) for x in a]
 #
 # print(sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180]))
-
-

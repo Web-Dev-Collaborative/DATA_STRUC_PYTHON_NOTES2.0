@@ -5,11 +5,9 @@ obj = Solution()
 
 
 class StringTests(unittest.TestCase):
-
     def test_1(self):
         """['eat', 'tea', 'tan', 'ate', 'nat', 'bat'] returns 3 groups of Anagrams"""
-        res = obj.groupAnagrams(
-            ["eat", "tea", "tan", "ate", "nat", "bat"])
+        res = obj.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])
         res.sort(reverse=True, key=len)
 
         for i in range(len(res)):
@@ -26,5 +24,5 @@ class StringTests(unittest.TestCase):
         self.assertEqual(sub_arr_1, ["bat"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

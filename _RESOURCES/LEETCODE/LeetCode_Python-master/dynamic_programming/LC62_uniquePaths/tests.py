@@ -5,7 +5,6 @@ obj = Solution()
 
 
 class DPTests(unittest.TestCase):
-
     def test_1(self):
         """uniquePaths(1, 1) --> 1"""
         self.assertEqual(obj.uniquePaths(1, 1), 1)
@@ -19,5 +18,5 @@ class DPTests(unittest.TestCase):
         self.assertEqual(obj.uniquePaths(6, 3), 21)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -4,12 +4,12 @@ def minX(arr):
     """
     m = min(arr)
     if m > 0:
-        return (m*-1) + 1
+        return (m * -1) + 1
     else:
-        m = (m*-1) + 1
+        m = (m * -1) + 1
     running_sum = m
     for val in arr:
-        if running_sum+val >= 1:
+        if running_sum + val >= 1:
             running_sum += val
         else:
             m += 1 - (running_sum + val)
