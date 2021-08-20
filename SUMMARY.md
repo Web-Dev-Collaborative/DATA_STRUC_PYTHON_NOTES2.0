@@ -55,3 +55,8 @@
 * [D4](wk-19-notes/untitled.md)
 * [How To Reverse A Stack](wk-19-notes/how-to-reverse-a-stack.md)
 
+## Wk-20-Notes
+
+* [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/README.md)
+  * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
+
