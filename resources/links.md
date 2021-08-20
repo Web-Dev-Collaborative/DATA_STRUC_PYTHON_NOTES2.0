@@ -1,5 +1,11 @@
 # Links
 
+My Links
+
+{% embed url="https://links4242.netlify.app/" %}
+
+Python Practice Problems:
+
 {% embed url="https://www.practicepython.org/exercise/2014/12/06/22-read-from-file.html" caption="" %}
 
 {% embed url="https://www.w3resource.com/python-exercises" caption="" %}
