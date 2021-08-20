@@ -1,0 +1,4 @@
+﻿Shorthand,Property
+V,Total number of vertices in the graph
+E,Total number of edges in the graph
+e,Average number of edges per vertex
