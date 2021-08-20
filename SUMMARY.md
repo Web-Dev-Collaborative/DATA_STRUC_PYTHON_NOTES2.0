@@ -23,6 +23,7 @@
 * [ASCII TAble](resources/ascii-table.md)
 * [Python Keywords](resources/python-keywords.md)
 * [Repositories](resources/repositories.md)
+* [Shell Commands](resources/shell-commands.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
 
 ## Embeds
