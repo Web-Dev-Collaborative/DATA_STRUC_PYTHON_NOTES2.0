@@ -1288,30 +1288,46 @@ killall -s KILL node
 
 
 ---
-# 39. 
+# 39. Remove string from file names recursively
 
-### Description:
-
-
->Notes:
-
+### Description: In the example below I am using this command to remove the string "-master" from all file names in the working directory and all of it's sub directories. 
 
 ###### code:
 
 
 ```sh
+find <mydir> -type f -exec sed -i 's/<string1>/<string2>/g' {} +
 
+
+
+
+find . -type f -exec rename 's/-master//g' {} +
 
 ```
 
 
+>Notes: The same could be done for folder names by changing the _-type f_ flag (for file) to a _-type d_ flag (for directory)
+
+```sh
+find <mydir> -type d -exec sed -i 's/<string1>/<string2>/g' {} +
+
+
+
+
+find . -type d -exec rename 's/-master//g' {} +
+
+```
+
+
+
+
 ---
-# 40. 
+# 40. Remove spaces from file and folder names recursively 
 
-### Description:
+### Description: replaces spaces in file and folder names with an `_` underscore
 
 
->Notes:
+>Notes: need to run `sudo apt install rename` to use this command
 
 
 ###### code:
@@ -1319,7 +1335,8 @@ killall -s KILL node
 
 ```sh
 
-
+find . -name "* *" -type d | rename 's/ /_/g'   
+find . -name "* *" -type f | rename 's/ /_/g'
 ```
 
 
