@@ -30,6 +30,6 @@
     "sass-loader": "12.1.0",
 
     "style-loader": "0.18.2",
-    "webpack": "5.50.0"
+    "webpack": "5.51.1"
   }
 }
