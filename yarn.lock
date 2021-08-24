@@ -2300,10 +2300,10 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-algolia@13.3.0:
-  version "13.3.0"
-  resolved "https://registry.npmjs.org/eslint-config-algolia/-/eslint-config-algolia-13.3.0.tgz"
-  integrity sha512-kgBNs3MG/gdTmbP/sYM39BtRxsmMfMZJ6j7IzLm6+1HpvQkied2z8xvjBEaMm0TEsEmAnrX8KNf7cq+7k+TMVw==
+eslint-config-algolia@18.0.0:
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-algolia/-/eslint-config-algolia-18.0.0.tgz#4317d58c06692d88877d6182b9a6f50cc26af9d2"
+  integrity sha512-ZjFDOSsGaDc04cgB/2/yKWrOGq3w4UXk/z7yqjY/MEj7HAKCgWoA6jDW3NPsSDL1ZC36901SLFDY5kgXoPn18w==
 
 eslint-config-prettier@4.1.0:
   version "4.1.0"
