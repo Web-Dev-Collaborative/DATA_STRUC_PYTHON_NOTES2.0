@@ -990,7 +990,8 @@ print(unit.radius)
 And we can also call any of its methods, but notice how we never have to pass the radius of the circle as an argument, since the methods can all access that via **self**:
 
 ```text
-print(unit.diameter())
+print(unit.diameter())  
+
 print(unit.circumference())
 print(unit.area())
 ```

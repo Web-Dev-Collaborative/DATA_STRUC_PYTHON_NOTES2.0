@@ -12,5 +12,3 @@
 
 {% embed url="https://github.com/bgoonz/PYTHON\_PRAC" caption="" %}
 
--
-

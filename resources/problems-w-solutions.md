@@ -1600,5 +1600,3 @@ Check if every consecutive sequence of zeroes is followed by a consecutive seque
 False  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/basic/python-basic-1-exercise-142.php)
 
--
-
