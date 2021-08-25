@@ -1,4 +1,4 @@
-# Problem 3 
+# Problem 3
 # Take a list and write a program that prints out all the elements of the list that are less than 5.
 # Extras:
 # Instead of printing the elements one by one, make a new list that has all the elements less than 5 from this list in it and print out this new list.

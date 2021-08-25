@@ -1,4 +1,4 @@
-# Problem 11 
+# Problem 11
 # Here's your coding interview problem for today.
 # This problem was asked by Google.
 # In linear algebra, a Toeplitz matrix is one in which the elements on any given diagonal from top left to bottom right are identical.
