@@ -1341,7 +1341,7 @@ find . -name "* *" -type f | rename 's/ /_/g'
 
 
 ---
-# 41. 
+# 41. Powershell remove numbers and dashes from file names:
 
 ### Description:
 
@@ -1352,7 +1352,36 @@ find . -name "* *" -type f | rename 's/ /_/g'
 ###### code:
 
 
-```sh
+```ps1
+
+
+
+Dir | Rename-Item –NewName { $_.name –replace " ","_" }
+
+Dir | Rename-Item –NewName { $_.name –replace "1","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "2","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "3","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "4","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "5","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "6","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "7","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "8","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "9","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "9","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "-","" }
+
+Dir | Rename-Item –NewName { $_.name –replace "0","" }
+
 
 
 ```
@@ -1361,7 +1390,7 @@ find . -name "* *" -type f | rename 's/ /_/g'
 ---
 # 42. 
 
-### Description:
+### Description: Remove lines contaning string from file at the end of the following commands... or any line not contaning that string by `!d`
 
 
 >Notes:
@@ -1371,6 +1400,57 @@ find . -name "* *" -type f | rename 's/ /_/g'
 
 
 ```sh
+
+
+sudo sed -i '/\.html/!d' ./sitemap.html
+
+
+sudo sed -i '/\.html/!d' ./index.html
+
+
+sed -i "/"""/,/""":/d" your_file
+
+
+sudo sed -i '/\.git/d' ./index.html
+sudo sed -i '/node_modules/d' ./index.html
+sudo sed -i '/right\.html/d' ./index.html
+sudo sed -i '/sol\~/d' ./right.html
+sudo sed -i '/\.json/d' ./index.html
+sudo sed -i '/\.gif/d' ./index.html
+sudo sed -i '/\.png/d' ./index.html   
+sudo sed -i '/\.css/d' ./index.html
+sudo sed -i '/\.js/d' ./index.html
+sudo sed -i '/\.php/d' ./index.html
+sudo sed -i '/\.md/d' ./index.html
+sudo sed -i '/\.svg/d' ./index.html
+sudo sed -i '/\.jpeg/d' ./index.html
+sudo sed -i '/\.jpg/d' ./index.html
+sudo sed -i '/\.scss/d' ./index.html
+sudo sed -i '/scss/d' ./index.html
+sudo sed -i '/\.txt/d' ./index.html
+sudo sed -i '/\.ttf/d' ./index.html
+sudo sed -i '/\.pdf/d' ./index.html
+sudo sed -i '/\.mp4/d' ./index.html
+sudo sed -i '/\.pug/d' ./index.html
+sudo sed -i '/\.DS_store/d' ./index.html
+sudo sed -i '/\.DS_Store/d' ./index.html
+sudo sed -i '/\.sql/d' ./index.html
+sudo sed -i '/\.py/d' ./index.html
+sudo sed -i '/\.xlsx/d' ./index.html
+sudo sed -i '/\.JPG/d' ./index.html
+sudo sed -i '/\.TTF/d' ./index.html
+sudo sed -i '/\.ttf/d' ./index.html
+sudo sed -i '/\.eot/d' ./index.html
+sudo sed -i '/\.ttc/d' ./index.html
+sudo sed -i '/\.PNG/d' ./index.html
+sudo sed -i '/\.java/d' ./index.html
+sudo sed -i '/\.png/d' ./index.html
+sudo sed -i '/\.jpeg/d' ./index.html
+sudo sed -i '/\.gif/d' ./index.html
+sudo sed -i '/\.go/d' ./index.html
+sudo sed -i '/\.vue/d' ./index.html
+
+
 
 
 ```
