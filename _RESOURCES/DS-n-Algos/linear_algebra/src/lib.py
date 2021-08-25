@@ -1,5 +1,4 @@
 """
-Created on Mon Feb 26 14:29:11 2018
 
 @author: Christian Bender
 @license: MIT-license

@@ -1,0 +1,5 @@
+﻿Title,Operation,Result
+,https://docs.python.org/3/library/math.html#math.trunc,x truncated to https://docs.python.org/3/library/numbers.html#numbers.Integral
+,https://docs.python.org/3/library/functions.html#round,"x rounded to n digits, rounding half to even. If n is omitted, it defaults to 0."
+,https://docs.python.org/3/library/math.html#math.floor,the greatest https://docs.python.org/3/library/numbers.html#numbers.Integral <= x
+,https://docs.python.org/3/library/math.html#math.ceil,the least https://docs.python.org/3/library/numbers.html#numbers.Integral >= x

@@ -1,4 +1,3 @@
-"""Created by Nathan Damon, @bizzfitch on github
 >>> test_miller_rabin()
 """
 

@@ -991,6 +991,7 @@ And we can also call any of its methods, but notice how we never have to pass th
 
 ```text
 print(unit.diameter())  
+
 print(unit.circumference())
 print(unit.area())
 ```

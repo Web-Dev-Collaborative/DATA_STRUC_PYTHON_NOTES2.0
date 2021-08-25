@@ -1,0 +1,17 @@
+﻿Operation,Result,Notes,Full documentation
+x + y,sum of x and y,,
+x - y,difference of x and y,,
+x * y,product of x and y,,
+x / y,quotient of x and y,,
+x // y,floored quotient of x and y,(1),
+x % y,remainder of x / y,(2),
+-x,x negated,,
++x,x unchanged,,
+abs(x),absolute value or magnitude of x,,https://docs.python.org/3/library/functions.html#abs
+int(x),x converted to integer,(3)(6),https://docs.python.org/3/library/functions.html#int
+float(x),x converted to floating point,(4)(6),https://docs.python.org/3/library/functions.html#float
+"complex(re, im)","a complex number with real part re, imaginary part im. im defaults to zero.",(6),https://docs.python.org/3/library/functions.html#complex
+c.conjugate(),conjugate of the complex number c,,
+"divmod(x, y)","the pair (x // y, x % y)",(2),https://docs.python.org/3/library/functions.html#divmod
+"pow(x, y)",x to the power y,(5),https://docs.python.org/3/library/functions.html#pow
+x ** y,x to the power y,(5),

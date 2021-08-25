@@ -6,4 +6,3 @@ def myfunc():
 
 
 myfunc()
-

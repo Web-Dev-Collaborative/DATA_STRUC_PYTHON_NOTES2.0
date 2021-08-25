@@ -1,0 +1,3 @@
+﻿type,Space,Add Vert,Remove Vert,Add Edge,Remove Edge,Find Edge,Get All Edges
+Matrix,O(V^2),O(V),O(V^2),O(1),O(1),O(1),O(V)
+List,O(V+E),O(1),O(V),O(1),O(1),O(1),O(1)

@@ -9,4 +9,3 @@ if x:
     print("Yes, the string ends with 'world'")
 else:
     print("No match")
-
