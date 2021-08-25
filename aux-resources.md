@@ -4,7 +4,7 @@
 
 First things first, the repo with all the exercises of this lecture is right here:
 
-> > > [https://github.com/hugoestradas/Python\_Basics](https://github.com/hugoestradas/Python_Basics)
+> > > [https://github.com/hugoestradas/Python_Basics](https://github.com/hugoestradas/Python_Basics)
 
 Let's begin!
 
@@ -101,4 +101,3 @@ Then I used the "secrets.choice" function within another list comprehension to b
 And finally, I used the join method to combine the random words into a single string with spaces between them:
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s--hZBb-kUj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/5diuv6ikyernk1nnewe5.PNG)](https://res.cloudinary.com/practicaldev/image/fetch/s--hZBb-kUj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/5diuv6ikyernk1nnewe5.PNG)
-
