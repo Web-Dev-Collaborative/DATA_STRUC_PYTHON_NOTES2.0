@@ -1,7 +1,5 @@
 # Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a linked list
 
-
-
 **Why Linked List?**\
 Arrays can be used to store linear data of similar types, but arrays have the following limitations.\
 **1)** The size of the arrays is fixed: So we must know the upper limit on the number of elements in advance. Also, generally, the allocated memory is equal to the upper limit irrespective of the usage.\
@@ -20,11 +18,11 @@ Deletion is also expensive with arrays until unless some special techniques are 
 **Representation:**\
 A linked list is represented by a pointer to the first node of the linked list. The first node is called the head. If the linked list is empty, then the value of the head is NULL.\
 Each node in a list consists of at least two parts:\
-1) data\
-2) Pointer (Or Reference) to the next node\
-In C, we can represent a node using structures. Below is an example of a linked list node with integer data.\
-In Java or C#, LinkedList can be represented as a class and a Node as a separate class. The LinkedList class contains a reference of Node class type.
 
+1. data\
+2. Pointer (Or Reference) to the next node\
+   In C, we can represent a node using structures. Below is an example of a linked list node with integer data.\
+   In Java or C#, LinkedList can be represented as a class and a Node as a separate class. The LinkedList class contains a reference of Node class type.
 
 ## Overview
 

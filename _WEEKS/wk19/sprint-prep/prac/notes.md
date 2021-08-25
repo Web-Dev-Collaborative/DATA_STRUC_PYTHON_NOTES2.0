@@ -1,5 +1,4 @@
-1.  
-*Note: Your solution should have O(l.length) time complexity and O(1) space complexity, since this is what you will be asked to accomplish in an interview.*
+1.  _Note: Your solution should have O(l.length) time complexity and O(1) space complexity, since this is what you will be asked to accomplish in an interview._
 
 Given a singly linked list, reverse and return it.
 
@@ -10,22 +9,21 @@ For `l = [1, 2, 3, 4, 5]`, the output should be\
 
 Input/Output
 
--   [execution time limit] 4 seconds (py3)
+- [execution time limit] 4 seconds (py3)
 
--   [input] linkedlist.integer l
+- [input] linkedlist.integer l
 
-    A singly linked list of integers.
+  A singly linked list of integers.
 
-    *Guaranteed constraints:*\
-    `0 ≤ l.length ≤ 10^5^`,\
-    `-10^9^ ≤ l.value ≤ 10^9^`.
+  _Guaranteed constraints:_\
+  `0 ≤ l.length ≤ 10^5^`,\
+  `-10^9^ ≤ l.value ≤ 10^9^`.
 
--   [output] linkedlist.integer
+- [output] linkedlist.integer
 
-    Reversed `l`.
+  Reversed `l`.
 
 ---
-
 
 # Code:
 
@@ -38,7 +36,6 @@ Input/Output
 #
 def reverseLinkedList(l):
 ```
-
 
 # Code:
 
@@ -61,47 +58,41 @@ def reverseLinkedList(l):
 
 ```
 
+---
 
 ---
----
----
-2.  Provide a summary of your solution to this challenge. Describe the process that you went through during your attempts to solve it. What
-specific obstacles or difficulties did you encounter in the process of solving it?
-
-
->The idea is to use three-pointers: next . current , previous and move them down the list. Here. current is the main pointer running down the list, next leads it, and previous trails it. For each step, reverse the current pointer and then advance all three to get the next node.
-
-
-Iterate through the linked list. In loop, do following. 
-- Before changing next of current, 
-- store next node 
-next = curr->next
-- Now change next of current 
-- This is where actual reversing happens 
-curr->next = prev 
-- Move prev and curr one step forward 
-prev = curr 
-curr = next
-
 
 ---
+
+2.  Provide a summary of your solution to this challenge. Describe the process that you went through during your attempts to solve it. What specific obstacles or difficulties did you encounter in the process of solving it?
+
+> The idea is to use three-pointers: next . current , previous and move them down the list. Here. current is the main pointer running down the list, next leads it, and previous trails it. For each step, reverse the current pointer and then advance all three to get the next node.
+
+Iterate through the linked list. In loop, do following.
+
+- Before changing next of current,
+- store next node next = curr->next
+- Now change next of current
+- This is where actual reversing happens curr->next = prev
+- Move prev and curr one step forward prev = curr curr = next
+
 ---
----
-3.  Explain the time and space complexity of your solution. Is that the most efficient approach? If not, how could you improve the time
-and/or space complexity of your solution?
-
-
-
-
-
 
 ---
----
----
-4.  
-You are given the `root` node of a binary search tree (BST).
 
-You need to write a function that returns the sum of values of all the nodes with a value between `lower` and `upper` (*inclusive*).
+---
+
+3.  Explain the time and space complexity of your solution. Is that the most efficient approach? If not, how could you improve the time and/or space complexity of your solution?
+
+---
+
+---
+
+---
+
+4.  You are given the `root` node of a binary search tree (BST).
+
+You need to write a function that returns the sum of values of all the nodes with a value between `lower` and `upper` (_inclusive_).
 
 The BST is guaranteed to have unique values.
 
@@ -145,18 +136,15 @@ Output:
 
 ```
 
--   [execution time limit] 4 seconds (py3)
+- [execution time limit] 4 seconds (py3)
 
--   [input] tree.integer root
+- [input] tree.integer root
 
--   [input] integer lower
+- [input] integer lower
 
--   [input] integer upper
+- [input] integer upper
 
--   [output] integer
-
-
-
+- [output] integer
 
 # Code:
 
@@ -179,58 +167,43 @@ def csBSTRangeSum(root, lower, upper):
 
 ```
 
+---
 
 ---
----
----
-5. Provide a summary of your solution to this challenge. Describe the process that you went through during your attempts to solve it. What
-specific obstacles or difficulties did you encounter in the process of solving it?
-
-
-
-
-
 
 ---
----
----
-6.   Explain the time and space complexity of your solution. Is that the most efficient approach? If not, how could you improve the time
-and/or space complexity of your solution?
 
-
-
-
-
+5. Provide a summary of your solution to this challenge. Describe the process that you went through during your attempts to solve it. What specific obstacles or difficulties did you encounter in the process of solving it?
 
 ---
+
 ---
+
 ---
-7.   
-Given a binary tree, write a function that inverts the tree.
+
+6.  Explain the time and space complexity of your solution. Is that the most efficient approach? If not, how could you improve the time and/or space complexity of your solution?
+
+---
+
+---
+
+---
+
+7.  Given a binary tree, write a function that inverts the tree.
 
 Example:
 
-Input:
-     6
-   /   \
-  4     8
- / \   / \
-2   5 7   9
+Input: 6 / \
+ 4 8 / \ / \
+2 5 7 9
 
-Output:
-     6
-   /   \
-  8     4
- / \   / \
-9   7 5   2
-[execution time limit] 4 seconds (py3)
+Output: 6 / \
+ 8 4 / \ / \
+9 7 5 2 [execution time limit] 4 seconds (py3)
 
 [input] tree.integer root
 
 [output] tree.integer
-
-
-
 
 # Code:
 
@@ -253,31 +226,24 @@ def csBinaryTreeInvert(root):
 
 ```
 
-
----
----
----
-8.   Provide a summary of your solution to this challenge. Describe the process that you went through during your attempts to solve it. What
-specific obstacles or difficulties did you encounter in the process of solving it?
-
-
-
-
-
-
----
----
----
-9.   Explain the time and space complexity of your solution. Is that the most efficient approach? If not, how could you improve the time
-and/or space complexity of your solution?
-
-
-
-
-
-
----
----
 ---
 
+---
 
+---
+
+8.  Provide a summary of your solution to this challenge. Describe the process that you went through during your attempts to solve it. What specific obstacles or difficulties did you encounter in the process of solving it?
+
+---
+
+---
+
+---
+
+9.  Explain the time and space complexity of your solution. Is that the most efficient approach? If not, how could you improve the time and/or space complexity of your solution?
+
+---
+
+---
+
+---

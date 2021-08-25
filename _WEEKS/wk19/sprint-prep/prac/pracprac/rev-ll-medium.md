@@ -6,8 +6,6 @@
 
 ![Sergey Piterman](https://miro.medium.com/fit/c/96/96/0*eujYC2aAv0Wq5lhJ.)
 
-
-
 ](https://sergeypiterman.medium.com/?source=post_page-----560fbffe2088--------------------------------)
 
 ![](https://miro.medium.com/max/1400/1*iwHAPh-6vYhKHs4-wD4CiA.png)
@@ -25,10 +23,10 @@ The first is to start from the head and the tail, and swap the elements in the l
 The problem with this is if your ListNode class looks like this:
 
 class ListNode { constructor(value) { this.value = value;  
-    this.next = null; }  
+ this.next = null; }  
 }let node1 = new ListNode(1);/\* How node1 looks on the inside:{  
-  value: 1  
-  next: null  
+ value: 1  
+ next: null  
 }\*/
 
 Then you only have a single reference to the next node in the list, but no reference to the previous node. This means there’s no way for the pointer at the end to move backwards through the list.
@@ -37,7 +35,7 @@ The second approach is to dump the contents of a linked list into some other dat
 
 This seems like a reasonable approach, and works well when the data we’re working with in the nodes is small, or we don’t have a large number of nodes. Like in this example, where our nodes are only holding integers as their values, and we only have 3 nodes.
 
-(1) -> (2) -> (3) \==>  \[1, 2, 3\] \==>  \[3, 2, 1\]\==>  (3) -> (2) -> (1)
+(1) -> (2) -> (3) \==> \[1, 2, 3\] \==> \[3, 2, 1\]\==> (3) -> (2) -> (1)
 
 But the problem with doing this is that it eats up a lot of unnecessary space. What if instead of integers, we were holding much more complex data? Or what if we had A LOT of nodes and we can’t just replicate all their contents because we just don’t have the RAM or disk space?
 
@@ -99,9 +97,9 @@ Let’s start with the first point. Initially, we want both the `current` and th
 This is because we can’t assume the length of the linked list. What if `head` was `null` and we’re looking at an empty list?
 
 function reverse(head) {// Step 1  
-  let previous = null  
-  let current = head  
-  let following = head}
+ let previous = null  
+ let current = head  
+ let following = head}
 
 If we do have at least one node in our list, we will end up assigning our `following` variable to whatever comes next, but we first need to be sure we have at least one.
 
@@ -114,10 +112,10 @@ Well if your goal is to look at EVERY node, and reassign its `next` property to 
 Eventually though, it will reach the last node’s `next`, which ALWAYS points to `null` . So we can can run this function `while (current !== null)`
 
 function reverse(head) {// Step 1  
-  let previous = null  
-  let current = head  
-  let following = head// Step 2  
-  while(current !== null) { }}  
+ let previous = null  
+ let current = head  
+ let following = head// Step 2  
+ while(current !== null) { }}
 
 ![](https://miro.medium.com/max/1400/1*e-YtIM0myJ8u4pHbf-oK0Q.png)
 
@@ -128,50 +126,50 @@ That while loop we just made won’t run unless we have at least one node. But o
 Remember, before this point `following` was equal to `current`.
 
 function reverse(head) {// Step 1  
-  let previous = null  
-  let current = head  
-  let following = head// Step 2  
-  while(current !== null) {  
-    following = following.next  // <===== 2a }}
+ let previous = null  
+ let current = head  
+ let following = head// Step 2  
+ while(current !== null) {  
+ following = following.next // <===== 2a }}
 
 ![](https://miro.medium.com/max/1400/1*0Jans-aYx82quNdQzLHXVQ.png)
 
 Then we want to do the reassignment of `current.next` , since we have all three pointers in place. This is the logic of actually reversing the linked list. We set `current.next` equal to `previous` , which at this point is equal to `null` .
 
 function reverse(head) {// Step 1  
-  let previous = null  
-  let current = head  
-  let following = head// Step 2  
-  while(current !== null) {  
-    following = following.next   
-    current.next = previous      // <===== 2b }}
+ let previous = null  
+ let current = head  
+ let following = head// Step 2  
+ while(current !== null) {  
+ following = following.next  
+ current.next = previous // <===== 2b }}
 
 ![](https://miro.medium.com/max/1400/1*NZ4AlSDZo35AyIyaEwQWDQ.png)
 
 Once we’ve done that, we can move `previous` up to equal `current` , since we’re done with that node.
 
 function reverse(head) {// Step 1  
-  let previous = null  
-  let current = head  
-  let following = head// Step 2  
-  while(current !== null) {  
-    following = following.next  
-    current.next = previous  
-    previous = current          // <===== 2c }}
+ let previous = null  
+ let current = head  
+ let following = head// Step 2  
+ while(current !== null) {  
+ following = following.next  
+ current.next = previous  
+ previous = current // <===== 2c }}
 
 ![](https://miro.medium.com/max/1400/1*Wzo9aRkPWI6YV4FFAEtv-Q.png)
 
 And then finally we can move `current` up by setting it equal to `following` .
 
 function reverse(head) {// Step 1  
-  let previous = null  
-  let current = head  
-  let following = head// Step 2  
-  while(current !== null) {  
-    following = following.next  
-    current.next = previous  
-    previous = current            
-    current = following         // <===== 2d }}
+ let previous = null  
+ let current = head  
+ let following = head// Step 2  
+ while(current !== null) {  
+ following = following.next  
+ current.next = previous  
+ previous = current  
+ current = following // <===== 2d }}
 
 ![](https://miro.medium.com/max/1400/1*3QHZ51QY_MfiDj3GB-FxDw.png)
 
@@ -193,15 +191,15 @@ Well following the diagram and code it should be pretty clear. Since the while l
 Which means we’re going to be returning `previous` , since it’s pointing to the node right before `current`.
 
 function reverse(head) {// Step 1  
-  let previous = null  
-  let current = head  
-  let following = head// Step 2  
-  while(current !== null) {  
-    following = following.next  
-    current.next = previous  
-    previous = current            
-    current = following }// Step 3    
-  return previous}
+ let previous = null  
+ let current = head  
+ let following = head// Step 2  
+ while(current !== null) {  
+ following = following.next  
+ current.next = previous  
+ previous = current  
+ current = following }// Step 3  
+ return previous}
 
 ![](https://miro.medium.com/max/1400/1*Z8Of0kzeo3AuPaJ-l9c9gw.png)
 
@@ -214,6 +212,5 @@ If you’re looking for a challenge from here, try swapping two nodes in a linke
 ![](https://miro.medium.com/max/1400/1*3yL7LvtDZoqf6G3pj6dlVw.png)
 
 Enjoy!
-
 
 [Source](https://medium.com/outco/reversing-a-linked-list-easy-as-1-2-3-560fbffe2088)

@@ -1,143 +1,523 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>notes</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-</head>
-<body>
-<h1 id="objective-01---recall-the-time-and-space-complexity-the-strengths-and-weaknesses-and-the-common-uses-of-a-linked-list">Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a linked list</h1>
-<h2 id="overview">Overview</h2>
-<p>What is a linked list, and how is it different from an array? How efficient or inefficient are its operations? What are its strengths and weaknesses? How can I construct and interact with a linked list? By the end of this objective, you will be able to answer all of these questions confidently.</p>
-<h2 id="follow-along">Follow Along</h2>
-<h3 id="basic-properties-of-a-linked-list">Basic Properties of a Linked List</h3>
-<p>A linked list is a simple, linear data structure used to store a collection of elements. Unlike an array, each element in a linked list does not have to be stored contiguously in memory.</p>
-<p>For example, in an array, each element of the list <code>[43, 32, 63</code> is stored in memory like so:</p>
-<figure>
-<img src="https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg" alt="https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg" /><figcaption>https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg</figcaption>
-</figure>
-<p><code>43</code> is the first item in the collection and is therefore stored in the first slot. <code>32</code> is the second item and is stored immediately next to <code>43</code> in memory. This pattern continues on and on.</p>
-<p>In a linked list, each element of the list could be stored like so:</p>
-<figure>
-<img src="https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg" alt="https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg" /><figcaption>https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg</figcaption>
-</figure>
-<p>You can see here that the elements can be spaced out in memory. Because the elements are not stored contiguously, each element in memory must contain information about the next element in the list. The first item stores the data <code>43</code> and the location in memory (<code>*3</code>) for the next item in the list. This example is simplified; the second item in the list <code>32</code> could be located anywhere in memory. It could even come before the first item in memory.</p>
-<p>You might also be wondering what types of data can be stored in a linked list. Pretty much any type of data can be stored in a linked list. Strings, numbers, booleans, and other data structures can be stored. You should not feel limited using a linked list based on what type of data you are trying to store.</p>
-<p>Are the elements in a linked list are sorted or unsorted? The elements in a linked list can be either sorted or unsorted. There is nothing about the data structure that forces the elements to be sorted or unsorted. You cannot determine if a linked list’s elements are sorted by determining they are stored in a linked list.</p>
-<p>What about duplicates? Can a linked list contain them? Linked lists can contain duplicates. There is nothing about the linked list data structure that would prevent duplicates from being stored. When you encounter a linked list, you should know that it can contain duplicates.</p>
-<p>Are there different types of linked lists? If so, what are they? There are three types of linked lists: singly linked list (SLL), doubly linked list (DLL), and circular linked list. All linked lists are made up of nodes where each node stores the data and also information about other nodes in the linked list.</p>
-<p>Each singly linked list node stores the data and a pointer where the next node in the list is located. Because of this, you can only navigate in the forward direction in a singly linked list. To traverse an SLL, you need a reference to the first node called the head. From the head of the list, you can visit all the other nodes using the next pointers.</p>
-<p>The difference between an SLL and a doubly linked list (DLL) is that each node in a DLL also stores a reference to the previous item. Because of this, you can navigate forward and backward in the list. A DLL also usually stores a pointer to the last item in the list (called the tail).</p>
-<p>A Circular Linked List links the last node back to the first node in the list. This linkage causes a circular traversal; when you get to the end of the list, the next item will be back at the beginning of the list. Each type of linked list is similar but has small distinctions. When working with linked lists, it’s essential to know what type of linked list.</p>
-<h3 id="time-and-space-complexity">Time and Space Complexity</h3>
-<h4 id="lookup">Lookup</h4>
-<p>To look up an item by index in a linked list is linear time (<code>O(n)</code>). To traverse through a linked list, you have to start with the head reference to the node and then follow each subsequent pointer to the next item in the chain. Because each item in the linked list is not stored contiguously in memory, you cannot access a specific index of the list using simple math. The distance in memory between one item and the next is varied and unknown.</p>
-<h4 id="append">Append</h4>
-<p>Adding an item to a linked list is constant time (<code>O(1)</code>). We always have a reference point to the tail of the linked list, so we can easily insert an item after the tail.</p>
-<h4 id="insert">Insert</h4>
-<p>In the worst case, inserting an item in a linked list is linear time (<code>O(n)</code>). To insert an item at a specific index, we have to traverse — starting at the head — until we reach the desired index.</p>
-<h4 id="delete">Delete</h4>
-<p>In the worst case, deleting an item in a linked list is linear time (<code>O(n)</code>). Just like insertion, deleting an item at a specific index means traversing the list starting at the head.</p>
-<h4 id="space">Space</h4>
-<p>The space complexity of a linked list is linear (<code>O(n)</code>). Each item in the linked list will take up space in memory.</p>
-<h3 id="strengths-of-a-linked-list">Strengths of a Linked List</h3>
-<p>The primary strength of a linked list is that operations on the linked list’s ends are fast. This is because the linked list always has a reference to the head (the first node) and the tail (the last node) of the list. Because it has a reference, doing anything on the ends is a constant time operation (<code>O(1)</code>) no matter how many items are stored in the linked list. Additionally, just like a dynamic array, you don’t have to set a capacity to a linked list when you instantiate it. If you don’t know the size of the data you are storing, or if the amount of data is likely to fluctuate, linked lists can work well. One benefit over a dynamic array is that you don’t have doubling appends. This is because each item doesn’t have to be stored contiguously; whenever you add an item, you need to find an open spot in memory to hold the next node.</p>
-<h3 id="weaknesses-of-a-linked-list">Weaknesses of a Linked List</h3>
-<p>The main weakness of a linked list is not efficiently accessing an “index” in the middle of the list. The only way that the linked list can get to the seventh item in the linked list is by going to the head node and then traversing one node at a time until you arrive at the seventh node. You can’t do simple math and jump from the first item to the seventh.</p>
-<h3 id="what-data-structures-are-built-on-linked-lists">What data structures are built on linked lists?</h3>
-<p>Remember that linked lists have efficient operations on the ends (head and tail). There are two structures that only operate on the ends; queues and stacks. So, most queue or stack implementations use a linked list as their underlying data structure.</p>
-<h3 id="why-is-a-linked-list-different-than-an-array-what-problem-does-it-solve">Why is a linked list different than an array? What problem does it solve?</h3>
-<p>We can see the difference between how a linked list and an array are stored in memory, but why is this important? Once you see the problem with the way arrays are stored in memory, the benefits of a linked list become clearer.</p>
-<p>The primary problem with arrays is that they hold data contiguously in memory. Remember that having the data stored contiguously is the feature that gives them quick lookups. If I know where the first item is stored, I can use simple math to figure out where the fifth item is stored. The reason that this is a problem is that it means that when you create an array, you either have to know how much space in memory you need to set aside, or you have to set aside a bunch of extra memory that you might not need, just in case you do need it. In other words, you can be space-efficient by only setting aside the memory you need at the moment. But, in doing that, you are setting yourself up for low time efficiency if you run out of room and need to copy all of your elements to a newer, bigger array.</p>
-<p>With a linked list, the elements are not stored side-by-side in memory. Each element can be stored anywhere in memory. In addition to storing the data for that element, each element also stores a pointer to the memory location of the next element in the list. The elements in a linked list do not have an index. To get to a specific element in a linked list, you have to start at the head of the linked list and work your way through the list, one element at a time, to reach the specific element you are searching for. Now you can see how a linked list solves some of the problems that the array data structure has.</p>
-<h3 id="how-do-you-represent-a-linked-list-graphically-and-in-python-code">How do you represent a linked list graphically and in Python code?</h3>
-<p>Let’s look at how we can represent a singly linked list graphically and in Python code. Seeing a singly linked list represented graphically and in code can help you understand it better.</p>
-<p>How do you represent a singly linked list graphically? Let’s say you wanted to store the numbers 1, 2, and 3. You would need to create three nodes. Then, each of these nodes would be linked together using the pointers.</p>
-<figure>
-<img src="https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg" alt="https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg" /><figcaption>https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg</figcaption>
-</figure>
-<p>Notice that the last element or node in the linked list does not have a pointer to any other node. This fact is how you know you are at the end of the linked list.</p>
-<p>What does a singly linked list implementation look like in Python? Let’s start by writing a <code>LinkedListNode</code> class for each element in the linked list.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> LinkedListNode:</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>notes</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1
+      id="objective-01---recall-the-time-and-space-complexity-the-strengths-and-weaknesses-and-the-common-uses-of-a-linked-list"
+    >
+      Objective 01 - Recall the time and space complexity, the strengths and
+      weaknesses, and the common uses of a linked list
+    </h1>
+    <p>
+      <strong>Why Linked List?</strong><br />
+      Arrays can be used to store linear data of similar types, but arrays have
+      the following limitations.<br />
+      <strong>1)</strong> The size of the arrays is fixed: So we must know the
+      upper limit on the number of elements in advance. Also, generally, the
+      allocated memory is equal to the upper limit irrespective of the usage.<br />
+      <strong>2)</strong> Inserting a new element in an array of elements is
+      expensive because the room has to be created for the new elements and to
+      create room existing elements have to be shifted.<br />
+      For example, in a system, if we maintain a sorted list of IDs in an array
+      id[].<br />
+      id[] = [1000, 1010, 1050, 2000, 2040].<br />
+      And if we want to insert a new ID 1005, then to maintain the sorted order,
+      we have to move all the elements after 1000 (excluding 1000).<br />
+      Deletion is also expensive with arrays until unless some special
+      techniques are used. For example, to delete 1010 in id[], everything after
+      1010 has to be moved.<br />
+      <strong>Advantages over arrays</strong><br />
+      <strong>1)</strong> Dynamic size<br />
+      <strong>2)</strong> Ease of insertion/deletion<br />
+      <strong>Drawbacks:</strong><br />
+      <strong>1)</strong> Random access is not allowed. We have to access
+      elements sequentially starting from the first node. So we cannot do binary
+      search with linked lists efficiently with its default implementation. Read
+      about it <a
+        href="https://www.geeksforgeeks.org/binary-search-on-singly-linked-list/"
+        >here</a
+      >.<br />
+      <strong>2)</strong> Extra memory space for a pointer is required with each
+      element of the list.<br />
+      <strong>3)</strong> Not cache friendly. Since array elements are
+      contiguous locations, there is locality of reference which is not there in
+      case of linked lists.<br />
+      <strong>Representation:</strong><br />
+      A linked list is represented by a pointer to the first node of the linked
+      list. The first node is called the head. If the linked list is empty, then
+      the value of the head is NULL.<br />
+      Each node in a list consists of at least two parts:<br />
+      1) data<br />
+      2) Pointer (Or Reference) to the next node<br />
+      In C, we can represent a node using structures. Below is an example of a
+      linked list node with integer data.<br />
+      In Java or C#, LinkedList can be represented as a class and a Node as a
+      separate class. The LinkedList class contains a reference of Node class
+      type.
+    </p>
+    <h2 id="overview">Overview</h2>
+    <p>
+      What is a linked list, and how is it different from an array? How
+      efficient or inefficient are its operations? What are its strengths and
+      weaknesses? How can I construct and interact with a linked list? By the
+      end of this objective, you will be able to answer all of these questions
+      confidently.
+    </p>
+    <h2 id="follow-along">Follow Along</h2>
+    <h3 id="basic-properties-of-a-linked-list">
+      Basic Properties of a Linked List
+    </h3>
+    <p>
+      A linked list is a simple, linear data structure used to store a
+      collection of elements. Unlike an array, each element in a linked list
+      does not have to be stored contiguously in memory.
+    </p>
+    <p>
+      For example, in an array, each element of the list <code>[43, 32, 63</code
+      > is stored in memory like so:
+    </p>
+    <figure>
+      <img
+        src="https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg"
+        alt="https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg"
+      />
+      <figcaption>
+        https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg
+      </figcaption>
+    </figure>
+    <p>
+      <code>43</code> is the first item in the collection and is therefore
+      stored in the first slot. <code>32</code> is the second item and is stored
+      immediately next to <code>43</code> in memory. This pattern continues on
+      and on.
+    </p>
+    <p>In a linked list, each element of the list could be stored like so:</p>
+    <figure>
+      <img
+        src="https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg"
+        alt="https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg"
+      />
+      <figcaption>
+        https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg
+      </figcaption>
+    </figure>
+    <p>
+      You can see here that the elements can be spaced out in memory. Because
+      the elements are not stored contiguously, each element in memory must
+      contain information about the next element in the list. The first item
+      stores the data <code>43</code> and the location in memory
+      (<code>*3</code>) for the next item in the list. This example is
+      simplified; the second item in the list <code>32</code> could be located
+      anywhere in memory. It could even come before the first item in memory.
+    </p>
+    <p>
+      You might also be wondering what types of data can be stored in a linked
+      list. Pretty much any type of data can be stored in a linked list.
+      Strings, numbers, booleans, and other data structures can be stored. You
+      should not feel limited using a linked list based on what type of data you
+      are trying to store.
+    </p>
+    <p>
+      Are the elements in a linked list are sorted or unsorted? The elements in
+      a linked list can be either sorted or unsorted. There is nothing about the
+      data structure that forces the elements to be sorted or unsorted. You
+      cannot determine if a linked list’s elements are sorted by determining
+      they are stored in a linked list.
+    </p>
+    <p>
+      What about duplicates? Can a linked list contain them? Linked lists can
+      contain duplicates. There is nothing about the linked list data structure
+      that would prevent duplicates from being stored. When you encounter a
+      linked list, you should know that it can contain duplicates.
+    </p>
+    <p>
+      Are there different types of linked lists? If so, what are they? There are
+      three types of linked lists: singly linked list (SLL), doubly linked list
+      (DLL), and circular linked list. All linked lists are made up of nodes
+      where each node stores the data and also information about other nodes in
+      the linked list.
+    </p>
+    <p>
+      Each singly linked list node stores the data and a pointer where the next
+      node in the list is located. Because of this, you can only navigate in the
+      forward direction in a singly linked list. To traverse an SLL, you need a
+      reference to the first node called the head. From the head of the list,
+      you can visit all the other nodes using the next pointers.
+    </p>
+    <p>
+      The difference between an SLL and a doubly linked list (DLL) is that each
+      node in a DLL also stores a reference to the previous item. Because of
+      this, you can navigate forward and backward in the list. A DLL also
+      usually stores a pointer to the last item in the list (called the tail).
+    </p>
+    <p>
+      A Circular Linked List links the last node back to the first node in the
+      list. This linkage causes a circular traversal; when you get to the end of
+      the list, the next item will be back at the beginning of the list. Each
+      type of linked list is similar but has small distinctions. When working
+      with linked lists, it’s essential to know what type of linked list.
+    </p>
+    <h3 id="time-and-space-complexity">Time and Space Complexity</h3>
+    <h4 id="lookup">Lookup</h4>
+    <p>
+      To look up an item by index in a linked list is linear time
+      (<code>O(n)</code>). To traverse through a linked list, you have to start
+      with the head reference to the node and then follow each subsequent
+      pointer to the next item in the chain. Because each item in the linked
+      list is not stored contiguously in memory, you cannot access a specific
+      index of the list using simple math. The distance in memory between one
+      item and the next is varied and unknown.
+    </p>
+    <h4 id="append">Append</h4>
+    <p>
+      Adding an item to a linked list is constant time (<code>O(1)</code>). We
+      always have a reference point to the tail of the linked list, so we can
+      easily insert an item after the tail.
+    </p>
+    <h4 id="insert">Insert</h4>
+    <p>
+      In the worst case, inserting an item in a linked list is linear time
+      (<code>O(n)</code>). To insert an item at a specific index, we have to
+      traverse — starting at the head — until we reach the desired index.
+    </p>
+    <h4 id="delete">Delete</h4>
+    <p>
+      In the worst case, deleting an item in a linked list is linear time
+      (<code>O(n)</code>). Just like insertion, deleting an item at a specific
+      index means traversing the list starting at the head.
+    </p>
+    <h4 id="space">Space</h4>
+    <p>
+      The space complexity of a linked list is linear (<code>O(n)</code>). Each
+      item in the linked list will take up space in memory.
+    </p>
+    <h3 id="strengths-of-a-linked-list">Strengths of a Linked List</h3>
+    <p>
+      The primary strength of a linked list is that operations on the linked
+      list’s ends are fast. This is because the linked list always has a
+      reference to the head (the first node) and the tail (the last node) of the
+      list. Because it has a reference, doing anything on the ends is a constant
+      time operation (<code>O(1)</code>) no matter how many items are stored in
+      the linked list. Additionally, just like a dynamic array, you don’t have
+      to set a capacity to a linked list when you instantiate it. If you don’t
+      know the size of the data you are storing, or if the amount of data is
+      likely to fluctuate, linked lists can work well. One benefit over a
+      dynamic array is that you don’t have doubling appends. This is because
+      each item doesn’t have to be stored contiguously; whenever you add an
+      item, you need to find an open spot in memory to hold the next node.
+    </p>
+    <h3 id="weaknesses-of-a-linked-list">Weaknesses of a Linked List</h3>
+    <p>
+      The main weakness of a linked list is not efficiently accessing an “index”
+      in the middle of the list. The only way that the linked list can get to
+      the seventh item in the linked list is by going to the head node and then
+      traversing one node at a time until you arrive at the seventh node. You
+      can’t do simple math and jump from the first item to the seventh.
+    </p>
+    <h3 id="what-data-structures-are-built-on-linked-lists">
+      What data structures are built on linked lists?
+    </h3>
+    <p>
+      Remember that linked lists have efficient operations on the ends (head and
+      tail). There are two structures that only operate on the ends; queues and
+      stacks. So, most queue or stack implementations use a linked list as their
+      underlying data structure.
+    </p>
+    <h3
+      id="why-is-a-linked-list-different-than-an-array-what-problem-does-it-solve"
+    >
+      Why is a linked list different than an array? What problem does it solve?
+    </h3>
+    <p>
+      We can see the difference between how a linked list and an array are
+      stored in memory, but why is this important? Once you see the problem with
+      the way arrays are stored in memory, the benefits of a linked list become
+      clearer.
+    </p>
+    <p>
+      The primary problem with arrays is that they hold data contiguously in
+      memory. Remember that having the data stored contiguously is the feature
+      that gives them quick lookups. If I know where the first item is stored, I
+      can use simple math to figure out where the fifth item is stored. The
+      reason that this is a problem is that it means that when you create an
+      array, you either have to know how much space in memory you need to set
+      aside, or you have to set aside a bunch of extra memory that you might not
+      need, just in case you do need it. In other words, you can be
+      space-efficient by only setting aside the memory you need at the moment.
+      But, in doing that, you are setting yourself up for low time efficiency if
+      you run out of room and need to copy all of your elements to a newer,
+      bigger array.
+    </p>
+    <p>
+      With a linked list, the elements are not stored side-by-side in memory.
+      Each element can be stored anywhere in memory. In addition to storing the
+      data for that element, each element also stores a pointer to the memory
+      location of the next element in the list. The elements in a linked list do
+      not have an index. To get to a specific element in a linked list, you have
+      to start at the head of the linked list and work your way through the
+      list, one element at a time, to reach the specific element you are
+      searching for. Now you can see how a linked list solves some of the
+      problems that the array data structure has.
+    </p>
+    <h3 id="how-do-you-represent-a-linked-list-graphically-and-in-python-code">
+      How do you represent a linked list graphically and in Python code?
+    </h3>
+    <p>
+      Let’s look at how we can represent a singly linked list graphically and in
+      Python code. Seeing a singly linked list represented graphically and in
+      code can help you understand it better.
+    </p>
+    <p>
+      How do you represent a singly linked list graphically? Let’s say you
+      wanted to store the numbers 1, 2, and 3. You would need to create three
+      nodes. Then, each of these nodes would be linked together using the
+      pointers.
+    </p>
+    <figure>
+      <img
+        src="https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg"
+        alt="https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg"
+      />
+      <figcaption>
+        https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg
+      </figcaption>
+    </figure>
+    <p>
+      Notice that the last element or node in the linked list does not have a
+      pointer to any other node. This fact is how you know you are at the end of
+      the linked list.
+    </p>
+    <p>
+      What does a singly linked list implementation look like in Python? Let’s
+      start by writing a <code>LinkedListNode</code> class for each element in
+      the linked list.
+    </p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> LinkedListNode:</a>
 <a class="sourceLine" id="cb1-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data<span class="op">=</span><span class="va">None</span>, <span class="bu">next</span><span class="op">=</span><span class="va">None</span>):</a>
 <a class="sourceLine" id="cb1-3" title="3">        <span class="va">self</span>.data <span class="op">=</span> data</a>
-<a class="sourceLine" id="cb1-4" title="4">        <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="bu">next</span></a></code></pre></div>
-<p>Now, we need to build out the class for the <code>LinkedList</code> itself:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> LinkedList:</a>
+<a class="sourceLine" id="cb1-4" title="4">        <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="bu">next</span></a></code></pre>
+    </div>
+    <p>
+      Now, we need to build out the class for
+      the <code>LinkedList</code> itself:
+    </p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> LinkedList:</a>
 <a class="sourceLine" id="cb2-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, head<span class="op">=</span><span class="va">None</span>):</a>
-<a class="sourceLine" id="cb2-3" title="3">        <span class="va">self</span>.head <span class="op">=</span> head</a></code></pre></div>
-<p>Our class is super simple so far and only includes an initialization method. Let’s add an <code>append</code> method so that we can add nodes to the end of our list:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> LinkedList:</a>
+<a class="sourceLine" id="cb2-3" title="3">        <span class="va">self</span>.head <span class="op">=</span> head</a></code></pre>
+    </div>
+    <p>
+      Our class is super simple so far and only includes an initialization
+      method. Let’s add an <code>append</code> method so that we can add nodes
+      to the end of our list:
+    </p>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> LinkedList:</a>
 <a class="sourceLine" id="cb3-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, head<span class="op">=</span><span class="va">None</span>):</a>
 <a class="sourceLine" id="cb3-3" title="3">        <span class="va">self</span>.head <span class="op">=</span> head</a>
 <a class="sourceLine" id="cb3-4" title="4"></a>
@@ -152,9 +532,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb3-13" title="13"></a>
 <a class="sourceLine" id="cb3-14" title="14">            current.<span class="bu">next</span> <span class="op">=</span> new_node</a>
 <a class="sourceLine" id="cb3-15" title="15">         <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb3-16" title="16">             <span class="va">self</span>.head <span class="op">=</span> new_node</a></code></pre></div>
-<p>Now, let’s use our simple class definitions for <code>LinkedListNode</code> and <code>LinkedList</code> to create a linked list of elements <code>1</code>, <code>2</code>, and <code>3</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> LinkedListNode(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb3-16" title="16">             <span class="va">self</span>.head <span class="op">=</span> new_node</a></code></pre>
+    </div>
+    <p>
+      Now, let’s use our simple class definitions
+      for <code>LinkedListNode</code> and <code>LinkedList</code> to create a
+      linked list of elements <code>1</code>, <code>2</code>,
+      and <code>3</code>.
+    </p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> LinkedListNode(<span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb4-2" title="2"><span class="op">&gt;&gt;&gt;</span> my_ll <span class="op">=</span> LinkedList(a)</a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="op">&gt;&gt;&gt;</span> my_ll.append(<span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="op">&gt;&gt;&gt;</span> my_ll.append(<span class="dv">3</span>)</a>
@@ -164,19 +553,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb4-8" title="8"><span class="dv">2</span></a>
 <a class="sourceLine" id="cb4-9" title="9"><span class="op">&gt;&gt;&gt;</span> my_ll.head.<span class="bu">next</span>.<span class="bu">next</span>.data</a>
 <a class="sourceLine" id="cb4-10" title="10"><span class="dv">3</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="op">&gt;&gt;&gt;</span></a></code></pre></div>
-<p>You must be able to understand and interact with linked lists. You now know the basic properties and types of linked lists, what makes a linked list different from an array, what problem it solves, and how to represent them both graphically and in code. You now know enough about linked lists that you should be able to solve algorithmic code challenges that require a basic understanding of linked lists.</p>
-<h2 id="challenge">Challenge</h2>
-<ol type="1">
-<li>Draw out a model of a singly-linked list that stores the following integers in order: <code>3,2,6,5,7,9</code>.</li>
-<li>Draw out a model of a doubly-linked list that stores the following integers in order: <code>5,2,6,4,7,8</code>.</li>
-</ol>
-<h2 id="additional-resources">Additional Resources</h2>
-<ul>
-<li><a href="https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf">https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf (Links to an external site.)</a></li>
-<li><a href="https://www.youtube.com/watch?v=njTh_OwMljA">https://www.youtube.com/watch?v=njTh_OwMljA (Links to an external site.)</a><a href="https://www.youtube.com/watch?v=njTh_OwMljA"><img src="https://lambdaschool.instructure.com/images/play_overlay.png" /></a></li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># -*- coding: utf-8 -*-</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="op">&gt;&gt;&gt;</span></a></code></pre>
+    </div>
+    <p>
+      You must be able to understand and interact with linked lists. You now
+      know the basic properties and types of linked lists, what makes a linked
+      list different from an array, what problem it solves, and how to represent
+      them both graphically and in code. You now know enough about linked lists
+      that you should be able to solve algorithmic code challenges that require
+      a basic understanding of linked lists.
+    </p>
+    <h2 id="challenge">Challenge</h2>
+    <ol type="1">
+      <li>
+        Draw out a model of a singly-linked list that stores the following
+        integers in order: <code>3,2,6,5,7,9</code>.
+      </li>
+      <li>
+        Draw out a model of a doubly-linked list that stores the following
+        integers in order: <code>5,2,6,4,7,8</code>.
+      </li>
+    </ol>
+    <h2 id="additional-resources">Additional Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf"
+          >https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf (Links
+          to an external site.)</a
+        >
+      </li>
+      <li>
+        <a href="https://www.youtube.com/watch?v=njTh_OwMljA"
+          >https://www.youtube.com/watch?v=njTh_OwMljA (Links to an external
+          site.)</a
+        ><a href="https://www.youtube.com/watch?v=njTh_OwMljA"
+          ><img
+            src="https://lambdaschool.instructure.com/images/play_overlay.png"
+        /></a>
+      </li>
+    </ul>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># -*- coding: utf-8 -*-</span></a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="co">&quot;&quot;&quot;Linked Lists.ipynb</span></a>
 <a class="sourceLine" id="cb5-3" title="3"></a>
 <a class="sourceLine" id="cb5-4" title="4"><span class="co">Automatically generated by Colaboratory.</span></a>
@@ -187,14 +607,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb5-9" title="9"><span class="co"># Linked Lists</span></a>
 <a class="sourceLine" id="cb5-10" title="10"><span class="co">- Non Contiguous abstract Data Structure</span></a>
 <a class="sourceLine" id="cb5-11" title="11"><span class="co">- Value (can be any value for our use we will just use numbers)</span></a>
-<a class="sourceLine" id="cb5-12" title="12"><span class="co">- Next (A pointer or reference to the next node in the list)</span></a></code></pre></div>
-<p>L1 = Node(34) L1.next = Node(45) L1.next.next = Node(90)</p>
-<h1 id="while-the-current-node-is-not-none">while the current node is not none</h1>
-<h1 id="do-something-with-the-data">do something with the data</h1>
-<h1 id="traverse-to-next-node">traverse to next node</h1>
-<p>L1 = [34]-&gt; [45]-&gt; [90] -&gt; None</p>
-<p>Node(45) Node(90)</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="co">- Next (A pointer or reference to the next node in the list)</span></a></code></pre>
+    </div>
+    <p>L1 = Node(34) L1.next = Node(45) L1.next.next = Node(90)</p>
+    <h1 id="while-the-current-node-is-not-none">
+      while the current node is not none
+    </h1>
+    <h1 id="do-something-with-the-data">do something with the data</h1>
+    <h1 id="traverse-to-next-node">traverse to next node</h1>
+    <p>L1 = [34]-&gt; [45]-&gt; [90] -&gt; None</p>
+    <p>Node(45) Node(90)</p>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="co">&quot;&quot;&quot;</span></a>
 <a class="sourceLine" id="cb6-2" title="2"></a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="co">class LinkedListNode:</span></a>
 <a class="sourceLine" id="cb6-4" title="4"><span class="co">  &quot;&quot;&quot;</span></a>
@@ -443,6 +869,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-247" title="247"><span class="co">        Implement this.</span></a>
 <a class="sourceLine" id="cb6-248" title="248"><span class="co">        &quot;&quot;&quot;</span></a>
 <a class="sourceLine" id="cb6-249" title="249">        <span class="co"># Your code here</span></a>
-<a class="sourceLine" id="cb6-250" title="250"></a></code></pre></div>
-</body>
+<a class="sourceLine" id="cb6-250" title="250"></a></code></pre>
+    </div>
+  </body>
 </html>

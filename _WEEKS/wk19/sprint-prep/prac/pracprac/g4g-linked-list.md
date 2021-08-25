@@ -3,90 +3,83 @@
 > A Computer Science portal for geeks. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Questions.
 
 Given pointer to the head node of a linked list, the task is to reverse the linked list. We need to reverse the list by changing links between nodes.  
-Examples: 
+Examples:
 
 Input : Head of following linked list  
-       1->2->3->4->NULL
-Output : Linked list should be changed to,
-       4->3->2->1->NULL
+ 1->2->3->4->NULL Output : Linked list should be changed to, 4->3->2->1->NULL
 
 Input : Head of following linked list  
-       1->2->3->4->5->NULL
-Output : Linked list should be changed to,
-       5->4->3->2->1->NULL
+ 1->2->3->4->5->NULL Output : Linked list should be changed to, 5->4->3->2->1->NULL
 
-Input : NULL
-Output : NULL
+Input : NULL Output : NULL
 
-Input  : 1->NULL
-Output : 1->NULL
+Input : 1->NULL Output : 1->NULL
 
-**Iterative Method**  
+**Iterative Method**
 
-*   Python
+- Python
 
-Python
-------
+## Python
 
 `class` `Node:`
 
- `def` `__init__(``self``, data):`
+`def` ` __init__(``self``, data): `
 
- `self``.data` `=` `data`
+` self``.data ` `=` `data`
 
- `self``.``next` `=` `None`
+` self``.``next ` `=` `None`
 
 `class` `LinkedList:`
 
- `def` `__init__(``self``):`
+`def` ` __init__(``self``): `
 
- `self``.head` `=` `None`
+` self``.head ` `=` `None`
 
- `def` `reverse(``self``):`
+`def` ` reverse(``self``): `
 
- `prev` `=` `None`
+`prev` `=` `None`
 
- `current` `=` `self``.head`
+`current` `=` ` self``.head `
 
- `while``(current` `is` `not` `None``):`
+` while``(current ` `is` `not` ` None``): `
 
- `next` `=` `current.``next`
+`next` `=` ` current.``next `
 
- `current.``next` `=` `prev`
+` current.``next ` `=` `prev`
 
- `prev` `=` `current`
+`prev` `=` `current`
 
- `current` `=` `next`
+`current` `=` `next`
 
- `self``.head` `=` `prev`
+` self``.head ` `=` `prev`
 
- `def` `push(``self``, new_data):`
+`def` ` push(``self``, new_data): `
 
- `new_node` `=` `Node(new_data)`
+`new_node` `=` `Node(new_data)`
 
- `new_node.``next` `=` `self``.head`
+` new_node.``next ` `=` ` self``.head `
 
- `self``.head` `=` `new_node`
+` self``.head ` `=` `new_node`
 
- `def` `printList(``self``):`
+`def` ` printList(``self``): `
 
- `temp` `=` `self``.head`
+`temp` `=` ` self``.head `
 
- `while``(temp):`
+` while``(temp): `
 
- `print` `temp.data,`
+`print` `temp.data,`
 
- `temp` `=` `temp.``next`
+`temp` `=` ` temp.``next `
 
 `llist` `=` `LinkedList()`
 
-`llist.push(``20``)`
+` llist.push(``20``) `
 
-`llist.push(``4``)`
+` llist.push(``4``) `
 
-`llist.push(``15``)`
+` llist.push(``15``) `
 
-`llist.push(``85``)`
+` llist.push(``85``) `
 
 `print` `"Given Linked List"`
 
@@ -98,93 +91,89 @@ Python
 
 `llist.printList()`
 
-**Output:** 
+**Output:**
 
-Given Linked List
-85 15 4 20 
-Reversed Linked List
-20 4 15 85
+Given Linked List 85 15 4 20 Reversed Linked List 20 4 15 85
 
-**A Simpler and Tail Recursive Method** 
+**A Simpler and Tail Recursive Method**
 
-*   Python
+- Python
 
-Python
-------
+## Python
 
 `class` `Node:`
 
- `def` `__init__(``self``, data):`
+`def` ` __init__(``self``, data): `
 
- `self``.data` `=` `data`
+` self``.data ` `=` `data`
 
- `self``.``next` `=` `None`
+` self``.``next ` `=` `None`
 
 `class` `LinkedList:`
 
- `def` `__init__(``self``):`
+`def` ` __init__(``self``): `
 
- `self``.head` `=` `None`
+` self``.head ` `=` `None`
 
- `def` `reverseUtil(``self``, curr, prev):`
+`def` ` reverseUtil(``self``, curr, prev): `
 
- `if` `curr.``next` `is` `None``:`
+`if` ` curr.``next ` `is` ` None``: `
 
- `self``.head` `=` `curr`
+` self``.head ` `=` `curr`
 
- `curr.``next` `=` `prev`
+` curr.``next ` `=` `prev`
 
- `return`
+`return`
 
- `next` `=` `curr.``next`
+`next` `=` ` curr.``next `
 
- `curr.``next` `=` `prev`
+` curr.``next ` `=` `prev`
 
- `self``.reverseUtil(``next``, curr)`
+` self``.reverseUtil(``next``, curr) `
 
- `def` `reverse(``self``):`
+`def` ` reverse(``self``): `
 
- `if` `self``.head` `is` `None``:`
+`if` ` self``.head ` `is` ` None``: `
 
- `return`
+`return`
 
- `self``.reverseUtil(``self``.head,` `None``)`
+` self``.reverseUtil(``self``.head, ` ` None``) `
 
- `def` `push(``self``, new_data):`
+`def` ` push(``self``, new_data): `
 
- `new_node` `=` `Node(new_data)`
+`new_node` `=` `Node(new_data)`
 
- `new_node.``next` `=` `self``.head`
+` new_node.``next ` `=` ` self``.head `
 
- `self``.head` `=` `new_node`
+` self``.head ` `=` `new_node`
 
- `def` `printList(``self``):`
+`def` ` printList(``self``): `
 
- `temp` `=` `self``.head`
+`temp` `=` ` self``.head `
 
- `while``(temp):`
+` while``(temp): `
 
- `print` `temp.data,`
+`print` `temp.data,`
 
- `temp` `=` `temp.``next`
+`temp` `=` ` temp.``next `
 
 `llist` `=` `LinkedList()`
 
-`llist.push(``8``)`
+` llist.push(``8``) `
 
-`llist.push(``7``)`
+` llist.push(``7``) `
 
-`llist.push(``6``)`
+` llist.push(``6``) `
 
-`llist.push(``5``)`
+` llist.push(``5``) `
 
-`llist.push(``4``)`
+` llist.push(``4``) `
 
-`llist.push(``3``)`
+` llist.push(``3``) `
 
-`llist.push(``2``)`
+` llist.push(``2``) `
 
-`llist.push(``1``)`
+` llist.push(``1``) `
 
 `print` `"Given linked list"`
 
@@ -197,6 +186,5 @@ Python
 `llist.printList()`
 
 Please refer complete article on [Reverse a linked list](https://www.geeksforgeeks.org/reverse-a-linked-list/) for more details!
-
 
 [Source](https://www.geeksforgeeks.org/python-program-for-reverse-a-linked-list/)

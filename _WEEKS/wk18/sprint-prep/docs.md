@@ -144,8 +144,7 @@ Context of reference to group "quote"
 
 Ways to reference it
 
-|  |
-|  |
+| | | |
 
 |
 
@@ -779,8 +778,7 @@ Python does not currently have an equivalent to `scanf()`. Regular expressions 
 
 Regular Expression
 
-|  |
-|  |
+| | | |
 
 |
 

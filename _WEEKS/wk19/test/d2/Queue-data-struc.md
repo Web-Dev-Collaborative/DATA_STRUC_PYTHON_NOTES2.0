@@ -6,8 +6,8 @@
 
 Before you continue reading about queue data structure, check these topics before to understand it clearly:
 
-*   [Data Structures and Algorithms](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/introduction-to-data-structures)
-*   [Stack Data Structure](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stack-data-structure)
+- [Data Structures and Algorithms](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/introduction-to-data-structures)
+- [Stack Data Structure](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stack-data-structure)
 
 This makes queue as **FIFO**(First in First Out) data structure, which means that element inserted first will be removed first.
 
@@ -17,20 +17,18 @@ The process to add an element into queue is called **Enqueue** and the process o
 
 ![Introduction to Queue](https://static.studytonight.com/data-structures/images/introduction-to-queue.png)
 
-* * *
+---
 
-Basic features of Queue
------------------------
+## Basic features of Queue
 
 1.  Like stack, queue is also an ordered list of elements of similar data types.
 2.  Queue is a FIFO( First in First Out ) structure.
 3.  Once a new element is inserted into the Queue, all the elements inserted before the new element in the queue must be removed, to remove the new element.
 4.  `peek( )` function is oftenly used to return the value of first element without dequeuing it.
 
-* * *
+---
 
-Applications of Queue
----------------------
+## Applications of Queue
 
 Queue, as the name suggests is used whenever we need to manage any group of objects in an order in which the first one coming in, also gets out first while the others wait for their turn, like in the following scenarios:
 
@@ -38,10 +36,9 @@ Queue, as the name suggests is used whenever we need to manage any group of obje
 2.  In real life scenario, Call Center phone systems uses Queues to hold people calling them in an order, until a service representative is free.
 3.  Handling of interrupts in real-time systems. The interrupts are handled in the same order as they arrive i.e First come first served.
 
-* * *
+---
 
-Implementation of Queue Data Structure
---------------------------------------
+## Implementation of Queue Data Structure
 
 Queue can be implemented using an [Array](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/c/arrays-in-c.php), [Stack](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/stack-data-structure) or [Linked List](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/introduction-to-linked-list). The easiest way of implementing a queue is by using an Array.
 
@@ -57,7 +54,7 @@ In approach \[A\] there is an **overhead of shifting the elements one position f
 
 In approach \[B\] there is no such overhead, but whenever we move head one position ahead, after removal of first element, the **size on Queue is reduced by one space** each time.
 
-* * *
+---
 
 ### Algorithm for ENQUEUE operation
 
@@ -73,19 +70,18 @@ In approach \[B\] there is no such overhead, but whenever we move head one posit
 
 To implement approach \[A\], you simply need to change the `dequeue` method, and include a `for` loop which will shift all the remaining elements by one position.
 
-* * *
+---
 
 ### Complexity Analysis of Queue Operations
 
 Just like Stack, in case of a Queue too, we know exactly, on which position new element will be added and from where an element will be removed, hence both these operations requires a single step.
 
-*   Enqueue: **O(1)**
-*   Dequeue: **O(1)**
-*   Size: **O(1)**
+- Enqueue: **O(1)**
+- Dequeue: **O(1)**
+- Size: **O(1)**
 
-* * *
+---
 
-* * *
-
+---
 
 [Source](https://www.studytonight.com/data-structures/queue-data-structure)
