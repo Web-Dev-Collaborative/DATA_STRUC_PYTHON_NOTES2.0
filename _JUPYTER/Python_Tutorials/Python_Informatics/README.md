@@ -12,4 +12,3 @@ Assignments are in the PDF folder. This is part of the coursework of my classwor
   <li>[3b. parse_float.py (Looping_Searching_and_Slicing)](https://github.com/mGalarnyk/Python_Tutorials/blob/master/Python_Informatics/3_parse_float.py "Parse Float")</li>
   <li>[2. Functions](https://github.com/mGalarnyk/Python_Tutorials/blob/master/Python_Informatics/2_Functions_mGalarnyk.py "Functions")</li>
   <li>[1. Mean](https://github.com/mGalarnyk/Python_Tutorials/blob/master/Python_Informatics/1_Mean_mGalarnyk.ipynb "Finding Mean") </li>
-
