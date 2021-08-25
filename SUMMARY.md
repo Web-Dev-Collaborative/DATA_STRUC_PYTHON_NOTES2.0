@@ -45,6 +45,7 @@
 
 ## misc
 
+* [Python Problems & Solutions For Beginners](misc/d2.md)
 * [Misc](misc/misc.md)
 
 ## Wk-19-Notes
@@ -58,7 +59,6 @@
 ## Wk-20-Notes
 
 * [D1 Notes](wk-20-notes/d1.md)
-* [D2](wk-20-notes/d2.md)
 * [D3](wk-20-notes/d3.md)
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
 * [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/README.md)
