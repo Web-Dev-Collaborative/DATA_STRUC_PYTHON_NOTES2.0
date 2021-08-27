@@ -6,18 +6,27 @@ class ListNode(object):
 
 
 def condense_linked_list(node):
-   dummy = ListNode(0)
-     dummy.next = head
+   root = ListNode(0)
+   
+   root.next = head
+         p1 = head
+            if p1 is None:
+            return root.next
+        p = p1.next
+        if p is None:
+            return root.next
 
-      visited = set()
+        while p:
+            if p.val == p1.val:
+                p1.next = p.next
+            else:
+                p1 = p1.next
 
-       while head and head.next:
+            p = p.next
 
-            visited.add(head.val)
+        return root.next
 
-            while head.next and head.next.val in visited:
-                head.next = head.next.next
+    
 
-            head = head.next
 
-        return dummy.next
+
