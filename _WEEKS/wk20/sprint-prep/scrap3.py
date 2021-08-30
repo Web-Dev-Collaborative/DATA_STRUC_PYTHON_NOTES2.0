@@ -6,9 +6,4 @@ class ListNode(object):
 
 
 def condense_linked_list(node):
-  current = head
-  while current.next is not None:
-          if second.value == current.value:
-               current.next = current.next.next
-           else:
-               current = current.next
+    

@@ -7,15 +7,15 @@ class ListNode(object):
 
 def condense_linked_list(node):
   root = ListNode(0)
-  root.next = head
-  p1 = head
+  root.next = node.next 
+  p1 = node.next 
   if p1 is None:
      return root.next
   p = p1.next
   if p is None:
      return root.next
   while p:
-     if p.val == p1.val:
+     if p.value == p1.value:
        p1.next = p.next
      else:
        p1 = p1.next
