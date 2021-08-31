@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Python Data Structures Repo & Website](README.md)
+* [Summaries and links for the most relevant projects in the space of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
 * [Installing stand alone command line tools](installing-stand-alone-command-line-tools.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
