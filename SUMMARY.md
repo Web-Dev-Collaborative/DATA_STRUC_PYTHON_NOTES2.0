@@ -63,6 +63,7 @@
 ## dev-enviorment-setup
 
 * [Pip](dev-enviorment-setup/pip.md)
+* [Venv](dev-enviorment-setup/venv.md)
 
 ## GENERAL
 
