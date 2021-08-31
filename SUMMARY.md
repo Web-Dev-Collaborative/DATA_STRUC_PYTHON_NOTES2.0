@@ -18,6 +18,8 @@
 ## Resources
 
 * [Python Keywords](resources/python-keywords.md)
+* [Intro 2 Python3](resources/intro-2-python3/README.md)
+  * [Untitled](resources/intro-2-python3/untitled.md)
 * [Errors](resources/errors.md)
 * [Appendix](resources/appendix.md)
 * [STDLib](resources/stdlib.md)
