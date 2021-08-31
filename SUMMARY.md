@@ -18,6 +18,7 @@
 ## Resources
 
 * [Python Keywords](resources/python-keywords.md)
+* [Errors](resources/errors.md)
 * [Appendix](resources/appendix.md)
 * [Data Structures](resources/data-structures.md)
 * [Links](resources/links.md)
