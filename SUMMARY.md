@@ -18,6 +18,7 @@
 ## Resources
 
 * [Python Keywords](resources/python-keywords.md)
+* [Appendix](resources/appendix.md)
 * [Links](resources/links.md)
 * [Appetite](resources/appetite.md)
 * [Python Glossary](resources/python-glossary.md)
