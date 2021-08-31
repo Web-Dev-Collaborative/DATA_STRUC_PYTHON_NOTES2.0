@@ -549,6 +549,8 @@ Note: Do not use built-in functions.
 
 
 
+{% tabs %}
+{% tab title="Direct" %}
 
 
 
@@ -1047,4 +1049,16 @@ person = {"name": "Corina", "age": 32, "height": 1.4}
 newPerson = {key.title(): value for key, value in person.items()}
 print(list(newPerson.items()))
 ```
+{% endtab %}
+
+{% tab title="Gist" %}
+{% embed url="https://gist.github.com/bgoonz/fdc7a1759a57583c466f177e236faf72" %}
+{% endtab %}
+
+{% tab title="Repl" %}
+
+{% endtab %}
+{% endtabs %}
+
+
 
