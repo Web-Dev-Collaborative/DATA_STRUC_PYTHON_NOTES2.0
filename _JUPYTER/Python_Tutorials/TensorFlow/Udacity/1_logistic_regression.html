@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupyter (iPython) Notebooks Guide</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>1_logistic_regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,11 +13971,1563 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Guide-to-Using-Jupyter-Notebooks">Guide to Using Jupyter Notebooks<a class="anchor-link" href="#Guide-to-Using-Jupyter-Notebooks">&#182;</a></h1><p>In this lecture we will be going over the basics of the Jupyter (previously called iPython Notebooks).</p>
-<p>For a complete User Manual check out the <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Bryn Mawr College Computer Science Guide</a>.</p>
-<p>Most of the breakdown will actually occur in the presentation corresponding to this Notebook. So please refer to either the presentation or the full User Manual linked above.</p>
+<p><h1 align="middle"> Logistic Regression on notMNIST Images </h1> <br>
+Download Data Set Directory: <a href="http://yaroslavvb.com/upload/notMNIST/">http://yaroslavvb.com/upload/notMNIST/</a></p>
 
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align="left"> Download Needed Data Files </h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># These are all the modules we&#39;ll be using later. Make sure you can import them</span>
+<span class="c1"># before proceeding further.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">six.moves.urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cPickle</span> <span class="k">as</span> <span class="n">pickle</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># http://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples</span>
+<span class="o">!</span>mkdir -p data <span class="o">&amp;&amp;</span> wget -P data http://yaroslavvb.com/upload/notMNIST/notMNIST_small.tar.gz <span class="err">\</span>
+      <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">yaroslavvb</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">upload</span><span class="o">/</span><span class="n">notMNIST</span><span class="o">/</span><span class="n">notMNIST_large</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>--2016-09-03 10:13:27--  http://yaroslavvb.com/upload/notMNIST/notMNIST_small.tar.gz
+Resolving yaroslavvb.com (yaroslavvb.com)... 129.121.4.193
+Connecting to yaroslavvb.com (yaroslavvb.com)|129.121.4.193|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8458043 (8.1M) [application/x-gzip]
+Saving to: ‘data/notMNIST_small.tar.gz’
+
+notMNIST_small.tar. 100%[=====================&gt;]   8.07M  1.68MB/s   in 4.9s   
+
+2016-09-03 10:13:32 (1.66 MB/s) - ‘data/notMNIST_small.tar.gz’ saved [8458043/8458043]
+
+--2016-09-03 10:13:32--  http://yaroslavvb.com/upload/notMNIST/notMNIST_large.tar.gz
+Reusing existing connection to yaroslavvb.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 247336696 (236M) [application/x-gzip]
+Saving to: ‘data/notMNIST_large.tar.gz’
+
+notMNIST_large.tar. 100%[=====================&gt;] 235.88M   770KB/s   in 2m 34s 
+
+2016-09-03 10:16:06 (1.53 MB/s) - ‘data/notMNIST_large.tar.gz’ saved [247336696/247336696]
+
+FINISHED --2016-09-03 10:16:06--
+Total wall clock time: 2m 39s
+Downloaded: 2 files, 244M in 2m 39s (1.53 MB/s)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First, we'll download the dataset to our local machine. The data consists of characters rendered in a variety of fonts on a 28x28 image. The labels are limited to 'A' through 'J' (10 classes). The training set has about 500k and the testset 19.000 labelled examples. Given these sizes, it should be possible to train models quickly on any machine.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Extract the dataset from the compressed .tar.gz file. This should give you a set of directories, labelled A through J.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">maybe_extract</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># remove .tar.gz</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+    <span class="c1"># You may override by setting force=True.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> already present - Skipping extraction of </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting data for </span><span class="si">%s</span><span class="s1">. This may take a while. Please wait.&#39;</span> <span class="o">%</span> <span class="n">root</span><span class="p">)</span>
+        <span class="n">tar</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+        <span class="n">tar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">data_folders</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">d</span><span class="p">))]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_folders</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num_classes</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+            <span class="s1">&#39;Expected </span><span class="si">%d</span><span class="s1"> folders, one per class. Found </span><span class="si">%d</span><span class="s1"> instead.&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="n">num_classes</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_folders</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data_folders</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_folders</span>
+  
+<span class="n">train_folders</span> <span class="o">=</span> <span class="n">maybe_extract</span><span class="p">(</span><span class="s1">&#39;notMNIST_large.tar.gz&#39;</span><span class="p">)</span>
+<span class="n">test_folders</span> <span class="o">=</span> <span class="n">maybe_extract</span><span class="p">(</span><span class="s1">&#39;notMNIST_small.tar.gz&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>notMNIST_large already present - Skipping extraction of notMNIST_large.tar.gz.
+[&#39;notMNIST_large/A&#39;, &#39;notMNIST_large/B&#39;, &#39;notMNIST_large/C&#39;, &#39;notMNIST_large/D&#39;, &#39;notMNIST_large/E&#39;, &#39;notMNIST_large/F&#39;, &#39;notMNIST_large/G&#39;, &#39;notMNIST_large/H&#39;, &#39;notMNIST_large/I&#39;, &#39;notMNIST_large/J&#39;]
+notMNIST_small already present - Skipping extraction of notMNIST_small.tar.gz.
+[&#39;notMNIST_small/A&#39;, &#39;notMNIST_small/B&#39;, &#39;notMNIST_small/C&#39;, &#39;notMNIST_small/D&#39;, &#39;notMNIST_small/E&#39;, &#39;notMNIST_small/F&#39;, &#39;notMNIST_small/G&#39;, &#39;notMNIST_small/H&#39;, &#39;notMNIST_small/I&#39;, &#39;notMNIST_small/J&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Now let's load the data in a more manageable format. Since, depending on your computer setup you might not be able to fit it all in memory, we'll load each class into a separate dataset, store them on disk and curate them independently. Later we'll merge them into a single dataset of manageable size.
+We'll convert the entire dataset into a 3D array (image index, x, y) of floating point values, normalized to have approximately zero mean and standard deviation ~0.5 to make training easier down the road.
+A few images might not be readable, we'll just skip them.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">image_size</span> <span class="o">=</span> <span class="mi">28</span>  <span class="c1"># Pixel width and height.</span>
+<span class="n">pixel_depth</span> <span class="o">=</span> <span class="mf">255.0</span>  <span class="c1"># Number of levels per pixel.</span>
+
+<span class="k">def</span> <span class="nf">load_letter</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">min_num_images</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Load the data for a single letter label.&quot;&quot;&quot;</span>
+    <span class="n">image_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">image_files</span><span class="p">),</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">),</span>
+                         <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+    <span class="n">num_images</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_files</span><span class="p">:</span>
+        <span class="n">image_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">image_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">ndimage</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">-</span> 
+                    <span class="n">pixel_depth</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">pixel_depth</span>
+            <span class="k">if</span> <span class="n">image_data</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unexpected image shape: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">image_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+            <span class="n">dataset</span><span class="p">[</span><span class="n">num_images</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">image_data</span>
+            <span class="n">num_images</span> <span class="o">=</span> <span class="n">num_images</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Could not read:&#39;</span><span class="p">,</span> <span class="n">image_file</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s1">&#39;- it</span><span class="se">\&#39;</span><span class="s1">s ok, skipping.&#39;</span><span class="p">)</span>
+    
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">num_images</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="k">if</span> <span class="n">num_images</span> <span class="o">&lt;</span> <span class="n">min_num_images</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Many fewer images than expected: </span><span class="si">%d</span><span class="s1"> &lt; </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span>
+                    <span class="p">(</span><span class="n">num_images</span><span class="p">,</span> <span class="n">min_num_images</span><span class="p">))</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Full dataset tensor:&#39;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard deviation:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">dataset</span>
+        
+<span class="k">def</span> <span class="nf">maybe_pickle</span><span class="p">(</span><span class="n">data_folders</span><span class="p">,</span> <span class="n">min_num_images_per_class</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">dataset_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">data_folders</span><span class="p">:</span>
+        <span class="n">set_filename</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;.pickle&#39;</span>
+        <span class="n">dataset_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">set_filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">set_filename</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+            <span class="c1"># You may override by setting force=True.</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> already present - Skipping pickling.&#39;</span> <span class="o">%</span> <span class="n">set_filename</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pickling </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">set_filename</span><span class="p">)</span>
+            <span class="n">dataset</span> <span class="o">=</span> <span class="n">load_letter</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">min_num_images_per_class</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">set_filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unable to save data to&#39;</span><span class="p">,</span> <span class="n">set_filename</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataset_names</span>
+
+<span class="n">train_datasets</span> <span class="o">=</span> <span class="n">maybe_pickle</span><span class="p">(</span><span class="n">train_folders</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+<span class="n">test_datasets</span> <span class="o">=</span> <span class="n">maybe_pickle</span><span class="p">(</span><span class="n">test_folders</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>notMNIST_large/A.pickle already present - Skipping pickling.
+notMNIST_large/B.pickle already present - Skipping pickling.
+notMNIST_large/C.pickle already present - Skipping pickling.
+notMNIST_large/D.pickle already present - Skipping pickling.
+notMNIST_large/E.pickle already present - Skipping pickling.
+notMNIST_large/F.pickle already present - Skipping pickling.
+notMNIST_large/G.pickle already present - Skipping pickling.
+notMNIST_large/H.pickle already present - Skipping pickling.
+notMNIST_large/I.pickle already present - Skipping pickling.
+notMNIST_large/J.pickle already present - Skipping pickling.
+notMNIST_small/A.pickle already present - Skipping pickling.
+notMNIST_small/B.pickle already present - Skipping pickling.
+notMNIST_small/C.pickle already present - Skipping pickling.
+notMNIST_small/D.pickle already present - Skipping pickling.
+notMNIST_small/E.pickle already present - Skipping pickling.
+notMNIST_small/F.pickle already present - Skipping pickling.
+notMNIST_small/G.pickle already present - Skipping pickling.
+notMNIST_small/H.pickle already present - Skipping pickling.
+notMNIST_small/I.pickle already present - Skipping pickling.
+notMNIST_small/J.pickle already present - Skipping pickling.
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align="left"> Download Needed Data Files </h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">ipython_display_samples</span><span class="p">(</span><span class="n">folders</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">folders</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">sample</span><span class="p">)))</span>
+
+<span class="c1"># train folders</span>
+<span class="n">ipython_display_samples</span><span class="p">(</span><span class="n">train_folders</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[&#39;notMNIST_large/A&#39;, &#39;notMNIST_large/B&#39;, &#39;notMNIST_large/C&#39;, &#39;notMNIST_large/D&#39;, &#39;notMNIST_large/E&#39;, &#39;notMNIST_large/F&#39;, &#39;notMNIST_large/G&#39;, &#39;notMNIST_large/H&#39;, &#39;notMNIST_large/I&#39;, &#39;notMNIST_large/J&#39;]
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAABmUlEQVR4nG2SMW+OURTHf/c+t9VF
+KAnCRGhikQibiYGIkurbrZ9Awmo28ElUIphE4gsYBIvEZGCQlHagYqjX89zzMzzv2/K2Z7v3f87v
+/M/JgT4aBlbVzhUy/0di7xerWv06S+o/x0k2v54SQI4jF3eUZs7XUG1doZkQSfn1iLu2f8TdBuR4
+hECOQ5fSZGnm2E9DbWMXbuZJtD13yy9AKqWUmamFftTqImWyFD5Z//WbgByn7pgwfzhxtzZgWj/9
+PdnnF+6p6sPj1Z47oBmNUtPlbth1w/ry8xsqoDe3Xc4NDcPNuXTLTg3Xx34Lt+20+q5w+IfRc1MD
+GYJ5AHnVTa+9sALBoo42s2Fo9QbT6YpVDdcOkICGZTsNN46S08xHq9o5SA0ZuK4QvF9NkX8/RkAW
+BRL7vlm19X6ZKdPlTI3Y8luYt2pEnOsne26nVpdSKXLNyCTiwWaS7Elyv4dnAXv6bU9EuD4LXIiR
+1rVt27bt+OUgZa6m6Js1pZRSyuhwZEHK292oGq4e5Oyf3SQ1XM7zU7HzIgDCpb+87F/rYwYuuAAA
+AABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAABB0lEQVR4nH3Ru0oEQRAF0FvVM8YG
+4isyMDISs80FExMFA1PBWKP1C1T8AX9ARDBR0HizxUBFhRUDXyz4YEVwAgXd7e5rKDjVU+mhuql7
+wb8JrGGJve/itrE+CVGghIEk+bM/DlUYwxiyhZOpaKKo097AzqCJAJD7idUkwmEujYKxNBJvafQ4
+yBIUQ97aNJCMUMmv5jvGs6JZpo9rtQctb7Jzc986v/gUjWWML+3Lxl1XNNjBR75ujcDB+DOGyKH6
+2WxwBqpzQj96tBgSd6oGt32dTMj5/pWqVqarWhmuaqWowtMq3E0hu+5wz6oMpKCvuWzFJ6KqxcbM
++7/KCODLfzy1m8fPKvEXrCqNz5Ow7xUAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAA1UlEQVR4nLWSv0oCUBSHf+fcAylh
+LjZIg05KL9Aq+Qo+RgTtQeBzNDY0BI3O0ivUFoKEm62B4D3n19Ki3tvmN56P85eDBHTuV8y+S+bi
+5kx9OLarCybdA/3rU3u47bxO+m0X7ED7XgoY3DRRQsVc4YF06BiwBCTAy7nF6PFleRoAmnNpjz8Y
+fK45e5SnN2Gl7GA4Oq84gMFPq0nP3JzUeioQtUTFP4c41m0DqK5pGgKpvAneyXWjXFTE7i6nX4NW
++TUh6M14QNBfuipJth9reOyB5fznFyzieJh1vzYSAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAABcUlEQVR4nHWTMWsUURRGz71vJoXK
+ZlItIkLSrKAY9geILjZibEWwtExhoQhqwMIy+AsUkbSSQrCVQKKNlRDQaFSshKSJccwq6yTzPotV
+spE3tz2cW3zfvVa2AECAsbPxZmVlPZrXANbVsSft6P1LZUY+cfLc+cOD1wtPByEKIPBQlcoWBhjF
+3A/p/QWCAT7GnCqVBcFDyIIx/Um17uMAGbf0+58JntPZUKUHOJBxYxRCzlXt7WqWkIA4L7Wr7cnh
+5v/GWMD2iptJKJZ3gnPlaApG//IWqX0xBTE+QqSXhPABGacazG0wjjeYfTDGG+Aw9QZ4BOBnEooC
+xGaDeQKLrDWYHTBepaDHydOYf3+eDv7seB159jkd/DWU9edx2C9yOHm83KvhznqAjNujZVvO1FdV
+msfBx7i3f2AhOJ13quPdYdOBR6Oneej6lrTaIxhkXdozBLxbZgqtzpmZYrD8eLEKUWAH3kG/vq0u
+vVjT33f4A7d5mVhZacdLAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAApUlEQVR4nJ1SOw5CMQxzSAcYQJyE
+izCxsnOIdz5GBiTEQRBiAhoz8ZoUtRLPUywrPydgA8bzYoYOumIKzEpIZSW6OsQ8iJT9Q0cmtyfc
+gJmrXk9FyQStHsiPVGUS9FQCu7zlG+bl4RgzNyXMum6bYGo/PUP7ehWHVDm0u4+c6YSpDhmjmJE9
+/ePYoSysW9aLgq07NuQajfegDE1vQX01HwyETH/qD5IYZCzrFG8ZAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAABYklEQVR4nHWSvUpcURSFv33ONRrx
+BwXBVxAi2MwrCKZP2kC6PEKwMYUPkCptqjQWIUEbixRpFERiE0wnWAQnBBWdOH/37GVxZ8y9d8av
+OM1irXX2ZhsQJHu2vra6NDfDA6n18x0QmXj1rS1J8iGSXKcQaJzIlbq9XBWSW0wvPz5NGAFSzweh
+0wbI2PiapSjj+MuP3/96APjk4YIMWDxVrqTmC/v/GSaa6uV5zhv15bpsEGMMAzLeKyXt8FlJuTaZ
+LDmNqdefdt/Ocy53tVcJlLHiuZVcl3NYVcxCiJbNAHgHVUTlQC1tSMgMIBsruhelAkhnldT+xd6H
+tgk0jlzbxMc6YRY9dPYrSv/P/hYqOmVXa91yhN/eDSaSXH+f1FJjeRSrbShRElXbUEEYOoM9Kgof
+M1UmA8Jyp3U3Jrg4yeuri6Pno96Oe3GI+jVf+zLhwFT4uWmPxK7sNruS1PreGIm9BzW629duU9mw
+AAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAABFklEQVR4nKWSvy5EURDGf3PuXYVs
+IqLyp9iIaDf7AioRJV7DY3iAjUrJE+j3CYRSdESn0FhBQe458yl2z7XcG5H4yvnNzDkz8xEIu2fX
+40o/FTUsfeNkWwZyvhQMgHJz1HOZQUFD5VGv6oDs6e49x6waLMoAniUp6WIVqwsYKSpqWC4AeDh+
+KJVhES1nTTSGVLclkUiFZwh1IRAoCijLFiQu516Dd2+QJFXaaR2lGQLMANQOpUZl8K3T2SV+g0Z3
+/Q9vtrQVb/cOWFqbz0mNUSa7lRRa2+Yf/hvab7AV51GWZkxUHzu8TOoPl6OnrHxAO9+fGuz2o36g
+Nlj/UTEmd2+4WoLBlVySxxlNMy14Z++gv9JtMQKfBwi1cVTN/eUAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAACQ0lEQVR4nE2STUhUYRSGn/N9914d
+/ImkQaNMcBCZzECxYiZtKIxMpFKygYIkxUIQiyiSFmaLMmqRpYtatbGFixZhq1r4R0RkSERUFkiW
+EhU6Fv6Nzr0t7szUt32/9znveziQfIrWSwhowpUY5LTt+V8Ltc75UYodn/1KNt/x70pqgi/EbC2m
+bHhWgmE+3ErRP1FXm+afMCZ9FVhcb0V2GgmoXfh11YgqVu9FRlOXyypCyvEmjVJlCVN1nPvpE4OR
+o+DfF3eKk/87akUH2goYmtRrtesfiRHoT0Y96EXhadp44xom704LTcVxnxJPJQJgfCuB6kgajTUo
+AA2kpgEYxvEvSnh1i4u1riYYuZkuQjPch94WDV/eiwJE0TLlrHShQfDGwtCzcCEX7X7ucl52Xv1+
+BY0hzU6G0bjYjcuEGucUkPE4D1GMjpV09joVKt7QmDiPNizK6zBV1sLHdm/7SrqbHOqHMAVkXTUW
+J51G+PA8AaXviGgAKyAEZ35Y4rU7SFDVoBMDsJedYLkajlIkIzjxvU3Pu3xrNj8wmP0AAvYb7ITo
+tpWMaOj+iV9PNaWTc5JwzoMCcTYt9a80965pCsfQ8bBqCdsG26cji8fkrqySM05ypkPwULpZun1c
+0XFzTjsp1ntiIe2mXbJeH2hYnB5w7HrdpWxS1makODumbICy/PiZpE/sRglpnwppyYqvyLNf0Fqj
++pvQIOpFZunh5Iq2VGUCBd0NaMCg5/aZFJW4EDsvCNmeJ291DFC272xHJF70L+IxqvHpX2K+AAAA
+AElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAA00lEQVR4nO2TPWpCURCFz/w8G9HS
+9KIgWFho6QoshJQp3EFWmSJVBEGwEWwUREnAxkZ9c1I8jfeBC0jhaW7xzZ3TfCOt5RmiIkhDBpG9
+usAUIFNKqCKgUh3VXpr9bqX08zT/Wu0OnwAAsf6MSaYDvS4yd1MMDoyCBH/aUHOzW1OGzR2ucS3R
+4gkw7cxL8HGe8B9DQyKY4E8Cd9dUE/I4hoq5FxNiw8WdBfeTGgSA1N+yRrPX8VIZt7Pl5vsDbeYk
+I1I185xk8N2Ji0K0dA4KRrBy+QXB0H4U+5v+4gAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAABqUlEQVR4nGVSwU5TURScc8pTFAjB
+wCsb4wKj/oHRxARISuISomu/QRPYaPQXIKyNblzJlp1NrCaugYWJhoaWB1FqxdTaxva+e8ZFKc/e
+zupOJmdO5p4B4rVStd2qFB/HEEAw86RYabUPS6sxsFSlJ0nP6iJEsHjOKwUc03kzM+9YjoConPEj
+3UEO5r0hhz0HuL2M72Jys0kjaY2NCYhgfKNhJI3NzUkRxvNzeat9/VAXAhDOzN+M9WS/WBOo4gy9
+l0Z9PqICqAgAGgEAwonbN2ZR2//0WzAIwcVnSS/Kt+ejCPGa3qfOpd74JtSihJ3Um/n0r9WGbFfq
+NJI0/ng4tJRXHy1dm5LT5N2raihixBPReK7TMmggCogLlyL3x0M1HZpceHB3eqr762B7K5Fg7vJL
+9uB5uhzkwFM6572ZT7v8OaeDchM5GEhS0OiGSV50erbGz3fw31JRgdmt+/dmr3TrX7ZLzUxTDU00
+mxROL1yPcVL++F0I1f4JAQjG1htndVkfQ5h+i9Y/1dvwY6JKVsmDaFATFI76ZU4Koa0gv1ZK2q3D
+96v5c+0fpUgXP71SwDkAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><h3 align="left"> New </h3>
+Merge and prune the training data as needed. Depending on your computer setup, you might not be able to fit it all in memory, and you can tune train_size as needed. The labels will be stored into a separate array of integers 0 through 9.
+Also create a validation dataset for hyperparameter tuning.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">make_arrays</span><span class="p">(</span><span class="n">nb_rows</span><span class="p">,</span> <span class="n">img_size</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">nb_rows</span><span class="p">:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">((</span><span class="n">nb_rows</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">img_size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">nb_rows</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span>
+
+<span class="k">def</span> <span class="nf">merge_datasets</span><span class="p">(</span><span class="n">pickle_files</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">valid_size</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pickle_files</span><span class="p">)</span>
+    <span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">make_arrays</span><span class="p">(</span><span class="n">valid_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)</span>
+    <span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">make_arrays</span><span class="p">(</span><span class="n">train_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)</span>
+    <span class="n">vsize_per_class</span> <span class="o">=</span> <span class="n">valid_size</span> <span class="o">//</span> <span class="n">num_classes</span>
+    <span class="n">tsize_per_class</span> <span class="o">=</span> <span class="n">train_size</span> <span class="o">//</span> <span class="n">num_classes</span>
+    
+    <span class="n">start_v</span><span class="p">,</span> <span class="n">start_t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="n">end_v</span><span class="p">,</span> <span class="n">end_t</span> <span class="o">=</span> <span class="n">vsize_per_class</span><span class="p">,</span> <span class="n">tsize_per_class</span>
+    <span class="n">end_l</span> <span class="o">=</span> <span class="n">vsize_per_class</span><span class="o">+</span><span class="n">tsize_per_class</span>
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">pickle_file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pickle_files</span><span class="p">):</span>       
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">letter_set</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="c1"># let&#39;s shuffle the letters to have random validation and training set</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">letter_set</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">valid_dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">valid_letter</span> <span class="o">=</span> <span class="n">letter_set</span><span class="p">[:</span><span class="n">vsize_per_class</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+                <span class="n">valid_dataset</span><span class="p">[</span><span class="n">start_v</span><span class="p">:</span><span class="n">end_v</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">valid_letter</span>
+                <span class="n">valid_labels</span><span class="p">[</span><span class="n">start_v</span><span class="p">:</span><span class="n">end_v</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+                <span class="n">start_v</span> <span class="o">+=</span> <span class="n">vsize_per_class</span>
+                <span class="n">end_v</span> <span class="o">+=</span> <span class="n">vsize_per_class</span>
+                    
+            <span class="n">train_letter</span> <span class="o">=</span> <span class="n">letter_set</span><span class="p">[</span><span class="n">vsize_per_class</span><span class="p">:</span><span class="n">end_l</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+            <span class="n">train_dataset</span><span class="p">[</span><span class="n">start_t</span><span class="p">:</span><span class="n">end_t</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">train_letter</span>
+            <span class="n">train_labels</span><span class="p">[</span><span class="n">start_t</span><span class="p">:</span><span class="n">end_t</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+            <span class="n">start_t</span> <span class="o">+=</span> <span class="n">tsize_per_class</span>
+            <span class="n">end_t</span> <span class="o">+=</span> <span class="n">tsize_per_class</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unable to process data from&#39;</span><span class="p">,</span> <span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span>
+    
+    <span class="k">return</span> <span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">,</span> <span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span>
+            
+            
+<span class="n">train_size</span> <span class="o">=</span> <span class="mi">200000</span>
+<span class="n">valid_size</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">test_size</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">,</span> <span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">merge_datasets</span><span class="p">(</span>
+  <span class="n">train_datasets</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">valid_size</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">merge_datasets</span><span class="p">(</span><span class="n">test_datasets</span><span class="p">,</span> <span class="n">test_size</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training:&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation:&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Testing:&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training: (200000, 28, 28) (200000,)
+Validation: (10000, 28, 28) (10000,)
+Testing: (10000, 28, 28) (10000,)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Next, we'll randomize the data. It's important to have the labels well shuffled for the training and test distributions to match.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">randomize</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">permutation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">shuffled_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">permutation</span><span class="p">,:,:]</span>
+    <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">permutation</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">shuffled_dataset</span><span class="p">,</span> <span class="n">shuffled_labels</span>
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">randomize</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
+<span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">randomize</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">randomize</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align="left"> Linear Regression </h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">regr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_labels</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>Note on the Following Training Sample Code</h3>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The following code uses score which returns the mean accuracy on the given test data and labels. In multi-label classification (which is what question 6 is doing), the subset accuracy is a harsh metric since each label needs to be correctly predicted.</p>
+<p>Later on in the jupyter notebook, there will be code showing on which class the model is consistently predicting incorrectly. This is called the confusion matrix.</p>
+<p><a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html</a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>50 Training Samples</h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span>
+<span class="o">%</span><span class="k">time</span> regr.fit(X_train, y_train)
+<span class="n">regr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>CPU times: user 46.9 ms, sys: 1.43 ms, total: 48.4 ms
+Wall time: 50 ms
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.57189999999999996</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>100 Training Samples</h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span>
+<span class="o">%</span><span class="k">time</span> regr.fit(X_train, y_train)
+<span class="n">regr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>CPU times: user 111 ms, sys: 1.38 ms, total: 112 ms
+Wall time: 111 ms
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.72970000000000002</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>1000 Training Samples</h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span>
+<span class="o">%</span><span class="k">time</span> regr.fit(X_train, y_train)
+<span class="n">regr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>CPU times: user 1.91 s, sys: 8.44 ms, total: 1.92 s
+Wall time: 1.92 s
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.83230000000000004</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>5000 Training Samples plus Predicting Class Labels </h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span>
+<span class="o">%</span><span class="k">time</span> regr.fit(X_train, y_train)
+<span class="n">regr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>CPU times: user 18.2 s, sys: 53.5 ms, total: 18.3 s
+Wall time: 18.3 s
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.85150000000000003</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># predict class labels for the test set</span>
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">predicted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">regr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([  9.10666599e-03,   1.46013123e-03,   4.28896213e-05,
+         8.16163108e-01,   1.53275425e-03,   1.67719413e-01,
+         4.46184298e-04,   6.29315654e-05,   1.40435337e-03,
+         2.06156808e-03])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>Confusion Matrix </h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="c1"># Using Matplotlib. The confusion matrix that will result from this will be a heatmap. </span>
+<span class="k">def</span> <span class="nf">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Actual label&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted label&#39;</span><span class="p">)</span>
+
+<span class="n">cm</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Confusion Matrix, without normalization&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">cm_normalized</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">cm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Normalized confusion matrix&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cm_normalized</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm_normalized</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Normalized confusion matrix&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Confusion Matrix, without normalization
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+5fT/Ad7JA6WPwTBiAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Normalized confusion matrix
+[[ 0.84  0.01  0.01  0.01  0.01  0.01  0.02  0.05  0.02  0.03]
+ [ 0.01  0.84  0.    0.04  0.02  0.02  0.01  0.02  0.03  0.01]
+ [ 0.    0.01  0.89  0.01  0.03  0.01  0.04  0.    0.01  0.01]
+ [ 0.01  0.02  0.01  0.88  0.01  0.02  0.02  0.01  0.01  0.02]
+ [ 0.01  0.03  0.05  0.01  0.77  0.04  0.01  0.01  0.05  0.01]
+ [ 0.01  0.01  0.01  0.01  0.02  0.89  0.01  0.01  0.02  0.02]
+ [ 0.01  0.01  0.05  0.01  0.01  0.02  0.85  0.01  0.02  0.01]
+ [ 0.03  0.01  0.    0.01  0.02  0.02  0.01  0.86  0.02  0.02]
+ [ 0.01  0.01  0.01  0.01  0.01  0.02  0.02  0.01  0.84  0.06]
+ [ 0.01  0.01  0.01  0.02  0.01  0.01  0.01  0.01  0.04  0.86]]
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>All Training Samples</h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">regr2</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;sag&#39;</span><span class="p">)</span>
+<span class="n">sample_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[:</span><span class="n">sample_size</span><span class="p">]</span>
+<span class="o">%</span><span class="k">time</span> regr2.fit(X_train, y_train)
+<span class="n">regr2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>CPU times: user 9min 16s, sys: 1.49 s, total: 9min 17s
+Wall time: 9min 19s
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>0.89390000000000003</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># http://scikit-learn.org/stable/auto_examples/linear_model/plot_iris_logistic.html</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 

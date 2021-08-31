@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupyter (iPython) Notebooks Guide</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>4_ref_convolutions</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,9 +13971,2336 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Guide-to-Using-Jupyter-Notebooks">Guide to Using Jupyter Notebooks<a class="anchor-link" href="#Guide-to-Using-Jupyter-Notebooks">&#182;</a></h1><p>In this lecture we will be going over the basics of the Jupyter (previously called iPython Notebooks).</p>
-<p>For a complete User Manual check out the <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Bryn Mawr College Computer Science Guide</a>.</p>
-<p>Most of the breakdown will actually occur in the presentation corresponding to this Notebook. So please refer to either the presentation or the full User Manual linked above.</p>
+<h1 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning">&#182;</a></h1><h2 id="Assignment-4">Assignment 4<a class="anchor-link" href="#Assignment-4">&#182;</a></h2><p>Previously in <code>2_fullyconnected.ipynb</code> and <code>3_regularization.ipynb</code>, we trained fully connected networks to classify <a href="http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html">notMNIST</a> characters.</p>
+<p>The goal of this assignment is make the neural network convolutional.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># These are all the modules we&#39;ll be using later. Make sure you can import them</span>
+<span class="c1"># before proceeding further.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cPickle</span> <span class="k">as</span> <span class="n">pickle</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="nb">range</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pickle_file</span> <span class="o">=</span> <span class="s1">&#39;notMNIST.pickle&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">save</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+  <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;train_dataset&#39;</span><span class="p">]</span>
+  <span class="n">train_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;train_labels&#39;</span><span class="p">]</span>
+  <span class="n">valid_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;valid_dataset&#39;</span><span class="p">]</span>
+  <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;valid_labels&#39;</span><span class="p">]</span>
+  <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;test_dataset&#39;</span><span class="p">]</span>
+  <span class="n">test_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;test_labels&#39;</span><span class="p">]</span>
+  <span class="k">del</span> <span class="n">save</span>  <span class="c1"># hint to help gc free up memory</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation set&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training set (200000, 28, 28) (200000,)
+Validation set (10000, 28, 28) (10000,)
+Test set (10000, 28, 28) (10000,)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Reformat into a TensorFlow-friendly shape:</p>
+<ul>
+<li>convolutions need the image data formatted as a cube (width by height by #channels)</li>
+<li>labels as float 1-hot encodings.</li>
+</ul>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">image_size</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">num_labels</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">num_channels</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># grayscale</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">reformat</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+    <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span>
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
+<span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">)</span>
+<span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation set&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training set (200000, 28, 28, 1) (200000, 10)
+Validation set (10000, 28, 28, 1) (10000, 10)
+Test set (10000, 28, 28, 1) (10000, 10)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+          <span class="o">/</span> <span class="n">predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Let's build a small network with two convolutional layers, followed by one fully connected layer. Convolutional networks are more expensive computationally, so we'll limit its depth and number of fully connected nodes.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">patch_size</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">num_hidden</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+  <span class="c1"># Input data.</span>
+  <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">))</span>
+  <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+  <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+  <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+  
+  <span class="c1"># Variables.</span>
+  <span class="n">layer1_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer1_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">layer2_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer2_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">layer3_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">image_size</span> <span class="o">//</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">image_size</span> <span class="o">//</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer3_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_hidden</span><span class="p">]))</span>
+  <span class="n">layer4_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer4_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+  <span class="c1"># Model.</span>
+  <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">layer1_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+    <span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv</span> <span class="o">+</span> <span class="n">layer1_biases</span><span class="p">)</span>
+    <span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">layer2_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+    <span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv</span> <span class="o">+</span> <span class="n">layer2_biases</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">hidden</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="n">reshape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="p">[</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+    <span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">reshape</span><span class="p">,</span> <span class="n">layer3_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer3_biases</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">layer4_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer4_biases</span>
+  
+  <span class="c1"># Training computation.</span>
+  <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">)</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span>
+    
+  <span class="c1"># Optimizer.</span>
+  <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+  
+  <span class="c1"># Predictions for the training, validation, and test data.</span>
+  <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+  <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">))</span>
+  <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1001</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Initialized&#39;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+    <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">}</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch loss at step </span><span class="si">%d</span><span class="s1">: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span>
+        <span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 3.499307
+Minibatch accuracy: 6.2%
+Validation accuracy: 10.0%
+Minibatch loss at step 50: 2.228391
+Minibatch accuracy: 6.2%
+Validation accuracy: 27.1%
+Minibatch loss at step 100: 1.446163
+Minibatch accuracy: 37.5%
+Validation accuracy: 49.3%
+Minibatch loss at step 150: 0.524155
+Minibatch accuracy: 93.8%
+Validation accuracy: 72.0%
+Minibatch loss at step 200: 0.801739
+Minibatch accuracy: 68.8%
+Validation accuracy: 76.2%
+Minibatch loss at step 250: 1.147921
+Minibatch accuracy: 62.5%
+Validation accuracy: 76.6%
+Minibatch loss at step 300: 0.449470
+Minibatch accuracy: 87.5%
+Validation accuracy: 78.0%
+Minibatch loss at step 350: 0.554659
+Minibatch accuracy: 93.8%
+Validation accuracy: 76.3%
+Minibatch loss at step 400: 0.248710
+Minibatch accuracy: 87.5%
+Validation accuracy: 77.6%
+Minibatch loss at step 450: 0.858000
+Minibatch accuracy: 87.5%
+Validation accuracy: 79.1%
+Minibatch loss at step 500: 0.821578
+Minibatch accuracy: 87.5%
+Validation accuracy: 79.5%
+Minibatch loss at step 550: 0.975381
+Minibatch accuracy: 75.0%
+Validation accuracy: 79.4%
+Minibatch loss at step 600: 0.310249
+Minibatch accuracy: 93.8%
+Validation accuracy: 81.0%
+Minibatch loss at step 650: 0.761372
+Minibatch accuracy: 81.2%
+Validation accuracy: 81.1%
+Minibatch loss at step 700: 0.902964
+Minibatch accuracy: 75.0%
+Validation accuracy: 81.5%
+Minibatch loss at step 750: 0.069972
+Minibatch accuracy: 100.0%
+Validation accuracy: 82.0%
+Minibatch loss at step 800: 0.619308
+Minibatch accuracy: 81.2%
+Validation accuracy: 82.0%
+Minibatch loss at step 850: 0.999329
+Minibatch accuracy: 81.2%
+Validation accuracy: 80.9%
+Minibatch loss at step 900: 0.755689
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.4%
+Minibatch loss at step 950: 0.544976
+Minibatch accuracy: 81.2%
+Validation accuracy: 82.3%
+Minibatch loss at step 1000: 0.527818
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.3%
+Test accuracy: 89.6%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h2><p>The convolutional model above uses convolutions with stride 2 to reduce the dimensionality. Replace the strides by a max pooling operation (<code>nn.max_pool()</code>) of stride 2 and kernel size 2.</p>
+<hr>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">patch_size</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">num_hidden</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+  <span class="c1"># Input data.</span>
+  <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">))</span>
+  <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+  <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+  <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+  
+  <span class="c1"># Variables.</span>
+  <span class="n">layer1_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer1_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">layer2_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer2_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">layer3_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">image_size</span> <span class="o">//</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">image_size</span> <span class="o">//</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer3_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_hidden</span><span class="p">]))</span>
+  <span class="n">layer4_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer4_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+  <span class="c1"># Model.</span>
+  <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">layer1_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+    <span class="n">bias1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv1</span> <span class="o">+</span> <span class="n">layer1_biases</span><span class="p">)</span>
+    <span class="n">pool1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">bias1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+    <span class="n">conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">pool1</span><span class="p">,</span> <span class="n">layer2_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+    <span class="n">bias2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv2</span> <span class="o">+</span> <span class="n">layer2_biases</span><span class="p">)</span>
+    <span class="n">pool2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">bias2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">pool2</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="n">reshape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pool2</span><span class="p">,</span> <span class="p">[</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+    <span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">reshape</span><span class="p">,</span> <span class="n">layer3_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer3_biases</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">layer4_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer4_biases</span>
+  
+  <span class="c1"># Training computation.</span>
+  <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">)</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span>
+    
+  <span class="c1"># Optimizer.</span>
+  <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+  
+  <span class="c1"># Predictions for the training, validation, and test data.</span>
+  <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+  <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">))</span>
+  <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1001</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Initialized&#39;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+    <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">}</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch loss at step </span><span class="si">%d</span><span class="s1">: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span>
+        <span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 4.089417
+Minibatch accuracy: 6.2%
+Validation accuracy: 10.0%
+Minibatch loss at step 50: 1.696590
+Minibatch accuracy: 37.5%
+Validation accuracy: 47.8%
+Minibatch loss at step 100: 1.180653
+Minibatch accuracy: 56.2%
+Validation accuracy: 64.2%
+Minibatch loss at step 150: 0.487665
+Minibatch accuracy: 87.5%
+Validation accuracy: 74.5%
+Minibatch loss at step 200: 0.836735
+Minibatch accuracy: 81.2%
+Validation accuracy: 78.9%
+Minibatch loss at step 250: 1.061049
+Minibatch accuracy: 62.5%
+Validation accuracy: 79.5%
+Minibatch loss at step 300: 0.417284
+Minibatch accuracy: 87.5%
+Validation accuracy: 80.8%
+Minibatch loss at step 350: 0.480906
+Minibatch accuracy: 93.8%
+Validation accuracy: 80.5%
+Minibatch loss at step 400: 0.222692
+Minibatch accuracy: 93.8%
+Validation accuracy: 81.7%
+Minibatch loss at step 450: 0.871157
+Minibatch accuracy: 81.2%
+Validation accuracy: 80.2%
+Minibatch loss at step 500: 0.670514
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.0%
+Minibatch loss at step 550: 0.816612
+Minibatch accuracy: 75.0%
+Validation accuracy: 82.7%
+Minibatch loss at step 600: 0.316863
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.7%
+Minibatch loss at step 650: 0.950777
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.2%
+Minibatch loss at step 700: 0.730515
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.8%
+Minibatch loss at step 750: 0.025537
+Minibatch accuracy: 100.0%
+Validation accuracy: 83.9%
+Minibatch loss at step 800: 0.531624
+Minibatch accuracy: 87.5%
+Validation accuracy: 83.9%
+Minibatch loss at step 850: 0.870481
+Minibatch accuracy: 75.0%
+Validation accuracy: 84.0%
+Minibatch loss at step 900: 0.597318
+Minibatch accuracy: 87.5%
+Validation accuracy: 84.3%
+Minibatch loss at step 950: 0.629401
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.3%
+Minibatch loss at step 1000: 0.423087
+Minibatch accuracy: 93.8%
+Validation accuracy: 84.8%
+Test accuracy: 91.2%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h2><p>Try to get the best performance you can using a convolutional net. Look for example at the classic <a href="http://yann.lecun.com/exdb/lenet/">LeNet5</a> architecture, adding Dropout, and/or adding learning rate decay.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The CNN below is loosely inspired by the LeNet5 architecture.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">patch_size</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">num_hidden</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+  <span class="c1"># Input data.</span>
+  <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">))</span>
+  <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+  <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+  <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+  
+  <span class="c1"># Variables.</span>
+  <span class="n">layer1_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer1_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">layer2_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer2_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">size3</span> <span class="o">=</span> <span class="p">((</span><span class="n">image_size</span> <span class="o">-</span> <span class="n">patch_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">patch_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+  <span class="n">layer3_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">size3</span> <span class="o">*</span> <span class="n">size3</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer3_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_hidden</span><span class="p">]))</span>
+  <span class="n">layer4_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer4_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+  <span class="c1"># Model.</span>
+  <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># C1 input 28 x 28</span>
+    <span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">layer1_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="n">bias1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv1</span> <span class="o">+</span> <span class="n">layer1_biases</span><span class="p">)</span>
+    <span class="c1"># S2 input 24 x 24</span>
+    <span class="n">pool2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">avg_pool</span><span class="p">(</span><span class="n">bias1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="c1"># C3 input 12 x 12</span>
+    <span class="n">conv3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">pool2</span><span class="p">,</span> <span class="n">layer2_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="n">bias3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv3</span> <span class="o">+</span> <span class="n">layer2_biases</span><span class="p">)</span>
+    <span class="c1"># S4 input 8 x 8</span>
+    <span class="n">pool4</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">avg_pool</span><span class="p">(</span><span class="n">bias3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="c1"># F6 input 4 x 4</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">pool4</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="n">reshape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pool4</span><span class="p">,</span> <span class="p">[</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+    <span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">reshape</span><span class="p">,</span> <span class="n">layer3_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer3_biases</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">layer4_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer4_biases</span>
+  
+  <span class="c1"># Training computation.</span>
+  <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">)</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span>
+    
+  <span class="c1"># Optimizer.</span>
+  <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+  
+  <span class="c1"># Predictions for the training, validation, and test data.</span>
+  <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+  <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">))</span>
+  <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">20001</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Initialized&#39;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+    <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">}</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch loss at step </span><span class="si">%d</span><span class="s1">: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span>
+        <span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 2.432403
+Minibatch accuracy: 18.8%
+Validation accuracy: 11.3%
+Minibatch loss at step 50: 1.741629
+Minibatch accuracy: 43.8%
+Validation accuracy: 46.3%
+Minibatch loss at step 100: 1.296582
+Minibatch accuracy: 56.2%
+Validation accuracy: 62.8%
+Minibatch loss at step 150: 0.774304
+Minibatch accuracy: 75.0%
+Validation accuracy: 69.6%
+Minibatch loss at step 200: 1.033114
+Minibatch accuracy: 68.8%
+Validation accuracy: 70.8%
+Minibatch loss at step 250: 1.244565
+Minibatch accuracy: 75.0%
+Validation accuracy: 75.0%
+Minibatch loss at step 300: 0.575214
+Minibatch accuracy: 87.5%
+Validation accuracy: 76.5%
+Minibatch loss at step 350: 0.622662
+Minibatch accuracy: 87.5%
+Validation accuracy: 75.1%
+Minibatch loss at step 400: 0.430026
+Minibatch accuracy: 81.2%
+Validation accuracy: 77.6%
+Minibatch loss at step 450: 0.963384
+Minibatch accuracy: 87.5%
+Validation accuracy: 76.3%
+Minibatch loss at step 500: 0.817511
+Minibatch accuracy: 87.5%
+Validation accuracy: 78.4%
+Minibatch loss at step 550: 1.014760
+Minibatch accuracy: 75.0%
+Validation accuracy: 77.6%
+Minibatch loss at step 600: 0.400438
+Minibatch accuracy: 87.5%
+Validation accuracy: 79.5%
+Minibatch loss at step 650: 0.850994
+Minibatch accuracy: 81.2%
+Validation accuracy: 79.6%
+Minibatch loss at step 700: 1.141740
+Minibatch accuracy: 68.8%
+Validation accuracy: 79.8%
+Minibatch loss at step 750: 0.094994
+Minibatch accuracy: 100.0%
+Validation accuracy: 80.1%
+Minibatch loss at step 800: 0.603943
+Minibatch accuracy: 75.0%
+Validation accuracy: 80.5%
+Minibatch loss at step 850: 1.054630
+Minibatch accuracy: 75.0%
+Validation accuracy: 80.2%
+Minibatch loss at step 900: 0.720748
+Minibatch accuracy: 81.2%
+Validation accuracy: 80.6%
+Minibatch loss at step 950: 0.647146
+Minibatch accuracy: 81.2%
+Validation accuracy: 81.3%
+Minibatch loss at step 1000: 0.416097
+Minibatch accuracy: 81.2%
+Validation accuracy: 81.0%
+Minibatch loss at step 1050: 0.513317
+Minibatch accuracy: 81.2%
+Validation accuracy: 80.7%
+Minibatch loss at step 1100: 0.579172
+Minibatch accuracy: 81.2%
+Validation accuracy: 82.1%
+Minibatch loss at step 1150: 0.377961
+Minibatch accuracy: 93.8%
+Validation accuracy: 81.7%
+Minibatch loss at step 1200: 1.004240
+Minibatch accuracy: 56.2%
+Validation accuracy: 82.5%
+Minibatch loss at step 1250: 0.658937
+Minibatch accuracy: 81.2%
+Validation accuracy: 81.5%
+Minibatch loss at step 1300: 0.350493
+Minibatch accuracy: 87.5%
+Validation accuracy: 81.8%
+Minibatch loss at step 1350: 1.012370
+Minibatch accuracy: 62.5%
+Validation accuracy: 80.6%
+Minibatch loss at step 1400: 0.424690
+Minibatch accuracy: 93.8%
+Validation accuracy: 82.5%
+Minibatch loss at step 1450: 0.393176
+Minibatch accuracy: 81.2%
+Validation accuracy: 82.9%
+Minibatch loss at step 1500: 0.580200
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.7%
+Minibatch loss at step 1550: 0.548097
+Minibatch accuracy: 93.8%
+Validation accuracy: 83.1%
+Minibatch loss at step 1600: 1.047646
+Minibatch accuracy: 68.8%
+Validation accuracy: 82.5%
+Minibatch loss at step 1650: 0.696714
+Minibatch accuracy: 75.0%
+Validation accuracy: 82.9%
+Minibatch loss at step 1700: 0.766779
+Minibatch accuracy: 81.2%
+Validation accuracy: 82.4%
+Minibatch loss at step 1750: 0.478430
+Minibatch accuracy: 87.5%
+Validation accuracy: 83.2%
+Minibatch loss at step 1800: 0.581443
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.8%
+Minibatch loss at step 1850: 0.702833
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.8%
+Minibatch loss at step 1900: 0.347376
+Minibatch accuracy: 93.8%
+Validation accuracy: 83.2%
+Minibatch loss at step 1950: 0.464471
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.2%
+Minibatch loss at step 2000: 0.141003
+Minibatch accuracy: 93.8%
+Validation accuracy: 83.8%
+Minibatch loss at step 2050: 0.779174
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.4%
+Minibatch loss at step 2100: 0.219605
+Minibatch accuracy: 100.0%
+Validation accuracy: 84.5%
+Minibatch loss at step 2150: 0.438449
+Minibatch accuracy: 87.5%
+Validation accuracy: 83.7%
+Minibatch loss at step 2200: 0.395086
+Minibatch accuracy: 87.5%
+Validation accuracy: 83.7%
+Minibatch loss at step 2250: 0.509446
+Minibatch accuracy: 87.5%
+Validation accuracy: 84.2%
+Minibatch loss at step 2300: 0.615863
+Minibatch accuracy: 87.5%
+Validation accuracy: 83.7%
+Minibatch loss at step 2350: 0.485477
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.2%
+Minibatch loss at step 2400: 0.412634
+Minibatch accuracy: 87.5%
+Validation accuracy: 84.3%
+Minibatch loss at step 2450: 0.635194
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.1%
+Minibatch loss at step 2500: 0.839775
+Minibatch accuracy: 68.8%
+Validation accuracy: 83.6%
+Minibatch loss at step 2550: 0.558345
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.4%
+Minibatch loss at step 2600: 0.150379
+Minibatch accuracy: 93.8%
+Validation accuracy: 84.8%
+Minibatch loss at step 2650: 0.406153
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.4%
+Minibatch loss at step 2700: 0.547834
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.0%
+Minibatch loss at step 2750: 1.475792
+Minibatch accuracy: 75.0%
+Validation accuracy: 84.5%
+Minibatch loss at step 2800: 0.547563
+Minibatch accuracy: 75.0%
+Validation accuracy: 84.6%
+Minibatch loss at step 2850: 0.134402
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.1%
+Minibatch loss at step 2900: 0.340885
+Minibatch accuracy: 87.5%
+Validation accuracy: 84.1%
+Minibatch loss at step 2950: 0.484956
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.1%
+Minibatch loss at step 3000: 0.728811
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.2%
+Minibatch loss at step 3050: 0.355967
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.0%
+Minibatch loss at step 3100: 0.450600
+Minibatch accuracy: 75.0%
+Validation accuracy: 85.0%
+Minibatch loss at step 3150: 0.757128
+Minibatch accuracy: 75.0%
+Validation accuracy: 85.3%
+Minibatch loss at step 3200: 0.619602
+Minibatch accuracy: 81.2%
+Validation accuracy: 85.3%
+Minibatch loss at step 3250: 0.296807
+Minibatch accuracy: 87.5%
+Validation accuracy: 84.9%
+Minibatch loss at step 3300: 0.144331
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.8%
+Minibatch loss at step 3350: 0.436762
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.6%
+Minibatch loss at step 3400: 0.606813
+Minibatch accuracy: 81.2%
+Validation accuracy: 85.7%
+Minibatch loss at step 3450: 0.472831
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.0%
+Minibatch loss at step 3500: 0.314739
+Minibatch accuracy: 81.2%
+Validation accuracy: 85.2%
+Minibatch loss at step 3550: 0.166248
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.0%
+Minibatch loss at step 3600: 0.194450
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.1%
+Minibatch loss at step 3650: 0.703678
+Minibatch accuracy: 75.0%
+Validation accuracy: 85.8%
+Minibatch loss at step 3700: 0.913813
+Minibatch accuracy: 62.5%
+Validation accuracy: 85.7%
+Minibatch loss at step 3750: 0.822634
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.6%
+Minibatch loss at step 3800: 0.008681
+Minibatch accuracy: 100.0%
+Validation accuracy: 85.9%
+Minibatch loss at step 3850: 0.539536
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.4%
+Minibatch loss at step 3900: 0.520987
+Minibatch accuracy: 75.0%
+Validation accuracy: 86.0%
+Minibatch loss at step 3950: 0.022716
+Minibatch accuracy: 100.0%
+Validation accuracy: 86.0%
+Minibatch loss at step 4000: 0.401299
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.3%
+Minibatch loss at step 4050: 0.920850
+Minibatch accuracy: 68.8%
+Validation accuracy: 85.9%
+Minibatch loss at step 4100: 0.394480
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.1%
+Minibatch loss at step 4150: 1.032531
+Minibatch accuracy: 68.8%
+Validation accuracy: 85.8%
+Minibatch loss at step 4200: 0.337293
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.9%
+Minibatch loss at step 4250: 0.489229
+Minibatch accuracy: 81.2%
+Validation accuracy: 85.8%
+Minibatch loss at step 4300: 0.625643
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.2%
+Minibatch loss at step 4350: 0.226855
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.3%
+Minibatch loss at step 4400: 1.245873
+Minibatch accuracy: 62.5%
+Validation accuracy: 85.8%
+Minibatch loss at step 4450: 0.532430
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.1%
+Minibatch loss at step 4500: 0.533970
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.3%
+Minibatch loss at step 4550: 0.302638
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.2%
+Minibatch loss at step 4600: 0.546116
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.4%
+Minibatch loss at step 4650: 1.007509
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.8%
+Minibatch loss at step 4700: 0.324029
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.7%
+Minibatch loss at step 4750: 0.764786
+Minibatch accuracy: 68.8%
+Validation accuracy: 86.2%
+Minibatch loss at step 4800: 0.484530
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.2%
+Minibatch loss at step 4850: 0.347425
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.6%
+Minibatch loss at step 4900: 0.130487
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.3%
+Minibatch loss at step 4950: 0.200502
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.5%
+Minibatch loss at step 5000: 1.108705
+Minibatch accuracy: 75.0%
+Validation accuracy: 86.2%
+Minibatch loss at step 5050: 0.193768
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.6%
+Minibatch loss at step 5100: 0.331727
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.7%
+Minibatch loss at step 5150: 0.506960
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.8%
+Minibatch loss at step 5200: 0.232352
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.0%
+Minibatch loss at step 5250: 0.166380
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.5%
+Minibatch loss at step 5300: 0.238943
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.7%
+Minibatch loss at step 5350: 0.262512
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.2%
+Minibatch loss at step 5400: 0.392232
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.6%
+Minibatch loss at step 5450: 0.340364
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.4%
+Minibatch loss at step 5500: 0.508749
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.6%
+Minibatch loss at step 5550: 0.314524
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.8%
+Minibatch loss at step 5600: 0.337726
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.2%
+Minibatch loss at step 5650: 0.362860
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.8%
+Minibatch loss at step 5700: 0.528054
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.0%
+Minibatch loss at step 5750: 0.688255
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.7%
+Minibatch loss at step 5800: 0.236591
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.5%
+Minibatch loss at step 5850: 0.848808
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.8%
+Minibatch loss at step 5900: 0.851167
+Minibatch accuracy: 75.0%
+Validation accuracy: 86.4%
+Minibatch loss at step 5950: 0.383159
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.7%
+Minibatch loss at step 6000: 0.145510
+Minibatch accuracy: 100.0%
+Validation accuracy: 86.6%
+Minibatch loss at step 6050: 0.451479
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.1%
+Minibatch loss at step 6100: 0.944734
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.9%
+Minibatch loss at step 6150: 0.221575
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.1%
+Minibatch loss at step 6200: 1.130109
+Minibatch accuracy: 68.8%
+Validation accuracy: 87.0%
+Minibatch loss at step 6250: 1.035455
+Minibatch accuracy: 75.0%
+Validation accuracy: 86.5%
+Minibatch loss at step 6300: 0.753187
+Minibatch accuracy: 75.0%
+Validation accuracy: 87.0%
+Minibatch loss at step 6350: 0.124487
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.7%
+Minibatch loss at step 6400: 0.110366
+Minibatch accuracy: 100.0%
+Validation accuracy: 86.4%
+Minibatch loss at step 6450: 0.284560
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.9%
+Minibatch loss at step 6500: 0.808230
+Minibatch accuracy: 75.0%
+Validation accuracy: 86.5%
+Minibatch loss at step 6550: 0.231092
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.5%
+Minibatch loss at step 6600: 0.429626
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.8%
+Minibatch loss at step 6650: 1.389380
+Minibatch accuracy: 68.8%
+Validation accuracy: 86.8%
+Minibatch loss at step 6700: 0.215954
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.2%
+Minibatch loss at step 6750: 0.358699
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.0%
+Minibatch loss at step 6800: 0.671309
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.2%
+Minibatch loss at step 6850: 0.577780
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.7%
+Minibatch loss at step 6900: 0.606071
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.0%
+Minibatch loss at step 6950: 0.245747
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.0%
+Minibatch loss at step 7000: 1.043532
+Minibatch accuracy: 62.5%
+Validation accuracy: 87.5%
+Minibatch loss at step 7050: 0.588938
+Minibatch accuracy: 75.0%
+Validation accuracy: 86.8%
+Minibatch loss at step 7100: 0.487920
+Minibatch accuracy: 81.2%
+Validation accuracy: 86.8%
+Minibatch loss at step 7150: 0.298476
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.3%
+Minibatch loss at step 7200: 0.595083
+Minibatch accuracy: 75.0%
+Validation accuracy: 86.7%
+Minibatch loss at step 7250: 0.335184
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.3%
+Minibatch loss at step 7300: 0.506776
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.2%
+Minibatch loss at step 7350: 0.130336
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.3%
+Minibatch loss at step 7400: 0.013683
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.4%
+Minibatch loss at step 7450: 0.261001
+Minibatch accuracy: 87.5%
+Validation accuracy: 86.8%
+Minibatch loss at step 7500: 0.222963
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.1%
+Minibatch loss at step 7550: 0.423917
+Minibatch accuracy: 93.8%
+Validation accuracy: 86.6%
+Minibatch loss at step 7600: 0.540183
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.2%
+Minibatch loss at step 7650: 0.277236
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.7%
+Minibatch loss at step 7700: 0.080460
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.3%
+Minibatch loss at step 7750: 0.312135
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.3%
+Minibatch loss at step 7800: 0.324868
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.4%
+Minibatch loss at step 7850: 0.473891
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.5%
+Minibatch loss at step 7900: 0.107280
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.2%
+Minibatch loss at step 7950: 0.928129
+Minibatch accuracy: 75.0%
+Validation accuracy: 87.5%
+Minibatch loss at step 8000: 0.411603
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.2%
+Minibatch loss at step 8050: 0.273585
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.4%
+Minibatch loss at step 8100: 0.518977
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.6%
+Minibatch loss at step 8150: 0.649213
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.7%
+Minibatch loss at step 8200: 0.326911
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.5%
+Minibatch loss at step 8250: 0.235424
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.8%
+Minibatch loss at step 8300: 0.413041
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.5%
+Minibatch loss at step 8350: 0.404637
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.6%
+Minibatch loss at step 8400: 0.376382
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.5%
+Minibatch loss at step 8450: 0.145150
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.8%
+Minibatch loss at step 8500: 0.325861
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.5%
+Minibatch loss at step 8550: 0.390560
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.6%
+Minibatch loss at step 8600: 0.380062
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.6%
+Minibatch loss at step 8650: 0.596368
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.3%
+Minibatch loss at step 8700: 0.269267
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.4%
+Minibatch loss at step 8750: 0.203600
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.6%
+Minibatch loss at step 8800: 0.183450
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.7%
+Minibatch loss at step 8850: 0.050129
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.3%
+Minibatch loss at step 8900: 0.499641
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.1%
+Minibatch loss at step 8950: 0.268172
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.5%
+Minibatch loss at step 9000: 0.307033
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.3%
+Minibatch loss at step 9050: 0.423569
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.0%
+Minibatch loss at step 9100: 0.327092
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.8%
+Minibatch loss at step 9150: 0.758888
+Minibatch accuracy: 68.8%
+Validation accuracy: 86.6%
+Minibatch loss at step 9200: 0.322718
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.6%
+Minibatch loss at step 9250: 0.817988
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.5%
+Minibatch loss at step 9300: 1.074102
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.0%
+Minibatch loss at step 9350: 0.227235
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.9%
+Minibatch loss at step 9400: 0.228507
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.5%
+Minibatch loss at step 9450: 0.262066
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.4%
+Minibatch loss at step 9500: 0.168588
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.1%
+Minibatch loss at step 9550: 0.233744
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.1%
+Minibatch loss at step 9600: 0.308239
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.0%
+Minibatch loss at step 9650: 0.370479
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.2%
+Minibatch loss at step 9700: 0.226831
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.9%
+Minibatch loss at step 9750: 0.111030
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.0%
+Minibatch loss at step 9800: 0.546383
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.4%
+Minibatch loss at step 9850: 0.299850
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.3%
+Minibatch loss at step 9900: 0.652621
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.8%
+Minibatch loss at step 9950: 0.319600
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 10000: 0.171418
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.0%
+Minibatch loss at step 10050: 0.092044
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.0%
+Minibatch loss at step 10100: 0.364689
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.1%
+Minibatch loss at step 10150: 0.664580
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.7%
+Minibatch loss at step 10200: 0.145718
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.0%
+Minibatch loss at step 10250: 0.335909
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.0%
+Minibatch loss at step 10300: 0.120575
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.0%
+Minibatch loss at step 10350: 0.334384
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.8%
+Minibatch loss at step 10400: 0.385033
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.1%
+Minibatch loss at step 10450: 0.291096
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.9%
+Minibatch loss at step 10500: 0.499867
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.6%
+Minibatch loss at step 10550: 0.699872
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.1%
+Minibatch loss at step 10600: 0.694923
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.4%
+Minibatch loss at step 10650: 0.358271
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.8%
+Minibatch loss at step 10700: 0.038611
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.7%
+Minibatch loss at step 10750: 0.210932
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.3%
+Minibatch loss at step 10800: 0.343698
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.8%
+Minibatch loss at step 10850: 0.915179
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.8%
+Minibatch loss at step 10900: 0.182779
+Minibatch accuracy: 100.0%
+Validation accuracy: 87.7%
+Minibatch loss at step 10950: 0.480516
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.2%
+Minibatch loss at step 11000: 0.133577
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.6%
+Minibatch loss at step 11050: 0.445598
+Minibatch accuracy: 75.0%
+Validation accuracy: 87.8%
+Minibatch loss at step 11100: 0.116119
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.6%
+Minibatch loss at step 11150: 0.351546
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.4%
+Minibatch loss at step 11200: 0.214361
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.8%
+Minibatch loss at step 11250: 1.132205
+Minibatch accuracy: 62.5%
+Validation accuracy: 87.9%
+Minibatch loss at step 11300: 0.416074
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.2%
+Minibatch loss at step 11350: 0.346354
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.1%
+Minibatch loss at step 11400: 0.207315
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 11450: 0.372729
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.8%
+Minibatch loss at step 11500: 0.423345
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 11550: 0.366858
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.7%
+Minibatch loss at step 11600: 0.413811
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.4%
+Minibatch loss at step 11650: 0.339718
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.9%
+Minibatch loss at step 11700: 1.128059
+Minibatch accuracy: 56.2%
+Validation accuracy: 88.2%
+Minibatch loss at step 11750: 0.375930
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.2%
+Minibatch loss at step 11800: 0.018534
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.0%
+Minibatch loss at step 11850: 0.640144
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.5%
+Minibatch loss at step 11900: 0.278608
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.2%
+Minibatch loss at step 11950: 0.778321
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.2%
+Minibatch loss at step 12000: 0.537164
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.1%
+Minibatch loss at step 12050: 0.041181
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.5%
+Minibatch loss at step 12100: 0.359138
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.2%
+Minibatch loss at step 12150: 0.216178
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 12200: 0.431664
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 12250: 0.396865
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.2%
+Minibatch loss at step 12300: 0.332852
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.1%
+Minibatch loss at step 12350: 0.661470
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 12400: 0.024100
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.2%
+Minibatch loss at step 12450: 0.882016
+Minibatch accuracy: 68.8%
+Validation accuracy: 87.9%
+Minibatch loss at step 12500: 0.666356
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.3%
+Minibatch loss at step 12550: 0.634275
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.3%
+Minibatch loss at step 12600: 0.504009
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.0%
+Minibatch loss at step 12650: 0.595563
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.8%
+Minibatch loss at step 12700: 0.481609
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.0%
+Minibatch loss at step 12750: 0.179394
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 12800: 0.152290
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.1%
+Minibatch loss at step 12850: 0.255823
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.7%
+Minibatch loss at step 12900: 0.294143
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.0%
+Minibatch loss at step 12950: 0.057567
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.0%
+Minibatch loss at step 13000: 0.243102
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.6%
+Minibatch loss at step 13050: 0.180230
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 13100: 0.232316
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.2%
+Minibatch loss at step 13150: 0.253453
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 13200: 0.243009
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 13250: 0.760742
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.4%
+Minibatch loss at step 13300: 0.293977
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.4%
+Minibatch loss at step 13350: 0.079770
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.7%
+Minibatch loss at step 13400: 0.462399
+Minibatch accuracy: 87.5%
+Validation accuracy: 87.9%
+Minibatch loss at step 13450: 0.306897
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 13500: 0.291529
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.0%
+Minibatch loss at step 13550: 0.369528
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.1%
+Minibatch loss at step 13600: 0.257500
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.4%
+Minibatch loss at step 13650: 0.558677
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.1%
+Minibatch loss at step 13700: 0.374546
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.5%
+Minibatch loss at step 13750: 0.776668
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.7%
+Minibatch loss at step 13800: 0.059802
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.4%
+Minibatch loss at step 13850: 0.135528
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.4%
+Minibatch loss at step 13900: 0.236464
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 13950: 0.376923
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.2%
+Minibatch loss at step 14000: 0.054550
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.2%
+Minibatch loss at step 14050: 0.354875
+Minibatch accuracy: 81.2%
+Validation accuracy: 87.4%
+Minibatch loss at step 14100: 0.535367
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 14150: 0.286994
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.2%
+Minibatch loss at step 14200: 0.264117
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.1%
+Minibatch loss at step 14250: 0.285940
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 14300: 0.236946
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.2%
+Minibatch loss at step 14350: 0.111533
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.6%
+Minibatch loss at step 14400: 0.355326
+Minibatch accuracy: 93.8%
+Validation accuracy: 87.6%
+Minibatch loss at step 14450: 0.166920
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.4%
+Minibatch loss at step 14500: 0.447961
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.2%
+Minibatch loss at step 14550: 0.436902
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 14600: 0.026376
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.4%
+Minibatch loss at step 14650: 0.547449
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.0%
+Minibatch loss at step 14700: 0.194658
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 14750: 0.302396
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.7%
+Minibatch loss at step 14800: 0.473613
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.4%
+Minibatch loss at step 14850: 0.375199
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.7%
+Minibatch loss at step 14900: 0.294695
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 14950: 0.555640
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.4%
+Minibatch loss at step 15000: 0.288965
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.4%
+Minibatch loss at step 15050: 0.586662
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.6%
+Minibatch loss at step 15100: 0.165074
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.6%
+Minibatch loss at step 15150: 0.241651
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.4%
+Minibatch loss at step 15200: 0.070328
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.6%
+Minibatch loss at step 15250: 0.618133
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.8%
+Minibatch loss at step 15300: 0.195417
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 15350: 0.049322
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.7%
+Minibatch loss at step 15400: 0.903915
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.3%
+Minibatch loss at step 15450: 0.660888
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.5%
+Minibatch loss at step 15500: 0.122664
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 15550: 0.272184
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 15600: 0.363564
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.5%
+Minibatch loss at step 15650: 0.405549
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.4%
+Minibatch loss at step 15700: 0.256486
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 15750: 0.154002
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.8%
+Minibatch loss at step 15800: 0.239925
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.6%
+Minibatch loss at step 15850: 0.227647
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.8%
+Minibatch loss at step 15900: 0.555887
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.9%
+Minibatch loss at step 15950: 0.151216
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.9%
+Minibatch loss at step 16000: 0.816181
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.3%
+Minibatch loss at step 16050: 0.050174
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.4%
+Minibatch loss at step 16100: 0.273636
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.7%
+Minibatch loss at step 16150: 0.049309
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.3%
+Minibatch loss at step 16200: 0.695441
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.8%
+Minibatch loss at step 16250: 0.192707
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.9%
+Minibatch loss at step 16300: 0.550101
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.8%
+Minibatch loss at step 16350: 0.517190
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.9%
+Minibatch loss at step 16400: 0.485441
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.8%
+Minibatch loss at step 16450: 0.674784
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.7%
+Minibatch loss at step 16500: 0.014731
+Minibatch accuracy: 100.0%
+Validation accuracy: 89.0%
+Minibatch loss at step 16550: 0.671563
+Minibatch accuracy: 68.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 16600: 0.300188
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.5%
+Minibatch loss at step 16650: 0.740503
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.3%
+Minibatch loss at step 16700: 0.382607
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.3%
+Minibatch loss at step 16750: 0.557894
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.8%
+Minibatch loss at step 16800: 0.890328
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.7%
+Minibatch loss at step 16850: 0.679777
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.8%
+Minibatch loss at step 16900: 0.922036
+Minibatch accuracy: 62.5%
+Validation accuracy: 88.7%
+Minibatch loss at step 16950: 0.286368
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.9%
+Minibatch loss at step 17000: 0.221937
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.0%
+Minibatch loss at step 17050: 0.412557
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.8%
+Minibatch loss at step 17100: 0.444059
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.8%
+Minibatch loss at step 17150: 0.234638
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 17200: 0.278832
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.6%
+Minibatch loss at step 17250: 0.416110
+Minibatch accuracy: 87.5%
+Validation accuracy: 89.1%
+Minibatch loss at step 17300: 0.239618
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.9%
+Minibatch loss at step 17350: 0.263696
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.9%
+Minibatch loss at step 17400: 0.425588
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.7%
+Minibatch loss at step 17450: 0.248632
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.8%
+Minibatch loss at step 17500: 0.430189
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.5%
+Minibatch loss at step 17550: 0.629030
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.7%
+Minibatch loss at step 17600: 0.781714
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.5%
+Minibatch loss at step 17650: 0.115577
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.2%
+Minibatch loss at step 17700: 0.522619
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.6%
+Minibatch loss at step 17750: 0.315973
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.8%
+Minibatch loss at step 17800: 0.513727
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.8%
+Minibatch loss at step 17850: 0.430481
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.7%
+Minibatch loss at step 17900: 0.474613
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.7%
+Minibatch loss at step 17950: 0.428169
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.4%
+Minibatch loss at step 18000: 0.515662
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.5%
+Minibatch loss at step 18050: 0.320211
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.8%
+Minibatch loss at step 18100: 0.546734
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.8%
+Minibatch loss at step 18150: 0.181387
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.9%
+Minibatch loss at step 18200: 0.441694
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.1%
+Minibatch loss at step 18250: 0.710948
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.9%
+Minibatch loss at step 18300: 0.114027
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.7%
+Minibatch loss at step 18350: 0.295958
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.9%
+Minibatch loss at step 18400: 0.540027
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.5%
+Minibatch loss at step 18450: 0.264987
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.9%
+Minibatch loss at step 18500: 0.223339
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.0%
+Minibatch loss at step 18550: 0.339755
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.0%
+Minibatch loss at step 18600: 0.106863
+Minibatch accuracy: 100.0%
+Validation accuracy: 89.0%
+Minibatch loss at step 18650: 0.314317
+Minibatch accuracy: 87.5%
+Validation accuracy: 89.0%
+Minibatch loss at step 18700: 0.219302
+Minibatch accuracy: 87.5%
+Validation accuracy: 89.1%
+Minibatch loss at step 18750: 0.646007
+Minibatch accuracy: 75.0%
+Validation accuracy: 88.9%
+Minibatch loss at step 18800: 0.459860
+Minibatch accuracy: 81.2%
+Validation accuracy: 88.9%
+Minibatch loss at step 18850: 0.586212
+Minibatch accuracy: 81.2%
+Validation accuracy: 89.2%
+Minibatch loss at step 18900: 0.029771
+Minibatch accuracy: 100.0%
+Validation accuracy: 89.0%
+Minibatch loss at step 18950: 0.105667
+Minibatch accuracy: 100.0%
+Validation accuracy: 89.0%
+Minibatch loss at step 19000: 0.409830
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.7%
+Minibatch loss at step 19050: 0.201097
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.2%
+Minibatch loss at step 19100: 0.038737
+Minibatch accuracy: 100.0%
+Validation accuracy: 89.1%
+Minibatch loss at step 19150: 0.577870
+Minibatch accuracy: 87.5%
+Validation accuracy: 89.1%
+Minibatch loss at step 19200: 0.268420
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.1%
+Minibatch loss at step 19250: 0.858772
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.1%
+Minibatch loss at step 19300: 0.182273
+Minibatch accuracy: 100.0%
+Validation accuracy: 89.1%
+Minibatch loss at step 19350: 0.188322
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.8%
+Minibatch loss at step 19400: 0.576385
+Minibatch accuracy: 81.2%
+Validation accuracy: 89.1%
+Minibatch loss at step 19450: 0.195962
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.8%
+Minibatch loss at step 19500: 0.429300
+Minibatch accuracy: 87.5%
+Validation accuracy: 89.1%
+Minibatch loss at step 19550: 0.341993
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.8%
+Minibatch loss at step 19600: 0.384213
+Minibatch accuracy: 87.5%
+Validation accuracy: 89.2%
+Minibatch loss at step 19650: 0.287310
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.2%
+Minibatch loss at step 19700: 0.124643
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.8%
+Minibatch loss at step 19750: 0.698890
+Minibatch accuracy: 81.2%
+Validation accuracy: 89.1%
+Minibatch loss at step 19800: 0.134224
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.4%
+Minibatch loss at step 19850: 0.197221
+Minibatch accuracy: 100.0%
+Validation accuracy: 88.8%
+Minibatch loss at step 19900: 0.168109
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.1%
+Minibatch loss at step 19950: 0.691112
+Minibatch accuracy: 75.0%
+Validation accuracy: 89.0%
+Minibatch loss at step 20000: 0.263018
+Minibatch accuracy: 87.5%
+Validation accuracy: 89.4%
+Test accuracy: 94.7%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The accuracy is good, but not as good as the 3-layer network from the previous assignment.</p>
+<p>The next version of the net uses dropout and learning rate decay:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">patch_size</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">num_hidden</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">beta_regul</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">drop_out</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+  <span class="c1"># Input data.</span>
+  <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">))</span>
+  <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+  <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+  <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+  <span class="n">global_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  
+  <span class="c1"># Variables.</span>
+  <span class="n">layer1_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer1_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">layer2_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">patch_size</span><span class="p">,</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">depth</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer2_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">depth</span><span class="p">]))</span>
+  <span class="n">size3</span> <span class="o">=</span> <span class="p">((</span><span class="n">image_size</span> <span class="o">-</span> <span class="n">patch_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">patch_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+  <span class="n">layer3_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">size3</span> <span class="o">*</span> <span class="n">size3</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer3_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_hidden</span><span class="p">]))</span>
+  <span class="n">layer4_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">num_hidden</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer4_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_hidden</span><span class="p">]))</span>
+  <span class="n">layer5_weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">num_hidden</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">layer5_biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+  <span class="c1"># Model.</span>
+  <span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">):</span>
+    <span class="c1"># C1 input 28 x 28</span>
+    <span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">layer1_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="n">bias1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv1</span> <span class="o">+</span> <span class="n">layer1_biases</span><span class="p">)</span>
+    <span class="c1"># S2 input 24 x 24</span>
+    <span class="n">pool2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">avg_pool</span><span class="p">(</span><span class="n">bias1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="c1"># C3 input 12 x 12</span>
+    <span class="n">conv3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">pool2</span><span class="p">,</span> <span class="n">layer2_weights</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="n">bias3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv3</span> <span class="o">+</span> <span class="n">layer2_biases</span><span class="p">)</span>
+    <span class="c1"># S4 input 8 x 8</span>
+    <span class="n">pool4</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">avg_pool</span><span class="p">(</span><span class="n">bias3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;VALID&#39;</span><span class="p">)</span>
+    <span class="c1"># F5 input 4 x 4</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">pool4</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="n">reshape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pool4</span><span class="p">,</span> <span class="p">[</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
+    <span class="n">hidden5</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">reshape</span><span class="p">,</span> <span class="n">layer3_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer3_biases</span><span class="p">)</span>
+    <span class="c1"># F6</span>
+    <span class="n">drop5</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">hidden5</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
+    <span class="n">hidden6</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hidden5</span><span class="p">,</span> <span class="n">layer4_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer4_biases</span><span class="p">)</span>
+    <span class="n">drop6</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">hidden6</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">drop6</span><span class="p">,</span> <span class="n">layer5_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">layer5_biases</span>
+  
+  <span class="c1"># Training computation.</span>
+  <span class="n">logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">,</span> <span class="n">drop_out</span><span class="p">)</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span>
+    
+  <span class="c1"># Optimizer.</span>
+  <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">exponential_decay</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">global_step</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="n">staircase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">global_step</span><span class="p">)</span>
+  
+  <span class="c1"># Predictions for the training, validation, and test data.</span>
+  <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+  <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+  <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">5001</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Initialized&#39;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+    <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">}</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch loss at step </span><span class="si">%d</span><span class="s1">: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span>
+        <span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test accuracy: </span><span class="si">%.1f%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 3.096471
+Minibatch accuracy: 18.8%
+Validation accuracy: 10.0%
+Minibatch loss at step 50: 2.218386
+Minibatch accuracy: 18.8%
+Validation accuracy: 27.3%
+Minibatch loss at step 100: 1.838299
+Minibatch accuracy: 43.8%
+Validation accuracy: 43.7%
+Minibatch loss at step 150: 1.187498
+Minibatch accuracy: 43.8%
+Validation accuracy: 61.2%
+Minibatch loss at step 200: 1.286091
+Minibatch accuracy: 62.5%
+Validation accuracy: 65.4%
+Minibatch loss at step 250: 1.234681
+Minibatch accuracy: 75.0%
+Validation accuracy: 68.3%
+Minibatch loss at step 300: 0.742321
+Minibatch accuracy: 75.0%
+Validation accuracy: 72.1%
+Minibatch loss at step 350: 0.743286
+Minibatch accuracy: 75.0%
+Validation accuracy: 69.9%
+Minibatch loss at step 400: 0.753913
+Minibatch accuracy: 75.0%
+Validation accuracy: 75.8%
+Minibatch loss at step 450: 1.047853
+Minibatch accuracy: 75.0%
+Validation accuracy: 72.6%
+Minibatch loss at step 500: 0.679798
+Minibatch accuracy: 81.2%
+Validation accuracy: 76.4%
+Minibatch loss at step 550: 0.826316
+Minibatch accuracy: 68.8%
+Validation accuracy: 75.3%
+Minibatch loss at step 600: 0.598534
+Minibatch accuracy: 87.5%
+Validation accuracy: 77.4%
+Minibatch loss at step 650: 1.051054
+Minibatch accuracy: 75.0%
+Validation accuracy: 77.1%
+Minibatch loss at step 700: 1.229106
+Minibatch accuracy: 68.8%
+Validation accuracy: 78.8%
+Minibatch loss at step 750: 0.226812
+Minibatch accuracy: 87.5%
+Validation accuracy: 76.7%
+Minibatch loss at step 800: 0.760882
+Minibatch accuracy: 68.8%
+Validation accuracy: 78.7%
+Minibatch loss at step 850: 1.568783
+Minibatch accuracy: 62.5%
+Validation accuracy: 78.3%
+Minibatch loss at step 900: 0.604009
+Minibatch accuracy: 81.2%
+Validation accuracy: 79.3%
+Minibatch loss at step 950: 0.851479
+Minibatch accuracy: 81.2%
+Validation accuracy: 78.8%
+Minibatch loss at step 1000: 0.622787
+Minibatch accuracy: 81.2%
+Validation accuracy: 78.1%
+Minibatch loss at step 1050: 0.705176
+Minibatch accuracy: 81.2%
+Validation accuracy: 78.4%
+Minibatch loss at step 1100: 0.786113
+Minibatch accuracy: 68.8%
+Validation accuracy: 79.8%
+Minibatch loss at step 1150: 0.401123
+Minibatch accuracy: 87.5%
+Validation accuracy: 80.6%
+Minibatch loss at step 1200: 0.952180
+Minibatch accuracy: 68.8%
+Validation accuracy: 80.2%
+Minibatch loss at step 1250: 0.677300
+Minibatch accuracy: 81.2%
+Validation accuracy: 80.6%
+Minibatch loss at step 1300: 0.481008
+Minibatch accuracy: 93.8%
+Validation accuracy: 80.8%
+Minibatch loss at step 1350: 1.209476
+Minibatch accuracy: 56.2%
+Validation accuracy: 80.6%
+Minibatch loss at step 1400: 0.419186
+Minibatch accuracy: 87.5%
+Validation accuracy: 80.5%
+Minibatch loss at step 1450: 0.380538
+Minibatch accuracy: 93.8%
+Validation accuracy: 81.2%
+Minibatch loss at step 1500: 0.955075
+Minibatch accuracy: 81.2%
+Validation accuracy: 81.0%
+Minibatch loss at step 1550: 1.085058
+Minibatch accuracy: 75.0%
+Validation accuracy: 81.0%
+Minibatch loss at step 1600: 0.977800
+Minibatch accuracy: 62.5%
+Validation accuracy: 81.0%
+Minibatch loss at step 1650: 0.921607
+Minibatch accuracy: 75.0%
+Validation accuracy: 81.0%
+Minibatch loss at step 1700: 0.688754
+Minibatch accuracy: 81.2%
+Validation accuracy: 81.6%
+Minibatch loss at step 1750: 0.692282
+Minibatch accuracy: 87.5%
+Validation accuracy: 81.7%
+Minibatch loss at step 1800: 0.705485
+Minibatch accuracy: 81.2%
+Validation accuracy: 81.5%
+Minibatch loss at step 1850: 1.197821
+Minibatch accuracy: 62.5%
+Validation accuracy: 82.1%
+Minibatch loss at step 1900: 0.369234
+Minibatch accuracy: 93.8%
+Validation accuracy: 81.5%
+Minibatch loss at step 1950: 0.735324
+Minibatch accuracy: 81.2%
+Validation accuracy: 82.6%
+Minibatch loss at step 2000: 0.119179
+Minibatch accuracy: 100.0%
+Validation accuracy: 81.8%
+Minibatch loss at step 2050: 1.021600
+Minibatch accuracy: 62.5%
+Validation accuracy: 82.4%
+Minibatch loss at step 2100: 0.517658
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.2%
+Minibatch loss at step 2150: 0.827290
+Minibatch accuracy: 87.5%
+Validation accuracy: 81.8%
+Minibatch loss at step 2200: 0.311569
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.2%
+Minibatch loss at step 2250: 0.782547
+Minibatch accuracy: 75.0%
+Validation accuracy: 82.8%
+Minibatch loss at step 2300: 0.712941
+Minibatch accuracy: 87.5%
+Validation accuracy: 82.3%
+Minibatch loss at step 2350: 0.595645
+Minibatch accuracy: 75.0%
+Validation accuracy: 82.5%
+Minibatch loss at step 2400: 0.733667
+Minibatch accuracy: 75.0%
+Validation accuracy: 82.9%
+Minibatch loss at step 2450: 0.706617
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.0%
+Minibatch loss at step 2500: 0.785494
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.1%
+Minibatch loss at step 2550: 0.802653
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.0%
+Minibatch loss at step 2600: 0.146725
+Minibatch accuracy: 100.0%
+Validation accuracy: 83.4%
+Minibatch loss at step 2650: 0.778106
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.4%
+Minibatch loss at step 2700: 0.851263
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.4%
+Minibatch loss at step 2750: 1.249370
+Minibatch accuracy: 68.8%
+Validation accuracy: 82.6%
+Minibatch loss at step 2800: 0.751888
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.6%
+Minibatch loss at step 2850: 0.334603
+Minibatch accuracy: 87.5%
+Validation accuracy: 83.6%
+Minibatch loss at step 2900: 0.727808
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.6%
+Minibatch loss at step 2950: 0.433410
+Minibatch accuracy: 87.5%
+Validation accuracy: 83.8%
+Minibatch loss at step 3000: 0.786957
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.8%
+Minibatch loss at step 3050: 0.647733
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.7%
+Minibatch loss at step 3100: 0.653776
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.7%
+Minibatch loss at step 3150: 1.022243
+Minibatch accuracy: 68.8%
+Validation accuracy: 83.7%
+Minibatch loss at step 3200: 0.533052
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.0%
+Minibatch loss at step 3250: 0.564300
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.9%
+Minibatch loss at step 3300: 0.118282
+Minibatch accuracy: 100.0%
+Validation accuracy: 84.1%
+Minibatch loss at step 3350: 0.339224
+Minibatch accuracy: 87.5%
+Validation accuracy: 84.1%
+Minibatch loss at step 3400: 0.859578
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.3%
+Minibatch loss at step 3450: 0.599495
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.8%
+Minibatch loss at step 3500: 0.561725
+Minibatch accuracy: 75.0%
+Validation accuracy: 83.9%
+Minibatch loss at step 3550: 0.318682
+Minibatch accuracy: 93.8%
+Validation accuracy: 84.4%
+Minibatch loss at step 3600: 0.118864
+Minibatch accuracy: 100.0%
+Validation accuracy: 84.3%
+Minibatch loss at step 3650: 0.874074
+Minibatch accuracy: 75.0%
+Validation accuracy: 84.5%
+Minibatch loss at step 3700: 1.051456
+Minibatch accuracy: 56.2%
+Validation accuracy: 84.6%
+Minibatch loss at step 3750: 0.973502
+Minibatch accuracy: 68.8%
+Validation accuracy: 84.5%
+Minibatch loss at step 3800: 0.047199
+Minibatch accuracy: 100.0%
+Validation accuracy: 84.5%
+Minibatch loss at step 3850: 0.768790
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.8%
+Minibatch loss at step 3900: 0.724833
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.9%
+Minibatch loss at step 3950: 0.013041
+Minibatch accuracy: 100.0%
+Validation accuracy: 84.3%
+Minibatch loss at step 4000: 0.481803
+Minibatch accuracy: 87.5%
+Validation accuracy: 84.5%
+Minibatch loss at step 4050: 0.744841
+Minibatch accuracy: 81.2%
+Validation accuracy: 83.9%
+Minibatch loss at step 4100: 0.617877
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.8%
+Minibatch loss at step 4150: 1.141286
+Minibatch accuracy: 62.5%
+Validation accuracy: 84.0%
+Minibatch loss at step 4200: 0.355831
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.0%
+Minibatch loss at step 4250: 0.769242
+Minibatch accuracy: 68.8%
+Validation accuracy: 84.4%
+Minibatch loss at step 4300: 1.063414
+Minibatch accuracy: 75.0%
+Validation accuracy: 84.9%
+Minibatch loss at step 4350: 0.340466
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.0%
+Minibatch loss at step 4400: 1.378393
+Minibatch accuracy: 62.5%
+Validation accuracy: 84.8%
+Minibatch loss at step 4450: 0.581816
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.0%
+Minibatch loss at step 4500: 0.741992
+Minibatch accuracy: 75.0%
+Validation accuracy: 85.1%
+Minibatch loss at step 4550: 0.337504
+Minibatch accuracy: 81.2%
+Validation accuracy: 85.2%
+Minibatch loss at step 4600: 0.342177
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.2%
+Minibatch loss at step 4650: 0.818812
+Minibatch accuracy: 81.2%
+Validation accuracy: 84.4%
+Minibatch loss at step 4700: 0.676614
+Minibatch accuracy: 81.2%
+Validation accuracy: 85.3%
+Minibatch loss at step 4750: 0.897268
+Minibatch accuracy: 68.8%
+Validation accuracy: 85.6%
+Minibatch loss at step 4800: 0.560772
+Minibatch accuracy: 81.2%
+Validation accuracy: 85.0%
+Minibatch loss at step 4850: 0.384257
+Minibatch accuracy: 87.5%
+Validation accuracy: 85.2%
+Minibatch loss at step 4900: 0.360459
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.5%
+Minibatch loss at step 4950: 0.243155
+Minibatch accuracy: 93.8%
+Validation accuracy: 85.1%
+Minibatch loss at step 5000: 1.119264
+Minibatch accuracy: 62.5%
+Validation accuracy: 85.0%
+Test accuracy: 91.4%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Well, the accuracy is worst. This net has many meta parameters and I don't feel comfortable in tuning them randomly. I should probably change the depth and make it different between the layers, since it looks like the increasing number of feature maps is a key design item.</p>
+<p>I will do so in a next version.</p>
 
 </div>
 </div>

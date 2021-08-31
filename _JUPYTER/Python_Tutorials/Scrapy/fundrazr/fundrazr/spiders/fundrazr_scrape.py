@@ -52,4 +52,3 @@ class Fundrazr(scrapy.Spider):
 		item['url'] = response.xpath("//meta[@property='og:url']/@content").extract()
 
 		yield item
-

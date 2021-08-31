@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupyter (iPython) Notebooks Guide</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>3_regularization</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,9 +13971,200 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Guide-to-Using-Jupyter-Notebooks">Guide to Using Jupyter Notebooks<a class="anchor-link" href="#Guide-to-Using-Jupyter-Notebooks">&#182;</a></h1><p>In this lecture we will be going over the basics of the Jupyter (previously called iPython Notebooks).</p>
-<p>For a complete User Manual check out the <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Bryn Mawr College Computer Science Guide</a>.</p>
-<p>Most of the breakdown will actually occur in the presentation corresponding to this Notebook. So please refer to either the presentation or the full User Manual linked above.</p>
+<h1 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning">&#182;</a></h1><h2 id="Assignment-3">Assignment 3<a class="anchor-link" href="#Assignment-3">&#182;</a></h2><p>Previously in <code>2_fullyconnected.ipynb</code>, you trained a logistic regression and a neural network model.</p>
+<p>The goal of this assignment is to explore regularization techniques.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># These are all the modules we&#39;ll be using later. Make sure you can import them</span>
+<span class="c1"># before proceeding further.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cPickle</span> <span class="k">as</span> <span class="n">pickle</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First reload the data we generated in <em>notmist.ipynb</em>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pickle_file</span> <span class="o">=</span> <span class="s1">&#39;notMNIST.pickle&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">save</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+  <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;train_dataset&#39;</span><span class="p">]</span>
+  <span class="n">train_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;train_labels&#39;</span><span class="p">]</span>
+  <span class="n">valid_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;valid_dataset&#39;</span><span class="p">]</span>
+  <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;valid_labels&#39;</span><span class="p">]</span>
+  <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;test_dataset&#39;</span><span class="p">]</span>
+  <span class="n">test_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;test_labels&#39;</span><span class="p">]</span>
+  <span class="k">del</span> <span class="n">save</span>  <span class="c1"># hint to help gc free up memory</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation set&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training set (200000, 28, 28) (200000,)
+Validation set (10000, 28, 28) (10000,)
+Test set (18724, 28, 28) (18724,)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Reformat into a shape that's more adapted to the models we're going to train:</p>
+<ul>
+<li>data as a flat matrix,</li>
+<li>labels as float 1-hot encodings.</li>
+</ul>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_size</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">num_labels</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">reformat</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="c1"># Map 2 to [0.0, 1.0, 0.0 ...], 3 to [0.0, 0.0, 1.0 ...]</span>
+  <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span>
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
+<span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">)</span>
+<span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation set&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training set (200000, 784) (200000, 10)
+Validation set (10000, 784) (10000, 10)
+Test set (18724, 784) (18724, 10)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+          <span class="o">/</span> <span class="n">predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h2><p>Introduce and tune L2 regularization for both logistic and neural network models. Remember that L2 amounts to adding a penalty on the norm of the weights to the loss. In TensorFlow, you can compute the L2 loss for a tensor <code>t</code> using <code>nn.l2_loss(t)</code>. The right amount of regularization should improve your validation / test accuracy.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h2><p>Let's demonstrate an extreme case of overfitting. Restrict your training data to just a few batches. What happens?</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-3">Problem 3<a class="anchor-link" href="#Problem-3">&#182;</a></h2><p>Introduce Dropout on the hidden layer of the neural network. Remember: Dropout should only be introduced during training, not evaluation, otherwise your evaluation results would be stochastic as well. TensorFlow provides <code>nn.dropout()</code> for that, but you have to make sure it's only inserted during training.</p>
+<p>What happens to our extreme overfitting case?</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-4">Problem 4<a class="anchor-link" href="#Problem-4">&#182;</a></h2><p>Try to get the best performance you can using a multi-layer model! The best reported test accuracy using a deep network is <a href="http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html?showComment=1391023266211#c8758720086795711595">97.1%</a>.</p>
+<p>One avenue you can explore is to add multiple layers.</p>
+<p>Another one is to use learning rate decay:</p>
+
+<pre><code>global_step = tf.Variable(0)  # count the number of steps taken.
+learning_rate = tf.train.exponential_decay(0.5, global_step, ...)
+optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss, global_step=global_step)
+
+</code></pre>
+<hr>
 
 </div>
 </div>

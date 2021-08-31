@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupyter (iPython) Notebooks Guide</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Part3_Time_Series_Data_Pivot_Tables_Interaction</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,11 +13971,757 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Guide-to-Using-Jupyter-Notebooks">Guide to Using Jupyter Notebooks<a class="anchor-link" href="#Guide-to-Using-Jupyter-Notebooks">&#182;</a></h1><p>In this lecture we will be going over the basics of the Jupyter (previously called iPython Notebooks).</p>
-<p>For a complete User Manual check out the <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Bryn Mawr College Computer Science Guide</a>.</p>
-<p>Most of the breakdown will actually occur in the presentation corresponding to this Notebook. So please refer to either the presentation or the full User Manual linked above.</p>
+<h1 align="center"> Time Series Data Basics with Pandas Part 3: Price Variation from Pandas groupby </h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>This code demonstrates how to</p>
+<p><strong>if this tutorial doesn't cover what you are looking for, please leave a comment below the youtube video and I will try to cover what you are interested in.</strong></p>
 
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><b> Part 1 </b>: Sampling, Rolling Mean (Smoothing), Linear Regression, Filtering, Join, plotting of a Time Series Pandas DataFrame <br>
+<a href="https://www.youtube.com/watch?v=OwnaUVt6VVE">https://www.youtube.com/watch?v=OwnaUVt6VVE</a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><b> Part 2 </b>: Price Variation from Pandas GroupBy <br>
+<a href="https://www.youtube.com/watch?v=1S5UKLqe-gg">https://www.youtube.com/watch?v=1S5UKLqe-gg</a></p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'> Importing Libraries</h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'> Getting Data and Viewing with Pandas </h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># https://pandas-datareader.readthedocs.io/en/latest/remote_data.html</span>
+<span class="n">google</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="n">data_source</span> <span class="o">=</span> <span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;3/14/2009&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;4/14/2016&#39;</span><span class="p">)</span>
+<span class="n">google</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2009-03-16</th>
+      <td>162.83</td>
+      <td>164.70</td>
+      <td>159.14</td>
+      <td>159.69</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-03-17</th>
+      <td>159.93</td>
+      <td>167.50</td>
+      <td>159.39</td>
+      <td>167.50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-03-18</th>
+      <td>167.24</td>
+      <td>169.83</td>
+      <td>163.86</td>
+      <td>166.38</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-03-19</th>
+      <td>165.67</td>
+      <td>167.83</td>
+      <td>163.53</td>
+      <td>164.81</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-03-20</th>
+      <td>164.98</td>
+      <td>166.33</td>
+      <td>163.01</td>
+      <td>164.91</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'> Getting Data and Viewing with Pandas </h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">google_date</span> <span class="o">=</span> <span class="n">google</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">TimeGrouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">google_date</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2009-03-31</th>
+      <td>169.330000</td>
+      <td>172.208333</td>
+      <td>166.874167</td>
+      <td>169.822500</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-04-30</th>
+      <td>187.539524</td>
+      <td>190.871905</td>
+      <td>185.564286</td>
+      <td>188.649048</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-05-31</th>
+      <td>199.750000</td>
+      <td>201.946500</td>
+      <td>197.298500</td>
+      <td>199.814000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-06-30</th>
+      <td>211.566818</td>
+      <td>213.439091</td>
+      <td>209.372273</td>
+      <td>211.680909</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-07-31</th>
+      <td>212.957273</td>
+      <td>215.438182</td>
+      <td>210.859545</td>
+      <td>213.432727</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">google_date</span> <span class="o">=</span> <span class="n">google_date</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">google_date</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2009-03-31</td>
+      <td>169.330000</td>
+      <td>172.208333</td>
+      <td>166.874167</td>
+      <td>169.822500</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2009-04-30</td>
+      <td>187.539524</td>
+      <td>190.871905</td>
+      <td>185.564286</td>
+      <td>188.649048</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2009-05-31</td>
+      <td>199.750000</td>
+      <td>201.946500</td>
+      <td>197.298500</td>
+      <td>199.814000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2009-06-30</td>
+      <td>211.566818</td>
+      <td>213.439091</td>
+      <td>209.372273</td>
+      <td>211.680909</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2009-07-31</td>
+      <td>212.957273</td>
+      <td>215.438182</td>
+      <td>210.859545</td>
+      <td>213.432727</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">google_date</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>60</th>
+      <td>2014-03-31</td>
+      <td>594.312381</td>
+      <td>597.200000</td>
+      <td>587.170476</td>
+      <td>590.631905</td>
+      <td>2.675957e+06</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>2014-04-30</td>
+      <td>528.889524</td>
+      <td>548.008095</td>
+      <td>532.993333</td>
+      <td>540.014286</td>
+      <td>3.397846e+06</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>2014-05-31</td>
+      <td>533.136190</td>
+      <td>537.571429</td>
+      <td>528.415714</td>
+      <td>534.053333</td>
+      <td>1.740365e+06</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>2014-06-30</td>
+      <td>557.843810</td>
+      <td>561.529048</td>
+      <td>552.762857</td>
+      <td>558.430476</td>
+      <td>1.806047e+06</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>2014-07-31</td>
+      <td>584.146818</td>
+      <td>587.762727</td>
+      <td>579.377273</td>
+      <td>584.015909</td>
+      <td>1.570525e+06</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>2014-08-31</td>
+      <td>574.153810</td>
+      <td>577.222381</td>
+      <td>569.963810</td>
+      <td>573.600476</td>
+      <td>1.315643e+06</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>2014-09-30</td>
+      <td>581.562857</td>
+      <td>585.084762</td>
+      <td>577.776667</td>
+      <td>581.889048</td>
+      <td>1.593645e+06</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>2014-10-31</td>
+      <td>548.336087</td>
+      <td>553.207826</td>
+      <td>541.793478</td>
+      <td>547.030000</td>
+      <td>2.264480e+06</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>2014-11-30</td>
+      <td>544.258947</td>
+      <td>546.484737</td>
+      <td>539.902632</td>
+      <td>542.977895</td>
+      <td>1.497144e+06</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>2014-12-31</td>
+      <td>524.969091</td>
+      <td>529.458182</td>
+      <td>520.442273</td>
+      <td>524.626818</td>
+      <td>2.081665e+06</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>2015-01-31</td>
+      <td>513.224500</td>
+      <td>517.870500</td>
+      <td>506.693000</td>
+      <td>512.418000</td>
+      <td>2.504921e+06</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>2015-02-28</td>
+      <td>535.915789</td>
+      <td>541.594737</td>
+      <td>532.400526</td>
+      <td>537.992105</td>
+      <td>1.710954e+06</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>2015-03-31</td>
+      <td>560.359545</td>
+      <td>564.172273</td>
+      <td>555.578182</td>
+      <td>559.715909</td>
+      <td>1.751945e+06</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>2015-04-30</td>
+      <td>541.159524</td>
+      <td>545.041429</td>
+      <td>536.298571</td>
+      <td>540.497619</td>
+      <td>2.013497e+06</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>2015-05-31</td>
+      <td>535.470500</td>
+      <td>539.167000</td>
+      <td>531.406500</td>
+      <td>535.239000</td>
+      <td>1.593339e+06</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>2015-06-30</td>
+      <td>533.834545</td>
+      <td>536.315455</td>
+      <td>530.060909</td>
+      <td>532.915909</td>
+      <td>1.561024e+06</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>2015-07-31</td>
+      <td>588.200455</td>
+      <td>596.199091</td>
+      <td>582.965455</td>
+      <td>590.093636</td>
+      <td>2.878157e+06</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>2015-08-31</td>
+      <td>639.427143</td>
+      <td>646.968571</td>
+      <td>629.205714</td>
+      <td>636.838095</td>
+      <td>2.558164e+06</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>2015-09-30</td>
+      <td>618.796190</td>
+      <td>624.522857</td>
+      <td>611.291429</td>
+      <td>617.934762</td>
+      <td>2.283404e+06</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>2015-10-31</td>
+      <td>662.285909</td>
+      <td>669.261818</td>
+      <td>655.553636</td>
+      <td>663.592727</td>
+      <td>2.225862e+06</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>2015-11-30</td>
+      <td>733.636000</td>
+      <td>740.525000</td>
+      <td>728.927000</td>
+      <td>735.388500</td>
+      <td>1.680540e+06</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>2015-12-31</td>
+      <td>756.099545</td>
+      <td>762.109545</td>
+      <td>747.239545</td>
+      <td>755.354545</td>
+      <td>1.957391e+06</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>2016-01-31</td>
+      <td>719.503158</td>
+      <td>728.158421</td>
+      <td>708.215789</td>
+      <td>718.495789</td>
+      <td>2.436567e+06</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>2016-02-29</td>
+      <td>706.394500</td>
+      <td>714.834000</td>
+      <td>695.218000</td>
+      <td>702.689000</td>
+      <td>3.177772e+06</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>2016-03-31</td>
+      <td>725.265455</td>
+      <td>731.451818</td>
+      <td>720.084545</td>
+      <td>727.056818</td>
+      <td>1.881903e+06</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>2016-04-30</td>
+      <td>743.596000</td>
+      <td>748.515000</td>
+      <td>738.621000</td>
+      <td>744.223000</td>
+      <td>1.300156e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.html</span> <span class="kn">import</span> <span class="n">widgets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="n">geo</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;USA&#39;</span><span class="p">:[</span><span class="s1">&#39;CHI&#39;</span><span class="p">,</span><span class="s1">&#39;NYC&#39;</span><span class="p">],</span><span class="s1">&#39;Russia&#39;</span><span class="p">:[</span><span class="s1">&#39;MOW&#39;</span><span class="p">,</span><span class="s1">&#39;LED&#39;</span><span class="p">]}</span>
+
+<span class="k">def</span> <span class="nf">print_city</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">city</span>
+
+<span class="k">def</span> <span class="nf">select_city</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
+    <span class="n">cityW</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">geo</span><span class="p">[</span><span class="n">country</span><span class="p">]</span>
+
+
+<span class="n">scW</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">geo</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">init</span> <span class="o">=</span> <span class="n">scW</span><span class="o">.</span><span class="n">value</span>
+<span class="n">cityW</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">geo</span><span class="p">[</span><span class="n">init</span><span class="p">])</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">print_city</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="n">cityW</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">select_city</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="n">scW</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>MOW
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span><span class="s1">&#39;oranges&#39;</span><span class="p">));</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output " data-mime-type="text/plain">
+<pre>u&#39;oranges&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupyter (iPython) Notebooks Guide</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>1_notmnist</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,9 +13971,615 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Guide-to-Using-Jupyter-Notebooks">Guide to Using Jupyter Notebooks<a class="anchor-link" href="#Guide-to-Using-Jupyter-Notebooks">&#182;</a></h1><p>In this lecture we will be going over the basics of the Jupyter (previously called iPython Notebooks).</p>
-<p>For a complete User Manual check out the <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Bryn Mawr College Computer Science Guide</a>.</p>
-<p>Most of the breakdown will actually occur in the presentation corresponding to this Notebook. So please refer to either the presentation or the full User Manual linked above.</p>
+<h1 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning">&#182;</a></h1><h2 id="Assignment-1">Assignment 1<a class="anchor-link" href="#Assignment-1">&#182;</a></h2><p>The objective of this assignment is to learn about simple data curation practices, and familiarize you with some of the data we'll be reusing later.</p>
+<p>This notebook uses the <a href="http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html">notMNIST</a> dataset to be used with python experiments. This dataset is designed to look like the classic <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> dataset, while looking a little more like real data: it's a harder task, and the data is a lot less 'clean' than MNIST.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># These are all the modules we&#39;ll be using later. Make sure you can import them</span>
+<span class="c1"># before proceeding further.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">six.moves.urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cPickle</span> <span class="k">as</span> <span class="n">pickle</span>
+
+<span class="c1"># Config the matlotlib backend as plotting inline in IPython</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First, we'll download the dataset to our local machine. The data consists of characters rendered in a variety of fonts on a 28x28 image. The labels are limited to 'A' through 'J' (10 classes). The training set has about 500k and the testset 19000 labelled examples. Given these sizes, it should be possible to train models quickly on any machine.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://commondatastorage.googleapis.com/books1000/&#39;</span>
+<span class="n">last_percent_reported</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">download_progress_hook</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">blockSize</span><span class="p">,</span> <span class="n">totalSize</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;A hook to report the progress of a download. This is mostly intended for users with</span>
+<span class="sd">  slow internet connections. Reports every 1% change in download progress.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">global</span> <span class="n">last_percent_reported</span>
+  <span class="n">percent</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span> <span class="o">*</span> <span class="n">blockSize</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">totalSize</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">last_percent_reported</span> <span class="o">!=</span> <span class="n">percent</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">percent</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">percent</span><span class="p">)</span>
+      <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+      <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+      
+    <span class="n">last_percent_reported</span> <span class="o">=</span> <span class="n">percent</span>
+        
+<span class="k">def</span> <span class="nf">maybe_download</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">expected_bytes</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Download a file if not present, and make sure it&#39;s the right size.&quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="n">force</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Attempting to download:&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> 
+    <span class="n">filename</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">reporthook</span><span class="o">=</span><span class="n">download_progress_hook</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Download Complete!&#39;</span><span class="p">)</span>
+  <span class="n">statinfo</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">statinfo</span><span class="o">.</span><span class="n">st_size</span> <span class="o">==</span> <span class="n">expected_bytes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found and verified&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+      <span class="s1">&#39;Failed to verify &#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;. Can you get to it with a browser?&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">filename</span>
+
+<span class="n">train_filename</span> <span class="o">=</span> <span class="n">maybe_download</span><span class="p">(</span><span class="s1">&#39;notMNIST_large.tar.gz&#39;</span><span class="p">,</span> <span class="mi">247336696</span><span class="p">)</span>
+<span class="n">test_filename</span> <span class="o">=</span> <span class="n">maybe_download</span><span class="p">(</span><span class="s1">&#39;notMNIST_small.tar.gz&#39;</span><span class="p">,</span> <span class="mi">8458043</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Found and verified notMNIST_large.tar.gz
+Found and verified notMNIST_small.tar.gz
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Extract the dataset from the compressed .tar.gz file.
+This should give you a set of directories, labelled A through J.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">maybe_extract</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># remove .tar.gz</span>
+  <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+    <span class="c1"># You may override by setting force=True.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> already present - Skipping extraction of </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Extracting data for </span><span class="si">%s</span><span class="s1">. This may take a while. Please wait.&#39;</span> <span class="o">%</span> <span class="n">root</span><span class="p">)</span>
+    <span class="n">tar</span> <span class="o">=</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="n">tar</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+    <span class="n">tar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  <span class="n">data_folders</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">d</span><span class="p">))]</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_folders</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num_classes</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+      <span class="s1">&#39;Expected </span><span class="si">%d</span><span class="s1"> folders, one per class. Found </span><span class="si">%d</span><span class="s1"> instead.&#39;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="n">num_classes</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_folders</span><span class="p">)))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">data_folders</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">data_folders</span>
+  
+<span class="n">train_folders</span> <span class="o">=</span> <span class="n">maybe_extract</span><span class="p">(</span><span class="n">train_filename</span><span class="p">)</span>
+<span class="n">test_folders</span> <span class="o">=</span> <span class="n">maybe_extract</span><span class="p">(</span><span class="n">test_filename</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[&#39;notMNIST_large/A&#39;, &#39;notMNIST_large/B&#39;, &#39;notMNIST_large/C&#39;, &#39;notMNIST_large/D&#39;, &#39;notMNIST_large/E&#39;, &#39;notMNIST_large/F&#39;, &#39;notMNIST_large/G&#39;, &#39;notMNIST_large/H&#39;, &#39;notMNIST_large/I&#39;, &#39;notMNIST_large/J&#39;]
+[&#39;notMNIST_small/A&#39;, &#39;notMNIST_small/B&#39;, &#39;notMNIST_small/C&#39;, &#39;notMNIST_small/D&#39;, &#39;notMNIST_small/E&#39;, &#39;notMNIST_small/F&#39;, &#39;notMNIST_small/G&#39;, &#39;notMNIST_small/H&#39;, &#39;notMNIST_small/I&#39;, &#39;notMNIST_small/J&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h2><p>Let's take a peek at some of the data to make sure it looks sensible. Each exemplar should be an image of a character A through J rendered in a different font. Display a sample of the images that we just downloaded. Hint: you can use the package IPython.display.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Now let's load the data in a more manageable format. Since, depending on your computer setup you might not be able to fit it all in memory, we'll load each class into a separate dataset, store them on disk and curate them independently. Later we'll merge them into a single dataset of manageable size.</p>
+<p>We'll convert the entire dataset into a 3D array (image index, x, y) of floating point values, normalized to have approximately zero mean and standard deviation ~0.5 to make training easier down the road.</p>
+<p>A few images might not be readable, we'll just skip them.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_size</span> <span class="o">=</span> <span class="mi">28</span>  <span class="c1"># Pixel width and height.</span>
+<span class="n">pixel_depth</span> <span class="o">=</span> <span class="mf">255.0</span>  <span class="c1"># Number of levels per pixel.</span>
+
+<span class="k">def</span> <span class="nf">load_letter</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">min_num_images</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Load the data for a single letter label.&quot;&quot;&quot;</span>
+  <span class="n">image_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+  <span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">image_files</span><span class="p">),</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">),</span>
+                         <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+  <span class="n">num_images</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_files</span><span class="p">:</span>
+    <span class="n">image_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">image_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">ndimage</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">-</span> 
+                    <span class="n">pixel_depth</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">pixel_depth</span>
+      <span class="k">if</span> <span class="n">image_data</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="n">image_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unexpected image shape: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">image_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+      <span class="n">dataset</span><span class="p">[</span><span class="n">num_images</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">image_data</span>
+      <span class="n">num_images</span> <span class="o">=</span> <span class="n">num_images</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Could not read:&#39;</span><span class="p">,</span> <span class="n">image_file</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s1">&#39;- it</span><span class="se">\&#39;</span><span class="s1">s ok, skipping.&#39;</span><span class="p">)</span>
+    
+  <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">num_images</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+  <span class="k">if</span> <span class="n">num_images</span> <span class="o">&lt;</span> <span class="n">min_num_images</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Many fewer images than expected: </span><span class="si">%d</span><span class="s1"> &lt; </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span>
+                    <span class="p">(</span><span class="n">num_images</span><span class="p">,</span> <span class="n">min_num_images</span><span class="p">))</span>
+    
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Full dataset tensor:&#39;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard deviation:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dataset</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">dataset</span>
+        
+<span class="k">def</span> <span class="nf">maybe_pickle</span><span class="p">(</span><span class="n">data_folders</span><span class="p">,</span> <span class="n">min_num_images_per_class</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="n">dataset_names</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">data_folders</span><span class="p">:</span>
+    <span class="n">set_filename</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="s1">&#39;.pickle&#39;</span>
+    <span class="n">dataset_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">set_filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">set_filename</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+      <span class="c1"># You may override by setting force=True.</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> already present - Skipping pickling.&#39;</span> <span class="o">%</span> <span class="n">set_filename</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pickling </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">set_filename</span><span class="p">)</span>
+      <span class="n">dataset</span> <span class="o">=</span> <span class="n">load_letter</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">min_num_images_per_class</span><span class="p">)</span>
+      <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">set_filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+          <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+      <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unable to save data to&#39;</span><span class="p">,</span> <span class="n">set_filename</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+  
+  <span class="k">return</span> <span class="n">dataset_names</span>
+
+<span class="n">train_datasets</span> <span class="o">=</span> <span class="n">maybe_pickle</span><span class="p">(</span><span class="n">train_folders</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+<span class="n">test_datasets</span> <span class="o">=</span> <span class="n">maybe_pickle</span><span class="p">(</span><span class="n">test_folders</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>notMNIST_large/A
+Could not read: notMNIST_large/A/Um9tYW5hIEJvbGQucGZi.png : cannot identify image file - it&#39;s ok, skipping.
+Could not read: notMNIST_large/A/RnJlaWdodERpc3BCb29rSXRhbGljLnR0Zg==.png : cannot identify image file - it&#39;s ok, skipping.
+Could not read: notMNIST_large/A/SG90IE11c3RhcmQgQlROIFBvc3Rlci50dGY=.png : cannot identify image file - it&#39;s ok, skipping.
+Full dataset tensor: (52909, 28, 28)
+Mean: -0.12848
+Standard deviation: 0.425576
+notMNIST_large/B
+Could not read: notMNIST_large/B/TmlraXNFRi1TZW1pQm9sZEl0YWxpYy5vdGY=.png : cannot identify image file - it&#39;s ok, skipping.
+Full dataset tensor: (52911, 28, 28)
+Mean: -0.00755947
+Standard deviation: 0.417272
+notMNIST_large/C
+Full dataset tensor: (52912, 28, 28)
+Mean: -0.142321
+Standard deviation: 0.421305
+notMNIST_large/D
+Could not read: notMNIST_large/D/VHJhbnNpdCBCb2xkLnR0Zg==.png : cannot identify image file - it&#39;s ok, skipping.
+Full dataset tensor: (52911, 28, 28)
+Mean: -0.0574553
+Standard deviation: 0.434072
+notMNIST_large/E
+Full dataset tensor: (52912, 28, 28)
+Mean: -0.0701406
+Standard deviation: 0.42882
+notMNIST_large/F
+Full dataset tensor: (52912, 28, 28)
+Mean: -0.125914
+Standard deviation: 0.429645
+notMNIST_large/G
+Full dataset tensor: (52912, 28, 28)
+Mean: -0.0947771
+Standard deviation: 0.421674
+notMNIST_large/H
+Full dataset tensor: (52912, 28, 28)
+Mean: -0.0687667
+Standard deviation: 0.430344
+notMNIST_large/I
+Full dataset tensor: (52912, 28, 28)
+Mean: 0.0307405
+Standard deviation: 0.449686
+notMNIST_large/J
+Full dataset tensor: (52911, 28, 28)
+Mean: -0.153479
+Standard deviation: 0.397169
+notMNIST_small/A
+Could not read: notMNIST_small/A/RGVtb2NyYXRpY2FCb2xkT2xkc3R5bGUgQm9sZC50dGY=.png : cannot identify image file - it&#39;s ok, skipping.
+Full dataset tensor: (1872, 28, 28)
+Mean: -0.132588
+Standard deviation: 0.445923
+notMNIST_small/B
+Full dataset tensor: (1873, 28, 28)
+Mean: 0.00535619
+Standard deviation: 0.457054
+notMNIST_small/C
+Full dataset tensor: (1873, 28, 28)
+Mean: -0.141489
+Standard deviation: 0.441056
+notMNIST_small/D
+Full dataset tensor: (1873, 28, 28)
+Mean: -0.0492094
+Standard deviation: 0.460477
+notMNIST_small/E
+Full dataset tensor: (1873, 28, 28)
+Mean: -0.0598952
+Standard deviation: 0.456146
+notMNIST_small/F
+Could not read: notMNIST_small/F/Q3Jvc3NvdmVyIEJvbGRPYmxpcXVlLnR0Zg==.png : cannot identify image file - it&#39;s ok, skipping.
+Full dataset tensor: (1872, 28, 28)
+Mean: -0.118148
+Standard deviation: 0.451134
+notMNIST_small/G
+Full dataset tensor: (1872, 28, 28)
+Mean: -0.092519
+Standard deviation: 0.448468
+notMNIST_small/H
+Full dataset tensor: (1872, 28, 28)
+Mean: -0.0586729
+Standard deviation: 0.457387
+notMNIST_small/I
+Full dataset tensor: (1872, 28, 28)
+Mean: 0.0526481
+Standard deviation: 0.472657
+notMNIST_small/J
+Full dataset tensor: (1872, 28, 28)
+Mean: -0.15167
+Standard deviation: 0.449521
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h2><p>Let's verify that the data still looks good. Displaying a sample of the labels and images from the ndarray. Hint: you can use matplotlib.pyplot.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-3">Problem 3<a class="anchor-link" href="#Problem-3">&#182;</a></h2><p>Another check: we expect the data to be balanced across classes. Verify that.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Merge and prune the training data as needed. Depending on your computer setup, you might not be able to fit it all in memory, and you can tune <code>train_size</code> as needed. The labels will be stored into a separate array of integers 0 through 9.</p>
+<p>Also create a validation dataset for hyperparameter tuning.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_arrays</span><span class="p">(</span><span class="n">nb_rows</span><span class="p">,</span> <span class="n">img_size</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">nb_rows</span><span class="p">:</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">((</span><span class="n">nb_rows</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">img_size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">nb_rows</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+  <span class="k">return</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span>
+
+<span class="k">def</span> <span class="nf">merge_datasets</span><span class="p">(</span><span class="n">pickle_files</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">valid_size</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+  <span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pickle_files</span><span class="p">)</span>
+  <span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">make_arrays</span><span class="p">(</span><span class="n">valid_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)</span>
+  <span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">make_arrays</span><span class="p">(</span><span class="n">train_size</span><span class="p">,</span> <span class="n">image_size</span><span class="p">)</span>
+  <span class="n">vsize_per_class</span> <span class="o">=</span> <span class="n">valid_size</span> <span class="o">//</span> <span class="n">num_classes</span>
+  <span class="n">tsize_per_class</span> <span class="o">=</span> <span class="n">train_size</span> <span class="o">//</span> <span class="n">num_classes</span>
+    
+  <span class="n">start_v</span><span class="p">,</span> <span class="n">start_t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+  <span class="n">end_v</span><span class="p">,</span> <span class="n">end_t</span> <span class="o">=</span> <span class="n">vsize_per_class</span><span class="p">,</span> <span class="n">tsize_per_class</span>
+  <span class="n">end_l</span> <span class="o">=</span> <span class="n">vsize_per_class</span><span class="o">+</span><span class="n">tsize_per_class</span>
+  <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">pickle_file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pickle_files</span><span class="p">):</span>       
+    <span class="k">try</span><span class="p">:</span>
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">letter_set</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="c1"># let&#39;s shuffle the letters to have random validation and training set</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">letter_set</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">valid_dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+          <span class="n">valid_letter</span> <span class="o">=</span> <span class="n">letter_set</span><span class="p">[:</span><span class="n">vsize_per_class</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+          <span class="n">valid_dataset</span><span class="p">[</span><span class="n">start_v</span><span class="p">:</span><span class="n">end_v</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">valid_letter</span>
+          <span class="n">valid_labels</span><span class="p">[</span><span class="n">start_v</span><span class="p">:</span><span class="n">end_v</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+          <span class="n">start_v</span> <span class="o">+=</span> <span class="n">vsize_per_class</span>
+          <span class="n">end_v</span> <span class="o">+=</span> <span class="n">vsize_per_class</span>
+                    
+        <span class="n">train_letter</span> <span class="o">=</span> <span class="n">letter_set</span><span class="p">[</span><span class="n">vsize_per_class</span><span class="p">:</span><span class="n">end_l</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="n">train_dataset</span><span class="p">[</span><span class="n">start_t</span><span class="p">:</span><span class="n">end_t</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">train_letter</span>
+        <span class="n">train_labels</span><span class="p">[</span><span class="n">start_t</span><span class="p">:</span><span class="n">end_t</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="n">start_t</span> <span class="o">+=</span> <span class="n">tsize_per_class</span>
+        <span class="n">end_t</span> <span class="o">+=</span> <span class="n">tsize_per_class</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unable to process data from&#39;</span><span class="p">,</span> <span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+      <span class="k">raise</span>
+    
+  <span class="k">return</span> <span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">,</span> <span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span>
+            
+            
+<span class="n">train_size</span> <span class="o">=</span> <span class="mi">200000</span>
+<span class="n">valid_size</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">test_size</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">,</span> <span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">merge_datasets</span><span class="p">(</span>
+  <span class="n">train_datasets</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">valid_size</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">merge_datasets</span><span class="p">(</span><span class="n">test_datasets</span><span class="p">,</span> <span class="n">test_size</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training:&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation:&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Testing:&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training (200000, 28, 28) (200000,)
+Validation (10000, 28, 28) (10000,)
+Testing (10000, 28, 28) (10000,)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Next, we'll randomize the data. It's important to have the labels well shuffled for the training and test distributions to match.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">randomize</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="n">permutation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">shuffled_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">permutation</span><span class="p">,:,:]</span>
+  <span class="n">shuffled_labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">permutation</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">shuffled_dataset</span><span class="p">,</span> <span class="n">shuffled_labels</span>
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">randomize</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
+<span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">randomize</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">randomize</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-4">Problem 4<a class="anchor-link" href="#Problem-4">&#182;</a></h2><p>Convince yourself that the data is still good after shuffling!</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Finally, let's save the data for later reuse:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pickle_file</span> <span class="o">=</span> <span class="s1">&#39;notMNIST.pickle&#39;</span>
+
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+  <span class="n">save</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;train_dataset&#39;</span><span class="p">:</span> <span class="n">train_dataset</span><span class="p">,</span>
+    <span class="s1">&#39;train_labels&#39;</span><span class="p">:</span> <span class="n">train_labels</span><span class="p">,</span>
+    <span class="s1">&#39;valid_dataset&#39;</span><span class="p">:</span> <span class="n">valid_dataset</span><span class="p">,</span>
+    <span class="s1">&#39;valid_labels&#39;</span><span class="p">:</span> <span class="n">valid_labels</span><span class="p">,</span>
+    <span class="s1">&#39;test_dataset&#39;</span><span class="p">:</span> <span class="n">test_dataset</span><span class="p">,</span>
+    <span class="s1">&#39;test_labels&#39;</span><span class="p">:</span> <span class="n">test_labels</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">save</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unable to save data to&#39;</span><span class="p">,</span> <span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+  <span class="k">raise</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">statinfo</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Compressed pickle size:&#39;</span><span class="p">,</span> <span class="n">statinfo</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Compressed pickle size: 718193801
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-5">Problem 5<a class="anchor-link" href="#Problem-5">&#182;</a></h2><p>By construction, this dataset might contain a lot of overlapping samples, including training data that's also contained in the validation and test set! Overlap between training and test can skew the results if you expect to use your model in an environment where there is never an overlap, but are actually ok if you expect to see training samples recur when you use it.
+Measure how much overlap there is between training, validation and test samples.</p>
+<p>Optional questions:</p>
+<ul>
+<li>What about near duplicates between datasets? (images that are almost identical)</li>
+<li>Create a sanitized validation and test set, and compare your accuracy on those in subsequent assignments.</li>
+</ul>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-6">Problem 6<a class="anchor-link" href="#Problem-6">&#182;</a></h2><p>Let's get an idea of what an off-the-shelf classifier can give you on this data. It's always good to check that there is something to learn, and that it's a problem that is not so trivial that a canned solution solves it.</p>
+<p>Train a simple model on this data using 50, 100, 1000 and 5000 training samples. Hint: you can use the LogisticRegression model from sklearn.linear_model.</p>
+<p>Optional question: train an off-the-shelf model on all the data!</p>
+<hr>
 
 </div>
 </div>

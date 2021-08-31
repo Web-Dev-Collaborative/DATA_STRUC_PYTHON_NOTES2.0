@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupyter (iPython) Notebooks Guide</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>3_regularization-Michael</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,11 +13971,1279 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Guide-to-Using-Jupyter-Notebooks">Guide to Using Jupyter Notebooks<a class="anchor-link" href="#Guide-to-Using-Jupyter-Notebooks">&#182;</a></h1><p>In this lecture we will be going over the basics of the Jupyter (previously called iPython Notebooks).</p>
-<p>For a complete User Manual check out the <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Bryn Mawr College Computer Science Guide</a>.</p>
-<p>Most of the breakdown will actually occur in the presentation corresponding to this Notebook. So please refer to either the presentation or the full User Manual linked above.</p>
+<h1 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning">&#182;</a></h1><h2 id="Assignment-3">Assignment 3<a class="anchor-link" href="#Assignment-3">&#182;</a></h2><p>Previously in <code>2_fullyconnected.ipynb</code>, you trained a logistic regression and a neural network model.</p>
+<p>The goal of this assignment is to explore regularization techniques.</p>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># These are all the modules we&#39;ll be using later. Make sure you can import them</span>
+<span class="c1"># before proceeding further.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="n">cPickle</span> <span class="k">as</span> <span class="n">pickle</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>First reload the data we generated in <em>notmist.ipynb</em>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pickle_file</span> <span class="o">=</span> <span class="s1">&#39;notMNIST.pickle&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">save</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;train_dataset&#39;</span><span class="p">]</span>
+    <span class="n">train_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;train_labels&#39;</span><span class="p">]</span>
+    <span class="n">valid_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;valid_dataset&#39;</span><span class="p">]</span>
+    <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;valid_labels&#39;</span><span class="p">]</span>
+    <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;test_dataset&#39;</span><span class="p">]</span>
+    <span class="n">test_labels</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s1">&#39;test_labels&#39;</span><span class="p">]</span>
+    <span class="k">del</span> <span class="n">save</span>  <span class="c1"># hint to help gc free up memory</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation set&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training set (200000, 28, 28) (200000,)
+Validation set (10000, 28, 28) (10000,)
+Test set (10000, 28, 28) (10000,)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Reformat into a shape that's more adapted to the models we're going to train:</p>
+<ul>
+<li>data as a flat matrix,</li>
+<li>labels as float 1-hot encodings.</li>
+</ul>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">image_size</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">num_labels</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">reformat</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="c1"># Map 2 to [0.0, 1.0, 0.0 ...], 3 to [0.0, 0.0, 1.0 ...]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_labels</span><span class="p">)</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">labels</span>
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
+<span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">,</span> <span class="n">valid_labels</span><span class="p">)</span>
+<span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">reformat</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training set&#39;</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation set&#39;</span><span class="p">,</span> <span class="n">valid_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test set&#39;</span><span class="p">,</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Training set (200000, 784) (200000, 10)
+Validation set (10000, 784) (10000, 10)
+Test set (10000, 784) (10000, 10)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">100.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">predictions</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h2><p>Introduce and tune L2 regularization for both logistic and neural network models. Remember that L2 amounts to adding a penalty on the norm of the weights to the loss. In TensorFlow, you can compute the L2 loss for a tensor <code>t</code> using <code>nn.l2_loss(t)</code>. The right amount of regularization should improve your validation / test accuracy.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>Logistic</h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+    <span class="c1"># Input data. For the training data, we use a placeholder that will be fed</span>
+    <span class="c1"># at run time with a training minibatch.</span>
+    <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">))</span>
+    <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+    <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+    <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+    <span class="n">beta_regul</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    
+    <span class="c1"># Variables.</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">]))</span>
+    <span class="n">biases</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+    <span class="c1"># Training computation.</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span> <span class="o">+</span> <span class="n">beta_regul</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">l2_loss</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+  
+    <span class="c1"># Optimizer.</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+  
+    <span class="c1"># Predictions for the training, validation, and test data.</span>
+    <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+    <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases</span><span class="p">)</span>
+    <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initialized&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+        <span class="c1"># Pick an offset within the training data, which has been randomized.</span>
+        <span class="c1"># Note: we could use better randomization across epochs.</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+        <span class="c1"># Generate a minibatch.</span>
+        <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="c1"># Prepare a dictionary telling the session where to feed the minibatch.</span>
+        <span class="c1"># The key of the dictionary is the placeholder node of the graph to be fed,</span>
+        <span class="c1"># and the value is the numpy array to feed to it.</span>
+        <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">,</span> <span class="n">beta_regul</span> <span class="p">:</span> <span class="mf">1e-3</span><span class="p">}</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+          <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch loss at step </span><span class="si">%d</span><span class="s2">: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 18.604839
+Minibatch accuracy: 10.2%
+Validation accuracy: 13.5%
+Minibatch loss at step 500: 3.377822
+Minibatch accuracy: 71.1%
+Validation accuracy: 75.9%
+Minibatch loss at step 1000: 1.723570
+Minibatch accuracy: 78.9%
+Validation accuracy: 78.5%
+Minibatch loss at step 1500: 1.384084
+Minibatch accuracy: 78.9%
+Validation accuracy: 80.2%
+Minibatch loss at step 2000: 1.082147
+Minibatch accuracy: 81.2%
+Validation accuracy: 79.6%
+Minibatch loss at step 2500: 1.023130
+Minibatch accuracy: 76.6%
+Validation accuracy: 81.6%
+Minibatch loss at step 3000: 0.725348
+Minibatch accuracy: 80.5%
+Validation accuracy: 81.7%
+Minibatch loss at step 3500: 0.596389
+Minibatch accuracy: 87.5%
+Validation accuracy: 81.8%
+Minibatch loss at step 4000: 0.865103
+Minibatch accuracy: 78.9%
+Validation accuracy: 82.2%
+Minibatch loss at step 4500: 0.595295
+Minibatch accuracy: 84.4%
+Validation accuracy: 82.2%
+Minibatch loss at step 5000: 0.533092
+Minibatch accuracy: 85.2%
+Validation accuracy: 82.2%
+Minibatch loss at step 5500: 0.970525
+Minibatch accuracy: 72.7%
+Validation accuracy: 82.2%
+Minibatch loss at step 6000: 0.723037
+Minibatch accuracy: 76.6%
+Validation accuracy: 81.9%
+Minibatch loss at step 6500: 1.030621
+Minibatch accuracy: 75.8%
+Validation accuracy: 81.2%
+Minibatch loss at step 7000: 0.719776
+Minibatch accuracy: 78.9%
+Validation accuracy: 82.5%
+Minibatch loss at step 7500: 0.715401
+Minibatch accuracy: 82.8%
+Validation accuracy: 81.7%
+Minibatch loss at step 8000: 0.609973
+Minibatch accuracy: 84.4%
+Validation accuracy: 82.2%
+Minibatch loss at step 8500: 0.668251
+Minibatch accuracy: 82.0%
+Validation accuracy: 81.7%
+Minibatch loss at step 9000: 0.551616
+Minibatch accuracy: 85.9%
+Validation accuracy: 82.1%
+Minibatch loss at step 9500: 0.804506
+Minibatch accuracy: 76.6%
+Validation accuracy: 81.4%
+Test accuracy: 88.5%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 align='Left'>1 Layer Neural Network</h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">num_hidden_nodes</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+    <span class="c1"># Input data. For the training data, we use a placeholder that will be fed</span>
+    <span class="c1"># at run time with a training minibatch.</span>
+    <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">))</span>
+    <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+    <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+    <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+    <span class="n">beta_regul</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  
+    <span class="c1"># Variables.</span>
+    <span class="n">weights1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_hidden_nodes</span><span class="p">]))</span>
+    <span class="n">biases1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_hidden_nodes</span><span class="p">]))</span>
+    <span class="n">weights2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_hidden_nodes</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">]))</span>
+    <span class="n">biases2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+    <span class="c1"># Training computation.</span>
+    <span class="n">lay1_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_train</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span> <span class="o">+</span> \
+      <span class="n">beta_regul</span> <span class="o">*</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">l2_loss</span><span class="p">(</span><span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">l2_loss</span><span class="p">(</span><span class="n">weights2</span><span class="p">))</span>
+  
+    <span class="c1"># Optimizer.</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+  
+    <span class="c1"># Predictions for the training, validation, and test data.</span>
+    <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+    <span class="n">lay1_valid</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_valid</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+    <span class="n">lay1_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_test</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initialized&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+        <span class="c1"># Pick an offset within the training data, which has been randomized.</span>
+        <span class="c1"># Note: we could use better randomization across epochs.</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+        <span class="c1"># Generate a minibatch.</span>
+        <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="c1"># Prepare a dictionary telling the session where to feed the minibatch.</span>
+        <span class="c1"># The key of the dictionary is the placeholder node of the graph to be fed,</span>
+        <span class="c1"># and the value is the numpy array to feed to it.</span>
+        <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">,</span> <span class="n">beta_regul</span> <span class="p">:</span> <span class="mf">1e-3</span><span class="p">}</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+          <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch loss at step </span><span class="si">%d</span><span class="s2">: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 605.301636
+Minibatch accuracy: 11.7%
+Validation accuracy: 20.9%
+Minibatch loss at step 500: 196.777649
+Minibatch accuracy: 72.7%
+Validation accuracy: 81.0%
+Minibatch loss at step 1000: 114.369263
+Minibatch accuracy: 78.1%
+Validation accuracy: 81.1%
+Minibatch loss at step 1500: 68.932152
+Minibatch accuracy: 78.9%
+Validation accuracy: 83.2%
+Minibatch loss at step 2000: 41.586166
+Minibatch accuracy: 83.6%
+Validation accuracy: 85.2%
+Minibatch loss at step 2500: 25.518885
+Minibatch accuracy: 83.6%
+Validation accuracy: 86.4%
+Minibatch loss at step 3000: 15.410585
+Minibatch accuracy: 88.3%
+Validation accuracy: 87.1%
+Minibatch loss at step 3500: 9.543892
+Minibatch accuracy: 89.1%
+Validation accuracy: 87.9%
+Minibatch loss at step 4000: 6.184585
+Minibatch accuracy: 84.4%
+Validation accuracy: 88.2%
+Minibatch loss at step 4500: 3.711422
+Minibatch accuracy: 93.8%
+Validation accuracy: 88.3%
+Minibatch loss at step 5000: 2.439088
+Minibatch accuracy: 92.2%
+Validation accuracy: 88.5%
+Minibatch loss at step 5500: 1.904946
+Minibatch accuracy: 83.6%
+Validation accuracy: 88.4%
+Minibatch loss at step 6000: 1.224182
+Minibatch accuracy: 90.6%
+Validation accuracy: 88.2%
+Minibatch loss at step 6500: 1.120467
+Minibatch accuracy: 83.6%
+Validation accuracy: 88.2%
+Minibatch loss at step 7000: 0.788844
+Minibatch accuracy: 89.8%
+Validation accuracy: 88.5%
+Minibatch loss at step 7500: 0.673431
+Minibatch accuracy: 90.6%
+Validation accuracy: 88.9%
+Minibatch loss at step 8000: 0.509613
+Minibatch accuracy: 93.0%
+Validation accuracy: 88.6%
+Minibatch loss at step 8500: 0.518794
+Minibatch accuracy: 90.6%
+Validation accuracy: 88.7%
+Minibatch loss at step 9000: 0.466654
+Minibatch accuracy: 89.1%
+Validation accuracy: 88.1%
+Minibatch loss at step 9500: 0.592488
+Minibatch accuracy: 88.3%
+Validation accuracy: 88.3%
+Test accuracy: 94.5%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h2><p>Let's demonstrate an extreme case of overfitting. Restrict your training data to just a few batches. What happens?</p>
+<hr>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">num_hidden_nodes</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+    <span class="c1"># Input data. For the training data, we use a placeholder that will be fed</span>
+    <span class="c1"># at run time with a training minibatch.</span>
+    <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">))</span>
+    <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+    <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+    <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+    <span class="n">beta_regul</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+  
+    <span class="c1"># Variables.</span>
+    <span class="n">weights1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_hidden_nodes</span><span class="p">]))</span>
+    <span class="n">biases1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_hidden_nodes</span><span class="p">]))</span>
+    <span class="n">weights2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_hidden_nodes</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">]))</span>
+    <span class="n">biases2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+    <span class="c1"># Training computation.</span>
+    <span class="n">lay1_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_train</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span>
+  
+    <span class="c1"># Optimizer.</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+  
+    <span class="c1"># Predictions for the training, validation, and test data.</span>
+    <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+    <span class="n">lay1_valid</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_valid</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+    <span class="n">lay1_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_test</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">101</span>
+<span class="n">num_batches</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initialized&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+        <span class="c1"># Pick an offset within the training data, which has been randomized.</span>
+        <span class="c1"># Note: we could use better randomization across epochs.</span>
+        <span class="c1">#offset = (step * batch_size) % (train_labels.shape[0] - batch_size)</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">step</span> <span class="o">%</span> <span class="n">num_batches</span>
+        <span class="c1"># Generate a minibatch.</span>
+        <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="c1"># Prepare a dictionary telling the session where to feed the minibatch.</span>
+        <span class="c1"># The key of the dictionary is the placeholder node of the graph to be fed,</span>
+        <span class="c1"># and the value is the numpy array to feed to it.</span>
+        <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">,</span> <span class="n">beta_regul</span> <span class="p">:</span> <span class="mf">1e-3</span><span class="p">}</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+          <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch loss at step </span><span class="si">%d</span><span class="s2">: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span>
+            <span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 485.404602
+Minibatch accuracy: 8.6%
+Validation accuracy: 31.6%
+Minibatch loss at step 2: 1037.384277
+Minibatch accuracy: 46.9%
+Validation accuracy: 44.5%
+Minibatch loss at step 4: 238.918762
+Minibatch accuracy: 73.4%
+Validation accuracy: 46.3%
+Minibatch loss at step 6: 55.773361
+Minibatch accuracy: 90.6%
+Validation accuracy: 58.1%
+Minibatch loss at step 8: 17.550159
+Minibatch accuracy: 98.4%
+Validation accuracy: 58.9%
+Minibatch loss at step 10: 6.202036
+Minibatch accuracy: 99.2%
+Validation accuracy: 59.5%
+Minibatch loss at step 12: 0.988351
+Minibatch accuracy: 99.2%
+Validation accuracy: 59.6%
+Minibatch loss at step 14: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 16: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 18: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 20: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 22: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 24: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 26: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 28: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 30: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 32: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 34: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 36: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 38: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 40: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 42: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 44: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 46: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 48: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 50: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 52: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 54: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 56: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 58: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 60: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 62: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 64: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 66: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 68: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 70: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 72: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 74: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 76: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 78: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 80: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 82: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 84: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 86: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 88: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 90: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 92: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 94: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 96: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 98: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Minibatch loss at step 100: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 59.6%
+Test accuracy: 65.2%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Since there are far too much parameters and no regularization, the accuracy of the batches is 100%. The generalization capability is poor, as shown in the validation and test accuracy.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-3">Problem 3<a class="anchor-link" href="#Problem-3">&#182;</a></h2><p>Introduce Dropout on the hidden layer of the neural network. Remember: Dropout should only be introduced during training, not evaluation, otherwise your evaluation results would be stochastic as well. TensorFlow provides <code>nn.dropout()</code> for that, but you have to make sure it's only inserted during training.</p>
+<p>What happens to our extreme overfitting case?</p>
+<hr>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">num_hidden_nodes</span> <span class="o">=</span> <span class="mi">1024</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+    <span class="c1"># Input data. For the training data, we use a placeholder that will be fed</span>
+    <span class="c1"># at run time with a training minibatch.</span>
+    <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">))</span>
+    <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+    <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+    <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+  
+    <span class="c1"># Variables.</span>
+    <span class="n">weights1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_hidden_nodes</span><span class="p">]))</span>
+    <span class="n">biases1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_hidden_nodes</span><span class="p">]))</span>
+    <span class="n">weights2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_hidden_nodes</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">]))</span>
+    <span class="n">biases2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+    <span class="c1"># Training computation.</span>
+    <span class="n">lay1_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">drop1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">lay1_train</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">drop1</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span>
+    
+    <span class="c1"># Optimizer.</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+  
+    <span class="c1"># Predictions for the training, validation, and test data.</span>
+    <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+    <span class="n">lay1_valid</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_valid</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+    <span class="n">lay1_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_test</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">num_batches</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initialized&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+        <span class="c1"># Pick an offset within the training data, which has been randomized.</span>
+        <span class="c1"># Note: we could use better randomization across epochs.</span>
+        <span class="c1">#offset = (step * batch_size) % (train_labels.shape[0] - batch_size)</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">step</span> <span class="o">%</span> <span class="n">num_batches</span>
+        <span class="c1"># Generate a minibatch.</span>
+        <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="c1"># Prepare a dictionary telling the session where to feed the minibatch.</span>
+        <span class="c1"># The key of the dictionary is the placeholder node of the graph to be fed,</span>
+        <span class="c1"># and the value is the numpy array to feed to it.</span>
+        <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">}</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+          <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch loss at step </span><span class="si">%d</span><span class="s2">: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 508.075623
+Minibatch accuracy: 11.7%
+Validation accuracy: 29.4%
+Minibatch loss at step 2: 797.276001
+Minibatch accuracy: 50.8%
+Validation accuracy: 31.7%
+Minibatch loss at step 4: 414.272583
+Minibatch accuracy: 68.8%
+Validation accuracy: 53.8%
+Minibatch loss at step 6: 16.948627
+Minibatch accuracy: 92.2%
+Validation accuracy: 64.9%
+Minibatch loss at step 8: 3.570223
+Minibatch accuracy: 95.3%
+Validation accuracy: 62.5%
+Minibatch loss at step 10: 2.049491
+Minibatch accuracy: 98.4%
+Validation accuracy: 64.4%
+Minibatch loss at step 12: 1.677652
+Minibatch accuracy: 97.7%
+Validation accuracy: 64.1%
+Minibatch loss at step 14: 5.430785
+Minibatch accuracy: 96.9%
+Validation accuracy: 66.1%
+Minibatch loss at step 16: 4.851165
+Minibatch accuracy: 96.9%
+Validation accuracy: 64.8%
+Minibatch loss at step 18: 3.324074
+Minibatch accuracy: 98.4%
+Validation accuracy: 65.0%
+Minibatch loss at step 20: 2.398253
+Minibatch accuracy: 96.9%
+Validation accuracy: 66.5%
+Minibatch loss at step 22: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.4%
+Minibatch loss at step 24: 2.323184
+Minibatch accuracy: 98.4%
+Validation accuracy: 66.0%
+Minibatch loss at step 26: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.1%
+Minibatch loss at step 28: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.1%
+Minibatch loss at step 30: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.0%
+Minibatch loss at step 32: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.0%
+Minibatch loss at step 34: 0.665471
+Minibatch accuracy: 99.2%
+Validation accuracy: 66.5%
+Minibatch loss at step 36: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.1%
+Minibatch loss at step 38: 1.233972
+Minibatch accuracy: 99.2%
+Validation accuracy: 65.5%
+Minibatch loss at step 40: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 65.0%
+Minibatch loss at step 42: 0.684885
+Minibatch accuracy: 98.4%
+Validation accuracy: 65.9%
+Minibatch loss at step 44: 1.067188
+Minibatch accuracy: 99.2%
+Validation accuracy: 65.9%
+Minibatch loss at step 46: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 65.9%
+Minibatch loss at step 48: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 65.5%
+Minibatch loss at step 50: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 65.5%
+Minibatch loss at step 52: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 65.4%
+Minibatch loss at step 54: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.1%
+Minibatch loss at step 56: 0.576552
+Minibatch accuracy: 99.2%
+Validation accuracy: 66.1%
+Minibatch loss at step 58: 0.874456
+Minibatch accuracy: 99.2%
+Validation accuracy: 65.7%
+Minibatch loss at step 60: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 65.7%
+Minibatch loss at step 62: 1.001337
+Minibatch accuracy: 99.2%
+Validation accuracy: 65.3%
+Minibatch loss at step 64: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.6%
+Minibatch loss at step 66: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.6%
+Minibatch loss at step 68: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.6%
+Minibatch loss at step 70: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.6%
+Minibatch loss at step 72: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.6%
+Minibatch loss at step 74: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.6%
+Minibatch loss at step 76: 0.398481
+Minibatch accuracy: 99.2%
+Validation accuracy: 66.9%
+Minibatch loss at step 78: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 64.4%
+Minibatch loss at step 80: 1.423306
+Minibatch accuracy: 99.2%
+Validation accuracy: 66.5%
+Minibatch loss at step 82: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.5%
+Minibatch loss at step 84: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.5%
+Minibatch loss at step 86: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 66.5%
+Minibatch loss at step 88: 1.079943
+Minibatch accuracy: 98.4%
+Validation accuracy: 67.7%
+Minibatch loss at step 90: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.7%
+Minibatch loss at step 92: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.7%
+Minibatch loss at step 94: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.6%
+Minibatch loss at step 96: 1.007961
+Minibatch accuracy: 99.2%
+Validation accuracy: 67.3%
+Minibatch loss at step 98: 0.000000
+Minibatch accuracy: 100.0%
+Validation accuracy: 67.3%
+Test accuracy: 74.7%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Dropout definitely helped, but it is far better to use regularization</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-4">Problem 4<a class="anchor-link" href="#Problem-4">&#182;</a></h2><p>Try to get the best performance you can using a multi-layer model! The best reported test accuracy using a deep network is <a href="http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html?showComment=1391023266211#c8758720086795711595">97.1%</a>.</p>
+<p>One avenue you can explore is to add multiple layers.</p>
+<p>Another one is to use learning rate decay:</p>
+
+<pre><code>global_step = tf.Variable(0)  # count the number of steps taken.
+learning_rate = tf.train.exponential_decay(0.5, global_step, ...)
+optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss, global_step=global_step)
+
+</code></pre>
+<hr>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">num_hidden_nodes1</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">num_hidden_nodes2</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">num_hidden_nodes3</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">keep_prob</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+
+    <span class="c1"># Input data. For the training data, we use a placeholder that will be fed</span>
+    <span class="c1"># at run time with a training minibatch.</span>
+    <span class="n">tf_train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">))</span>
+    <span class="n">tf_train_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">))</span>
+    <span class="n">tf_valid_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">valid_dataset</span><span class="p">)</span>
+    <span class="n">tf_test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+    <span class="n">global_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Variables.</span>
+    <span class="n">weights1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">,</span> <span class="n">num_hidden_nodes1</span><span class="p">],</span>
+        <span class="n">stddev</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">image_size</span> <span class="o">*</span> <span class="n">image_size</span><span class="p">)))</span>
+    <span class="p">)</span>
+    <span class="n">biases1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_hidden_nodes1</span><span class="p">]))</span>
+    <span class="n">weights2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_hidden_nodes1</span><span class="p">,</span> <span class="n">num_hidden_nodes2</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">num_hidden_nodes1</span><span class="p">)))</span>
+    <span class="n">biases2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_hidden_nodes2</span><span class="p">]))</span>
+    <span class="n">weights3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_hidden_nodes2</span><span class="p">,</span> <span class="n">num_hidden_nodes3</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">num_hidden_nodes2</span><span class="p">)))</span>
+    <span class="n">biases3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_hidden_nodes3</span><span class="p">]))</span>
+    <span class="n">weights4</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_hidden_nodes3</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">num_hidden_nodes3</span><span class="p">)))</span>
+    <span class="n">biases4</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">num_labels</span><span class="p">]))</span>
+  
+    <span class="c1"># Training computation.</span>
+    <span class="n">lay1_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_train_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">lay2_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_train</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+    <span class="n">lay3_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay2_train</span><span class="p">,</span> <span class="n">weights3</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases3</span><span class="p">)</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay3_train</span><span class="p">,</span> <span class="n">weights4</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases4</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">tf_train_labels</span><span class="p">))</span>
+  
+    <span class="c1"># Optimizer.</span>
+    <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">exponential_decay</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">global_step</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="n">staircase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">global_step</span><span class="p">)</span>
+  
+    <span class="c1"># Predictions for the training, validation, and test data.</span>
+    <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+    <span class="n">lay1_valid</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_valid_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">lay2_valid</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_valid</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+    <span class="n">lay3_valid</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay2_valid</span><span class="p">,</span> <span class="n">weights3</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases3</span><span class="p">)</span>
+    <span class="n">valid_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay3_valid</span><span class="p">,</span> <span class="n">weights4</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases4</span><span class="p">)</span>
+    <span class="n">lay1_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf_test_dataset</span><span class="p">,</span> <span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases1</span><span class="p">)</span>
+    <span class="n">lay2_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay1_test</span><span class="p">,</span> <span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases2</span><span class="p">)</span>
+    <span class="n">lay3_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay2_test</span><span class="p">,</span> <span class="n">weights3</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases3</span><span class="p">)</span>
+    <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">lay3_test</span><span class="p">,</span> <span class="n">weights4</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases4</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 10000 steps is more than enough</span>
+
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">10001</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initialized&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+        <span class="c1"># Pick an offset within the training data, which has been randomized.</span>
+        <span class="c1"># Note: we could use better randomization across epochs.</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">step</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">train_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+        <span class="c1"># Generate a minibatch.</span>
+        <span class="n">batch_data</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">train_labels</span><span class="p">[</span><span class="n">offset</span><span class="p">:(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">),</span> <span class="p">:]</span>
+        <span class="c1"># Prepare a dictionary telling the session where to feed the minibatch.</span>
+        <span class="c1"># The key of the dictionary is the placeholder node of the graph to be fed,</span>
+        <span class="c1"># and the value is the numpy array to feed to it.</span>
+        <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_train_dataset</span> <span class="p">:</span> <span class="n">batch_data</span><span class="p">,</span> <span class="n">tf_train_labels</span> <span class="p">:</span> <span class="n">batch_labels</span><span class="p">}</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+          <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">step</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch loss at step </span><span class="si">%d</span><span class="s2">: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minibatch accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">batch_labels</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">valid_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">valid_labels</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy: </span><span class="si">%.1f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">test_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">(),</span> <span class="n">test_labels</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Minibatch loss at step 0: 2.394002
+Minibatch accuracy: 10.2%
+Validation accuracy: 33.6%
+Minibatch loss at step 500: 0.569041
+Minibatch accuracy: 78.1%
+Validation accuracy: 85.0%
+Minibatch loss at step 1000: 0.365728
+Minibatch accuracy: 87.5%
+Validation accuracy: 88.0%
+Minibatch loss at step 1500: 0.431339
+Minibatch accuracy: 86.7%
+Validation accuracy: 88.4%
+Minibatch loss at step 2000: 0.361003
+Minibatch accuracy: 88.3%
+Validation accuracy: 88.9%
+Minibatch loss at step 2500: 0.400798
+Minibatch accuracy: 86.7%
+Validation accuracy: 89.1%
+Minibatch loss at step 3000: 0.251090
+Minibatch accuracy: 90.6%
+Validation accuracy: 89.5%
+Minibatch loss at step 3500: 0.226094
+Minibatch accuracy: 93.8%
+Validation accuracy: 89.2%
+Minibatch loss at step 4000: 0.429406
+Minibatch accuracy: 86.7%
+Validation accuracy: 89.7%
+Minibatch loss at step 4500: 0.145540
+Minibatch accuracy: 96.1%
+Validation accuracy: 90.5%
+Minibatch loss at step 5000: 0.190444
+Minibatch accuracy: 94.5%
+Validation accuracy: 90.3%
+Minibatch loss at step 5500: 0.301969
+Minibatch accuracy: 89.1%
+Validation accuracy: 90.4%
+Minibatch loss at step 6000: 0.155946
+Minibatch accuracy: 95.3%
+Validation accuracy: 90.5%
+Minibatch loss at step 6500: 0.301091
+Minibatch accuracy: 89.8%
+Validation accuracy: 90.7%
+Minibatch loss at step 7000: 0.199711
+Minibatch accuracy: 92.2%
+Validation accuracy: 90.3%
+Minibatch loss at step 7500: 0.178089
+Minibatch accuracy: 94.5%
+Validation accuracy: 90.4%
+Minibatch loss at step 8000: 0.086366
+Minibatch accuracy: 96.1%
+Validation accuracy: 89.9%
+Minibatch loss at step 8500: 0.163761
+Minibatch accuracy: 96.1%
+Validation accuracy: 90.9%
+Minibatch loss at step 9000: 0.142373
+Minibatch accuracy: 96.9%
+Validation accuracy: 91.2%
+Minibatch loss at step 9500: 0.137270
+Minibatch accuracy: 95.3%
+Validation accuracy: 91.1%
+Minibatch loss at step 10000: 0.153941
+Minibatch accuracy: 94.5%
+Validation accuracy: 90.8%
+Test accuracy: 95.9%
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 

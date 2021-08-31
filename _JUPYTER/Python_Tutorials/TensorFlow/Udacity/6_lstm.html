@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jupyter (iPython) Notebooks Guide</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>6_lstm</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,9 +13971,869 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Guide-to-Using-Jupyter-Notebooks">Guide to Using Jupyter Notebooks<a class="anchor-link" href="#Guide-to-Using-Jupyter-Notebooks">&#182;</a></h1><p>In this lecture we will be going over the basics of the Jupyter (previously called iPython Notebooks).</p>
-<p>For a complete User Manual check out the <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Bryn Mawr College Computer Science Guide</a>.</p>
-<p>Most of the breakdown will actually occur in the presentation corresponding to this Notebook. So please refer to either the presentation or the full User Manual linked above.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Deep-Learning">Deep Learning<a class="anchor-link" href="#Deep-Learning">&#182;</a></h1><h2 id="Assignment-6">Assignment 6<a class="anchor-link" href="#Assignment-6">&#182;</a></h2><p>After training a skip-gram model in <code>5_word2vec.ipynb</code>, the goal of this notebook is to train a LSTM character model over <a href="http://mattmahoney.net/dc/textdata">Text8</a> data.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># These are all the modules we&#39;ll be using later. Make sure you can import them</span>
+<span class="c1"># before proceeding further.</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">six.moves</span> <span class="kn">import</span> <span class="nb">range</span>
+<span class="kn">from</span> <span class="nn">six.moves.urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://mattmahoney.net/dc/&#39;</span>
+
+<span class="k">def</span> <span class="nf">maybe_download</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">expected_bytes</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Download a file if not present, and make sure it&#39;s the right size.&quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="n">filename</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="n">statinfo</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">statinfo</span><span class="o">.</span><span class="n">st_size</span> <span class="o">==</span> <span class="n">expected_bytes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found and verified </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">statinfo</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+      <span class="s1">&#39;Failed to verify &#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;. Can you get to it with a browser?&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">filename</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="n">maybe_download</span><span class="p">(</span><span class="s1">&#39;text8.zip&#39;</span><span class="p">,</span> <span class="mi">31344016</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Found and verified text8.zip
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">namelist</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">as_str</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+  
+<span class="n">text</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data size </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Data size 100000000
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Create a small validation set.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">valid_size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">valid_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[:</span><span class="n">valid_size</span><span class="p">]</span>
+<span class="n">train_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">valid_size</span><span class="p">:]</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_size</span><span class="p">,</span> <span class="n">train_text</span><span class="p">[:</span><span class="mi">64</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">valid_size</span><span class="p">,</span> <span class="n">valid_text</span><span class="p">[:</span><span class="mi">64</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>99999000 ons anarchists advocate social relations based upon voluntary as
+1000  anarchism originated as a term of abuse first used against earl
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Utility functions to map characters to vocabulary IDs and back.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vocabulary_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># [a-z] + &#39; &#39;</span>
+<span class="n">first_letter</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">char2id</span><span class="p">(</span><span class="n">char</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">-</span> <span class="n">first_letter</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">0</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unexpected character: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">char</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">0</span>
+  
+<span class="k">def</span> <span class="nf">id2char</span><span class="p">(</span><span class="n">dictid</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">dictid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="n">dictid</span> <span class="o">+</span> <span class="n">first_letter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">char2id</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="n">char2id</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">),</span> <span class="n">char2id</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">),</span> <span class="n">char2id</span><span class="p">(</span><span class="s1">&#39;ï&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">id2char</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">id2char</span><span class="p">(</span><span class="mi">26</span><span class="p">),</span> <span class="n">id2char</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>1 26 0 Unexpected character: ï
+0
+a z  
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Function to generate a training batch for the LSTM model.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span>
+<span class="n">num_unrollings</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="k">class</span> <span class="nc">BatchGenerator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_unrollings</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_text</span> <span class="o">=</span> <span class="n">text</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_text_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_num_unrollings</span> <span class="o">=</span> <span class="n">num_unrollings</span>
+    <span class="n">segment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text_size</span> <span class="o">//</span> <span class="n">batch_size</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span> <span class="o">=</span> <span class="p">[</span> <span class="n">offset</span> <span class="o">*</span> <span class="n">segment</span> <span class="k">for</span> <span class="n">offset</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_last_batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_batch</span><span class="p">()</span>
+  
+  <span class="k">def</span> <span class="nf">_next_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate a single batch from the current cursor position in the data.&quot;&quot;&quot;</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">,</span> <span class="n">vocabulary_size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_batch_size</span><span class="p">):</span>
+      <span class="n">batch</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="n">char2id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_text</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="p">[</span><span class="n">b</span><span class="p">]])]</span> <span class="o">=</span> <span class="mf">1.0</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cursor</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text_size</span>
+    <span class="k">return</span> <span class="n">batch</span>
+  
+  <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate the next array of batches from the data. The array consists of</span>
+<span class="sd">    the last batch of the previous array, followed by num_unrollings new ones.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">batches</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_batch</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_unrollings</span><span class="p">):</span>
+      <span class="n">batches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_next_batch</span><span class="p">())</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_last_batch</span> <span class="o">=</span> <span class="n">batches</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">batches</span>
+
+<span class="k">def</span> <span class="nf">characters</span><span class="p">(</span><span class="n">probabilities</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Turn a 1-hot encoding or a probability distribution over the possible</span>
+<span class="sd">  characters back into its (most likely) character representation.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">id2char</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probabilities</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">batches2string</span><span class="p">(</span><span class="n">batches</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Convert a sequence of batches back into their (most likely) string</span>
+<span class="sd">  representation.&quot;&quot;&quot;</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">batches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">characters</span><span class="p">(</span><span class="n">b</span><span class="p">))]</span>
+  <span class="k">return</span> <span class="n">s</span>
+
+<span class="n">train_batches</span> <span class="o">=</span> <span class="n">BatchGenerator</span><span class="p">(</span><span class="n">train_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_unrollings</span><span class="p">)</span>
+<span class="n">valid_batches</span> <span class="o">=</span> <span class="n">BatchGenerator</span><span class="p">(</span><span class="n">valid_text</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">batches2string</span><span class="p">(</span><span class="n">train_batches</span><span class="o">.</span><span class="n">next</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">batches2string</span><span class="p">(</span><span class="n">train_batches</span><span class="o">.</span><span class="n">next</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">batches2string</span><span class="p">(</span><span class="n">valid_batches</span><span class="o">.</span><span class="n">next</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">batches2string</span><span class="p">(</span><span class="n">valid_batches</span><span class="o">.</span><span class="n">next</span><span class="p">()))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[&#39;ons anarchi&#39;, &#39;when milita&#39;, &#39;lleria arch&#39;, &#39; abbeys and&#39;, &#39;married urr&#39;, &#39;hel and ric&#39;, &#39;y and litur&#39;, &#39;ay opened f&#39;, &#39;tion from t&#39;, &#39;migration t&#39;, &#39;new york ot&#39;, &#39;he boeing s&#39;, &#39;e listed wi&#39;, &#39;eber has pr&#39;, &#39;o be made t&#39;, &#39;yer who rec&#39;, &#39;ore signifi&#39;, &#39;a fierce cr&#39;, &#39; two six ei&#39;, &#39;aristotle s&#39;, &#39;ity can be &#39;, &#39; and intrac&#39;, &#39;tion of the&#39;, &#39;dy to pass &#39;, &#39;f certain d&#39;, &#39;at it will &#39;, &#39;e convince &#39;, &#39;ent told hi&#39;, &#39;ampaign and&#39;, &#39;rver side s&#39;, &#39;ious texts &#39;, &#39;o capitaliz&#39;, &#39;a duplicate&#39;, &#39;gh ann es d&#39;, &#39;ine january&#39;, &#39;ross zero t&#39;, &#39;cal theorie&#39;, &#39;ast instanc&#39;, &#39; dimensiona&#39;, &#39;most holy m&#39;, &#39;t s support&#39;, &#39;u is still &#39;, &#39;e oscillati&#39;, &#39;o eight sub&#39;, &#39;of italy la&#39;, &#39;s the tower&#39;, &#39;klahoma pre&#39;, &#39;erprise lin&#39;, &#39;ws becomes &#39;, &#39;et in a naz&#39;, &#39;the fabian &#39;, &#39;etchy to re&#39;, &#39; sharman ne&#39;, &#39;ised empero&#39;, &#39;ting in pol&#39;, &#39;d neo latin&#39;, &#39;th risky ri&#39;, &#39;encyclopedi&#39;, &#39;fense the a&#39;, &#39;duating fro&#39;, &#39;treet grid &#39;, &#39;ations more&#39;, &#39;appeal of d&#39;, &#39;si have mad&#39;]
+[&#39;ists advoca&#39;, &#39;ary governm&#39;, &#39;hes nationa&#39;, &#39;d monasteri&#39;, &#39;raca prince&#39;, &#39;chard baer &#39;, &#39;rgical lang&#39;, &#39;for passeng&#39;, &#39;the nationa&#39;, &#39;took place &#39;, &#39;ther well k&#39;, &#39;seven six s&#39;, &#39;ith a gloss&#39;, &#39;robably bee&#39;, &#39;to recogniz&#39;, &#39;ceived the &#39;, &#39;icant than &#39;, &#39;ritic of th&#39;, &#39;ight in sig&#39;, &#39;s uncaused &#39;, &#39; lost as in&#39;, &#39;cellular ic&#39;, &#39;e size of t&#39;, &#39; him a stic&#39;, &#39;drugs confu&#39;, &#39; take to co&#39;, &#39; the priest&#39;, &#39;im to name &#39;, &#39;d barred at&#39;, &#39;standard fo&#39;, &#39; such as es&#39;, &#39;ze on the g&#39;, &#39;e of the or&#39;, &#39;d hiver one&#39;, &#39;y eight mar&#39;, &#39;the lead ch&#39;, &#39;es classica&#39;, &#39;ce the non &#39;, &#39;al analysis&#39;, &#39;mormons bel&#39;, &#39;t or at lea&#39;, &#39; disagreed &#39;, &#39;ing system &#39;, &#39;btypes base&#39;, &#39;anguages th&#39;, &#39;r commissio&#39;, &#39;ess one nin&#39;, &#39;nux suse li&#39;, &#39; the first &#39;, &#39;zi concentr&#39;, &#39; society ne&#39;, &#39;elatively s&#39;, &#39;etworks sha&#39;, &#39;or hirohito&#39;, &#39;litical ini&#39;, &#39;n most of t&#39;, &#39;iskerdoo ri&#39;, &#39;ic overview&#39;, &#39;air compone&#39;, &#39;om acnm acc&#39;, &#39; centerline&#39;, &#39;e than any &#39;, &#39;devotional &#39;, &#39;de such dev&#39;]
+[&#39; a&#39;]
+[&#39;an&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">logprob</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Log-probability of the true labels in a predicted batch.&quot;&quot;&quot;</span>
+  <span class="n">predictions</span><span class="p">[</span><span class="n">predictions</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-10</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">predictions</span><span class="p">)))</span> <span class="o">/</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">sample_distribution</span><span class="p">(</span><span class="n">distribution</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Sample one element from a distribution assumed to be an array of normalized</span>
+<span class="sd">  probabilities.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">distribution</span><span class="p">)):</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">distribution</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">i</span>
+  <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">distribution</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="n">prediction</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Turn a (column) prediction into 1-hot encoded samples.&quot;&quot;&quot;</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocabulary_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+  <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">sample_distribution</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="mf">1.0</span>
+  <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">random_distribution</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;Generate a random column of probabilities.&quot;&quot;&quot;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocabulary_size</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">b</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Simple LSTM Model.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_nodes</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+  
+  <span class="c1"># Parameters:</span>
+  <span class="c1"># Input gate: input, previous output, and bias.</span>
+  <span class="n">ix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">vocabulary_size</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">im</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_nodes</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">ib</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]))</span>
+  <span class="c1"># Forget gate: input, previous output, and bias.</span>
+  <span class="n">fx</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">vocabulary_size</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">fm</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_nodes</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">fb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]))</span>
+  <span class="c1"># Memory cell: input, state and bias.                             </span>
+  <span class="n">cx</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">vocabulary_size</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">cm</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_nodes</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]))</span>
+  <span class="c1"># Output gate: input, previous output, and bias.</span>
+  <span class="n">ox</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">vocabulary_size</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">om</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_nodes</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">ob</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]))</span>
+  <span class="c1"># Variables saving state across unrollings.</span>
+  <span class="n">saved_output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]),</span> <span class="n">trainable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+  <span class="n">saved_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]),</span> <span class="n">trainable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+  <span class="c1"># Classifier weights and biases.</span>
+  <span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="n">num_nodes</span><span class="p">,</span> <span class="n">vocabulary_size</span><span class="p">],</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">vocabulary_size</span><span class="p">]))</span>
+  
+  <span class="c1"># Definition of the cell computation.</span>
+  <span class="k">def</span> <span class="nf">lstm_cell</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a LSTM cell. See e.g.: http://arxiv.org/pdf/1402.1128v1.pdf</span>
+<span class="sd">    Note that in this formulation, we omit the various connections between the</span>
+<span class="sd">    previous state and the gates.&quot;&quot;&quot;</span>
+    <span class="n">input_gate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ix</span><span class="p">)</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">im</span><span class="p">)</span> <span class="o">+</span> <span class="n">ib</span><span class="p">)</span>
+    <span class="n">forget_gate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fx</span><span class="p">)</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">fm</span><span class="p">)</span> <span class="o">+</span> <span class="n">fb</span><span class="p">)</span>
+    <span class="n">update</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cx</span><span class="p">)</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">cm</span><span class="p">)</span> <span class="o">+</span> <span class="n">cb</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">forget_gate</span> <span class="o">*</span> <span class="n">state</span> <span class="o">+</span> <span class="n">input_gate</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+    <span class="n">output_gate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ox</span><span class="p">)</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">om</span><span class="p">)</span> <span class="o">+</span> <span class="n">ob</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output_gate</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">state</span><span class="p">),</span> <span class="n">state</span>
+
+  <span class="c1"># Input data.</span>
+  <span class="n">train_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_unrollings</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">train_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span><span class="n">vocabulary_size</span><span class="p">]))</span>
+  <span class="n">train_inputs</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[:</span><span class="n">num_unrollings</span><span class="p">]</span>
+  <span class="n">train_labels</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># labels are inputs shifted by one time step.</span>
+
+  <span class="c1"># Unrolled LSTM loop.</span>
+  <span class="n">outputs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+  <span class="n">output</span> <span class="o">=</span> <span class="n">saved_output</span>
+  <span class="n">state</span> <span class="o">=</span> <span class="n">saved_state</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">train_inputs</span><span class="p">:</span>
+    <span class="n">output</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">lstm_cell</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+  <span class="c1"># State saving across unrollings.</span>
+  <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">control_dependencies</span><span class="p">([</span><span class="n">saved_output</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">output</span><span class="p">),</span>
+                                <span class="n">saved_state</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">state</span><span class="p">)]):</span>
+    <span class="c1"># Classifier.</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">xw_plus_b</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">outputs</span><span class="p">),</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span>
+        <span class="n">logits</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)))</span>
+
+  <span class="c1"># Optimizer.</span>
+  <span class="n">global_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">exponential_decay</span><span class="p">(</span>
+    <span class="mf">10.0</span><span class="p">,</span> <span class="n">global_step</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">staircase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span>
+  <span class="n">gradients</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">optimizer</span><span class="o">.</span><span class="n">compute_gradients</span><span class="p">(</span><span class="n">loss</span><span class="p">))</span>
+  <span class="n">gradients</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">clip_by_global_norm</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">)</span>
+  <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span>
+    <span class="nb">zip</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">v</span><span class="p">),</span> <span class="n">global_step</span><span class="o">=</span><span class="n">global_step</span><span class="p">)</span>
+
+  <span class="c1"># Predictions.</span>
+  <span class="n">train_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+  
+  <span class="c1"># Sampling and validation eval: batch 1, no unrolling.</span>
+  <span class="n">sample_input</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocabulary_size</span><span class="p">])</span>
+  <span class="n">saved_sample_output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]))</span>
+  <span class="n">saved_sample_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">]))</span>
+  <span class="n">reset_sample_state</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">group</span><span class="p">(</span>
+    <span class="n">saved_sample_output</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">])),</span>
+    <span class="n">saved_sample_state</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">])))</span>
+  <span class="n">sample_output</span><span class="p">,</span> <span class="n">sample_state</span> <span class="o">=</span> <span class="n">lstm_cell</span><span class="p">(</span>
+    <span class="n">sample_input</span><span class="p">,</span> <span class="n">saved_sample_output</span><span class="p">,</span> <span class="n">saved_sample_state</span><span class="p">)</span>
+  <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">control_dependencies</span><span class="p">([</span><span class="n">saved_sample_output</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">sample_output</span><span class="p">),</span>
+                                <span class="n">saved_sample_state</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">sample_state</span><span class="p">)]):</span>
+    <span class="n">sample_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">xw_plus_b</span><span class="p">(</span><span class="n">sample_output</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[0]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">7001</span>
+<span class="n">summary_frequency</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Initialized&#39;</span><span class="p">)</span>
+  <span class="n">mean_loss</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+    <span class="n">batches</span> <span class="o">=</span> <span class="n">train_batches</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+    <span class="n">feed_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_unrollings</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+      <span class="n">feed_dict</span><span class="p">[</span><span class="n">train_data</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">batches</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">lr</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">train_prediction</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+    <span class="n">mean_loss</span> <span class="o">+=</span> <span class="n">l</span>
+    <span class="k">if</span> <span class="n">step</span> <span class="o">%</span> <span class="n">summary_frequency</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">mean_loss</span> <span class="o">=</span> <span class="n">mean_loss</span> <span class="o">/</span> <span class="n">summary_frequency</span>
+      <span class="c1"># The mean loss is an estimate of the loss over the last few batches.</span>
+      <span class="nb">print</span><span class="p">(</span>
+        <span class="s1">&#39;Average loss at step </span><span class="si">%d</span><span class="s1">: </span><span class="si">%f</span><span class="s1"> learning rate: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">mean_loss</span><span class="p">,</span> <span class="n">lr</span><span class="p">))</span>
+      <span class="n">mean_loss</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">batches</span><span class="p">)[</span><span class="mi">1</span><span class="p">:])</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Minibatch perplexity: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">float</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))))</span>
+      <span class="k">if</span> <span class="n">step</span> <span class="o">%</span> <span class="p">(</span><span class="n">summary_frequency</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Generate some samples.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+          <span class="n">feed</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">random_distribution</span><span class="p">())</span>
+          <span class="n">sentence</span> <span class="o">=</span> <span class="n">characters</span><span class="p">(</span><span class="n">feed</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+          <span class="n">reset_sample_state</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+          <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">79</span><span class="p">):</span>
+            <span class="n">prediction</span> <span class="o">=</span> <span class="n">sample_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">({</span><span class="n">sample_input</span><span class="p">:</span> <span class="n">feed</span><span class="p">})</span>
+            <span class="n">feed</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+            <span class="n">sentence</span> <span class="o">+=</span> <span class="n">characters</span><span class="p">(</span><span class="n">feed</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+      <span class="c1"># Measure validation set perplexity.</span>
+      <span class="n">reset_sample_state</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+      <span class="n">valid_logprob</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">valid_size</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">valid_batches</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">sample_prediction</span><span class="o">.</span><span class="n">eval</span><span class="p">({</span><span class="n">sample_input</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]})</span>
+        <span class="n">valid_logprob</span> <span class="o">=</span> <span class="n">valid_logprob</span> <span class="o">+</span> <span class="n">logprob</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Validation set perplexity: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+        <span class="n">valid_logprob</span> <span class="o">/</span> <span class="n">valid_size</span><span class="p">)))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Initialized
+Average loss at step 0 : 3.29904174805 learning rate: 10.0
+Minibatch perplexity: 27.09
+================================================================================
+srk dwmrnuldtbbgg tapootidtu xsciu sgokeguw hi ieicjq lq piaxhazvc s fht wjcvdlh
+lhrvallvbeqqquc dxd y siqvnle bzlyw nr rwhkalezo siie o deb e lpdg  storq u nx o
+meieu nantiouie gdys qiuotblci loc hbiznauiccb cqzed acw l tsm adqxplku gn oaxet
+unvaouc oxchywdsjntdh zpklaejvxitsokeerloemee htphisb th eaeqseibumh aeeyj j orw
+ogmnictpycb whtup   otnilnesxaedtekiosqet  liwqarysmt  arj flioiibtqekycbrrgoysj
+================================================================================
+Validation set perplexity: 19.99
+Average loss at step 100 : 2.59553678274 learning rate: 10.0
+Minibatch perplexity: 9.57
+Validation set perplexity: 10.60
+Average loss at step 200 : 2.24747137785 learning rate: 10.0
+Minibatch perplexity: 7.68
+Validation set perplexity: 8.84
+Average loss at step 300 : 2.09438110709 learning rate: 10.0
+Minibatch perplexity: 7.41
+Validation set perplexity: 8.13
+Average loss at step 400 : 1.99440989017 learning rate: 10.0
+Minibatch perplexity: 6.46
+Validation set perplexity: 7.58
+Average loss at step 500 : 1.9320810616 learning rate: 10.0
+Minibatch perplexity: 6.30
+Validation set perplexity: 6.88
+Average loss at step 600 : 1.90935629249 learning rate: 10.0
+Minibatch perplexity: 7.21
+Validation set perplexity: 6.91
+Average loss at step 700 : 1.85583009005 learning rate: 10.0
+Minibatch perplexity: 6.13
+Validation set perplexity: 6.60
+Average loss at step 800 : 1.82152368546 learning rate: 10.0
+Minibatch perplexity: 6.01
+Validation set perplexity: 6.37
+Average loss at step 900 : 1.83169809818 learning rate: 10.0
+Minibatch perplexity: 7.20
+Validation set perplexity: 6.23
+Average loss at step 1000 : 1.82217029214 learning rate: 10.0
+Minibatch perplexity: 6.73
+================================================================================
+le action b of the tert sy ofter selvorang previgned stischdy yocal chary the co
+le relganis networks partucy cetinning wilnchan sics rumeding a fulch laks oftes
+hian andoris ret the ecause bistory l pidect one eight five lack du that the ses
+aiv dromery buskocy becomer worils resism disele retery exterrationn of hide in 
+mer miter y sught esfectur of the upission vain is werms is vul ugher compted by
+================================================================================
+Validation set perplexity: 6.07
+Average loss at step 1100 : 1.77301145077 learning rate: 10.0
+Minibatch perplexity: 6.03
+Validation set perplexity: 5.89
+Average loss at step 1200 : 1.75306463003 learning rate: 10.0
+Minibatch perplexity: 6.50
+Validation set perplexity: 5.61
+Average loss at step 1300 : 1.72937195778 learning rate: 10.0
+Minibatch perplexity: 5.00
+Validation set perplexity: 5.60
+Average loss at step 1400 : 1.74773373723 learning rate: 10.0
+Minibatch perplexity: 6.48
+Validation set perplexity: 5.66
+Average loss at step 1500 : 1.7368799901 learning rate: 10.0
+Minibatch perplexity: 5.22
+Validation set perplexity: 5.44
+Average loss at step 1600 : 1.74528762937 learning rate: 10.0
+Minibatch perplexity: 5.85
+Validation set perplexity: 5.33
+Average loss at step 1700 : 1.70881183743 learning rate: 10.0
+Minibatch perplexity: 5.33
+Validation set perplexity: 5.56
+Average loss at step 1800 : 1.67776108027 learning rate: 10.0
+Minibatch perplexity: 5.33
+Validation set perplexity: 5.29
+Average loss at step 1900 : 1.64935536742 learning rate: 10.0
+Minibatch perplexity: 5.29
+Validation set perplexity: 5.15
+Average loss at step 2000 : 1.69528644681 learning rate: 10.0
+Minibatch perplexity: 5.13
+================================================================================
+vers soqually have one five landwing to docial page kagan lower with ther batern
+ctor son alfortmandd tethre k skin the known purated to prooust caraying the fit
+je in beverb is the sournction bainedy wesce tu sture artualle lines digra forme
+m rousively haldio ourso ond anvary was for the seven solies hild buil  s  to te
+zall for is it is one nine eight eight one neval to the kime typer oene where he
+================================================================================
+Validation set perplexity: 5.25
+Average loss at step 2100 : 1.68808053017 learning rate: 10.0
+Minibatch perplexity: 5.17
+Validation set perplexity: 5.01
+Average loss at step 2200 : 1.68322490931 learning rate: 10.0
+Minibatch perplexity: 5.09
+Validation set perplexity: 5.15
+Average loss at step 2300 : 1.64465074301 learning rate: 10.0
+Minibatch perplexity: 5.51
+Validation set perplexity: 5.00
+Average loss at step 2400 : 1.66408578038 learning rate: 10.0
+Minibatch perplexity: 5.86
+Validation set perplexity: 4.80
+Average loss at step 2500 : 1.68515402555 learning rate: 10.0
+Minibatch perplexity: 5.75
+Validation set perplexity: 4.82
+Average loss at step 2600 : 1.65405208349 learning rate: 10.0
+Minibatch perplexity: 5.38
+Validation set perplexity: 4.85
+Average loss at step 2700 : 1.65706222177 learning rate: 10.0
+Minibatch perplexity: 5.46
+Validation set perplexity: 4.78
+Average loss at step 2800 : 1.65204829812 learning rate: 10.0
+Minibatch perplexity: 5.06
+Validation set perplexity: 4.64
+Average loss at step 2900 : 1.65107253551 learning rate: 10.0
+Minibatch perplexity: 5.00
+Validation set perplexity: 4.61
+Average loss at step 3000 : 1.6495274055 learning rate: 10.0
+Minibatch perplexity: 4.53
+================================================================================
+ject covered in belo one six six to finsh that all di rozial sime it a the lapse
+ble which the pullic bocades record r to sile dric two one four nine seven six f
+ originally ame the playa ishaps the stotchational in a p dstambly name which as
+ore volum to bay riwer foreal in nuily operety can and auscham frooripm however 
+kan traogey was lacous revision the mott coupofiteditey the trando insended frop
+================================================================================
+Validation set perplexity: 4.76
+Average loss at step 3100 : 1.63705502152 learning rate: 10.0
+Minibatch perplexity: 5.50
+Validation set perplexity: 4.76
+Average loss at step 3200 : 1.64740695596 learning rate: 10.0
+Minibatch perplexity: 4.84
+Validation set perplexity: 4.67
+Average loss at step 3300 : 1.64711504817 learning rate: 10.0
+Minibatch perplexity: 5.39
+Validation set perplexity: 4.57
+Average loss at step 3400 : 1.67113256454 learning rate: 10.0
+Minibatch perplexity: 5.56
+Validation set perplexity: 4.71
+Average loss at step 3500 : 1.65637169957 learning rate: 10.0
+Minibatch perplexity: 5.03
+Validation set perplexity: 4.80
+Average loss at step 3600 : 1.66601825476 learning rate: 10.0
+Minibatch perplexity: 4.63
+Validation set perplexity: 4.52
+Average loss at step 3700 : 1.65021387935 learning rate: 10.0
+Minibatch perplexity: 5.50
+Validation set perplexity: 4.56
+Average loss at step 3800 : 1.64481814981 learning rate: 10.0
+Minibatch perplexity: 4.60
+Validation set perplexity: 4.54
+Average loss at step 3900 : 1.642069453 learning rate: 10.0
+Minibatch perplexity: 4.91
+Validation set perplexity: 4.54
+Average loss at step 4000 : 1.65179730773 learning rate: 10.0
+Minibatch perplexity: 4.77
+================================================================================
+k s rasbonish roctes the nignese at heacle was sito of beho anarchys and with ro
+jusar two sue wletaus of chistical in causations d ow trancic bruthing ha laters
+de and speacy pulted yoftret worksy zeatlating to eight d had to ie bue seven si
+s fiction of the feelly constive suq flanch earlied curauking bjoventation agent
+quen s playing it calana our seopity also atbellisionaly comexing the revideve i
+================================================================================
+Validation set perplexity: 4.58
+Average loss at step 4100 : 1.63794238806 learning rate: 10.0
+Minibatch perplexity: 5.47
+Validation set perplexity: 4.79
+Average loss at step 4200 : 1.63822438836 learning rate: 10.0
+Minibatch perplexity: 5.30
+Validation set perplexity: 4.54
+Average loss at step 4300 : 1.61844664574 learning rate: 10.0
+Minibatch perplexity: 4.69
+Validation set perplexity: 4.54
+Average loss at step 4400 : 1.61255454302 learning rate: 10.0
+Minibatch perplexity: 4.67
+Validation set perplexity: 4.54
+Average loss at step 4500 : 1.61543365479 learning rate: 10.0
+Minibatch perplexity: 4.83
+Validation set perplexity: 4.69
+Average loss at step 4600 : 1.61607327104 learning rate: 10.0
+Minibatch perplexity: 5.18
+Validation set perplexity: 4.64
+Average loss at step 4700 : 1.62757282495 learning rate: 10.0
+Minibatch perplexity: 4.24
+Validation set perplexity: 4.66
+Average loss at step 4800 : 1.63222063541 learning rate: 10.0
+Minibatch perplexity: 5.30
+Validation set perplexity: 4.53
+Average loss at step 4900 : 1.63678096652 learning rate: 10.0
+Minibatch perplexity: 5.43
+Validation set perplexity: 4.64
+Average loss at step 5000 : 1.610340662 learning rate: 1.0
+Minibatch perplexity: 5.10
+================================================================================
+in b one onarbs revieds the kimiluge that fondhtic fnoto cre one nine zero zero 
+ of is it of marking panzia t had wap ironicaghni relly deah the omber b h menba
+ong messified it his the likdings ara subpore the a fames distaled self this int
+y advante authors the end languarle meit common tacing bevolitione and eight one
+zes that materly difild inllaring the fusts not panition assertian causecist bas
+================================================================================
+Validation set perplexity: 4.69
+Average loss at step 5100 : 1.60593637228 learning rate: 1.0
+Minibatch perplexity: 4.69
+Validation set perplexity: 4.47
+Average loss at step 5200 : 1.58993269444 learning rate: 1.0
+Minibatch perplexity: 4.65
+Validation set perplexity: 4.39
+Average loss at step 5300 : 1.57930587292 learning rate: 1.0
+Minibatch perplexity: 5.11
+Validation set perplexity: 4.39
+Average loss at step 5400 : 1.58022856832 learning rate: 1.0
+Minibatch perplexity: 5.19
+Validation set perplexity: 4.37
+Average loss at step 5500 : 1.56654450059 learning rate: 1.0
+Minibatch perplexity: 4.69
+Validation set perplexity: 4.33
+Average loss at step 5600 : 1.58013380885 learning rate: 1.0
+Minibatch perplexity: 5.13
+Validation set perplexity: 4.35
+Average loss at step 5700 : 1.56974959254 learning rate: 1.0
+Minibatch perplexity: 5.00
+Validation set perplexity: 4.34
+Average loss at step 5800 : 1.5839582932 learning rate: 1.0
+Minibatch perplexity: 4.88
+Validation set perplexity: 4.31
+Average loss at step 5900 : 1.57129439116 learning rate: 1.0
+Minibatch perplexity: 4.66
+Validation set perplexity: 4.32
+Average loss at step 6000 : 1.55144061089 learning rate: 1.0
+Minibatch perplexity: 4.55
+================================================================================
+utic clositical poopy stribe addi nixe one nine one zero zero eight zero b ha ex
+zerns b one internequiption of the secordy way anti proble akoping have fictiona
+phare united from has poporarly cities book ins sweden emperor a sass in origina
+quulk destrebinist and zeilazar and on low and by in science over country weilti
+x are holivia work missincis ons in the gages to starsle histon one icelanctrotu
+================================================================================
+Validation set perplexity: 4.30
+Average loss at step 6100 : 1.56450940847 learning rate: 1.0
+Minibatch perplexity: 4.77
+Validation set perplexity: 4.27
+Average loss at step 6200 : 1.53433164835 learning rate: 1.0
+Minibatch perplexity: 4.77
+Validation set perplexity: 4.27
+Average loss at step 6300 : 1.54773445129 learning rate: 1.0
+Minibatch perplexity: 4.76
+Validation set perplexity: 4.25
+Average loss at step 6400 : 1.54021131516 learning rate: 1.0
+Minibatch perplexity: 4.56
+Validation set perplexity: 4.24
+Average loss at step 6500 : 1.56153374553 learning rate: 1.0
+Minibatch perplexity: 5.43
+Validation set perplexity: 4.27
+Average loss at step 6600 : 1.59556478739 learning rate: 1.0
+Minibatch perplexity: 4.92
+Validation set perplexity: 4.28
+Average loss at step 6700 : 1.58076951623 learning rate: 1.0
+Minibatch perplexity: 4.77
+Validation set perplexity: 4.30
+Average loss at step 6800 : 1.6070714438 learning rate: 1.0
+Minibatch perplexity: 4.98
+Validation set perplexity: 4.28
+Average loss at step 6900 : 1.58413293839 learning rate: 1.0
+Minibatch perplexity: 4.61
+Validation set perplexity: 4.29
+Average loss at step 7000 : 1.57905534983 learning rate: 1.0
+Minibatch perplexity: 5.08
+================================================================================
+jague are officiencinels ored by film voon higherise haik one nine on the iffirc
+oshe provision that manned treatists on smalle bodariturmeristing the girto in s
+kis would softwenn mustapultmine truativersakys bersyim by s of confound esc bub
+ry of the using one four six blain ira mannom marencies g with fextificallise re
+ one son vit even an conderouss to person romer i a lebapter at obiding are iuse
+================================================================================
+Validation set perplexity: 4.25
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h2><p>You might have noticed that the definition of the LSTM cell involves 4 matrix multiplications with the input, and 4 matrix multiplications with the output. Simplify the expression by using a single matrix multiply for each, and variables that are 4 times larger.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-2">Problem 2<a class="anchor-link" href="#Problem-2">&#182;</a></h2><p>We want to train a LSTM over bigrams, that is pairs of consecutive characters like 'ab' instead of single characters like 'a'. Since the number of possible bigrams is large, feeding them directly to the LSTM using 1-hot encodings will lead to a very sparse representation that is very wasteful computationally.</p>
+<p>a- Introduce an embedding lookup on the inputs, and feed the embeddings to the LSTM cell instead of the inputs themselves.</p>
+<p>b- Write a bigram-based LSTM, modeled on the character LSTM above.</p>
+<p>c- Introduce Dropout. For best practices on how to use Dropout in LSTMs, refer to this <a href="http://arxiv.org/abs/1409.2329">article</a>.</p>
+<hr>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h2 id="Problem-3">Problem 3<a class="anchor-link" href="#Problem-3">&#182;</a></h2><p>(difficult!)</p>
+<p>Write a sequence-to-sequence LSTM which mirrors all the words in a sentence. For example, if your input is:</p>
+
+<pre><code>the quick brown fox
+
+</code></pre>
+<p>the model should attempt to output:</p>
+
+<pre><code>eht kciuq nworb xof
+
+</code></pre>
+<p>Refer to the lecture on how to put together a sequence-to-sequence model, as well as <a href="http://arxiv.org/abs/1409.3215">this article</a> for best practices.</p>
+<hr>
 
 </div>
 </div>
