@@ -61,3 +61,7 @@
 * [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/README.md)
   * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
 
+## dev-enviorment-setup
+
+* [Pip](dev-enviorment-setup/pip.md)
+
