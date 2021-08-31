@@ -37,8 +37,6 @@
 * [Trinket](embeds/trinket.md)
 * [Repl.it](embeds/repl.it.md)
 
-## Wk-18
-
 ## misc
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
@@ -64,4 +62,8 @@
 ## dev-enviorment-setup
 
 * [Pip](dev-enviorment-setup/pip.md)
+
+## GENERAL
+
+* [Untitled](general/untitled.md)
 
