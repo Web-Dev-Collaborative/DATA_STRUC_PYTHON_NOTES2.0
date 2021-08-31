@@ -1361,7 +1361,7 @@ HTML code of the above web page:
 &lt;h1&gt;Example Domain&lt;/h1&gt;  
 &lt;p&gt;This domain is for use in illustrative examples in documents. You may use this  
 domain in literature without prior coordination or asking for permission.&lt;/p&gt;  
-&lt;p&gt;&lt;a href="[https://www.iana.org/domains/example"&gt;More](https://www.iana.org/domains/example">More) information...&lt;/a&gt;&lt;/p&gt;  
+&lt;p&gt;&lt;a href="\[[https://www.iana.org/domains/example"&gt;More\]\(https://www.iana.org/domains/example"&gt;More](https://www.iana.org/domains/example">More]%28https://www.iana.org/domains/example">More)\) information...&lt;/a&gt;&lt;/p&gt;  
 &lt;/div&gt;  
 &lt;/body&gt;  
 &lt;/html&gt;

@@ -27,8 +27,6 @@
 
 ## Wk-18
 
-* [Untitled](wk-18/untitled.md)
-
 ## misc
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
@@ -37,11 +35,11 @@
 ---
 
 * [Youtube](youtube-1.md)
-* [D1](wk-19-notes/d1.md)
-* [D2](wk-19-notes/d2.md)
-* [D3](wk-19-notes/d3.md)
-* [D4](wk-19-notes/untitled.md)
-* [How To Reverse A Stack](wk-19-notes/how-to-reverse-a-stack.md)
+* [D1](d1.md)
+* [D2](d2.md)
+* [D3](d3.md)
+* [D4](untitled-1.md)
+* [How To Reverse A Stack](how-to-reverse-a-stack.md)
 
 ## Wk-20-Notes
 
@@ -50,5 +48,4 @@
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
 * [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/README.md)
   * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
-
 

@@ -32,13 +32,13 @@ Our queue model will consist of two stacks. One stack will be used for `enqueue`
 
 Our pseudo-code is as below;
 
-#### Enqueue Operation
+### Enqueue Operation
 
 ```text
 Push every input element to the Input Stack
 ```
 
-#### Dequeue Operation
+### Dequeue Operation
 
 ```text
 If ( Output Stack is Empty)
@@ -69,3 +69,4 @@ Again, if we execute two more dequeue operations, on the first dequeue operation
 [![enter image description here](https://i.stack.imgur.com/vuLsw.png)](https://i.stack.imgur.com/vuLsw.png)
 
 Easy to see, the output of the two dequeue operations will be `{4, 5}`
+
