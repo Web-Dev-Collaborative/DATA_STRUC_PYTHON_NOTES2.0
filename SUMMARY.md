@@ -35,6 +35,7 @@
 ## Embeds
 
 * [Trinket](embeds/trinket.md)
+* [Websites](embeds/websites.md)
 * [Repl.it](embeds/repl.it.md)
 
 ## misc
