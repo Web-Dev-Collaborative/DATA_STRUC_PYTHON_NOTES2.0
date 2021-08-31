@@ -19,6 +19,7 @@
 
 * [Python Keywords](resources/python-keywords.md)
 * [Appendix](resources/appendix.md)
+* [Data Structures](resources/data-structures.md)
 * [Links](resources/links.md)
 * [Appetite](resources/appetite.md)
 * [Classes](resources/classes.md)
