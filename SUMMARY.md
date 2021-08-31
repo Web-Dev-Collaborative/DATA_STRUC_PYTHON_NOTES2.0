@@ -20,6 +20,7 @@
 
 * [Python Keywords](resources/python-keywords.md)
 * [Links](resources/links.md)
+* [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
 
@@ -32,12 +33,12 @@
 
 ## misc
 
+* [Python Problems & Solutions For Beginners](misc/d2.md)
 * [Misc](misc/misc.md)
 
 ---
 
 * [Youtube](youtube-1.md)
-
 * [D1](d1.md)
 * [D2](d2.md)
 * [D3](d3.md)
