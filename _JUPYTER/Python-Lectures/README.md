@@ -1,8 +1,4 @@
-
-# Python-Lectures  
-
-
-
+# Python-Lectures
 
 Note: [Andreas Ernst](http://users.monash.edu/~andrease/) has improvised and updated the repo to python 3, [Link](https://gitlab.erc.monash.edu.au/andrease/Python4Maths/tree/master)
 
@@ -17,7 +13,7 @@ Mac OS X and Linux comes pre installed with python. Windows users can download p
 To install IPython run,
 
     $ pip install ipython[all]
-    
+
 This will install all the necessary dependencies for the notebook, qtconsole, tests etc.
 
 ### Installation from unofficial distributions
@@ -53,37 +49,26 @@ It is better to download all the ipython notebooks from this repository https://
 Launch ipython notebook from the folder which contains the notebooks. Open each one of them
 
     Cell > All Output > Clear
-    
+
 This will clear all the outputs and now you can understand each statement and learn interactively.
 
 ## Table of contents
 
-
-
 [00 - Introduction and Installation](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/00.ipynb)
-
 
 [01 - Variable, Operators and Built-in Functions](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/01.ipynb)
 
-
 [02 - Print Statement, Precision and FieldWidth](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/02.ipynb)
-
 
 [03 - Lists, Tuples and Sets](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/03.ipynb)
 
-
 [04 - Strings and Dictionaries](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/04.ipynb)
-
 
 [05 - Control Flow Statements](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/05.ipynb)
 
-
 [06 - Functions](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/06.ipynb)
 
-
 [07 - Classes](http://nbviewer.ipython.org/github/rajathkumarmp/Python-Lectures/blob/master/07.ipynb)
-
-
 
 These are online read-only versions.
 

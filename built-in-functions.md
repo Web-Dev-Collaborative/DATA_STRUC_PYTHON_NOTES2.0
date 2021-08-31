@@ -194,9 +194,9 @@ The resulting list is sorted alphabetically. For example:&gt;&gt;&gt;
 
 ```text
 >>> import struct
->>> dir()   # show the names in the module namespace  
+>>> dir()   # show the names in the module namespace
 ['__builtins__', '__name__', 'struct']
->>> dir(struct)   # show the names in the struct module 
+>>> dir(struct)   # show the names in the struct module
 ['Struct', '__all__', '__builtins__', '__cached__', '__doc__', '__file__',
  '__initializing__', '__loader__', '__name__', '__package__',
  '_clearcache', 'calcsize', 'error', 'pack', 'pack_into',
@@ -397,9 +397,9 @@ Raises an [auditing event](https://docs.python.org/3/library/sys.html#auditing) 
 If the _prompt_ argument is present, it is written to standard output without a trailing newline. The function then reads a line from input, converts it to a string \(stripping a trailing newline\), and returns that. When EOF is read, [`EOFError`](https://docs.python.org/3/library/exceptions.html#EOFError) is raised. Example:&gt;&gt;&gt;
 
 ```text
->>> s = input('--> ')  
+>>> s = input('--> ')
 --> Monty Python's Flying Circus
->>> s  
+>>> s
 "Monty Python's Flying Circus"
 ```
 

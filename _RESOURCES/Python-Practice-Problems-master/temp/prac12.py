@@ -1,4 +1,4 @@
-# Problem 12 
+# Problem 12
 # Here's your coding interview problem for today.
 # This problem was asked by PagerDuty.
 # Given a positive integer N, find the smallest number of steps it will take to reach 1.
