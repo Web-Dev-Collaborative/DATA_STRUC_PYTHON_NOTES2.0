@@ -66,6 +66,7 @@
 * [Pip](dev-enviorment-setup/pip.md)
 * [index](dev-enviorment-setup/untitled.md)
 * [Venv](dev-enviorment-setup/venv.md)
+* [Pipenv Cheat Sheet](dev-enviorment-setup/pipenv-cheat-sheet.md)
 
 ## GENERAL
 
