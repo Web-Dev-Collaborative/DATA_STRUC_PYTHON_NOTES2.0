@@ -35,9 +35,8 @@
 ## Embeds
 
 * [Trinket](embeds/trinket.md)
+* [Websites](embeds/websites.md)
 * [Repl.it](embeds/repl.it.md)
-
-## Wk-18
 
 ## misc
 
@@ -64,4 +63,8 @@
 ## dev-enviorment-setup
 
 * [Pip](dev-enviorment-setup/pip.md)
+
+## GENERAL
+
+* [Untitled](general/untitled.md)
 

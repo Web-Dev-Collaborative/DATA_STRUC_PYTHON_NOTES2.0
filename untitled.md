@@ -495,8 +495,3 @@ newPerson = {key.title(): value for key, value in person.items()}
 print(list(newPerson.items()))
 ```
 
-
-
-
-
-

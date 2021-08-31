@@ -1,6 +1,6 @@
-# Table of contents
+# summary
 
-* [Python Data Structures Repo & Website](README.md)
+* [Python Data Structures Repo & Website](./)
 * [Summaries and links for the most relevant projects in the space of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
 * [Installing stand alone command line tools](installing-stand-alone-command-line-tools.md)
 * [summary](summary.md)
@@ -19,7 +19,7 @@
 ## Resources
 
 * [Python Keywords](resources/python-keywords.md)
-* [Intro 2 Python3](resources/intro-2-python3/README.md)
+* [Intro 2 Python3](resources/intro-2-python3/)
   * [Untitled](resources/intro-2-python3/untitled.md)
 * [Errors](resources/errors.md)
 * [Appendix](resources/appendix.md)
@@ -43,9 +43,6 @@
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
 * [Misc](misc/misc.md)
-
----
-
 * [Youtube](youtube-1.md)
 * [D1](d1.md)
 * [D2](d2.md)
@@ -58,8 +55,8 @@
 * [D1 Notes](wk-20-notes/d1.md)
 * [D3](wk-20-notes/d3.md)
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
-* [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/README.md)
-  * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
+* [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/)
+  * [Untitled]()
 
 ## dev-enviorment-setup
 
