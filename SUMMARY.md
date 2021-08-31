@@ -31,24 +31,9 @@
 
 ## misc
 
-* [Python Problems & Solutions For Beginners](misc/d2.md)
 * [Misc](misc/misc.md)
 
 ---
 
 * [Youtube](youtube-1.md)
-* [D1](wk-19-notes/d1.md)
-* [D2](wk-19-notes/d2.md)
-* [D3](wk-19-notes/d3.md)
-* [D4](wk-19-notes/untitled.md)
-* [How To Reverse A Stack](wk-19-notes/how-to-reverse-a-stack.md)
-
-## Wk-20-Notes
-
-* [D1 Notes](wk-20-notes/d1.md)
-* [D3](wk-20-notes/d3.md)
-* [Sprint Prep](wk-20-notes/sprint-prep.md)
-* [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/README.md)
-  * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
-
 
