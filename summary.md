@@ -12,7 +12,7 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
-* [Untitled](practice/untitled.md)
+* [Untitled]()
 
 ## Resources
 

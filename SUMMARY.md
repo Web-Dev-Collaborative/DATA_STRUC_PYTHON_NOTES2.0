@@ -14,12 +14,12 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
-* [Interactive Mode](practice/untitled.md)
 
 ## Resources
 
 * [Python Keywords](resources/python-keywords.md)
 * [Links](resources/links.md)
+* [Appetite](resources/appetite.md)
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
