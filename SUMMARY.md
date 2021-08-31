@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Python Data Structures Repo & Website](README.md)
+* [Summaries and links for the most relevant projects in the space of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
 * [Installing stand alone command line tools](installing-stand-alone-command-line-tools.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
@@ -14,12 +15,20 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
-* [Untitled](practice/untitled.md)
 
 ## Resources
 
 * [Python Keywords](resources/python-keywords.md)
+* [Intro 2 Python3](resources/intro-2-python3/README.md)
+  * [Untitled](resources/intro-2-python3/untitled.md)
+* [Errors](resources/errors.md)
+* [Appendix](resources/appendix.md)
+* [STDLib](resources/stdlib.md)
+* [Data Structures](resources/data-structures.md)
 * [Links](resources/links.md)
+* [Appetite](resources/appetite.md)
+* [Classes](resources/classes.md)
+* [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
 
@@ -32,12 +41,12 @@
 
 ## misc
 
+* [Python Problems & Solutions For Beginners](misc/d2.md)
 * [Misc](misc/misc.md)
 
 ---
 
 * [Youtube](youtube-1.md)
-
 * [D1](d1.md)
 * [D2](d2.md)
 * [D3](d3.md)
@@ -51,4 +60,8 @@
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
 * [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/README.md)
   * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
+
+## dev-enviorment-setup
+
+* [Pip](dev-enviorment-setup/pip.md)
 
