@@ -22,3 +22,7 @@ if __name__ == "__main__":
             webbrowser.open(link.get("href"))
         else:
             webbrowser.open(f"http://google.com{link.get('href')}")
+
+
+
+
