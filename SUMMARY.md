@@ -14,7 +14,7 @@
 ## practice
 
 * [Exercises](practice/exercises.md)
-* [Untitled](practice/untitled.md)
+* [Interactive Mode](practice/untitled.md)
 
 ## Resources
 
