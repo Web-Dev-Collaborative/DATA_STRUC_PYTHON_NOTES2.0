@@ -1791,7 +1791,7 @@ if __name__ == "__main__":
 
 ---
 
-# 44.
+# 44. Recursivley convert .ipynb to html
 
 ### Description:
 
@@ -1800,6 +1800,31 @@ if __name__ == "__main__":
 ###### code:
 
 ```sh
+
+function RecurseDirs ()
+{
+    oldIFS=$IFS
+    IFS=$'\n'
+    for f in "$@"
+    do
+  
+  # YOUR CODE HERE!
+
+ipython nbconvert  *.ipynb --to html
+
+
+  
+  
+        if [[ -d "${f}" ]]; then
+            cd "${f}"
+            RecurseDirs $(ls -1 ".")
+            cd ..
+        fi
+    done
+    IFS=$oldIFS
+}
+RecurseDirs "./"
+
 
 
 ```
