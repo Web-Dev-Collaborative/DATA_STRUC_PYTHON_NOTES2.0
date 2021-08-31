@@ -1058,7 +1058,7 @@ print(list(newPerson.items()))
 {% endtab %}
 
 {% tab title="Repl" %}
-
+{% embed url="https://replit.com/@bgoonz/StripedInternationalMotion\#main.py" %}
 {% endtab %}
 {% endtabs %}
 
