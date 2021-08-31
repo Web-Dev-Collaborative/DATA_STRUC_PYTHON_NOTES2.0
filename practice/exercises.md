@@ -1,5 +1,7 @@
 # Exercises
 
+{% embed url="https://replit.com/@bgoonz/Python-Practice-Gists" %}
+
 \*\*\*\*
 
 **Long list of small examples at bottom of page...**

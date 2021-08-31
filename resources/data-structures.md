@@ -1,5 +1,13 @@
 # Data Structures
 
+
+
+{% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#terminal.py" %}
+
+
+
+
+
 This chapter describes some things you've learned about already in more detail, and adds some new things as well.
 
 ### More on Lists
