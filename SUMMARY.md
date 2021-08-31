@@ -27,6 +27,7 @@
 * [Data Structures](resources/data-structures.md)
 * [Links](resources/links.md)
 * [Appetite](resources/appetite.md)
+* [Index Part 2:](resources/index-part-2.md)
 * [Classes](resources/classes.md)
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
