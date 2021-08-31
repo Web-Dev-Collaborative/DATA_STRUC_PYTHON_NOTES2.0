@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Python Data Structures Repo & Website](README.md)
+* [Installing stand alone command line tools](installing-stand-alone-command-line-tools.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
