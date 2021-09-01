@@ -71,12 +71,13 @@
 
 * [Pip](dev-enviorment-setup/pip.md)
 * [index](dev-enviorment-setup/untitled.md)
-* [Venv](dev-enviorment-setup/venv.md)
+* [index](dev-enviorment-setup/venv.md)
 * [Pipenv Cheat Sheet](dev-enviorment-setup/pipenv-cheat-sheet.md)
 
 ## GENERAL
 
 * [Modules](general/modules.md)
+* [Input / Output](general/input-output.md)
 * [Visualizations:](general/visualizations.md)
 * [Python Cheat Sheet](general/untitled.md)
 
