@@ -24,6 +24,7 @@
 * [Intro 2 Python3](resources/intro-2-python3/README.md)
   * [Untitled](resources/intro-2-python3/untitled.md)
 * [Errors](resources/errors.md)
+* [Awesome Python](resources/awesome-python.md)
 * [Appendix](resources/appendix.md)
 * [STDLib](resources/stdlib.md)
 * [Data Structures](resources/data-structures.md)
