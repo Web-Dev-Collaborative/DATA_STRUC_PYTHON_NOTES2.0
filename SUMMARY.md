@@ -93,5 +93,6 @@
 
 ## WK-19
 
-* [Untitled](wk-19/untitled.md)
+* [D3](wk-19/untitled-1.md)
+* [D1 - Linked Lists & BigO](wk-19/untitled.md)
 
