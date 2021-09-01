@@ -53,11 +53,6 @@
 ---
 
 * [Youtube](youtube-1.md)
-* [D1](wk-17d1.md)
-* [D2](d2.md)
-* [D3](d3.md)
-* [D4](untitled-1.md)
-* [How To Reverse A Stack](how-to-reverse-a-stack.md)
 
 ## Wk-20-Notes
 
@@ -90,5 +85,9 @@
 
 ## WK-18
 
-* [Untitled](wk-18/untitled.md)
+* [How To Reverse A Stack](wk-18/how-to-reverse-a-stack.md)
+* [D4](wk-18/untitled-1.md)
+* [D3](wk-18/d3.md)
+* [D2](wk-18/d2.md)
+* [D1](wk-18/wk-17d1.md)
 
