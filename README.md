@@ -1,5 +1,7 @@
 # index
 
+{% embed url="https://bgoonz42.gitbook.io/python/" %}
+
 
 
 {% tabs %}
