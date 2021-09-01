@@ -45,7 +45,8 @@
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
 * [Misc](misc/misc/README.md)
-  * [Python For Js Developers](misc/misc/python-for-js-developers.md)
+  * [Python For Js Developers](misc/misc/python-for-js-developers/README.md)
+    * [General Python FAQ](misc/misc/python-for-js-developers/general-python-faq.md)
 * [Backup Files](misc/backup-files.md)
 
 ---
