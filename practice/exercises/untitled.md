@@ -1,8 +1,10 @@
-# Untitled
+# All Along
+
+{% embed url="https://www.notion.so/webdevhub42/4d8327f435294158b2c7d9d886d0b619?v=47c21aa323b348fcbf7985c626c3283c" %}
 
 
 
-```text
+```python
 # LEETCODE
 
 ## Given two binary trees, write a function to check if they are the same or not.

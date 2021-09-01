@@ -376,7 +376,7 @@ Notice that the last element or node in the linked list does not have a pointer 
 
 What does a singly linked list implementation look like in Python? Let's start by writing a `LinkedListNode` class for each element in the linked list.
 
-```text
+```python
 class LinkedListNode:
     def __init__(self, data=None, next=None):
         self.data = data
@@ -385,7 +385,7 @@ class LinkedListNode:
 
 Now, we need to build out the class for the `LinkedList` itself:
 
-```text
+```python
 class LinkedList:
     def __init__(self, head=None):  
         self.head = head
@@ -393,7 +393,7 @@ class LinkedList:
 
 Our class is super simple so far and only includes an initialization method. Let's add an `append` method so that we can add nodes to the end of our list:
 
-```text
+```python
 class LinkedList:
     def __init__(self, head=None):  
         self.head = head
@@ -414,7 +414,7 @@ class LinkedList:
 
 Now, let's use our simple class definitions for `LinkedListNode` and `LinkedList` to create a linked list of elements `1`, `2`, and `3`.
 
-```text
+```python
 >>> a = LinkedListNode(1)
 >>> my_ll = LinkedList(a)
 >>> my_ll.append(2)
@@ -438,5 +438,15 @@ You must be able to understand and interact with linked lists. You now know the 
 ### Additional Resources <a id="additional-resources"></a>
 
 * [https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf \(Links to an external site.\)](https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf)
-* [https://www.youtube.com/watch?v=njTh\_OwMljA \(Links to an external site.\)](https://www.youtube.com/watch?v=njTh_OwMljA)[![](https://lambdaschool.instructure.com/images/play_overlay.png)](https://www.youtube.com/watch?v=njTh_OwMljA)
+* [https://www.youtube.com/watch?v=njTh\_OwMljA \(Links to an external site.](https://www.youtube.com/watch?v=njTh_OwMljA)
+
+
+
+{% embed url="https://www.youtube.com/watch?v=njTh\_OwMljA" %}
+
+
+
+
+
+
 
