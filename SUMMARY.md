@@ -95,5 +95,6 @@
 
 * [D3](wk-19/untitled-1.md)
 * [D1 - Linked Lists & BigO](wk-19/untitled.md)
-* [Untitled](wk-19/untitled-2.md)
+* [D2](wk-19/d2.md)
+* [D4](wk-19/untitled-2.md)
 
