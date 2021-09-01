@@ -2,7 +2,11 @@
 
 
 
-Original:[https://colab.research.google.com/drive/1WXURLnQJopWW5J-OKxOePd4GTeDM542p?usp=sharing\#scrollTo=Um92huhOx2BD](https://colab.research.google.com/drive/1WXURLnQJopWW5J-OKxOePd4GTeDM542p?usp=sharing#scrollTo=Um92huhOx2BD)
+Original:
+
+{% embed url="https://colab.research.google.com/drive/1WXURLnQJopWW5J-OKxOePd4GTeDM542p?usp=sharing\#scrollTo=Um92huhOx2BD" %}
+
+
 
 {% embed url="https://gist.github.com/bgoonz/c10af728179ff056894c6f17dfb819bc\#file-ht2-ipynb" %}
 
