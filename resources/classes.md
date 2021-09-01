@@ -20,7 +20,7 @@ Let's begin with some definitions.
 
 A _namespace_ is a mapping from names to objects. Most namespaces are currently implemented as Python dictionaries, but that's normally not noticeable in any way \(except for performance\), and it may change in the future. Examples of namespaces are: the set of built-in names \(containing functions such as abs, and built-in exception names\); the global names in a module; and the local names in a function invocation. In a sense the set of attributes of an object also form a namespace. The important thing to know about namespaces is that there is absolutely no relation between names in different namespaces; for instance, two different modules may both define a function `maximize` without confusion ---users of the modules must prefix it with the module name.
 
-By the way, I use the word _attribute_ for any name following a dot --- for example, in the expression `z.real`, `real` is an attribute of the object `z`. Strictly speaking, references to names in modules are attribute references: in the expression `modname.funcname`, `modname` is a module object and `funcname` is an attribute of it. In this case there happens to be a straightforward mapping between the module's attributes and the global names defined in the module: they share the same namespace! 
+By the way, I use the word _attribute_ for any name following a dot --- for example, in the expression `z.real`, `real` is an attribute of the object `z`. Strictly speaking, references to names in modules are attribute references: in the expression `modname.funcname`, `modname` is a module object and `funcname` is an attribute of it. In this case there happens to be a straightforward mapping between the module's attributes and the global names defined in the module: they share the same namespace!
 
 Attributes may be read-only or writable. In the latter case, assignment to attributes is possible. Module attributes are writable: you can write `modname.the_answer = 42`. Writable attributes may also be deleted with the del statement. For example, `del modname.the_answer` will remove the attribute the\_answer from the object named by `modname`.
 
@@ -461,7 +461,7 @@ for line in open("myfile.txt"):
 
 This style of access is clear, concise, and convenient. The use of iterators pervades and unifies Python. Behind the scenes, the for statement calls iter on the container object. The function returns an iterator object that defines the method ~iterator.\_\_next\_\_ which accesses elements in the container one at a time. When there are no more elements, ~iterator.\_\_next\_\_ raises a StopIteration exception which tells the !for loop to terminate. You can call the ~iterator.\_\_next\_\_ method using the next built-in function; this example shows how it all works:
 
-> > > s = 'abc' it = iter\(s\) it  next\(it\) 'a' next\(it\) 'b' next\(it\) 'c' next\(it\) Traceback \(most recent call last\): File "", line 1, in  next\(it\) StopIteration
+> > > s = 'abc' it = iter\(s\) it next\(it\) 'a' next\(it\) 'b' next\(it\) 'c' next\(it\) Traceback \(most recent call last\): File "", line 1, in next\(it\) StopIteration
 
 Having seen the mechanics behind the iterator protocol, it is easy to add iterator behavior to your classes. Define an \_\_iter\_\_ method which returns an object with a ~iterator.\_\_next\_\_ method. If the class defines \_\_next\_\_, then \_\_iter\_\_ can just return `self`:
 
@@ -495,7 +495,7 @@ s
 
 ## Generators
 
-Generators \ are a simple and powerful tool for creating iterators. They are written like regular functions but use the yield statement whenever they want to return data. Each time next is called on it, the generator resumes where it left off \(it remembers all the data values and which statement was last executed\). An example shows that generators can be trivially easy to create:
+Generators  are a simple and powerful tool for creating iterators. They are written like regular functions but use the yield statement whenever they want to return data. Each time next is called on it, the generator resumes where it left off \(it remembers all the data values and which statement was last executed\). An example shows that generators can be trivially easy to create:
 
 ```text
 def reverse(data):

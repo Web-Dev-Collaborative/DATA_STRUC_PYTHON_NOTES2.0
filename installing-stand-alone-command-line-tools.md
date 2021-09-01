@@ -6,7 +6,7 @@ Usually you want to be able to access these applications from anywhere on your s
 
 [pipx](https://packaging.python.org/key_projects/#pipx) solves this by creating a virtual environment for each package, while also ensuring that its applications are accessible through a directory that is on your `$PATH`. This allows each package to be upgraded or uninstalled without causing conflicts with other packages, and allows you to safely run the applications from anywhere.
 
-Note 
+Note
 
 pipx only works with Python 3.6+.
 
@@ -19,7 +19,7 @@ python3 -m pipx ensurepath
 
 ![Copy to clipboard](https://packaging.python.org/_static/copy-button.svg)Windows
 
-Note 
+Note
 
 `ensurepath` ensures that the application directory is on your `$PATH`. You may need to restart your terminal for this update to take effect.
 

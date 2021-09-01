@@ -14,7 +14,7 @@ The parser repeats the offending line and displays a little 'arrow' pointing at 
 
 Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called _exceptions_ and are not unconditionally fatal: you will soon learn how to handle them in Python programs. Most exceptions are not handled by programs, however, and result in error messages as shown here:
 
-> > > 10  _\(1/0\) Traceback \(most recent call last\): File "", line 1, in  ZeroDivisionError: division by zero 4 + spam_3 Traceback \(most recent call last\): File "", line 1, in  NameError: name 'spam' is not defined '2' + 2 Traceback \(most recent call last\): File "", line 1, in  TypeError: can only concatenate str \(not "int"\) to str
+> > > 10 \_\(1/0\) Traceback \(most recent call last\): File "", line 1, in ZeroDivisionError: division by zero 4 + spam\_3 Traceback \(most recent call last\): File "", line 1, in NameError: name 'spam' is not defined '2' + 2 Traceback \(most recent call last\): File "", line 1, in TypeError: can only concatenate str \(not "int"\) to str
 
 The last line of the error message indicates what happened. Exceptions come in different types, and the type is printed as part of the message: the types in the example are ZeroDivisionError, NameError and TypeError. The string printed as the exception type is the name of the built-in exception that occurred. This is true for all built-in exceptions, but need not be true for user-defined exceptions \(although it is a useful convention\). Standard exception names are built-in identifiers \(not reserved keywords\).
 
@@ -125,7 +125,7 @@ When an exception occurs, it may have an associated value, also known as the exc
 
 The except clause may specify a variable after the exception name. The variable is bound to an exception instance with the arguments stored in `instance.args`. For convenience, the exception instance defines \_\_str\_\_ so the arguments can be printed directly without having to reference `.args`. One may also instantiate an exception first before raising it and add any attributes to it as desired. :
 
-> > > try: ... raise Exception\('spam', 'eggs'\) ... except Exception as inst: ... print\(type\(inst\)\) \# the exception instance ... print\(inst.args\) \# arguments stored in .args ... print\(inst\) \# **str** allows args to be printed directly, ... \# but may be overridden in exception subclasses ... x, y = inst.args \# unpack args ... print\('x =', x\) ... print\('y =', y\) ...  \('spam', 'eggs'\) \('spam', 'eggs'\) x = spam y = eggs
+> > > try: ... raise Exception\('spam', 'eggs'\) ... except Exception as inst: ... print\(type\(inst\)\) \# the exception instance ... print\(inst.args\) \# arguments stored in .args ... print\(inst\) \# **str** allows args to be printed directly, ... \# but may be overridden in exception subclasses ... x, y = inst.args \# unpack args ... print\('x =', x\) ... print\('y =', y\) ... \('spam', 'eggs'\) \('spam', 'eggs'\) x = spam y = eggs
 
 If an exception has arguments, they are printed as the last part \('detail'\) of the message for unhandled exceptions.
 
@@ -137,7 +137,7 @@ Exception handlers don't just handle exceptions if they occur immediately in the
 
 The raise statement allows the programmer to force a specified exception to occur. For example:
 
-> > > raise NameError\('HiThere'\) Traceback \(most recent call last\): File "", line 1, in  NameError: HiThere
+> > > raise NameError\('HiThere'\) Traceback \(most recent call last\): File "", line 1, in NameError: HiThere
 
 The sole argument to raise indicates the exception to be raised. This must be either an exception instance or an exception class \(a class that derives from Exception\). If an exception class is passed, it will be implicitly instantiated by calling its constructor with no arguments:
 
@@ -147,11 +147,11 @@ raise ValueError  # shorthand for 'raise ValueError()'
 
 If you need to determine whether an exception was raised but don't intend to handle it, a simpler form of the raise statement allows you to re-raise the exception:
 
-> > > try: ... raise NameError\('HiThere'\) ... except NameError: ... print\('An exception flew by!'\) ... raise ... An exception flew by! Traceback \(most recent call last\): File "", line 2, in  NameError: HiThere
+> > > try: ... raise NameError\('HiThere'\) ... except NameError: ... print\('An exception flew by!'\) ... raise ... An exception flew by! Traceback \(most recent call last\): File "", line 2, in NameError: HiThere
 
 ## Exception Chaining
 
-The raise statement allows an optional from\ which enables chaining exceptions. For example:
+The raise statement allows an optional from which enables chaining exceptions. For example:
 
 ```text
 # exc must be exception instance or None.
@@ -160,11 +160,11 @@ raise RuntimeError from exc
 
 This can be useful when you are transforming exceptions. For example:
 
-> > > def func\(\): ... raise IOError ... try: ... func\(\) ... except IOError as exc: ... raise RuntimeError\('Failed to open database'\) from exc ... Traceback \(most recent call last\): File "", line 2, in  File "", line 2, in func OSError  The above exception was the direct cause of the following exception:  Traceback \(most recent call last\): File "", line 4, in  RuntimeError: Failed to open database
+> > > def func\(\): ... raise IOError ... try: ... func\(\) ... except IOError as exc: ... raise RuntimeError\('Failed to open database'\) from exc ... Traceback \(most recent call last\): File "", line 2, in File "", line 2, in func OSError The above exception was the direct cause of the following exception: Traceback \(most recent call last\): File "", line 4, in RuntimeError: Failed to open database
 
 Exception chaining happens automatically when an exception is raised inside an except or finally section. Exception chaining can be disabled by using `from None` idiom:
 
-> &gt;&gt;&gt; try: ... open\('database.sqlite'\) ... except OSError: ... raise RuntimeError from None ... Traceback \(most recent call last\): File "\", line 4, in \ RuntimeError
+> &gt;&gt;&gt; try: ... open\('database.sqlite'\) ... except OSError: ... raise RuntimeError from None ... Traceback \(most recent call last\): File "\", line 4, in  RuntimeError
 
 For more information about chaining mechanics, see bltin-exceptions.
 
@@ -215,7 +215,7 @@ Many standard modules define their own exceptions to report errors that may occu
 
 The try statement has another optional clause which is intended to define clean-up actions that must be executed under all circumstances. For example:
 
-> > > try: ... raise KeyboardInterrupt ... finally: ... print\('Goodbye, world!'\) ... Goodbye, world! Traceback \(most recent call last\): File "", line 2, in  KeyboardInterrupt
+> > > try: ... raise KeyboardInterrupt ... finally: ... print\('Goodbye, world!'\) ... Goodbye, world! Traceback \(most recent call last\): File "", line 2, in KeyboardInterrupt
 
 If a finally clause is present, the !finally clause will execute as the last task before the try statement completes. The !finally clause runs whether or not the !try statement produces an exception. The following points discuss more complex cases when an exception occurs:
 
@@ -255,7 +255,7 @@ For example:
 
 A more complicated example:
 
-> > > def divide\(x, y\): ... try: ... result = x / y ... except ZeroDivisionError: ... print\("division by zero!"\) ... else: ... print\("result is", result\) ... finally: ... print\("executing finally clause"\) ... divide\(2, 1\) result is 2.0 executing finally clause divide\(2, 0\) division by zero! executing finally clause divide\("2", "1"\) executing finally clause Traceback \(most recent call last\): File "", line 1, in  File "", line 3, in divide TypeError: unsupported operand type\(s\) for /: 'str' and 'str'
+> > > def divide\(x, y\): ... try: ... result = x / y ... except ZeroDivisionError: ... print\("division by zero!"\) ... else: ... print\("result is", result\) ... finally: ... print\("executing finally clause"\) ... divide\(2, 1\) result is 2.0 executing finally clause divide\(2, 0\) division by zero! executing finally clause divide\("2", "1"\) executing finally clause Traceback \(most recent call last\): File "", line 1, in File "", line 3, in divide TypeError: unsupported operand type\(s\) for /: 'str' and 'str'
 
 As you can see, the finally clause is executed in any event. The TypeError raised by dividing two strings is not handled by the except clause and therefore re-raised after the !finally clause has been executed.
 

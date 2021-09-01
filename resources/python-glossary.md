@@ -524,12 +524,6 @@ A computer defined entirely in software. Python’s virtual machine executes the
 
 Listing of Python design principles and philosophies that are helpful in understanding and using the language. The listing can be found by typing “`import this`” at the interactive prompt.
 
-
-
-
-
-
-
 **Binary Distribution**
 
 A specific kind of [Built Distribution](https://packaging.python.org/glossary/#term-Built-Distribution) that contains compiled extensions.Built Distribution
