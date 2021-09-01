@@ -13,10 +13,10 @@
 * [My Python DS Websites](my-python-ds-websites.md)
 * [Built-in Functions](built-in-functions.md)
 
-## Medium Examples <a id="practice"></a>
+## Examples <a id="practice"></a>
 
 * [Exercises](practice/exercises/README.md)
-  * [Python Problems & Solutions](practice/exercises/python-problems-and-solutions.md)
+  * [Beginners Guide To Python](practice/exercises/python-problems-and-solutions.md)
 
 ## Resources
 
