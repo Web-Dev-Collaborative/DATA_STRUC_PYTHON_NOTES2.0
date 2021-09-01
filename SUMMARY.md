@@ -13,7 +13,7 @@
 * [My Python DS Websites](my-python-ds-websites.md)
 * [Built-in Functions](built-in-functions.md)
 
-## practice
+## Medium Examples <a id="practice"></a>
 
 * [Exercises](practice/exercises/README.md)
   * [Python Problems & Solutions](practice/exercises/python-problems-and-solutions.md)
