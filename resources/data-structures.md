@@ -1,13 +1,5 @@
 # Data Structures
 
-
-
-{% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#terminal.py" %}
-
-
-
-
-
 This chapter describes some things you've learned about already in more detail, and adds some new things as well.
 
 ### More on Lists
@@ -18,7 +10,7 @@ An example that uses most of the list methods:
 
 > > > fruits = \['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana'\] fruits.count\('apple'\) 2 fruits.count\('tangerine'\) 0 fruits.index\('banana'\) 3 fruits.index\('banana', 4\) \# Find next banana starting a position 4 6 fruits.reverse\(\) fruits \['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange'\] fruits.append\('grape'\) fruits \['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange', 'grape'\] fruits.sort\(\) fruits \['apple', 'apple', 'banana', 'banana', 'grape', 'kiwi', 'orange', 'pear'\] fruits.pop\(\) 'pear'
 
-You might have noticed that methods like `insert`, `remove` or `sort` that only modify the list have no return value printed -- they return the default `None`.  This is a design principle for all mutable data structures in Python.
+You might have noticed that methods like `insert`, `remove` or `sort` that only modify the list have no return value printed -- they return the default `None`. This is a design principle for all mutable data structures in Python.
 
 Another thing you might notice is that not all data can be sorted or compared. For instance, `[None, 'hello', 10]` doesn't sort because integers can't be compared to strings and _None_ can't be compared to other types. Also, there are some types that don't have a defined ordering relation. For example, `3+4j < 5+7j` isn't a valid comparison.
 
@@ -94,7 +86,7 @@ If the expression is a tuple \(e.g. the `(x, y)` in the previous example\), it m
 > > >
 > > > ## the tuple must be parenthesized, otherwise an error is raised
 > > >
-> > > \[x, x**2 for x in range\(6\)\] File "", line 1, in  \[x, x**2 for x in range\(6\)\] ^ SyntaxError: invalid syntax
+> > > \[x, x**2 for x in range\(6\)\] File "", line 1, in \[x, x**2 for x in range\(6\)\] ^ SyntaxError: invalid syntax
 > > >
 > > > ## flatten a list using a listcomp with two 'for'
 > > >
@@ -283,7 +275,7 @@ It is possible to assign the result of a comparison or other Boolean expression 
 
 > > > string1, string2, string3 = '', 'Trondheim', 'Hammer Dance' non\_null = string1 or string2 or string3 non\_null 'Trondheim'
 
-Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator \ `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
+Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator  `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
 
 ### Comparing Sequences and Other Types
 
