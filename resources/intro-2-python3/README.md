@@ -174,7 +174,7 @@ Like strings \(and all other built-in sequence types\), lists can be indexed and
 
 > > > squares\[0\] \# indexing returns the item 1 squares\[-1\] 25 squares\[-3:\] \# slicing returns a new list \[9, 16, 25\]
 
-All slice operations return a new list containing the requested elements. This means that the following slice returns a shallow copy  of the list:
+All slice operations return a new list containing the requested elements. This means that the following slice returns a shallow copy of the list:
 
 > > > squares\[:\] \[1, 4, 9, 16, 25\]
 

@@ -11,7 +11,7 @@
 
 ## practice
 
-* [Exercises](practice/exercises.md)
+* [Exercises](https://github.com/bgoonz/DATA_STRUC_PYTHON_NOTES/tree/57e49f148c0fe138e36abbb7bb7abe8f84847fb5/practice/exercises.md)
 * [Untitled](summary.md)
 
 ## Resources

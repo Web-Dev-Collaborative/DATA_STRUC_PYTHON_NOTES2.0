@@ -14,14 +14,14 @@
 
 ## practice
 
-
-* [Exercises](practice/exercises.md)
-
-* [Exercises](practice/exercises/README.md)
-  * [Generate a graph](practice/exercises/generate-a-graph.md)
-  * [All Along](practice/exercises/untitled.md)
-  * [Beginners Guide To Python](practice/exercises/python-problems-and-solutions.md)
-
+* [Exercises](practice/exercises-1/README.md)
+  * [Generate a graph](practice/exercises-1/generate-a-graph%20%281%29.md)
+  * [All Along](practice/exercises-1/untitled%20%281%29.md)
+  * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions%20%281%29.md)
+* [Exercises](practice/exercises-1/README.md)
+  * [Generate a graph](practice/exercises-1/generate-a-graph%20%281%29.md)
+  * [All Along](practice/exercises-1/untitled%20%281%29.md)
+  * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions%20%281%29.md)
 
 ## Resources
 
@@ -86,5 +86,5 @@
 
 ## python-language
 
-* [Untitled](python-language/untitled.md)
+* [Collections In Python](python-language/untitled.md)
 

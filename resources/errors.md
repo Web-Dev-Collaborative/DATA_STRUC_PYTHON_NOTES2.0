@@ -164,7 +164,7 @@ This can be useful when you are transforming exceptions. For example:
 
 Exception chaining happens automatically when an exception is raised inside an except or finally section. Exception chaining can be disabled by using `from None` idiom:
 
-> &gt;&gt;&gt; try: ... open\('database.sqlite'\) ... except OSError: ... raise RuntimeError from None ... Traceback \(most recent call last\): File "\", line 4, in  RuntimeError
+> &gt;&gt;&gt; try: ... open\('database.sqlite'\) ... except OSError: ... raise RuntimeError from None ... Traceback \(most recent call last\): File "\", line 4, in RuntimeError
 
 For more information about chaining mechanics, see bltin-exceptions.
 
