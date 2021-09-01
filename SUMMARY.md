@@ -14,7 +14,14 @@
 
 ## practice
 
+
 * [Exercises](practice/exercises.md)
+
+* [Exercises](practice/exercises/README.md)
+  * [Generate a graph](practice/exercises/generate-a-graph.md)
+  * [All Along](practice/exercises/untitled.md)
+  * [Beginners Guide To Python](practice/exercises/python-problems-and-solutions.md)
+
 
 ## Resources
 
@@ -30,6 +37,7 @@
 * [Classes](resources/classes.md)
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
+* [Python Cheat Sheet](resources/python-cheat-sheet.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
 
 ## Embeds
@@ -62,4 +70,21 @@
 ## dev-enviorment-setup
 
 * [Pip](dev-enviorment-setup/pip.md)
+
+## WK-19
+
+* [D3](wk-19/untitled-1.md)
+* [D1 - Linked Lists & BigO](wk-19/untitled.md)
+* [D2](wk-19/d2.md)
+* [D4](wk-19/untitled-2.md)
+
+## WK-20
+
+* [D3](wk-20/d1.md)
+* [D2](wk-20/untitled.md)
+* [D4](wk-20/d4.md)
+
+## python-language
+
+* [Untitled](python-language/untitled.md)
 

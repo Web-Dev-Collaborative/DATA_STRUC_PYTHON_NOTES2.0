@@ -1,6 +1,8 @@
 # Python Data Structures Repo & Website
 
-Gitbook Website:
+
+{% embed url="https://bgoonz42.gitbook.io/python/" %}
+
 
 {% embed url="https://bootcamp42.gitbook.io/python/" caption="" %}
 
