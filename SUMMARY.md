@@ -53,7 +53,7 @@
 ---
 
 * [Youtube](youtube-1.md)
-* [D1](d1.md)
+* [D1](wk-17d1.md)
 * [D2](d2.md)
 * [D3](d3.md)
 * [D4](untitled-1.md)
