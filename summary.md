@@ -42,7 +42,7 @@
 ## misc
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
-* [Misc](misc/misc.md)
+* [Misc](misc/misc/)
 * [Youtube](youtube-1.md)
 * [D1](d1.md)
 * [D2](d2.md)
