@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Python Data Structures Repo & Website](README.md)
+* [index](README.md)
 * [Summaries and links for the most relevant projects in the space of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
 * [Installing stand alone command line tools](installing-stand-alone-command-line-tools.md)
 * [summary](summary.md)
@@ -8,13 +8,15 @@
 * [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
 * [Virtual Environment Setup:](virtual-environment-setup.md)
-* [index](untitled.md)
+* [Tutorial](tutorial/README.md)
+  * [Getting Comfortable..](tutorial/getting-comfortable...md)
 * [My Python DS Websites](my-python-ds-websites.md)
 * [Built-in Functions](built-in-functions.md)
 
 ## practice
 
-* [Exercises](practice/exercises.md)
+* [Exercises](practice/exercises/README.md)
+  * [Python Problems & Solutions](practice/exercises/python-problems-and-solutions.md)
 
 ## Resources
 
@@ -42,7 +44,9 @@
 ## misc
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
-* [Misc](misc/misc.md)
+* [Misc](misc/misc/README.md)
+  * [Python For Js Developers](misc/misc/python-for-js-developers/README.md)
+    * [General Python FAQ](misc/misc/python-for-js-developers/general-python-faq.md)
 * [Backup Files](misc/backup-files.md)
 
 ---
@@ -71,5 +75,6 @@
 
 ## GENERAL
 
+* [Modules](general/modules.md)
 * [Python Cheat Sheet](general/untitled.md)
 
