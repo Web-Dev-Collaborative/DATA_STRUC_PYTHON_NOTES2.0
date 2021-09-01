@@ -15,7 +15,8 @@
 
 ## practice
 
-* [Exercises](practice/exercises.md)
+* [Exercises](practice/exercises/README.md)
+  * [Python Problems & Solutions](practice/exercises/python-problems-and-solutions.md)
 
 ## Resources
 

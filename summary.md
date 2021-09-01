@@ -14,7 +14,7 @@
 
 ## practice
 
-* [Exercises](practice/exercises.md)
+* [Exercises](practice/exercises/)
 
 ## Resources
 
