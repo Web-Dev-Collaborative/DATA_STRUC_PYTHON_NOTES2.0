@@ -446,7 +446,7 @@ You must be able to understand and interact with linked lists. You now know the 
 
 
 
-
+{% file src="../.gitbook/assets/10-linkedlist.pdf" caption="Linked Lists Pdf" %}
 
 
 
