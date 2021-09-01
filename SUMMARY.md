@@ -100,7 +100,7 @@
 
 ## WK-20
 
-* [D1](wk-20/d1.md)
+* [D3](wk-20/d1.md)
 * [D2](wk-20/untitled.md)
 
 ## python-language
