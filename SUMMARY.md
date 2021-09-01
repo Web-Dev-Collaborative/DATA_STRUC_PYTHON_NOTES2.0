@@ -84,7 +84,7 @@
 
 ## wk-17
 
-* [Untitled](wk-17/untitled.md)
+* [D1 Number Bases](wk-17/untitled.md)
 
 ## WK-18
 
