@@ -77,5 +77,6 @@
 ## GENERAL
 
 * [Modules](general/modules.md)
+* [Visualizations:](general/visualizations.md)
 * [Python Cheat Sheet](general/untitled.md)
 
