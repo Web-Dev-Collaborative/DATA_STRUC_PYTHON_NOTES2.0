@@ -35,7 +35,7 @@ e -> b
 It can be represented by the following Python data structure. This is a dictionary whose keys are the nodes of the graph. For each key, the corresponding value is a list containing the nodes that are connected by a direct arc from this node.   
  
 
-```text
+```python
 graph = { "a" : ["c"],
           "b" : ["c", "e"],
           "c" : ["a", "b", "d", "e"],
@@ -106,10 +106,10 @@ Below are some more programs on graphs in python:
 
 1. **To generate the path from one node to the other node**:  Using Python dictionary, we can find the path from one node to the other in a Graph. The idea is similar to [DFS](https://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/) in graphs.  In the function, initially, the path is an empty list. In the starting, if the start node matches with the end node, the function will return the path. Otherwise the code goes forward and hits all the values of the starting node and searches for the path using recursion.   
 
-* Python
+## Python
 
-| `# Python program to generate the first# path of the graph from the nodes provided`  `graph` `=` `{    'a': ['c'],    'b': ['d'],    'c': ['e'],    'd': ['a',` `'d'],    'e': ['b',` `'c']}`  `# function to find path`   `` `def` `find_path(graph, start, end, path=[]):    path` `=` `path` `+` `[start]    if` `start` `==` `end:        return` `path    for` `node` `in` `graph[start]:        if` `node` `not` `in` `path:            newpath` `=` `find_path(graph, node, end, path)            if` `newpath:                return` `newpath`   `` `# Driver function call to print the pathprint(find_path(graph,` `'d',` `'c'))` |
-| :--- |
+{% embed url="https://replit.com/@bgoonz/blank-1\#main.py" %}
+
 
 
 1. Output:   
@@ -123,13 +123,13 @@ Below are some more programs on graphs in python:
 
 1. 2. **Program to generate all the possible paths from one node to the other.**:  In the above discussed program, we generated the first possible path. Now, let us generate all the possible paths from the start node to the end node. The basic functioning works same as the functioning of the above code. The place where the difference comes is instead of instantly returning the first path, it saves that path in a list named as ‘paths’ in the example given below. Finally, after iterating over all the possible ways, it returns the list of paths. If there is no path from the starting node to the ending node, it returns None.   
 
-* Python
+## Python
 
-| `# Python program to generate the all possible# path of the graph from the nodes providedgraph` `={'a':['c'],'b':['d'],'c':['e'],'d':['a',` `'d'],'e':['b',` `'c']}`  `# function to generate all possible pathsdef` `find_all_paths(graph, start, end, path` `=[]):  path` `=` `path` `+` `[start]  if` `start` `==` `end:    return` `[path]  paths` `=` `[]  for` `node` `in` `graph[start]:    if` `node` `not` `in` `path:      newpaths` `=` `find_all_paths(graph, node, end, path)    for` `newpath` `in` `newpaths:      paths.append(newpath)  return` `paths`    `# Driver function call to print all # generated pathsprint(find_all_paths(graph,` `'d',` `'c'))` |
-| :--- |
+{% embed url="https://gist.github.com/bgoonz/b46192bc87d3cac28bdcf392afbe842d" %}
 
 
-1. Output:   
+
+### Output:   
 
 ```text
 [['d', 'a', 'c'], ['d', 'a', 'c']]
