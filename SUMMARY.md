@@ -86,6 +86,7 @@
 
 * [D1 Number Bases](wk-17/untitled.md)
 * [d2 time and space complexity](wk-17/d2-time-and-space-complexity.md)
+* [d3 user-defined Hashable class](wk-17/d3-user-defined-hashable-class.md)
 
 ## WK-18
 
