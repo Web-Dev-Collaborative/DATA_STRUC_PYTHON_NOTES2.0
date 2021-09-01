@@ -15,10 +15,12 @@
 ## practice
 
 * [Exercises](practice/exercises-1/README.md)
+  * [Untitled](practice/exercises-1/untitled-1%20%281%29.md)
   * [Generate a graph](practice/exercises-1/generate-a-graph%20%281%29.md)
   * [All Along](practice/exercises-1/untitled%20%281%29.md)
   * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions%20%281%29.md)
 * [Exercises](practice/exercises-1/README.md)
+  * [Untitled](practice/exercises-1/untitled-1%20%281%29.md)
   * [Generate a graph](practice/exercises-1/generate-a-graph%20%281%29.md)
   * [All Along](practice/exercises-1/untitled%20%281%29.md)
   * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions%20%281%29.md)
