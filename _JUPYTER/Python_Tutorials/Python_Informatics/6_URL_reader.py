@@ -34,5 +34,3 @@ try:
     print 'The length of the entire document is: ', len(entire_doc)    
 except: 
     print "Bad link"
-
-
