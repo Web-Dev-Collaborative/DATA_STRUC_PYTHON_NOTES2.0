@@ -16,6 +16,7 @@
 ## Examples <a id="practice"></a>
 
 * [Exercises](practice/exercises/README.md)
+  * [Generate a graph](practice/exercises/generate-a-graph.md)
   * [All Along](practice/exercises/untitled.md)
   * [Beginners Guide To Python](practice/exercises/python-problems-and-solutions.md)
 
