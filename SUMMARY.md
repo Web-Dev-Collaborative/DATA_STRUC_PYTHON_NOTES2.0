@@ -36,6 +36,7 @@
 * [Classes](resources/classes.md)
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
+* [Python Cheat Sheet](resources/python-cheat-sheet.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
 
 ## Embeds
