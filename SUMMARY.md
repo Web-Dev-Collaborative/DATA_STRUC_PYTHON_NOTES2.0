@@ -16,6 +16,7 @@
 ## Examples <a id="practice"></a>
 
 * [Exercises](practice/exercises/README.md)
+  * [Untitled](practice/exercises/untitled.md)
   * [Beginners Guide To Python](practice/exercises/python-problems-and-solutions.md)
 
 ## Resources
