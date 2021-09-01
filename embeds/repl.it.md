@@ -1,5 +1,9 @@
 # Repl.it
 
+{% embed url="https://replit.com/@bgoonz/PythonPracticeGists-1\#main.py" %}
+
+
+
 {% embed url="https://replit.com/@bgoonz/PYTHONPRAC" %}
 
 
