@@ -48,6 +48,7 @@
 ## misc
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
+* [About Python](misc/about-python.md)
 * [Misc](misc/misc.md)
 * [Numbers](misc/numbers.md)
 
