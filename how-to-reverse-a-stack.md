@@ -69,3 +69,4 @@ Again, if we execute two more dequeue operations, on the first dequeue operation
 [![enter image description here](https://i.stack.imgur.com/vuLsw.png)](https://i.stack.imgur.com/vuLsw.png)
 
 Easy to see, the output of the two dequeue operations will be `{4, 5}`
+
