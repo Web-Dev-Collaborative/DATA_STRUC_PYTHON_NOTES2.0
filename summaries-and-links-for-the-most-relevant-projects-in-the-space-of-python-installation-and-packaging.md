@@ -1,4 +1,4 @@
-# Summaries and links for the most relevant projects in the space of Python installation and packaging
+# projects of Python installation and packaging
 
 ## PyPA Projects[¶](https://packaging.python.org/key_projects/#pypa-projects)
 

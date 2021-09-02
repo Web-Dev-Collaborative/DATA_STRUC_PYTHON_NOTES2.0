@@ -1,12 +1,12 @@
 # Table of contents
 
 * [Python Data Structures Repo & Website](README.md)
-* [Summaries and links for the most relevant projects in the space of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
+* [projects of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
-* [index](untitled.md)
+* [Python Data Structures Repo & Website](untitled.md)
 * [My Python DS Websites](my-python-ds-websites.md)
 * [Built-in Functions](built-in-functions.md)
 
@@ -48,6 +48,7 @@
 ## misc
 
 * [Python Problems & Solutions For Beginners](misc/d2.md)
+* [Pipenv & Virtual Environments](misc/pipenv-and-virtual-environments.md)
 * [About Python](misc/about-python.md)
 * [Misc](misc/misc.md)
 * [Numbers](misc/numbers.md)
