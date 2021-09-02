@@ -1,30 +1,22 @@
-# Python Data Structures Repo & Website
+# index
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
 
 {% tabs %}
 {% tab title="Blog" %}
-## {% embed url="[https://codesandbox.io/s/ds-algo-forked-e25n8?file=/index.html](https://codesandbox.io/s/ds-algo-forked-e25n8?file=/index.html)" %} {% endtab %}
 
-{% embed url="https://bgoonz42.gitbook.io/python/" caption="" %}
 
-{% embed url="https://bootcamp42.gitbook.io/python/" caption="" %}
+{% embed url="https://codesandbox.io/s/ds-algo-forked-e25n8?file=/index.html" %}
+{% endtab %}
 
-My Website:
+{% tab title="Algorithms" %}
 
-{% embed url="https://ds-unit-5-lambda.netlify.app/" caption="" %}
 
-My Notion:
-
-> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
-
-{% embed url="https://golden-lobe-519.notion.site/Data-Structures-c3fe3debbe494b929ed2f20070b631f8" caption="" %}
-
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-
-{% embed url="https://codesandbox.io/s/ds-algo-forked-iezyk?file=/index.html" caption="" %}
+{% embed url="https://codesandbox.io/s/ds-algo-forked-iezyk?file=/index.html" %}
 {% endtab %}
 {% endtabs %}
+
+
 
 Python syntax was made for readability, and easy editing. For example, the python language uses a `:` and indented code, while javascript and others generally use `{}` and indented code.
 
@@ -5273,13 +5265,5 @@ else:
 print(result)
 ```
 
-======= My Trinket:
 
-{% embed url="https://trinket.io/python/fc8a8b85eb" caption="" %}
-
-{% embed url="http://number-base-converter-react.vercel.app/" caption="" %}
-
-{% page-ref page="./" %}
-
-> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 

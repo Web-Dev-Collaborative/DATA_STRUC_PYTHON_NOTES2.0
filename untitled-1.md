@@ -11,10 +11,10 @@ Introduction to python taught through example problems. Solutions are included i
 ### Here are some other articles for reference if you need them:
 
 [**Beginners Guide To Python**  
- _My favorite language for maintainability is Python. It has simple, clean syntax, object encapsulation, good library…_medium.com](https://medium.com/geekculture/beginners-guide-to-python-e5a59b5bb64d)
+\_My favorite language for maintainability is Python. It has simple, clean syntax, object encapsulation, good library…\_medium.com](https://medium.com/geekculture/beginners-guide-to-python-e5a59b5bb64d)
 
 [**Python Study Guide for a JavaScript Programmer**  
- _A guide to commands in Python from what you know in JavaScript_levelup.gitconnected.com](https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb)
+\_A guide to commands in Python from what you know in JavaScript\_levelup.gitconnected.com](https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb)
 
 ## Here are the problems without solutions for you to practice with:
 
@@ -29,7 +29,7 @@ The `datetime` module supplies classes for manipulating dates and times.
 While date and time arithmetic is supported, the focus of the implementation is on efficient attribute extraction for output formatting and manipulation.
 
 [**datetime - Basic date and time types - Python 3.9.6 documentation**  
- _Only one concrete class, the class, is supplied by the module. The class can represent simple timezones with fixed…_docs.python.org](https://docs.python.org/3/library/datetime.html)
+\_Only one concrete class, the class, is supplied by the module. The class can represent simple timezones with fixed…\_docs.python.org](https://docs.python.org/3/library/datetime.html)
 
 ## Problem 2
 
@@ -61,7 +61,7 @@ For example, `13` is a divisor of `26` because `26 / 13` has no remainder.\)
 Take two lists, and write a program that returns a list that contains only the elements that are `common between the lists (without duplicates)`. Make sure your program works on two lists of different sizes.
 
 [**random - Generate pseudo-random numbers - Python 3.9.6 documentation**  
- _Source code: Lib/random.py This module implements pseudo-random number generators for various distributions. For…_docs.python.org](https://docs.python.org/3/library/random.html)
+\_Source code: Lib/random.py This module implements pseudo-random number generators for various distributions. For…\_docs.python.org](https://docs.python.org/3/library/random.html)
 
 Bonus:
 
@@ -122,8 +122,8 @@ For example, suppose the mice are positioned at `[1, 4, 9, 15]`, and the holes a
 ## My Blog:
 
 [**Web-Dev-Hub**  
- _Memoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…_master--bgoonz-blog.netlify.app](https://master--bgoonz-blog.netlify.app/)
+\_Memoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…\_master--bgoonz-blog.netlify.app](https://master--bgoonz-blog.netlify.app/)
 
 [**A list of all of my articles to link to future posts**  
- _You should probably skip this one…_ _seriously it’s just for internal use!_bryanguner.medium.com](https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b)
+_You should probably skip this one…_ \_seriously it’s just for internal use!\_bryanguner.medium.com](https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b)
 

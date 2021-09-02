@@ -88,7 +88,7 @@ for _ in range(t):
             even_sum += value[node - 1]
         else:
             odd_sum += value[node - 1]
-
+        
         for edge_vertex in graph[node]:
             if visited[edge_vertex]:
                 continue
@@ -96,7 +96,7 @@ for _ in range(t):
             visited[edge_vertex] = True
             new_level = level[node] + 1
             level[edge_vertex] = new_level
-
+            
     print(abs(even_sum - odd_sum))
 ```
 
@@ -110,19 +110,19 @@ def bfs(tree,arr,n):
     vis[0]=True
     even=0
     odd=0
-
+    
     while Q:
         u,l=Q.popleft()
         if l%2==0:
             even+=arr[u]
         elif l%2!=0:
             odd+=arr[u]
-
+        
         for v in tree[u]:
             if vis[v]==False:
                 Q.append((v,l+1))
                 vis[v]=True
-
+    
     return abs(even-odd)
 
 def main():
@@ -137,7 +137,7 @@ def main():
             v-=1
             tree[u].append(v)
             tree[v].append(u)
-
+            
         ans=bfs(tree,arr,n)
         print(ans)
 
@@ -151,44 +151,44 @@ def bfs(d):
     while len(que):
         elem = que[0]
         level = visited[elem]
-
+        
         if elem in d:
             for i in d[elem]:
                 if i not in visited:
                     visited[i] = level + 1
                     que.append(i)
-
+                    
         que.pop(0)
-
+        
     return visited
-
+    
 for _ in range(int(input())):
     n = int(input())
     l = list(map(int, input().split()))
-
+    
     d = {}
     for i in range(n-1):
         a, b = map(int, input().split())
-
+        
         if a not in d:
             d[a] = [b]
         else:
             d[a].append(b)
-
+            
         if b not in d:
             d[b] = [a]
         else:
             d[b].append(a)
-
+            
     levels = bfs(d)
-
+    
     x, y = 0, 0
     for i in levels:
         if levels[i] % 2:
             x += l[i-1]
         else:
             y += l[i-1]
-
+    
     print(abs(x - y))
 ```
 
@@ -222,13 +222,13 @@ class BinaryTreeNode:
 
 With this simple class, we can now build up a structure that could be visualized like so:[![](https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.png)](https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.png)
 
-[https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e\_binary-tree-example.001.pngEnter](https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.pngEnter) a caption for this image \(optional\)
+https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e\_binary-tree-example.001.pngEnter a caption for this image \(optional\)
 
 ‌
 
 **Perfect" Trees**[![](https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.png)](https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.png)
 
-[https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed\_binary-tree-example-levels.001.pngEnter](https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.pngEnter) a caption for this image \(optional\)
+https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed\_binary-tree-example-levels.001.pngEnter a caption for this image \(optional\)
 
 ‌
 
@@ -277,7 +277,7 @@ We can represent the relationship between a perfect binary tree's total number o
 
 Just like a binary tree is a specific type of tree, a binary search tree \(BST\) is a specific type of binary tree. A binary search tree is just like a binary tree, except it follows specific rules about how it orders the nodes contained within it. For each node in the BST, all the nodes to the left are smaller, and all the nodes to the right of it are larger. We can call a binary search tree balanced if the heights of its left and right subtrees differ by at most one, and both of the subtrees are also balanced.[![](https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.png)](https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.png)
 
-[https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083\_binary-tree-example-balanced-unbalanced.001.pngEnter](https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.pngEnter) a caption for this image \(optional\)
+https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083\_binary-tree-example-balanced-unbalanced.001.pngEnter a caption for this image \(optional\)
 
 ‌
 
