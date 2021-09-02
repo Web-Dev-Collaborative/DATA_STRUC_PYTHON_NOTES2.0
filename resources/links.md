@@ -1,6 +1,10 @@
 # Links
 
+<<<<<<< HEAD
 ### Table of contents
+=======
+## Table of contents
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 
 📚 = External resource, 🍰 = Beginner topic, 🤯 = Advanced topic
 
@@ -46,11 +50,11 @@
    - Data format: [json \| xml \| csv](https://github.com/huangsam/ultimate-python/blob/master/ultimatepython/advanced/data_format.py) \(🤯\)
    - Datetime: [datetime \| timezone](https://github.com/huangsam/ultimate-python/blob/master/ultimatepython/advanced/date_time.py) \(🤯\)
 
-### Additional resources
+## Additional resources
 
 👔 = Interview resource, 🧪 = Code samples, 🧠 = Project ideas
 
-#### GitHub repositories
+### GitHub repositories
 
 Keep learning by reading from other well-regarded resources.
 
@@ -65,7 +69,7 @@ Keep learning by reading from other well-regarded resources.
 - [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)
 - [ZuzooVn/machine-learning-for-software-engineers](https://github.com/ZuzooVn/machine-learning-for-software-engineers)
 
-#### Interactive practice
+### Interactive practice
 
 Keep practicing so that your coding skills don't get rusty.
 

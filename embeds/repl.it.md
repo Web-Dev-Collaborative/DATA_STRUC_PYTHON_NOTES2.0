@@ -1,5 +1,6 @@
 # Repl.it
 
+<<<<<<< HEAD
 {% embed url="https://replit.com/@bgoonz/PYTHONPRAC" %}
 
 {% embed url="https://replit.com/@bgoonz/BG-Learn-Python-2\#main.py" %}
@@ -10,10 +11,13 @@
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#main.py" %}
 
+=======
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 {% embed url="https://replit.com/@bgoonz/python-practice\#basics.py" caption="" %}
 
 {% embed url="https://replit.com/@bgoonz/python-practice-exercises\#main.py" caption="" %}
 
+<<<<<<< HEAD
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-types-2\#main.py" %}
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-white-space-2" %}
@@ -45,3 +49,5 @@
 {% embed url="https://replit.com/@bgoonz/awesome-python-1\#README.md" %}
 
 {% embed url="https://replit.com/@bgoonz/intro-2-Python-through-projects-1\#main.py" %}
+=======
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf

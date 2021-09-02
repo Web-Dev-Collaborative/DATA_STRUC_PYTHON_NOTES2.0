@@ -21,7 +21,7 @@ Let's try some simple Python commands. Start the interpreter and wait for the pr
 
 The interpreter acts as a simple calculator: you can type an expression at it and it will write the value. Expression syntax is straightforward: the operators `+`, `-`, `*` and `/` work just like in most other languages \(for example, Pascal or C\); parentheses \(`()`\) can be used for grouping. For example:
 
-> > > 2 + 2 4 50 - 5_6 20 \(50 - 5_6\) / 4 5.0 8 / 5 \# division always returns a floating point number 1.6
+> > > 2 + 2 4 50 - 5\_6 20 \(50 - 5\_6\) / 4 5.0 8 / 5 \# division always returns a floating point number 1.6
 
 The integer numbers \(e.g. `2`, `4`, `20`\) have type int, the ones with a fractional part \(e.g. `5.0`, `1.6`\) have type float. We will see more about numeric types later in the tutorial.
 
@@ -174,7 +174,7 @@ Like strings \(and all other built-in sequence types\), lists can be indexed and
 
 > > > squares\[0\] \# indexing returns the item 1 squares\[-1\] 25 squares\[-3:\] \# slicing returns a new list \[9, 16, 25\]
 
-All slice operations return a new list containing the requested elements. This means that the following slice returns a shallow copy \ of the list:
+All slice operations return a new list containing the requested elements. This means that the following slice returns a shallow copy of the list:
 
 > > > squares\[:\] \[1, 4, 9, 16, 25\]
 

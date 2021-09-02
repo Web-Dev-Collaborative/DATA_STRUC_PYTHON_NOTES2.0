@@ -1,5 +1,6 @@
 # Python Glossary
 
+<<<<<<< HEAD
 ## Glossary
 
 ## Glossary
@@ -593,3 +594,7 @@ An isolated Python environment that allows packages to be installed for use by a
 A [Built Distribution](https://packaging.python.org/glossary/#term-Built-Distribution) format introduced by [**PEP 427**](https://www.python.org/dev/peps/pep-0427), which is intended to replace the [Egg](https://packaging.python.org/glossary/#term-Egg) format. Wheel is currently supported by [pip](https://packaging.python.org/key_projects/#pip).Working Set
 
 A collection of [distributions](https://packaging.python.org/glossary/#term-Distribution-Package) available for importing. These are the distributions that are on the [`sys.path`](https://docs.python.org/2/library/sys.html#sys.path) variable. At most, one [Distribution](https://packaging.python.org/glossary/#term-Distribution-Package) for a project is possible in a working set.
+=======
+## 
+
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf

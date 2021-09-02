@@ -42,10 +42,13 @@ Because graphs are so pervasive, it is useful to define different types of graph
 
 **Directed graph:** A directed graph or digraph GG consists of a set VV of vertices \(or nodes\) and a set of edges \(or arcs\) such that each edge e \in Ee∈E is associated with an ordered pair of vertices. If there is an edge \(x,y\)\(x,y\), it is completely distinct from the edge \(y,x\)\(y,x\).
 
-![Undirected graphs are typically represented by a line with no arrows, which implies a bidirectional relationship between node A and node B. Directed graphs use an arrow to show the relationship from A to B.
-](https://ds055uzetaobb.cloudfront.net/brioche/uploads/sktJe6Gx5W-directed-vs-undirected.png?width=1200)Undirected graphs are typically represented by a line with no arrows, which implies a bidirectional relationship between node A and node B. Directed graphs use an arrow to show the relationship from A to B.
+![Undirected graphs are typically represented by a line with no arrows, which implies a bidirectional relationship between node A and node B. Directed graphs use an arrow to show the relationship from A to B. ](https://ds055uzetaobb.cloudfront.net/brioche/uploads/sktJe6Gx5W-directed-vs-undirected.png?width=1200)Undirected graphs are typically represented by a line with no arrows, which implies a bidirectional relationship between node A and node B. Directed graphs use an arrow to show the relationship from A to B.
 
+<<<<<<< HEAD:wk-20-notes/general-notes-on-graphs/README.md
 **Directed acyclic graph**: A directed acyclic graph \(commonly abbreviated as DAG\) is a directed graph with no directed cycles. A cycle is any path \{A_1, \ldots, A_n\}{A1​,…,An​} such that the edges A_1\rightarrow A_2A1​→A2​, A_2\rightarrow A_3A2​→A3​, \ldots…, and A_n\rightarrow A_1An​→A1​ all exist, thus forming a loop. A DAG is a graph without a single cycle.
+=======
+**Directed acyclic graph**: A directed acyclic graph \(commonly abbreviated as DAG\) is a directed graph with no directed cycles. A cycle is any path {A\_1, \ldots, A\_n}{A1​,…,An​} such that the edges A\_1\rightarrow A\_2A1​→A2​, A\_2\rightarrow A\_3A2​→A3​, \ldots…, and A\_n\rightarrow A\_1An​→A1​ all exist, thus forming a loop. A DAG is a graph without a single cycle.
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf:python-language/general-notes-on-graphs/README.md
 
 > List all the edges and vertices of the undirected graph GG in the figure above.
 >
@@ -81,7 +84,7 @@ Above we represented a graph by drawing it. To represent it in a computer, howev
 >
 > To obtain the adjacency matrix of the graph, we first label the rows and columns with the corresponding ordered vertices. If there exists an edge between two vertices ii and jj, then their corresponding cell in the matrix will be assigned 11. If there does not exist an edge, then the cell will be assigned the value 00. The adjacency matrix for the graph above is thus
 >
-> \quad \begin{bmatrix} & a & b & c & d & e\\ a & 0 & 1 & 1 & 0 & 1 \\ b & 1 & 0 & 0 & 0 & 0\\ c & 1 & 0 & 0 & 1 & 1\\ d & 0 & 0 & 1 & 0 & 0\\ e & 1 & 0 & 1 & 0 & 0\\ \end{bmatrix}. \ \_\square \quad⎣⎢⎢⎢⎢⎢⎢⎡​abcde​a01101​b10000​c10011​d00100​e10100​⎦⎥⎥⎥⎥⎥⎥⎤​. □​
+> \quad \begin{bmatrix} & a & b & c & d & e a & 0 & 1 & 1 & 0 & 1  b & 1 & 0 & 0 & 0 & 0 c & 1 & 0 & 0 & 1 & 1 d & 0 & 0 & 1 & 0 & 0 e & 1 & 0 & 1 & 0 & 0 \end{bmatrix}. \_\square \quad⎣⎢⎢⎢⎢⎢⎢⎡​abcde​a01101​b10000​c10011​d00100​e10100​⎦⎥⎥⎥⎥⎥⎥⎤​. □​
 
 **Adjacency list**
 
@@ -116,7 +119,11 @@ To search a connected component of a graph systematically, we begin with one ver
 >
 > The table below shows the contents of the queue as the procedure. BFS visits vertices in the graph above. BFS will visit the same vertices as DFS. In this example all of them.
 >
+<<<<<<< HEAD:wk-20-notes/general-notes-on-graphs/README.md
 > \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue} \\ \hline \text{a} & \text{a} \\ \text{ } & \text{\(empty\)} \\ \text{b } & \text{b} \\ \text{f } & \text{b f} \\ \text{i} & \text{b f i} \\ \text{ } & \text{f i} \\ \text{c} & \text{f i c} \\ \text{e} & \text{f i c e} \\ \text{ } & \text{ i c e} \\ \text{g } & \text{ i c e g} \\ \text{ } & \text{ c e g} \\ \text{ } & \text{ e g} \\ \text{d } & \text{ e g d} \\ \text{ } & \text{ g d} \\ \text{ } & \text{ d} \\ \text{ } & \text{ \(empty\)} \\ \text{ h} & \text{ h} \\ \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
+=======
+> \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue}  \hline \text{a} & \text{a}  \text{ } & \text{\(empty\)}  \text{b } & \text{b}  \text{f } & \text{b f}  \text{i} & \text{b f i}  \text{ } & \text{f i}  \text{c} & \text{f i c}  \text{e} & \text{f i c e}  \text{ } & \text{ i c e}  \text{g } & \text{ i c e g}  \text{ } & \text{ c e g}  \text{ } & \text{ e g}  \text{d } & \text{ e g d}  \text{ } & \text{ g d}  \text{ } & \text{ d}  \text{ } & \text{ \(empty\)}  \text{ h} & \text{ h}  \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf:python-language/general-notes-on-graphs/README.md
 
 ### Depth-first Search
 

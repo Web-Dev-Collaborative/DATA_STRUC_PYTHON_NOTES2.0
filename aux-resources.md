@@ -1,5 +1,6 @@
 # Aux Resources
 
+<<<<<<< HEAD
 ## Notes I Wish I Had When I Started Learning Python <a id="de54"></a>
 
 ### Plus resources for learning data structures and algorithms in python at the bottom of this article! <a id="55c5"></a>
@@ -1210,6 +1211,8 @@ matrix = [[i for i in range(5)] for _ in range(6)]print(matrix)
 - [Structural and pure attributes](https://minimalmodeling.substack.com/p/structural-and-pure-attributes)
 - [Cache-Tries: O\(1\) Concurrent Lock-Free Hash Tries \(2018\)](http://aleksandar-prokopec.com/resources/docs/p137-prokopec.pdf)
 
+=======
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 {% embed url="https://gist.github.com/bgoonz/4006e76c6a67b9023e0839ea863ab14f" caption="" %}
 
 First things first, the repo with all the exercises of this lecture is right here:

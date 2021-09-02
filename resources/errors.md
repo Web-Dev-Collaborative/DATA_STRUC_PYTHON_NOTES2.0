@@ -14,7 +14,11 @@ The parser repeats the offending line and displays a little 'arrow' pointing at 
 
 Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called _exceptions_ and are not unconditionally fatal: you will soon learn how to handle them in Python programs. Most exceptions are not handled by programs, however, and result in error messages as shown here:
 
+<<<<<<< HEAD
 > > > 10 \_\(1/0\) Traceback \(most recent call last\): File "", line 1, in ZeroDivisionError: division by zero 4 + spam_3 Traceback \(most recent call last\): File "", line 1, in NameError: name 'spam' is not defined '2' + 2 Traceback \(most recent call last\): File "", line 1, in TypeError: can only concatenate str \(not "int"\) to str
+=======
+> > > 10 \_\(1/0\) Traceback \(most recent call last\): File "", line 1, in ZeroDivisionError: division by zero 4 + spam\_3 Traceback \(most recent call last\): File "", line 1, in NameError: name 'spam' is not defined '2' + 2 Traceback \(most recent call last\): File "", line 1, in TypeError: can only concatenate str \(not "int"\) to str
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 
 The last line of the error message indicates what happened. Exceptions come in different types, and the type is printed as part of the message: the types in the example are ZeroDivisionError, NameError and TypeError. The string printed as the exception type is the name of the built-in exception that occurred. This is true for all built-in exceptions, but need not be true for user-defined exceptions \(although it is a useful convention\). Standard exception names are built-in identifiers \(not reserved keywords\).
 
@@ -151,7 +155,7 @@ If you need to determine whether an exception was raised but don't intend to han
 
 ## Exception Chaining
 
-The raise statement allows an optional from\ which enables chaining exceptions. For example:
+The raise statement allows an optional from which enables chaining exceptions. For example:
 
 ```text
 # exc must be exception instance or None.
@@ -164,7 +168,7 @@ This can be useful when you are transforming exceptions. For example:
 
 Exception chaining happens automatically when an exception is raised inside an except or finally section. Exception chaining can be disabled by using `from None` idiom:
 
-> &gt;&gt;&gt; try: ... open\('database.sqlite'\) ... except OSError: ... raise RuntimeError from None ... Traceback \(most recent call last\): File "\", line 4, in \ RuntimeError
+> &gt;&gt;&gt; try: ... open\('database.sqlite'\) ... except OSError: ... raise RuntimeError from None ... Traceback \(most recent call last\): File "\", line 4, in RuntimeError
 
 For more information about chaining mechanics, see bltin-exceptions.
 

@@ -1,7 +1,10 @@
 # Data Structures
 
+<<<<<<< HEAD
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#terminal.py" %}
 
+=======
+>>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 This chapter describes some things you've learned about already in more detail, and adds some new things as well.
 
 ### More on Lists
@@ -277,7 +280,7 @@ It is possible to assign the result of a comparison or other Boolean expression 
 
 > > > string1, string2, string3 = '', 'Trondheim', 'Hammer Dance' non_null = string1 or string2 or string3 non_null 'Trondheim'
 
-Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator \ `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
+Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
 
 ### Comparing Sequences and Other Types
 
