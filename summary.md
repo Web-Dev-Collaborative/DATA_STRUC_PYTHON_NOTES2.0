@@ -45,6 +45,6 @@
 * [D1 Notes](wk-20-notes/d1.md)
 * [D3](wk-20-notes/d3.md)
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
-* [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/)
-  * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
+* [General Notes On Graphs](python-language/general-notes-on-graphs/)
+  * [Untitled](python-language/general-notes-on-graphs/untitled.md)
 
