@@ -43,7 +43,7 @@ Look at the following code to understand how you can use namedtuple.
 a = namedtuple('courses' , 'name , tech')
 s = a('data science' , 'python')
 print(s)
- 
+
 #the output will be courses(name='python' , tech='python')
 ```
 
@@ -63,7 +63,7 @@ deque pronounced as ‘deck’ is an optimized list to perform insertion and del
 ```text
 #creating a deque
 from collections import deque
- 
+
 a = ['d' , 'u' , 'r' , 'e' , 'k']
 a1 = deque(a)
 print(a1)

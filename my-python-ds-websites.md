@@ -1,34 +1,30 @@
 # My Python DS Websites
 
-<<<<<<< HEAD
-{% tabs %} {% tab title="Python Data Structures" %}
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 
-{% embed url="https://codesandbox.io/s/ds-algo-forked-ruslo?file=/index.html" %} {% endtab %}
+{% tabs %}
+{% tab title="Python Data Structures" %}
 
 {% tab title="Number Base Converter" %}
 
-{% embed url="https://codesandbox.io/s/ds-algo-forked-rq4co?file=/index.html" %} {% endtab %}
-
 {% tab title="Awesome Search" %}
-
-{% embed url="https://codesandbox.io/s/ds-algo-forked-pyrle" %} {% endtab %}
 
 {% tab title="The Algos" %}
 
-{% embed url="https://codesandbox.io/s/ds-algo-forked-e754i?file=/index.html" %} {% endtab %}
-
 {% tab title="Ds-Pac" %}
 
-{% embed url="https://codesandbox.io/s/ds-algo-forked-s2y91?file=/index.html" %} {% endtab %}
-
 {% tab title="Docs" %}
-
-{% embed url="https://codesandbox.io/s/ds-algo-forked-lfujh?file=/index.html&resolutionWidth=1400&resolutionHeight=1259" caption="hi" %} {% endtab %} {% endtabs %}
+{% embed url="https://codesandbox.io/s/ds-algo-forked-lfujh?file=/index.html&resolutionWidth=1400&resolutionHeight=1259" caption="hi" %}
+{% endtab %}
+{% endtabs %}
 
 =======
->>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
+
+> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
+
 {% embed url="https://thealgorithms.netlify.app/\#" caption="" %}
 
 {% embed url="https://bgoonz-branch-the-algos.vercel.app/" caption="" %}
 
 {% embed url="https://bgoonz-branch-the-algos.vercel.app/" caption="" %}
+

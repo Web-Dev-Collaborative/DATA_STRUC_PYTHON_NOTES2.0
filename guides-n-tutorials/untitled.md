@@ -502,7 +502,7 @@ a //= b
 print(a)
 a **= b
 print(a)
-#I won't show the output for this because it is to big, but it would output the result of 15**10 
+#I won't show the output for this because it is to big, but it would output the result of 15**10
 ```
 
 Output:
@@ -757,7 +757,7 @@ elif age == 4:
 Output:
 
 ```text
-#Nothing because in the first statement, age is not 13, so it won't run and in the second statement age is not 4 so it won't run either 
+#Nothing because in the first statement, age is not 13, so it won't run and in the second statement age is not 4 so it won't run either
 ```
 
 ### Else
@@ -812,9 +812,9 @@ Example:
 ```python
 age = 15
 if age == 15:
-	pass
+    pass
 else:
-	print("You are not 15")
+    print("You are not 15")
 ```
 
 This wouldn't output anything because nothing happens in the if statement because there is a `pass`
@@ -842,12 +842,12 @@ number_input = int(input("What number Would you like to check?"))
 #Then let's create the conditional Statements
 #Checking if the number is even
 if number_input % 2 = 0:
-	#Printing out the message that says the number is even
-	print(f"Your number {number_input} is even.")
+    #Printing out the message that says the number is even
+    print(f"Your number {number_input} is even.")
 #Now we'll have an else statement because if the number is not even then it must be odd.But it's okay if you used an elif.
 else:
-	#Printing out the message that says the number is odd
-	print(f"Your number {number_input} is odd.")
+    #Printing out the message that says the number is odd
+    print(f"Your number {number_input} is odd.")
 ```
 
 ## Loops
@@ -884,7 +884,7 @@ Another thing you can use is `range`.
 
 ```text
 for i in range(10):
-	print(i)
+    print(i)
 ```
 
 output:
@@ -908,10 +908,10 @@ If you want to exit a `for` loop, you can use `break`.
 
 ```python
 for i in range(10):
-	if i == 5:
-		break
-	else:
-		print(i)
+    if i == 5:
+        break
+    else:
+        print(i)
 ```
 
 output:
@@ -929,10 +929,10 @@ You can also skip iterations using `continue`.
 
 ```python
 for i in range(10):
-	if i == 5:
-		continue
-	else:
-		print(i)
+    if i == 5:
+        continue
+    else:
+        print(i)
 ```
 
 output:
@@ -961,8 +961,8 @@ Example:
 num = 6
 other = 1
 while num > other:
-	print(other)
-	other += 1
+    print(other)
+    other += 1
 ```
 
 output:
@@ -983,7 +983,7 @@ The most common usage for `while` loops is with `bool` values.
 ```text
 var = True
 while var:
-	print('hello')
+    print('hello')
 ```
 
 **output**:
@@ -1013,34 +1013,34 @@ Challenge: Ask the user the maximum number they want the program to run to.
 ```python
 #A while loop to keep on running the program if the user wants it to
 while True:
-	#A for loop to iterate through each number in the range of 1-100
-	for number in range(1,101):
-		#An if statement to check if the number is divisble by 15
-		if number % 15 == 0:
-			#Printing out Fizzbuzz
-			print("Fizzbuzz")
-		#An elif statement to check if the number is divisble by 5
-		elif number % 5 == 0:
-			#Printing out Fizz
-			print("Fizz")
-		#An elif statement to check if the number is divisble by 3
-		elif number % 3 == 0:
-			#Printing out Buzz
-			print("Buzz")
-		#An else statement to print out the number
-		else:
-			#Printing out the number
-			print(number)
-	#Asking the user if they want the program to run again
-	again = str(input("Would you like to run the program again? Enter Y/N: "))
-	#An if statement checking if the user said they want the program to run
-	if again.upper() == 'Y':
-		#Using pass as a placeholder because we want the program to continue
-		pass
-	#An else statement to break the while loop
-	else:
-		#Breaking the loop
-		break
+    #A for loop to iterate through each number in the range of 1-100
+    for number in range(1,101):
+        #An if statement to check if the number is divisble by 15
+        if number % 15 == 0:
+            #Printing out Fizzbuzz
+            print("Fizzbuzz")
+        #An elif statement to check if the number is divisble by 5
+        elif number % 5 == 0:
+            #Printing out Fizz
+            print("Fizz")
+        #An elif statement to check if the number is divisble by 3
+        elif number % 3 == 0:
+            #Printing out Buzz
+            print("Buzz")
+        #An else statement to print out the number
+        else:
+            #Printing out the number
+            print(number)
+    #Asking the user if they want the program to run again
+    again = str(input("Would you like to run the program again? Enter Y/N: "))
+    #An if statement checking if the user said they want the program to run
+    if again.upper() == 'Y':
+        #Using pass as a placeholder because we want the program to continue
+        pass
+    #An else statement to break the while loop
+    else:
+        #Breaking the loop
+        break
 ```
 
 Challenge solution:
@@ -1048,36 +1048,36 @@ Challenge solution:
 ```python
 #A while loop to keep on running the program if the user wants it to
 while True:
-	#Asking the user what they would like the maximum number to be
-	max_range = input("What would you like the range to be? ")
-	#A for loop to iterate through each number in the range of 1- whatever number they chose
-	for number in range(max_range):
-		#An if statement to check if the number is divisble by 15
-		if number % 15 == 0:
-			#Printing out Fizzbuzz
-			print("Fizzbuzz")
-		#An elif statement to check if the number is divisble by 5
-		elif number % 5 == 0:
-			#Printing out Fizz
-			print("Fizz")
-		#An elif statement to check if the number is divisble by 3
-		elif number % 3 == 0:
-			#Printing out Buzz
-			print("Buzz")
-		#An else statement to print out the number
-		else:
-			#Printing out the number
-			print(number)
-	#Asking the user if they want the program to run again
-	again = str(input("Would you like to run the program again? Enter Y/N: "))
-	#An if statement checking if the user said they want the program to run
-	if again.upper() == 'Y':
-		#Using pass as a placeholder because we want the program to continue
-		pass
-	#An else statement to break the while loop
-	else:
-		#Breaking the loop
-		break
+    #Asking the user what they would like the maximum number to be
+    max_range = input("What would you like the range to be? ")
+    #A for loop to iterate through each number in the range of 1- whatever number they chose
+    for number in range(max_range):
+        #An if statement to check if the number is divisble by 15
+        if number % 15 == 0:
+            #Printing out Fizzbuzz
+            print("Fizzbuzz")
+        #An elif statement to check if the number is divisble by 5
+        elif number % 5 == 0:
+            #Printing out Fizz
+            print("Fizz")
+        #An elif statement to check if the number is divisble by 3
+        elif number % 3 == 0:
+            #Printing out Buzz
+            print("Buzz")
+        #An else statement to print out the number
+        else:
+            #Printing out the number
+            print(number)
+    #Asking the user if they want the program to run again
+    again = str(input("Would you like to run the program again? Enter Y/N: "))
+    #An if statement checking if the user said they want the program to run
+    if again.upper() == 'Y':
+        #Using pass as a placeholder because we want the program to continue
+        pass
+    #An else statement to break the while loop
+    else:
+        #Breaking the loop
+        break
 ```
 
 ## Escape Codes
@@ -1116,7 +1116,7 @@ print('\ttab\t\t\tmore tabs')
 Output:
 
 ```text
-  tab			more tabs
+  tab            more tabs
 ```
 
 ## Functions
@@ -1127,15 +1127,15 @@ Here is the syntax for it
 
 ```text
 def function_name():
-	code_to_run
+    code_to_run
 ```
 
 Here is an example:
 
 ```text
 def add():
-	sum = 5 + 5
-	print(sum)
+    sum = 5 + 5
+    print(sum)
 ```
 
 The way that you use or call functions is through this syntax
@@ -1158,8 +1158,8 @@ So here's an example
 
 ```python
 def try_func():
-	x = 5
-	return x
+    x = 5
+    return x
 try_func()
 ```
 
@@ -1173,7 +1173,7 @@ Here's the syntax:
 
 ```text
 def function_name(parameters_needed):
-	code_to_run
+    code_to_run
 ```
 
 Syntax to run it:
@@ -1186,7 +1186,7 @@ Here's an example of a function using paramters
 
 ```python
 def add(num1, num2):
-	return int(num1) + int(num2)
+    return int(num1) + int(num2)
 
 print(add(9,10)) # 9 and 10 are parameters
 ```
@@ -1218,7 +1218,7 @@ variable_name(parameters)
 And here's an example
 
 ```text
-multiply_by5 = lambda num: num * 5 
+multiply_by5 = lambda num: num * 5
 ```
 
 Calling it:
@@ -1233,7 +1233,7 @@ You can also use lambdas in function, the are mostly used in the return
 
 ```python
 def concatenator(string):
-	return lambda string2 : string2 + string
+    return lambda string2 : string2 + string
 
 er_concatenator = concatenator("er")
 print(er_concatenator("Program"))
@@ -1260,7 +1260,7 @@ The local scope is the scope of a function, and you may notice, that when you se
 
 ```python
 def y():
-	x = 1
+    x = 1
 
 y()
 print(x)
@@ -1270,9 +1270,9 @@ The way you can fix this is by using the global keyword and declaring that varia
 
 ```python
 def y():
-	global x
-	# Declaring x to be a global variable
-	x += 1
+    global x
+    # Declaring x to be a global variable
+    x += 1
 
 y()
 print(x)

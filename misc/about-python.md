@@ -1,7 +1,5 @@
 # About Python
 
-
-
 ## What is Python? <a id="b4c3"></a>
 
 Python in simple words is a **High-Level Dynamic Programming Language** which is **interpreted**. Guido van Rossum , the father of Python had simple goals in mind when he was developing it, **easy looking code, readable and open source.** Python is ranked as the 3rd most prominent language followed by JavaScript and Java in a survey held in 2018 by Stack Overflow which serves proof to it being the most growing language.![](https://miro.medium.com/max/60/1*eyS89-AW_3UQ5bQl7GrxnA.png?q=20)![](https://miro.medium.com/max/718/1*eyS89-AW_3UQ5bQl7GrxnA.png)

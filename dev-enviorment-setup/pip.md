@@ -60,8 +60,8 @@ See [VCS Support](https://pip.pypa.io/en/stable/topics/vcs-support/) for more in
 
 pip can install directly from distribution files as well. They come in 2 forms:
 
-- [source distribution](https://packaging.python.org/glossary/#term-Source-Distribution-or-sdist) \(usually shortened to “sdist”\)
-- [wheel distribution](https://packaging.python.org/glossary/#term-Wheel) \(usually shortened to “wheel”\)
+* [source distribution](https://packaging.python.org/glossary/#term-Source-Distribution-or-sdist) \(usually shortened to “sdist”\)
+* [wheel distribution](https://packaging.python.org/glossary/#term-Wheel) \(usually shortened to “wheel”\)
 
 Linux
 
@@ -122,3 +122,4 @@ C:&gt; py -m pip uninstall sampleproject Uninstalling sampleproject: \[...\] Pro
 ## Next Steps[¶](https://pip.pypa.io/en/stable/getting-started/#next-steps)
 
 It is recommended to learn about what virtual environments are and how to use them. This is covered in the [“Installing Packages”](https://packaging.python.org/tutorials/installing-packages/) tutorial on packaging.python.org.
+

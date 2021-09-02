@@ -1,11 +1,12 @@
 # Data Structures
 
-<<<<<<< HEAD
-{% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#terminal.py" %}
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
+{% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#terminal.py" caption="" %}
 
 =======
->>>>>>> e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
-This chapter describes some things you've learned about already in more detail, and adds some new things as well.
+
+> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf This chapter describes some things you've learned about already in more detail, and adds some new things as well.
 
 ### More on Lists
 
@@ -119,7 +120,7 @@ As we saw in the previous section, the nested listcomp is evaluated in the conte
 
 which, in turn, is the same as:
 
-> > > transposed = \[\] for i in range\(4\): ... \# the following 3 lines implement the nested listcomp ... transposed_row = \[\] ... for row in matrix: ... transposed_row.append\(row\[i\]\) ... transposed.append\(transposed_row\) ... transposed \[\[1, 5, 9\], \[2, 6, 10\], \[3, 7, 11\], \[4, 8, 12\]\]
+> > > transposed = \[\] for i in range\(4\): ... \# the following 3 lines implement the nested listcomp ... transposed\_row = \[\] ... for row in matrix: ... transposed\_row.append\(row\[i\]\) ... transposed.append\(transposed\_row\) ... transposed \[\[1, 5, 9\], \[2, 6, 10\], \[3, 7, 11\], \[4, 8, 12\]\]
 
 In the real world, you should prefer built-in functions to complex flow statements. The zip function would do a great job for this use case:
 
@@ -262,7 +263,7 @@ Using set on a sequence eliminates duplicate elements. The use of sorted in comb
 
 It is sometimes tempting to change a list while you are looping over it; however, it is often simpler and safer to create a new list instead. :
 
-> > > import math raw_data = \[56.2, float\('NaN'\), 51.7, 55.3, 52.5, float\('NaN'\), 47.8\] filtered_data = \[\] for value in raw_data: ... if not math.isnan\(value\): ... filtered_data.append\(value\) ... filtered_data \[56.2, 51.7, 55.3, 52.5, 47.8\]
+> > > import math raw\_data = \[56.2, float\('NaN'\), 51.7, 55.3, 52.5, float\('NaN'\), 47.8\] filtered\_data = \[\] for value in raw\_data: ... if not math.isnan\(value\): ... filtered\_data.append\(value\) ... filtered\_data \[56.2, 51.7, 55.3, 52.5, 47.8\]
 
 ### More on Conditions
 
@@ -278,7 +279,7 @@ The Boolean operators `and` and `or` are so-called _short-circuit_ operators: th
 
 It is possible to assign the result of a comparison or other Boolean expression to a variable. For example, :
 
-> > > string1, string2, string3 = '', 'Trondheim', 'Hammer Dance' non_null = string1 or string2 or string3 non_null 'Trondheim'
+> > > string1, string2, string3 = '', 'Trondheim', 'Hammer Dance' non\_null = string1 or string2 or string3 non\_null 'Trondheim'
 
 Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
 
@@ -303,3 +304,4 @@ Note that comparing objects of different types with `<` or `>` is legal provided
 ```text
 chaining, such as `d->insert("a")->remove("b")->sort();`.
 ```
+

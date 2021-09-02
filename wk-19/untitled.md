@@ -1,5 +1,7 @@
 # D1 - Linked Lists & BigO
 
+## D1 - Linked Lists & BigO
+
 [GitHub - bgoonz/DATA\_STRUC\_PYTHON\_NOTESContribute to bgoonz/DATA\_STRUC\_PYTHON\_NOTES development by creating an account on GitHub.![](https://github.com/favicon.ico)https://github.com/bgoonz/DATA\_STRUC\_PYTHON\_NOTES![](https://opengraph.githubassets.com/7e429cf0f43384761221875b1b9f698c869ac3170f72e90c32ae0ceeada31397/bgoonz/DATA_STRUC_PYTHON_NOTES)](https://github.com/bgoonz/DATA_STRUC_PYTHON_NOTES)
 
 ```python
@@ -15,22 +17,21 @@ Original file is located at
 - Non Contiguous abstract Data Structure
 - Value (can be any value for our use we will just use numbers)
 - Next (A pointer or reference to the next node in the list)
-
 ```
-L1 = Node(34)
-L1.next = Node(45)
-L1.next.next = Node(90)
 
-# while the current node is not none
-  # do something with the data
-  # traverse to next node
+L1 = Node\(34\) L1.next = Node\(45\) L1.next.next = Node\(90\)
 
-L1 = [34]-> [45]-> [90] -> None
+## while the current node is not none
 
-Node(45)
-Node(90)
+## do something with the data
 
-```
+## traverse to next node
+
+L1 = \[34\]-&gt; \[45\]-&gt; \[90\] -&gt; None
+
+Node\(45\) Node\(90\)
+
+```text
 """
 
 class LinkedListNode:
@@ -66,7 +67,7 @@ class LinkedListNode:
     new_node.next = current.next
     # set the current nodes next to point to the new node
     current.next = new_node
-    
+
 ll_storage = []
 L1 = LinkedListNode(34)
 L1.next = LinkedListNode(45)
@@ -282,17 +283,15 @@ class HashTable:
         # Your code here
 ```
 
+### Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a linked list
 
-
-## Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a linked list
-
-### Overview <a id="overview"></a>
+#### Overview <a id="overview"></a>
 
 What is a linked list, and how is it different from an array? How efficient or inefficient are its operations? What are its strengths and weaknesses? How can I construct and interact with a linked list? By the end of this objective, you will be able to answer all of these questions confidently.
 
-### Follow Along <a id="follow-along"></a>
+#### Follow Along <a id="follow-along"></a>
 
-#### Basic Properties of a Linked List <a id="basic-properties-of-a-linked-list"></a>
+**Basic Properties of a Linked List**
 
 A linked list is a simple, linear data structure used to store a collection of elements. Unlike an array, each element in a linked list does not have to be stored contiguously in memory.
 
@@ -322,7 +321,7 @@ The difference between an SLL and a doubly linked list \(DLL\) is that each node
 
 A Circular Linked List links the last node back to the first node in the list. This linkage causes a circular traversal; when you get to the end of the list, the next item will be back at the beginning of the list. Each type of linked list is similar but has small distinctions. When working with linked lists, it’s essential to know what type of linked list.
 
-#### Time and Space Complexity <a id="time-and-space-complexity"></a>
+**Time and Space Complexity**
 
 **Lookup**
 
@@ -344,19 +343,19 @@ In the worst case, deleting an item in a linked list is linear time \(`O(n)`\). 
 
 The space complexity of a linked list is linear \(`O(n)`\). Each item in the linked list will take up space in memory.
 
-#### Strengths of a Linked List <a id="strengths-of-a-linked-list"></a>
+**Strengths of a Linked List**
 
 The primary strength of a linked list is that operations on the linked list's ends are fast. This is because the linked list always has a reference to the head \(the first node\) and the tail \(the last node\) of the list. Because it has a reference, doing anything on the ends is a constant time operation \(`O(1)`\) no matter how many items are stored in the linked list. Additionally, just like a dynamic array, you don't have to set a capacity to a linked list when you instantiate it. If you don't know the size of the data you are storing, or if the amount of data is likely to fluctuate, linked lists can work well. One benefit over a dynamic array is that you don't have doubling appends. This is because each item doesn't have to be stored contiguously; whenever you add an item, you need to find an open spot in memory to hold the next node.
 
-#### Weaknesses of a Linked List <a id="weaknesses-of-a-linked-list"></a>
+**Weaknesses of a Linked List**
 
 The main weakness of a linked list is not efficiently accessing an "index" in the middle of the list. The only way that the linked list can get to the seventh item in the linked list is by going to the head node and then traversing one node at a time until you arrive at the seventh node. You can't do simple math and jump from the first item to the seventh.
 
-#### What data structures are built on linked lists? <a id="what-data-structures-are-built-on-linked-lists"></a>
+**What data structures are built on linked lists?**
 
 Remember that linked lists have efficient operations on the ends \(head and tail\). There are two structures that only operate on the ends; queues and stacks. So, most queue or stack implementations use a linked list as their underlying data structure.
 
-#### Why is a linked list different than an array? What problem does it solve? <a id="why-is-a-linked-list-different-than-an-array-what-problem-does-it-solve"></a>
+**Why is a linked list different than an array? What problem does it solve?**
 
 We can see the difference between how a linked list and an array are stored in memory, but why is this important? Once you see the problem with the way arrays are stored in memory, the benefits of a linked list become clearer.
 
@@ -364,7 +363,7 @@ The primary problem with arrays is that they hold data contiguously in memory. R
 
 With a linked list, the elements are not stored side-by-side in memory. Each element can be stored anywhere in memory. In addition to storing the data for that element, each element also stores a pointer to the memory location of the next element in the list. The elements in a linked list do not have an index. To get to a specific element in a linked list, you have to start at the head of the linked list and work your way through the list, one element at a time, to reach the specific element you are searching for. Now you can see how a linked list solves some of the problems that the array data structure has.
 
-#### How do you represent a linked list graphically and in Python code? <a id="how-do-you-represent-a-linked-list-graphically-and-in-python-code"></a>
+**How do you represent a linked list graphically and in Python code?**
 
 Let’s look at how we can represent a singly linked list graphically and in Python code. Seeing a singly linked list represented graphically and in code can help you understand it better.
 
@@ -430,23 +429,17 @@ Now, let's use our simple class definitions for `LinkedListNode` and `LinkedList
 
 You must be able to understand and interact with linked lists. You now know the basic properties and types of linked lists, what makes a linked list different from an array, what problem it solves, and how to represent them both graphically and in code. You now know enough about linked lists that you should be able to solve algorithmic code challenges that require a basic understanding of linked lists.
 
-### Challenge <a id="challenge"></a>
+#### Challenge <a id="challenge"></a>
 
 1. Draw out a model of a singly-linked list that stores the following integers in order: `3,2,6,5,7,9`.
 2. Draw out a model of a doubly-linked list that stores the following integers in order: `5,2,6,4,7,8`.
 
-### Additional Resources <a id="additional-resources"></a>
+#### Additional Resources <a id="additional-resources"></a>
 
 * [https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf \(Links to an external site.\)](https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf)
 * [https://www.youtube.com/watch?v=njTh\_OwMljA \(Links to an external site.](https://www.youtube.com/watch?v=njTh_OwMljA)
 
-
-
-{% embed url="https://www.youtube.com/watch?v=njTh\_OwMljA" %}
-
-
+{% embed url="https://www.youtube.com/watch?v=njTh\_OwMljA" caption="" %}
 
 {% file src="../.gitbook/assets/10-linkedlist.pdf" caption="Linked Lists Pdf" %}
-
-
 
