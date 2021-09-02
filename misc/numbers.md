@@ -67,7 +67,7 @@ The type of a number is evident from the way it is displayed: `int` values have 
 
 When a `float` value is combined with an `int` value using some arithmetic operator, then the result is always a `float` value. In most cases, two integers combine to form another integer, but any number \(`int` or `float`\) divided by another will be a `float` value. Very large or very small `float` values are displayed using scientific notation.
 
-### Float Values[¶](http://www.cs.cornell.edu/courses/cs1380/2018sp/textbook/chapters/03/2/numbers.html#Float-Values) <a id="Float-Values"></a>
+## Float Values[¶](http://www.cs.cornell.edu/courses/cs1380/2018sp/textbook/chapters/03/2/numbers.html#Float-Values) <a id="Float-Values"></a>
 
 Float values are very flexible, but they do have limits.
 

@@ -1,5 +1,10 @@
 # Aux Resources
 
+<<<<<<< HEAD
+=======
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
+>>>>>>> a19af33073892bb8d3278c7a892ffc4ae1aeb2c8
 ## Notes I Wish I Had When I Started Learning Python <a id="de54"></a>
 
 ### Plus resources for learning data structures and algorithms in python at the bottom of this article! <a id="55c5"></a>

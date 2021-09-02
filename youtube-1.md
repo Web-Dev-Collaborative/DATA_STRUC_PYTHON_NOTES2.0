@@ -1,30 +1,5 @@
 # Youtube
 
-## Youtube
-
-{% embed url="https://www.youtube.com/watch?v=rfscVS0vtbw" caption="" %}
-
-{% embed url="https://youtu.be/mYu3vNKp8SQ" caption="" %}
-
-{% embed url="https://youtu.be/7bxLcOqwL2c" caption="" %}
-
-<<<<<<< HEAD
-=======
-## &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-
->>>>>>> a19af33073892bb8d3278c7a892ffc4ae1aeb2c8
-{% embed url="https://www.youtube.com/watch?v=bS8X3x2FtK8" caption="" %}
-
-{% embed url="https://www.youtube.com/watch?v=Yg0gZuFt\_0o" caption="" %}
-
-{% embed url="https://www.youtube.com/watch?v=kByGrAty4Z8" caption="" %}
-
-{% embed url="https://www.youtube.com/watch?v=BJ8YtWWFUnw" caption="" %}
-
-<<<<<<< HEAD
-
-# Youtube
-
 **Here are the best YouTube channels to learn Python programming for beginners:**
 
 1. [**Al Sweigart**](https://mikkegoes.com/youtube-channels-learn-python/#al-sweigart)\*\*\*\*
@@ -46,7 +21,4 @@
 17. \*\*\*\*[**Telusko**](https://mikkegoes.com/youtube-channels-learn-python/#telusko)\*\*\*\*
 18. \*\*\*\*[**thenewboston**](https://mikkegoes.com/youtube-channels-learn-python/#thenewboston)\*\*\*\*
 19. \*\*\*\*[**Traversy Media**](https://mikkegoes.com/youtube-channels-learn-python/#traversy-media)\*\*\*\*
-=======
-> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
->>>>>>> a19af33073892bb8d3278c7a892ffc4ae1aeb2c8
 
