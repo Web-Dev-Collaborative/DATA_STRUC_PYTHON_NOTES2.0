@@ -1,4 +1,3 @@
 # Untitled
 
-Binary: 1000
-Decimal: 8
+Binary: 1000 Decimal: 8

@@ -1,7 +1,5 @@
 # Index Part 2:
 
-
-
 Let’s use `while` around the `if`. We cannot predict what choice the user enters. We’ll say: `while choice != 5:...` and at the end, we would want to ask the user for a choice. If your choice is anything other than `5`, we will give the output, and print the whole menu again.
 
 ```text
@@ -44,8 +42,8 @@ These are the kind of situations where `while` loop is good. W
 
 In this step, we:
 
-* Enhanced the menu exercise done earlier, to allow the user to give operation choices repeatedly
-* Found that a `while` loop was ideal to solve this exercise
+- Enhanced the menu exercise done earlier, to allow the user to give operation choices repeatedly
+- Found that a `while` loop was ideal to solve this exercise
 
 #### Step 09 - Loops - Puzzles - break and continue
 
@@ -467,8 +465,8 @@ What about `boolean` values? It’s `bool`. So everything that you see in a Pyth
 
 The two important things we have learned over here are:
 
-* Python is strongly typed. You cannot do anything that is not allowed by a specific type on an instance of that specific type. And if you do, so you would get an error.
-* The second thing which we looked at, was the fact that everything in Python is an object.
+- Python is strongly typed. You cannot do anything that is not allowed by a specific type on an instance of that specific type. And if you do, so you would get an error.
+- The second thing which we looked at, was the fact that everything in Python is an object.
 
 The other important concept over here is, we have `str` binding to `'value'`. What is the value of `type(str)` right now? It’s a `str`, a string.
 
@@ -583,16 +581,16 @@ Humans think in a step by step process.
 
 Let’s say I’ve to take a flight from London to New York. This is how I would think:
 
-* Take a cab to London Airport
-* Check in
-* Pass Security
-* Board the flight
-* Wish the Hostess
-* Take Off
-* Cruise
-* Land
-* Get off the plane
-* Take a cab to ..
+- Take a cab to London Airport
+- Check in
+- Pass Security
+- Board the flight
+- Wish the Hostess
+- Take Off
+- Cruise
+- Land
+- Get off the plane
+- Take a cab to ..
 
 Procedural programming is just a reflection of this thought process. A procedural program for above process would look something like this:
 
@@ -634,8 +632,8 @@ We have **encapsulated** data and methods into these entities, which are now cal
 
 An object has
 
-* **State** : Its data
-* **Behavior** : Its operations
+- **State** : Its data
+- **Behavior** : Its operations
 
 The `position` of an `Airplane` can change over time. The operations that can be performed on an `Airplane` include `takeOff()`, `land()` and `cruiseMode()`. Each of these actions can change its `position`. Therefore, an object’s behavior can affects its own state.
 
@@ -660,28 +658,28 @@ Let’s look at some **OOP** terminology.
 
 A **class** is a template. An **object** is an instance of a class. In above example, `Planet` is a class. `earth` and `venus` are objects.
 
-* `name`, `location` and `distanceFromSun` compose object state.
-* `rotate()` and `revolve()` define object’s behavior.
+- `name`, `location` and `distanceFromSun` compose object state.
+- `rotate()` and `revolve()` define object’s behavior.
 
 **Fields** are the elements that make up the object state. Object behavior is implemented through **Methods**.
 
 Each Planet has its own state:
 
-* `name`: “Earth”, “Venus”
-* `location` : Each has its own orbit
-* `distanceFromSun` : They are at unique, different distances from the sun
+- `name`: “Earth”, “Venus”
+- `location` : Each has its own orbit
+- `distanceFromSun` : They are at unique, different distances from the sun
 
 Each has its own unique behavior:
 
-* `rotate()` : They rotate at different rates \(and in fact, different directions!\)
-* `revolve()` : They revolve round the sun in different orbits, at different speeds
+- `rotate()` : They rotate at different rates \(and in fact, different directions!\)
+- `revolve()` : They revolve round the sun in different orbits, at different speeds
 
 **Summary**
 
 In this step, we:
 
-* Understood how OOP is different from Prodedural Programming
-* Learned about a few basic OOP terms
+- Understood how OOP is different from Prodedural Programming
+- Learned about a few basic OOP terms
 
 #### Step 03: Programming Exercise PE-01
 
@@ -1465,9 +1463,9 @@ In this step, let’s focus on the first question: “why do we need data struct
 
 Suppose we have multiple values to store, like marks of different students in a course. Let’s say these are as follows:
 
-* first student: `mark1` is `45`
-* second student: `mark2` is `54`.\(These are quite average students, maybe like me!\)
-* and third student: `mark3` is say, `80`. This guy is a very good student.
+- first student: `mark1` is `45`
+- second student: `mark2` is `54`.\(These are quite average students, maybe like me!\)
+- and third student: `mark3` is say, `80`. This guy is a very good student.
 
 Let’s assume the professor asked: “What’s the sum, and what is the average?”.
 
@@ -1632,12 +1630,12 @@ In this step, let’s look at an exercise using the `list` we created earlier.
 
 Create a `Student` `class` accepting a name, and a list of marks. We want to be able to perform all of these operations which are listed in here, on the `Student` `class`:
 
-* Find out how many number of marks are there,
-* Find out what the total sum of marks,
-* Determine the maximum mark,
-* Determine the minimum mark,
-* Calculate the average,
-* Add a new mark, as well as remove a mark, at a specific index.
+- Find out how many number of marks are there,
+- Find out what the total sum of marks,
+- Determine the maximum mark,
+- Determine the minimum mark,
+- Calculate the average,
+- Add a new mark, as well as remove a mark, at a specific index.
 
 Suppose the list is `[23, 45, 56, 75]`, which are his marks in different subjects.
 
@@ -2302,10 +2300,10 @@ In this step, we looked at how to create lists using custom classes in Python. I
 
 In the previous step, we created a `Country` `class`, and we created a list of countries. In this step, Let’s focus on trying to find the:
 
-* country with the maximum population
-* country with the maximum area
-* country with the minimum area
-* sorted list of countries, in a specific order
+- country with the maximum population
+- country with the maximum area
+- country with the minimum area
+- sorted list of countries, in a specific order
 
   from operator import attrgetter
 
@@ -2696,8 +2694,8 @@ In this step, let’s do a simple exercise with a dictionary. We have a simple s
 
 With this string, we want to do two things:
 
-* Compute how many times has each word is present in the string.
-* Find out how many times each character is present in this string.
+- Compute how many times has each word is present in the string.
+- Find out how many times each character is present in this string.
 
 **Solution 1**
 
@@ -2718,10 +2716,10 @@ Output
 
 What this does is
 
-* It checks the `char_occurrances` to see how many times `char` is present.
-* If it’s not present, then return `0`.
-* The first time you find `char`, the value which would be set to `0 + 1`, or `1`.
-* The second time you’ll find the character, you’ll have `1` in the dictionary, add `1` to it, and store and return a `2`.
+- It checks the `char_occurrances` to see how many times `char` is present.
+- If it’s not present, then return `0`.
+- The first time you find `char`, the value which would be set to `0 + 1`, or `1`.
+- The second time you’ll find the character, you’ll have `1` in the dictionary, add `1` to it, and store and return a `2`.
 
 **Solution 2**
 
@@ -2963,13 +2961,13 @@ Welcome to this section, a continuation on Object-Oriented Programming. In an ea
 
 In this section, we will focus on more advanced stuff related to object oriented programming, such as:
 
-* Object composition
-* Inheritance
-* Abstract classes, and class design
+- Object composition
+- Inheritance
+- Abstract classes, and class design
 
 Recommended Video
 
-* Java Advanced Object Oriented Programming Tutorial - [https://www.youtube.com/watch?v=0flBHkyET\\_E](https://www.youtube.com/watch?v=0flBHkyET%5C_E)
+- Java Advanced Object Oriented Programming Tutorial - [https://www.youtube.com/watch?v=0flBHkyET\\\_E](https://www.youtube.com/watch?v=0flBHkyET%5C_E)
 
 #### Step 01: OOP Basics Revised
 
@@ -2979,9 +2977,9 @@ In this first step, we will revise the concepts we learned earlier: **class**, *
 
 In the previous step, we talked about a few important questions that you need to ask when you are talking about your classes:
 
-* What is the state? That means, what are the member variables you need to have.
-* How do you want to allow creation of a specific object? That is, what is the kind of constructor that you want to allow?
-* What is what is the behavior you want? That would be the member method definitions.
+- What is the state? That means, what are the member variables you need to have.
+- How do you want to allow creation of a specific object? That is, what is the kind of constructor that you want to allow?
+- What is what is the behavior you want? That would be the member method definitions.
 
 Let’s consider the example of a ceiling fan. For this `Fan` `class`, you can think about the different elements that represent the state of a specific `Fan` object. You can think about how you want to allow construction of a `Fan` object, and how to define its behavior. In other words, what kind of changes you want to allow in the state of a `Fan` class.
 
@@ -2989,10 +2987,10 @@ The state we’re looking at is `make` \(manufacturer\), `radius` \(wing radius\
 
 An important thing you need to take care of, when you’re designing the behavior of a class, is to think about the consumers. Think about who’s going to use your class, and how they would like to see it. When we talk about a fan, the typical behavior is:
 
-* Switch it on
-* Switch it off
-* Increase the speed
-* Decrease the speed
+- Switch it on
+- Switch it off
+- Increase the speed
+- Decrease the speed
 
 This is the typical behavior that might be expected by consumers, who would use our class. Even when you’re not really designing classes to be consumed by others, we would recommend you to think about what kind of behavior you would want, and get an outside in perspective.
 
@@ -3473,9 +3471,9 @@ In this step. Let’s look at a real world example of how you can use an abstrac
 
 Let’s create a class called `Recipe`. Typically when we cook something, there are typically three steps involved.
 
-* The first one is to prepare. You’d want to make sure, that you have all the raw materials ready, you have clean vessels, and the dishes are done and ready for use.
-* The second one, is to execute the recipe, so you need to follow the instructions.
-* The last step is to do a clean up. Make sure that you clean and things like that.
+- The first one is to prepare. You’d want to make sure, that you have all the raw materials ready, you have clean vessels, and the dishes are done and ready for use.
+- The second one, is to execute the recipe, so you need to follow the instructions.
+- The last step is to do a clean up. Make sure that you clean and things like that.
 
 Let’s say now, you’re creating a `class` to represent a `Recipe`, and you want to make sure that each of the sub-classes follow these three steps.
 
@@ -3578,11 +3576,11 @@ switch off microwave
 
 In this section, we looked at a wide variety of object oriented concepts.
 
-* We started with revising the basic concepts - classes, objects - state and behavior. We created a couple of simple object oriented programming examples. We designed a Fan and Book classes with state and behavior.
-* We looked at object composition. We created a Book class having a number of Reviews.
-* We looked at inheritance. We created multiple examples of inheritance, and we looked at an example of multiple inheritance as well. Inheritance helps us to design a class hierarchy, and to use properties from the super-class.
-* We looked at a specific type of a class called abstract class, for which you’ll not be able to create instances. We looked at examples where abstract classes are really useful.
-* We looked at the Template Method design pattern, where you define a template, and leave specific implementation details to the subclass. We saw how abstract classes help us to implement Template Method design pattern.
+- We started with revising the basic concepts - classes, objects - state and behavior. We created a couple of simple object oriented programming examples. We designed a Fan and Book classes with state and behavior.
+- We looked at object composition. We created a Book class having a number of Reviews.
+- We looked at inheritance. We created multiple examples of inheritance, and we looked at an example of multiple inheritance as well. Inheritance helps us to design a class hierarchy, and to use properties from the super-class.
+- We looked at a specific type of a class called abstract class, for which you’ll not be able to create instances. We looked at examples where abstract classes are really useful.
+- We looked at the Template Method design pattern, where you define a template, and leave specific implementation details to the subclass. We saw how abstract classes help us to implement Template Method design pattern.
 
 ### Chapter 12 - Error Handling
 
@@ -4091,17 +4089,17 @@ Exception is thrown. So, `except` and `finally` are executed. `else` is not exec
 
 Here’s the summary:
 
-* `except` is called when exception is thrown and exception matches.
-* `else` is executed only when an exception is not thrown.
-* `finally` is always executed
+- `except` is called when exception is thrown and exception matches.
+- `else` is executed only when an exception is not thrown.
+- `finally` is always executed
 
 #### Step 07: Error Handling Again
 
 In this step, let’s look at a few more things related to exception handling blocks. We have a `try` block, `except` block, `else` block and `finally` block. What are the allowed combinations?
 
-* With a `try`, you can have multiple `except` blocks.
-* You cannot have an `else` without `except` blocks.
-* You can have a `try` with just `finally` - If there is an exception, code in finally is executed.
+- With a `try`, you can have multiple `except` blocks.
+- You cannot have an `else` without `except` blocks.
+- You can have a `try` with just `finally` - If there is an exception, code in finally is executed.
 
 #### Step 08: Raising Exceptions
 
@@ -4909,14 +4907,14 @@ module_1.ClassA().class_method_1()
 
 When this code is run, you would see that the messages are shown twice.
 
-* Once from module\_1 import
-* Once from module\_2 execution
+- Once from module_1 import
+- Once from module_2 execution
 
 **If you have any code that’s not within a class or a method, then that code is executed automatically.**
 
 How can we prevent code outside a class or a method from executing when it is imported?
 
-You can update module\_1 with an if condition
+You can update module_1 with an if condition
 
 ```text
 if __name__ == '__main__':
@@ -5033,4 +5031,3 @@ Let’s see if `student3 == student1` Interesting to note, because we have now p
 ```
 
 If you are defining a class, and you would want equality for that class to be looking at the content of the class, then we would need to override the `__eq__` method. When you compare objects using `==` , the `__eq__` method would be called.
-

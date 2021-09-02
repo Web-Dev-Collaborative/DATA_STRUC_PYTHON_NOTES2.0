@@ -4,7 +4,7 @@ Implement an algorithm that will check whether the given `grid` of numbers repre
 
 **Example**
 
-* For
+- For
 
 ```
 
@@ -20,10 +20,9 @@ grid = [['.', '.', '.', '1', '4', '.', '.', '2', '.'],
 
 ```
 
-the output should be
-`sudoku2(grid) = true`
+the output should be `sudoku2(grid) = true`
 
-* For
+- For
 
 ```
 
@@ -39,7 +38,6 @@ grid = [['.', '.', '.', '.', '2', '.', '.', '9', '.'],
 
 ```
 
-the output should be
-`sudoku2(grid) = false`.
+the output should be `sudoku2(grid) = false`.
 
 The given `grid` is not correct because there are two `1`s in the second column. Each column, each row, and each `3 × 3` subgrid can only contain the numbers `1` through `9` one time.

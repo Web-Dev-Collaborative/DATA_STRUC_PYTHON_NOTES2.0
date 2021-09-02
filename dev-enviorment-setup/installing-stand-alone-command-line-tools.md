@@ -111,4 +111,3 @@ pipx --help
 ![Copy to clipboard](https://packaging.python.org/_static/copy-button.svg)
 
 You can learn more about pipx at [https://pypa.github.io/pipx/](https://pypa.github.io/pipx/).
-

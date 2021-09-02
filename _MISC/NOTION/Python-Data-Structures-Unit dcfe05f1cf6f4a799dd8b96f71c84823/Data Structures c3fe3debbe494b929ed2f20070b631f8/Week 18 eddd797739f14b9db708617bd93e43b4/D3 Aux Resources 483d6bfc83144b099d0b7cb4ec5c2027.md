@@ -4,7 +4,7 @@
 
 [https://docs.python.org/3/library/stdtypes.html](https://docs.python.org/3/library/stdtypes.html)
 
-## 
+##
 
 Converting between different number bases is actually fairly simple, but the thinking behind it can seem a bit confusing at first. And while the topic of different bases may seem somewhat pointless to you, the rise of computers and computer graphics has increased the need for knowledge of how to work with different (non-decimal) base systems, particularly [binary](https://www.purplemath.com/modules/numbbase.htm#Binary) systems (ones and zeroes) and [hexadecimal](https://www.purplemath.com/modules/numbbase3.htm#Hexidecimal) systems (the numbers zero through nine, followed by the letters A through F).
 

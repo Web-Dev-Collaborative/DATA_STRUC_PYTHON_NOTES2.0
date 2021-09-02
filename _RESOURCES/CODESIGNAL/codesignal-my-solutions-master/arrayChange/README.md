@@ -2,5 +2,4 @@ You are given an array of integers. On each move you are allowed to increase exa
 
 **Example**
 
-For `inputArray = [1, 1, 1]`, the output should be
-`arrayChange(inputArray) = 3`.
+For `inputArray = [1, 1, 1]`, the output should be `arrayChange(inputArray) = 3`.

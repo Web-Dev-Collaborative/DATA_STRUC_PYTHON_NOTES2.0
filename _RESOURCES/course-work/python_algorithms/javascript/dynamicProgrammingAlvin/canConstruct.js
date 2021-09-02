@@ -26,32 +26,31 @@
 
 // 1.  Create the function
 const canConstruct = (target, wordBank, memo = {}) => {
-    // 3. Define base case
-    if (target in memo) return memo[target];
-    if (target === '') return true;
+  // 3. Define base case
+  if (target in memo) return memo[target];
+  if (target === '') return true;
 
-    for (let word of wordBank) {
-        if (target.indexOf(word) === 0) {
-            // If prefix exists, we can slice the suffix from this for our recursion
-            const suffix = target.slice(word.length);
-            if (canConstruct(suffix, wordBank, memo) === true) {
-                memo[target] = true;
-                return true;
-            };
-        }
+  for (let word of wordBank) {
+    if (target.indexOf(word) === 0) {
+      // If prefix exists, we can slice the suffix from this for our recursion
+      const suffix = target.slice(word.length);
+      if (canConstruct(suffix, wordBank, memo) === true) {
+        memo[target] = true;
+        return true;
+      }
     }
-    memo[target] = false;
-    return false;
+  }
+  memo[target] = false;
+  return false;
 };
 
-
-
 // 2. Create test inputs and outputs
-console.log(canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']));      // true
-console.log(canConstruct('', ['cat', 'dog', 'mouse']));                       // true
+console.log(canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd'])); // true
+console.log(canConstruct('', ['cat', 'dog', 'mouse'])); // true
 console.log(canConstruct('skateboard', ['bo', 'rd', 'ate', 'skat', 'boar'])); // false
 console.log(canConstruct('enterapotentpot', ['a', 'p', 'ent', 'ot', 'pot'])); // false
-console.log(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', [
+console.log(
+  canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', [
     'eeeeeeeeeeeeee',
     'eeeeeeeeeeeeeee',
     'ee',
@@ -64,5 +63,6 @@ console.log(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', [
     'eeeeeeedsadaeee',
     'eeeeeeeeeeeesdaseee',
     'eeeeeeeeeeeeedsad',
-    'eeeeeeeeee'
-])); // false
+    'eeeeeeeeee',
+  ])
+); // false

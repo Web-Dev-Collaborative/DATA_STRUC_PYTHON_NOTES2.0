@@ -23,12 +23,15 @@ parts of a hash table
 """
 
 # key : value pair store known as HashTable, HashMap, Dictionary, ObjectLiteral
+
+
 def my_hash(key):
   sum = 0
   for c in key:
     sum += ord(c)
-  
+
   return sum
+
 
 def my_hash2(key):
   sum = 0
@@ -51,6 +54,7 @@ def my_hash2(key):
 # mask the end number to fit inside 32 bit space
 # return the hash
 
+
 def djb2(key):
   str_key = str(key).encode()
 
@@ -64,8 +68,9 @@ def djb2(key):
     # final_hash = total_hash & 0xffffffff
     hash_value = ((hash_value << 5) + hash_value) + b
     hash_value &= 0xffffffff
-  
+
   return hash_value
+
 
 """
 00101000
@@ -98,8 +103,8 @@ mul eax, 2
 and  False, False, False, True, True, True, True
      False, False, False, True, True, True, False
 
-  111000001010101110000000010101 
-& 000000000000000000000011111111 
+  111000001010101110000000010101
+& 000000000000000000000011111111
   000000000000000000000000010101
 """
 
@@ -112,16 +117,19 @@ storage = [None] * 10
 
 """
 
+
 class HashTable:
 # """
 # A hash table with `capacity` buckets
 # that accepts string keys
 # """
 
+
 def __init__(self, capacity):
     self.capacity = capacity  # Number of buckets in the hash table
     self.storage = [None] * capacity
     self.item_count = 0
+
 
 def djb2(self, key):
     """
@@ -140,12 +148,14 @@ def djb2(self, key):
 
     return hash_value
 
+
 def hash_index(self, key):
     """
     Take an arbitrary key and return a valid integer index
     between within the storage capacity of the hash table.
     """
     return self.djb2(key) % self.capacity
+
 
 def put(self, key, value):
     """
@@ -155,6 +165,7 @@ def put(self, key, value):
     self.storage[index] = value
     return
 
+
 def delete(self, key):
     """
     Remove the value stored with the given key.
@@ -162,13 +173,15 @@ def delete(self, key):
     index = self.hash_index(key)
     self.storage[index] = None
 
+
 def get(self, key):
-"""
-    Retrieve the value stored with the given key.
-    Returns None if the key is not found.
-    """
+# """
+#     Retrieve the value stored with the given key.
+#     Returns None if the key is not found.
+#     """
     index = self.hash_index(key)
     return self.storage[index]
+
 
 """# CODE 7506
 
@@ -197,20 +210,26 @@ hash_table.remove("b");         // remove the mapping for 2
 hash_table.get("b");            // returns -1 (not found)
 ```
 """
+
+
 class ListNode:
     def __init__(self, key, value):
         self.key = key
         self.value = value
         self.next = None
+
+
 """
 4000    12       89
 ["ABC", 10]-->["CBA", 100]-->["BAC", 2342]-->["AAAB", 400]-->None
    ^
-   |   
+   |
 [4000, 9000, 6000] --> ["ZAB", 600]
          | 9000            99            10
          ["XYZ", 10]-->["ZYX", 134]-->["ZXY", 2342]-->None
 """
+
+
 class MyHashTable:
     def __init__(self):
         # Your code here
@@ -218,11 +237,8 @@ class MyHashTable:
         self.size = 0
         self.storage = [None] * self.capacity
 
-
-
-
-       
     # Your code here
+
     def djb2(self, key):
       """
       DJB2 hash, 32-bit
@@ -240,6 +256,7 @@ class MyHashTable:
 
       return hash_value
 
+
 def hash_index(self, key):
       """
       Take an arbitrary key and return a valid integer index
@@ -247,8 +264,8 @@ def hash_index(self, key):
       """
       return self.djb2(key) % self.capacity
 
-    
-    
+
+
     def put(self, key, value):
         # Your code here
         index = self.hash_index(key)
@@ -264,12 +281,11 @@ def hash_index(self, key):
               return
             if current_node.next == None:
               break
-            
+
             current_node = current_node.next
 
           self.size += 1
           current_node.next = ListNode(key, value)
-        
 
 
     def get(self, key):
@@ -294,7 +310,7 @@ def hash_index(self, key):
         if not curr_node: return
 
         if curr_node.key == key:
-            # We found the node to delete immediately, we can now skip over it 
+            # We found the node to delete immediately, we can now skip over it
             self.hash_table[index] = curr_node.next
         else:
             # We did not find the node to delete we must now traverse the bin

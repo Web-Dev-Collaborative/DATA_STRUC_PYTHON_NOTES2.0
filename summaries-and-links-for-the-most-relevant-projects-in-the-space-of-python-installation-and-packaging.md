@@ -72,7 +72,7 @@ pipx is a tool to install and run Python command-line applications without causi
 
 This guide!
 
-### readme\_renderer[¶](https://packaging.python.org/key_projects/#readme-renderer)
+### readme_renderer[¶](https://packaging.python.org/key_projects/#readme-renderer)
 
 [GitHub and docs](https://github.com/pypa/readme_renderer/) \| [PyPI](https://pypi.org/project/readme_renderer/)
 
@@ -253,4 +253,3 @@ Due to the challenges of maintaining a packaging system where feature updates ar
 [Docs](https://docs.python.org/3/library/venv.html) \| [Issues](http://bugs.python.org/)
 
 A package in the Python Standard Library \(starting with Python 3.3\) for creating [Virtual Environments](https://packaging.python.org/glossary/#term-Virtual-Environment). For more information, see the section on [Creating Virtual Environments](https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments).
-

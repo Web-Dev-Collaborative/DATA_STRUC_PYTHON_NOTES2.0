@@ -13,16 +13,15 @@
  *
  *************************************************************************************/
 
-
 // 1. Create the function
 const gridTraveler = (rows, columns) => {
-    const table = Array(rows + 1).fill().map(() => Array(columns + 1).fill(0));
-    table[1][1] = 1;
-    console.log(table);
+  const table = Array(rows + 1)
+    .fill()
+    .map(() => Array(columns + 1).fill(0));
+  table[1][1] = 1;
+  console.log(table);
 };
 
-
-
 // 2. Create test cases
-console.log(gridTraveler(3, 3));     // 6
-console.log(gridTraveler(1, 1));     // 1
+console.log(gridTraveler(3, 3)); // 6
+console.log(gridTraveler(1, 1)); // 1

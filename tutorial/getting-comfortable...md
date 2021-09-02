@@ -1,7 +1,5 @@
 # Getting Comfortable..
 
-
-
 ## Use a print statement <a id="6b6a"></a>
 
 **Overview**
@@ -12,7 +10,7 @@ Using print with no arguments:
 
 ```text
 >>> print()
- 
+
  >>>
 ```
 
@@ -124,7 +122,7 @@ Now, get some practice using the print function by completing the Try: below.
 
 **Additional Resources**
 
-* [https://www.w3schools.com/python/ref\_func\_print.asp](https://www.w3schools.com/python/ref_func_print.asp)
+- [https://www.w3schools.com/python/ref_func_print.asp](https://www.w3schools.com/python/ref_func_print.asp)
 
 **Use white space to denote blocks**![](https://miro.medium.com/max/60/0*bDX5OqElYa0EWFPp.png?q=20)![](https://miro.medium.com/max/788/0*bDX5OqElYa0EWFPp.png)
 
@@ -184,4 +182,3 @@ Whitespace \(indentation\) can denote code blocks. Python gives meaning to the a
 ```
 
 ## MY BLOG: <a id="fab9"></a>
-

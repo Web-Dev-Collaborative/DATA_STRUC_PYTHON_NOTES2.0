@@ -1,84 +1,215 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>leetcode</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-</head>
-<body>
-<h1 id="leetcode">LEETCODE</h1>
-<h2 id="given-two-binary-trees-write-a-function-to-check-if-they-are-the-same-or-not.">Given two binary trees, write a function to check if they are the same or not.</h2>
-<pre class="text"><code>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>leetcode</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h1 id="leetcode">LEETCODE</h1>
+    <h2
+      id="given-two-binary-trees-write-a-function-to-check-if-they-are-the-same-or-not."
+    >
+      Given two binary trees, write a function to check if they are the same or
+      not.
+    </h2>
+    <pre
+      class="text"
+    ><code>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
 
 Example 1:
 
@@ -89,14 +220,22 @@ Input:     1         1
         [1,2,3],   [1,2,3]
 
 Output: true</code></pre>
-<h3 id="definition-for-a-binary-tree-node.">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject">class TreeNode(object):</h3>
-<h3 id="def-initself-x">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x">self.val = x</h3>
-<h3 id="self.left-none">self.left = None</h3>
-<h3 id="self.right-none">self.right = None</h3>
-<p>class Solution(object): def isSameTree(self, p, q): :type p: TreeNode :type q: TreeNode :rtype: bool if not p and not q: return True</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">        stack <span class="op">=</span> [(p, q)]</a>
+    <h3 id="definition-for-a-binary-tree-node.">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject">class TreeNode(object):</h3>
+    <h3 id="def-initself-x">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x">self.val = x</h3>
+    <h3 id="self.left-none">self.left = None</h3>
+    <h3 id="self.right-none">self.right = None</h3>
+    <p>
+      class Solution(object): def isSameTree(self, p, q): :type p: TreeNode
+      :type q: TreeNode :rtype: bool if not p and not q: return True
+    </p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">        stack <span class="op">=</span> [(p, q)]</a>
 <a class="sourceLine" id="cb2-2" title="2"></a>
 <a class="sourceLine" id="cb2-3" title="3">        <span class="cf">while</span> stack:</a>
 <a class="sourceLine" id="cb2-4" title="4">            node1, node2 <span class="op">=</span> stack.pop()</a>
@@ -107,9 +246,17 @@ Output: true</code></pre>
 <a class="sourceLine" id="cb2-9" title="9">                <span class="cf">if</span> <span class="kw">not</span> node1 <span class="op">==</span> node2:</a>
 <a class="sourceLine" id="cb2-10" title="10">                    <span class="cf">return</span> <span class="va">False</span></a>
 <a class="sourceLine" id="cb2-11" title="11"></a>
-<a class="sourceLine" id="cb2-12" title="12">        <span class="cf">return</span> <span class="va">True</span></a></code></pre></div>
-<h2 id="given-a-binary-tree-check-whether-it-is-a-mirror-of-itself-ie-symmetric-around-its-center.">Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</h2>
-<pre class="text"><code>For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
+<a class="sourceLine" id="cb2-12" title="12">        <span class="cf">return</span> <span class="va">True</span></a></code></pre>
+    </div>
+    <h2
+      id="given-a-binary-tree-check-whether-it-is-a-mirror-of-itself-ie-symmetric-around-its-center."
+    >
+      Given a binary tree, check whether it is a mirror of itself (ie, symmetric
+      around its center).
+    </h2>
+    <pre
+      class="text"
+    ><code>For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
 
     1
    / \
@@ -124,13 +271,18 @@ But the following [1,2,2,null,3,null,3] is not:
   2   2
    \   \
    3    3</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-1">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-1">class TreeNode(object):</h3>
-<h3 id="def-initself-x-1">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-1">self.val = x</h3>
-<h3 id="self.left-none-1">self.left = None</h3>
-<h3 id="self.right-none-1">self.right = None</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Solution(<span class="bu">object</span>): <span class="kw">def</span> isSymmetric(<span class="va">self</span>, root):  :<span class="bu">type</span> root: TreeNode :rtype: <span class="bu">bool</span>  <span class="cf">if</span> <span class="kw">not</span> root: <span class="cf">return</span> <span class="va">True</span></a>
+    <h3 id="definition-for-a-binary-tree-node.-1">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-1">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-1">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-1">self.val = x</h3>
+    <h3 id="self.left-none-1">self.left = None</h3>
+    <h3 id="self.right-none-1">self.right = None</h3>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Solution(<span class="bu">object</span>): <span class="kw">def</span> isSymmetric(<span class="va">self</span>, root):  :<span class="bu">type</span> root: TreeNode :rtype: <span class="bu">bool</span>  <span class="cf">if</span> <span class="kw">not</span> root: <span class="cf">return</span> <span class="va">True</span></a>
 <a class="sourceLine" id="cb4-2" title="2"></a>
 <a class="sourceLine" id="cb4-3" title="3">        <span class="kw">def</span> dfs(left, right):</a>
 <a class="sourceLine" id="cb4-4" title="4">            <span class="cf">if</span> <span class="kw">not</span> left <span class="kw">and</span> <span class="kw">not</span> right:</a>
@@ -144,9 +296,15 @@ But the following [1,2,2,null,3,null,3] is not:
 <a class="sourceLine" id="cb4-12" title="12">                <span class="kw">and</span> dfs(left.right, right.left)</a>
 <a class="sourceLine" id="cb4-13" title="13">            )</a>
 <a class="sourceLine" id="cb4-14" title="14"></a>
-<a class="sourceLine" id="cb4-15" title="15">        <span class="cf">return</span> dfs(root, root)</a></code></pre></div>
-<h2 id="given-a-binary-tree-return-the-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level.">Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</h2>
-<pre class="text"><code>For example:
+<a class="sourceLine" id="cb4-15" title="15">        <span class="cf">return</span> dfs(root, root)</a></code></pre>
+    </div>
+    <h2
+      id="given-a-binary-tree-return-the-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level."
+    >
+      Given a binary tree, return the level order traversal of its nodes’
+      values. (ie, from left to right, level by level).
+    </h2>
+    <pre class="text"><code>For example:
 Given binary tree [3,9,20,null,null,15,7],
 
     3
@@ -162,14 +320,22 @@ return its level order traversal as:
   [9,20],
   [15,7]
 ]</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-2">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-2">class TreeNode(object):</h3>
-<h3 id="def-initself-x-2">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-2">self.val = x</h3>
-<h3 id="self.left-none-2">self.left = None</h3>
-<h3 id="self.right-none-2">self.right = None</h3>
-<p>class Solution(object): def levelOrder(self, root): :type root: TreeNode :rtype: List[List[int]]</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root:</a>
+    <h3 id="definition-for-a-binary-tree-node.-2">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-2">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-2">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-2">self.val = x</h3>
+    <h3 id="self.left-none-2">self.left = None</h3>
+    <h3 id="self.right-none-2">self.right = None</h3>
+    <p>
+      class Solution(object): def levelOrder(self, root): :type root: TreeNode
+      :rtype: List[List[int]]
+    </p>
+    <div class="sourceCode" id="cb6">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root:</a>
 <a class="sourceLine" id="cb6-2" title="2">            <span class="cf">return</span> []</a>
 <a class="sourceLine" id="cb6-3" title="3"></a>
 <a class="sourceLine" id="cb6-4" title="4">        queue <span class="op">=</span> [(root, <span class="dv">0</span>)]</a>
@@ -190,9 +356,16 @@ return its level order traversal as:
 <a class="sourceLine" id="cb6-19" title="19">        result <span class="op">=</span> []</a>
 <a class="sourceLine" id="cb6-20" title="20">        <span class="cf">for</span> key, value <span class="kw">in</span> levelMap.iteritems():</a>
 <a class="sourceLine" id="cb6-21" title="21">            result.append(value)</a>
-<a class="sourceLine" id="cb6-22" title="22">        <span class="cf">return</span> result</a></code></pre></div>
-<h2 id="given-a-binary-tree-return-the-zigzag-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-then-right-to-left-for-the-next-level-and-alternate-between.">Given a binary tree, return the zigzag level order traversal of its nodes’ values. (ie, from left to right, then right to left for the next level and alternate between).</h2>
-<pre class="text"><code>For example:
+<a class="sourceLine" id="cb6-22" title="22">        <span class="cf">return</span> result</a></code></pre>
+    </div>
+    <h2
+      id="given-a-binary-tree-return-the-zigzag-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-then-right-to-left-for-the-next-level-and-alternate-between."
+    >
+      Given a binary tree, return the zigzag level order traversal of its nodes’
+      values. (ie, from left to right, then right to left for the next level and
+      alternate between).
+    </h2>
+    <pre class="text"><code>For example:
 Given binary tree [3,9,20,null,null,15,7],
 
     3
@@ -208,14 +381,22 @@ return its zigzag level order traversal as:
   [20,9],
   [15,7]
 ]</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-3">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-3">class TreeNode(object):</h3>
-<h3 id="def-initself-x-3">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-3">self.val = x</h3>
-<h3 id="self.left-none-3">self.left = None</h3>
-<h3 id="self.right-none-3">self.right = None</h3>
-<p>class Solution(object): def zigzagLevelOrder(self, root): :type root: TreeNode :rtype: List[List[int]]</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root:</a>
+    <h3 id="definition-for-a-binary-tree-node.-3">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-3">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-3">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-3">self.val = x</h3>
+    <h3 id="self.left-none-3">self.left = None</h3>
+    <h3 id="self.right-none-3">self.right = None</h3>
+    <p>
+      class Solution(object): def zigzagLevelOrder(self, root): :type root:
+      TreeNode :rtype: List[List[int]]
+    </p>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root:</a>
 <a class="sourceLine" id="cb8-2" title="2">            <span class="cf">return</span> []</a>
 <a class="sourceLine" id="cb8-3" title="3"></a>
 <a class="sourceLine" id="cb8-4" title="4">        queue <span class="op">=</span> [(root, <span class="dv">0</span>)]</a>
@@ -240,9 +421,16 @@ return its zigzag level order traversal as:
 <a class="sourceLine" id="cb8-23" title="23">                value <span class="op">=</span> value[::<span class="op">-</span><span class="dv">1</span>]</a>
 <a class="sourceLine" id="cb8-24" title="24">            result.append(value)</a>
 <a class="sourceLine" id="cb8-25" title="25">            spiral <span class="op">=</span> <span class="kw">not</span> spiral</a>
-<a class="sourceLine" id="cb8-26" title="26">        <span class="cf">return</span> result</a></code></pre></div>
-<h2 id="given-a-non-empty-string-s-and-a-dictionary-worddict-containing-a-list-of-non-empty-words-determine-if-s-can-be-segmented-into-a-space-separated-sequence-of-one-or-more-dictionary-words.">Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</h2>
-<pre class="text"><code>Note:
+<a class="sourceLine" id="cb8-26" title="26">        <span class="cf">return</span> result</a></code></pre>
+    </div>
+    <h2
+      id="given-a-non-empty-string-s-and-a-dictionary-worddict-containing-a-list-of-non-empty-words-determine-if-s-can-be-segmented-into-a-space-separated-sequence-of-one-or-more-dictionary-words."
+    >
+      Given a non-empty string s and a dictionary wordDict containing a list of
+      non-empty words, determine if s can be segmented into a space-separated
+      sequence of one or more dictionary words.
+    </h2>
+    <pre class="text"><code>Note:
 
 The same word in the dictionary may be reused multiple times in the segmentation.
 You may assume the dictionary does not contain duplicate words.
@@ -251,14 +439,23 @@ Example 1:
 Input: s = &quot;leetcode&quot;, wordDict = [&quot;leet&quot;, &quot;code&quot;]
 Output: true
 Explanation: Return true because &quot;leetcode&quot; can be segmented as &quot;leet code&quot;.</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-4">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-4">class TreeNode(object):</h3>
-<h3 id="def-initself-x-4">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-4">self.val = x</h3>
-<h3 id="self.left-none-4">self.left = None</h3>
-<h3 id="self.right-none-4">self.right = None</h3>
-<p>class Solution(object): def buildTree(self, preorder, inorder): :type preorder: List[int] :type inorder: List[int] :rtype: TreeNode self.index = 0</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1">        <span class="kw">def</span> recursive(preorder, inorder, start, end):</a>
+    <h3 id="definition-for-a-binary-tree-node.-4">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-4">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-4">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-4">self.val = x</h3>
+    <h3 id="self.left-none-4">self.left = None</h3>
+    <h3 id="self.right-none-4">self.right = None</h3>
+    <p>
+      class Solution(object): def buildTree(self, preorder, inorder): :type
+      preorder: List[int] :type inorder: List[int] :rtype: TreeNode self.index =
+      0
+    </p>
+    <div class="sourceCode" id="cb10">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1">        <span class="kw">def</span> recursive(preorder, inorder, start, end):</a>
 <a class="sourceLine" id="cb10-2" title="2">            <span class="cf">if</span> start <span class="op">&gt;</span> end:</a>
 <a class="sourceLine" id="cb10-3" title="3">                <span class="cf">return</span> <span class="va">None</span></a>
 <a class="sourceLine" id="cb10-4" title="4"></a>
@@ -277,9 +474,15 @@ Explanation: Return true because &quot;leetcode&quot; can be segmented as &quot;
 <a class="sourceLine" id="cb10-17" title="17">            node.right <span class="op">=</span> recursive(preorder, inorder, search_index <span class="op">+</span> <span class="dv">1</span>, end)</a>
 <a class="sourceLine" id="cb10-18" title="18">            <span class="cf">return</span> node</a>
 <a class="sourceLine" id="cb10-19" title="19"></a>
-<a class="sourceLine" id="cb10-20" title="20">        <span class="cf">return</span> recursive(preorder, inorder, <span class="dv">0</span>, <span class="bu">len</span>(inorder) <span class="op">-</span> <span class="dv">1</span>)</a></code></pre></div>
-<h2 id="given-inorder-and-postorder-traversal-of-a-tree-construct-the-binary-tree.">Given inorder and postorder traversal of a tree, construct the binary tree.</h2>
-<pre class="text"><code>Note:
+<a class="sourceLine" id="cb10-20" title="20">        <span class="cf">return</span> recursive(preorder, inorder, <span class="dv">0</span>, <span class="bu">len</span>(inorder) <span class="op">-</span> <span class="dv">1</span>)</a></code></pre>
+    </div>
+    <h2
+      id="given-inorder-and-postorder-traversal-of-a-tree-construct-the-binary-tree."
+    >
+      Given inorder and postorder traversal of a tree, construct the binary
+      tree.
+    </h2>
+    <pre class="text"><code>Note:
 You may assume that duplicates do not exist in the tree.
 
 For example, given
@@ -293,14 +496,23 @@ Return the following binary tree:
   9  20
     /  \
    15   7</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-5">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-5">class TreeNode(object):</h3>
-<h3 id="def-initself-x-5">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-5">self.val = x</h3>
-<h3 id="self.left-none-5">self.left = None</h3>
-<h3 id="self.right-none-5">self.right = None</h3>
-<p>class Solution(object): def buildTree(self, inorder, postorder): :type inorder: List[int] :type postorder: List[int] :rtype: TreeNode self.index = len(inorder) - 1</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1">        <span class="kw">def</span> recursive(postorder, inorder, start, end):</a>
+    <h3 id="definition-for-a-binary-tree-node.-5">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-5">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-5">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-5">self.val = x</h3>
+    <h3 id="self.left-none-5">self.left = None</h3>
+    <h3 id="self.right-none-5">self.right = None</h3>
+    <p>
+      class Solution(object): def buildTree(self, inorder, postorder): :type
+      inorder: List[int] :type postorder: List[int] :rtype: TreeNode self.index
+      = len(inorder) - 1
+    </p>
+    <div class="sourceCode" id="cb12">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1">        <span class="kw">def</span> recursive(postorder, inorder, start, end):</a>
 <a class="sourceLine" id="cb12-2" title="2">            <span class="cf">if</span> start <span class="op">&gt;</span> end:</a>
 <a class="sourceLine" id="cb12-3" title="3">                <span class="cf">return</span> <span class="va">None</span></a>
 <a class="sourceLine" id="cb12-4" title="4"></a>
@@ -318,9 +530,15 @@ Return the following binary tree:
 <a class="sourceLine" id="cb12-16" title="16">            node.left <span class="op">=</span> recursive(postorder, inorder, start, search_index <span class="op">-</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb12-17" title="17">            <span class="cf">return</span> node</a>
 <a class="sourceLine" id="cb12-18" title="18"></a>
-<a class="sourceLine" id="cb12-19" title="19">        <span class="cf">return</span> recursive(postorder, inorder, <span class="dv">0</span>, <span class="bu">len</span>(inorder) <span class="op">-</span> <span class="dv">1</span>)</a></code></pre></div>
-<h2 id="given-a-binary-tree-return-the-bottom-up-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level-from-leaf-to-root.">Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</h2>
-<pre class="text"><code>For example:
+<a class="sourceLine" id="cb12-19" title="19">        <span class="cf">return</span> recursive(postorder, inorder, <span class="dv">0</span>, <span class="bu">len</span>(inorder) <span class="op">-</span> <span class="dv">1</span>)</a></code></pre>
+    </div>
+    <h2
+      id="given-a-binary-tree-return-the-bottom-up-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level-from-leaf-to-root."
+    >
+      Given a binary tree, return the bottom-up level order traversal of its
+      nodes’ values. (ie, from left to right, level by level from leaf to root).
+    </h2>
+    <pre class="text"><code>For example:
 Given binary tree [3,9,20,null,null,15,7],
 
     3
@@ -336,14 +554,22 @@ return its bottom-up level order traversal as:
   [9,20],
   [3]
 ]</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-6">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-6">class TreeNode(object):</h3>
-<h3 id="def-initself-x-6">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-6">self.val = x</h3>
-<h3 id="self.left-none-6">self.left = None</h3>
-<h3 id="self.right-none-6">self.right = None</h3>
-<p>class Solution(object): def levelOrderBottom(self, root): :type root: TreeNode :rtype: List[List[int]]</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root:</a>
+    <h3 id="definition-for-a-binary-tree-node.-6">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-6">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-6">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-6">self.val = x</h3>
+    <h3 id="self.left-none-6">self.left = None</h3>
+    <h3 id="self.right-none-6">self.right = None</h3>
+    <p>
+      class Solution(object): def levelOrderBottom(self, root): :type root:
+      TreeNode :rtype: List[List[int]]
+    </p>
+    <div class="sourceCode" id="cb14">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root:</a>
 <a class="sourceLine" id="cb14-2" title="2">            <span class="cf">return</span> []</a>
 <a class="sourceLine" id="cb14-3" title="3"></a>
 <a class="sourceLine" id="cb14-4" title="4">        queue <span class="op">=</span> [(root, <span class="dv">0</span>)]</a>
@@ -364,9 +590,17 @@ return its bottom-up level order traversal as:
 <a class="sourceLine" id="cb14-19" title="19">        result <span class="op">=</span> []</a>
 <a class="sourceLine" id="cb14-20" title="20">        <span class="cf">for</span> key, value <span class="kw">in</span> levelMap.iteritems():</a>
 <a class="sourceLine" id="cb14-21" title="21">            result.append(value)</a>
-<a class="sourceLine" id="cb14-22" title="22">        <span class="cf">return</span> result[::<span class="op">-</span><span class="dv">1</span>]</a></code></pre></div>
-<h2 id="given-an-array-where-elements-are-sorted-in-ascending-order-convert-it-to-a-height-balanced-bst.">Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</h2>
-<pre class="text"><code>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+<a class="sourceLine" id="cb14-22" title="22">        <span class="cf">return</span> result[::<span class="op">-</span><span class="dv">1</span>]</a></code></pre>
+    </div>
+    <h2
+      id="given-an-array-where-elements-are-sorted-in-ascending-order-convert-it-to-a-height-balanced-bst."
+    >
+      Given an array where elements are sorted in ascending order, convert it to
+      a height balanced BST.
+    </h2>
+    <pre
+      class="text"
+    ><code>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 
 Example:
 
@@ -379,14 +613,22 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
    -3   9
    /   /
  -10  5</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-7">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-7">class TreeNode(object):</h3>
-<h3 id="def-initself-x-7">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-7">self.val = x</h3>
-<h3 id="self.left-none-7">self.left = None</h3>
-<h3 id="self.right-none-7">self.right = None</h3>
-<p>class Solution(object): def sortedArrayToBST(self, nums): :type nums: List[int] :rtype: TreeNode</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1">        <span class="kw">def</span> constructTree(nums, start, end):</a>
+    <h3 id="definition-for-a-binary-tree-node.-7">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-7">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-7">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-7">self.val = x</h3>
+    <h3 id="self.left-none-7">self.left = None</h3>
+    <h3 id="self.right-none-7">self.right = None</h3>
+    <p>
+      class Solution(object): def sortedArrayToBST(self, nums): :type nums:
+      List[int] :rtype: TreeNode
+    </p>
+    <div class="sourceCode" id="cb16">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1">        <span class="kw">def</span> constructTree(nums, start, end):</a>
 <a class="sourceLine" id="cb16-2" title="2">            <span class="cf">if</span> start <span class="op">&gt;</span> end:</a>
 <a class="sourceLine" id="cb16-3" title="3">                <span class="cf">return</span> <span class="va">None</span></a>
 <a class="sourceLine" id="cb16-4" title="4"></a>
@@ -400,9 +642,14 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 <a class="sourceLine" id="cb16-12" title="12">            node.right <span class="op">=</span> constructTree(nums, mid <span class="op">+</span> <span class="dv">1</span>, end)</a>
 <a class="sourceLine" id="cb16-13" title="13">            <span class="cf">return</span> node</a>
 <a class="sourceLine" id="cb16-14" title="14"></a>
-<a class="sourceLine" id="cb16-15" title="15">        <span class="cf">return</span> constructTree(nums, <span class="dv">0</span>, <span class="bu">len</span>(nums) <span class="op">-</span> <span class="dv">1</span>)</a></code></pre></div>
-<h2 id="given-a-binary-tree-find-its-minimum-depth.">Given a binary tree, find its minimum depth.</h2>
-<pre class="text"><code>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+<a class="sourceLine" id="cb16-15" title="15">        <span class="cf">return</span> constructTree(nums, <span class="dv">0</span>, <span class="bu">len</span>(nums) <span class="op">-</span> <span class="dv">1</span>)</a></code></pre>
+    </div>
+    <h2 id="given-a-binary-tree-find-its-minimum-depth.">
+      Given a binary tree, find its minimum depth.
+    </h2>
+    <pre
+      class="text"
+    ><code>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
 Note: A leaf is a node with no children.
 
@@ -417,14 +664,22 @@ Given binary tree [3,9,20,null,null,15,7],
    15   7
 
 return its minimum depth = 2.</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-8">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-8">class TreeNode(object):</h3>
-<h3 id="def-initself-x-8">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-8">self.val = x</h3>
-<h3 id="self.left-none-8">self.left = None</h3>
-<h3 id="self.right-none-8">self.right = None</h3>
-<p>class Solution(object): def minDepth(self, root): if not root: return 0 depth = float(“inf”) stack = [(root, 1)]</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" title="1">        <span class="cf">while</span> stack:</a>
+    <h3 id="definition-for-a-binary-tree-node.-8">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-8">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-8">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-8">self.val = x</h3>
+    <h3 id="self.left-none-8">self.left = None</h3>
+    <h3 id="self.right-none-8">self.right = None</h3>
+    <p>
+      class Solution(object): def minDepth(self, root): if not root: return 0
+      depth = float(“inf”) stack = [(root, 1)]
+    </p>
+    <div class="sourceCode" id="cb18">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb18-1" title="1">        <span class="cf">while</span> stack:</a>
 <a class="sourceLine" id="cb18-2" title="2">            node, level <span class="op">=</span> stack.pop()</a>
 <a class="sourceLine" id="cb18-3" title="3">            <span class="cf">if</span> node:</a>
 <a class="sourceLine" id="cb18-4" title="4"></a>
@@ -434,9 +689,16 @@ return its minimum depth = 2.</code></pre>
 <a class="sourceLine" id="cb18-8" title="8">                stack.append((node.left, level <span class="op">+</span> <span class="dv">1</span>))</a>
 <a class="sourceLine" id="cb18-9" title="9">                stack.append((node.right, level <span class="op">+</span> <span class="dv">1</span>))</a>
 <a class="sourceLine" id="cb18-10" title="10"></a>
-<a class="sourceLine" id="cb18-11" title="11">        <span class="cf">return</span> depth</a></code></pre></div>
-<h2 id="given-a-binary-tree-and-a-sum-determine-if-the-tree-has-a-root-to-leaf-path-such-that-adding-up-all-the-values-along-the-path-equals-the-given-sum.">Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</h2>
-<pre class="text"><code>Note: A leaf is a node with no children.
+<a class="sourceLine" id="cb18-11" title="11">        <span class="cf">return</span> depth</a></code></pre>
+    </div>
+    <h2
+      id="given-a-binary-tree-and-a-sum-determine-if-the-tree-has-a-root-to-leaf-path-such-that-adding-up-all-the-values-along-the-path-equals-the-given-sum."
+    >
+      Given a binary tree and a sum, determine if the tree has a root-to-leaf
+      path such that adding up all the values along the path equals the given
+      sum.
+    </h2>
+    <pre class="text"><code>Note: A leaf is a node with no children.
 
 Example:
 
@@ -449,21 +711,35 @@ Given the below binary tree and sum = 22,
   11  13  4
  /  \      \
 7    2      1</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-9">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-9">class TreeNode(object):</h3>
-<h3 id="def-initself-x-9">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-9">self.val = x</h3>
-<h3 id="self.left-none-9">self.left = None</h3>
-<h3 id="self.right-none-9">self.right = None</h3>
-<p>class Solution(object): def hasPathSum(self, root, sum): :type root: TreeNode :type sum: int :rtype: bool if not root: return False</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root.left <span class="kw">and</span> <span class="kw">not</span> root.right <span class="kw">and</span> root.val <span class="op">==</span> <span class="bu">sum</span>:</a>
+    <h3 id="definition-for-a-binary-tree-node.-9">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-9">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-9">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-9">self.val = x</h3>
+    <h3 id="self.left-none-9">self.left = None</h3>
+    <h3 id="self.right-none-9">self.right = None</h3>
+    <p>
+      class Solution(object): def hasPathSum(self, root, sum): :type root:
+      TreeNode :type sum: int :rtype: bool if not root: return False
+    </p>
+    <div class="sourceCode" id="cb20">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb20-1" title="1">        <span class="cf">if</span> <span class="kw">not</span> root.left <span class="kw">and</span> <span class="kw">not</span> root.right <span class="kw">and</span> root.val <span class="op">==</span> <span class="bu">sum</span>:</a>
 <a class="sourceLine" id="cb20-2" title="2">            <span class="cf">return</span> <span class="va">True</span></a>
 <a class="sourceLine" id="cb20-3" title="3"></a>
 <a class="sourceLine" id="cb20-4" title="4">        <span class="cf">return</span> <span class="va">self</span>.hasPathSum(root.left, <span class="bu">sum</span> <span class="op">-</span> root.val) <span class="kw">or</span> <span class="va">self</span>.hasPathSum(</a>
 <a class="sourceLine" id="cb20-5" title="5">            root.right, <span class="bu">sum</span> <span class="op">-</span> root.val</a>
-<a class="sourceLine" id="cb20-6" title="6">        )</a></code></pre></div>
-<h2 id="given-a-binary-tree-and-a-sum-find-all-root-to-leaf-paths-where-each-paths-sum-equals-the-given-sum.">Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.</h2>
-<pre class="text"><code>Note: A leaf is a node with no children.
+<a class="sourceLine" id="cb20-6" title="6">        )</a></code></pre>
+    </div>
+    <h2
+      id="given-a-binary-tree-and-a-sum-find-all-root-to-leaf-paths-where-each-paths-sum-equals-the-given-sum."
+    >
+      Given a binary tree and a sum, find all root-to-leaf paths where each
+      path’s sum equals the given sum.
+    </h2>
+    <pre class="text"><code>Note: A leaf is a node with no children.
 
 Example:
 
@@ -482,14 +758,22 @@ Return:
    [5,4,11,2],
    [5,8,4,5]
 ]</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-10">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-10">class TreeNode(object):</h3>
-<h3 id="def-initself-x-10">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-10">self.val = x</h3>
-<h3 id="self.left-none-10">self.left = None</h3>
-<h3 id="self.right-none-10">self.right = None</h3>
-<p>class Solution(object): def pathSum(self, root, sum): :type root: TreeNode :type sum: int :rtype: List[List[int]]</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" title="1">        result <span class="op">=</span> []</a>
+    <h3 id="definition-for-a-binary-tree-node.-10">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-10">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-10">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-10">self.val = x</h3>
+    <h3 id="self.left-none-10">self.left = None</h3>
+    <h3 id="self.right-none-10">self.right = None</h3>
+    <p>
+      class Solution(object): def pathSum(self, root, sum): :type root: TreeNode
+      :type sum: int :rtype: List[List[int]]
+    </p>
+    <div class="sourceCode" id="cb22">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb22-1" title="1">        result <span class="op">=</span> []</a>
 <a class="sourceLine" id="cb22-2" title="2"></a>
 <a class="sourceLine" id="cb22-3" title="3">        <span class="kw">def</span> dfs(root, curr_sum, <span class="bu">sum</span>, path, result):</a>
 <a class="sourceLine" id="cb22-4" title="4">            <span class="cf">if</span> <span class="kw">not</span> root:</a>
@@ -506,9 +790,17 @@ Return:
 <a class="sourceLine" id="cb22-15" title="15">                dfs(root.right, curr_sum, <span class="bu">sum</span>, path <span class="op">+</span> [root.val], result)</a>
 <a class="sourceLine" id="cb22-16" title="16"></a>
 <a class="sourceLine" id="cb22-17" title="17">        dfs(root, <span class="dv">0</span>, <span class="bu">sum</span>, [], result)</a>
-<a class="sourceLine" id="cb22-18" title="18">        <span class="cf">return</span> result</a></code></pre></div>
-<h2 id="given-a-string-s-and-a-string-t-count-the-number-of-distinct-subsequences-of-s-which-equals-t.">Given a string S and a string T, count the number of distinct subsequences of S which equals T.</h2>
-<pre class="text"><code>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, &quot;ACE&quot; is a subsequence of &quot;ABCDE&quot; while &quot;AEC&quot; is not).
+<a class="sourceLine" id="cb22-18" title="18">        <span class="cf">return</span> result</a></code></pre>
+    </div>
+    <h2
+      id="given-a-string-s-and-a-string-t-count-the-number-of-distinct-subsequences-of-s-which-equals-t."
+    >
+      Given a string S and a string T, count the number of distinct subsequences
+      of S which equals T.
+    </h2>
+    <pre
+      class="text"
+    ><code>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, &quot;ACE&quot; is a subsequence of &quot;ABCDE&quot; while &quot;AEC&quot; is not).
 
 Example 1:
 
@@ -525,8 +817,14 @@ rabbbit
 ^^ ^^^^
 rabbbit
 ^^^ ^^^</code></pre>
-<p>class Solution(object): def numDistinct(self, s, t): :type s: str :type t: str :rtype: int</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" title="1">        row, col <span class="op">=</span> <span class="bu">len</span>(s), <span class="bu">len</span>(t)</a>
+    <p>
+      class Solution(object): def numDistinct(self, s, t): :type s: str :type t:
+      str :rtype: int
+    </p>
+    <div class="sourceCode" id="cb24">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb24-1" title="1">        row, col <span class="op">=</span> <span class="bu">len</span>(s), <span class="bu">len</span>(t)</a>
 <a class="sourceLine" id="cb24-2" title="2"></a>
 <a class="sourceLine" id="cb24-3" title="3">        <span class="cf">if</span> col <span class="op">&gt;</span> row:</a>
 <a class="sourceLine" id="cb24-4" title="4">            <span class="cf">return</span> <span class="dv">0</span></a>
@@ -545,9 +843,10 @@ rabbbit
 <a class="sourceLine" id="cb24-17" title="17">                    dp[r][c] <span class="op">=</span> dp[r <span class="op">-</span> <span class="dv">1</span>][c]</a>
 <a class="sourceLine" id="cb24-18" title="18">                    <span class="cf">if</span> s[r <span class="op">-</span> <span class="dv">1</span>] <span class="op">==</span> t[c <span class="op">-</span> <span class="dv">1</span>]:</a>
 <a class="sourceLine" id="cb24-19" title="19">                        dp[r][c] <span class="op">+=</span> dp[r <span class="op">-</span> <span class="dv">1</span>][c <span class="op">-</span> <span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb24-20" title="20">        <span class="cf">return</span> dp[row][col]</a></code></pre></div>
-<p>’’’ Given a binary tree</p>
-<pre class="text"><code>struct TreeLinkNode {
+<a class="sourceLine" id="cb24-20" title="20">        <span class="cf">return</span> dp[row][col]</a></code></pre>
+    </div>
+    <p>’’’ Given a binary tree</p>
+    <pre class="text"><code>struct TreeLinkNode {
   TreeLinkNode *left;
   TreeLinkNode *right;
   TreeLinkNode *next;
@@ -571,16 +870,26 @@ After calling your function, the tree should look like:
   2 -&gt; 3 -&gt; NULL
  / \  / \
 4-&gt;5-&gt;6-&gt;7 -&gt; NULL</code></pre>
-<p>’’’</p>
-<h3 id="definition-for-binary-tree-with-next-pointer.">Definition for binary tree with next pointer.</h3>
-<h3 id="class-treelinknode">class TreeLinkNode:</h3>
-<h3 id="def-initself-x-11">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-11">self.val = x</h3>
-<h3 id="self.left-none-11">self.left = None</h3>
-<h3 id="self.right-none-11">self.right = None</h3>
-<h3 id="self.next-none">self.next = None</h3>
-<p>class Solution: # <span class="citation" data-cites="param">@param</span> root, a tree link node # <span class="citation" data-cites="return">@return</span> nothing def connect(self, root): def recursive(node): if node is None: return</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" title="1">            <span class="cf">if</span> node.left:</a>
+    <p>’’’</p>
+    <h3 id="definition-for-binary-tree-with-next-pointer.">
+      Definition for binary tree with next pointer.
+    </h3>
+    <h3 id="class-treelinknode">class TreeLinkNode:</h3>
+    <h3 id="def-initself-x-11">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-11">self.val = x</h3>
+    <h3 id="self.left-none-11">self.left = None</h3>
+    <h3 id="self.right-none-11">self.right = None</h3>
+    <h3 id="self.next-none">self.next = None</h3>
+    <p>
+      class Solution: #
+      <span class="citation" data-cites="param">@param</span> root, a tree link
+      node # <span class="citation" data-cites="return">@return</span> nothing
+      def connect(self, root): def recursive(node): if node is None: return
+    </p>
+    <div class="sourceCode" id="cb26">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb26-1" title="1">            <span class="cf">if</span> node.left:</a>
 <a class="sourceLine" id="cb26-2" title="2">                node.left.<span class="bu">next</span> <span class="op">=</span> node.right</a>
 <a class="sourceLine" id="cb26-3" title="3">            <span class="cf">if</span> node.right:</a>
 <a class="sourceLine" id="cb26-4" title="4">                <span class="cf">if</span> node.<span class="bu">next</span>:</a>
@@ -592,9 +901,10 @@ After calling your function, the tree should look like:
 <a class="sourceLine" id="cb26-10" title="10"></a>
 <a class="sourceLine" id="cb26-11" title="11">        <span class="cf">if</span> root <span class="op">!=</span> <span class="va">None</span>:</a>
 <a class="sourceLine" id="cb26-12" title="12">            root.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></a>
-<a class="sourceLine" id="cb26-13" title="13">            recursive(root)</a></code></pre></div>
-<h2 id="given-a-binary-tree">Given a binary tree</h2>
-<pre class="text"><code>struct TreeLinkNode {
+<a class="sourceLine" id="cb26-13" title="13">            recursive(root)</a></code></pre>
+    </div>
+    <h2 id="given-a-binary-tree">Given a binary tree</h2>
+    <pre class="text"><code>struct TreeLinkNode {
   TreeLinkNode *left;
   TreeLinkNode *right;
   TreeLinkNode *next;
@@ -619,15 +929,26 @@ After calling your function, the tree should look like:
   2 -&gt; 3 -&gt; NULL
  / \    \
 4-&gt; 5 -&gt; 7 -&gt; NULL</code></pre>
-<h3 id="definition-for-binary-tree-with-next-pointer.-1">Definition for binary tree with next pointer.</h3>
-<h3 id="class-treelinknode-1">class TreeLinkNode:</h3>
-<h3 id="def-initself-x-12">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-12">self.val = x</h3>
-<h3 id="self.left-none-12">self.left = None</h3>
-<h3 id="self.right-none-12">self.right = None</h3>
-<h3 id="self.next-none-1">self.next = None</h3>
-<p>class Solution: # <span class="citation" data-cites="param">@param</span> root, a tree link node # <span class="citation" data-cites="return">@return</span> nothing def connect(self, root): if root == None: return queue = [root] queue.append(None)</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb28-1" title="1">        <span class="cf">while</span> queue:</a>
+    <h3 id="definition-for-binary-tree-with-next-pointer.-1">
+      Definition for binary tree with next pointer.
+    </h3>
+    <h3 id="class-treelinknode-1">class TreeLinkNode:</h3>
+    <h3 id="def-initself-x-12">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-12">self.val = x</h3>
+    <h3 id="self.left-none-12">self.left = None</h3>
+    <h3 id="self.right-none-12">self.right = None</h3>
+    <h3 id="self.next-none-1">self.next = None</h3>
+    <p>
+      class Solution: #
+      <span class="citation" data-cites="param">@param</span> root, a tree link
+      node # <span class="citation" data-cites="return">@return</span> nothing
+      def connect(self, root): if root == None: return queue = [root]
+      queue.append(None)
+    </p>
+    <div class="sourceCode" id="cb28">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb28-1" title="1">        <span class="cf">while</span> queue:</a>
 <a class="sourceLine" id="cb28-2" title="2">            front <span class="op">=</span> queue.pop(<span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb28-3" title="3">            <span class="cf">if</span> front <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</a>
 <a class="sourceLine" id="cb28-4" title="4">                front.<span class="bu">next</span> <span class="op">=</span> queue[<span class="dv">0</span>]</a>
@@ -636,16 +957,27 @@ After calling your function, the tree should look like:
 <a class="sourceLine" id="cb28-7" title="7">                <span class="cf">if</span> front.right:</a>
 <a class="sourceLine" id="cb28-8" title="8">                    queue.append(front.right)</a>
 <a class="sourceLine" id="cb28-9" title="9">            <span class="cf">elif</span> queue:</a>
-<a class="sourceLine" id="cb28-10" title="10">                queue.append(<span class="va">None</span>)</a></code></pre></div>
-<h3 id="definition-for-binary-tree-with-next-pointer.-2">Definition for binary tree with next pointer.</h3>
-<h3 id="class-treelinknode-2">class TreeLinkNode:</h3>
-<h3 id="def-initself-x-13">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-13">self.val = x</h3>
-<h3 id="self.left-none-13">self.left = None</h3>
-<h3 id="self.right-none-13">self.right = None</h3>
-<h3 id="self.next-none-2">self.next = None</h3>
-<p>class Solution: # <span class="citation" data-cites="param">@param</span> root, a tree link node # <span class="citation" data-cites="return">@return</span> nothing def connect(self, root): if not root: return None</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb29-1" title="1">        root.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb28-10" title="10">                queue.append(<span class="va">None</span>)</a></code></pre>
+    </div>
+    <h3 id="definition-for-binary-tree-with-next-pointer.-2">
+      Definition for binary tree with next pointer.
+    </h3>
+    <h3 id="class-treelinknode-2">class TreeLinkNode:</h3>
+    <h3 id="def-initself-x-13">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-13">self.val = x</h3>
+    <h3 id="self.left-none-13">self.left = None</h3>
+    <h3 id="self.right-none-13">self.right = None</h3>
+    <h3 id="self.next-none-2">self.next = None</h3>
+    <p>
+      class Solution: #
+      <span class="citation" data-cites="param">@param</span> root, a tree link
+      node # <span class="citation" data-cites="return">@return</span> nothing
+      def connect(self, root): if not root: return None
+    </p>
+    <div class="sourceCode" id="cb29">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb29-1" title="1">        root.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span></a>
 <a class="sourceLine" id="cb29-2" title="2"></a>
 <a class="sourceLine" id="cb29-3" title="3">        <span class="cf">while</span> root:</a>
 <a class="sourceLine" id="cb29-4" title="4">            temp <span class="op">=</span> root</a>
@@ -674,9 +1006,15 @@ After calling your function, the tree should look like:
 <a class="sourceLine" id="cb29-27" title="27">            <span class="cf">if</span> node.right:</a>
 <a class="sourceLine" id="cb29-28" title="28">                <span class="cf">return</span> node.right</a>
 <a class="sourceLine" id="cb29-29" title="29">            node <span class="op">=</span> node.<span class="bu">next</span></a>
-<a class="sourceLine" id="cb29-30" title="30">        <span class="cf">return</span> <span class="va">None</span></a></code></pre></div>
-<h2 id="given-a-non-negative-integer-numrows-generate-the-first-numrows-of-pascals-triangle.">Given a non-negative integer numRows, generate the first numRows of Pascal’s triangle.</h2>
-<pre class="text"><code>Example:
+<a class="sourceLine" id="cb29-30" title="30">        <span class="cf">return</span> <span class="va">None</span></a></code></pre>
+    </div>
+    <h2
+      id="given-a-non-negative-integer-numrows-generate-the-first-numrows-of-pascals-triangle."
+    >
+      Given a non-negative integer numRows, generate the first numRows of
+      Pascal’s triangle.
+    </h2>
+    <pre class="text"><code>Example:
 
 Input: 5
 Output:
@@ -687,22 +1025,43 @@ Output:
   [1,3,3,1],
  [1,4,6,4,1]
 ]</code></pre>
-<p>class Solution(object): def generate(self, numRows): :type numRows: int :rtype: List[List[int]] triangle = []</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" title="1">        <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(numRows):</a>
+    <p>
+      class Solution(object): def generate(self, numRows): :type numRows: int
+      :rtype: List[List[int]] triangle = []
+    </p>
+    <div class="sourceCode" id="cb31">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb31-1" title="1">        <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(numRows):</a>
 <a class="sourceLine" id="cb31-2" title="2">            new_row <span class="op">=</span> [<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(row <span class="op">+</span> <span class="dv">1</span>)]</a>
 <a class="sourceLine" id="cb31-3" title="3">            new_row[<span class="dv">0</span>], new_row[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="dv">1</span>, <span class="dv">1</span></a>
 <a class="sourceLine" id="cb31-4" title="4"></a>
 <a class="sourceLine" id="cb31-5" title="5">            <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(new_row) <span class="op">-</span> <span class="dv">1</span>):</a>
 <a class="sourceLine" id="cb31-6" title="6">                new_row[col] <span class="op">=</span> triangle[row <span class="op">-</span> <span class="dv">1</span>][col <span class="op">-</span> <span class="dv">1</span>] <span class="op">+</span> triangle[row <span class="op">-</span> <span class="dv">1</span>][col]</a>
 <a class="sourceLine" id="cb31-7" title="7">            triangle.append(new_row)</a>
-<a class="sourceLine" id="cb31-8" title="8">        <span class="cf">return</span> triangle</a></code></pre></div>
-<h2 id="given-a-non-negative-index-k-where-k-33-return-the-kth-index-row-of-the-pascals-triangle.">Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal’s triangle.</h2>
-<pre class="text"><code>Note that the row index starts from 0.</code></pre>
-<p>class Solution(object): def getRow(self, rowIndex): :type rowIndex: int :rtype: List[int] row = [1] * (rowIndex + 1) for i in range(1, rowIndex + 1): for j in range(i - 1, 0, -1): row[j] += row[j - 1] return row</p>
-<h2 id="text">```text</h2>
-<p>```py</p>
-<h2 id="given-a-triangle-find-the-minimum-path-sum-from-top-to-bottom.-each-step-you-may-move-to-adjacent-numbers-on-the-row-below.">Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.</h2>
-<pre><code>For example, given the following triangle
+<a class="sourceLine" id="cb31-8" title="8">        <span class="cf">return</span> triangle</a></code></pre>
+    </div>
+    <h2
+      id="given-a-non-negative-index-k-where-k-33-return-the-kth-index-row-of-the-pascals-triangle."
+    >
+      Given a non-negative index k where k ≤ 33, return the kth index row of the
+      Pascal’s triangle.
+    </h2>
+    <pre class="text"><code>Note that the row index starts from 0.</code></pre>
+    <p>
+      class Solution(object): def getRow(self, rowIndex): :type rowIndex: int
+      :rtype: List[int] row = [1] * (rowIndex + 1) for i in range(1, rowIndex +
+      1): for j in range(i - 1, 0, -1): row[j] += row[j - 1] return row
+    </p>
+    <h2 id="text">```text</h2>
+    <p>```py</p>
+    <h2
+      id="given-a-triangle-find-the-minimum-path-sum-from-top-to-bottom.-each-step-you-may-move-to-adjacent-numbers-on-the-row-below."
+    >
+      Given a triangle, find the minimum path sum from top to bottom. Each step
+      you may move to adjacent numbers on the row below.
+    </h2>
+    <pre><code>For example, given the following triangle
 
 [
      [2],
@@ -711,8 +1070,15 @@ Output:
   [4,1,8,3]
 ]
 The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code></pre>
-<p>class Solution(object): def minimumTotal(self, triangle): :type triangle: List[List[int]] :rtype: int length = len(triangle) columns = len(triangle[length - 1])</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb34-1" title="1">        matrix <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(columns)] <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(length)]</a>
+    <p>
+      class Solution(object): def minimumTotal(self, triangle): :type triangle:
+      List[List[int]] :rtype: int length = len(triangle) columns =
+      len(triangle[length - 1])
+    </p>
+    <div class="sourceCode" id="cb34">
+      <pre
+        class="sourceCode py"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb34-1" title="1">        matrix <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(columns)] <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(length)]</a>
 <a class="sourceLine" id="cb34-2" title="2">        row_index <span class="op">=</span> <span class="dv">0</span></a>
 <a class="sourceLine" id="cb34-3" title="3"></a>
 <a class="sourceLine" id="cb34-4" title="4">        <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(length):</a>
@@ -727,8 +1093,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb34-13" title="13">        <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(length <span class="op">-</span> <span class="dv">2</span>, <span class="dv">-1</span>, <span class="dv">-1</span>):</a>
 <a class="sourceLine" id="cb34-14" title="14">            <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(row <span class="op">+</span> <span class="dv">1</span>):</a>
 <a class="sourceLine" id="cb34-15" title="15">                matrix[row][col] <span class="op">+=</span> <span class="bu">min</span>(matrix[row <span class="op">+</span> <span class="dv">1</span>][col <span class="op">+</span> <span class="dv">1</span>], matrix[row <span class="op">+</span> <span class="dv">1</span>][col])</a>
-<a class="sourceLine" id="cb34-16" title="16">        <span class="cf">return</span> matrix[<span class="dv">0</span>][<span class="dv">0</span>]</a></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb35-1" title="1"> Say you have an array <span class="cf">for</span> which the ith element <span class="kw">is</span> the price of a given stock on day i.</a>
+<a class="sourceLine" id="cb34-16" title="16">        <span class="cf">return</span> matrix[<span class="dv">0</span>][<span class="dv">0</span>]</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb35">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb35-1" title="1"> Say you have an array <span class="cf">for</span> which the ith element <span class="kw">is</span> the price of a given stock on day i.</a>
 <a class="sourceLine" id="cb35-2" title="2"></a>
 <a class="sourceLine" id="cb35-3" title="3">    Design an algorithm to find the maximum profit. You may complete at most two transactions.</a>
 <a class="sourceLine" id="cb35-4" title="4"></a>
@@ -745,8 +1115,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb35-15" title="15"></a>
 <a class="sourceLine" id="cb35-16" title="16"><span class="kw">class</span> Solution(<span class="bu">object</span>): <span class="kw">def</span> maxProfit(<span class="va">self</span>, prices):  :<span class="bu">type</span> prices: List[<span class="bu">int</span>] :rtype: <span class="bu">int</span>  <span class="cf">if</span> <span class="bu">len</span>(prices) <span class="op">&lt;</span> <span class="dv">2</span>: <span class="cf">return</span> <span class="dv">0</span> dp <span class="op">=</span> [[<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(prices))] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>): maxDiff <span class="op">=</span> <span class="op">-</span>prices[<span class="dv">0</span>] <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(prices)): dp[i][j] <span class="op">=</span> <span class="bu">max</span>(dp[i][j <span class="op">-</span> <span class="dv">1</span>], prices[j] <span class="op">+</span> maxDiff) maxDiff <span class="op">=</span> <span class="bu">max</span>(maxDiff, dp[i <span class="op">-</span> <span class="dv">1</span>][j] <span class="op">-</span> prices[j])</a>
 <a class="sourceLine" id="cb35-17" title="17"></a>
-<a class="sourceLine" id="cb35-18" title="18">        <span class="cf">return</span> dp[<span class="dv">2</span>][<span class="bu">len</span>(prices) <span class="op">-</span> <span class="dv">1</span>]</a></code></pre></div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb36-1" title="1"><span class="co">## Given a non-empty binary tree, find the maximum path sum.</span></a>
+<a class="sourceLine" id="cb35-18" title="18">        <span class="cf">return</span> dp[<span class="dv">2</span>][<span class="bu">len</span>(prices) <span class="op">-</span> <span class="dv">1</span>]</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb36">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb36-1" title="1"><span class="co">## Given a non-empty binary tree, find the maximum path sum.</span></a>
 <a class="sourceLine" id="cb36-2" title="2"></a>
 <a class="sourceLine" id="cb36-3" title="3">    For this problem, a path <span class="kw">is</span> defined <span class="im">as</span> <span class="bu">any</span> sequence of nodes <span class="im">from</span> some starting node to <span class="bu">any</span> node <span class="kw">in</span> the tree along the parent<span class="op">-</span>child connections. The path must contain at least one node <span class="kw">and</span> does <span class="kw">not</span> need to go through the root.</a>
 <a class="sourceLine" id="cb36-4" title="4"></a>
@@ -769,14 +1143,20 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb36-21" title="21">        <span class="op">/</span>  <span class="op">\</span></a>
 <a class="sourceLine" id="cb36-22" title="22">       <span class="dv">15</span>   <span class="dv">7</span></a>
 <a class="sourceLine" id="cb36-23" title="23"></a>
-<a class="sourceLine" id="cb36-24" title="24">    Output: <span class="dv">42</span></a></code></pre></div>
-<h3 id="definition-for-a-binary-tree-node.-11">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-11">class TreeNode(object):</h3>
-<h3 id="def-initself-x-14">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-14">self.val = x</h3>
-<h3 id="self.left-none-14">self.left = None</h3>
-<h3 id="self.right-none-14">self.right = None</h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">class</span> Solution(<span class="bu">object</span>): <span class="kw">def</span> maxPathSum(<span class="va">self</span>, root):  :<span class="bu">type</span> root: TreeNode :rtype: <span class="bu">int</span>  <span class="va">self</span>.result <span class="op">=</span> <span class="bu">float</span>(“<span class="op">-</span>inf”) <span class="va">self</span>.dfs(root) <span class="cf">return</span> <span class="va">self</span>.result</a>
+<a class="sourceLine" id="cb36-24" title="24">    Output: <span class="dv">42</span></a></code></pre>
+    </div>
+    <h3 id="definition-for-a-binary-tree-node.-11">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-11">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-14">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-14">self.val = x</h3>
+    <h3 id="self.left-none-14">self.left = None</h3>
+    <h3 id="self.right-none-14">self.right = None</h3>
+    <div class="sourceCode" id="cb37">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">class</span> Solution(<span class="bu">object</span>): <span class="kw">def</span> maxPathSum(<span class="va">self</span>, root):  :<span class="bu">type</span> root: TreeNode :rtype: <span class="bu">int</span>  <span class="va">self</span>.result <span class="op">=</span> <span class="bu">float</span>(“<span class="op">-</span>inf”) <span class="va">self</span>.dfs(root) <span class="cf">return</span> <span class="va">self</span>.result</a>
 <a class="sourceLine" id="cb37-2" title="2"></a>
 <a class="sourceLine" id="cb37-3" title="3">    <span class="kw">def</span> dfs(<span class="va">self</span>, root):</a>
 <a class="sourceLine" id="cb37-4" title="4">        <span class="cf">if</span> <span class="kw">not</span> root:</a>
@@ -815,8 +1195,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb37-37" title="37"></a>
 <a class="sourceLine" id="cb37-38" title="38"><span class="co">### Time: O(N^2)</span></a>
 <a class="sourceLine" id="cb37-39" title="39"></a>
-<a class="sourceLine" id="cb37-40" title="40"><span class="co">### Space: O(N^2)</span></a></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb38-1" title="1">’’’ Given two words (beginWord <span class="kw">and</span> endWord), <span class="kw">and</span> a dictionary’s word <span class="bu">list</span>, find the length of shortest transformation sequence <span class="im">from</span> beginWord to endWord, such that:</a>
+<a class="sourceLine" id="cb37-40" title="40"><span class="co">### Space: O(N^2)</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb38">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb38-1" title="1">’’’ Given two words (beginWord <span class="kw">and</span> endWord), <span class="kw">and</span> a dictionary’s word <span class="bu">list</span>, find the length of shortest transformation sequence <span class="im">from</span> beginWord to endWord, such that:</a>
 <a class="sourceLine" id="cb38-2" title="2"></a>
 <a class="sourceLine" id="cb38-3" title="3">    Only one letter can be changed at a time.</a>
 <a class="sourceLine" id="cb38-4" title="4">    Each transformed word must exist <span class="kw">in</span> the word <span class="bu">list</span>. Note that beginWord <span class="kw">is</span> <span class="kw">not</span> a transformed word.</a>
@@ -880,8 +1264,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb38-62" title="62">                    curr <span class="op">+=</span> <span class="dv">1</span></a>
 <a class="sourceLine" id="cb38-63" title="63">                    length <span class="op">+=</span> <span class="dv">1</span></a>
 <a class="sourceLine" id="cb38-64" title="64">                result <span class="op">=</span> <span class="bu">max</span>(result, length)</a>
-<a class="sourceLine" id="cb38-65" title="65">        <span class="cf">return</span> result</a></code></pre></div>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb39-1" title="1"><span class="co">## Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.</span></a>
+<a class="sourceLine" id="cb38-65" title="65">        <span class="cf">return</span> result</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb39">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb39-1" title="1"><span class="co">## Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.</span></a>
 <a class="sourceLine" id="cb39-2" title="2"></a>
 <a class="sourceLine" id="cb39-3" title="3">An example <span class="kw">is</span> the root<span class="op">-</span>to<span class="op">-</span>leaf path <span class="dv">1</span><span class="op">-&gt;</span><span class="dv">2</span><span class="op">-&gt;</span><span class="dv">3</span> which represents the number <span class="fl">123.</span></a>
 <a class="sourceLine" id="cb39-4" title="4"></a>
@@ -920,8 +1308,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb39-37" title="37"></a>
 <a class="sourceLine" id="cb39-38" title="38">            <span class="cf">return</span> dfs(root.left, num) <span class="op">+</span> dfs(root.right, num)</a>
 <a class="sourceLine" id="cb39-39" title="39"></a>
-<a class="sourceLine" id="cb39-40" title="40">        <span class="cf">return</span> dfs(root, <span class="dv">0</span>, <span class="dv">0</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb40-1" title="1"><span class="co">## Given a 2D board containing ‘X’ and ‘O’ (the letter O), capture all regions surrounded by ‘X’.</span></a>
+<a class="sourceLine" id="cb39-40" title="40">        <span class="cf">return</span> dfs(root, <span class="dv">0</span>, <span class="dv">0</span>)</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb40">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb40-1" title="1"><span class="co">## Given a 2D board containing ‘X’ and ‘O’ (the letter O), capture all regions surrounded by ‘X’.</span></a>
 <a class="sourceLine" id="cb40-2" title="2"></a>
 <a class="sourceLine" id="cb40-3" title="3">    A region <span class="kw">is</span> captured by flipping <span class="bu">all</span> <span class="st">&#39;O&#39;</span>s into <span class="st">&#39;X&#39;</span>s <span class="kw">in</span> that surrounded region.</a>
 <a class="sourceLine" id="cb40-4" title="4"></a>
@@ -966,8 +1358,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb40-43" title="43">        <span class="va">self</span>.merge(board, row <span class="op">+</span> <span class="dv">1</span>, col)</a>
 <a class="sourceLine" id="cb40-44" title="44">        <span class="va">self</span>.merge(board, row, col <span class="op">-</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb40-45" title="45">        <span class="va">self</span>.merge(board, row, col <span class="op">+</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb40-46" title="46">        <span class="va">self</span>.merge(board, row <span class="op">-</span> <span class="dv">1</span>, col)</a></code></pre></div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb41-1" title="1"><span class="co">## Given a string s, partition s such that every substring of the partition is a palindrome.</span></a>
+<a class="sourceLine" id="cb40-46" title="46">        <span class="va">self</span>.merge(board, row <span class="op">-</span> <span class="dv">1</span>, col)</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb41">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb41-1" title="1"><span class="co">## Given a string s, partition s such that every substring of the partition is a palindrome.</span></a>
 <a class="sourceLine" id="cb41-2" title="2"></a>
 <a class="sourceLine" id="cb41-3" title="3">    Return <span class="bu">all</span> possible palindrome partitioning of s.</a>
 <a class="sourceLine" id="cb41-4" title="4"></a>
@@ -990,8 +1386,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb41-21" title="21">                        partitionRec(curr <span class="op">+</span> [s[i : j <span class="op">+</span> <span class="dv">1</span>]], s, j <span class="op">+</span> <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb41-22" title="22"></a>
 <a class="sourceLine" id="cb41-23" title="23">        partitionRec([], s, <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb41-24" title="24">        <span class="cf">return</span> result</a></code></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb42-1" title="1"><span class="co">## Given a string s, partition s such that every substring of the partition is a palindrome.</span></a>
+<a class="sourceLine" id="cb41-24" title="24">        <span class="cf">return</span> result</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb42">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb42-1" title="1"><span class="co">## Given a string s, partition s such that every substring of the partition is a palindrome.</span></a>
 <a class="sourceLine" id="cb42-2" title="2"></a>
 <a class="sourceLine" id="cb42-3" title="3">    Return the minimum cuts needed <span class="cf">for</span> a palindrome partitioning of s.</a>
 <a class="sourceLine" id="cb42-4" title="4"></a>
@@ -1033,8 +1433,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb42-40" title="40"></a>
 <a class="sourceLine" id="cb42-41" title="41"><span class="co">### Time: O(N^2)</span></a>
 <a class="sourceLine" id="cb42-42" title="42"></a>
-<a class="sourceLine" id="cb42-43" title="43"><span class="co">### Space: O(N^2)</span></a></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb43-1" title="1"> There are N gas stations along a circular route, where the amount of gas at station i <span class="kw">is</span> gas[i].</a>
+<a class="sourceLine" id="cb42-43" title="43"><span class="co">### Space: O(N^2)</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb43">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb43-1" title="1"> There are N gas stations along a circular route, where the amount of gas at station i <span class="kw">is</span> gas[i].</a>
 <a class="sourceLine" id="cb43-2" title="2"></a>
 <a class="sourceLine" id="cb43-3" title="3">    You have a car <span class="cf">with</span> an unlimited gas tank <span class="kw">and</span> it costs cost[i] of gas to travel <span class="im">from</span> station i to its <span class="bu">next</span> station (i<span class="op">+</span><span class="dv">1</span>). You begin the journey <span class="cf">with</span> an empty tank at one of the gas stations.</a>
 <a class="sourceLine" id="cb43-4" title="4"></a>
@@ -1050,8 +1454,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb43-14" title="14"></a>
 <a class="sourceLine" id="cb43-15" title="15"><span class="st">        if total_sum &gt;= 0:</span></a>
 <a class="sourceLine" id="cb43-16" title="16"><span class="st">            return start</span></a>
-<a class="sourceLine" id="cb43-17" title="17"><span class="st">        return -1</span></a></code></pre></div>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb44-1" title="1"><span class="co">## Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</span></a>
+<a class="sourceLine" id="cb43-17" title="17"><span class="st">        return -1</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb44">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb44-1" title="1"><span class="co">## Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</span></a>
 <a class="sourceLine" id="cb44-2" title="2"></a>
 <a class="sourceLine" id="cb44-3" title="3">    Note:</a>
 <a class="sourceLine" id="cb44-4" title="4"></a>
@@ -1087,8 +1495,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb44-34" title="34">                    dp[i <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> <span class="va">True</span></a>
 <a class="sourceLine" id="cb44-35" title="35">                    <span class="cf">break</span></a>
 <a class="sourceLine" id="cb44-36" title="36"></a>
-<a class="sourceLine" id="cb44-37" title="37">        <span class="cf">return</span> dp[<span class="bu">len</span>(s)]</a></code></pre></div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb45-1" title="1"><span class="co">## Given a linked list, determine if it has a cycle in it.</span></a>
+<a class="sourceLine" id="cb44-37" title="37">        <span class="cf">return</span> dp[<span class="bu">len</span>(s)]</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb45">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb45-1" title="1"><span class="co">## Given a linked list, determine if it has a cycle in it.</span></a>
 <a class="sourceLine" id="cb45-2" title="2"></a>
 <a class="sourceLine" id="cb45-3" title="3">    Follow up:</a>
 <a class="sourceLine" id="cb45-4" title="4">    Can you solve it without using extra space?</a>
@@ -1105,8 +1517,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb45-15" title="15"></a>
 <a class="sourceLine" id="cb45-16" title="16"><span class="co">### self.val = x</span></a>
 <a class="sourceLine" id="cb45-17" title="17"></a>
-<a class="sourceLine" id="cb45-18" title="18"><span class="co">### self.next = None</span></a></code></pre></div>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">class</span> Solution(<span class="bu">object</span>): <span class="kw">def</span> hasCycle(<span class="va">self</span>, head):  :<span class="bu">type</span> head: ListNode :rtype: <span class="bu">bool</span> </a>
+<a class="sourceLine" id="cb45-18" title="18"><span class="co">### self.next = None</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb46">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb46-1" title="1"><span class="kw">class</span> Solution(<span class="bu">object</span>): <span class="kw">def</span> hasCycle(<span class="va">self</span>, head):  :<span class="bu">type</span> head: ListNode :rtype: <span class="bu">bool</span> </a>
 <a class="sourceLine" id="cb46-2" title="2"></a>
 <a class="sourceLine" id="cb46-3" title="3">        <span class="cf">if</span> <span class="kw">not</span> head:</a>
 <a class="sourceLine" id="cb46-4" title="4">            <span class="cf">return</span> <span class="va">False</span></a>
@@ -1117,8 +1533,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb46-9" title="9">            fast <span class="op">=</span> fast.<span class="bu">next</span>.<span class="bu">next</span></a>
 <a class="sourceLine" id="cb46-10" title="10">            <span class="cf">if</span> slow <span class="op">==</span> fast:</a>
 <a class="sourceLine" id="cb46-11" title="11">                <span class="cf">return</span> <span class="va">True</span></a>
-<a class="sourceLine" id="cb46-12" title="12">        <span class="cf">return</span> <span class="va">False</span></a></code></pre></div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb47-1" title="1"><span class="co">## Given a linked list, return the node where the cycle begins. If there is no cycle, return null.</span></a>
+<a class="sourceLine" id="cb46-12" title="12">        <span class="cf">return</span> <span class="va">False</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb47">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb47-1" title="1"><span class="co">## Given a linked list, return the node where the cycle begins. If there is no cycle, return null.</span></a>
 <a class="sourceLine" id="cb47-2" title="2"></a>
 <a class="sourceLine" id="cb47-3" title="3">    Note: Do <span class="kw">not</span> modify the linked <span class="bu">list</span>.</a>
 <a class="sourceLine" id="cb47-4" title="4"></a>
@@ -1184,8 +1604,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb47-64" title="64">            head2 <span class="op">=</span> n2</a>
 <a class="sourceLine" id="cb47-65" title="65">            head1 <span class="op">=</span> head1.<span class="bu">next</span>.<span class="bu">next</span></a>
 <a class="sourceLine" id="cb47-66" title="66"></a>
-<a class="sourceLine" id="cb47-67" title="67">        head <span class="op">=</span> head1</a></code></pre></div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb48-1" title="1"><span class="co">## Given a binary tree, return the preorder traversal of its nodes’ values.</span></a>
+<a class="sourceLine" id="cb47-67" title="67">        head <span class="op">=</span> head1</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb48">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb48-1" title="1"><span class="co">## Given a binary tree, return the preorder traversal of its nodes’ values.</span></a>
 <a class="sourceLine" id="cb48-2" title="2"></a>
 <a class="sourceLine" id="cb48-3" title="3">    Example:</a>
 <a class="sourceLine" id="cb48-4" title="4"></a>
@@ -1253,8 +1677,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb48-66" title="66">            recursive(root.right, result)</a>
 <a class="sourceLine" id="cb48-67" title="67"></a>
 <a class="sourceLine" id="cb48-68" title="68">        recursive(root, result)</a>
-<a class="sourceLine" id="cb48-69" title="69">        <span class="cf">return</span> result</a></code></pre></div>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb49-1" title="1"><span class="co">## Given a binary tree, return the postorder traversal of its nodes’ values.</span></a>
+<a class="sourceLine" id="cb48-69" title="69">        <span class="cf">return</span> result</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb49">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb49-1" title="1"><span class="co">## Given a binary tree, return the postorder traversal of its nodes’ values.</span></a>
 <a class="sourceLine" id="cb49-2" title="2"></a>
 <a class="sourceLine" id="cb49-3" title="3">    Example:</a>
 <a class="sourceLine" id="cb49-4" title="4"></a>
@@ -1339,8 +1767,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb49-83" title="83">            <span class="cf">if</span> <span class="bu">len</span>(stack) <span class="op">&lt;=</span> <span class="dv">0</span>:</a>
 <a class="sourceLine" id="cb49-84" title="84">                <span class="cf">break</span></a>
 <a class="sourceLine" id="cb49-85" title="85"></a>
-<a class="sourceLine" id="cb49-86" title="86">        <span class="cf">return</span> result</a></code></pre></div>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb50-1" title="1"> Design <span class="kw">and</span> implement a data structure <span class="cf">for</span> Least Recently Used (LRU) cache. It should support the following operations: get <span class="kw">and</span> put.</a>
+<a class="sourceLine" id="cb49-86" title="86">        <span class="cf">return</span> result</a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb50">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb50-1" title="1"> Design <span class="kw">and</span> implement a data structure <span class="cf">for</span> Least Recently Used (LRU) cache. It should support the following operations: get <span class="kw">and</span> put.</a>
 <a class="sourceLine" id="cb50-2" title="2"></a>
 <a class="sourceLine" id="cb50-3" title="3">    get(key) <span class="op">-</span> Get the value (will always be positive) of the key <span class="cf">if</span> the key exists <span class="kw">in</span> the cache, otherwise <span class="cf">return</span> <span class="fl">-1.</span></a>
 <a class="sourceLine" id="cb50-4" title="4">    put(key, value) <span class="op">-</span> Set <span class="kw">or</span> insert the value <span class="cf">if</span> the key <span class="kw">is</span> <span class="kw">not</span> already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.</a>
@@ -1360,8 +1792,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb50-18" title="18">    cache.put(<span class="dv">4</span>, <span class="dv">4</span>)<span class="op">;</span>    <span class="op">//</span> evicts key <span class="dv">1</span></a>
 <a class="sourceLine" id="cb50-19" title="19">    cache.get(<span class="dv">1</span>)<span class="op">;</span>       <span class="op">//</span> returns <span class="dv">-1</span> (<span class="kw">not</span> found)</a>
 <a class="sourceLine" id="cb50-20" title="20">    cache.get(<span class="dv">3</span>)<span class="op">;</span>       <span class="op">//</span> returns <span class="dv">3</span></a>
-<a class="sourceLine" id="cb50-21" title="21">    cache.get(<span class="dv">4</span>)<span class="op">;</span>       <span class="op">//</span> returns <span class="dv">4</span></a></code></pre></div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">class</span> Node(<span class="bu">object</span>): <span class="kw">def</span> <span class="op">**</span>init<span class="op">**</span>(<span class="va">self</span>, key, value): <span class="va">self</span>.key <span class="op">=</span> key <span class="va">self</span>.value <span class="op">=</span> value <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span> <span class="va">self</span>.prev <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb50-21" title="21">    cache.get(<span class="dv">4</span>)<span class="op">;</span>       <span class="op">//</span> returns <span class="dv">4</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb51">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">class</span> Node(<span class="bu">object</span>): <span class="kw">def</span> <span class="op">**</span>init<span class="op">**</span>(<span class="va">self</span>, key, value): <span class="va">self</span>.key <span class="op">=</span> key <span class="va">self</span>.value <span class="op">=</span> value <span class="va">self</span>.<span class="bu">next</span> <span class="op">=</span> <span class="va">None</span> <span class="va">self</span>.prev <span class="op">=</span> <span class="va">None</span></a>
 <a class="sourceLine" id="cb51-2" title="2"></a>
 <a class="sourceLine" id="cb51-3" title="3"><span class="kw">class</span> LRUCache(<span class="bu">object</span>): <span class="kw">def</span> <span class="op">**</span>init<span class="op">**</span>(<span class="va">self</span>, capacity):  :<span class="bu">type</span> capacity: <span class="bu">int</span>  <span class="va">self</span>.capacity <span class="op">=</span> capacity <span class="va">self</span>.mapping <span class="op">=</span> <span class="bu">dict</span>() <span class="va">self</span>.head <span class="op">=</span> Node(<span class="dv">0</span>, <span class="dv">0</span>) <span class="va">self</span>.tail <span class="op">=</span> Node(<span class="dv">0</span>, <span class="dv">0</span>) <span class="va">self</span>.head.<span class="bu">next</span> <span class="op">=</span> <span class="va">self</span>.tail <span class="va">self</span>.tail.prev <span class="op">=</span> <span class="va">self</span>.head</a>
 <a class="sourceLine" id="cb51-4" title="4"></a>
@@ -1564,8 +2000,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb51-201" title="201"><span class="st">                    stack.append(val2 / val1)</span></a>
 <a class="sourceLine" id="cb51-202" title="202"><span class="st">            else:</span></a>
 <a class="sourceLine" id="cb51-203" title="203"><span class="st">                stack.append(int(val))</span></a>
-<a class="sourceLine" id="cb51-204" title="204"><span class="st">        return stack[0]</span></a></code></pre></div>
-<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb52-1" title="1"><span class="co">## Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.</span></a>
+<a class="sourceLine" id="cb51-204" title="204"><span class="st">        return stack[0]</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb52">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb52-1" title="1"><span class="co">## Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.</span></a>
 <a class="sourceLine" id="cb52-2" title="2"></a>
 <a class="sourceLine" id="cb52-3" title="3">    Example <span class="dv">1</span>:</a>
 <a class="sourceLine" id="cb52-4" title="4"></a>
@@ -1931,8 +2371,12 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb52-364" title="364"></a>
 <a class="sourceLine" id="cb52-365" title="365"><span class="co">### i, v = BSTIterator(root), []</span></a>
 <a class="sourceLine" id="cb52-366" title="366"></a>
-<a class="sourceLine" id="cb52-367" title="367"><span class="co">### while i.hasNext(): v.append(i.next())</span></a></code></pre></div>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb53-1" title="1"><span class="co">## Given a list of non negative integers, arrange them such that they form the largest number.</span></a>
+<a class="sourceLine" id="cb52-367" title="367"><span class="co">### while i.hasNext(): v.append(i.next())</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb53">
+      <pre
+        class="sourceCode python"
+      ><code class="sourceCode python"><a class="sourceLine" id="cb53-1" title="1"><span class="co">## Given a list of non negative integers, arrange them such that they form the largest number.</span></a>
 <a class="sourceLine" id="cb53-2" title="2"></a>
 <a class="sourceLine" id="cb53-3" title="3">    Example <span class="dv">1</span>:</a>
 <a class="sourceLine" id="cb53-4" title="4"></a>
@@ -1956,10 +2400,16 @@ The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).</code>
 <a class="sourceLine" id="cb53-22" title="22">                bits <span class="op">+=</span> <span class="dv">1</span></a>
 <a class="sourceLine" id="cb53-23" title="23">            mask <span class="op">&lt;&lt;=</span> <span class="dv">1</span></a>
 <a class="sourceLine" id="cb53-24" title="24"></a>
-<a class="sourceLine" id="cb53-25" title="25">        <span class="cf">return</span> bits</a></code></pre></div>
-<p>```py</p>
-<h2 id="given-a-binary-tree-imagine-yourself-standing-on-the-right-side-of-it-return-the-values-of-the-nodes-you-can-see-ordered-from-top-to-bottom.">Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.</h2>
-<pre class="text"><code>Example:
+<a class="sourceLine" id="cb53-25" title="25">        <span class="cf">return</span> bits</a></code></pre>
+    </div>
+    <p>```py</p>
+    <h2
+      id="given-a-binary-tree-imagine-yourself-standing-on-the-right-side-of-it-return-the-values-of-the-nodes-you-can-see-ordered-from-top-to-bottom."
+    >
+      Given a binary tree, imagine yourself standing on the right side of it,
+      return the values of the nodes you can see ordered from top to bottom.
+    </h2>
+    <pre class="text"><code>Example:
 
 Input: [1,2,3,null,5,null,4]
 Output: [1, 3, 4]
@@ -1970,14 +2420,19 @@ Explanation:
 2     3         &lt;---
  \     \
   5     4       &lt;---</code></pre>
-<h3 id="definition-for-a-binary-tree-node.-12">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-12">class TreeNode(object):</h3>
-<h3 id="def-initself-x-15">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-15">self.val = x</h3>
-<h3 id="self.left-none-15">self.left = None</h3>
-<h3 id="self.right-none-15">self.right = None</h3>
-<p>class Solution(object): def rightSideView(self, root): :type root: TreeNode :rtype: List[int] if not root: return []</p>
-<pre class="text"><code>    stack, node_depth = [(root, 0)], {}
+    <h3 id="definition-for-a-binary-tree-node.-12">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-12">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-15">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-15">self.val = x</h3>
+    <h3 id="self.left-none-15">self.left = None</h3>
+    <h3 id="self.right-none-15">self.right = None</h3>
+    <p>
+      class Solution(object): def rightSideView(self, root): :type root:
+      TreeNode :rtype: List[int] if not root: return []
+    </p>
+    <pre class="text"><code>    stack, node_depth = [(root, 0)], {}
 
     while stack:
         node, depth = stack.pop(0)
@@ -1989,5 +2444,5 @@ Explanation:
         if node.left:
             stack.append((node.left, depth + 1))
     return node_depth.values()</code></pre>
-</body>
+  </body>
 </html>

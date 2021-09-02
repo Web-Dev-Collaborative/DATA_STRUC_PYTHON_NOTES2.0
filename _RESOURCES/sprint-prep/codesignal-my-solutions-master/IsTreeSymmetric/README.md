@@ -35,9 +35,11 @@ t = {
     }
 }
 ```
+
 the output should be `isTreeSymmetric(t) = true`.
 
 Here's what the tree in this example looks like:
+
 ```
     1
    / \
@@ -49,6 +51,7 @@ Here's what the tree in this example looks like:
 As you can see, it is symmetric.
 
 - For
+
 ```
 t = {
     "value": 1,
@@ -72,9 +75,11 @@ t = {
     }
 }
 ```
+
 the output should be `isTreeSymmetric(t) = false`.
 
 Here's what the tree in this example looks like:
+
 ```
     1
    / \

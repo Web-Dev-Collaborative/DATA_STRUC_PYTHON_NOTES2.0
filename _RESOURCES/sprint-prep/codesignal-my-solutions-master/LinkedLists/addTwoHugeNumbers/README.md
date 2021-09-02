@@ -2,12 +2,10 @@ You're given `2` huge integers represented by linked lists. Each linked list ele
 
 **Example**
 
- * For `a = [9876, 5432, 1999]` and `b = [1, 8001]`, the output should be
-   `addTwoHugeNumbers(a, b) = [9876, 5434, 0]`.
+- For `a = [9876, 5432, 1999]` and `b = [1, 8001]`, the output should be `addTwoHugeNumbers(a, b) = [9876, 5434, 0]`.
 
-   Explanation: `987654321999 + 18001 = 987654340000`.
+  Explanation: `987654321999 + 18001 = 987654340000`.
 
- * For `a = [123, 4, 5]` and `b = [100, 100, 100]`, the output should be
-   `addTwoHugeNumbers(a, b) = [223, 104, 105]`.
+- For `a = [123, 4, 5]` and `b = [100, 100, 100]`, the output should be `addTwoHugeNumbers(a, b) = [223, 104, 105]`.
 
-   Explanation: `12300040005 + 10001000100 = 22301040105`.
+  Explanation: `12300040005 + 10001000100 = 22301040105`.

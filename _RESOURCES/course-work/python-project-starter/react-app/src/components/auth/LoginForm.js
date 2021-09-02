@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import { login } from "../../services/auth";
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { login } from '../../services/auth';
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onLogin = async (e) => {
     e.preventDefault();

@@ -28,7 +28,6 @@
     "eslint-watch": "3.1.2",
     "node-sass": "6.0.1",
     "sass-loader": "12.1.0",
-
     "style-loader": "0.18.2",
     "webpack": "5.51.1"
   }

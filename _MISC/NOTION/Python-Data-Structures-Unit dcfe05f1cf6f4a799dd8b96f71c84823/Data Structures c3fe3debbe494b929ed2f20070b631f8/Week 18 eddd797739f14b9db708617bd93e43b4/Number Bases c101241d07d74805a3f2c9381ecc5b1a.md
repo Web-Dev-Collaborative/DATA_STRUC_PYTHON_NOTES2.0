@@ -8,7 +8,7 @@ The only reason base-ten math seems "natural" and the other bases don't is that 
 
 ## **Binary**
 
-*Advertisement*
+_Advertisement_
 
 Let's look at base-two, or binary, numbers. How would you write, for instance, 1210 ("twelve, base ten") as a binary number? You would have to convert to base-two columns, the analogue of base-ten columns. In base ten, you have columns or "places" for 100 = 1, 101 = 10, 102 = 100, 103 = 1000, and so forth. Similarly in base two, you have columns or "places" for 20 = 1, 21 = 2, 22 = 4, 23 = 8, 24 = 16, and so forth.
 
@@ -20,7 +20,7 @@ A "three" in base two is actually "1 two and 1 one", so it is written as 112
 
 ---
 
-*Content Continues Below*
+_Content Continues Below_
 
 ---
 
@@ -64,7 +64,7 @@ These remainders tell me what the binary number is. I read the numbers from arou
 
 ---
 
-*Affiliate*
+_Affiliate_
 
 ---
 

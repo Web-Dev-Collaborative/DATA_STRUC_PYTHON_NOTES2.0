@@ -6,15 +6,12 @@ Given a string, find out if it satisfies the IPv4 address naming rules.
 
 **Example**
 
- * For `inputString = "172.16.254.1"`, the output should be
-	`isIPv4Address(inputString) = true;
+- For `inputString = "172.16.254.1"`, the output should be `isIPv4Address(inputString) = true;
 
- * For `inputString = "172.316.254.1"`, the output should be
-	`isIPv4Address(inputString) = false`.
+- For `inputString = "172.316.254.1"`, the output should be `isIPv4Address(inputString) = false`.
 
-	`316 is not in range `[0, 255]`.
+  `316 is not in range `[0, 255]`.
 
- * For `inputString = ".254.255.0"`, the output should be
-	`isIPv4Address(inputString) = false`.
+- For `inputString = ".254.255.0"`, the output should be `isIPv4Address(inputString) = false`.
 
 There is no first number.

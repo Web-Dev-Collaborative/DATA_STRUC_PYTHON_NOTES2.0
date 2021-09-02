@@ -1,179 +1,154 @@
-# D4
+# Python Problems & Solutions For Beginners
 
-## Overview
+Introduction to python taught through example problems. Solutions are included in embedded repl.it at the bottom of this page for you to…
 
-There is only one way to traverse linear data structures like arrays, linked lists, queues, and stacks. The linear nature of the structure itself forces a particular type of traversal.
+---
 
-However, with hierarchical structures like trees, there are multiple ways that you can traverse the stored data. There are two primary categories for tree traversals:
+### Python Problems & Solutions For Beginners
 
-1. Depth-First
-2. Breadth-First
+#### Introduction to python taught through example problems. Solutions are included in embedded repl.it at the bottom of this page for you to practice and refactor.
 
-Furthermore, there are three different types of depth-first traversals:
+### Python Practice Problems
 
-1. Inorder
-2. Preorder
-3. Postorder
+<figure><img src="https://cdn-images-1.medium.com/max/800/0*dMdMGwOJKHJ-5sOP.gif" class="graf-image" /></figure>
 
-Let's dive deeper into each of the traversal types.
+---
 
-## Follow Along
+#### Here are some other articles for reference if you need them:
 
-### Depth-First Inorder Traversal
+<a href="https://medium.com/geekculture/beginners-guide-to-python-e5a59b5bb64d" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://medium.com/geekculture/beginners-guide-to-python-e5a59b5bb64d"><strong>Beginners Guide To Python</strong><br /> <em>My favorite language for maintainability is Python. It has simple, clean syntax, object encapsulation, good library…</em>medium.com</a><a href="https://medium.com/geekculture/beginners-guide-to-python-e5a59b5bb64d" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
 
-Let's first look at an inorder depth-first traversal of a binary tree. In this traversal, we start at the tree's root node and complete the following steps recursively:
+<a href="https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb"><strong>Python Study Guide for a JavaScript Programmer</strong><br /> <em>A guide to commands in Python from what you know in JavaScript</em>levelup.gitconnected.com</a><a href="https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
 
-1. Go to the left subtree
-2. Visit node
-3. Go to the right subtree
+---
 
-Notice that we don't actually "visit" a node until we've already gone to the left subtree. In the animation below, the "going" is denoted by changing the color to a light grey. The actual visiting is represented when it turns red. The base cases in the recursion are when there is no left or right subtree to visit.
+### Here are the problems without solutions for you to practice with:
 
-![https://tk-assets.lambdaschool.com/4b1680ed-3b4b-4fcf-ba97-bbfe54f5d066\_depth-first-inorder-traversal.gif](https://tk-assets.lambdaschool.com/4b1680ed-3b4b-4fcf-ba97-bbfe54f5d066_depth-first-inorder-traversal.gif)
+https://replit.com/@bgoonz/problems-witho-solutions
 
-Here is one possible way to code a depth-first inorder traversal in Python:
+---
 
-```text
-class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
+### Problem 1
 
-def helper(root, res):
-    if root is None:
-        return
-    helper(root.left, res)
-    res.append(root.val)
-    helper(root.right, res)
+Create a program that asks the user to enter their name and their age. Print out a message addressed to them that tells them the year that they will turn `100` years old.
 
-def inorder_traversal(root):
-    result = []
-    helper(root, result)
-    return result
-```
+The `datetime` module supplies classes for manipulating dates and times.
 
-### Depth-First Preorder Traversal
+While date and time arithmetic is supported, the focus of the implementation is on efficient attribute extraction for output formatting and manipulation.
 
-This traversal type is very similar to an inorder traversal except that the three steps' order is slightly different. Notice that in this traversal, we "visit" the node \(denoted in the visualization below by the node turning red\) before we recurse to the left subtree \(we represent the recursive call by turning the node grey in the visualization below\). In the inorder traversal above, we recursed to the left subtree before visiting the node.
+<a href="https://docs.python.org/3/library/datetime.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.python.org/3/library/datetime.html"><strong>datetime - Basic date and time types - Python 3.9.6 documentation</strong><br /> <em>Only one concrete class, the class, is supplied by the module. The class can represent simple timezones with fixed…</em>docs.python.org</a><a href="https://docs.python.org/3/library/datetime.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock"></a>
 
-1. Visit the node
-2. Go to the left subtree
-3. Go to the right subtree
+### Problem 2
 
-Below is the visualization for how this would type of traversal would look.
+Ask the user for a number. Depending on whether the number is `even` or `odd`, print out an appropriate message to the user.
 
-![https://tk-assets.lambdaschool.com/c44685b7-b6f7-4214-ba85-226ca56e8042\_depth-first-preorder-traversal.gif](https://tk-assets.lambdaschool.com/c44685b7-b6f7-4214-ba85-226ca56e8042_depth-first-preorder-traversal.gif)
+#### Bonus:
 
-Here is one possible way to code a depth-first preorder traversal in Python:
+1.  <span id="eebc">If the number is a multiple of `4`, print out a different message.</span>
+2.  <span id="306e">Ask the user for two numbers: one number to check (call it num) and one number to divide by (check). If check divides evenly into num, tell that to the user. If not, print a different appropriate message.</span>
 
-```python
-class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
+### Problem 3
 
-def helper(root, res):
-    if root is None:
-        return
-    res.append(root.val)
-    helper(root.left, res)
-    helper(root.right, res)
+Take a list and write a program that prints out all the elements of the list that are `less` than `5`.
 
-def preorder_traversal(root):
-    result = []
-    helper(root, result)
-    return result
-```
+Extras:
 
-Notice that the only difference between the code above for preorder traversal and the example for inorder traversal is that in the preorder traversal code, we append the node's value to the result before we recurse to the left.
+1.  <span id="fe03">Instead of printing the elements one by one, make a new list that has all the elements less than `5` from this list in it and print out this new list.</span>
+2.  <span id="186b">Write this in one line of Python.</span>
+3.  <span id="9cd1">Ask the user for a number and return a list that contains only elements from the original list a that are smaller than that number given by the user.</span>
 
-### Depth-First Postorder Traversal
+### Problem 4
 
-This traversal type is very similar to our other traversals except that the three steps' order is slightly different. Notice that in this traversal, we "visit" the node \(denoted in the visualization below by the node turning red\) after we recurse to the left subtree \(we represent the recursive call by turning the node grey in the visualization below\) and the right subtree.
+Create a program that asks the user for a number and then prints out a list of all the divisors of that number. (If you don’t know what a divisor is, it is a number that divides evenly into another number.
 
-1. Go to the left subtree
-2. Go to the right subtree
-3. Visit node
+For example, `13` is a divisor of `26` because `26 / 13` has no remainder.)
 
-Below is the visualization for how this would type of traversal would look.
+### Problem 5
 
-![https://tk-assets.lambdaschool.com/41bc2877-94d4-4103-885b-c396bec4832a\_depth-first-postorder-traversal.gif](https://tk-assets.lambdaschool.com/41bc2877-94d4-4103-885b-c396bec4832a_depth-first-postorder-traversal.gif)
+Take two lists, and write a program that returns a list that contains only the elements that are `common between the lists (without duplicates)`. Make sure your program works on two lists of different sizes.
 
-Here is one possible way to code a depth-first postorder traversal in Python:
+<a href="https://docs.python.org/3/library/random.html" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.python.org/3/library/random.html"><strong>random - Generate pseudo-random numbers - Python 3.9.6 documentation</strong><br /> <em>Source code: Lib/random.py This module implements pseudo-random number generators for various distributions. For…</em>docs.python.org</a><a href="https://docs.python.org/3/library/random.html" class="js-mixtapeImage mixtapeImage mixtapeImage--empty u-ignoreBlock"></a>
 
-```text
-class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
+Bonus:
 
-def helper(root, res):
-    if root is None:
-        return
-    helper(root.left, res)
-    helper(root.right, res)
-    res.append(root.val)
+1.  <span id="e18a">Randomly generate two lists to test this.</span>
+2.  <span id="148a">Write this in one line of Python.</span>
 
-def postorder_traversal(root):
-    result = []
-    helper(root, result)
-    return result
-```
+### Problem 6
 
-Notice that the only difference between the code above for postorder traversal and the other examples is that in this version, we append the node's value to the result only after we've already recursed to the left and right subtrees.
+Ask the user for a string and print out whether this string is a `palindrome` or not. (A palindrome is a string that reads the same forwards and backwards.)
 
-### Breadth-First \(Level Order\) Traversal
+> Here’s 5 ways to reverse a string (courtesy of <a href="https://www.geeksforgeeks.org/reverse-string-python-5-different-ways/" class="markup--anchor markup--pullquote-anchor">geeksforgeeks</a>)
 
-In a breadth-first traversal, we visit all the nodes at the same level \(same distance from the root node\) before going on to the next level.
+---
 
-A breadth-first traversal and a level order traversal are the same things. However, a breadth-first traversal can be done on any hierarchical data structure like trees and graphs. But, a level order traversal refers only to the traversal of a tree. Graphs do not have levels like trees do, so that term would not make sense.
+### Problem 7
 
-A breadth-first traversal is a little different than the depth-first traversals we've gone over. We cannot merely use the recursive call stack to keep track of where we are in the tree. Instead, we must use a queue to keep track of what nodes we should visit. Remember that a queue data structure follows a first-in-first-out \(FIFO\) access order.
+Let’s say I give you a list saved in a variable: a = `[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]`.
 
-Below is a visualization for a breadth-first traversal.
+Write one line of Python that takes this list a and makes a new list that has only the `even` elements of this list in it.
 
-![https://tk-assets.lambdaschool.com/671a11b7-acee-4b16-9452-d42f3b69a24e\_breadth-first-traversal.gif](https://tk-assets.lambdaschool.com/671a11b7-acee-4b16-9452-d42f3b69a24e_breadth-first-traversal.gif)
+### Problem 8
 
-Here is one way that you could code a breadth-first \(level order\) traversal in Python:
+Make a two-player `Rock-Paper-Scissors` game.
 
-```python
-class TreeNode:
-     def __init__(self, val=0, left=None, right=None):
-         self.val = val
-         self.left = left
-         self.right = right
+**Hint:** Ask for player plays (using input), compare them. Print out a message of congratulations to the winner, and ask if the players want to start a new game.
 
-def breadth_first_traversal(root):
-    if root is None:
-        return []
+<figure><img src="https://cdn-images-1.medium.com/max/800/0*1_4w6u4D7EDi2r4h.png" class="graf-image" /></figure>### Problem 9
 
-    result = []
-    queue = []
-    queue.append(root)
+Generate a random number between `1 and 100 (including 1 and 100)`. Ask the user to guess the number, then tell them whether they guessed `too low`, `too high`, or `exactly right`.
 
-    while len(queue) != 0:
-        node = queue.pop(0)
-        result.append(node.val)
+> **Hint:** Remember to use the user input from the very first exercise.
 
-        if node.left is not None:
-            queue.append(node.left)
+**Extras:** Keep the game going until the user types `“exit”`. Keep track of how many guesses the user has taken, and when the game ends, print this out.
 
-        if node.right is not None:
-            queue.append(node.right)
+### Problem 10
 
-    return result
-```
+Write a program that asks the user how many Fibonacci numbers to generate and then generates them. Take this opportunity to think about how you can use functions. Make sure to ask the user to enter the number of numbers in the sequence to generate.
 
-## Challenge
+**Hint:** The Fibonacci sequence is a sequence of numbers where the next number in the sequence is the sum of the previous two numbers in the sequence. The sequence looks like this: `1, 1, 2, 3, 5, 8, 13, …`
 
-1. What data structure could you use to write an _iterative_ depth-first traversal method?
-2. In your own words, explain how a depth-first traversal and a breadth-first traversal are different?
+<figure><img src="https://cdn-images-1.medium.com/max/800/0*2xJsVLGikF6dg7qc.png" class="graf-image" /></figure>
 
-## Additional Resources
+---
 
-* [https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/ \(Links to an external site.\)](https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/)
-* [https://www.geeksforgeeks.org/level-order-tree-traversal/ \(Links to an external site.\)](https://www.geeksforgeeks.org/level-order-tree-traversal/)
+### Intermediate Problems:
 
+<figure><img src="https://cdn-images-1.medium.com/max/800/0*hTU58jGsgkrszi76.gif" class="graf-image" /></figure>
+
+---
+
+### Problem 11
+
+In linear algebra, _a Toeplitz matrix is one in which the elements on any given diagonal from top left to bottom right are identical._ Here is an example:
+
+    1 2 3 4 8
+    5 1 2 3 4
+    4 5 1 2 3
+    7 4 5 1 2
+
+Write a program to determine whether a given input is a `Toeplitz` matrix.
+
+### Problem 12
+
+Given a positive integer `N`, find the smallest number of steps it will take to reach `1`.
+
+There are two kinds of permitted steps:  — -&gt; You may decrement N to N — 1.  — -&gt; If `a * b = N`, you may decrement `N to the larger of a and b`.
+
+For example, given 100, you can reach 1 in 5 steps with the following route: `100 -> 10 -> 9 -> 3 -> 2 -> 1.`
+
+### Problem 13
+
+Consider the following scenario: there are `N` mice and `N` holes placed at integer points along a line. Given this, find a method that maps mice to holes such that the largest number of steps any mouse takes is minimized.
+
+Each move consists of moving one mouse `one` unit to the `left` or `right`, and only `one` mouse can fit inside each hole.
+
+For example, suppose the mice are positioned at `[1, 4, 9, 15]`, and the holes are located at `[10, -5, 0, 16]`. In this case, the best pairing would require us to send the mouse at `1` to the hole at `-5`, so our function should return `6`.
+
+### My Blog:
+
+<a href="https://master--bgoonz-blog.netlify.app/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://master--bgoonz-blog.netlify.app/"><strong>Web-Dev-Hub</strong><br /> <em>Memoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…</em>master--bgoonz-blog.netlify.app</a><a href="https://master--bgoonz-blog.netlify.app/" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
+
+<a href="https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b"><strong>A list of all of my articles to link to future posts</strong><br /> <em>You should probably skip this one… seriously it’s just for internal use!</em>bryanguner.medium.com</a><a href="https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
+
+---

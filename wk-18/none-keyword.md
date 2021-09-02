@@ -18,10 +18,10 @@ None
 
 ## Interesting Facts
 
-* `None` is not the same as `False`.
-* `None` is not _0_.
-* `None` is not an empty `string`.
-* Comparing `None` to anything will always return `False` except `None` itself.
+- `None` is not the same as `False`.
+- `None` is not _0_.
+- `None` is not an empty `string`.
+- Comparing `None` to anything will always return `False` except `None` itself.
 
 ## Examples
 
@@ -48,4 +48,3 @@ None
 1. Comparing `None` with empty `string`:
 
 1234\# Declaring an empty stringstr = ""\# Comparing None with empty string and printing the resultprint \(str == None\)Run
-

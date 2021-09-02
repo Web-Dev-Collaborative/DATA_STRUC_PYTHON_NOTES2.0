@@ -54,4 +54,3 @@ Now you can create a file named usercustomize.py in that directory and put anyth
 sitecustomize works in the same way, but is typically created by an administrator of the computer in the global site-packages directory, and is imported before usercustomize. See the documentation of the site module for more details.
 
 **Footnotes**
-

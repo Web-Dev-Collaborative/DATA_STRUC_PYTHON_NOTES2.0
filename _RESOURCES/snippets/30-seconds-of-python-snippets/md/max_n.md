@@ -5,7 +5,7 @@ firstSeen: 2018-01-19T11:25:28+02:00
 lastUpdated: 2020-11-02T19:28:27+02:00
 ---
 
-Returns the `n` maximum elements from the provided list. 
+Returns the `n` maximum elements from the provided list.
 
 - Use `sorted()` to sort the list.
 - Use slice notation to get the specified number of elements.

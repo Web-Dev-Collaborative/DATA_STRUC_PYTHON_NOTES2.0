@@ -1,15 +1,13 @@
 # index
 
-
-
 This tutorial is part of Python's documentation set. Some other documents in the set are:
 
-* library-index:
+- library-index:
 
   You should browse through this manual, which gives complete \(though terse\) reference material about types, functions, and the modules in the standard library. The standard Python distribution includes a _lot_ of additional code. There are modules to read Unix mailboxes, retrieve documents via HTTP, generate random numbers, parse command-line options, write CGI programs, compress data, and many other tasks. Skimming through the Library Reference will give you an idea of what's available.
 
-* installing-index explains how to install additional modules written by other Python users.
-* reference-index: A detailed explanation of Python's syntax and
+- installing-index explains how to install additional modules written by other Python users.
+- reference-index: A detailed explanation of Python's syntax and
 
   semantics. It's heavy reading, but is useful as a complete guide to
 
@@ -17,7 +15,7 @@ This tutorial is part of Python's documentation set. Some other documents in the
 
 More Python resources:
 
-* [https://www.python.org](https://www.python.org): The major Python Web site. It contains
+- [https://www.python.org](https://www.python.org): The major Python Web site. It contains
 
   code, documentation, and pointers to Python-related pages around the
 
@@ -27,8 +25,8 @@ More Python resources:
 
   the main site, depending on your geographical location.
 
-* [https://docs.python.org](https://docs.python.org): Fast access to Python's documentation.
-* [https://pypi.org](https://pypi.org): The Python Package Index, previously also
+- [https://docs.python.org](https://docs.python.org): Fast access to Python's documentation.
+- [https://pypi.org](https://pypi.org): The Python Package Index, previously also
 
   nicknamed the Cheese Shop , is an index of user-created Python
 
@@ -36,7 +34,7 @@ More Python resources:
 
   code, you can register it here so that others can find it.
 
-* [https://code.activestate.com/recipes/langs/python/](https://code.activestate.com/recipes/langs/python/): The Python
+- [https://code.activestate.com/recipes/langs/python/](https://code.activestate.com/recipes/langs/python/): The Python
 
   Cookbook is a sizable collection of code examples, larger modules,
 
@@ -46,11 +44,11 @@ More Python resources:
 
   0-596-00797-3.\)
 
-* [http://www.pyvideo.org](http://www.pyvideo.org) collects links to Python-related videos
+- [http://www.pyvideo.org](http://www.pyvideo.org) collects links to Python-related videos
 
   from conferences and user-group meetings.
 
-* [https://scipy.org](https://scipy.org): The Scientific Python project includes modules
+- [https://scipy.org](https://scipy.org): The Scientific Python project includes modules
 
   for fast array computations and manipulations plus a host of
 
@@ -72,4 +70,3 @@ Before posting, be sure to check the list of Frequently Asked Questions \ \(also
 cheese shop, but whatever cheese he asks for, the clerk says it's
 missing.
 ```
-

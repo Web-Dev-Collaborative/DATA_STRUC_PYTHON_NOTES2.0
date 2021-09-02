@@ -38,6 +38,7 @@ def foo():
 ### Numbers
 
 - Python has three types of numbers:
+
 1. **Integer**
 2. **Positive and Negative Counting Numbers.**
 
@@ -74,7 +75,7 @@ print(27e-5) # => 0.00027
 
 > The i is switched to a j in programming.
 
-T*his is because the letter i is common place as the de facto index for any and all enumerable entities so it just makes sense not to compete for name-**space*** *when there’s another 25 letters that don’t get used for every loop under the sun. My most medium apologies to Leonhard Euler.*
+T\*his is because the letter i is common place as the de facto index for any and all enumerable entities so it just makes sense not to compete for name-**space\*** _when there’s another 25 letters that don’t get used for every loop under the sun. My most medium apologies to Leonhard Euler._
 
 ```
 print(7j) # => 7j
@@ -105,8 +106,8 @@ print(str(17.0) + ' and ' + str(17))        # => 17.0 and 17
 
 **The arithmetic operators are the same between JS and Python, with two additions:**
 
-- *“**” : Double asterisk for exponent.*
-- *“//” : Integer Division.*
+- _“\*\*” : Double asterisk for exponent._
+- _“//” : Integer Division._
 - **There are no spaces between math operations in Python.**
 - **Integer Division gives the other part of the number from Module; it is a way to do round down numbers replacing** `Math.floor()` **in JS.**
 - **There are no** `++` **and** `-` **in Python, the only shorthand operators are:**
@@ -149,7 +150,7 @@ print(“Spaghetti”[-4]) # => e
 
 - Python let’s you use ranges
 
-You can think of this as roughly equivalent to the slice method called on a JavaScript object or string… *(mind you that in JS … strings are wrapped in an object (under the hood)… upon which the string methods are actually called. As a immutable privative type* ***by textbook definition**, a string literal could not hope to invoke most of it’s methods without violating the state it was bound to on initialization if it were not for this bit of syntactic sugar.)*
+You can think of this as roughly equivalent to the slice method called on a JavaScript object or string… _(mind you that in JS … strings are wrapped in an object (under the hood)… upon which the string methods are actually called. As a immutable privative type_ **\*by textbook definition**, a string literal could not hope to invoke most of it’s methods without violating the state it was bound to on initialization if it were not for this bit of syntactic sugar.)\*
 
 ```
 print(“Spaghetti”[1:4]) # => pag
@@ -193,7 +194,7 @@ postpone, and one which we intend to win, and the others, too.
 ```
 
 - **You can use** `+` **to concatenate strings, just like in JS.**
-- **You can also use “*” to repeat strings or multiply strings.**
+- **You can also use “\*” to repeat strings or multiply strings.**
 - **Use the** `format()` **function to use placeholders in a string to input values later on.**
 
 ```
@@ -202,7 +203,7 @@ last_name = "Bob"
 print('Your name is {0} {1}'.format(first_name, last_name))  # => Your name is Billy Bob
 ```
 
-- *Shorthand way to use format function is:*`print(f'Your name is {first_name} {last_name}')`
+- _Shorthand way to use format function is:_`print(f'Your name is {first_name} {last_name}')`
 
 ### Some useful string methods.
 
@@ -229,7 +230,7 @@ print(a)         # => 7
 print(b)         # => Marbles
 ```
 
-- ***You can chain variable assignments to give multiple var names the same value.***
+- **_You can chain variable assignments to give multiple var names the same value._**
 
 ### Use with caution as this is highly unreadable
 
@@ -249,9 +250,9 @@ a = 'seventeen'
 print(a)         # => seventeen
 ```
 
-- `NaN` *does not exist in Python, but you can 'create' it like so:*`print(float("nan"))`
-- *Python replaces* `null` *with* `none`*.*
-- `none` ***is an object*** *and can be directly assigned to a variable.*
+- `NaN` _does not exist in Python, but you can 'create' it like so:_`print(float("nan"))`
+- _Python replaces_ `null` _with_ `none`_._
+- `none` **_is an object_** _and can be directly assigned to a variable._
 
 > Using none is a convenient way to check to see why an action may not be operating correctly in your program.
 
@@ -297,6 +298,7 @@ print(not True or False)    # => False
 - Python uses all the same equality operators as JS.
 - In Python, equality operators are processed from left to right.
 - Logical operators are processed in this order:
+
 1. **NOT**
 2. **AND**
 3. **OR**
@@ -333,23 +335,11 @@ print (2 is 2.0)    # => False
 
 **If Statements**
 
-`if name == 'Monica':
-    print('Hi, Monica.')`
+`if name == 'Monica': print('Hi, Monica.')`
 
-`if name == 'Monica':
-    print('Hi, Monica.')
-else:
-    print('Hello, stranger.')`
+`if name == 'Monica': print('Hi, Monica.') else: print('Hello, stranger.')`
 
-`if name == 'Monica':
-    print('Hi, Monica.')
-elif age < 12:
-    print('You are not Monica, kiddo.')
-elif age > 2000:
-   print('Unlike you, Monica is not an undead, immortal vampire.')
-elif age > 100:
-   print('You are not Monica, grannie.')`
-Remember the order of `elif` statements matter.
+`if name == 'Monica': print('Hi, Monica.') elif age < 12: print('You are not Monica, kiddo.') elif age > 2000: print('Unlike you, Monica is not an undead, immortal vampire.') elif age > 100: print('You are not Monica, grannie.')` Remember the order of `elif` statements matter.
 
 ---
 
@@ -568,7 +558,7 @@ def increment(delta=1, value):
     return delta + value
 ```
 
-- *You can specify arguments by name without destructuring in Python.*
+- _You can specify arguments by name without destructuring in Python._
 
 ```
 def greeting(name, saying="Hello"):
@@ -591,9 +581,7 @@ greeting("Monica", saying="Hi")
 
 ### Formatted Strings
 
-> Remember that in Python join() is called on a string with an array/list passed in as the argument.
-Python has a very powerful formatting engine.
-format() is also applied directly to strings.
+> Remember that in Python join() is called on a string with an array/list passed in as the argument. Python has a very powerful formatting engine. format() is also applied directly to strings.
 
 ```
 shopping_list = [‘bread’,’milk’,’eggs’]
@@ -642,24 +630,17 @@ Programming Script : A set of code that runs in a linear fashion.
 The largest difference between scripts and programs is the level of complexity and purpose. Programs typically have many UI’s.
 ```
 
-**Python can be used to display html, css, and JS.***It is common to use Python as an API (Application Programming Interface)*
+**Python can be used to display html, css, and JS.\***It is common to use Python as an API (Application Programming Interface)\*
 
 ### Structured Data
 
 ### Sequence : The most basic data structure in Python where the index determines the order.
 
-> List
-Tuple
-Range
-Collections : Unordered data structures, hashable values.
+> List Tuple Range Collections : Unordered data structures, hashable values.
 
 ---
 
-**Dictionaries
-Sets
-Iterable : Generic name for a sequence or collection; any object that can be iterated through.
-Can be mutable or immutable.
-Built In Data Types**
+**Dictionaries Sets Iterable : Generic name for a sequence or collection; any object that can be iterated through. Can be mutable or immutable. Built In Data Types**
 
 ---
 
@@ -709,9 +690,7 @@ tuple([1,2,3]) # returns (1, 2, 3)
 
 **Declared using one to three parameters**.
 
-> Start : opt. default 0, first # in sequence.
-Stop : required next number past the last number in the sequence.
-Step : opt. default 1, difference between each number in the sequence.
+> Start : opt. default 0, first # in sequence. Stop : required next number past the last number in the sequence. Step : opt. default 1, difference between each number in the sequence.
 
 ```
 range(5) # [0, 1, 2, 3, 4]
@@ -736,7 +715,7 @@ c = dict([(‘two’, 2), (‘one’, 1), (‘three’, 3)])
 # a, b, and c are all equal
 ```
 
-***Declared with curly braces of the built in dict()***
+**_Declared with curly braces of the built in dict()_**
 
 > Benefit of dictionaries in Python is that it doesn’t matter how it is defined, if the keys and values are the same the dictionaries are considered equal.
 
@@ -748,12 +727,9 @@ S**ets : Unordered collection of distinct objects; objects that need to be hash
 
 ### Common Uses:
 
-> Removing Duplicates
-Membership Testing
-Mathematical Operators: Intersection, Union, Difference, Symmetric Difference.
+> Removing Duplicates Membership Testing Mathematical Operators: Intersection, Union, Difference, Symmetric Difference.
 
-**Standard Set is mutable, Python has a immutable version called frozenset.
-Sets created by putting comma seperated values inside braces:**
+**Standard Set is mutable, Python has a immutable version called frozenset. Sets created by putting comma seperated values inside braces:**
 
 ```
 school_bag = {‘book’,’paper’,’pencil’,’pencil’,’book’,’book’,’book’,’eraser’}
@@ -793,21 +769,19 @@ print(enumerate(quarters, start=1))
 
 ### (1, ‘First’), (2, ‘Second’), (3, ‘Third’), (4, ‘Fourth’)
 
-> zip(*iterables) : creates a zip object filled with tuples that combine 1 to 1 the items in each provided iterable.
-Functions that analyze iterable
+> zip(\*iterables) : creates a zip object filled with tuples that combine 1 to 1 the items in each provided iterable. Functions that analyze iterable
 
 **len(iterable) : returns the count of the number of items.**
 
-**max(*args, key=None) : returns the largest of two or more arguments.**
+**max(\*args, key=None) : returns the largest of two or more arguments.**
 
 **max(iterable, key=None) : returns the largest item in the iterable.**
 
-*key optional function which converts an item to a value to be compared.
-min works the same way as max*
+_key optional function which converts an item to a value to be compared. min works the same way as max_
 
 **sum(iterable) : used with a list of numbers to generate the total.**
 
-*There is a faster way to concatenate an array of strings into one string, so do not use sum for that.*
+_There is a faster way to concatenate an array of strings into one string, so do not use sum for that._
 
 **any(iterable) : returns True if any items in the iterable are true.**
 
@@ -815,10 +789,9 @@ min works the same way as max*
 
 ### Working with dictionaries
 
-**dir(dictionary) : returns the list of keys in the dictionary.
-Working with sets**
+**dir(dictionary) : returns the list of keys in the dictionary. Working with sets**
 
-**Union : The pipe | operator or union(*sets) function can be used to produce a new set which is a combination of all elements in the provided set.**
+**Union : The pipe | operator or union(\*sets) function can be used to produce a new set which is a combination of all elements in the provided set.**
 
 ```
 a = {1, 2, 3}
@@ -847,17 +820,18 @@ print(a ^ b) # => {1, 3, 4, 6}
 
 ---
 
-### **For Statements
-In python, there is only one for loop.**
+### \*\*For Statements
+
+In python, there is only one for loop.\*\*
 
 Always Includes:
 
 > 1. The for keyword
-2. A variable name
-3. The ‘in’ keyword
-4. An iterable of some kid
-5. A colon
-6. On the next line, an indented block of code called the for clause.
+> 2. A variable name
+> 3. The ‘in’ keyword
+> 4. An iterable of some kid
+> 5. A colon
+> 6. On the next line, an indented block of code called the for clause.
 
 **You can use break and continue statements inside for loops as well.**
 
@@ -885,7 +859,7 @@ for i in lst:
 print(i)
 ```
 
-***Common technique is to use the len() on a pre-defined list with a for loop to iterate over the indices of the list.***
+**_Common technique is to use the len() on a pre-defined list with a for loop to iterate over the indices of the list._**
 
 ```
 supplies = [‘pens’, ‘staplers’, ‘flame-throwers’, ‘binders’]
@@ -916,18 +890,18 @@ for v in spam.values():
 print(v)
 ```
 
-*Prints red*
+_Prints red_
 
-*Prints 42*
+_Prints 42_
 
 ```
 for k in spam.keys():
 print(k)
 ```
 
-*Prints color*
+_Prints color_
 
-*Prints age*
+_Prints age_
 
 **For loops can also iterate over both keys and values.**
 
@@ -938,20 +912,20 @@ for i in spam.items():
 print(i)
 ```
 
-*Prints (‘color’, ‘red’)*
+_Prints (‘color’, ‘red’)_
 
-*Prints (‘age’, 42)*
+_Prints (‘age’, 42)_
 
-*Destructuring to values*
+_Destructuring to values_
 
 ```
 for k, v in spam.items():
 print(‘Key: ‘ + k + ‘ Value: ‘ + str(v))
 ```
 
-*Prints Key: age Value: 42*
+_Prints Key: age Value: 42_
 
-*Prints Key: color Value: red*
+_Prints Key: color Value: red_
 
 **Looping over string**
 
@@ -962,13 +936,13 @@ print(c)
 
 **When you order arguments within a function or function call, the args need to occur in a particular order:**
 
-*formal positional args.*
+_formal positional args._
 
 - args
 
-*keyword args with default values*
+_keyword args with default values_
 
-- *kwargs
+- \*kwargs
 
 ```
 def example(arg_1, arg_2, *args, **kwargs):
@@ -985,8 +959,7 @@ pass
 
 ### **Importing in Python**
 
-**Modules are similar to packages in Node.js**
-Come in different types:
+**Modules are similar to packages in Node.js** Come in different types:
 
 Built-In,
 
@@ -1000,16 +973,13 @@ Custom.
 
 ### **Terms**
 
-> module : Python code in a separate file.
-package : Path to a directory that contains modules.init.py : Default file for a package.
-submodule : Another file in a module’s folder.
-function : Function in a module.
+> module : Python code in a separate file. package : Path to a directory that contains modules.init.py : Default file for a package. submodule : Another file in a module’s folder. function : Function in a module.
 
 **A module can be any file but it is usually created by placing a special file init.py into a folder. pic**
 
-*Try to avoid importing with wildcards in Python.*
+_Try to avoid importing with wildcards in Python._
 
-*Use multiple lines for clarity when importing.*
+_Use multiple lines for clarity when importing._
 
 ```
 from urllib.request import (
@@ -1030,11 +1000,9 @@ urlopen,
 
 **format() was introduced with P3**
 
-**All strings in P3 are unicode and encoded.
-md5 was removed.**
+**All strings in P3 are unicode and encoded. md5 was removed.**
 
-**ConfigParser was renamed to configparser
-sets were killed in favor of set() class.**
+**ConfigParser was renamed to configparser sets were killed in favor of set() class.**
 
 ### **print was a statement in P2, but is a function in P3.**
 
@@ -1046,25 +1014,25 @@ sets were killed in favor of set() class.**
 
 [bgoonz’s gists · GitHub](https://gist.github.com/bgoonz)
 
-**[bgoonz — Overview***Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…*github.com](https://github.com/bgoonz)
+**[bgoonz — Overview\***Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…\*github.com](https://github.com/bgoonz)
 
 Or Checkout my personal Resource Site:
 
-**[a/A-Student-Resources***Edit description*goofy-euclid-1cd736.netlify.app](https://goofy-euclid-1cd736.netlify.app/)
+**[a/A-Student-Resources\***Edit description\*goofy-euclid-1cd736.netlify.app](https://goofy-euclid-1cd736.netlify.app/)
 
 ### Python Cheat Sheet:
 
 ### If you found this guide helpful feel free to checkout my GitHub/gists where I host similar content:
 
-**[bgoonz’s gists***Instantly share code, notes, and snippets. Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python |…*gist.github.com](https://gist.github.com/bgoonz)
+**[bgoonz’s gists\***Instantly share code, notes, and snippets. Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python |…\*gist.github.com](https://gist.github.com/bgoonz)
 
-**[bgoonz — Overview***Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…*github.com](https://github.com/bgoonz)
+**[bgoonz — Overview\***Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…\*github.com](https://github.com/bgoonz)
 
 ### Or Checkout my personal Resource Site:
 
 ### Discover More:
 
-**[Web-Dev-Hub***Memoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…*bgoonz-blog.netlify.app](https://bgoonz-blog.netlify.app/)
+**[Web-Dev-Hub\***Memoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…\*bgoonz-blog.netlify.app](https://bgoonz-blog.netlify.app/)
 
 By [Bryan Guner](https://medium.com/@bryanguner) on [March 6, 2021](https://medium.com/p/5cfdf3d2bdfb).
 

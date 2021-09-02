@@ -1,4 +1,4 @@
-# All Along
+# LEETCODE
 
 {% embed url="https://www.notion.so/webdevhub42/4d8327f435294158b2c7d9d886d0b619?v=47c21aa323b348fcbf7985c626c3283c" %}
 

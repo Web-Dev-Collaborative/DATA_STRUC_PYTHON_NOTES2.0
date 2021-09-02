@@ -4,7 +4,7 @@
 
 [https://youtu.be/PC0w44UH7Mo](https://youtu.be/PC0w44UH7Mo)
 
-## 
+##
 
 [https://gist.github.com/bgoonz/73035b719d10a753a44089b41eacf6ca#file-copy-of-linked-lists-ipynb](https://gist.github.com/bgoonz/73035b719d10a753a44089b41eacf6ca#file-copy-of-linked-lists-ipynb)
 
@@ -160,4 +160,4 @@ You must be able to understand and interact with linked lists. You now know the 
 - [https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf (Links to an external site.)](https://www.cs.cmu.edu/~fp/courses/15122-f15/lectures/10-linkedlist.pdf)
 - [https://www.youtube.com/watch?v=njTh_OwMljA (Links to an external site.)](https://www.youtube.com/watch?v=njTh_OwMljA)
 
-    ![https://lambdaschool.instructure.com/images/play_overlay.png](https://lambdaschool.instructure.com/images/play_overlay.png)
+  ![https://lambdaschool.instructure.com/images/play_overlay.png](https://lambdaschool.instructure.com/images/play_overlay.png)

@@ -6,14 +6,13 @@ Given the number of related questions `n`, an array that contains the estimated 
 
 Here's how the total expected time for question `i` with `q` related questions is calculated:
 
- * Take the time `ti` that it will take Steve to read this question;
- * Recursively calculate the `expected_timej` for each related question `j` without considering the `ith` question;
- * Add to `ti` the sum of `expected_timej` for each `j`, divided by `q`, i.e. the answer will be equal to `ti + sum(expected_timej) / q`.
+- Take the time `ti` that it will take Steve to read this question;
+- Recursively calculate the `expected_timej` for each related question `j` without considering the `ith` question;
+- Add to `ti` the sum of `expected_timej` for each `j`, divided by `q`, i.e. the answer will be equal to `ti + sum(expected_timej) / q`.
 
 **Example**
 
-For `n = 5`, `t = [2, 2, 1, 2, 2]` and `edges = [[0, 1], [1, 2], [2, 3], [3, 4]]`, the output should be
-`relatedQuestions(n, t, edges) = 2`.
+For `n = 5`, `t = [2, 2, 1, 2, 2]` and `edges = [[0, 1], [1, 2], [2, 3], [3, 4]]`, the output should be `relatedQuestions(n, t, edges) = 2`.
 
 For this example, the tree can be visualized as:
 
@@ -21,9 +20,9 @@ For this example, the tree can be visualized as:
 
 Let's calculate the answers for each of the `5` vertices:
 
- * If Steve starts reading from question `0`, then the expected reading time equals `t0 + expected_time1 / 1 = t0 + (t1 + expected_time2 / 1) / 1 = ... = t0 + (t1 + (t2 + (t3 + (t4 + 0 / 1) / 1) / 1) / 1) / 1 = t0 + t1 + t2 + t3 + t4 = 2 + 2 + 1 + 2 + 2 = 9`.
- * If Steve starts reading from question `1`, then the expected reading time equals `t1 + (expected_time0 + expected_time2) / 2 = t1 + ((t0 + 0 / 1) + (t2 + expected_time3 / 1)) / 2 = t1 + (t0 + t2 + (t3 + (t4 + 0 / 1) / 1) / 1) / 2 = t1 + (t0 + t2 + t3 + t4) / 2 = 2 + (2 + 1 + 2 + 2) / 2 = 5.5`.
- * If Steve starts reading from question `2`, then the expected reading time equals `t2 + (expected_time1 + expected_time3) / 2 = t2 + ((t1 + expected_time0 / 1) + (t3 + expected_time4 / 1)) / 2 = t2 + ((t1 + t0) + (t3 + t4)) / 2 = t2 + (t1 + t0 + t3 + t4) / 2 = 1 + (2 + 2 + 2 + 2) / 2 = 5`.
- * The expected reading time for vertex `3` is equal to the expected reading time for vertex `1`, because they are symmetric in the tree. The same works for vertices `4` and `0`.
+- If Steve starts reading from question `0`, then the expected reading time equals `t0 + expected_time1 / 1 = t0 + (t1 + expected_time2 / 1) / 1 = ... = t0 + (t1 + (t2 + (t3 + (t4 + 0 / 1) / 1) / 1) / 1) / 1 = t0 + t1 + t2 + t3 + t4 = 2 + 2 + 1 + 2 + 2 = 9`.
+- If Steve starts reading from question `1`, then the expected reading time equals `t1 + (expected_time0 + expected_time2) / 2 = t1 + ((t0 + 0 / 1) + (t2 + expected_time3 / 1)) / 2 = t1 + (t0 + t2 + (t3 + (t4 + 0 / 1) / 1) / 1) / 2 = t1 + (t0 + t2 + t3 + t4) / 2 = 2 + (2 + 1 + 2 + 2) / 2 = 5.5`.
+- If Steve starts reading from question `2`, then the expected reading time equals `t2 + (expected_time1 + expected_time3) / 2 = t2 + ((t1 + expected_time0 / 1) + (t3 + expected_time4 / 1)) / 2 = t2 + ((t1 + t0) + (t3 + t4)) / 2 = t2 + (t1 + t0 + t3 + t4) / 2 = 1 + (2 + 2 + 2 + 2) / 2 = 5`.
+- The expected reading time for vertex `3` is equal to the expected reading time for vertex `1`, because they are symmetric in the tree. The same works for vertices `4` and `0`.
 
 So, as we can see, the optimal vertex to start with is vertex `2`, since that gives us the smallest expected reading time.

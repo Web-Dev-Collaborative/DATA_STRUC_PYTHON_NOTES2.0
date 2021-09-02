@@ -1,8 +1,8 @@
 You are given a recursive notation of a binary tree: each node of a tree is represented as a set of three elements:
 
-* value of the node;
-* left subtree;
-* right subtree.
+- value of the node;
+- left subtree;
+- right subtree.
 
 So, a tree can be written as `(value left_subtree right_subtree)`. If a node doesn't exist then it is represented as an empty set: `()`. For example, here is a representation of a tree in the given picture:
 
@@ -24,6 +24,4 @@ For
 tree = "(2 (7 (2 () ()) (6 (5 () ()) (11 () ()))) (5 () (9 (4 () ()) ())))"
 ```
 
-the output should be
-`treeBottom(tree) = [5, 11, 4]`.
-
+the output should be `treeBottom(tree) = [5, 11, 4]`.

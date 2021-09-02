@@ -19,7 +19,9 @@ from datetime import date
 add_days(5, date(2020, 10, 25)) # date(2020, 10, 30)
 add_days(-5, date(2020, 10, 25)) # date(2020, 10, 20)
 ```
+
 ---
+
 ---
 
 ### Checks if all elements in a list are equal.
@@ -35,7 +37,9 @@ def all_equal(lst):
 all_equal([1, 2, 3, 4, 5, 6]) # False
 all_equal([1, 1, 1, 1]) # True
 ```
+
 ---
+
 ---
 
 ### Checks if all the values in a list are unique.
@@ -56,6 +60,7 @@ all_unique(y) # False
 ```
 
 ---
+
 ---
 
 ### Generates a list of numbers in the arithmetic progression starting with the given positive integer and up to the specified limit.
@@ -68,9 +73,11 @@ def arithmetic_progression(n, lim):
 ```
 
 ```py
-arithmetic_progression(5, 25) # [5, 10, 15, 20, 25] 
+arithmetic_progression(5, 25) # [5, 10, 15, 20, 25]
 ```
+
 ---
+
 ---
 
 ### Calculates the average of two or more numbers.
@@ -86,7 +93,9 @@ def average(*args):
 average(*[1, 2, 3]) # 2.0
 average(1, 2, 3) # 2.0
 ```
+
 ---
+
 ---
 
 ### Calculates the average of a list, after mapping each element to a value using the provided function.
@@ -104,10 +113,12 @@ def average_by(lst, fn = lambda x: x):
 average_by([{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }], lambda x: x['n'])
 # 5.0
 ```
----
+
 ---
 
-### Splits values into two groups, based on the result of the given `filter` list. 
+---
+
+### Splits values into two groups, based on the result of the given `filter` list.
 
 - Use a list comprehension and `zip()` to add elements to groups, based on `filter`.
 - If `filter` has a truthy value for any element, add it to the first group, otherwise add it to the second group.
@@ -124,7 +135,9 @@ def bifurcate(lst, filter):
 bifurcate(['beep', 'boop', 'foo', 'bar'], [True, True, False, True])
 # [ ['beep', 'boop', 'bar'], ['foo'] ]
 ```
+
 ---
+
 ---
 
 ### Splits values into two groups, based on the result of the given filtering function.
@@ -144,7 +157,9 @@ def bifurcate_by(lst, fn):
 bifurcate_by(['beep', 'boop', 'foo', 'bar'], lambda x: x[0] == 'b')
 # [ ['beep', 'boop', 'bar'], ['foo'] ]
 ```
+
 ---
+
 ---
 
 ### Calculates the number of ways to choose `k` items from `n` items without repetition and without order.
@@ -161,7 +176,9 @@ def binomial_coefficient(n, k):
 ```py
 binomial_coefficient(8, 2) # 28
 ```
+
 ---
+
 ---
 
 ### Returns the length of a string in bytes.
@@ -177,7 +194,9 @@ def byte_size(s):
 byte_size('😀') # 4
 byte_size('Hello World') # 11
 ```
+
 ---
+
 ---
 
 ### Converts a string to camelcase.
@@ -202,7 +221,9 @@ camel('some-javascript-property') # 'someJavascriptProperty'
 camel('some-mixed_string with spaces_underscores-and-hyphens')
 # 'someMixedStringWithSpacesUnderscoresAndHyphens'
 ```
+
 ---
+
 ---
 
 ### Capitalizes the first letter of a string.
@@ -220,7 +241,9 @@ def capitalize(s, lower_rest = False):
 capitalize('fooBar') # 'FooBar'
 capitalize('fooBar', True) # 'Foobar'
 ```
+
 ---
+
 ---
 
 ### Capitalizes the first letter of every word in a string.
@@ -235,7 +258,9 @@ def capitalize_every_word(s):
 ```py
 capitalize_every_word('hello world!') # 'Hello World!'
 ```
+
 ---
+
 ---
 
 ### Casts the provided value as a list if it's not one.
@@ -253,9 +278,10 @@ cast_list('foo') # ['foo']
 cast_list([1]) # [1]
 cast_list(('foo', 'bar')) # ['foo', 'bar']
 ```
+
 ---
-unlisted: true
----
+
+## unlisted: true
 
 Converts Celsius to Fahrenheit.
 
@@ -269,7 +295,9 @@ def celsius_to_fahrenheit(degrees):
 ```py
 celsius_to_fahrenheit(180) # 356.0
 ```
+
 ---
+
 ---
 
 ### Creates a function that will invoke a predicate function for the specified property on a given object.
@@ -286,7 +314,9 @@ check_age = check_prop(lambda x: x >= 18, 'age')
 user = {'name': 'Mark', 'age': 18}
 check_age(user) # True
 ```
+
 ---
+
 ---
 
 ### Chunks a list into smaller lists of a specified size.
@@ -307,7 +337,9 @@ def chunk(lst, size):
 ```py
 chunk([1, 2, 3, 4, 5], 2) # [[1, 2], [3, 4], [5]]
 ```
+
 ---
+
 ---
 
 ### Chunks a list into `n` smaller lists.
@@ -331,7 +363,9 @@ def chunk_into_n(lst, n):
 ```py
 chunk_into_n([1, 2, 3, 4, 5, 6, 7], 4) # [[1, 2], [3, 4], [5, 6], [7]]
 ```
+
 ---
+
 ---
 
 ### Clamps `num` within the inclusive range specified by the boundary values.
@@ -348,12 +382,14 @@ def clamp_number(num, a, b):
 clamp_number(2, 3, 5) # 3
 clamp_number(1, -1, -5) # -1
 ```
+
 ---
+
 ---
 
 ### Inverts a dictionary with non-unique hashable values.
 
-- Create a `collections.defaultdict` with `list` as the default value for each key. 
+- Create a `collections.defaultdict` with `list` as the default value for each key.
 - Use `dictionary.items()` in combination with a loop to map the values of the dictionary to keys using `dict.append()`.
 - Use `dict()` to convert the `collections.defaultdict` to a regular dictionary.
 
@@ -375,7 +411,9 @@ ages = {
 }
 collect_dictionary(ages) # { 10: ['Peter', 'Isabel'], 9: ['Anna'] }
 ```
+
 ---
+
 ---
 
 ### Combines two or more dictionaries, creating a list of values for each key.
@@ -401,7 +439,9 @@ d2 = {'a': 3, 'b': 200, 'd': 400}
 
 combine_values(d1, d2) # {'a': [1, 3], 'b': ['foo', 200], 'c': [400], 'd': [400]}
 ```
+
 ---
+
 ---
 
 ### Removes falsy values from a list.
@@ -416,7 +456,9 @@ def compact(lst):
 ```py
 compact([0, 1, False, 2, '', 3, 'a', 's', 34]) # [ 1, 2, 3, 'a', 's', 34 ]
 ```
+
 ---
+
 ---
 
 ### Performs right-to-left function composition.
@@ -437,7 +479,9 @@ multiply = lambda x, y: x * y
 multiply_and_add_5 = compose(add5, multiply)
 multiply_and_add_5(5, 2) # 15
 ```
+
 ---
+
 ---
 
 ### Performs left-to-right function composition.
@@ -458,7 +502,9 @@ square = lambda x: x * x
 add_and_square = compose_right(add, square)
 add_and_square(1, 2) # 9
 ```
+
 ---
+
 ---
 
 ### Groups the elements of a list based on the given function and returns the count of elements in each group.
@@ -483,7 +529,9 @@ from math import floor
 count_by([6.1, 4.2, 6.3], floor) # {6: 2, 4: 1}
 count_by(['one', 'two', 'three'], len) # {3: 2, 5: 1}
 ```
+
 ---
+
 ---
 
 ### Counts the occurrences of a value in a list.
@@ -498,7 +546,9 @@ def count_occurrences(lst, val):
 ```py
 count_occurrences([1, 1, 2, 1, 2, 3], 1) # 3
 ```
+
 ---
+
 ---
 
 ### Creates a list of partial sums.
@@ -516,7 +566,9 @@ def cumsum(lst):
 ```py
 cumsum(range(0, 15, 3)) # [0, 3, 9, 18, 30]
 ```
+
 ---
+
 ---
 
 ### Curries a function.
@@ -535,12 +587,14 @@ add = lambda x, y: x + y
 add10 = curry(add, 10)
 add10(20) # 30
 ```
+
 ---
+
 ---
 
 ### Creates a list of dates between `start` (inclusive) and `end` (not inclusive).
 
-- Use  `datetime.timedelta.days` to get the days between `start` and `end`.
+- Use `datetime.timedelta.days` to get the days between `start` and `end`.
 - Use `int()` to convert the result to an integer and `range()` to iterate over each day.
 - Use a list comprehension and `datetime.timedelta()` to create a list of `datetime.date` objects.
 
@@ -557,7 +611,9 @@ from datetime import date
 daterange(date(2020, 10, 1), date(2020, 10, 5))
 # [date(2020, 10, 1), date(2020, 10, 2), date(2020, 10, 3), date(2020, 10, 4)]
 ```
+
 ---
+
 ---
 
 ### Calculates the date of `n` days ago from today.
@@ -575,7 +631,9 @@ def days_ago(n):
 ```py
 days_ago(5) # date(2020, 10, 23)
 ```
+
 ---
+
 ---
 
 ### Calculates the day difference between two dates.
@@ -592,7 +650,9 @@ from datetime import date
 
 days_diff(date(2020, 10, 25), date(2020, 10, 28)) # 3
 ```
+
 ---
+
 ---
 
 ### Calculates the date of `n` days from today.
@@ -610,7 +670,9 @@ def days_from_now(n):
 ```py
 days_from_now(5) # date(2020, 11, 02)
 ```
+
 ---
+
 ---
 
 ### Decapitalizes the first letter of a string.
@@ -628,7 +690,9 @@ def decapitalize(s, upper_rest = False):
 decapitalize('FooBar') # 'fooBar'
 decapitalize('FooBar', True) # 'fOOBAR'
 ```
+
 ---
+
 ---
 
 ### Deep flattens a list.
@@ -648,7 +712,9 @@ def deep_flatten(lst):
 ```py
 deep_flatten([1, [2], [[3], 4], 5]) # [1, 2, 3, 4, 5]
 ```
+
 ---
+
 ---
 
 ### Converts an angle from degrees to radians.
@@ -665,7 +731,9 @@ def degrees_to_rads(deg):
 ```py
 degrees_to_rads(180) # ~3.1416
 ```
+
 ---
+
 ---
 
 ### Invokes the provided function after `ms` milliseconds.
@@ -683,7 +751,9 @@ def delay(fn, ms, *args):
 ```py
 delay(lambda x: print(x), 1000, 'later') # prints 'later' after one second
 ```
+
 ---
+
 ---
 
 ### Converts a dictionary to a list of tuples.
@@ -700,7 +770,9 @@ d = {'one': 1, 'three': 3, 'five': 5, 'two': 2, 'four': 4}
 dict_to_list(d)
 # [('one', 1), ('three', 3), ('five', 5), ('two', 2), ('four', 4)]
 ```
+
 ---
+
 ---
 
 ### Calculates the difference between two iterables, without filtering duplicate values.
@@ -717,7 +789,9 @@ def difference(a, b):
 ```py
 difference([1, 2, 3], [1, 2, 4]) # [3]
 ```
+
 ---
+
 ---
 
 ### Returns the difference between two lists, after applying the provided function to each list element of both.
@@ -738,7 +812,9 @@ difference_by([2.1, 1.2], [2.3, 3.4], floor) # [1.2]
 difference_by([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], lambda v : v['x'])
 # [ { x: 2 } ]
 ```
+
 ---
+
 ---
 
 ### Converts a number to a list of digits.
@@ -753,7 +829,9 @@ def digitize(n):
 ```py
 digitize(123) # [1, 2, 3]
 ```
+
 ---
+
 ---
 
 ### Returns a list with `n` elements removed from the left.
@@ -771,7 +849,9 @@ drop([1, 2, 3]) # [2, 3]
 drop([1, 2, 3], 2) # [3]
 drop([1, 2, 3], 42) # []
 ```
+
 ---
+
 ---
 
 ### Returns a list with `n` elements removed from the right.
@@ -789,7 +869,9 @@ drop_right([1, 2, 3]) # [1, 2]
 drop_right([1, 2, 3], 2) # [1]
 drop_right([1, 2, 3], 42) # []
 ```
+
 ---
+
 ---
 
 ### Checks if the provided function returns `True` for every element in the list.
@@ -805,7 +887,9 @@ def every(lst, fn = lambda x: x):
 every([4, 2, 3], lambda x: x > 1) # True
 every([1, 2, 3]) # True
 ```
+
 ---
+
 ---
 
 ### Returns every `nth` element in a list.
@@ -820,7 +904,9 @@ def every_nth(lst, nth):
 ```py
 every_nth([1, 2, 3, 4, 5, 6], 2) # [ 2, 4, 6 ]
 ```
+
 ---
+
 ---
 
 ### Calculates the factorial of a number.
@@ -840,9 +926,10 @@ def factorial(num):
 ```py
 factorial(6) # 720
 ```
+
 ---
-unlisted: true
----
+
+## unlisted: true
 
 Converts Fahrenheit to Celsius.
 
@@ -856,7 +943,9 @@ def fahrenheit_to_celsius(degrees):
 ```py
 fahrenheit_to_celsius(77) # 25.0
 ```
+
 ---
+
 ---
 
 ### Generates a list, containing the Fibonacci sequence, up until the nth term.
@@ -878,7 +967,9 @@ def fibonacci(n):
 ```py
 fibonacci(7) # [0, 1, 1, 2, 3, 5, 8, 13]
 ```
+
 ---
+
 ---
 
 ### Creates a list with the non-unique values filtered out.
@@ -896,7 +987,9 @@ def filter_non_unique(lst):
 ```py
 filter_non_unique([1, 2, 2, 3, 4, 4, 5]) # [1, 3, 5]
 ```
+
 ---
+
 ---
 
 ### Creates a list with the unique values filtered out.
@@ -914,7 +1007,9 @@ def filter_unique(lst):
 ```py
 filter_unique([1, 2, 2, 3, 4, 4, 5]) # [2, 4]
 ```
+
 ---
+
 ---
 
 ### Finds the value of the first element in the given list that satisfies the provided testing function.
@@ -929,7 +1024,9 @@ def find(lst, fn):
 ```py
 find([1, 2, 3, 4], lambda n: n % 2 == 1) # 1
 ```
+
 ---
+
 ---
 
 ### Finds the index of the first element in the given list that satisfies the provided testing function.
@@ -944,7 +1041,9 @@ def find_index(lst, fn):
 ```py
 find_index([1, 2, 3, 4], lambda n: n % 2 == 1) # 0
 ```
+
 ---
+
 ---
 
 ### Finds the indexes of all elements in the given list that satisfy the provided testing function.
@@ -959,7 +1058,9 @@ def find_index_of_all(lst, fn):
 ```py
 find_index_of_all([1, 2, 3, 4], lambda n: n % 2 == 1) # [0, 2]
 ```
+
 ---
+
 ---
 
 ### Finds the first key in the provided dictionary that has the given value.
@@ -979,7 +1080,9 @@ ages = {
 }
 find_key(ages, 11) # 'Isabel'
 ```
+
 ---
+
 ---
 
 ### Finds all keys in the provided dictionary that have the given value.
@@ -999,7 +1102,9 @@ ages = {
 }
 find_keys(ages, 10) # [ 'Peter', 'Anna' ]
 ```
+
 ---
+
 ---
 
 ### Finds the value of the last element in the given list that satisfies the provided testing function.
@@ -1014,7 +1119,9 @@ def find_last(lst, fn):
 ```py
 find_last([1, 2, 3, 4], lambda n: n % 2 == 1) # 3
 ```
+
 ---
+
 ---
 
 ### Finds the index of the last element in the given list that satisfies the provided testing function.
@@ -1029,7 +1136,9 @@ def find_last_index(lst, fn):
 ```py
 find_last_index([1, 2, 3, 4], lambda n: n % 2 == 1) # 2
 ```
+
 ---
+
 ---
 
 ### Finds the items that are parity outliers in a given list.
@@ -1051,7 +1160,9 @@ def find_parity_outliers(nums):
 ```py
 find_parity_outliers([1, 2, 3, 4, 6]) # [1, 3]
 ```
+
 ---
+
 ---
 
 ### Flattens a list of lists once.
@@ -1066,7 +1177,9 @@ def flatten(lst):
 ```py
 flatten([[1, 2, 3, 4], [5, 6, 7, 8]]) # [1, 2, 3, 4, 5, 6, 7, 8]
 ```
+
 ---
+
 ---
 
 ### Executes the provided function once for each list element.
@@ -1082,7 +1195,9 @@ def for_each(itr, fn):
 ```py
 for_each([1, 2, 3], print) # 1 2 3
 ```
+
 ---
+
 ---
 
 ### Executes the provided function once for each list element, starting from the list's last element.
@@ -1098,7 +1213,9 @@ def for_each_right(itr, fn):
 ```py
 for_each_right([1, 2, 3], print) # 3 2 1
 ```
+
 ---
+
 ---
 
 ### Creates a dictionary with the unique values of a list as keys and their frequencies as the values.
@@ -1119,7 +1236,9 @@ def frequencies(lst):
 ```py
 frequencies(['a', 'b', 'a', 'c', 'a', 'a', 'b']) # { 'a': 4, 'b': 2, 'c': 1 }
 ```
+
 ---
+
 ---
 
 ### Converts a date from its ISO-8601 representation.
@@ -1136,7 +1255,9 @@ def from_iso_date(d):
 ```py
 from_iso_date('2020-10-28T12:30:59.000000') # 2020-10-28 12:30:59
 ```
+
 ---
+
 ---
 
 ### Calculates the greatest common divisor of a list of numbers.
@@ -1154,10 +1275,13 @@ def gcd(numbers):
 ```py
 gcd([8, 36, 28]) # 4
 ```
+
 ---
+
 ---
 
 ### Initializes a list containing the numbers in the specified range where `start` and `end` are inclusive and the ratio between two terms is `step`.
+
 Returns an error if `step` equals `1`.
 
 - Use `range()`, `math.log()` and `math.floor()` and a list comprehension to create a list of the appropriate length, applying the step for each element.
@@ -1177,7 +1301,9 @@ geometric_progression(256) # [1, 2, 4, 8, 16, 32, 64, 128, 256]
 geometric_progression(256, 3) # [3, 6, 12, 24, 48, 96, 192]
 geometric_progression(256, 1, 4) # [1, 4, 16, 64, 256]
 ```
+
 ---
+
 ---
 
 ### Retrieves the value of the nested key indicated by the given selector list from a dictionary or list.
@@ -1186,7 +1312,7 @@ geometric_progression(256, 1, 4) # [1, 4, 16, 64, 256]
 - Apply `operator.getitem()` for each key in `selectors`, retrieving the value to be used as the iteratee for the next iteration.
 
 ```py
-from functools import reduce 
+from functools import reduce
 from operator import getitem
 
 def get(d, selectors):
@@ -1198,7 +1324,7 @@ users = {
   'freddy': {
     'name': {
       'first': 'fred',
-      'last': 'smith' 
+      'last': 'smith'
     },
     'postIds': [1, 2, 3]
   }
@@ -1206,7 +1332,9 @@ users = {
 get(users, ['freddy', 'name', 'last']) # 'smith'
 get(users, ['freddy', 'postIds', 1]) # 2
 ```
+
 ---
+
 ---
 
 ### Groups the elements of a list based on the given function.
@@ -1231,7 +1359,9 @@ from math import floor
 group_by([6.1, 4.2, 6.3], floor) # {4: [4.2], 6: [6.1, 6.3]}
 group_by(['one', 'two', 'three'], len) # {3: ['one', 'two'], 5: ['three']}
 ```
+
 ---
+
 ---
 
 ### Calculates the Hamming distance between two values.
@@ -1248,7 +1378,9 @@ def hamming_distance(a, b):
 ```py
 hamming_distance(2, 3) # 1
 ```
+
 ---
+
 ---
 
 ### Checks if there are duplicate values in a flat list.
@@ -1266,7 +1398,9 @@ y = [1, 2, 3, 4, 5]
 has_duplicates(x) # True
 has_duplicates(y) # False
 ```
+
 ---
+
 ---
 
 ### Checks if two lists contain the same elements regardless of order.
@@ -1286,7 +1420,9 @@ def have_same_contents(a, b):
 ```py
 have_same_contents([1, 2, 4], [2, 4, 1]) # True
 ```
+
 ---
+
 ---
 
 ### Returns the head of a list.
@@ -1301,7 +1437,9 @@ def head(lst):
 ```py
 head([1, 2, 3]) # 1
 ```
+
 ---
+
 ---
 
 ### Converts a hexadecimal color code to a tuple of integers corresponding to its RGB components.
@@ -1317,7 +1455,9 @@ def hex_to_rgb(hex):
 ```py
 hex_to_rgb('FFA501') # (255, 165, 1)
 ```
+
 ---
+
 ---
 
 ### Checks if the given number falls within the given range.
@@ -1336,7 +1476,9 @@ in_range(3, 4) # True
 in_range(2, 3, 5) # False
 in_range(3, 2) # False
 ```
+
 ---
+
 ---
 
 ### Checks if all the elements in `values` are included in `lst`.
@@ -1356,7 +1498,9 @@ def includes_all(lst, values):
 includes_all([1, 2, 3, 4], [1, 4]) # True
 includes_all([1, 2, 3, 4], [1, 5]) # False
 ```
+
 ---
+
 ---
 
 ### Checks if any element in `values` is included in `lst`.
@@ -1376,7 +1520,9 @@ def includes_any(lst, values):
 includes_any([1, 2, 3, 4], [2, 9]) # True
 includes_any([1, 2, 3, 4], [8, 9]) # False
 ```
+
 ---
+
 ---
 
 ### Returns a list of indexes of all the occurrences of an element in a list.
@@ -1390,9 +1536,11 @@ def index_of_all(lst, value):
 
 ```py
 index_of_all([1, 2, 1, 4, 5, 1], 1) # [0, 2, 5]
-index_of_all([1, 2, 3, 4], 6) # [] 
+index_of_all([1, 2, 3, 4], 6) # []
 ```
+
 ---
+
 ---
 
 ### Returns all the elements of a list except the last one.
@@ -1407,7 +1555,9 @@ def initial(lst):
 ```py
 initial([1, 2, 3]) # [1, 2]
 ```
+
 ---
+
 ---
 
 ### Initializes a 2D list of given width and height and value.
@@ -1423,7 +1573,9 @@ def initialize_2d_list(w, h, val = None):
 ```py
 initialize_2d_list(2, 2, 0) # [[0, 0], [0, 0]]
 ```
+
 ---
+
 ---
 
 ### Initializes a list containing the numbers in the specified range where `start` and `end` are inclusive with their common difference `step`.
@@ -1442,7 +1594,9 @@ initialize_list_with_range(5) # [0, 1, 2, 3, 4, 5]
 initialize_list_with_range(7, 3) # [3, 4, 5, 6, 7]
 initialize_list_with_range(9, 0, 2) # [0, 2, 4, 6, 8]
 ```
+
 ---
+
 ---
 
 ### Initializes and fills a list with the specified value.
@@ -1458,7 +1612,9 @@ def initialize_list_with_values(n, val = 0):
 ```py
 initialize_list_with_values(5, 2) # [2, 2, 2, 2, 2]
 ```
+
 ---
+
 ---
 
 ### Returns a list of elements that exist in both lists.
@@ -1475,7 +1631,9 @@ def intersection(a, b):
 ```py
 intersection([1, 2, 3], [4, 3, 2]) # [2, 3]
 ```
+
 ---
+
 ---
 
 ### Returns a list of elements that exist in both lists, after applying the provided function to each list element of both.
@@ -1494,7 +1652,9 @@ from math import floor
 
 intersection_by([2.1, 1.2], [2.3, 3.4], floor) # [2.1]
 ```
+
 ---
+
 ---
 
 ### Inverts a dictionary with unique hashable values.
@@ -1514,7 +1674,9 @@ ages = {
 }
 invert_dictionary(ages) # { 10: 'Peter', 11: 'Isabel', 9: 'Anna' }
 ```
+
 ---
+
 ---
 
 ### Checks if a string is an anagram of another string (case-insensitive, ignores spaces, punctuation and special characters).
@@ -1536,7 +1698,9 @@ def is_anagram(s1, s2):
 ```py
 is_anagram('#anagram', 'Nag a ram!')  # True
 ```
+
 ---
+
 ---
 
 ### Checks if the elements of the first list are contained in the second one regardless of order.
@@ -1555,9 +1719,10 @@ def is_contained_in(a, b):
 ```py
 is_contained_in([1, 4], [2, 4, 1]) # True
 ```
+
 ---
-unlisted: true
----
+
+## unlisted: true
 
 Checks if the first numeric argument is divisible by the second one.
 
@@ -1571,9 +1736,10 @@ def is_divisible(dividend, divisor):
 ```py
 is_divisible(6, 3) # True
 ```
+
 ---
-unlisted: true
----
+
+## unlisted: true
 
 Checks if the given number is even.
 
@@ -1588,9 +1754,10 @@ def is_even(num):
 ```py
 is_even(3) # False
 ```
+
 ---
-unlisted: true
----
+
+## unlisted: true
 
 Checks if the given number is odd.
 
@@ -1605,7 +1772,9 @@ def is_odd(num):
 ```py
 is_odd(3) # True
 ```
+
 ---
+
 ---
 
 ### Checks if the provided integer is a prime number.
@@ -1618,7 +1787,7 @@ is_odd(3) # True
 from math import sqrt
 
 def is_prime(n):
-  if n <= 1 or (n % 2 == 0 and n > 2): 
+  if n <= 1 or (n % 2 == 0 and n > 2):
     return False
   return all(n % i for i in range(3, int(sqrt(n)) + 1, 2))
 ```
@@ -1626,7 +1795,9 @@ def is_prime(n):
 ```py
 is_prime(11) # True
 ```
+
 ---
+
 ---
 
 ### Checks if the given date is a weekday.
@@ -1639,7 +1810,7 @@ is_prime(11) # True
 from datetime import datetime
 
 def is_weekday(d = datetime.today()):
-  return d.weekday() <= 4 
+  return d.weekday() <= 4
 ```
 
 ```py
@@ -1648,7 +1819,9 @@ from datetime import date
 is_weekday(date(2020, 10, 25)) # False
 is_weekday(date(2020, 10, 28)) # True
 ```
+
 ---
+
 ---
 
 ### Checks if the given date is a weekend.
@@ -1661,7 +1834,7 @@ is_weekday(date(2020, 10, 28)) # True
 from datetime import datetime
 
 def is_weekend(d = datetime.today()):
-  return d.weekday() > 4 
+  return d.weekday() > 4
 ```
 
 ```py
@@ -1670,7 +1843,9 @@ from datetime import date
 is_weekend(date(2020, 10, 25)) # True
 is_weekend(date(2020, 10, 28)) # False
 ```
+
 ---
+
 ---
 
 ### Converts a string to kebab case.
@@ -1696,7 +1871,9 @@ kebab('some-mixed_string With spaces_underscores-and-hyphens')
 # 'some-mixed-string-with-spaces-underscores-and-hyphens'
 kebab('AllThe-small Things') # 'all-the-small-things'
 ```
+
 ---
+
 ---
 
 ### Checks if the given key exists in a dictionary.
@@ -1712,7 +1889,9 @@ def key_in_dict(d, key):
 d = {'one': 1, 'three': 3, 'five': 5, 'two': 2, 'four': 4}
 key_in_dict(d, 'three') # True
 ```
+
 ---
+
 ---
 
 ### Finds the key of the maximum value in a dictionary.
@@ -1727,7 +1906,9 @@ def key_of_max(d):
 ```py
 key_of_max({'a':4, 'b':0, 'c':13}) # c
 ```
+
 ---
+
 ---
 
 ### Finds the key of the minimum value in a dictionary.
@@ -1742,7 +1923,9 @@ def key_of_min(d):
 ```py
 key_of_min({'a':4, 'b':0, 'c':13}) # b
 ```
+
 ---
+
 ---
 
 ### Creates a flat list of all the keys in a flat dictionary.
@@ -1763,9 +1946,10 @@ ages = {
 }
 keys_only(ages) # ['Peter', 'Isabel', 'Anna']
 ```
+
 ---
-unlisted: true
----
+
+## unlisted: true
 
 Converts kilometers to miles.
 
@@ -1779,7 +1963,9 @@ def km_to_miles(km):
 ```py
 km_to_miles(8.1) # 5.0331051
 ```
+
 ---
+
 ---
 
 ### Returns the last element in a list.
@@ -1794,7 +1980,9 @@ def last(lst):
 ```py
 last([1, 2, 3]) # 3
 ```
+
 ---
+
 ---
 
 ### Returns the least common multiple of a list of numbers.
@@ -1813,10 +2001,12 @@ def lcm(numbers):
 lcm([12, 7]) # 84
 lcm([1, 3, 4, 5]) # 60
 ```
----
+
 ---
 
-### Takes any number of iterable objects or objects with a length property and returns the longest one. 
+---
+
+### Takes any number of iterable objects or objects with a length property and returns the longest one.
 
 - Use `max()` with `len()` as the `key` to return the item with the greatest length.
 - If multiple objects have the same length, the first one will be returned.
@@ -1831,7 +2021,9 @@ longest_item('this', 'is', 'a', 'testcase') # 'testcase'
 longest_item([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]) # [1, 2, 3, 4, 5]
 longest_item([1, 2, 3], 'foobar') # 'foobar'
 ```
+
 ---
+
 ---
 
 ### Maps the values of a list to a dictionary using a function, where the key-value pairs consist of the original value as the key and the result of the function as the value.
@@ -1848,7 +2040,9 @@ def map_dictionary(itr, fn):
 ```py
 map_dictionary([1, 2, 3], lambda x: x * x) # { 1: 1, 2: 4, 3: 9 }
 ```
+
 ---
+
 ---
 
 ### Creates a dictionary with the same keys as the provided dictionary and values generated by running the provided function for each value.
@@ -1867,7 +2061,9 @@ users = {
 }
 map_values(users, lambda u : u['age']) # {'fred': 40, 'pebbles': 1}
 ```
+
 ---
+
 ---
 
 ### Returns the maximum value of a list, after mapping each element to a value using the provided function.
@@ -1883,7 +2079,9 @@ def max_by(lst, fn):
 ```py
 max_by([{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }], lambda v : v['n']) # 8
 ```
+
 ---
+
 ---
 
 ### Returns the index of the element with the maximum value in a list.
@@ -1898,10 +2096,12 @@ def max_element_index(arr):
 ```py
 max_element_index([5, 8, 9, 7, 10, 3, 0]) # 4
 ```
----
+
 ---
 
-### Returns the `n` maximum elements from the provided list. 
+---
+
+### Returns the `n` maximum elements from the provided list.
 
 - Use `sorted()` to sort the list.
 - Use slice notation to get the specified number of elements.
@@ -1917,7 +2117,9 @@ def max_n(lst, n = 1):
 max_n([1, 2, 3]) # [3]
 max_n([1, 2, 3], 2) # [3, 2]
 ```
+
 ---
+
 ---
 
 ### Finds the median of a list of numbers.
@@ -1939,7 +2141,9 @@ def median(list):
 median([1, 2, 3]) # 2.0
 median([1, 2, 3, 4]) # 2.5
 ```
+
 ---
+
 ---
 
 ### Merges two or more lists into a list of lists, combining elements from each of the input lists based on their positions.
@@ -1966,7 +2170,9 @@ merge(['a'], [1, 2], [True, False]) # [['a', 1, True], [None, 2, False]]
 merge(['a'], [1, 2], [True, False], fill_value = '_')
 # [['a', 1, True], ['_', 2, False]]
 ```
+
 ---
+
 ---
 
 ### Merges two or more dictionaries.
@@ -1992,9 +2198,10 @@ ages_two = {
 merge_dictionaries(ages_one, ages_two)
 # { 'Peter': 10, 'Isabel': 11, 'Anna': 9 }
 ```
+
 ---
-unlisted: true
----
+
+## unlisted: true
 
 Converts miles to kilometers.
 
@@ -2008,7 +2215,9 @@ def miles_to_km(miles):
 ```py
 miles_to_km(5.03) # 8.09500032
 ```
+
 ---
+
 ---
 
 ### Returns the minimum value of a list, after mapping each element to a value using the provided function.
@@ -2024,7 +2233,9 @@ def min_by(lst, fn):
 ```py
 min_by([{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }], lambda v : v['n']) # 2
 ```
+
 ---
+
 ---
 
 ### Returns the index of the element with the minimum value in a list.
@@ -2039,10 +2250,12 @@ def min_element_index(arr):
 ```py
 min_element_index([3, 5, 2, 6, 10, 7, 9]) # 2
 ```
----
+
 ---
 
-### Returns the `n` minimum elements from the provided list. 
+---
+
+### Returns the `n` minimum elements from the provided list.
 
 - Use `sorted()` to sort the list.
 - Use slice notation to get the specified number of elements.
@@ -2058,7 +2271,9 @@ def min_n(lst, n = 1):
 min_n([1, 2, 3]) # [1]
 min_n([1, 2, 3], 2) # [1, 2]
 ```
+
 ---
+
 ---
 
 ### Calculates the month difference between two dates.
@@ -2078,7 +2293,9 @@ from datetime import date
 
 months_diff(date(2020, 10, 28), date(2020, 11, 25)) # 1
 ```
+
 ---
+
 ---
 
 ### Returns the most frequent element in a list.
@@ -2094,7 +2311,9 @@ def most_frequent(lst):
 ```py
 most_frequent([1, 2, 1, 2, 3, 2, 1, 4, 2]) #2
 ```
+
 ---
+
 ---
 
 ### Generates a string with the given string value repeated `n` number of times.
@@ -2109,7 +2328,9 @@ def n_times_string(s, n):
 ```py
 n_times_string('py', 4) #'pypypypy'
 ```
+
 ---
+
 ---
 
 ### Checks if the provided function returns `True` for at least one element in the list.
@@ -2125,7 +2346,9 @@ def none(lst, fn = lambda x: x):
 none([0, 1, 2, 0], lambda x: x >= 2 ) # False
 none([0, 0, 0]) # True
 ```
+
 ---
+
 ---
 
 ### Maps a number from one range to another range.
@@ -2141,7 +2364,9 @@ def num_to_range(num, inMin, inMax, outMin, outMax):
 ```py
 num_to_range(5, 0, 10, 0, 100) # 50.0
 ```
+
 ---
+
 ---
 
 ### Moves the specified amount of elements to the end of the list.
@@ -2157,7 +2382,9 @@ def offset(lst, offset):
 offset([1, 2, 3, 4, 5], 2) # [3, 4, 5, 1, 2]
 offset([1, 2, 3, 4, 5], -2) # [4, 5, 1, 2, 3]
 ```
+
 ---
+
 ---
 
 ### Pads a string on both sides with the specified character, if it's shorter than the specified length.
@@ -2177,7 +2404,9 @@ pad('cat', 8) # '  cat   '
 pad('42', 6, '0') # '004200'
 pad('foobar', 3) # 'foobar'
 ```
+
 ---
+
 ---
 
 ### Pads a given number to the specified length.
@@ -2192,7 +2421,9 @@ def pad_number(n, l):
 ```py
 pad_number(1234, 6); # '001234'
 ```
+
 ---
+
 ---
 
 ### Checks if the given string is a palindrome.
@@ -2211,7 +2442,9 @@ def palindrome(s):
 ```py
 palindrome('taco cat') # True
 ```
+
 ---
+
 ---
 
 ### Converts a list of dictionaries into a list of values corresponding to the specified `key`.
@@ -2232,7 +2465,9 @@ simpsons = [
 ]
 pluck(simpsons, 'age') # [8, 36, 34, 10]
 ```
+
 ---
+
 ---
 
 ### Returns the powerset of a given iterable.
@@ -2252,7 +2487,9 @@ def powerset(iterable):
 ```py
 powerset([1, 2]) # [(), (1,), (2,), (1, 2)]
 ```
+
 ---
+
 ---
 
 ### Converts an angle from radians to degrees.
@@ -2271,7 +2508,9 @@ from math import pi
 
 rads_to_degrees(pi / 2) # 90.0
 ```
+
 ---
+
 ---
 
 ### Reverses a list or a string.
@@ -2284,10 +2523,12 @@ def reverse(itr):
 ```
 
 ```py
-reverse([1, 2, 3]) # [3, 2, 1] 
-reverse('snippet') # 'teppins' 
+reverse([1, 2, 3]) # [3, 2, 1]
+reverse('snippet') # 'teppins'
 ```
+
 ---
+
 ---
 
 ### Reverses a number.
@@ -2308,7 +2549,9 @@ reverse_number(-500) # -5
 reverse_number(73.6) # 6.37
 reverse_number(-5.23) # -32.5
 ```
+
 ---
+
 ---
 
 ### Converts the values of RGB components to a hexadecimal color code.
@@ -2324,7 +2567,9 @@ def rgb_to_hex(r, g, b):
 ```py
 rgb_to_hex(255, 165, 1) # 'FFA501'
 ```
+
 ---
+
 ---
 
 ### Moves the specified amount of elements to the start of the list.
@@ -2340,7 +2585,9 @@ def roll(lst, offset):
 roll([1, 2, 3, 4, 5], 2) # [4, 5, 1, 2, 3]
 roll([1, 2, 3, 4, 5], -2) # [3, 4, 5, 1, 2]
 ```
+
 ---
+
 ---
 
 ### Returns a random element from a list.
@@ -2357,7 +2604,9 @@ def sample(lst):
 ```py
 sample([3, 7, 9, 11]) # 9
 ```
+
 ---
+
 ---
 
 ### Randomizes the order of the values of an list, returning a new list.
@@ -2383,7 +2632,9 @@ def shuffle(lst):
 foo = [1, 2, 3]
 shuffle(foo) # [2, 3, 1], foo = [1, 2, 3]
 ```
+
 ---
+
 ---
 
 ### Returns a list of elements that exist in both lists.
@@ -2398,7 +2649,9 @@ def similarity(a, b):
 ```py
 similarity([1, 2, 3], [1, 2, 4]) # [1, 2]
 ```
+
 ---
+
 ---
 
 ### Converts a string to a URL-friendly slug.
@@ -2420,7 +2673,9 @@ def slugify(s):
 ```py
 slugify('Hello World!') # 'hello-world'
 ```
+
 ---
+
 ---
 
 ### Converts a string to snake case.
@@ -2446,7 +2701,9 @@ snake('some-mixed_string With spaces_underscores-and-hyphens')
 # 'some_mixed_string_with_spaces_underscores_and_hyphens'
 snake('AllThe-small Things') # 'all_the_small_things'
 ```
+
 ---
+
 ---
 
 ### Checks if the provided function returns `True` for at least one element in the list.
@@ -2462,7 +2719,9 @@ def some(lst, fn = lambda x: x):
 some([0, 1, 2, 0], lambda x: x >= 2 ) # True
 some([0, 0, 1, 0]) # True
 ```
+
 ---
+
 ---
 
 ### Sorts one list based on another list containing the desired indexes.
@@ -2484,7 +2743,9 @@ sort_by_indexes(a, b) # ['apples', 'bread', 'eggs', 'jam', 'milk', 'oranges']
 sort_by_indexes(a, b, True)
 # ['oranges', 'milk', 'jam', 'eggs', 'bread', 'apples']
 ```
+
 ---
+
 ---
 
 ### Sorts the given dictionary by key.
@@ -2504,7 +2765,9 @@ sort_dict_by_key(d) # {'five': 5, 'four': 4, 'one': 1, 'three': 3, 'two': 2}
 sort_dict_by_key(d, True)
 # {'two': 2, 'three': 3, 'one': 1, 'four': 4, 'five': 5}
 ```
+
 ---
+
 ---
 
 ### Sorts the given dictionary by value.
@@ -2525,7 +2788,9 @@ sort_dict_by_value(d) # {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5}
 sort_dict_by_value(d, True)
 # {'five': 5, 'four': 4, 'three': 3, 'two': 2, 'one': 1}
 ```
+
 ---
+
 ---
 
 ### Splits a multiline string into a list of lines.
@@ -2542,7 +2807,9 @@ def split_lines(s):
 split_lines('This\nis a\nmultiline\nstring.\n')
 # ['This', 'is a', 'multiline', 'string.' , '']
 ```
+
 ---
+
 ---
 
 ### Flattens a list, by spreading its elements into a new list.
@@ -2560,7 +2827,9 @@ def spread(arg):
 ```py
 spread([1, 2, 3, [4, 5, 6], [7], 8, 9]) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
 ---
+
 ---
 
 ### Calculates the sum of a list, after mapping each element to a value using the provided function.
@@ -2576,7 +2845,9 @@ def sum_by(lst, fn):
 ```py
 sum_by([{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }], lambda v : v['n']) # 20
 ```
+
 ---
+
 ---
 
 ### Returns the sum of the powers of all the numbers from `start` to `end` (both inclusive).
@@ -2596,7 +2867,9 @@ sum_of_powers(10) # 385
 sum_of_powers(10, 3) # 3025
 sum_of_powers(10, 3, 5) # 2925
 ```
+
 ---
+
 ---
 
 ### Returns the symmetric difference between two iterables, without filtering out duplicate values.
@@ -2614,7 +2887,9 @@ def symmetric_difference(a, b):
 ```py
 symmetric_difference([1, 2, 3], [1, 2, 4]) # [3, 4]
 ```
+
 ---
+
 ---
 
 ### Returns the symmetric difference between two lists, after applying the provided function to each list element of both.
@@ -2634,7 +2909,9 @@ from math import floor
 
 symmetric_difference_by([2.1, 1.2], [2.3, 3.4], floor) # [1.2, 3.4]
 ```
+
 ---
+
 ---
 
 ### Returns all elements in a list except for the first one.
@@ -2651,7 +2928,9 @@ def tail(lst):
 tail([1, 2, 3]) # [2, 3]
 tail([1]) # [1]
 ```
+
 ---
+
 ---
 
 ### Returns a list with `n` elements removed from the beginning.
@@ -2667,7 +2946,9 @@ def take(itr, n = 1):
 take([1, 2, 3], 5) # [1, 2, 3]
 take([1, 2, 3], 0) # []
 ```
+
 ---
+
 ---
 
 ### Returns a list with `n` elements removed from the end.
@@ -2683,7 +2964,9 @@ def take_right(itr, n = 1):
 take_right([1, 2, 3], 2) # [2, 3]
 take_right([1, 2, 3]) # [3]
 ```
+
 ---
+
 ---
 
 ### Returns the binary representation of the given number.
@@ -2698,10 +2981,13 @@ def to_binary(n):
 ```py
 to_binary(100) # 0b1100100
 ```
+
 ---
+
 ---
 
 ### Combines two lists into a dictionary, where the elements of the first one serve as the keys and the elements of the second one serve as the values.
+
 The values of the first list need to be unique and hashable.
 
 - Use `zip()` in combination with `dict()` to combine the values of the two lists into a dictionary.
@@ -2714,7 +3000,9 @@ def to_dictionary(keys, values):
 ```py
 to_dictionary(['a', 'b'], [1, 2]) # { a: 1, b: 2 }
 ```
+
 ---
+
 ---
 
 ### Returns the hexadecimal representation of the given number.
@@ -2730,7 +3018,9 @@ def to_hex(dec):
 to_hex(41) # 0x29
 to_hex(332) # 0x14c
 ```
+
 ---
+
 ---
 
 ### Converts a date to its ISO-8601 representation.
@@ -2749,10 +3039,13 @@ from datetime import datetime
 
 to_iso_date(datetime(2020, 10, 25)) # 2020-10-25T00:00:00
 ```
----
+
 ---
 
-### Converts an integer to its roman numeral representation. 
+---
+
+### Converts an integer to its roman numeral representation.
+
 Accepts value between `1` and `3999` (both inclusive).
 
 - Create a lookup list containing tuples in the form of (roman value, integer).
@@ -2788,7 +3081,9 @@ to_roman_numeral(3) # 'III'
 to_roman_numeral(11) # 'XI'
 to_roman_numeral(1998) # 'MCMXCVIII'
 ```
+
 ---
+
 ---
 
 ### Transposes a two-dimensional list.
@@ -2805,7 +3100,9 @@ def transpose(lst):
 transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
 # [(1, 4, 7, 10), (2, 5, 8, 11), (3, 6, 9, 12)]
 ```
+
 ---
+
 ---
 
 ### Builds a list, using an iterator function and an initial seed value.
@@ -2817,7 +3114,7 @@ transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
 ```py
 def unfold(fn, seed):
   def fn_generator(val):
-    while True: 
+    while True:
       val = fn(val[1])
       if val == False: break
       yield val[0]
@@ -2828,7 +3125,9 @@ def unfold(fn, seed):
 f = lambda n: False if n > 50 else [-n, n + 10]
 unfold(f, 10) # [-10, -20, -30, -40, -50]
 ```
+
 ---
+
 ---
 
 ### Returns every element that exists in any of the two lists once.
@@ -2843,7 +3142,9 @@ def union(a, b):
 ```py
 union([1, 2, 3], [4, 3, 2]) # [1, 2, 3, 4]
 ```
+
 ---
+
 ---
 
 ### Returns every element that exists in any of the two lists once, after applying the provided function to each element of both.
@@ -2863,7 +3164,9 @@ from math import floor
 
 union_by([2.1], [1.2, 2.3], floor) # [2.1, 1.2]
 ```
+
 ---
+
 ---
 
 ### Returns the unique elements in a given list.
@@ -2878,7 +3181,9 @@ def unique_elements(li):
 ```py
 unique_elements([1, 2, 2, 3, 4, 3]) # [1, 2, 3, 4]
 ```
+
 ---
+
 ---
 
 ### Returns a flat list of all the values in a flat dictionary.
@@ -2899,7 +3204,9 @@ ages = {
 }
 values_only(ages) # [10, 11, 9]
 ```
+
 ---
+
 ---
 
 ### Returns the weighted average of two or more numbers.
@@ -2915,10 +3222,12 @@ def weighted_average(nums, weights):
 ```py
 weighted_average([1, 2, 3], [0.6, 0.2, 0.3]) # 1.72727
 ```
----
+
 ---
 
-### Tests a value, `x`, against a testing function, conditionally applying a function. 
+---
+
+### Tests a value, `x`, against a testing function, conditionally applying a function.
 
 - Check if the value of `predicate(x)` is `True` and if so return `when_true(x)`, otherwise return `x`.
 
@@ -2932,7 +3241,9 @@ double_even_numbers = when(lambda x: x % 2 == 0, lambda x : x * 2)
 double_even_numbers(2) # 4
 double_even_numbers(1) # 1
 ```
+
 ---
+
 ---
 
 ### Converts a given string into a list of words.
