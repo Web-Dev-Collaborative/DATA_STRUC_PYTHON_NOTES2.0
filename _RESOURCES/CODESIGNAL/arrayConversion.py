@@ -1,5 +1,3 @@
-# Nique toi Sylvere
-
 L, = eval(dir()[0])
 s = 0
 
