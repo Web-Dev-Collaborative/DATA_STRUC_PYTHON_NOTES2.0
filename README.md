@@ -1,6 +1,6 @@
 # Python Data Structures Repo & Website
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
 
 {% tabs %}
 {% tab title="Blog" %}

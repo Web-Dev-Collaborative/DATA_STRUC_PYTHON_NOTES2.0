@@ -31,7 +31,7 @@
   * [Errors](resources/reference-materials/errors.md)
   * [Python Keywords](resources/reference-materials/python-keywords.md)
 * [Intro 2 Python3](resources/intro-2-python3/README.md)
-  * [Untitled](python-language/general-notes-on-graphs/untitled.md)
+  * [Untitled](resources/intro-2-python3/untitled.md)
 * [STDLib](resources/stdlib.md)
 * [Data Structures](resources/data-structures.md)
 * [Links](resources/links.md)
