@@ -1,6 +1,6 @@
 # Beginners Guide To Python
 
-My favorite language for maintainability is Python. It has simple, clean syntax, object encapsulation, good library support, and optional…
+ My favorite language for maintainability is Python. It has simple, clean syntax, object encapsulation, good library support, and optional…
 
 ## Beginners Guide To Python <a id="e70a"></a>
 
@@ -338,7 +338,7 @@ Unlike many other languages, there is no `var`, `let`, or `const` to declare a v
 
 Remember, there is a difference between integers and strings. _Remember: String =_ _`""`._ To convert between these two, you can put an int in a `str()` function, and a string in a `int()` function. There is also a less used one, called a float. Mainly, these are integers with decimals. Change them using the `float()` command.
 
-[https://repl.it/@bgoonz/second-scr?lite=true&referrer=https%3A%2F%2Fbryanguner.medium.com](https://repl.it/@bgoonz/second-scr?lite=true&amp;referrer=https%3A%2F%2Fbryanguner.medium.com)
+[https://repl.it/@bgoonz/second-scr?lite=true&amp;referrer=https%3A%2F%2Fbryanguner.medium.com](https://repl.it/@bgoonz/second-scr?lite=true&amp;referrer=https%3A%2F%2Fbryanguner.medium.com)
 
 ```text
 x = 5
@@ -828,5 +828,49 @@ while True:
     print(“I dare you to “ + random.choice(list1) + ‘ ‘ + random.choice(list2) + ‘ in front of ‘  + random.choice(list3)
 ```
 
-{% embed url="https://replit.com/@bgoonz/PythonPracticeGists-1" caption="" %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% embed url="https://replit.com/@bgoonz/PythonPracticeGists-1" %}
+
+
+
+
+
+
+
+
+
+
 

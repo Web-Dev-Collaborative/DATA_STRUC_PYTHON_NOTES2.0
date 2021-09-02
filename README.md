@@ -1,6 +1,6 @@
 # Python Data Structures Repo & Website
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
 
 {% tabs %}
 {% tab title="Blog" %}
@@ -18,15 +18,13 @@ My Notion:
 
 
 
-{% embed url="https://golden-lobe-519.notion.site/Data-Structures-c3fe3debbe494b929ed2f20070b631f8" caption="" %}
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 
 {% embed url="https://codesandbox.io/s/ds-algo-forked-iezyk?file=/index.html" caption="" %}
 {% endtab %}
 {% endtabs %}
 
-Python syntax was made for readability, and easy editing. For example, the python language uses a `:` and indented code, while javascript and others generally use `{}` and indented code.
+Python syntax was made for readability, and easy editing. For example, the python language uses a `:` and indented code, while JavaScript and others generally use `{}` and indented code.
 
 Lets create a [python 3](https://repl.it/languages/python3) repl, and call it _Hello World_. Now you have a blank file called _main.py_. Now let us write our first line of code:
 
@@ -118,7 +116,7 @@ There are many operators in python:
 * `+`
 * `-`
 * `/`
-* `*` These operators are the same in most languages, and allow for addition, subtraction, division, and multiplicaiton. Now, we can look at a few more complicated ones:
+* `*` These operators are the same in most languages, and allow for addition, subtraction, division, and multiplication. Now, we can look at a few more complicated ones:
 * `%`
 * `//`
 * `**`
@@ -148,15 +146,15 @@ a *= 2
 a /= 2
 ```
 
-The ones above are to edit the current value of the variable.
+The ones above are to edit the current value of the variable.  
 Sorry to JS users, as there is no `i++;` or anything.
 
-> Fun Fact:
+> Fun Fact:  
 > The python language was named after Monty Python.
 
 If you really want to know about the others, view [Py Operators](https://www.tutorialspoint.com/python/python_basic_operators.htm)
 
-Like the title?
+Like the title?  
 Anyways, a `'` and a `"` both indicate a string, but **do not combine them!**
 
 _quotes.py_
@@ -171,7 +169,7 @@ _slicing.py_
 
 #### String Slicing
 
-You can look at only certain parts of the string by slicing it, using `[num:num]`.
+You can look at only certain parts of the string by slicing it, using `[num:num]`.  
 The first number stands for how far in you go from the front, and the second stands for how far in you go from the back.
 
 ```text
@@ -229,7 +227,7 @@ _inp2.py_
 print('Here is what you said: ', input('Type something: '))
 ```
 
-Running:
+Running:  
 _inp.py_
 
 ```text
@@ -262,15 +260,15 @@ import random
 print(random.randint(3,5)) # Prints a random number between 3 and 5
 ```
 
-> Pro Tip:
-> Do `from random import randint` to not have to do `random.randint()`, just `randint()`
+> Pro Tip:  
+> Do `from random import randint` to not have to do `random.randint()`, just `randint()`  
 > To import all functions from a module, you could do `from random import *`
 
 Loops allow you to repeat code over and over again. This is useful if you want to print Hi with a delay of one second 100 times.
 
 **for Loop**
 
-The for loop goes through a list of variables, making a seperate variable equal one of the list every time.
+The for loop goes through a list of variables, making a seperate variable equal one of the list every time.  
 Let’s say we wanted to create the example above.
 
 _loop.py_
@@ -359,7 +357,7 @@ else:
     print('No category')
 ```
 
-So far, you have only seen how to use functions other people have made. Let use the example that you want to print the a random number between 1 and 9, and print different text every time.
+So far, you have only seen how to use functions other people have made. Let use the example that you want to print the a random number between 1 and 9, and print different text every time.  
 It is quite tiring to type:
 
 Characters: 389
@@ -5281,4 +5279,5 @@ print(result)
 
 {% page-ref page="./" %}
 
+> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 
