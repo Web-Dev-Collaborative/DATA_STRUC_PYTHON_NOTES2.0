@@ -16,7 +16,7 @@
 
 ## Resources
 
-* [Python Keywords](resources/python-keywords.md)
+* [Python Keywords](resources/reference-materials/python-keywords.md)
 * [Repositories](resources/repositories.md)
 * [Problems w Solutions](resources/problems-w-solutions.md)
 

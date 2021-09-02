@@ -27,11 +27,12 @@
 
 ## Resources
 
-* [Python Keywords](resources/python-keywords.md)
+* [Reference Materials](resources/reference-materials/README.md)
+  * [Appendix](resources/reference-materials/appendix.md)
+  * [Errors](resources/reference-materials/errors.md)
+  * [Python Keywords](resources/reference-materials/python-keywords.md)
 * [Intro 2 Python3](resources/intro-2-python3/README.md)
   * [Untitled](resources/intro-2-python3/untitled.md)
-* [Errors](resources/errors.md)
-* [Appendix](resources/appendix.md)
 * [STDLib](resources/stdlib.md)
 * [Data Structures](resources/data-structures.md)
 * [Links](resources/links.md)
@@ -91,4 +92,8 @@
 ## python-language
 
 * [Collections In Python](python-language/untitled.md)
+
+## reference
+
+* [Untitled](reference/untitled.md)
 
