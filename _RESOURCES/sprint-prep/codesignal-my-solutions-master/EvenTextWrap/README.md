@@ -6,8 +6,7 @@ Extra spaces between words should be distributed as evenly as possible. If the n
 
 For
 
-`words = ["This", "is", "an", "example", "of", "text", "justification."]` 
-and `l = 16`, the output should be
+`words = ["This", "is", "an", "example", "of", "text", "justification."]` and `l = 16`, the output should be
 
 ```
 textJustification(words, l) = ["This    is    an",

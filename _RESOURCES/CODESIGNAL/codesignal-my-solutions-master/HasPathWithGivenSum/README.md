@@ -44,9 +44,7 @@ t = {
 }
 ```
 
-and
-`s = 7`,
-the output should be `hasPathWithGivenSum(t, s) = true`.
+and `s = 7`, the output should be `hasPathWithGivenSum(t, s) = true`.
 
 This is what this tree looks like:
 
@@ -103,9 +101,8 @@ t = {
     }
 }
 ```
-and
-`s = 7`,
-the output should be `hasPathWithGivenSum(t, s) = false`.
+
+and `s = 7`, the output should be `hasPathWithGivenSum(t, s) = false`.
 
 This is what this tree looks like:
 

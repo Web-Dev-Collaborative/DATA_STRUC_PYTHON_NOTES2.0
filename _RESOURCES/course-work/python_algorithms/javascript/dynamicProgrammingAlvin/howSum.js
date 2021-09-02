@@ -22,28 +22,27 @@
 
 // 1. Create function
 const howSum = (targetSum, numbers, memo = {}) => {
-    // 3. Handle base cases
-    // 4. Check if memoized
-    if (targetSum in memo) return memo[targetSum];
-    if (targetSum === 0) return [];
-    if (targetSum < 0) return null;
+  // 3. Handle base cases
+  // 4. Check if memoized
+  if (targetSum in memo) return memo[targetSum];
+  if (targetSum === 0) return [];
+  if (targetSum < 0) return null;
 
-    for (let num of numbers) {
-        const remainder = targetSum - num;
-        // 5. Pass memo along to all recursive calls
-        const remainderResult = howSum(remainder, numbers, memo);
+  for (let num of numbers) {
+    const remainder = targetSum - num;
+    // 5. Pass memo along to all recursive calls
+    const remainderResult = howSum(remainder, numbers, memo);
 
-        if (remainderResult !== null) {
-            // 6. Store returns in memo
-            memo[targetSum] = [...remainderResult, num];
-            return memo[targetSum];
-        }
+    if (remainderResult !== null) {
+      // 6. Store returns in memo
+      memo[targetSum] = [...remainderResult, num];
+      return memo[targetSum];
     }
+  }
 
-    memo[targetSum] = null;
-    return null;
+  memo[targetSum] = null;
+  return null;
 };
-
 
 // 2. Create test inputs and commented expected outputs
 /*
@@ -58,8 +57,8 @@ const howSum = (targetSum, numbers, memo = {}) => {
     time = O(n * m^2)
     space = O(m^2)
 */
-console.log(howSum(7, [2, 3]));           // [3, 2, 2]
-console.log(howSum(7, [5, 3, 4, 7]));     // [4, 3]
-console.log(howSum(7, [2, 4]));           // null
-console.log(howSum(8, [2, 3, 5]));        // [2, 2, 2, 2]
-console.log(howSum(300, [7, 14]));        // null
+console.log(howSum(7, [2, 3])); // [3, 2, 2]
+console.log(howSum(7, [5, 3, 4, 7])); // [4, 3]
+console.log(howSum(7, [2, 4])); // null
+console.log(howSum(8, [2, 3, 5])); // [2, 2, 2, 2]
+console.log(howSum(300, [7, 14])); // null

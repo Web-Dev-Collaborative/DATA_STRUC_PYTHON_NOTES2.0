@@ -6,7 +6,7 @@
 
 When an error occurs, the interpreter prints an error message and a stack trace. In interactive mode, it then returns to the primary prompt; when input came from a file, it exits with a nonzero exit status after printing the stack trace. \(Exceptions handled by an except clause in a try statement are not errors in this context.\) Some errors are unconditionally fatal and cause an exit with a nonzero exit; this applies to internal inconsistencies and some cases of running out of memory. All error messages are written to the standard error stream; normal output from executed commands is written to standard output.
 
-Typing the interrupt character \(usually Control-C or Delete\) to the primary or secondary prompt cancels the input and returns to the primary prompt.  Typing an interrupt while a command is executing raises the KeyboardInterrupt exception, which may be handled by a try statement.
+Typing the interrupt character \(usually Control-C or Delete\) to the primary or secondary prompt cancels the input and returns to the primary prompt. Typing an interrupt while a command is executing raises the KeyboardInterrupt exception, which may be handled by a try statement.
 
 ### Executable Python Scripts
 
@@ -54,4 +54,3 @@ Now you can create a file named usercustomize.py in that directory and put anyth
 sitecustomize works in the same way, but is typically created by an administrator of the computer in the global site-packages directory, and is imported before usercustomize. See the documentation of the site module for more details.
 
 **Footnotes**
-

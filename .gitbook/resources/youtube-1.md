@@ -23,4 +23,3 @@
 17. \*\*\*\*[**Telusko**](https://mikkegoes.com/youtube-channels-learn-python/#telusko)\*\*\*\*
 18. \*\*\*\*[**thenewboston**](https://mikkegoes.com/youtube-channels-learn-python/#thenewboston)\*\*\*\*
 19. \*\*\*\*[**Traversy Media**](https://mikkegoes.com/youtube-channels-learn-python/#traversy-media)\*\*\*\*
-

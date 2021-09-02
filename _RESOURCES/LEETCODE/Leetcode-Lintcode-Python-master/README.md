@@ -1,7 +1,8 @@
 ## Array
+
 - (53) Maximum Subarray
 - (54) Spiral Matrix
-- (57) Insert Interval 
+- (57) Insert Interval
 - (73) Set Matrix Zeroes
 - (75) Sort Colors
 - (88) Merge Sorted Array
@@ -25,6 +26,7 @@
 - (1103) Distribute Candies to People
 
 ## Binary Search
+
 - (15) 3Sum
 - (16) 3Sum Closest
 - (18) 4Sum
@@ -49,21 +51,21 @@
 - (1060) Missing Element in Sorted Array
 - (1428) Leftmost Column with at Least a One
 
-## Tree 
+## Tree
+
 - (94) Binary Tree Inorder Traversal
 - (95) Unique Binary Search Trees II  
-    Binary tree inorder traversal with the time complexity of O(4^n), this is because the problem meets the Segner's recurrent relation:
-    C_0 = 1 and C_(n+1) is the sum of C_i*C_(n-i) where i is in the range of 0 to n.
+   Binary tree inorder traversal with the time complexity of O(4^n), this is because the problem meets the Segner's recurrent relation: C*0 = 1 and C*(n+1) is the sum of C*i\*C*(n-i) where i is in the range of 0 to n.
 - (98) Validate Binary Search Tree
 - (102) Binary Tree Level Order Traversal
-- (105) Construc Binary Tree from Inorder 
+- (105) Construc Binary Tree from Inorder
 - (106) Construct Binary Tree from Inorder and Postorder Traversal  
-    Due to postorder, the traversal order is `left->right->root`, when we construct the tree with the value from list of postorder, we need to the follow the order of `root->right->left`.
-- (107) Binary Tree Level Order Traversal II   
-    BFS uses `deque` to pop the left element and add to the right.
+   Due to postorder, the traversal order is `left->right->root`, when we construct the tree with the value from list of postorder, we need to the follow the order of `root->right->left`.
+- (107) Binary Tree Level Order Traversal II  
+   BFS uses `deque` to pop the left element and add to the right.
 - (111) Minimum Depth of Binary Tree  
-    This can be solved with BFS and DFS.
-- (116) Populating Next Right Pointers in Each Node   
+   This can be solved with BFS and DFS.
+- (116) Populating Next Right Pointers in Each Node
 - (117) Populating Next Right Pointers in Each Node II
 - (226) Invert Binary Tree
 - (230) Kth Smallest Element in a BST
@@ -86,7 +88,7 @@
 - (958) Check Completeness of a Binary Tree
 - (173) Binary Search Tree Iterator
 - (199) Binary Tree Right Side View  
-    BFS + append right node first
+   BFS + append right node first
 - (257) Binary Tree Paths
 - (270) Closest Binary Search Tree Value
 - (653) Two Sum IV - Input is a BST
@@ -94,11 +96,13 @@
 - (701) Insert into a Binary Search Tree
 
 ## Backtracking
+
 - (37) Sudoku Solver
 - (526) Beautiful Arrangement
 - (638) Shopping Offers
 
 ## Design
+
 - (146) LRU Cache
 - (170) Two Sum III - Data structure design
 - (244) Shortest Word Distance II
@@ -116,15 +120,17 @@
 - (1622) Fancy Sequence
 
 ## Graph
+
 - (310) Minimum Height Trees  
-If the left nodes are more than 2, we can keep deleting two leaf nodes and treat the remaining one as root to get the minimum height. 
-If there are two nodes left, both of them can work as root for minimum tree height.
+  If the left nodes are more than 2, we can keep deleting two leaf nodes and treat the remaining one as root to get the minimum height. If there are two nodes left, both of them can work as root for minimum tree height.
 - (1557) Minimum Number of Vertices to Reach All Nodes
 
 ## Topological Sort
+
 - (269) Alien Dictionary
 
 ## BFS
+
 - (126) Word Ladder II
 - (127) Word Ladder
 - (130) Surrounded Regions
@@ -136,13 +142,12 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (513) Find Bottom Left Tree Value
 - (514) Freedom Trail
 - (515) Find Largest Value in Each Tree Row  
-   This is very similar to 513.  
+   This is very similar to 513.
 - (542) 01 Matrix
 - (559) Maximum Depth of N-ary Tree
 - (690) Employee Importance
 - (743) Network Delay Time
-- (787) Cheapest Flights Within K Stops
-    This is very similar to 743.
+- (787) Cheapest Flights Within K Stops This is very similar to 743.
 - (752) Open the Lock
 - (773) Sliding Puzzle
 - (815) Bus Routes
@@ -153,15 +158,16 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (1602) Find Nearest Right Node in Binary Tree
 
 ## Priority Queue
+
 - (407) Trapping Rain Water II
 - (675) Cut Off Trees for Golf Event
 - (692) Top K Frequent Words
 
 ## DFS
+
 - (22) Generate Parentheses
 - (37) Sudoku Solver
-- (39) Combination Sum
-    recursion should start with candidates[i:] not candidates[i+1:]
+- (39) Combination Sum recursion should start with candidates[i:] not candidates[i+1:]
 - (40) Combination Sum II
 - (77) Combinations
 - (78) Subsets
@@ -211,8 +217,8 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (1376) Time Needed to Inform All Employees
 - (1593) Split a String Into the Max Number of Unique Substrings
 
-
 ## Union Find
+
 - (128) Longest Consecutive Sequence
 - (261) Graph Valid Tree
 - (323) Number of Connected Components in an Undirected Graph
@@ -220,8 +226,8 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (721) Accounts Merge
 - (952) Union Find
 
-
 ## Dynamic Programming
+
 - (10) Regular Expression Matching
 - (44) Wildcard Matching
 - (62) Unique Paths
@@ -242,16 +248,12 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (576) Out of Boundary Paths
 - (600) Non-negative Integers without Consecutive Ones
 - (741) Cherry Pickup
-- (887) Super Egg Drop
-    dp[M][K] means that, given K eggs and M moves,
-    what is the maximum number of floor that we can check.
-    Take a move, 
-    if the egg breaks, we can check dp[m-1][k-1] floors
-    if the egg doesn't break, then we can check dp[m-1][k] floors
+- (887) Super Egg Drop dp[M][k] means that, given K eggs and M moves, what is the maximum number of floor that we can check. Take a move, if the egg breaks, we can check dp[m-1][k-1] floors if the egg doesn't break, then we can check dp[m-1][k] floors
 - (983) Minimum Cost For Tickets
 - (1216) Valid Palindrome III
 
 ## Greedy
+
 - (45) Jump Game II
 - (55) Jump Game
 - (134) Gas Station
@@ -261,13 +263,15 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (763) Partition Labels
 
 ## Recursion
+
 - (544) Output Contest Matches
 
-
 ## Monotonic Stack
+
 - (42) Trapping Rain Water
 
 ## Two Pointers
+
 - (11) Container With Most Water
 - (485) Max Consecutive Ones
 - (674) Longest Continuous Increasing Subsequence
@@ -277,11 +281,13 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (1047) Remove All Adjacent Duplicates In String
 
 ## Python Tricks
+
 - (14) Longest Common Prefix
 - (38) Count and Say
 - (621) Task Scheduler
 
 ## String
+
 - (17) Letter Combinations of a Phone Number
 - (58) Length of Last Word
 - (67) Add Binary
@@ -308,9 +314,11 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (1370) Increasing Decreasing String
 
 ## Bit Manipulation
+
 - (421) Maximum XOR of Two Numbers in an Array
 
 ## Linked List
+
 - (19) Remove Nth Node From End of List
 - (24) Swap Nodes in Pairs
 - (25) Reverse Nodes in k-Group
@@ -324,6 +332,7 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (876) Middle of the Linked List
 
 ## Two Pointers
+
 - (30) Substring with Concatenation of All Words
 - (283) Move Zeros
 - (350) Intersection of Two Arrays II
@@ -332,6 +341,7 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (986) Interval List Intersections
 
 ## Stack
+
 - (32) Longest Valid Parentheses
 - (56) Merge Intervals
 - (71) Simplify Path
@@ -346,9 +356,11 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (1249) Minimum Remove to Make Valid Parentheses
 
 ## Set
+
 - (36) Valid Sudoku
 
 ## Hash Table
+
 - (205) Isomorphic Strings
 - (249) Group Shifted Strings
 - (290) Word Pattern
@@ -362,9 +374,11 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (953) Verifying an Alien Dictionary
 
 ## Ordered Map
+
 - (846) Hand of Straights
 
 ## Trie
+
 - (208) Implement Trie (Prefix Tree)
 - (211) Add and Search Word - Data structure design
 - (212) Word Search II
@@ -372,19 +386,25 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (1032) Stream of Characters
 
 ## Presum
+
 - (437) Path Sum III
 - (560) Subarray Sum Equals K
 
 ## Sort
+
 - (274) H-Index
 - (296) Best Meeting Point
 
 ### Bucket Sort
+
 - (220) Contains Duplicate III
+
 ### Quick Sort
+
 - (215) Kth Largest Element in an Array
 
 ## Intervals
+
 - (56)
 - (57)
 - (252) Meeting Room
@@ -397,8 +417,8 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (732) My Calendar III
 - (1288) Remove Covered Intervals
 
-
 ## Buy/Sell Stocks
+
 - (121) Best Time to Buy and Sell Stock
 - (122) Best Time to Buy and Sell Stock II
 - (123) Best Time to Buy and Sell Stock III
@@ -407,6 +427,7 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (714) Best Time to Buy and Sell Stock with Transaction Fee
 
 ## Sliding Window
+
 - (30) Substring with Concatenation of All Words
 - (76) Minimum Window Substring
 - (159) Longest Substring with At Most Two Distinct Characters
@@ -416,15 +437,18 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (689) Maximum Sum of 3 Non-Overlapping Subarrays
 
 ## DFA
+
 - (65) Valid Number
 
 ## Brainteaser
-- (41) First Missing Positive  
-- (777) Swap Adjacent in LR String 
+
+- (41) First Missing Positive
+- (777) Swap Adjacent in LR String
 
 ## Math
-- (258) Add Digits   
-    Digit root: (n - 1) % 9 + 1
+
+- (258) Add Digits  
+   Digit root: (n - 1) % 9 + 1
 - (273) Integer to English Words
 - (342) Power of Four
 - (470) Implement Rand10() Using Rand7()
@@ -438,20 +462,23 @@ If there are two nodes left, both of them can work as root for minimum tree heig
 - (1041) Robot Bounded In Circle
 
 ## Sampling
+
 - (398) Random Pick Index
 
 ## Matrix
+
 - (311) Sparse Matrix Multiplication
 
 ## Line Sweep
+
 - (391) Perfect Rectangle
 - (699) Falling Squares
 - (1109) Corporate Flight Bookings
 
 ## Sorting
+
 - (179) Largest Number
 
-
 ## Binary Indexed Tree
-- (307) Range Sum Query - Mutable
 
+- (307) Range Sum Query - Mutable

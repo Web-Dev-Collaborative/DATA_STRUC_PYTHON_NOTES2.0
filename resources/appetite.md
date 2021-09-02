@@ -16,15 +16,15 @@ Python is an interpreted language, which can save you considerable time during p
 
 Python enables programs to be written compactly and readably. Programs written in Python are typically much shorter than equivalent C, C++, or Java programs, for several reasons:
 
-* the high-level data types allow you to express complex operations in
+- the high-level data types allow you to express complex operations in
 
   a single statement;
 
-* statement grouping is done by indentation instead of beginning and
+- statement grouping is done by indentation instead of beginning and
 
   ending brackets;
 
-* no variable or argument declarations are necessary.
+- no variable or argument declarations are necessary.
 
 Python is _extensible_: if you know how to program in C it is easy to add a new built-in function or module to the interpreter, either to perform critical operations at maximum speed, or to link Python programs to libraries that may only be available in binary form \(such as a vendor-specific graphics library\). Once you are really hooked, you can link the Python interpreter into an application written in C and use it as an extension or command language for that application.
 
@@ -35,4 +35,3 @@ Now that you are all excited about Python, you'll want to examine it in some mor
 In the next chapter, the mechanics of using the interpreter are explained. This is rather mundane information, but essential for trying out the examples shown later.
 
 The rest of the tutorial introduces various features of the Python language and system through examples, beginning with simple expressions, statements and data types, through functions and modules, and finally touching upon advanced concepts like exceptions and user-defined classes.
-

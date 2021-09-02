@@ -134,6 +134,4 @@ For example, suppose the mice are positioned at `[1, 4, 9, 15]`, and the holes a
 
 ## My Blog: <a id="53da"></a>
 
-[Web-Dev-HubMemoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…master--bgoonz-blog.netlify.app](https://master--bgoonz-blog.netlify.app/)[A list of all of my articles to link to future postsYou should probably skip this one… seriously it’s just for internal use!bryanguner.medium.com](https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b)  
-
-
+[Web-Dev-HubMemoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…master--bgoonz-blog.netlify.app](https://master--bgoonz-blog.netlify.app/)[A list of all of my articles to link to future postsYou should probably skip this one… seriously it’s just for internal use!bryanguner.medium.com](https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b)

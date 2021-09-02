@@ -7,10 +7,11 @@ As pixel's value is an integer, all fractions should be rounded down.
 **Example**
 
 For
+
 ```
 
-image = [[1, 1, 1], 
-         [1, 7, 1], 
+image = [[1, 1, 1],
+         [1, 7, 1],
          [1, 1, 1]]
 
 ```

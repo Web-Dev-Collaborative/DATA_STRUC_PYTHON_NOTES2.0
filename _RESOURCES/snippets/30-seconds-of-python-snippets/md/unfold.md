@@ -14,7 +14,7 @@ Builds a list, using an iterator function and an initial seed value.
 ```py
 def unfold(fn, seed):
   def fn_generator(val):
-    while True: 
+    while True:
       val = fn(val[1])
       if val == False: break
       yield val[0]

@@ -1,10 +1,10 @@
 # Super Simple Intro To Python
 
-Step 07: Puzzles On Utility Methods, And Strings In the previous step, we learned how to print 5 * 6 = 30. It was not a perfect solution, because we hard-coded everything. we used an in-built function named print(), passed a string to it, and invoked the method.
+Step 07: Puzzles On Utility Methods, And Strings In the previous step, we learned how to print 5 \* 6 = 30. It was not a perfect solution, because we hard-coded everything. we used an in-built function named print(), passed a string to it, and invoked the method.
 
 In this step, let’s look at a number of puzzles related to in-built methods, their parameters, and strings in general.
 
-For example, let’s do print(“5 * 6”), as in the previous step. What does this code result in?
+For example, let’s do print(“5 \* 6”), as in the previous step. What does this code result in?
 
 ```
 >>> print("5*6")
@@ -13,16 +13,16 @@ For example, let’s do print(“5 * 6”), as in the previous step. What does t
 5*6
 ```
 
-It just prints the string “5 * 6”.
+It just prints the string “5 \* 6”.
 
-Let’s say we try the code print(5 * 6),
+Let’s say we try the code print(5 \* 6),
 
 ```
 >>> print(5*6)
 30
 ```
 
-Without the double quotes, 5 * 6 is an expression. What will be the output? 30.
+Without the double quotes, 5 \* 6 is an expression. What will be the output? 30.
 
 If you call print() with an expression argument, it prints the value of the expression. However, when we pass something within double quotes, it becomes a piece of text, printed as-is.
 
@@ -72,7 +72,7 @@ SyntaxError: invalid syntax
 
 You’ll see that 32 is printed.
 
-Let’s see another example, “10 to the power of 3”. pow(10,3) is the alternative to saying 10 ** 3. This gives us 1000, similar to how pow() would.
+Let’s see another example, “10 to the power of 3”. pow(10,3) is the alternative to saying 10 \*\* 3. This gives us 1000, similar to how pow() would.
 
 ```
 >>> pow(10, 3)
@@ -149,7 +149,7 @@ Hello
 World
 ```
 
-The other important escape sequence is ’, which prints a  in the output. When you do print(“Hello”), you can see the tab-space between “Hello” and “World”.
+The other important escape sequence is ’, which prints a in the output. When you do print(“Hello”), you can see the tab-space between “Hello” and “World”.
 
 ```
 >>> print("Hello\tWorld")
@@ -182,7 +182,7 @@ The above two examples can be used as a tip by newbie programmers when they form
 
 If the string literal contains one or more single quotes, then you can use double quotes to enclose it. However if the string contains one or more double quotes, then prefer to use single quotes to enclose it. Summary In this step, we:
 
-Explored a number of puzzles related to code involving: Built-in functions for numeric calculations The print() function to display expressions and strings Covered the following aspects of the above utilities: Case-sensitive aspects of names and strings The role played by whitespace The escape character, and common escape sequences Step 08: Formatted Output With print() In the previous step, we learned how to print a hard-coded string, such as “5 * 6 = 30”.
+Explored a number of puzzles related to code involving: Built-in functions for numeric calculations The print() function to display expressions and strings Covered the following aspects of the above utilities: Case-sensitive aspects of names and strings The role played by whitespace The escape character, and common escape sequences Step 08: Formatted Output With print() In the previous step, we learned how to print a hard-coded string, such as “5 \* 6 = 30”.
 
 In this step, let’s try to replace the hard-coded 30 with a computed value.
 
@@ -225,14 +225,14 @@ VALUE 20
 VALUE 30
 ```
 
-Now going back to our problem, we wanted to display “5 * 6 = 30”, but without hard-coding. Instead of 30, we want the calculated value of 5 * 6.
+Now going back to our problem, we wanted to display “5 _ 6 = 30”, but without hard-coding. Instead of 30, we want the calculated value of 5 _ 6.
 
 ```
 >>> print("5 * 6 = 30".format(5,6,5*6))
 5 * 6 = 30
 ```
 
-Let replace “5 * 6 = 30” with “5 * 6 = {2}”. 2 is the index of parameter value 5*6.
+Let replace “5 _ 6 = 30” with “5 _ 6 = {2}”. 2 is the index of parameter value 5\*6.
 
 ```
 >>> print("5 * 6 = {2}".format(5,6,5*6))
@@ -241,14 +241,14 @@ Let replace “5 * 6 = 30” with “5 * 6 = {2}”. 2 is the index of parameter
 
 Cool! Progress made.
 
-Let’s replace 5 * 6 with the right indices - {0} * {1}.
+Let’s replace 5 _ 6 with the right indices - {0} _ {1}.
 
 ```
 >>> print("{0} * {1} = {2}".format(5,6,5*6))
 5 * 6 = 30
 ```
 
-The great thing about this, is now we can replace the values we passed to print() in the first place, without changing the indexes! So, we can display results for 5 * 7 = 35 and 5 * 8 = 40. We are now able to print 5 * 6 = 30, 5 * 7 = 35, 5 * 8 = 40, and can do similar things for other table entries as well.
+The great thing about this, is now we can replace the values we passed to print() in the first place, without changing the indexes! So, we can display results for 5 _ 7 = 35 and 5 _ 8 = 40. We are now able to print 5 _ 6 = 30, 5 _ 7 = 35, 5 \* 8 = 40, and can do similar things for other table entries as well.
 
 ```
 >>> print("{0} * {1} = {2}".format(5,7,5*7))
@@ -263,7 +263,7 @@ Summary In this step, we:
 
 Discovered that Python provides a way to do formatted printing of string values Looked at the format() function, and saw how to call it within print() Observed how we could work only with the indexes of parameters to format(), and change the parameters we pass without changing the code Step 09: Puzzles On format() and print() In this step, let’s look at a few puzzles related to the format, and the print methods.
 
-Snippet-01: format() And print() Puzzles Let’s say we pass in additional values, such as: 5 * 8, 5 * 9 and 5 * 10. However, within the call to format(), we are only referring to the values at index 0, index 1 and index 2. The values at indexes 3 and 4 are not used at all. What would happen when we run the code?
+Snippet-01: format() And print() Puzzles Let’s say we pass in additional values, such as: 5 _ 8, 5 _ 9 and 5 \* 10. However, within the call to format(), we are only referring to the values at index 0, index 1 and index 2. The values at indexes 3 and 4 are not used at all. What would happen when we run the code?
 
 ```
 >>> print("{0} * {1} = {2}".format(5,8,5*8,5*9,5*10))
@@ -279,9 +279,9 @@ Let’s say instead of passing in a value of 2, we pass 4. What would happen?
 5 * 8 = 50
 ```
 
-5 * 10 is the value at index 4
+5 \* 10 is the value at index 4
 
-Now let’s take a different scenario. We remove all the parameters passed to format(). However, inside the call to print(), we continue to say {0} * {1} = {4}. So we are trying to print the value at index 4, but are only passing two values to the function format(). What do you think will happen?
+Now let’s take a different scenario. We remove all the parameters passed to format(). However, inside the call to print(), we continue to say {0} \* {1} = {4}. So we are trying to print the value at index 4, but are only passing two values to the function format(). What do you think will happen?
 
 ```
 >>> print("{0} * {1} = {4}".format(5,8))
@@ -292,7 +292,7 @@ IndexError: tuple index out of range
 
 It says IndexError, which means :“you are asking me to fetch the value at index 4, but only passing in two values. How can I do what you want?”
 
-Let’s look at a few more things related to other data types. We try to format the following inside print(): {0} * {1} = {2}, and would pass in 2.5, 2, and 2.5 * 2 . Here, 2 is an integer value, but 2.5 is a floating point value. You can see that it prints 2.5 * 2 = 5.0. So this approach of formatting values with print(), works also with floating point data as well.
+Let’s look at a few more things related to other data types. We try to format the following inside print(): {0} _ {1} = {2}, and would pass in 2.5, 2, and 2.5 _ 2 . Here, 2 is an integer value, but 2.5 is a floating point value. You can see that it prints 2.5 \* 2 = 5.0. So this approach of formatting values with print(), works also with floating point data as well.
 
 ```
 >>> print("{0} * {1} = {2}".format(2.5,2,2.5*2))
@@ -314,7 +314,7 @@ Summary In this step, we:
 
 Understood the behavior when the parameters passed to format(): Exceed the indexes accessed by print() Are less than the indexes accessed by print() Are of type integer, floating-point or string Step 10: Introducing Variables We are slowly making progress toward our main goal, which is to print the 5 multiplication table.
 
-In the first statement, we are printing 5 * 1 = 5, and then changing the literals. To make it print 5 * 2 = 10, we are changing 1 to 2. Next, we are changing 2 to 3. How do we make it a little simpler, so that our effort is reduced?
+In the first statement, we are printing 5 _ 1 = 5, and then changing the literals. To make it print 5 _ 2 = 10, we are changing 1 to 2. Next, we are changing 2 to 3. How do we make it a little simpler, so that our effort is reduced?
 
 ```
 >>> print("{0} * {1} = {2}".format(5,1,5*1))
@@ -327,7 +327,7 @@ In the first statement, we are printing 5 * 1 = 5, and then changing the literal
 
 Let’s try a different approach.
 
-What would happen if you replace 1 with index, and 5 * 1 with 5 * index, and try to run it?
+What would happen if you replace 1 with index, and 5 _ 1 with 5 _ index, and try to run it?
 
 It gives an error! It says: “index is not defined”.
 
@@ -344,7 +344,7 @@ Aha! This compiles.
 5 * 2 = 10
 ```
 
-And this statement is printing 5 * 2 = 10.
+And this statement is printing 5 \* 2 = 10.
 
 Let’s try something else. Let’s make index = 3. What would happen?
 
@@ -354,7 +354,7 @@ Let’s try something else. Let’s make index = 3. What would happen?
 5 * 3 = 15
 ```
 
-The same statement on being run, prints 5 * 3 = 15.
+The same statement on being run, prints 5 \* 3 = 15.
 
 How can you check the value that index has? Just type in index.
 
@@ -373,7 +373,7 @@ You can see that the value index referring to, can change over the duration of a
 
 Initially, index was referring to a value of 1. later, index was referring to a value of 3.
 
-Now, think about how you would print the entire table. All that you need to do, is start from 1, execute the same statement with print() and format(), to get output 5 * 1 = 5. Next, Change the value of index to 2, and then print the same statement. Next, index = 3, and print the same statement again.
+Now, think about how you would print the entire table. All that you need to do, is start from 1, execute the same statement with print() and format(), to get output 5 \* 1 = 5. Next, Change the value of index to 2, and then print the same statement. Next, index = 3, and print the same statement again.
 
 ```python
 >>> index = 1
@@ -480,7 +480,7 @@ NameError: name 'Count' is not defined
 
 There are rules to follow while naming variables.
 
-All variable names should either start with an alphabet , or an underscore _ . count, _count are valid. 1count is invalid.
+All variable names should either start with an alphabet , or an underscore \_ . count, \_count are valid. 1count is invalid.
 
 ```
 >>> 1count = 5
@@ -525,7 +525,7 @@ Snippet-01: Introducing Assignment You can create other variables using whatever
 
 j would start referring to the same value that i is referring to. This statement is called an assignment.
 
-Let’s try j = 2 * i.
+Let’s try j = 2 \* i.
 
 ```
 >>> j = 2 * i
@@ -619,9 +619,9 @@ Let’s get back to the original problem we wanted to solve: printing 5 + 6 + 7 
 
 You can see how easy it turns out to be!
 
-Step 14: The PMT-Challenge Revisited We want to print the 5-table from 5 * 1 = 5 onward, until we reach to 5 * 10 = 50. The best solution we have right now, is shown below:
+Step 14: The PMT-Challenge Revisited We want to print the 5-table from 5 _ 1 = 5 onward, until we reach to 5 _ 10 = 50. The best solution we have right now, is shown below:
 
-Snippet-01: >>> index = 1 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5*  1 = 5 >>> index = 2 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5*  2 = 10 >>> index = 3 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5*  3 = 15 >>> index = 4 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5*  4 = 20 Can we do something, to make sure that the code remains the same all the time, but the index value gets updated?
+Snippet-01: >>> index = 1 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5* 1 = 5 >>> index = 2 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5* 2 = 10 >>> index = 3 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5* 3 = 15 >>> index = 4 >>> print(“{0} * {1} = {2}”.format(5,index,5*index)) 5* 4 = 20 Can we do something, to make sure that the code remains the same all the time, but the index value gets updated?
 
 ```
 >>> index = index + 1
@@ -702,7 +702,7 @@ Let’s start with a simple example.
 
 print(f“{i}”) prints the value of i.
 
-Now, how do we get it to print 5 * 1 = 5 to 5 * 10 = 50?
+Now, how do we get it to print 5 _ 1 = 5 to 5 _ 10 = 50?
 
 ```
 >>> for i in range(1,11):
@@ -722,7 +722,7 @@ Now, how do we get it to print 5 * 1 = 5 to 5 * 10 = 50?
 1000
 ```
 
-print(f“5 * {i} = {5 * i}”) prints a specific multiple of 5.
+print(f“5 _ {i} = {5 _ i}”) prints a specific multiple of 5.
 
 Step 15: Loops In a previous step, we took a major step in programming. We wrote our first for loop with Python. In this step, let’s try a few puzzles to understand the for loop even further.
 
@@ -795,7 +795,7 @@ How do we execute two lines of code as part of the for loop?
 18
 ```
 
-We are indenting both statements with a space - print(i) and print(2*i).
+We are indenting both statements with a space - print(i) and print(2\*i).
 
 When for loop has only one line of code, you can specify it right after the :
 
@@ -949,17 +949,17 @@ The key part is using a step of -2
 
 We leave it as an exercise for you, to print squares of odd numbers.
 
-Summary In this video, we: * Tried out a few exercises involving the for loop, by playing around with printing sequences of numbers.
+Summary In this video, we: \* Tried out a few exercises involving the for loop, by playing around with printing sequences of numbers.
 
 Used the for loop to simplify the solution to the PMT-Challenge problem. Step 17: Review: The Basics Of Python It must have been a roller-coaster ride to solve the multiplication table challenge so far. If you’re new to programming, there are a wide range of topics and concepts, that you would have learned during this small journey.
 
 Let’s quickly revise the important concepts we have learned during this small journey.
 
-1, 11, 5, … are all called literals because these are constant values. Their values don’t really change. *Consider 5*  4 _ 50`. This is an expression.`_`is an operator, and`5`,`4`and`50 are operands. The name i in i = 1, is called a variable. It can refer to different values, at different points in time. range() and print() are in-built Python functions. Every complete line of code is called statement. The specific statement print(), is invoking a method. The other statement which we looked at earlier, was an assignment statement. index = index + 1 would evaluate index + 1, and have the index variable refer to that value. The syntax of the for loop was very simple. for var in range(1, 10) : …, followed by statements you would want to execute in a loop, with indentation. For the sake of indentation we left four s in front of each statement inside the for loop. So that, in a nutshell, is what we have learned over the course of our first section.
+1, 11, 5, … are all called literals because these are constant values. Their values don’t really change. _Consider 5_ 4 _ 50`. This is an expression.`_`is an operator, and`5`,`4`and`50 are operands. The name i in i = 1, is called a variable. It can refer to different values, at different points in time. range() and print() are in-built Python functions. Every complete line of code is called statement. The specific statement print(), is invoking a method. The other statement which we looked at earlier, was an assignment statement. index = index + 1 would evaluate index + 1, and have the index variable refer to that value. The syntax of the for loop was very simple. for var in range(1, 10) : …, followed by statements you would want to execute in a loop, with indentation. For the sake of indentation we left four s in front of each statement inside the for loop. So that, in a nutshell, is what we have learned over the course of our first section.
 
 Chapter 03 - Introducing Methods In the last section, we introduced you to the basics of python. We learned those concepts by applying them to solve the PMT-Challenge problem. The code below is what we ended up with as we solved that chellenge.
 
-Snippet-01: Current Solution To PMT-Challenge >>> for i in range (1,11): … print(f“8 * {i} = {8 * i}”) If we wanted to change the code to print the 7 table, we need to change the value 7 used in the for loop, to 8. It’s simple, but still not as friendly as you would like.
+Snippet-01: Current Solution To PMT-Challenge >>> for i in range (1,11): … print(f“8 _ {i} = {8 _ i}”) If we wanted to change the code to print the 7 table, we need to change the value 7 used in the for loop, to 8. It’s simple, but still not as friendly as you would like.
 
 ```
 >>> for i in range (1,11):
@@ -1212,9 +1212,9 @@ The second one is to write a method called print_squares_of_numbers(), that prin
 
 Solutions Solution 1 >>> def print_numbers(n): … for i in range(1, n+1): … print(i) … >>> print_numbers(5) 1 2 3 4 5 >>> If you are programming in other languages such as Java, you are used to naming methods in this way: printNumbers(). This convention is popularly known as “Camel Case”.
 
-That’s NOT how Python programmers name their methods. Pythonic way is to use underscore _ to separate words in the method name, as in print_numbers().
+That’s NOT how Python programmers name their methods. Pythonic way is to use underscore \_ to separate words in the method name, as in print_numbers().
 
-Solution 2 Let’s define print_squares_of_numbers(). This would be very similar to print_numbers(), working with the same range. Only, we need to say print(i*i) .
+Solution 2 Let’s define print_squares_of_numbers(). This would be very similar to print_numbers(), working with the same range. Only, we need to say print(i\*i) .
 
 ```python
 >>> def print_squares_of_numbers(n):

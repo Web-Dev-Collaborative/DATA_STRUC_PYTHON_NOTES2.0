@@ -1,12 +1,6 @@
 # Data Structures
 
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#terminal.py" %}
-
-
-
-
 
 This chapter describes some things you've learned about already in more detail, and adds some new things as well.
 
@@ -18,7 +12,7 @@ An example that uses most of the list methods:
 
 > > > fruits = \['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana'\] fruits.count\('apple'\) 2 fruits.count\('tangerine'\) 0 fruits.index\('banana'\) 3 fruits.index\('banana', 4\) \# Find next banana starting a position 4 6 fruits.reverse\(\) fruits \['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange'\] fruits.append\('grape'\) fruits \['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange', 'grape'\] fruits.sort\(\) fruits \['apple', 'apple', 'banana', 'banana', 'grape', 'kiwi', 'orange', 'pear'\] fruits.pop\(\) 'pear'
 
-You might have noticed that methods like `insert`, `remove` or `sort` that only modify the list have no return value printed -- they return the default `None`.  This is a design principle for all mutable data structures in Python.
+You might have noticed that methods like `insert`, `remove` or `sort` that only modify the list have no return value printed -- they return the default `None`. This is a design principle for all mutable data structures in Python.
 
 Another thing you might notice is that not all data can be sorted or compared. For instance, `[None, 'hello', 10]` doesn't sort because integers can't be compared to strings and _None_ can't be compared to other types. Also, there are some types that don't have a defined ordering relation. For example, `3+4j < 5+7j` isn't a valid comparison.
 
@@ -94,7 +88,7 @@ If the expression is a tuple \(e.g. the `(x, y)` in the previous example\), it m
 > > >
 > > > ## the tuple must be parenthesized, otherwise an error is raised
 > > >
-> > > \[x, x**2 for x in range\(6\)\] File "", line 1, in  \[x, x**2 for x in range\(6\)\] ^ SyntaxError: invalid syntax
+> > > \[x, x**2 for x in range\(6\)\] File "", line 1, in \[x, x**2 for x in range\(6\)\] ^ SyntaxError: invalid syntax
 > > >
 > > > ## flatten a list using a listcomp with two 'for'
 > > >
@@ -122,7 +116,7 @@ As we saw in the previous section, the nested listcomp is evaluated in the conte
 
 which, in turn, is the same as:
 
-> > > transposed = \[\] for i in range\(4\): ... \# the following 3 lines implement the nested listcomp ... transposed\_row = \[\] ... for row in matrix: ... transposed\_row.append\(row\[i\]\) ... transposed.append\(transposed\_row\) ... transposed \[\[1, 5, 9\], \[2, 6, 10\], \[3, 7, 11\], \[4, 8, 12\]\]
+> > > transposed = \[\] for i in range\(4\): ... \# the following 3 lines implement the nested listcomp ... transposed_row = \[\] ... for row in matrix: ... transposed_row.append\(row\[i\]\) ... transposed.append\(transposed_row\) ... transposed \[\[1, 5, 9\], \[2, 6, 10\], \[3, 7, 11\], \[4, 8, 12\]\]
 
 In the real world, you should prefer built-in functions to complex flow statements. The zip function would do a great job for this use case:
 
@@ -265,7 +259,7 @@ Using set on a sequence eliminates duplicate elements. The use of sorted in comb
 
 It is sometimes tempting to change a list while you are looping over it; however, it is often simpler and safer to create a new list instead. :
 
-> > > import math raw\_data = \[56.2, float\('NaN'\), 51.7, 55.3, 52.5, float\('NaN'\), 47.8\] filtered\_data = \[\] for value in raw\_data: ... if not math.isnan\(value\): ... filtered\_data.append\(value\) ... filtered\_data \[56.2, 51.7, 55.3, 52.5, 47.8\]
+> > > import math raw_data = \[56.2, float\('NaN'\), 51.7, 55.3, 52.5, float\('NaN'\), 47.8\] filtered_data = \[\] for value in raw_data: ... if not math.isnan\(value\): ... filtered_data.append\(value\) ... filtered_data \[56.2, 51.7, 55.3, 52.5, 47.8\]
 
 ### More on Conditions
 
@@ -281,7 +275,7 @@ The Boolean operators `and` and `or` are so-called _short-circuit_ operators: th
 
 It is possible to assign the result of a comparison or other Boolean expression to a variable. For example, :
 
-> > > string1, string2, string3 = '', 'Trondheim', 'Hammer Dance' non\_null = string1 or string2 or string3 non\_null 'Trondheim'
+> > > string1, string2, string3 = '', 'Trondheim', 'Hammer Dance' non_null = string1 or string2 or string3 non_null 'Trondheim'
 
 Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator \ `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
 
@@ -306,4 +300,3 @@ Note that comparing objects of different types with `<` or `>` is legal provided
 ```text
 chaining, such as `d->insert("a")->remove("b")->sort();`.
 ```
-

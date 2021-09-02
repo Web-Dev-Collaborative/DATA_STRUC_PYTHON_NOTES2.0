@@ -4,32 +4,32 @@
 
 Contents
 
-* [General Python FAQ](https://docs.python.org/3/faq/general.html#general-python-faq)
-  * [General Information](https://docs.python.org/3/faq/general.html#general-information)
-    * [What is Python?](https://docs.python.org/3/faq/general.html#what-is-python)
-    * [What is the Python Software Foundation?](https://docs.python.org/3/faq/general.html#what-is-the-python-software-foundation)
-    * [Are there copyright restrictions on the use of Python?](https://docs.python.org/3/faq/general.html#are-there-copyright-restrictions-on-the-use-of-python)
-    * [Why was Python created in the first place?](https://docs.python.org/3/faq/general.html#why-was-python-created-in-the-first-place)
-    * [What is Python good for?](https://docs.python.org/3/faq/general.html#what-is-python-good-for)
-    * [How does the Python version numbering scheme work?](https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work)
-    * [How do I obtain a copy of the Python source?](https://docs.python.org/3/faq/general.html#how-do-i-obtain-a-copy-of-the-python-source)
-    * [How do I get documentation on Python?](https://docs.python.org/3/faq/general.html#how-do-i-get-documentation-on-python)
-    * [I’ve never programmed before. Is there a Python tutorial?](https://docs.python.org/3/faq/general.html#i-ve-never-programmed-before-is-there-a-python-tutorial)
-    * [Is there a newsgroup or mailing list devoted to Python?](https://docs.python.org/3/faq/general.html#is-there-a-newsgroup-or-mailing-list-devoted-to-python)
-    * [How do I get a beta test version of Python?](https://docs.python.org/3/faq/general.html#how-do-i-get-a-beta-test-version-of-python)
-    * [How do I submit bug reports and patches for Python?](https://docs.python.org/3/faq/general.html#how-do-i-submit-bug-reports-and-patches-for-python)
-    * [Are there any published articles about Python that I can reference?](https://docs.python.org/3/faq/general.html#are-there-any-published-articles-about-python-that-i-can-reference)
-    * [Are there any books on Python?](https://docs.python.org/3/faq/general.html#are-there-any-books-on-python)
-    * [Where in the world is www.python.org located?](https://docs.python.org/3/faq/general.html#where-in-the-world-is-www-python-org-located)
-    * [Why is it called Python?](https://docs.python.org/3/faq/general.html#why-is-it-called-python)
-    * [Do I have to like “Monty Python’s Flying Circus”?](https://docs.python.org/3/faq/general.html#do-i-have-to-like-monty-python-s-flying-circus)
-  * [Python in the real world](https://docs.python.org/3/faq/general.html#python-in-the-real-world)
-    * [How stable is Python?](https://docs.python.org/3/faq/general.html#how-stable-is-python)
-    * [How many people are using Python?](https://docs.python.org/3/faq/general.html#how-many-people-are-using-python)
-    * [Have any significant projects been done in Python?](https://docs.python.org/3/faq/general.html#have-any-significant-projects-been-done-in-python)
-    * [What new developments are expected for Python in the future?](https://docs.python.org/3/faq/general.html#what-new-developments-are-expected-for-python-in-the-future)
-    * [Is it reasonable to propose incompatible changes to Python?](https://docs.python.org/3/faq/general.html#is-it-reasonable-to-propose-incompatible-changes-to-python)
-    * [Is Python a good language for beginning programmers?](https://docs.python.org/3/faq/general.html#is-python-a-good-language-for-beginning-programmers)
+- [General Python FAQ](https://docs.python.org/3/faq/general.html#general-python-faq)
+  - [General Information](https://docs.python.org/3/faq/general.html#general-information)
+    - [What is Python?](https://docs.python.org/3/faq/general.html#what-is-python)
+    - [What is the Python Software Foundation?](https://docs.python.org/3/faq/general.html#what-is-the-python-software-foundation)
+    - [Are there copyright restrictions on the use of Python?](https://docs.python.org/3/faq/general.html#are-there-copyright-restrictions-on-the-use-of-python)
+    - [Why was Python created in the first place?](https://docs.python.org/3/faq/general.html#why-was-python-created-in-the-first-place)
+    - [What is Python good for?](https://docs.python.org/3/faq/general.html#what-is-python-good-for)
+    - [How does the Python version numbering scheme work?](https://docs.python.org/3/faq/general.html#how-does-the-python-version-numbering-scheme-work)
+    - [How do I obtain a copy of the Python source?](https://docs.python.org/3/faq/general.html#how-do-i-obtain-a-copy-of-the-python-source)
+    - [How do I get documentation on Python?](https://docs.python.org/3/faq/general.html#how-do-i-get-documentation-on-python)
+    - [I’ve never programmed before. Is there a Python tutorial?](https://docs.python.org/3/faq/general.html#i-ve-never-programmed-before-is-there-a-python-tutorial)
+    - [Is there a newsgroup or mailing list devoted to Python?](https://docs.python.org/3/faq/general.html#is-there-a-newsgroup-or-mailing-list-devoted-to-python)
+    - [How do I get a beta test version of Python?](https://docs.python.org/3/faq/general.html#how-do-i-get-a-beta-test-version-of-python)
+    - [How do I submit bug reports and patches for Python?](https://docs.python.org/3/faq/general.html#how-do-i-submit-bug-reports-and-patches-for-python)
+    - [Are there any published articles about Python that I can reference?](https://docs.python.org/3/faq/general.html#are-there-any-published-articles-about-python-that-i-can-reference)
+    - [Are there any books on Python?](https://docs.python.org/3/faq/general.html#are-there-any-books-on-python)
+    - [Where in the world is www.python.org located?](https://docs.python.org/3/faq/general.html#where-in-the-world-is-www-python-org-located)
+    - [Why is it called Python?](https://docs.python.org/3/faq/general.html#why-is-it-called-python)
+    - [Do I have to like “Monty Python’s Flying Circus”?](https://docs.python.org/3/faq/general.html#do-i-have-to-like-monty-python-s-flying-circus)
+  - [Python in the real world](https://docs.python.org/3/faq/general.html#python-in-the-real-world)
+    - [How stable is Python?](https://docs.python.org/3/faq/general.html#how-stable-is-python)
+    - [How many people are using Python?](https://docs.python.org/3/faq/general.html#how-many-people-are-using-python)
+    - [Have any significant projects been done in Python?](https://docs.python.org/3/faq/general.html#have-any-significant-projects-been-done-in-python)
+    - [What new developments are expected for Python in the future?](https://docs.python.org/3/faq/general.html#what-new-developments-are-expected-for-python-in-the-future)
+    - [Is it reasonable to propose incompatible changes to Python?](https://docs.python.org/3/faq/general.html#is-it-reasonable-to-propose-incompatible-changes-to-python)
+    - [Is Python a good language for beginning programmers?](https://docs.python.org/3/faq/general.html#is-python-a-good-language-for-beginning-programmers)
 
 ### [General Information](https://docs.python.org/3/faq/general.html#id3)
 
@@ -205,7 +205,7 @@ Python’s interactive interpreter enables students to test language features wh
 
 ```text
 >>> L = []
->>> dir(L) 
+>>> dir(L)
 ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__',
 '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
 '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__',
@@ -230,4 +230,3 @@ append(...)
 ```
 
 With the interpreter, documentation is never far from the student as they are programming.
-

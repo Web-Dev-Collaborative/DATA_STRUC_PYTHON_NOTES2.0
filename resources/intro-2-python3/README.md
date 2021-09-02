@@ -29,19 +29,19 @@ Division \(`/`\) always returns a float. To do floor division and get an integer
 
 > > > 17 / 3 \# classic division returns a float 5.666666666666667
 > > >
-> > > 17 // 3 \# floor division discards the fractional part 5 17 % 3 \# the % operator returns the remainder of the division 2 5  _3 + 2 \# floored quotient_  divisor + remainder 17
+> > > 17 // 3 \# floor division discards the fractional part 5 17 % 3 \# the % operator returns the remainder of the division 2 5 _3 + 2 \# floored quotient_ divisor + remainder 17
 
 With Python, it is possible to use the `**` operator to calculate powers :
 
-> > > 5  **2 \# 5 squared 25 2**  7 \# 2 to the power of 7 128
+> > > 5 **2 \# 5 squared 25 2** 7 \# 2 to the power of 7 128
 
 The equal sign \(`=`\) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive prompt:
 
-> > > width = 20 height = 5  _9 width_  height 900
+> > > width = 20 height = 5 _9 width_ height 900
 
 If a variable is not "defined" \(assigned a value\), trying to use it will give you an error:
 
-> > > n \# try to access an undefined variable Traceback \(most recent call last\): File "", line 1, in  NameError: name 'n' is not defined
+> > > n \# try to access an undefined variable Traceback \(most recent call last\): File "", line 1, in NameError: name 'n' is not defined
 
 There is full support for floating point; operators with mixed type operands convert the integer operand to floating point:
 
@@ -49,7 +49,7 @@ There is full support for floating point; operators with mixed type operands con
 
 In interactive mode, the last printed expression is assigned to the variable `_`. This means that when you are using Python as a desk calculator, it is somewhat easier to continue calculations, for example:
 
-> > > tax = 12.5 / 100 price = 100.50 price \* tax 12.5625 price +  _113.0625 round\(_, 2\) 113.06
+> > > tax = 12.5 / 100 price = 100.50 price \* tax 12.5625 price + _113.0625 round\(_, 2\) 113.06
 
 This variable should be treated as read-only by the user. Don't explicitly assign a value to it --- you would create an independent local variable with the same name masking the built-in variable with its magic behavior.
 
@@ -101,7 +101,7 @@ This feature is particularly useful when you want to break long strings:
 
 This only works with two literals though, not with variables or expressions:
 
-> > > prefix = 'Py' prefix 'thon' \# can't concatenate a variable and a string literal File "", line 1 prefix 'thon' ^ SyntaxError: invalid syntax \('un'  _3\) 'ium' File "", line 1 \('un'_  3\) 'ium' ^ SyntaxError: invalid syntax
+> > > prefix = 'Py' prefix 'thon' \# can't concatenate a variable and a string literal File "", line 1 prefix 'thon' ^ SyntaxError: invalid syntax \('un' _3\) 'ium' File "", line 1 \('un'_ 3\) 'ium' ^ SyntaxError: invalid syntax
 
 If you want to concatenate variables or a variable and a literal, use `+`:
 
@@ -146,7 +146,7 @@ For non-negative indices, the length of a slice is the difference of the indices
 
 Attempting to use an index that is too large will result in an error:
 
-> > > word\[42\] \# the word only has 6 characters Traceback \(most recent call last\): File "", line 1, in  IndexError: string index out of range
+> > > word\[42\] \# the word only has 6 characters Traceback \(most recent call last\): File "", line 1, in IndexError: string index out of range
 
 However, out of range slice indexes are handled gracefully when used for slicing:
 
@@ -154,7 +154,7 @@ However, out of range slice indexes are handled gracefully when used for slicing
 
 Python strings cannot be changed --- they are immutable. Therefore, assigning to an indexed position in the string results in an error:
 
-> > > word\[0\] = 'J' Traceback \(most recent call last\): File "", line 1, in  TypeError: 'str' object does not support item assignment word\[2:\] = 'py' Traceback \(most recent call last\): File "", line 1, in  TypeError: 'str' object does not support item assignment
+> > > word\[0\] = 'J' Traceback \(most recent call last\): File "", line 1, in TypeError: 'str' object does not support item assignment word\[2:\] = 'py' Traceback \(most recent call last\): File "", line 1, in TypeError: 'str' object does not support item assignment
 
 If you need a different string, you should create a new one:
 
@@ -229,7 +229,7 @@ Of course, we can use Python for more complicated tasks than adding two and two 
 
 This example introduces several new features.
 
-* The first line contains a _multiple assignment_: the variables `a`
+- The first line contains a _multiple assignment_: the variables `a`
 
   and `b` simultaneously get the new values 0 and 1. On the last line
 
@@ -241,7 +241,7 @@ This example introduces several new features.
 
   evaluated from the left to the right.
 
-* The while loop executes as long as the condition \(here: `a < 10`\)
+- The while loop executes as long as the condition \(here: `a < 10`\)
 
   remains true. In Python, like in C, any non-zero integer value is
 
@@ -259,7 +259,7 @@ This example introduces several new features.
 
   `!=` \(not equal to\).
 
-* The _body_ of the loop is _indented_: indentation is Python's way of
+- The _body_ of the loop is _indented_: indentation is Python's way of
 
   grouping statements. At the interactive prompt, you have to type a
 
@@ -277,7 +277,7 @@ This example introduces several new features.
 
   be indented by the same amount.
 
-* The print function writes the value of the argument\(s\) it is given. It differs from just writing the expression you want to write \(as we did earlier in the calculator examples\) in the way it handles multiple arguments, floating point quantities, and strings. Strings are printed without quotes, and a space is inserted between items, so you can format things nicely, like this:
+- The print function writes the value of the argument\(s\) it is given. It differs from just writing the expression you want to write \(as we did earlier in the calculator examples\) in the way it handles multiple arguments, floating point quantities, and strings. Strings are printed without quotes, and a space is inserted between items, so you can format things nicely, like this:
 
   > > > i = 256\*256 print\('The value of i is', i\) The value of i is 65536
 
@@ -298,4 +298,3 @@ The only difference between the two is that within single quotes you
 don't need to escape `"` (but you have to escape `\'`) and vice
 versa.
 ```
-

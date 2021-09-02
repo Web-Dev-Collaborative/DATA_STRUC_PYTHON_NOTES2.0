@@ -19,8 +19,7 @@ solution = [['O', '0'],
             ['S', '9']]
 ```
 
-the output should be
-`isCryptSolution(crypt, solution) = true`.
+the output should be `isCryptSolution(crypt, solution) = true`.
 
 When you decrypt `"SEND"`, `"MORE"`, and `"MONEY"` using the mapping given in `crypt`, you get `9567 + 1085 = 10652` which is correct and a valid arithmetic equation.
 
@@ -34,7 +33,6 @@ solution = [['O', '1'],
             ['N', '4']]
 ```
 
-the output should be
-`isCryptSolution(crypt, solution) = false`.
+the output should be `isCryptSolution(crypt, solution) = false`.
 
 Even though `054 + 091 = 145`, `054` and `091` both contain leading zeroes, meaning that this is not a valid solution.

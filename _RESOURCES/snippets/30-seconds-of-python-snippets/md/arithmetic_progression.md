@@ -15,5 +15,5 @@ def arithmetic_progression(n, lim):
 ```
 
 ```py
-arithmetic_progression(5, 25) # [5, 10, 15, 20, 25] 
+arithmetic_progression(5, 25) # [5, 10, 15, 20, 25]
 ```

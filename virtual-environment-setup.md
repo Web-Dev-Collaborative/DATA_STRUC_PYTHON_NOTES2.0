@@ -4,7 +4,7 @@
 
 This guide discusses how to install packages using [pip](https://packaging.python.org/key_projects/#pip) and a virtual environment manager: either [venv](https://packaging.python.org/key_projects/#venv) for Python 3 or [virtualenv](https://packaging.python.org/key_projects/#virtualenv) for Python 2. These are the lowest-level tools for managing Python packages and are recommended if higher-level tools do not suit your needs.
 
-Note 
+Note
 
 This doc uses the term **package** to refer to a [Distribution Package](https://packaging.python.org/glossary/#term-Distribution-Package) which is different from an [Import Package](https://packaging.python.org/glossary/#term-Import-Package) that which is used to import modules in your Python source code.
 
@@ -34,7 +34,7 @@ pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
 
 ### Installing virtualenv
 
-Note 
+Note
 
 If you are using Python 3.3 or newer, the [`venv`](https://docs.python.org/3/library/venv.html#module-venv) module is the preferred way to create and manage virtual environments. venv is included in the Python standard library and requires no additional installation. If you are using venv, you may skip this section.
 
@@ -62,7 +62,7 @@ The second argument is the location to create the virtual environment. Generally
 
 venv will create a virtual Python installation in the `env` folder.
 
-Note 
+Note
 
 You should exclude your virtual environment directory from your version control system using `.gitignore` or similar.
 
@@ -298,4 +298,3 @@ urllib3==1.22
 ![Copy to clipboard](https://packaging.python.org/_static/copy-button.svg)
 
 This is useful for creating [Requirements Files](https://pip.pypa.io/en/latest/user_guide/#requirements-files) that can re-create the exact versions of all packages installed in an environment.
-

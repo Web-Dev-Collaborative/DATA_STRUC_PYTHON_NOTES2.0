@@ -5,8 +5,7 @@ firstSeen: 2020-10-07T00:04:09+03:00
 lastUpdated: 2020-11-02T19:28:35+02:00
 ---
 
-Converts an integer to its roman numeral representation. 
-Accepts value between `1` and `3999` (both inclusive).
+Converts an integer to its roman numeral representation. Accepts value between `1` and `3999` (both inclusive).
 
 - Create a lookup list containing tuples in the form of (roman value, integer).
 - Use a `for` loop to iterate over the values in `lookup`.

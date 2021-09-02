@@ -8,23 +8,17 @@ description: There's a list of great youtube channels at the bottom of this page
 
 {% embed url="https://youtu.be/MQmxFxERdCY" %}
 
-
-
 {% embed url="https://youtu.be/-S5CwtII718" %}
 
 {% embed url="https://youtu.be/7bxLcOqwL2c" %}
 
 {% embed url="https://youtu.be/BJ8YtWWFUnw" %}
 
-
-
 {% embed url="https://youtu.be/kByGrAty4Z8" %}
 
 {% embed url="https://youtu.be/4GoKgSCGCmU" %}
 
 {% embed url="https://youtu.be/bS8X3x2FtK8" %}
-
-
 
 {% embed url="https://youtube.com/playlist?list=PLWX9jswdDQ0UIXis8yYWQFD2uAV1Qmrz9" caption="" %}
 
@@ -49,4 +43,3 @@ description: There's a list of great youtube channels at the bottom of this page
 17. \*\*\*\*[**Telusko**](https://mikkegoes.com/youtube-channels-learn-python/#telusko)\*\*\*\*
 18. \*\*\*\*[**thenewboston**](https://mikkegoes.com/youtube-channels-learn-python/#thenewboston)\*\*\*\*
 19. \*\*\*\*[**Traversy Media**](https://mikkegoes.com/youtube-channels-learn-python/#traversy-media)\*\*\*\*
-

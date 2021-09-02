@@ -2,7 +2,6 @@ You are given a string `s`, which consists only of lowercase English letters, an
 
 **Example**
 
-For `s = "abc"` and `nums = [1, 2, 3]`, the output should be
-`incrementCipher(s, nums) = "bde"`.
+For `s = "abc"` and `nums = [1, 2, 3]`, the output should be `incrementCipher(s, nums) = "bde"`.
 
 First, we should increment every `1st` letter, so we just increment every letter and get `s = "bcd"`. Then we increment every `2nd` letter and get `s = "bdd"` (since the length of `s` is `3`, there is only one such letter). And then, after incrementing every `3rd` letter, we get the answer: `s = "bde"`.

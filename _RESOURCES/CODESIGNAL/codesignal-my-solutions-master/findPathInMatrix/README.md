@@ -6,9 +6,10 @@ Check if it is possible to visit all the cells of the matrix in the order of inc
 
 **Example**
 
-* For
-```   
-    matrix = [[1, 4, 5], 
+- For
+
+```
+    matrix = [[1, 4, 5],
              [2, 3, 6]]
 ```
 
@@ -16,11 +17,11 @@ the output should be
 
 `findPath(matrix) = true`
 
-* For
+- For
+
 ```
-    matrix = [[1, 3, 6], 
+    matrix = [[1, 3, 6],
               [2, 4, 5]]
 ```
 
-the output should be
-`findPath(matrix) = false`.
+the output should be `findPath(matrix) = false`.

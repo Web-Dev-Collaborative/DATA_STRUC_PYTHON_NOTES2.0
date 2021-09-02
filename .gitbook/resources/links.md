@@ -11,4 +11,3 @@
 {% embed url="https://bgoonz-blog.netlify.app/blog/python-for-js-dev/\#gsc.tab=0" caption="" %}
 
 {% embed url="https://bgoonz-branch-the-algos.vercel.app/" caption="" %}
-

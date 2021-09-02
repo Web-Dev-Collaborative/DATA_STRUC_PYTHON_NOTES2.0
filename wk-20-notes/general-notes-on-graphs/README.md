@@ -4,14 +4,14 @@
 
 **Quizzes**
 
-* [Graph fundamentals](https://brilliant.org/practice/graphs-basic/)
-* [Breadth-first Search](https://brilliant.org/practice/breadth-first-search/)
-* [Depth-first Search](https://brilliant.org/practice/depth-first-search/)
+- [Graph fundamentals](https://brilliant.org/practice/graphs-basic/)
+- [Breadth-first Search](https://brilliant.org/practice/breadth-first-search/)
+- [Depth-first Search](https://brilliant.org/practice/depth-first-search/)
 
 **Relevant For...**
 
-* Computer Science&gt;[Graphs](https://brilliant.org/computer-science/?subtopic=types-and-data-structures&chapter=graphs)
-* Quantitative Finance&gt;[Computer Science Concepts](https://brilliant.org/quantitative-finance/?subtopic=computer-science-concepts&chapter=computer-science-concepts)
+- Computer Science&gt;[Graphs](https://brilliant.org/computer-science/?subtopic=types-and-data-structures&chapter=graphs)
+- Quantitative Finance&gt;[Computer Science Concepts](https://brilliant.org/quantitative-finance/?subtopic=computer-science-concepts&chapter=computer-science-concepts)
 
 There are many systems in the natural world and in society that are amenable to mathematical and computational modeling. However, not everything is easily codified as a system of particles with coordinates and momenta. Some systems and problems such as social networks, ecologies, and genetic regulatory schemes are intrinsically divorced from spacetime descriptions, and instead are more naturally expressed as graphs that reflect their topological properties. At their simplest, graphs are simply collections of nodes – representing some class of objects like people, corporate boards, proteins, or destinations on the globe – and edges, which serve to represent connections like friendships, bridges, or molecular binding interactions.
 
@@ -19,12 +19,12 @@ There are many systems in the natural world and in society that are amenable to 
 
 **Contents**
 
-* [What is a graph?](https://brilliant.org/wiki/graphs/#graphs-basic)
-* [Representation of Graphs](https://brilliant.org/wiki/graphs/#representation-of-graphs)
-* [Breadth-first Search](https://brilliant.org/wiki/graphs/#breadth-first-search)
-* [Depth-first Search](https://brilliant.org/wiki/graphs/#depth-first-search)
-* [Contrasting Traversals](https://brilliant.org/wiki/graphs/#traversal-discussion)
-* [Additional Problems](https://brilliant.org/wiki/graphs/#additional-problems)
+- [What is a graph?](https://brilliant.org/wiki/graphs/#graphs-basic)
+- [Representation of Graphs](https://brilliant.org/wiki/graphs/#representation-of-graphs)
+- [Breadth-first Search](https://brilliant.org/wiki/graphs/#breadth-first-search)
+- [Depth-first Search](https://brilliant.org/wiki/graphs/#depth-first-search)
+- [Contrasting Traversals](https://brilliant.org/wiki/graphs/#traversal-discussion)
+- [Additional Problems](https://brilliant.org/wiki/graphs/#additional-problems)
 
 ### What is a graph?
 
@@ -45,7 +45,7 @@ Because graphs are so pervasive, it is useful to define different types of graph
 ![Undirected graphs are typically represented by a line with no arrows, which implies a bidirectional relationship between node A and node B. Directed graphs use an arrow to show the relationship from A to B.
 ](https://ds055uzetaobb.cloudfront.net/brioche/uploads/sktJe6Gx5W-directed-vs-undirected.png?width=1200)Undirected graphs are typically represented by a line with no arrows, which implies a bidirectional relationship between node A and node B. Directed graphs use an arrow to show the relationship from A to B.
 
-**Directed acyclic graph**: A directed acyclic graph \(commonly abbreviated as DAG\) is a directed graph with no directed cycles. A cycle is any path \{A\_1, \ldots, A\_n\}{A1​,…,An​} such that the edges A\_1\rightarrow A\_2A1​→A2​, A\_2\rightarrow A\_3A2​→A3​, \ldots…, and A\_n\rightarrow A\_1An​→A1​ all exist, thus forming a loop. A DAG is a graph without a single cycle.
+**Directed acyclic graph**: A directed acyclic graph \(commonly abbreviated as DAG\) is a directed graph with no directed cycles. A cycle is any path \{A_1, \ldots, A_n\}{A1​,…,An​} such that the edges A_1\rightarrow A_2A1​→A2​, A_2\rightarrow A_3A2​→A3​, \ldots…, and A_n\rightarrow A_1An​→A1​ all exist, thus forming a loop. A DAG is a graph without a single cycle.
 
 > List all the edges and vertices of the undirected graph GG in the figure above.
 >
@@ -65,9 +65,9 @@ Government surveillance agencies have a tendency to accumulate strange new power
 
 **Details and Assumptions:**
 
-* Each dot represents a person.
-* Each line represents communication between the people on either end.
-* If X communicates with Y, and Y communicates with Z, we say that X and Z have a 1-hop connection, and that X has a 0-hop connection with Y.
+- Each dot represents a person.
+- Each line represents communication between the people on either end.
+- If X communicates with Y, and Y communicates with Z, we say that X and Z have a 1-hop connection, and that X has a 0-hop connection with Y.
 
 ### Representation of Graphs
 
@@ -93,7 +93,7 @@ For our example above, the adjacency list representation will look as follows:
 
 We can see that the adjacency list is much less expensive on memory as the adjacency matrix is very sparse.
 
-Most graph algorithms involve visiting each vertex in VV, starting from a root node v\_0v0​. There are several ways of achieving this. The two most common traversal algorithms are breadth-first search and depth-first search.
+Most graph algorithms involve visiting each vertex in VV, starting from a root node v_0v0​. There are several ways of achieving this. The two most common traversal algorithms are breadth-first search and depth-first search.
 
 ### Breadth-first Search
 
@@ -103,9 +103,8 @@ In a [breadth-first search](https://brilliant.org/wiki/breadth-first-search-bfs/
 
 For a graph G = \(V,E\)G=\(V,E\) and a source vertex vv, breadth-first search traverses the edges of GG to find all reachable vertices from vv. It also computes the shortest distance to any reachable vertex. Any path between two points in a breadth-first search tree corresponds to the shortest path from the root vv to any other node ss.
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 We may think of three types of vertices in BFS as _tree_ verties, those that have been taken of the data structure. _fringe_ vertices, those adjacent to tree vertices but not yet visited, and _undiscovered_ vertices, those that we have not encountered yet. If each visited vertex is connected to the edge that caused it to be added to the data structure, then these edges form a tree.
 
@@ -117,29 +116,27 @@ To search a connected component of a graph systematically, we begin with one ver
 >
 > The table below shows the contents of the queue as the procedure. BFS visits vertices in the graph above. BFS will visit the same vertices as DFS. In this example all of them.
 >
-> \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue} \\ \hline \text{a} & \text{a} \\ \text{ } & \text{\(empty\)} \\ \text{b } & \text{b} \\ \text{f } & \text{b f} \\ \text{i} & \text{b f i} \\ \text{ } & \text{f i} \\ \text{c} & \text{f i c} \\ \text{e} & \text{f i c e} \\ \text{ } & \text{ i c e} \\ \text{g } & \text{ i c e g} \\ \text{ } & \text{ c e g} \\ \text{ } & \text{ e g} \\ \text{d } & \text{ e g d} \\ \text{ } & \text{ g d} \\ \text{ } & \text{ d} \\ \text{ } & \text{ \(empty\)} \\ \text{ h} & \text{ h} \\ \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g   d     h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
+> \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue} \\ \hline \text{a} & \text{a} \\ \text{ } & \text{\(empty\)} \\ \text{b } & \text{b} \\ \text{f } & \text{b f} \\ \text{i} & \text{b f i} \\ \text{ } & \text{f i} \\ \text{c} & \text{f i c} \\ \text{e} & \text{f i c e} \\ \text{ } & \text{ i c e} \\ \text{g } & \text{ i c e g} \\ \text{ } & \text{ c e g} \\ \text{ } & \text{ e g} \\ \text{d } & \text{ e g d} \\ \text{ } & \text{ g d} \\ \text{ } & \text{ d} \\ \text{ } & \text{ \(empty\)} \\ \text{ h} & \text{ h} \\ \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
 
 ### Depth-first Search
 
 [Depth-ﬁrst search](https://brilliant.org/wiki/depth-first-search-dfs/) explores edges out of the most recently discovered vertex ss  that still has unexplored edges leaving it. Once all of ’s edges have been explored, the search “backtracks” to explore edges leaving the vertex from which  was discovered. This process continues until we have discovered all the vertices that are reachable from the original source vertex. If any undiscovered vertices remain, then depth-ﬁrst search selects one of them as a new source, and it repeats the search from that source. The algorithm repeats this entire process until it has discovered every vertex:
 
-* Visit a vertex ss.
-* Mark ss as visited.
-* Recursively visit each unvisited vertex attached to ss.
+- Visit a vertex ss.
+- Mark ss as visited.
+- Recursively visit each unvisited vertex attached to ss.
 
 ![](https://ds055uzetaobb.cloudfront.net/uploads/Ml2xIZmVt0-depth-first-gif.gif)
 
 A recursive implementation of DFS:
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 A non-recursive implementation of DFS, it delays whether a vertex has been discovered until the vertex has been popped from the stack.
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 ### Contrasting Traversals
 
@@ -159,10 +156,9 @@ More formally, if PP is the probability that, after the storm, John is able to t
 
 **Details and Assumptions:**
 
-* The Trees of Ten Houses do, in fact, contain precisely 10 houses.
-* Before the storm, there exists a single bridge between each and every unique pair of houses.
-* The storm destroys each bridge with independent probability \frac{1}{2}21​.
-* John is allowed to traverse through others' houses to try to reach all of them, but he must only use the surviving bridges to get there. No vine swinging allowed.
+- The Trees of Ten Houses do, in fact, contain precisely 10 houses.
+- Before the storm, there exists a single bridge between each and every unique pair of houses.
+- The storm destroys each bridge with independent probability \frac{1}{2}21​.
+- John is allowed to traverse through others' houses to try to reach all of them, but he must only use the surviving bridges to get there. No vine swinging allowed.
 
 \*\*\*\*
-

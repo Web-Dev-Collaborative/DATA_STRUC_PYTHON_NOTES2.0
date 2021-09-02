@@ -2,5 +2,4 @@ Some people are standing in a row in a park. There are trees between them which 
 
 **Example**
 
-For `a = [-1, 150, 190, 170, -1, -1, 160, 180]`, the output should be
-`sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190]`.
+For `a = [-1, 150, 190, 170, -1, -1, 160, 180]`, the output should be `sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190]`.

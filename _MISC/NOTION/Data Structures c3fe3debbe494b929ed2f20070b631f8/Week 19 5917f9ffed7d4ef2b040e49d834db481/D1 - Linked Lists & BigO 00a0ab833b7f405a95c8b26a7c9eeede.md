@@ -17,18 +17,18 @@ Original file is located at
 - Next (A pointer or reference to the next node in the list)
 
 ```
-L1 = Node(34)
-L1.next = Node(45)
-L1.next.next = Node(90)
+
+L1 = Node(34) L1.next = Node(45) L1.next.next = Node(90)
 
 # while the current node is not none
-  # do something with the data
-  # traverse to next node
+
+# do something with the data
+
+# traverse to next node
 
 L1 = [34]-> [45]-> [90] -> None
 
-Node(45)
-Node(90)
+Node(45) Node(90)
 
 ```
 """
@@ -66,7 +66,7 @@ class LinkedListNode:
     new_node.next = current.next
     # set the current nodes next to point to the new node
     current.next = new_node
-    
+
 ll_storage = []
 L1 = LinkedListNode(34)
 L1.next = LinkedListNode(45)
@@ -127,7 +127,7 @@ once.
 *Note: If you get stuck, try drawing a picture of a small linked list and
 running your function by hand. Does it actually work? Also, don't forget to
 consider edge cases (like a list with only 1 or 0 elements).*
-          cn         p                
+          cn         p
         None        [1] -> [2] ->[3] -> None
 
 - setup a current variable pointing to the head of the list

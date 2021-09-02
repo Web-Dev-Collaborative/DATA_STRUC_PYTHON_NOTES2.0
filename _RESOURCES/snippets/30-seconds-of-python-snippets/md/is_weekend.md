@@ -15,7 +15,7 @@ Checks if the given date is a weekend.
 from datetime import datetime
 
 def is_weekend(d = datetime.today()):
-  return d.weekday() > 4 
+  return d.weekday() > 4
 ```
 
 ```py

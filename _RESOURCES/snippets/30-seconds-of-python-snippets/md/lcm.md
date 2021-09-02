@@ -1,6 +1,6 @@
 ---
-title: lcm 
-tags: math,list,intermediate 
+title: lcm
+tags: math,list,intermediate
 firstSeen: 2018-01-08T22:30:17+02:00
 lastUpdated: 2020-11-02T19:31:15+02:00
 ---

@@ -10,9 +10,9 @@ For `pros = ["Jack", "Leon", "Maria"]` and
 preferences = [["Computer repair", "Handyman", "House cleaning"],
                ["Computer lessons", "Computer repair", "Data recovery service"],
                ["Computer lessons", "House cleaning"]]
-   
+
 ```
-   
+
 the output should be
 
 ```

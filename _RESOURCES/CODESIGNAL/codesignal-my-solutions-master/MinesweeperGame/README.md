@@ -15,7 +15,7 @@ the output should be
 ```
 minesweeper(matrix) = [[1, 2, 1],
                        [2, 1, 1],
-                       [1, 1, 1]]       
+                       [1, 1, 1]]
 ```
 
 Check out the image below for better understanding:

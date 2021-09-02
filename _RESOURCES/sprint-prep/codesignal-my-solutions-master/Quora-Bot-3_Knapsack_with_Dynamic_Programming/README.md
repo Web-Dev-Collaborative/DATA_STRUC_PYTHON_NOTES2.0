@@ -13,7 +13,7 @@ If two sets of stories have the same score, choose the set that contains fewer s
 For `span = 10`, `h = 100` and
 
 ```
-events = [[11, 50, 30], 
+events = [[11, 50, 30],
           [12],
           [13, 40, 20],
           [14, 45, 40],
@@ -34,13 +34,12 @@ feedOptimizer(span, h, events) = [[50, 1],
                                   [130, 2, 3, 4]]
 ```
 
-
 There are 4 stories (with IDs 1 to 4) and 5 reload events.
 
- * At the first reload, there is only one story (ID = 1) with score of 50 available for display;
- * After the next two reloads, there are 3 stories that take up 90 of the 100 pixels available, for a total score of 135;
- * After reloading at time 21, there are 4 stories available to choose from, but only 3 will fit into the browser height. The best set is `[1, 3, 4]` for a total score of 140;
- * At the last reload event, you can no longer consider story 1 when choosing stories because it is more than 10 time units old.
+- At the first reload, there is only one story (ID = 1) with score of 50 available for display;
+- After the next two reloads, there are 3 stories that take up 90 of the 100 pixels available, for a total score of 135;
+- After reloading at time 21, there are 4 stories available to choose from, but only 3 will fit into the browser height. The best set is `[1, 3, 4]` for a total score of 140;
+- At the last reload event, you can no longer consider story 1 when choosing stories because it is more than 10 time units old.
 
 The best set of scores is thus `[2, 3, 4]`.
 

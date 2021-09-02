@@ -6,9 +6,6 @@ Given a binary tree, write an iterative and recursive solution to traverse the t
 
 Unlike linked lists, one-dimensional arrays, and other linear data structures, which are traversed in linear order, trees can be traversed in multiple ways in [depth–first order](https://www.techiedelight.com/depth-first-search/) ([preorder](https://www.techiedelight.com/preorder-tree-traversal-iterative-recursive/), [inorder](https://www.techiedelight.com/inorder-tree-traversal-iterative-recursive/), and [postorder](https://www.techiedelight.com/postorder-tree-traversal-iterative-recursive/)) or [breadth–first order](https://www.techiedelight.com/breadth-first-search/) ([level order traversal](https://www.techiedelight.com/level-order-traversal-binary-tree/)). Beyond these basic traversals, various more complex or hybrid schemes are possible, such as depth-limited searches like iterative deepening depth–first search. In this post, postorder tree traversal is discussed in detail.
 
-
-
-  
 Traversing a tree involves iterating over all nodes in some manner. As the tree is not a linear data structure, there can be more than one possible next node from a given node, so some nodes must be deferred, i.e., stored in some way for later visiting. The traversal can be done iteratively where the deferred nodes are stored in the [stack](https://www.techiedelight.com/stack-implementation/), or it can be done by [recursion](https://www.techiedelight.com/recursion-practice-problems-with-solutions/), where the deferred nodes are stored implicitly in the [call stack](https://en.wikipedia.org/wiki/Call_stack).
 
 For traversing a (non-empty) binary tree in a postorder fashion, we must do these three things for every node `n` starting from the tree’s root:
@@ -17,7 +14,6 @@ For traversing a (non-empty) binary tree in a postorder fashion, we must do thes
 **`(R)`** Recursively traverse its right subtree. When this step is finished, we are back at `n` again.  
 **`(N)`** Process `n` itself.
 
-  
 In normal postorder traversal, visit the left subtree before the right subtree. If we visit the right subtree before visiting the left subtree, it is referred to as reverse postorder traversal.
 
 ![Postorder Traversal](https://www.techiedelight.com/wp-content/uploads/Postorder-Traversal.png)
@@ -82,10 +78,8 @@ The algorithm can be implemented as follows in C++, Java, and Python:
 
 The time complexity of the above solutions is O(n), where `n` is the total number of nodes in the binary tree. The space complexity of the program is O(n) as the space required is proportional to the height of the tree, which can be equal to the total number of nodes in the tree in worst-case for skewed trees.
 
-  
 **References:** [https://en.wikipedia.org/wiki/Tree_traversal](https://en.wikipedia.org/wiki/Tree_traversal)
 
-  
 **Exercise:** Do iterative postorder traversal using only one stack.
 
 **Thanks for reading.**
