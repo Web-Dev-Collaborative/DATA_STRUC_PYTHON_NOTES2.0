@@ -37,7 +37,6 @@
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
 * [Python Cheat Sheet](resources/python-cheat-sheet.md)
-* [Problems w Solutions](resources/problems-w-solutions.md)
 
 ## Embeds
 
@@ -98,5 +97,6 @@
 
 ## guides-n-tutorials
 
+* [Problems w Solutions](guides-n-tutorials/problems-w-solutions.md)
 * [Untitled](guides-n-tutorials/untitled.md)
 

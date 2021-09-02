@@ -18,7 +18,7 @@
 
 * [Python Keywords](resources/reference-materials/python-keywords.md)
 * [Repositories](resources/repositories.md)
-* [Problems w Solutions](resources/problems-w-solutions.md)
+* [Problems w Solutions](guides-n-tutorials/problems-w-solutions.md)
 
 ## Embeds
 
