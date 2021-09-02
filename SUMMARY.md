@@ -2,7 +2,6 @@
 
 * [Python Data Structures Repo & Website](README.md)
 * [Summaries and links for the most relevant projects in the space of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
-* [Installing stand alone command line tools](installing-stand-alone-command-line-tools.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
@@ -36,8 +35,6 @@
 * [STDLib](resources/stdlib.md)
 * [Data Structures](resources/data-structures.md)
 * [Links](resources/links.md)
-* [Appetite](resources/appetite.md)
-* [Classes](resources/classes.md)
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
 * [Python Cheat Sheet](resources/python-cheat-sheet.md)
@@ -74,6 +71,7 @@
 
 ## dev-enviorment-setup
 
+* [Installing stand alone command line tools](dev-enviorment-setup/installing-stand-alone-command-line-tools.md)
 * [Pip](dev-enviorment-setup/pip.md)
 
 ## WK-19
@@ -91,6 +89,7 @@
 
 ## python-language
 
+* [Classes](python-language/classes.md)
 * [Collections In Python](python-language/untitled.md)
 
 ## reference
