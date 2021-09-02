@@ -14,14 +14,12 @@
 * [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
 * [Python Data Structures Repo & Website](untitled.md)
-* [My Python DS Websites](my-python-ds-websites.md)
 * [Built-in Functions](built-in-functions.md)
 
 ## practice
 
 * [Exercises](practice/exercises.md)
 * [Exercises](practice/exercises-1/README.md)
-  * [Untitled](practice/exercises-1/untitled-1-1.md)
   * [Generate a graph](practice/exercises-1/generate-a-graph-1.md)
   * [All Along](practice/exercises-1/all-along.md)
   * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions-1.md)
@@ -38,6 +36,7 @@
 
 ## Resources
 
+* [My Python DS Websites](resources/my-python-ds-websites.md)
 * [Reference Materials](resources/reference-materials/README.md)
   * [Appendix](resources/reference-materials/appendix.md)
   * [Errors](resources/reference-materials/errors.md)
