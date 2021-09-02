@@ -1,6 +1,13 @@
 # Table of contents
 
 * [Python Data Structures Repo & Website](README.md)
+
+## MAIN-Curriculum
+
+* [Curriculum](main-curriculum/curriculum.md)
+
+---
+
 * [projects of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
 * [summary](summary.md)
 * [Youtube](youtube.md)
