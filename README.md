@@ -1,30 +1,24 @@
-# Python Data Structures Repo & Website
+# index
 
 
 
 {% tabs %}
 {% tab title="Blog" %}
-## {% embed url="[https://codesandbox.io/s/ds-algo-forked-e25n8?file=/index.html](https://codesandbox.io/s/ds-algo-forked-e25n8?file=/index.html)" %} {% endtab %}
-
-{% embed url="https://bgoonz42.gitbook.io/python/" caption="" %}
-
-{% embed url="https://bootcamp42.gitbook.io/python/" caption="" %}
-
-My Website:
-
-{% embed url="https://ds-unit-5-lambda.netlify.app/" caption="" %}
-
-My Notion:
 
 
+{% embed url="https://codesandbox.io/s/ds-algo-forked-e25n8?file=/index.html" %}
+{% endtab %}
+
+{% tab title="Algorithms" %}
 
 
-
-{% embed url="https://codesandbox.io/s/ds-algo-forked-iezyk?file=/index.html" caption="" %}
+{% embed url="https://codesandbox.io/s/ds-algo-forked-iezyk?file=/index.html" %}
 {% endtab %}
 {% endtabs %}
 
-Python syntax was made for readability, and easy editing. For example, the python language uses a `:` and indented code, while JavaScript and others generally use `{}` and indented code.
+
+
+Python syntax was made for readability, and easy editing. For example, the python language uses a `:` and indented code, while javascript and others generally use `{}` and indented code.
 
 Lets create a [python 3](https://repl.it/languages/python3) repl, and call it _Hello World_. Now you have a blank file called _main.py_. Now let us write our first line of code:
 
@@ -116,7 +110,7 @@ There are many operators in python:
 * `+`
 * `-`
 * `/`
-* `*` These operators are the same in most languages, and allow for addition, subtraction, division, and multiplication. Now, we can look at a few more complicated ones:
+* `*` These operators are the same in most languages, and allow for addition, subtraction, division, and multiplicaiton. Now, we can look at a few more complicated ones:
 * `%`
 * `//`
 * `**`
@@ -5271,13 +5265,5 @@ else:
 print(result)
 ```
 
-======= My Trinket:
 
-{% embed url="https://trinket.io/python/fc8a8b85eb" caption="" %}
-
-{% embed url="http://number-base-converter-react.vercel.app/" caption="" %}
-
-{% page-ref page="./" %}
-
-> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 
