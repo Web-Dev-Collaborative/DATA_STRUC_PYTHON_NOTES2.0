@@ -12,6 +12,9 @@
 
 ## practice
 
+
+* [Exercises](practice/exercises.md)
+
 * [Exercises](practice/exercises-1/README.md)
   * [Untitled](practice/exercises-1/untitled-1%20%281%29.md)
   * [Generate a graph](practice/exercises-1/generate-a-graph%20%281%29.md)
@@ -22,6 +25,7 @@
   * [Generate a graph](practice/exercises-1/generate-a-graph%20%281%29.md)
   * [All Along](practice/exercises-1/untitled%20%281%29.md)
   * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions%20%281%29.md)
+
 
 ## Resources
 
@@ -36,7 +40,11 @@
 * [Links](resources/links.md)
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
+
+* [Problems w Solutions](resources/problems-w-solutions.md)
+
 * [Python Cheat Sheet](resources/python-cheat-sheet.md)
+
 
 ## Embeds
 
@@ -99,4 +107,5 @@
 
 * [Problems w Solutions](guides-n-tutorials/problems-w-solutions.md)
 * [Untitled](guides-n-tutorials/untitled.md)
+
 
