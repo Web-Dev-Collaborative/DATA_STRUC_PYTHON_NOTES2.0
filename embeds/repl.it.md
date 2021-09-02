@@ -10,13 +10,9 @@
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-functions-1\#main.py" caption="" %}
 
-
-
 {% embed url="https://replit.com/@bgoonz/python-practice\#basics.py" caption="" %}
 
 {% embed url="https://replit.com/@bgoonz/python-practice-exercises\#main.py" caption="" %}
-
-
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-types-2\#main.py" caption="" %}
 
