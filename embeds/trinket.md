@@ -1,4 +1,6 @@
 # Trinket
 
-{% embed url="https://trinket.io/features/python3" caption="" %}
+{% embed url="https://codesandbox.io/s/ds-algo-forked-43ggx?file=/index.html" %}
+
+
 

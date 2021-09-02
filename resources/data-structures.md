@@ -275,7 +275,7 @@ It is possible to assign the result of a comparison or other Boolean expression 
 
 > > > string1, string2, string3 = '', 'Trondheim', 'Hammer Dance' non\_null = string1 or string2 or string3 non\_null 'Trondheim'
 
-Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator  `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
+Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator `:=`. This avoids a common class of problems encountered in C programs: typing `=` in an expression when `==` was intended.
 
 ### Comparing Sequences and Other Types
 

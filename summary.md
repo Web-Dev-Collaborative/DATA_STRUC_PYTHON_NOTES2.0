@@ -11,14 +11,14 @@
 
 ## practice
 
-* [Exercises](practice/exercises.md)
+* [Exercises](https://github.com/bgoonz/DATA_STRUC_PYTHON_NOTES/tree/57e49f148c0fe138e36abbb7bb7abe8f84847fb5/practice/exercises.md)
 * [Untitled](summary.md)
 
 ## Resources
 
-* [Python Keywords](resources/python-keywords.md)
+* [Python Keywords](resources/reference-materials/python-keywords.md)
 * [Repositories](resources/repositories.md)
-* [Problems w Solutions](resources/problems-w-solutions.md)
+* [Problems w Solutions](guides-n-tutorials/problems-w-solutions.md)
 
 ## Embeds
 
@@ -45,6 +45,6 @@
 * [D1 Notes](wk-20-notes/d1.md)
 * [D3](wk-20-notes/d3.md)
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
-* [General Notes On Graphs](wk-20-notes/general-notes-on-graphs/)
-  * [Untitled](wk-20-notes/general-notes-on-graphs/untitled.md)
+* [General Notes On Graphs](python-language/general-notes-on-graphs/)
+  * [Untitled](python-language/general-notes-on-graphs/untitled.md)
 

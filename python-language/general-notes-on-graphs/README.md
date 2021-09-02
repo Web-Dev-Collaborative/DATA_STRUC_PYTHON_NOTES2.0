@@ -80,7 +80,7 @@ Above we represented a graph by drawing it. To represent it in a computer, howev
 >
 > To obtain the adjacency matrix of the graph, we first label the rows and columns with the corresponding ordered vertices. If there exists an edge between two vertices ii and jj, then their corresponding cell in the matrix will be assigned 11. If there does not exist an edge, then the cell will be assigned the value 00. The adjacency matrix for the graph above is thus
 >
-> \quad \begin{bmatrix} & a & b & c & d & e\ a & 0 & 1 & 1 & 0 & 1 \ b & 1 & 0 & 0 & 0 & 0\ c & 1 & 0 & 0 & 1 & 1\ d & 0 & 0 & 1 & 0 & 0\ e & 1 & 0 & 1 & 0 & 0\ \end{bmatrix}.  \_\square \quad⎣⎢⎢⎢⎢⎢⎢⎡​abcde​a01101​b10000​c10011​d00100​e10100​⎦⎥⎥⎥⎥⎥⎥⎤​. □​
+> \quad \begin{bmatrix} & a & b & c & d & e a & 0 & 1 & 1 & 0 & 1  b & 1 & 0 & 0 & 0 & 0 c & 1 & 0 & 0 & 1 & 1 d & 0 & 0 & 1 & 0 & 0 e & 1 & 0 & 1 & 0 & 0 \end{bmatrix}. \_\square \quad⎣⎢⎢⎢⎢⎢⎢⎡​abcde​a01101​b10000​c10011​d00100​e10100​⎦⎥⎥⎥⎥⎥⎥⎤​. □​
 
 **Adjacency list**
 
@@ -116,7 +116,7 @@ To search a connected component of a graph systematically, we begin with one ver
 >
 > The table below shows the contents of the queue as the procedure. BFS visits vertices in the graph above. BFS will visit the same vertices as DFS. In this example all of them.
 >
-> \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue} \ \hline \text{a} & \text{a} \ \text{ } & \text{\(empty\)} \ \text{b } & \text{b} \ \text{f } & \text{b f} \ \text{i} & \text{b f i} \ \text{ } & \text{f i} \ \text{c} & \text{f i c} \ \text{e} & \text{f i c e} \ \text{ } & \text{ i c e} \ \text{g } & \text{ i c e g} \ \text{ } & \text{ c e g} \ \text{ } & \text{ e g} \ \text{d } & \text{ e g d} \ \text{ } & \text{ g d} \ \text{ } & \text{ d} \ \text{ } & \text{ \(empty\)} \ \text{ h} & \text{ h} \ \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
+> \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue}  \hline \text{a} & \text{a}  \text{ } & \text{\(empty\)}  \text{b } & \text{b}  \text{f } & \text{b f}  \text{i} & \text{b f i}  \text{ } & \text{f i}  \text{c} & \text{f i c}  \text{e} & \text{f i c e}  \text{ } & \text{ i c e}  \text{g } & \text{ i c e g}  \text{ } & \text{ c e g}  \text{ } & \text{ e g}  \text{d } & \text{ e g d}  \text{ } & \text{ g d}  \text{ } & \text{ d}  \text{ } & \text{ \(empty\)}  \text{ h} & \text{ h}  \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
 
 ### Depth-first Search
 
