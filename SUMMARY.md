@@ -6,7 +6,6 @@
 * [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
-* [Virtual Environment Setup:](virtual-environment-setup.md)
 * [index](untitled.md)
 * [My Python DS Websites](my-python-ds-websites.md)
 * [Built-in Functions](built-in-functions.md)
@@ -71,6 +70,7 @@
 
 ## dev-enviorment-setup
 
+* [Virtual Environment Setup:](dev-enviorment-setup/virtual-environment-setup.md)
 * [Installing stand alone command line tools](dev-enviorment-setup/installing-stand-alone-command-line-tools.md)
 * [Pip](dev-enviorment-setup/pip.md)
 
