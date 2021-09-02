@@ -1,7 +1,5 @@
 # Aux Resources
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-
 ## Notes I Wish I Had When I Started Learning Python <a id="de54"></a>
 
 ### Plus resources for learning data structures and algorithms in python at the bottom of this article! <a id="55c5"></a>
@@ -1222,7 +1220,7 @@ Let's begin!
 
 1\) Find prime factors.
 
-For the very basics, let's start with something unusual: Public Key Encryption. This technique relies on certain really large numbers being computationally hard to factor to keep data secure.  
+For the very basics, let's start with something unusual: Public Key Encryption. This technique relies on certain really large numbers being computationally hard to factor to keep data secure.
 In this first exercise I'll factor some numbers that are easy to deal with; the goal is to create a Python function to find all prime factors, I'll do it by taking an integer value as input and the return or output will be a list of prime factors.
 
 In this solution I decided to search for factors by dividing the given sequentially larger values \(starting from 2\) to see which one divide evenly into it, without leaving a remainder behind:
@@ -1243,7 +1241,7 @@ Again, I'll write a function to detect palindromes, where my input will be the s
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s--rphnyM23--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/n4ei7nrn43w256y9khhu.png)](https://res.cloudinary.com/practicaldev/image/fetch/s--rphnyM23--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/n4ei7nrn43w256y9khhu.png)
 
-Going line by line, first I'm importing the "re" library, which contains regular expressions to extract letters from an input string, then I'm defining a "palindrome" function that receives a "string" parameter.  
+Going line by line, first I'm importing the "re" library, which contains regular expressions to extract letters from an input string, then I'm defining a "palindrome" function that receives a "string" parameter.
 Then I use the lower operator in the input string to convert all of the letters to lowercase, then I pass the result to the regular expression "findall" function with a pattern that will search for combinations of one or more letters. Tat will produce a list with all of the matched sub-strings that I merged together into a single string using the "join" function.
 
 Then I slice the entire string, with the stride set to negative one, meaning I'll get a copy of the original string in reverse order.
@@ -1278,10 +1276,10 @@ The user press enters, then the timer starts. The user's goal is to wait the spe
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s---TjnJiEv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/r5tn2pfns2gzwv864vpu.png)](https://res.cloudinary.com/practicaldev/image/fetch/s---TjnJiEv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/r5tn2pfns2gzwv864vpu.png)
 
-For this exercise I used to modules, "time" module to measure the amount of time,  
+For this exercise I used to modules, "time" module to measure the amount of time,
 and the "random" module to generate a random number of seconds.
 
-The input function prompts the user to press enter to begin and then blocks the  
+The input function prompts the user to press enter to begin and then blocks the
 execution until the user hits enter again.
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s--L8hbntYT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/yqkq6s70sacxwnv4fpgi.PNG)](https://res.cloudinary.com/practicaldev/image/fetch/s--L8hbntYT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/yqkq6s70sacxwnv4fpgi.PNG)
