@@ -126,11 +126,7 @@ To search a connected component of a graph systematically, we begin with one ver
 >
 > &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:wk-20-notes/general-notes-on-graphs/README.md
 >
-<<<<<<< HEAD
 > ## \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue}  \hline \text{a} & \text{a}  \text{ } & \text{\(empty\)}  \text{b } & \text{b}  \text{f } & \text{b f}  \text{i} & \text{b f i}  \text{ } & \text{f i}  \text{c} & \text{f i c}  \text{e} & \text{f i c e}  \text{ } & \text{ i c e}  \text{g } & \text{ i c e g}  \text{ } & \text{ c e g}  \text{ } & \text{ e g}  \text{d } & \text{ e g d}  \text{ } & \text{ g d}  \text{ } & \text{ d}  \text{ } & \text{ \(empty\)}  \text{ h} & \text{ h}  \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
-=======
-> ## \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue} \ \hline \text{a} & \text{a} \ \text{ } & \text{\(empty\)} \ \text{b } & \text{b} \ \text{f } & \text{b f} \ \text{i} & \text{b f i} \ \text{ } & \text{f i} \ \text{c} & \text{f i c} \ \text{e} & \text{f i c e} \ \text{ } & \text{ i c e} \ \text{g } & \text{ i c e g} \ \text{ } & \text{ c e g} \ \text{ } & \text{ e g} \ \text{d } & \text{ e g d} \ \text{ } & \text{ g d} \ \text{ } & \text{ d} \ \text{ } & \text{ \(empty\)} \ \text{ h} & \text{ h} \ \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
->>>>>>> a19af33073892bb8d3278c7a892ffc4ae1aeb2c8
 >
 > \begin{array}{l\|r} \textbf{Node Visited} & \textbf{Queue} \hline \text{a} & \text{a} \text{ } & \text{\(empty\)} \text{b } & \text{b} \text{f } & \text{b f} \text{i} & \text{b f i} \text{ } & \text{f i} \text{c} & \text{f i c} \text{e} & \text{f i c e} \text{ } & \text{ i c e} \text{g } & \text{ i c e g} \text{ } & \text{ c e g} \text{ } & \text{ e g} \text{d } & \text{ e g d} \text{ } & \text{ g d} \text{ } & \text{ d} \text{ } & \text{ \(empty\)} \text{ h} & \text{ h} \text{ } & \text{ \(empty\) } \end{array}Node Visiteda b f i ce g d h ​Queuea\(empty\)bb fb f if if i cf i c e i c e i c e g c e g e g e g d g d d \(empty\) h \(empty\) ​​
 >

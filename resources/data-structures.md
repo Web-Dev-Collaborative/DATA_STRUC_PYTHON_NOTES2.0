@@ -1,10 +1,6 @@
 # Data Structures
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 
-{% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-1\#terminal.py" caption="" %}
-
-=======
 
 > > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf This chapter describes some things you've learned about already in more detail, and adds some new things as well.
 
