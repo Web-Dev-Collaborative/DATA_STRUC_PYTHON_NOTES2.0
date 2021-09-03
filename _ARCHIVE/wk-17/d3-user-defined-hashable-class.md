@@ -1,20 +1,12 @@
 # d3 user-defined Hashable class
 
-
-
 Original:
 
 {% embed url="https://colab.research.google.com/drive/1WXURLnQJopWW5J-OKxOePd4GTeDM542p?usp=sharing\#scrollTo=Um92huhOx2BD" %}
 
-
-
 {% embed url="https://gist.github.com/bgoonz/c10af728179ff056894c6f17dfb819bc\#file-ht2-ipynb" %}
 
-
-
 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/155e4481-6522-4f77-8cc1-72004e760287/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/155e4481-6522-4f77-8cc1-72004e760287/Untitled.png)
-
-
 
 ## Objective 01 - Understand hash collisions and use a linked list for collision resolution in a user-defined HashTable class
 
@@ -28,7 +20,7 @@ Ok, let's stop freaking out, and let's think about this. If we don't do anything
 
 Let's fix this problem. The most common way to solve this is with **chaining**. If we see multiple values hashed to an index, we will chain them in a some data structure that can hold multiple items. In our case, we'll use Python's `list` type, but a more typical solution would use a linked list. We'll cover linked lists in a future module.
 
-![https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0\_collision.gif](https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0_collision.gif)
+![https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0_collision.gif](https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0_collision.gif)
 
 Ok, sounds ideal? But how does this work in code? Let's write some of it together.
 
@@ -236,7 +228,7 @@ The performance of hash tables for search, insertion, and deletion is constant t
 
 The load factor of a hash table is trivial to calculate. You take the number of items stored in the hash table divided by the number of slots.
 
-![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae\_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
+![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
 
 Hash tables use an array for storage. So, the load factor is the number of occupied slots divided by the length of the array. So, an array of length 10 with three items in it has a load factor of 0.3, and an array of length 20 with twenty items has a load factor of 1. If you use linear probing for collision resolution, then the maximum load factor is 1. If you use chaining for collision resolution, then the load factor can be greater than 1.
 
@@ -475,7 +467,7 @@ The performance of hash tables for search, insertion, and deletion is constant t
 
 The load factor of a hash table is trivial to calculate. You take the number of items stored in the hash table divided by the number of slots.
 
-![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae\_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
+![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
 
 Hash tables use an array for storage. So, the load factor is the number of occupied slots divided by the length of the array. So, an array of length 10 with three items in it has a load factor of 0.3, and an array of length 20 with twenty items has a load factor of 1. If you use linear probing for collision resolution, then the maximum load factor is 1. If you use chaining for collision resolution, then the load factor can be greater than 1.
 
@@ -706,5 +698,4 @@ Fantastic, we did it!
 
 ### **Additional Resources**
 
-* [https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf \(Links to an external site.\)](https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf)
-
+- [https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf \(Links to an external site.\)](https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf)

@@ -1,5 +1,4 @@
-index
-{% tabs %} {% tab title="Blog" %}
+index {% tabs %} {% tab title="Blog" %}
 
 {% embed url="https://codesandbox.io/s/ds-algo-forked-e25n8?file=/index.html" %} {% endtab %}
 

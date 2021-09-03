@@ -8,7 +8,7 @@
 
 [Number Bases](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Number%20Bases%20320baf725ca54a13a1f7029439354a76.csv)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled.png)
 
 ### **Overview** <a id="overview"></a>
 
@@ -24,21 +24,21 @@ Things like videos and files are stored on a disc, not in RAM.
 
 **Disc storage has more space, but it is slower.**
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%201.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%201.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%201.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%201.png)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%202.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%202.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%202.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%202.png)
 
 Think of RAM like a set of numbered, sequential mailboxes. Just like a set of mailboxes with numbered addresses, RAM is also sequential and has numbered addresses.
 
 Now, just like you can put something in a mailbox, you can also put something in RAM. Things that you put in RAM, we can call variables. Each "box" in RAM has an **address**.
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%203.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%203.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%203.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%203.png)
 
 Each one of the "boxes" \(memory addresses\) in our set of mailboxes \(RAM\) holds 8 bits. You can think of each bit like a tiny switch that can either be "on" or "off." "On" is represented by a `1`, and "off" is represented by a `0`.
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%204.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%204.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%204.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%204.png)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%205.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%205.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%205.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%205.png)
 
 Bits are often thought about in groups. A group of 8 bits is called a byte. Each "box" in RAM can hold 1 byte \(8 bits\).
 
@@ -46,11 +46,11 @@ Now, a computer has more than just disc storage and RAM inside of it. There is a
 
 The memory controller can access each box in RAM directly. It is as if the memory controller had tubes connected to each box of the set of mailboxes. Through those tubes, the memory controller can send and receive information directly to each box in AM.
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%206.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%206.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%206.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%206.png)
 
 Whenever you use a computer, you are very concerned with the speed of the computer you are using. So, computer designers made a way to optimize for speed when accessing items in RAM. Whenever a processor accesses a box in RAM, it also accesses and stores the boxes near it. Often, if you are accessing one thing in RAM, it's likely that the next thing you need to access is nearby. That's why keeping a copy of nearby items in the cache speeds things up.
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%207.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%207.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%207.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%207.png)
 
 Whenever the processor reads something \(say, the player's position in an old adventure game\) out of RAM, it adds it to the cache to use it again in the future. Then, when it needs something else from RAM, it will go to the cache for it. As you can see, the cache helps the processor by saving execution cycles required to go out and read something from RAM.
 
@@ -66,11 +66,11 @@ Draw a model of how a processor interacts with the cache, memory controller, and
 
 ### **Additional Resources** <a id="additional-resources"></a>
 
-* [https://en.wikipedia.org/wiki/Random-access\_memory \(Links to an external site.\)](https://en.wikipedia.org/wiki/Random-access_memory)
-* [https://en.wikipedia.org/wiki/Memory\_controller \(Links to an external site.\)](https://en.wikipedia.org/wiki/Memory_controller)
-* [https://en.wikipedia.org/wiki/CPU\_cache \(Links to an external site.\)](https://en.wikipedia.org/wiki/CPU_cache)
+- [https://en.wikipedia.org/wiki/Random-access_memory \(Links to an external site.\)](https://en.wikipedia.org/wiki/Random-access_memory)
+- [https://en.wikipedia.org/wiki/Memory_controller \(Links to an external site.\)](https://en.wikipedia.org/wiki/Memory_controller)
+- [https://en.wikipedia.org/wiki/CPU_cache \(Links to an external site.\)](https://en.wikipedia.org/wiki/CPU_cache)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
 
 ## Objective 02 - Convert back and forth from decimal to binary <a id="objective-02-convert-back-and-forth-from-decimal-to-binary"></a>
 
@@ -109,10 +109,10 @@ Convert the following decimal numbers into binary numbers:
 
 ### **Additional Resources** <a id="additional-resources-1"></a>
 
-* [https://www.mathsisfun.com/binary-number-system.html \(Links to an external site.\)](https://www.mathsisfun.com/binary-number-system.html)
-* [https://www.mathsisfun.com/definitions/decimal-number-system.html \(Links to an external site.\)](https://www.mathsisfun.com/definitions/decimal-number-system.html)
+- [https://www.mathsisfun.com/binary-number-system.html \(Links to an external site.\)](https://www.mathsisfun.com/binary-number-system.html)
+- [https://www.mathsisfun.com/definitions/decimal-number-system.html \(Links to an external site.\)](https://www.mathsisfun.com/definitions/decimal-number-system.html)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
 
 ## Objective 03 - Understand how fixed-width integers are stored in memory <a id="objective-03-understand-how-fixed-width-integers-are-stored-in-memory"></a>
 
@@ -126,9 +126,9 @@ Remember that each digit in a binary number is a successive power of 2. If we ha
 
 Let's see if we can find a pattern:
 
-* With one bit, we can express two numbers \(`0` and `1`\)
-* With two bits, for each of the first numbers \(`0` or `1`\), we can put a `0` or a `1` after it, so we can express four numbers
-* With three bits, we can express eight numbers.
+- With one bit, we can express two numbers \(`0` and `1`\)
+- With two bits, for each of the first numbers \(`0` or `1`\), we can put a `0` or a `1` after it, so we can express four numbers
+- With three bits, we can express eight numbers.
 
 Every time we add a new bit, we double the number of possible numbers we can express in binary. This pattern can be generalized as `2^n` and `2^8 = 256`.
 
@@ -151,11 +151,11 @@ Storing numbers as fixed-width integers introduces a trade-off. We have constant
 
 ### **Additional Resources** <a id="additional-resources-2"></a>
 
-* [https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html](https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html)
+- [https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html](https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
 
 ## Objective 04 - Describe, in general terms, how arrays are stored in memory and the time complexity of lookups <a id="objective-04-describe-in-general-terms-how-arrays-are-stored-in-memory-and-the-time-complexity-of-lookups"></a>
 
@@ -183,9 +183,9 @@ Let's say you need to store an array of 64-bit integers. Your array needs to hav
 
 ### **Additional Resources** <a id="additional-resources-3"></a>
 
-* [https://en.wikipedia.org/wiki/Array\_data\_type \(Links to an external site.\)](https://en.wikipedia.org/wiki/Array_data_type)
+- [https://en.wikipedia.org/wiki/Array_data_type \(Links to an external site.\)](https://en.wikipedia.org/wiki/Array_data_type)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
 
 Immersive Reader
 
@@ -222,9 +222,8 @@ Draw out a model of a section of memory that stores the string `"Computer Scienc
 
 ### **Additional Resources** <a id="additional-resources-4"></a>
 
-* [https://www.w3schools.com/charsets/ref\_html\_ascii.asp](https://www.w3schools.com/charsets/ref_html_ascii.asp)
+- [https://www.w3schools.com/charsets/ref_html_ascii.asp](https://www.w3schools.com/charsets/ref_html_ascii.asp)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
 
-![d1%20Number%20Bases%20&amp;%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)
-
+![d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d1%20Number%20Bases%20&%20Characters%207bf637bf5c894b9094254fe679fcb2ea/Untitled%208.png)

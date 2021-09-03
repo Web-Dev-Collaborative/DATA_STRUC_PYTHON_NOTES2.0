@@ -2,8 +2,8 @@
 
 Computers are designed to perform numerical calculations, but there are some important details about working with numbers that every programmer working with quantitative data should know. Python \(and most other programming languages\) distinguishes between two different types of numbers:
 
-* Integers are called `int` values in the Python language. They can only represent whole numbers \(negative, zero, or positive\) that don't have a fractional component
-* Real numbers are called `float` values \(or _floating point values_\) in the Python language. They can represent whole or fractional numbers but have some limitations.
+- Integers are called `int` values in the Python language. They can only represent whole numbers \(negative, zero, or positive\) that don't have a fractional component
+- Real numbers are called `float` values \(or _floating point values_\) in the Python language. They can represent whole or fractional numbers but have some limitations.
 
 The type of a number is evident from the way it is displayed: `int` values have no decimal point and `float` values always have a decimal point.
 
@@ -148,4 +148,3 @@ The third limit can be observed when taking the difference between two expressio
 The final result above is `0.0000000000000004440892098500626`, a number that is very close to zero. The correct answer to this arithmetic expression is 0, but a small error in the final significant digit appears very different in scientific notation. This behavior appears in almost all programming languages because it is the result of the standard way that arithmetic is carried out on computers.
 
 Although `float` values are not always exact, they are certainly reliable and work the same way across all different kinds of computers and programming languages.
-

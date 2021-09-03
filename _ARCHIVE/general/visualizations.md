@@ -5,6 +5,3 @@
 {% embed url="https://cscircles.cemc.uwaterloo.ca/visualize" %}
 
 {% embed url="https://pythontutor.com/visualize.html\#mode=edit" %}
-
-
-

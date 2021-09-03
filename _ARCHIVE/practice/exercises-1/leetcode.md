@@ -2,9 +2,7 @@
 
 {% embed url="https://www.notion.so/webdevhub42/4d8327f435294158b2c7d9d886d0b619?v=47c21aa323b348fcbf7985c626c3283c" %}
 
-
-
-```python
+````python
 # LEETCODE
 
 ## Given two binary trees, write a function to check if they are the same or not.
@@ -21,7 +19,7 @@ Input:     1         1
         [1,2,3],   [1,2,3]
 
 Output: true
-```
+````
 
 ### Definition for a binary tree node.
 
@@ -845,7 +843,7 @@ Note that the row index starts from 0.
 
 class Solution\(object\): def getRow\(self, rowIndex\): :type rowIndex: int :rtype: List\[int\] row = \[1\] \* \(rowIndex + 1\) for i in range\(1, rowIndex + 1\): for j in range\(i - 1, 0, -1\): row\[j\] += row\[j - 1\] return row
 
-```text
+````text
 ---
 
 ```py
@@ -882,7 +880,7 @@ class Solution(object): def minimumTotal(self, triangle):  :type triangle: List[
             for col in range(row + 1):
                 matrix[row][col] += min(matrix[row + 1][col + 1], matrix[row + 1][col])
         return matrix[0][0]
-```
+````
 
 ```python
  Say you have an array for which the ith element is the price of a given stock on day i.
@@ -959,7 +957,7 @@ class Solution(object): def maxPathSum(self, root):  :type root: TreeNode :rtype
         self.result = max(self.result, max_path)
         return max_one_end
 
-class Solution(object): def numDistinct(self, s, t):  :type s: str :type t: str :rtype: int 
+class Solution(object): def numDistinct(self, s, t):  :type s: str :type t: str :rtype: int
 
         row, col = len(s), len(t)
 
@@ -1066,8 +1064,8 @@ Note: A leaf is a node with no children.
 
 Example:
 
-Input: [1,2,3] 1 /  
-2 3 Output: 25 Explanation: The root-to-leaf path 1->2 represents the number 12\. The root-to-leaf path 1->3 represents the number 13\. Therefore, sum = 12 + 13 = 25\. 
+Input: [1,2,3] 1 /
+2 3 Output: 25 Explanation: The root-to-leaf path 1->2 represents the number 12\. The root-to-leaf path 1->3 represents the number 13\. Therefore, sum = 12 + 13 = 25\.
 
 ---
 
@@ -1302,7 +1300,7 @@ class Solution(object): def wordBreak(self, s, wordDict):  :type s: str :type wo
 ```
 
 ```python
-class Solution(object): def hasCycle(self, head):  :type head: ListNode :rtype: bool 
+class Solution(object): def hasCycle(self, head):  :type head: ListNode :rtype: bool
 
         if not head:
             return False
@@ -1489,7 +1487,7 @@ class Solution(object): def preorderTraversal(self, root):  :type root: TreeNode
 
 ### self.right = None
 
-class Solution(object): def postorderTraversal(self, root):  :type root: TreeNode :rtype: List[int] 
+class Solution(object): def postorderTraversal(self, root):  :type root: TreeNode :rtype: List[int]
 
         result = []
 
@@ -1517,7 +1515,7 @@ class Solution(object): def postorderTraversal(self, root):  :type root: TreeNod
 
 ### self.right = None
 
-class Solution(object): def postorderTraversal(self, root):  :type root: TreeNode :rtype: List[int] 
+class Solution(object): def postorderTraversal(self, root):  :type root: TreeNode :rtype: List[int]
 
         if not root:
             return []
@@ -1639,7 +1637,7 @@ class LRUCache(object): def **init**(self, capacity):  :type capacity: int  self
 
 ### self.next = None
 
-class Solution(object): def insertionSortList(self, head):  :type head: ListNode :rtype: ListNode 
+class Solution(object): def insertionSortList(self, head):  :type head: ListNode :rtype: ListNode
 
         if not head:
             return None
@@ -1683,7 +1681,7 @@ class Solution(object): def insertionSortList(self, head):  :type head: ListNode
 
 ### self.next = None
 
-class Solution(object): def sortList(self, head):  :type head: ListNode :rtype: ListNode 
+class Solution(object): def sortList(self, head):  :type head: ListNode :rtype: ListNode
 
         if not head or not head.next:
             return head
@@ -1747,7 +1745,7 @@ class Solution(object): def sortList(self, head):  :type head: ListNode :rtype: 
 
 
 
-class Solution(object): def evalRPN(self, tokens):  :type tokens: List[str] :rtype: int 
+class Solution(object): def evalRPN(self, tokens):  :type tokens: List[str] :rtype: int
 
         if not tokens:
             return 0
@@ -1795,7 +1793,7 @@ class Solution(object): def evalRPN(self, tokens):  :type tokens: List[str] :rty
 
 
 
-class Solution(object): def maxProduct(self, nums):  :type nums: List[int] :rtype: int 
+class Solution(object): def maxProduct(self, nums):  :type nums: List[int] :rtype: int
 
         if not nums:
             return 0
@@ -1826,7 +1824,7 @@ Example 1:
 
 Input: [3,4,5,1,2] Output: 1 Example 2:
 
-Input: [4,5,6,7,0,1,2] Output: 0 
+Input: [4,5,6,7,0,1,2] Output: 0
 
 class Solution(object): def findMin(self, nums):  :type nums: List[int] :rtype: int  if not nums: return 0
 
@@ -1874,8 +1872,8 @@ class MinStack(object):
 
         initialize your data structure here.
 
-        self.stack = []  
-        self.minimum = float('inf')      
+        self.stack = []
+        self.minimum = float('inf')
 
     def push(self, x):
 
@@ -1968,7 +1966,7 @@ class Solution(object): def lengthOfLongestSubstringTwoDistinct(self, s):  :type
     A:          a1 → a2
                        ↘
                          c1 → c2 → c3
-                       ↗            
+                       ↗
     B:     b1 → b2 → b3
     begin to intersect at node c1.
 
@@ -2066,7 +2064,7 @@ solution = Solution() print solution.missingRange([0, 1, 3, 50, 75], 0, 99) prin
 
 add – Add the number to an internal data structure. find – Find if there exists any pair of numbers which sum is equal to the value.
 
-For example, add(1); add(3); add(5); find(4) -> true find(7) -> false 
+For example, add(1); add(3); add(5); find(4) -> true find(7) -> false
 
 class TwoSum(object): def **init**(self):  initialize your data structure here  self.value_count = {}
 
@@ -2104,7 +2102,7 @@ class TwoSum(object): def **init**(self):  initialize your data structure here  
 
     Calling next() will return the next smallest number in the BST.
 
-    Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree. 
+    Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
 
 
 
@@ -2160,7 +2158,7 @@ class BSTIterator(object): def **init**(self, root):  :type root: TreeNode  self
     Input: [3,30,34,5,9]
     Output: "9534330"
 
-### 
+###
 
 class Solution: # <span class="citation" data-cites="param">@param</span> {integer[]} nums # <span class="citation" data-cites="return">@return</span> {string} def largestNumber(self, nums): nums = [str(num) for num in nums] nums.sort(cmp=lambda x, y: cmp(y + x, x + y)) return "“.join(nums).lstrip(”0“) or”0"
 
@@ -2222,5 +2220,7 @@ class Solution\(object\): def rightSideView\(self, root\): :type root: TreeNode 
             stack.append((node.left, depth + 1))
     return node_depth.values()
 ```
+
 ```
 
+```

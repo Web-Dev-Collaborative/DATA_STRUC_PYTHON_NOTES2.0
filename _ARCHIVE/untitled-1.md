@@ -14,7 +14,7 @@ Introduction to python taught through example problems. Solutions are included i
 \_My favorite language for maintainability is Python. It has simple, clean syntax, object encapsulation, good library…\_medium.com](https://medium.com/geekculture/beginners-guide-to-python-e5a59b5bb64d)
 
 [**Python Study Guide for a JavaScript Programmer**  
-\_A guide to commands in Python from what you know in JavaScript\_levelup.gitconnected.com](https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb)
+\_A guide to commands in Python from what you know in JavaScript_levelup.gitconnected.com](https://levelup.gitconnected.com/python-study-guide-for-a-native-javascript-developer-5cfdf3d2bdfb)
 
 ## Here are the problems without solutions for you to practice with:
 
@@ -126,4 +126,3 @@ For example, suppose the mice are positioned at `[1, 4, 9, 15]`, and the holes a
 
 [**A list of all of my articles to link to future posts**  
 _You should probably skip this one…_ \_seriously it’s just for internal use!\_bryanguner.medium.com](https://bryanguner.medium.com/a-list-of-all-of-my-articles-to-link-to-future-posts-1f6f88ebdf5b)
-

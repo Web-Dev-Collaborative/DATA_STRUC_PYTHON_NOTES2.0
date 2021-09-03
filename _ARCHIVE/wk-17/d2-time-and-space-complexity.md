@@ -52,7 +52,7 @@ The above is just one of the ways to deal with hash collisions. Hopefully, you c
 
 ### **Additional Resources** <a id="additional-resources"></a>
 
-* [https://www.geeksforgeeks.org/hashing-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/hashing-data-structure/)
+- [https://www.geeksforgeeks.org/hashing-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/hashing-data-structure/)
 
 ![d2%20time%20and%20space%20complexity%206819124b2903488b88df7a787c087d78/Untitled.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d2%20time%20and%20space%20complexity%206819124b2903488b88df7a787c087d78/Untitled.png)
 
@@ -62,11 +62,11 @@ The above is just one of the ways to deal with hash collisions. Hopefully, you c
 
 Hashing functions take an input \(usually a string\) and return an integer as the output. Let's say we needed to store five colors in our hash table. Currently, we have an empty table that looks like this:
 
-![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8\_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
+![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
 
 Now, I need to assign an index given the name of a color. Our hash function will take the name of a color and convert it into an index.
 
-![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca\_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
+![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
 
 So, hash functions convert the strings into indexes, and then we store the given string into the computed index of an array.
 
@@ -149,11 +149,11 @@ def my_hashing_func(str, table_size):
 
 Hashing functions take an input \(usually a string\) and return an integer as the output. Let's say we needed to store five colors in our hash table. Currently, we have an empty table that looks like this:
 
-![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8\_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
+![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
 
 Now, I need to assign an index given the name of a color. Our hash function will take the name of a color and convert it into an index.
 
-![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca\_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
+![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
 
 So, hash functions convert the strings into indexes, and then we store the given string into the computed index of an array.
 
@@ -238,16 +238,16 @@ def my_hashing_func(str, table_size):
 
 We define a hash table as an empty array and hash function as a function that takes a value and converts it into an array index where you will store that value. Let's put the two together. Let's implement a `HashTable` class where we can:
 
-* Insert values into a hash table
-* Retrieve values from a hash table
-* Delete values from a hash table
+- Insert values into a hash table
+- Retrieve values from a hash table
+- Delete values from a hash table
 
 Let's start with the insert function. For an insert, I need to insert a value with an associated key. Let's store the instructors at Lambda and where they live. We want to store:
 
-* `("Parth", "California")`
-* `("Beej", "Oregon")`
-* `("Dustin", "Utah")`
-* `("Ryan", "Utah")`
+- `("Parth", "California")`
+- `("Beej", "Oregon")`
+- `("Dustin", "Utah")`
+- `("Ryan", "Utah")`
 
 Here's what our `HashTable` class looks like right now:
 
@@ -320,12 +320,12 @@ Let's break this down a little bit. Our `init` function takes in the length of a
 
 Let's create our `put` function. Before we code, let's break down what needs to happen:
 
-* Given a `key` and a `value`, insert the respective `value` into a hash table array using the hashed `key` to determine the storage location index.
+- Given a `key` and a `value`, insert the respective `value` into a hash table array using the hashed `key` to determine the storage location index.
 
 Let's think about what we need to do:
 
-* Hash the `key` into an index using the hash function
-* Put the `value` into that index
+- Hash the `key` into an index using the hash function
+- Put the `value` into that index
 
 You might be thinking, "What if two keys hash to the same index?" That's a great question, and we will worry about that later. It's a nifty solution 🎉. But for now, let's worry about hashing a key and storing a value.
 
@@ -414,4 +414,3 @@ def get(self, key):
 ![d2%20time%20and%20space%20complexity%206819124b2903488b88df7a787c087d78/Untitled.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d2%20time%20and%20space%20complexity%206819124b2903488b88df7a787c087d78/Untitled.png)
 
 ![d2%20time%20and%20space%20complexity%206819124b2903488b88df7a787c087d78/Untitled.png](https://file+.vscode-resource.vscode-webview.net/c:/Users/bryan/Downloads/Export-5a8469f7-6621-48b1-8af3-a81a310f47c5/Python-Data-Structures-Unit%201da9a5d55db844f4b62aff6fd2b4d1ce/Data%20Structures%20e89a3005a7284e57b559e672d7f9cb24/Week%2018%203a1ee4ebecb843f3aaaa09b7b30ba18c/d2%20time%20and%20space%20complexity%206819124b2903488b88df7a787c087d78/Untitled.png)
-

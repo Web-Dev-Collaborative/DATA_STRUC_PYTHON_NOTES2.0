@@ -4,10 +4,10 @@
 
 Collections in python are basically container data types, namely lists, sets, tuples, dictionary. They have different characteristics based on the declaration and usage.
 
-* A list is declared in square brackets, it is mutable, stores duplicate values and elements can be accessed using indexes.
-* A tuple is ordered and immutable in nature, although duplicate entries can be there inside a tuple.
-* A set is unordered and declared in square brackets. It is not indexed and does not have duplicate entries as well.
-* A dictionary has key-value pairs and is mutable in nature. We use square brackets to declare a dictionary.
+- A list is declared in square brackets, it is mutable, stores duplicate values and elements can be accessed using indexes.
+- A tuple is ordered and immutable in nature, although duplicate entries can be there inside a tuple.
+- A set is unordered and declared in square brackets. It is not indexed and does not have duplicate entries as well.
+- A dictionary has key-value pairs and is mutable in nature. We use square brackets to declare a dictionary.
 
 These are the python’s general-purpose built-in container data types. But as we all know, python always has a little something extra to offer. It comes with a python module named collections which has specialized data structures.
 
@@ -43,7 +43,7 @@ Look at the following code to understand how you can use namedtuple.
 a = namedtuple('courses' , 'name , tech')
 s = a('data science' , 'python')
 print(s)
- 
+
 #the output will be courses(name='python' , tech='python')
 ```
 
@@ -63,7 +63,7 @@ deque pronounced as ‘deck’ is an optimized list to perform insertion and del
 ```text
 #creating a deque
 from collections import deque
- 
+
 a = ['d' , 'u' , 'r' , 'e' , 'k']
 a1 = deque(a)
 print(a1)
@@ -135,7 +135,7 @@ print(c)
 In addition to the operations, you can perform on a dictionary Counter has 3 more operations that we can perform.
 
 1. element function — It returns a list containing all the elements in the Counter.
-2. Most\_common\( \) — It returns a sorted list with the count of each element in the Counter.
+2. Most_common\( \) — It returns a sorted list with the count of each element in the Counter.
 3. Subtract\( \) — It takes an iterable object as an argument and deducts the count of the elements in the Counter.
 
 ### OrderedDict <a id="a09b"></a>
@@ -197,4 +197,3 @@ class collections.UserList([list])
 ```
 
 It is the class that simulates a list. The contents of the instance are kept in a customary list. The sub-classes of the list are relied upon to offer a constructor which can be called with either no or one contention.
-

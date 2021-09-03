@@ -168,13 +168,13 @@ unittest.main()  # Calling from the command line invokes all tests
 
 Python has a "batteries included" philosophy. This is best seen through the sophisticated and robust capabilities of its larger packages. For example:
 
-* The xmlrpc.client and xmlrpc.server modules make implementing remote
+- The xmlrpc.client and xmlrpc.server modules make implementing remote
 
   procedure calls into an almost trivial task. Despite the modules
 
   names, no direct knowledge or handling of XML is needed.
 
-* The email package is a library for managing email messages,
+- The email package is a library for managing email messages,
 
   including MIME and other 2822-based message documents. Unlike
 
@@ -186,7 +186,7 @@ Python has a "batteries included" philosophy. This is best seen through the soph
 
   implementing internet encoding and header protocols.
 
-* The json package provides robust support for parsing this popular
+- The json package provides robust support for parsing this popular
 
   data interchange format. The csv module supports direct reading and
 
@@ -200,13 +200,12 @@ Python has a "batteries included" philosophy. This is best seen through the soph
 
   Python applications and other tools.
 
-* The sqlite3 module is a wrapper for the SQLite database library,
+- The sqlite3 module is a wrapper for the SQLite database library,
 
   providing a persistent database that can be updated and accessed
 
   using slightly nonstandard SQL syntax.
 
-* Internationalization is supported by a number of modules including
+- Internationalization is supported by a number of modules including
 
   gettext, locale, and the codecs package.
-

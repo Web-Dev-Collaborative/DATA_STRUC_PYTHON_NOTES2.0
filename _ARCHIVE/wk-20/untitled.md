@@ -18,15 +18,15 @@ _Note: it's essential to know the distinction between a breadth-first search and
 
 #### **Applications of BFS** <a id="729a6012-4aee-4327-8247-91c55b71692c"></a>
 
-* Pathfinding, Routing
-* Find neighbor nodes in a P2P network like BitTorrent
-* Web crawlers
-* Finding people `n` connections away on a social network
-* Find neighboring locations on the graph
-* Broadcasting in a network
-* Cycle detection in a graph
-* Finding [Connected Components \(Links to an external site.\)](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29)
-* Solving several theoretical graph problems
+- Pathfinding, Routing
+- Find neighbor nodes in a P2P network like BitTorrent
+- Web crawlers
+- Finding people `n` connections away on a social network
+- Find neighboring locations on the graph
+- Broadcasting in a network
+- Cycle detection in a graph
+- Finding [Connected Components \(Links to an external site.\)](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29)
+- Solving several theoretical graph problems
 
 #### **Coloring Vertexes** <a id="030cd4e4-02b3-45cf-ac0e-6540812167e7"></a>
 
@@ -74,9 +74,9 @@ The condition we check at the outset of each while loop is if the queue is **not
 
 Then, we loop through each of that vert's neighbors and:
 
-* We check if it is unvisited \(the color white\).
-* If it is unvisited, we mark it as gray \(meaning we will explore its neighbors\).
-* We enqueue the vert.
+- We check if it is unvisited \(the color white\).
+- If it is unvisited, we mark it as gray \(meaning we will explore its neighbors\).
+- We enqueue the vert.
 
 Next, we dequeue the current vert we've been exploring and mark that vert as black \(marking it as visited\).
 
@@ -114,7 +114,7 @@ On your own, complete the following tasks:
 
 ### **Additional Resources** <a id="4cac395a-2364-4fe5-80b2-1519ade51eda"></a>
 
-* [https://brilliant.org/wiki/breadth-first-search-bfs/](https://brilliant.org/wiki/breadth-first-search-bfs/)
+- [https://brilliant.org/wiki/breadth-first-search-bfs/](https://brilliant.org/wiki/breadth-first-search-bfs/)
 
 [Breadth-First Search \(BFS\) \| Brilliant Math & Science WikiBreadth-first search \(BFS\) is an important graph search algorithm that is used to solve many problems including finding the shortest path in a graph and solving puzzle games \(such as Rubik&\#39;s Cubes\). Many problems in computer science can be thought of in terms of graphs.https://brilliant.org/wiki/breadth-first-search-bfs/![](https://brilliant.org/site_media/version-1a4dfc4f1b/images/open-graph/default.png)](https://brilliant.org/wiki/breadth-first-search-bfs/)
 
@@ -138,11 +138,11 @@ DFS is often the preferred method or exploring a graph _if we want to ensure we 
 
 So, this is an example of where a DFS _would not work well_. What about a genuine use case for DFS. Here are a few examples:
 
-* Finding [Minimum Spanning Trees \(Links to an external site.\)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of weighted graphs
-* Pathfinding
-* Detecting cycles in graphs
-* [Topological sorting \(Links to an external site.\)](https://en.wikipedia.org/wiki/Topological_sorting), useful for scheduling sequences of dependent jobs
-* Solving and generating mazes
+- Finding [Minimum Spanning Trees \(Links to an external site.\)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of weighted graphs
+- Pathfinding
+- Detecting cycles in graphs
+- [Topological sorting \(Links to an external site.\)](https://en.wikipedia.org/wiki/Topological_sorting), useful for scheduling sequences of dependent jobs
+- Solving and generating mazes
 
 #### **Coloring Vertexes** <a id="cbdcff2f-2e22-4c0b-ba11-8a6133003922"></a>
 
@@ -224,7 +224,7 @@ On your own, complete the following tasks:
 
 ### **Additional Resources** <a id="6831ce57-ec09-413c-80e4-753ec8d5b3f9"></a>
 
-* [https://brilliant.org/wiki/depth-first-search-dfs/](https://brilliant.org/wiki/depth-first-search-dfs/)
+- [https://brilliant.org/wiki/depth-first-search-dfs/](https://brilliant.org/wiki/depth-first-search-dfs/)
 
 ## Objective 03 - Implement a breadth-first search on a graph <a id="bcd7bf5d-a020-450a-bca0-c1991fd1e6c9"></a>
 
@@ -337,5 +337,4 @@ class Graph:
 
 ### **Additional Resources** <a id="a88b699e-bd4a-40c4-9360-40bff9c9e050"></a>
 
-* [https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
-
+- [https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
