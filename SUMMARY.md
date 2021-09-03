@@ -4,13 +4,12 @@
 
 ## MAIN-Curriculum
 
+* [Youtube](main-curriculum/youtube.md)
 * [Curriculum](main-curriculum/curriculum.md)
 
 ---
 
 * [projects of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
-* [summary](summary.md)
-* [Youtube](youtube.md)
 * [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
 * [Python Data Structures Repo & Website](untitled.md)
@@ -20,9 +19,7 @@
 
 * [Problems w Solutions](practice/problems-w-solutions.md)
 * [Exercises](practice/exercises.md)
-* [Exercises](practice/exercises-1/README.md)
-  * [Generate a graph](practice/exercises-1/generate-a-graph-1.md)
-  * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions-1.md)
+* [Exercises](practice/exercises-1.md)
 
 ## Embeds
 
@@ -43,7 +40,6 @@
 * [Links](resources/links.md)
 * [Python Glossary](resources/python-glossary.md)
 * [Repositories](resources/repositories.md)
-* [Problems w Solutions](resources/problems-w-solutions.md)
 * [Python Cheat Sheet](resources/python-cheat-sheet.md)
 
 ## reference
@@ -63,6 +59,7 @@
 * [Pipenv & Virtual Environments](misc/pipenv-and-virtual-environments.md)
 * [About Python](misc/about-python.md)
 * [Misc](misc/misc.md)
+* [Beginners Guide To Python](misc/python-problems-and-solutions-1.md)
 * [Numbers](misc/numbers.md)
 
 ## Wk-16
@@ -80,6 +77,7 @@
 
 ## Wk-20-Notes
 
+* [Generate a graph](wk-20-notes/generate-a-graph-1.md)
 * [D1 Notes](wk-20-notes/d1.md)
 * [D3](wk-20-notes/d3.md)
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
@@ -105,5 +103,5 @@
 
 ## guides-n-tutorials
 
-* [Untitled](guides-n-tutorials/untitled.md)
+* [Complete Beginner's Guide](guides-n-tutorials/untitled.md)
 

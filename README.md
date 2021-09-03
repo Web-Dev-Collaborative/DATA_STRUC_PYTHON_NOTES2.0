@@ -6,6 +6,30 @@
 {% tab title="Algorithms" %}
 {% embed url="https://codesandbox.io/s/ds-algo-forked-iezyk?file=/index.html" caption="" %}
 {% endtab %}
+
+{% tab title="Awesome Find:" %}
+Awesome Find:
+
+{% embed url="https://codesandbox.io/s/ds-algo-forked-ysri0" %}
+{% endtab %}
+
+{% tab title="" %}
+
+{% endtab %}
+
+{% tab title="" %}
+
+{% endtab %}
+
+{% tab title="" %}
+
+{% endtab %}
+
+{% tab title="" %}
+[https://codesandbox.io/s/ys5bq](https://codesandbox.io/s/ys5bq)
+
+{% embed url="https://codesandbox.io/s/ys5bq" %}
+{% endtab %}
 {% endtabs %}
 
 Python syntax was made for readability, and easy editing. For example, the python language uses a `:` and indented code, while javascript and others generally use `{}` and indented code.
