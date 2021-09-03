@@ -1,6 +1,6 @@
 # My Python DS Websites
 
-
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 
 {% tabs %}
 {% tab title="Python Data Structures" %}
@@ -18,9 +18,9 @@
 {% endtab %}
 {% endtabs %}
 
+=======
 
-
-
+> > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
 
 {% embed url="https://thealgorithms.netlify.app/\#" caption="" %}
 
