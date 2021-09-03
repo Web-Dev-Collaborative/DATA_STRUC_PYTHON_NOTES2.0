@@ -13,16 +13,16 @@ Awesome Find:
 {% embed url="https://codesandbox.io/s/ds-algo-forked-ysri0" %}
 {% endtab %}
 
-{% tab title="" %}
-
+{% tab title="DS Website" %}
+{% embed url="https://codesandbox.io/s/s2y91" %}
 {% endtab %}
 
-{% tab title="" %}
-
+{% tab title="My Blog" %}
+{% embed url="https://codesandbox.io/s/c1qdv" %}
 {% endtab %}
 
-{% tab title="" %}
-
+{% tab title="CS-Unit" %}
+{% embed url="https://codesandbox.io/s/e754i" %}
 {% endtab %}
 
 {% tab title="" %}
