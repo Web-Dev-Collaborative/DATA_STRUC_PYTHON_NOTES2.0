@@ -22,7 +22,6 @@
 * [Exercises](practice/exercises.md)
 * [Exercises](practice/exercises-1/README.md)
   * [Generate a graph](practice/exercises-1/generate-a-graph-1.md)
-  * [All Along](practice/exercises-1/all-along.md)
   * [Beginners Guide To Python](practice/exercises-1/python-problems-and-solutions-1.md)
 
 ## Embeds
