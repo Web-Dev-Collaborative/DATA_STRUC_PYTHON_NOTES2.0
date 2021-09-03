@@ -18,6 +18,7 @@
 
 ## practice
 
+* [Problems w Solutions](practice/problems-w-solutions.md)
 * [Exercises](practice/exercises.md)
 * [Exercises](practice/exercises-1/README.md)
   * [Generate a graph](practice/exercises-1/generate-a-graph-1.md)
@@ -110,6 +111,5 @@
 
 ## guides-n-tutorials
 
-* [Problems w Solutions](guides-n-tutorials/problems-w-solutions.md)
 * [Untitled](guides-n-tutorials/untitled.md)
 
