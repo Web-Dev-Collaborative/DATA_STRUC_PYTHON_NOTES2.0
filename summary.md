@@ -1,4 +1,4 @@
-# summary# Table of contents
+# Table of contents
 
 * [Python Data Structures Repo & Website](README.md)
 
@@ -104,5 +104,4 @@
 ## guides-n-tutorials
 
 * [Complete Beginner's Guide](guides-n-tutorials/untitled.md)
-
 
