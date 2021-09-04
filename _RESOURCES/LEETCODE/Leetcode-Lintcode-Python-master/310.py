@@ -1,6 +1,7 @@
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
-        if n == 1: return [0]
+        if n == 1:
+            return [0]
 
         link = {i: set() for i in range(n)}
         for edge in edges:
@@ -15,6 +16,7 @@ class Solution:
                 k = link[leaf].pop()
                 del link[leaf]
                 link[k].remove(leaf)
-                if len(link[k]) == 1: new_leaves.append(k)
+                if len(link[k]) == 1:
+                    new_leaves.append(k)
             leaves = new_leaves
         return leaves

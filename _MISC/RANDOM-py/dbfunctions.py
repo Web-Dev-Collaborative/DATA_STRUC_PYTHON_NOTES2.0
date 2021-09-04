@@ -10,8 +10,7 @@ def execute_query(sql_query):
 
 
 def add_new_task(task):
-    sql_query = "INSERT INTO Todo(task, complete) VALUES('%s', %s) " % (
-        task, 0)
+    sql_query = "INSERT INTO Todo(task, complete) VALUES('%s', %s) " % (task, 0)
     execute_query(sql_query)
 
 

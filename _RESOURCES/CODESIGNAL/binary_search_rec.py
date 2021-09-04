@@ -17,7 +17,7 @@ def binarySearch(arr, val):
     elif arr[mid] > val:
         return binarySearch(arr[0:mid], val)
     else:
-        return binarySearch(arr[mid + 1:], val)
+        return binarySearch(arr[mid + 1 :], val)
 
 
 print(binarySearch([0, 2, 4, 6, 7, 8, 8], 8))  # true

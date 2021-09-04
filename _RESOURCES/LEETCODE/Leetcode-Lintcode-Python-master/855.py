@@ -1,5 +1,4 @@
 class ExamRoom:
-
     def __init__(self, N: int):
         self.N = N
         self.seats = []
@@ -19,6 +18,7 @@ class ExamRoom:
 
     def leave(self, p: int) -> None:
         self.seats.remove(p)
+
 
 # Your ExamRoom object will be instantiated and called as such:
 # obj = ExamRoom(N)

@@ -31,7 +31,6 @@ class Vector2D(object):
                 self.col = 0
         return False
 
-
         # Your Vector2D object will be instantiated and called as such:
         # i, v = Vector2D(vec2d), []
         # while i.hasNext(): v.append(i.next())

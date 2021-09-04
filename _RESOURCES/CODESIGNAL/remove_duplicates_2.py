@@ -28,7 +28,7 @@ def removeDuplicates(nums):
         elif counter < 2:
             i = swapHelper(i + 1, j, nums)
             counter += 1
-    return nums[0: i + 1]
+    return nums[0 : i + 1]
 
 
 def swapHelper(i, j, nums):

@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def rotateRight(self, head, k):
         """
@@ -18,10 +19,10 @@ class Solution:
         while dummy.next:
             l += 1
             dummy = dummy.next
-        k = k%l
+        k = k % l
         tail = dummy
         tail.next = head
-        for i in range(l-k):
+        for i in range(l - k):
             tail = tail.next
         new_head = tail.next
         tail.next = None

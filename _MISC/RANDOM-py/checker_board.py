@@ -24,8 +24,7 @@ class checker_board:
         for row in range(rows):
             for col in range(row % 2, cols, 2):
                 pg.draw.rect(
-                    window, yellow, (row * sq_size, col *
-                                     sq_size, sq_size, sq_size)
+                    window, yellow, (row * sq_size, col * sq_size, sq_size, sq_size)
                 )
 
     def move(self, piece, row, col):
@@ -83,12 +82,10 @@ class checker_board:
 
         if piece.color == white or piece.king:
             moves.update(
-                self._traverse_l(row + 1, min(row + 3, rows),
-                                 1, piece.color, l)
+                self._traverse_l(row + 1, min(row + 3, rows), 1, piece.color, l)
             )
             moves.update(
-                self._traverse_r(row + 1, min(row + 3, rows),
-                                 1, piece.color, r)
+                self._traverse_r(row + 1, min(row + 3, rows), 1, piece.color, r)
             )
 
         return moves
@@ -131,12 +128,10 @@ class checker_board:
                     else:
                         row = min(r + 3, rows)
                     moves.update(
-                        self._traverse_l(r + step, row, step,
-                                         color, l - 1, skip=last)
+                        self._traverse_l(r + step, row, step, color, l - 1, skip=last)
                     )
                     moves.update(
-                        self._traverse_r(r + step, row, step,
-                                         color, l + 1, skip=last)
+                        self._traverse_r(r + step, row, step, color, l + 1, skip=last)
                     )
                 break
 

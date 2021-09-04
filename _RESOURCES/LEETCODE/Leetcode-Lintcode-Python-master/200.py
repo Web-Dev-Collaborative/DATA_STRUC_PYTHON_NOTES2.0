@@ -1,5 +1,6 @@
 # time and space complexity: O(mn)
 
+
 class Solution:
     # updated union find
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -11,9 +12,10 @@ class Solution:
         def union(x, y):
             UF[find(x)] = find(y)
 
-        if not grid or not grid[0]: return 0
+        if not grid or not grid[0]:
+            return 0
         m, n = len(grid), len(grid[0])
-        locs = {(i, j) for i in range(m) for j in range(n) if grid[i][j] == '1'}
+        locs = {(i, j) for i in range(m) for j in range(n) if grid[i][j] == "1"}
         UF = {n * i + j: n * i + j for (i, j) in locs}
         for i, j in locs:
             for x, y in [(i, j - 1), (i, j + 1), (i - 1, j), (i + 1, j)]:
@@ -22,6 +24,7 @@ class Solution:
                 union(n * i + j, n * x + y)
         return len({find(x) for x in UF})
 
+
 # dfs
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -29,20 +32,19 @@ class Solution:
         count = 0
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == '1':
+                if grid[i][j] == "1":
                     self.dfs(grid, i, j)
                     count += 1
         return count
 
     def dfs(self, grid, x, y):
-        if x < 0 or x >= len(grid) or y < 0 or y >= len(grid[0]) or grid[x][y] != '1':
+        if x < 0 or x >= len(grid) or y < 0 or y >= len(grid[0]) or grid[x][y] != "1":
             return
-        grid[x][y] = '#'
+        grid[x][y] = "#"
         self.dfs(grid, x + 1, y)
         self.dfs(grid, x - 1, y)
         self.dfs(grid, x, y + 1)
         self.dfs(grid, x, y - 1)
-
 
     # union find
     def numIslands(self, grid):
@@ -50,10 +52,11 @@ class Solution:
         :type grid: List[List[str]]
         :rtype: int
         """
-        if not grid or not grid[0]: return 0
+        if not grid or not grid[0]:
+            return 0
         m, n = len(grid), len(grid[0])
         roots = [-1] * (n * m)
-        positions = [[i, j] for i in range(m) for j in range(n) if grid[i][j] == '1']
+        positions = [[i, j] for i in range(m) for j in range(n) if grid[i][j] == "1"]
         result = 0
         neighbors = [[0, -1], [-1, 0], [0, 1], [1, 0]]
         for p in positions:

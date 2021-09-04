@@ -88,8 +88,7 @@ def main():
             print("{0} negative / {1} total hits".format(negative_score, total_score))
         else:
             print("This video is mutual:")
-            print("{0} positive {1} negative".format(
-                positive_score, negative_score))
+            print("{0} positive {1} negative".format(positive_score, negative_score))
     else:
         print("No url supplied")
 

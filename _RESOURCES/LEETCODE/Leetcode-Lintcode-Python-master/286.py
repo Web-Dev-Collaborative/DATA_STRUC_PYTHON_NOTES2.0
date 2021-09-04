@@ -1,11 +1,13 @@
 from collections import deque
 
+
 class Solution:
     def wallsAndGates(self, rooms: List[List[int]]) -> None:
         """
         Do not return anything, modify rooms in-place instead.
         """
-        if not rooms or not rooms[0]: return
+        if not rooms or not rooms[0]:
+            return
         m, n = len(rooms), len(rooms[0])
         q = deque()
         for i in range(m):

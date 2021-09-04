@@ -25,10 +25,14 @@ class TicTacToe:
             self.diagonal += offset
         if row + col == self.n - 1:
             self.anti_diagonal += offset
-        if self.n in [abs(self.rows[row]), abs(self.cols[col]), abs(self.diagonal), abs(self.anti_diagonal)]:
+        if self.n in [
+            abs(self.rows[row]),
+            abs(self.cols[col]),
+            abs(self.diagonal),
+            abs(self.anti_diagonal),
+        ]:
             return player
         return 0
-
 
         # Your TicTacToe object will be instantiated and called as such:
         # obj = TicTacToe(n)

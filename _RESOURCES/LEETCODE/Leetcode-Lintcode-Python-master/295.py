@@ -1,7 +1,7 @@
 import heapq
 
-class MedianFinder:
 
+class MedianFinder:
     def __init__(self):
         """
         initialize your data structure here.
@@ -17,8 +17,11 @@ class MedianFinder:
         self.balance()
 
     def findMedian(self) -> float:
-        return -self.maxHeap[0] if len(self.minHeap) + 1 == len(self.maxHeap) else (self.minHeap[0] - self.maxHeap[
-            0]) / 2
+        return (
+            -self.maxHeap[0]
+            if len(self.minHeap) + 1 == len(self.maxHeap)
+            else (self.minHeap[0] - self.maxHeap[0]) / 2
+        )
 
     def balance(self):
         if len(self.maxHeap) < len(self.minHeap):

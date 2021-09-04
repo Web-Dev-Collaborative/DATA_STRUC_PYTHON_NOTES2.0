@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
         children = {}
@@ -9,8 +10,8 @@ class Solution:
                 counter[c] = 0
                 children[c] = set()
         for w1, w2 in zip(words, words[1:]):
-            if len(w1) > len(w2) and w1[:len(w2)] == w2:
-                return ''
+            if len(w1) > len(w2) and w1[: len(w2)] == w2:
+                return ""
             for i in range(min(len(w1), len(w2))):
                 if w1[i] != w2[i]:
                     if w2[i] not in children[w1[i]]:
@@ -21,7 +22,7 @@ class Solution:
         for k, v in counter.items():
             if v == 0:
                 q.append(k)
-        result = ''
+        result = ""
         while q:
             curr = q.popleft()
             result += curr
@@ -30,7 +31,7 @@ class Solution:
                     counter[child] -= 1
                     if counter[child] == 0:
                         q.append(child)
-        return result if len(result) == len(counter) else ''
+        return result if len(result) == len(counter) else ""
 
         #     # DFS
         #     def alienOrder(self, words: List[str]) -> str:

@@ -4,7 +4,8 @@ class Solution(object):
         :type strs: List[str]
         :rtype: str
         """
-        if not strs: return ""
+        if not strs:
+            return ""
         end_index = 0
         for group in zip(*strs):
             if len(set(group)) > 1:

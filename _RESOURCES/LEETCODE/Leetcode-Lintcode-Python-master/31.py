@@ -22,6 +22,7 @@ class Solution:
             self.reverse(i, n - 1, nums)
 
     def reverse(self, l, r, nums):
-        if r < l: return
+        if r < l:
+            return
         nums[l], nums[r] = nums[r], nums[l]
         self.reverse(l + 1, r - 1, nums)

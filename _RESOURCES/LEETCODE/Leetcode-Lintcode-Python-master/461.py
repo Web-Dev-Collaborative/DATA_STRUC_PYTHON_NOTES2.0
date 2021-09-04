@@ -11,7 +11,7 @@ class Solution:
         :type y: int
         :rtype: int
         """
-        diff = x^y
+        diff = x ^ y
         result = 0
         for _ in range(32):
             result += diff & 1

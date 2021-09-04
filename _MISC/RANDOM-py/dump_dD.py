@@ -42,8 +42,7 @@ chapter = str(sys.argv[2]) if len(sys.argv) > 2 else ""
 
 urlToGo = "http://mp.cpgedupuydelome.fr/mesexos.php?idTeX=%i" % numexo
 
-print('Numéro <magenta>%i<reset>. On va vers <u>"%s"<U><white>' %
-      (numexo, urlToGo))
+print('Numéro <magenta>%i<reset>. On va vers <u>"%s"<U><white>' % (numexo, urlToGo))
 
 # On récupère la page (la partie la plus lente du coup)
 
@@ -55,8 +54,7 @@ html = response.read()
 # On l'analyse
 parsed_html = BeautifulSoup(html, fromEncoding="utf-8")
 
-print("<black>Encodage original : %s<white>\n\n" %
-      parsed_html.originalEncoding)
+print("<black>Encodage original : %s<white>\n\n" % parsed_html.originalEncoding)
 
 # On cherche la section <section id="contenu">..</section>
 contenu = parsed_html.body.find("section", attrs={"id": "contenu"})

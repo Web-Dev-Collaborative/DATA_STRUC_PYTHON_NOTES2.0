@@ -1,7 +1,7 @@
 class Solution:
     def sortedSquares(self, A: List[int]) -> List[int]:
         result = [None] * len(A)
-        left, right = 0, len(A)-1
+        left, right = 0, len(A) - 1
         i = len(A) - 1
         while left <= right:
             if abs(A[left]) > abs(A[right]):
@@ -13,6 +13,7 @@ class Solution:
             i -= 1
         return result
 
+
 class Solution:
     def sortedSquares(self, A: List[int]) -> List[int]:
-        return sorted(map(lambda x: x*x, A))
+        return sorted(map(lambda x: x * x, A))

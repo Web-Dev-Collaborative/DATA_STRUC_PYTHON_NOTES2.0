@@ -5,6 +5,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def buildTree(self, inorder, postorder):
         """
@@ -15,7 +16,8 @@ class Solution:
         inorderDict = {num: i for i, num in enumerate(inorder)}
 
         def helper(start, end):
-            if start > end: return None
+            if start > end:
+                return None
             rootVal = postorder.pop()
             root = TreeNode(rootVal)
             idx = inorderDict[rootVal]

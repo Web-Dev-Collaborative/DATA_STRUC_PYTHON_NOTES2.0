@@ -5,6 +5,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 # time: O(nlogn)
 # space: O(n)
 class Solution:
@@ -18,7 +19,8 @@ class Solution:
         pre = iter(preorder)
 
         def helper(start, end):
-            if start > end: return None
+            if start > end:
+                return None
             val = next(pre)
             root = TreeNode(val)
             idx = inorderDict[val]

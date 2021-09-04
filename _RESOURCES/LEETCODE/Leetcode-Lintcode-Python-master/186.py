@@ -2,6 +2,7 @@
 time complexity: O(mn)
 """
 
+
 class Solution(object):
     def reverseWords(self, str):
         """
@@ -11,7 +12,7 @@ class Solution(object):
         self.reverse(str, 0, len(str) - 1)
         start, end = 0, -1
         for i in range(len(str)):
-            if str[i] == ' ':
+            if str[i] == " ":
                 start = end + 1
                 end = i
                 self.reverse(str, start, end - 1)

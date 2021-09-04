@@ -14,12 +14,14 @@ class Solution:
     # @param compare: a instance of Comparator
     # @return: nothing
     def sortNutsAndBolts(self, nuts, bolts, compare):
-        if not nuts or not bolts or len(nuts) != len(bolts): return
+        if not nuts or not bolts or len(nuts) != len(bolts):
+            return
 
         self.qsort(nuts, bolts, compare, 0, len(nuts) - 1)
 
     def qsort(self, nuts, bolts, compare, l, u):
-        if l >= u: return
+        if l >= u:
+            return
 
         # use bolts[l] to partition nuts into three sequences
         # nuts[l...part_idx], nuts[part_idx], nuts[part_idx+1...u]
@@ -40,11 +42,15 @@ class Solution:
         left = l
         right = u
         while left < right:
-            while left < right and (compare.cmp(s[right], pivot) == 1 or compare.cmp(pivot, s[right]) == -1):
+            while left < right and (
+                compare.cmp(s[right], pivot) == 1 or compare.cmp(pivot, s[right]) == -1
+            ):
                 right -= 1
 
             s[left] = s[right]
-            while left < right and (compare.cmp(s[left], pivot) == -1 or compare.cmp(pivot, s[left]) == 1):
+            while left < right and (
+                compare.cmp(s[left], pivot) == -1 or compare.cmp(pivot, s[left]) == 1
+            ):
                 left += 1
             s[right] = s[left]
         s[left] = now

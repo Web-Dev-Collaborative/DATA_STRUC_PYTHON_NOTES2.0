@@ -6,28 +6,32 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
-        if not board or not board[0]: return
+        if not board or not board[0]:
+            return
         m, n = len(board), len(board[0])
         queue = deque()
         for i in range(m):
             for j in range(n):
-                if (i == 0 or i == m - 1 or j == 0 or j == n - 1) and board[i][j] == 'O':
-                    board[i][j] = 'N'
+                if (i == 0 or i == m - 1 or j == 0 or j == n - 1) and board[i][
+                    j
+                ] == "O":
+                    board[i][j] = "N"
                     queue.append((i, j))
         while queue:
             x, y = queue.popleft()
             for change in [(-1, 0), (1, 0), (0, 1), (0, -1)]:
                 xx, yy = x + change[0], y + change[1]
-                if 0 <= xx < m and 0 <= yy < n and board[xx][yy] == 'O':
-                    board[xx][yy] = 'N'
+                if 0 <= xx < m and 0 <= yy < n and board[xx][yy] == "O":
+                    board[xx][yy] = "N"
                     queue.append((xx, yy))
 
         for i in range(m):
             for j in range(n):
-                if board[i][j] == 'N':
-                    board[i][j] = 'O'
+                if board[i][j] == "N":
+                    board[i][j] = "O"
                 else:
-                    board[i][j] = 'X'
+                    board[i][j] = "X"
+
 
 # class Solution:
 #     def solve(self, board: List[List[str]]) -> None:

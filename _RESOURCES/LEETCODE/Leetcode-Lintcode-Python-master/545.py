@@ -6,7 +6,8 @@
 #         self.right = right
 class Solution:
     def boundaryOfBinaryTree(self, root: TreeNode) -> List[int]:
-        if not root: return []
+        if not root:
+            return []
         self.result = [root.val]
         self.leftBoundary(root.left)
         self.leaves(root.left)
@@ -15,7 +16,8 @@ class Solution:
         return self.result
 
     def leftBoundary(self, node):
-        if not node or (not node.left and not node.right): return
+        if not node or (not node.left and not node.right):
+            return
         self.result.append(node.val)
         if not node.left:
             self.leftBoundary(node.right)
@@ -23,7 +25,8 @@ class Solution:
             self.leftBoundary(node.left)
 
     def rightBoundary(self, node):
-        if not node or (not node.left and not node.right): return
+        if not node or (not node.left and not node.right):
+            return
         if not node.right:
             self.rightBoundary(node.left)
         else:
@@ -31,10 +34,10 @@ class Solution:
         self.result.append(node.val)
 
     def leaves(self, node):
-        if not node: return
+        if not node:
+            return
         if not node.left and not node.right:
             self.result.append(node.val)
             return
         self.leaves(node.left)
         self.leaves(node.right)
-

@@ -5,7 +5,7 @@
 # Challenge taken from HackerRank
 # Language : Python 3.7
 
-'''
+"""
 Problem Statement : Charlie wants to buy a house. He does a 
                     detailed survey of the area where he wants 
                     to live, in which he quantifies, normalizes, 
@@ -18,17 +18,17 @@ Problem Statement : Charlie wants to buy a house. He does a
                     If Charlie makes observations about `H` houses, 
                     his observation table has `H` rows. This means 
                     that the table has a total of `(F + 1) x H` entries.
-'''
+"""
 # Importing the linear_model package for the problem solving
 from sklearn import linear_model
 
 # Set input data
-print ("Enter the no. of features and rows of the dataset : ")
+print("Enter the no. of features and rows of the dataset : ")
 features, rows = map(int, input().split())
 X, Y = [], []
 
 # Get the parameters X and Y for discovery the variables a and b
-print ('Enter the required values : ')
+print("Enter the required values : ")
 for i in range(rows):
     x = [0]
     elements = list(map(float, input().split()))
@@ -46,7 +46,7 @@ a = model.intercept_
 b = model.coef_
 
 # Get the parameters X for discovery the Y
-print ('Enter the count of the unknown prices : ')
+print("Enter the count of the unknown prices : ")
 new_rows = int(input())
 new_X = []
 for i in range(new_rows):
@@ -57,14 +57,13 @@ for i in range(new_rows):
     new_X.append(x)
 
 # Gets the result and show on the screen [Predictions]
-print ('Predicted house prices respectively as per the input : ')
+print("Predicted house prices respectively as per the input : ")
 result = model.predict(new_X)
 for i in range(len(result)):
-    print(round(result[i],2))
+    print(round(result[i], 2))
 
-    
-    
-'''
+
+"""
 ----------------------------------------------------------------------
 
 Test Case #1
@@ -124,7 +123,7 @@ Predicted house prices respectively as per the input :
 129.71
 
 --------------------------------------------------------------------
-'''
+"""
 
 # --------------------------------------------------------------------------------
 # This codebase will solve the problem named, 'House Price Predictions'

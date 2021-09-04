@@ -10,7 +10,7 @@ from collections import defaultdict
 
 
 class Solution:
-    def copyRandomList(self, head: 'Node') -> 'Node':
+    def copyRandomList(self, head: "Node") -> "Node":
         d = defaultdict(lambda: Node(0, None, None))
         d[None] = None
         curr = head

@@ -4,7 +4,8 @@ class Solution:
         dp = [[0] * N for _ in range(N)]
         for i in range(N):
             for j in range(N):
-                if i == j: dp[i][j] = 1
+                if i == j:
+                    dp[i][j] = 1
 
         for d in range(1, N):
             for i in range(N - d):

@@ -5,9 +5,9 @@ class Solution:
         prev = 0
 
         for log in logs:
-            thread, status, time = log.split(':')
+            thread, status, time = log.split(":")
             thread, time = int(thread), int(time)
-            if status == 'start':
+            if status == "start":
                 if stack:
                     result[stack[-1]] += time - prev
                 stack.append(thread)

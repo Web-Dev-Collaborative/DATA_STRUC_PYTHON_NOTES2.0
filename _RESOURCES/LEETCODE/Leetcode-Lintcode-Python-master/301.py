@@ -8,17 +8,21 @@ class Solution:
         :type s: str
         :rtype: List[str]
         """
-        if not s: return [""]
+        if not s:
+            return [""]
         result = []
-        self.remove(s, 0, 0, result, '(', ')')
+        self.remove(s, 0, 0, result, "(", ")")
         return result
 
     def remove(self, s, last_i, last_j, result, openP, closeP):
         count = 0
         for i in range(last_i, len(s)):
-            if s[i] == openP: count += 1
-            if s[i] == closeP: count -= 1
-            if count >= 0: continue
+            if s[i] == openP:
+                count += 1
+            if s[i] == closeP:
+                count -= 1
+            if count >= 0:
+                continue
             # If it gets here, it means count < 0. Obviously.
             # That means from start_to_count to count_i (inclusive), there is an extra
             # pair[1].
@@ -37,7 +41,7 @@ class Solution:
                     # We have remove one char bewteen last_i and i inclusive to get the new_str_to_check
                     # So the char we wanted to look at is of index (i + 1 - 1) in the new_str_to_check. (-1 because we removed one char)
                     # That's i. BOOM!!
-                    self.remove(s[:j] + s[j + 1:], i, j, result, openP, closeP)
+                    self.remove(s[:j] + s[j + 1 :], i, j, result, openP, closeP)
             # So after the above inner loop finishes, we shouldn't allow the outer loop continue to next round because self.remove in the
             # inner loop has taken care of the rest chars after count_i
             return
@@ -47,7 +51,7 @@ class Solution:
         # The default pair is ['(', ')']. So we only consider the case where there are more ')'  than '('
         # e.g "(()" can pass the above loop
         # So we need to reverse it to ")((" and call it with pair [')', '(']
-        if openP == '(':
-            self.remove(rs, 0, 0, result, ')', '(')
+        if openP == "(":
+            self.remove(rs, 0, 0, result, ")", "(")
         else:
             result.append(rs)

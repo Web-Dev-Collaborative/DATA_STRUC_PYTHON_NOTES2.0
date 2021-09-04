@@ -1,5 +1,4 @@
 class TwoSum:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -27,6 +26,7 @@ class TwoSum:
                 else:
                     return True
         return result
+
 
 # Your TwoSum object will be instantiated and called as such:
 # obj = TwoSum()

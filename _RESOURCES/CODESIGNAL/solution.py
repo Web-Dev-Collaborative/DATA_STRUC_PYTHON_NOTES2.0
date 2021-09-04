@@ -30,8 +30,7 @@ def dfs(d, stack, seen, min_so_far, traget, c_min):
             elif vertex not in seen:
                 stack.append(vertex)
                 seen.add(vertex)
-                min_so_far = dfs(d, stack, seen, min_so_far,
-                                 traget, c_min + weight)
+                min_so_far = dfs(d, stack, seen, min_so_far, traget, c_min + weight)
     # in case the vertex doesn't have any edges, pop the element from the stack
     stack.pop()
     return min_so_far

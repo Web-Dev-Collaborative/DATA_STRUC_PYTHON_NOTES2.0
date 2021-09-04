@@ -51,10 +51,8 @@ while game_running == True:
             print("Invalid Input")
 
             if player_won == False and monster_won == False:
-                print(player["name"] + " has " +
-                      str(player["health"]) + " left ")
-                print(monster["name"] + " has " +
-                      str(monster["health"]) + " left ")
+                print(player["name"] + " has " + str(player["health"]) + " left ")
+                print(monster["name"] + " has " + str(monster["health"]) + " left ")
 
             elif player_won:
                 print(player["name"] + " won ")

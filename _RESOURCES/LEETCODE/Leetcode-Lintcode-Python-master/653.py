@@ -9,12 +9,16 @@ from collections import deque
 
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
-        if not root: return False
+        if not root:
+            return False
         q, nums = deque([root]), set()
         while q:
             curr = q.popleft()
-            if k - curr.val in nums: return True
+            if k - curr.val in nums:
+                return True
             nums.add(curr.val)
-            if curr.left: q.append(curr.left)
-            if curr.right: q.append(curr.right)
+            if curr.left:
+                q.append(curr.left)
+            if curr.right:
+                q.append(curr.right)
         return False

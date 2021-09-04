@@ -2,7 +2,6 @@ from collections import deque
 
 
 class MovingAverage:
-
     def __init__(self, size: int):
         """
         Initialize your data structure here.
@@ -15,6 +14,7 @@ class MovingAverage:
         if len(self.window) > self.size:
             self.window.popleft()
         return sum(self.window) / len(self.window)
+
 
 # Your MovingAverage object will be instantiated and called as such:
 # obj = MovingAverage(size)

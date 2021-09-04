@@ -7,9 +7,11 @@ class Node:
         self.right = right
 """
 
+
 class Solution:
-    def treeToDoublyList(self, root: 'Node') -> 'Node':
-        if not root: return root
+    def treeToDoublyList(self, root: "Node") -> "Node":
+        if not root:
+            return root
         dummy = head = Node(0)
         stack, curr, prev = [], root, dummy
         while stack or curr:

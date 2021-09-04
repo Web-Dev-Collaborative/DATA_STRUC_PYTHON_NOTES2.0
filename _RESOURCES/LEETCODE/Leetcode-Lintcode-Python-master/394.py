@@ -1,22 +1,23 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        if not s: return ''
+        if not s:
+            return ""
         stack, num = [], 0
         for c in s:
             if c.isdigit():
                 num = num * 10 + int(c)
-            elif c == '[':
+            elif c == "[":
                 stack.append(num)
                 num = 0
             elif c.isalpha():
                 stack.append(c)
-            elif c == ']':
+            elif c == "]":
                 ss = self.popStack(stack)
                 stack.append(ss * stack.pop())
         return self.popStack(stack)
 
     def popStack(self, stack):
-        result = ''
+        result = ""
         while stack and type(stack[-1]) is not int:
             result = stack.pop() + result
         return result

@@ -9,6 +9,7 @@ Bot part!
 - License: MIT License (http://lbesson.mit-license.org).
 """
 from battleserver import ships, DEFAULT_X, DEFAULT_Y
+
 __author__ = "Lilian Besson"
 __name_of_app__ = "Battle Client"
 __version__ = "0.1"
@@ -69,8 +70,7 @@ def main(args):
     )
     child_stdin, child_stdout = pipe.stdin, pipe.stdout
 
-    all_possible_positions = [(x, y) for x in range(sizex)
-                              for y in range(sizey)]
+    all_possible_positions = [(x, y) for x in range(sizex) for y in range(sizey)]
     max_nb_positions = len(all_possible_positions)
     hit_a_ship = False
     length_of_hit_ship = 0
@@ -105,8 +105,7 @@ def main(args):
             return 2
         if smart:
             if "hit " in stdout_data:  # hit a ship!
-                new_hit_ship = stdout_data.replace(
-                    "\n", "").replace("hit ", "")
+                new_hit_ship = stdout_data.replace("\n", "").replace("hit ", "")
                 if not hit_a_ship:
                     # first hit of this ship
                     hit_a_ship = True
@@ -154,8 +153,7 @@ def main(args):
                                 if _x in next_x_y:
                                     next_x_y.remove((_x, y))
             elif "sunk " in stdout_data:  # sunk a ship!
-                new_hit_ship = stdout_data.replace(
-                    "\n", "").replace("sunk ", "")
+                new_hit_ship = stdout_data.replace("\n", "").replace("sunk ", "")
                 if new_hit_ship != last_hist_ship:
                     print(
                         f"WARNING: was hitting {last_hist_ship} but sunk {new_hit_ship}"
@@ -178,6 +176,5 @@ def main(args):
 
 
 if __name__ == "__main__":
-    arguments = docopt(
-        documentation, version=f"{__name_of_app__} v{__version__}")
+    arguments = docopt(documentation, version=f"{__name_of_app__} v{__version__}")
     sys.exit(main(arguments))

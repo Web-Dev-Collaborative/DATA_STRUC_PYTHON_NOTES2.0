@@ -37,14 +37,11 @@ for r, d, f in os.walk(r"."):
         if isSQLite3(files):
             print(files)
             print(
-                "[+] '%s' **** is a SQLITE database file **** " % os.path.join(
-                    r, files)
+                "[+] '%s' **** is a SQLITE database file **** " % os.path.join(r, files)
             )
-            log.write("[+] '%s' **** is a SQLITE database file **** " %
-                      files + "\n")
+            log.write("[+] '%s' **** is a SQLITE database file **** " % files + "\n")
         else:
             log.write(
-                "[-] '%s' is NOT a sqlite database file" % os.path.join(
-                    r, files) + "\n"
+                "[-] '%s' is NOT a sqlite database file" % os.path.join(r, files) + "\n"
             )
             log.write("[-] '%s' is NOT a sqlite database file" % files + "\n")

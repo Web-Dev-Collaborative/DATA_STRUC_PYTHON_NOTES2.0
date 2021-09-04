@@ -1,7 +1,7 @@
 class Solution:
     def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
         w1, w2, w3 = [0], [0, k], [0, k, 2 * k]
-        s1, s2, s3 = sum(nums[:k]), sum(nums[k:2 * k]), sum(nums[2 * k:3 * k])
+        s1, s2, s3 = sum(nums[:k]), sum(nums[k : 2 * k]), sum(nums[2 * k : 3 * k])
         ws1, ws2, ws3 = s1, s1 + s2, s1 + s2 + s3
         idx1, idx2, idx3 = 1, k + 1, 2 * k + 1
 

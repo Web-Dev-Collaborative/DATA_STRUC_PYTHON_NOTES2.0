@@ -5,4 +5,4 @@ class Solution:
         :rtype: int
         """
         n = len(nums)
-        return n * (n+1) // 2 - sum(nums)
+        return n * (n + 1) // 2 - sum(nums)

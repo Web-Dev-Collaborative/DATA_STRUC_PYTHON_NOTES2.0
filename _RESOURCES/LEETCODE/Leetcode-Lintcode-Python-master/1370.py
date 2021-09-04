@@ -3,7 +3,7 @@ from collections import Counter
 
 class Solution:
     def sortString(self, s: str) -> str:
-        result, counter = '', Counter(s)
+        result, counter = "", Counter(s)
         letters = string.ascii_lowercase
         while len(result) < len(s):
             for ss in [letters, letters[::-1]]:

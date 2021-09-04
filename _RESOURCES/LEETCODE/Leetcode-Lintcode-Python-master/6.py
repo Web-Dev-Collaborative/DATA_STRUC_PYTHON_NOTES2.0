@@ -5,8 +5,9 @@ class Solution(object):
         :type numRows: int
         :rtype: str
         """
-        if len(s) <= numRows or numRows == 1: return s
-        result = ['']*numRows
+        if len(s) <= numRows or numRows == 1:
+            return s
+        result = [""] * numRows
         index, step = 0, 1
         for c in s:
             if index == 0:

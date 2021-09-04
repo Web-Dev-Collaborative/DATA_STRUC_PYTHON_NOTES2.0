@@ -55,7 +55,6 @@ class DoubleLinkedList:
 
 
 class AllOne:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -78,7 +77,9 @@ class AllOne:
         self.keys[key] = self.keys.get(key, 0) + 1
         curr_count, prev_count = self.keys[key], self.keys[key] - 1
         if curr_count not in self.node_freq_dict:
-            self.node_freq_dict[curr_count] = self.doubleLinkedList.insert_after(self.node_freq_dict[prev_count])
+            self.node_freq_dict[curr_count] = self.doubleLinkedList.insert_after(
+                self.node_freq_dict[prev_count]
+            )
         self.node_freq_dict[curr_count].add(key)
         if prev_count > 0:
             self.remove(prev_count, key)
@@ -87,7 +88,8 @@ class AllOne:
         """
         Decrements an existing key by 1. If Key's value is 1, remove it from the data structure.
         """
-        if key not in self.keys: return
+        if key not in self.keys:
+            return
         count = self.keys[key]
         self.keys[key] -= 1
         curr_count, prev_count = self.keys[key], self.keys[key] + 1
@@ -95,7 +97,9 @@ class AllOne:
             del self.keys[key]
         else:
             if curr_count not in self.node_freq_dict:
-                self.node_freq_dict[curr_count] = self.doubleLinkedList.insert_before(self.node_freq_dict[prev_count])
+                self.node_freq_dict[curr_count] = self.doubleLinkedList.insert_before(
+                    self.node_freq_dict[prev_count]
+                )
             self.node_freq_dict[curr_count].add(key)
         self.remove(prev_count, key)
 
@@ -103,13 +107,22 @@ class AllOne:
         """
         Returns one of the keys with maximal value.
         """
-        return self.doubleLinkedList.get_tail().get_any_key() if not self.doubleLinkedList.get_tail().isEmpty() else ''
+        return (
+            self.doubleLinkedList.get_tail().get_any_key()
+            if not self.doubleLinkedList.get_tail().isEmpty()
+            else ""
+        )
 
     def getMinKey(self) -> str:
         """
         Returns one of the keys with Minimal value.
         """
-        return self.doubleLinkedList.get_head().get_any_key() if not self.doubleLinkedList.get_head().isEmpty() else ''
+        return (
+            self.doubleLinkedList.get_head().get_any_key()
+            if not self.doubleLinkedList.get_head().isEmpty()
+            else ""
+        )
+
 
 # Your AllOne object will be instantiated and called as such:
 # obj = AllOne()

@@ -1,7 +1,7 @@
 class Solution:
     def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
         s, area = set(), 0
-        x1, y1, x2, y2 = float('inf'), float('inf'), float('-inf'), float('-inf')
+        x1, y1, x2, y2 = float("inf"), float("inf"), float("-inf"), float("-inf")
 
         for rectangle in rectangles:
             s1, s2, s3, s4 = rectangle[0], rectangle[1], rectangle[2], rectangle[3]
@@ -30,9 +30,12 @@ class Solution:
             else:
                 s.add((s3, s2))
 
-        if (x1, y1) not in s or (x1, y2) not in s or (x2, y2) not in s or (x2, y1) not in s or len(s) != 4:
+        if (
+            (x1, y1) not in s
+            or (x1, y2) not in s
+            or (x2, y2) not in s
+            or (x2, y1) not in s
+            or len(s) != 4
+        ):
             return False
         return area == (x2 - x1) * (y2 - y1)
-
-
-

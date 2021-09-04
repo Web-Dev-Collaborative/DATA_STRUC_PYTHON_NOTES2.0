@@ -3,8 +3,9 @@ class Solution:
     @param: A: An integer array
     @return: A list of integers includes the index of the first number and the index of the last number
     """
+
     def continuousSubarraySum(self, A):
-        result = float('-inf')
+        result = float("-inf")
         sum = 0
         start, end = 0, -1
         output = None

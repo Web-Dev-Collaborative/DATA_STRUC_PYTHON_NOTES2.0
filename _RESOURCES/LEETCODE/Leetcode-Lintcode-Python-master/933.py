@@ -11,6 +11,7 @@ class RecentCounter:
             self.counter.popleft()
         return len(self.counter)
 
+
 # Your RecentCounter object will be instantiated and called as such:
 # obj = RecentCounter()
 # param_1 = obj.ping(t)

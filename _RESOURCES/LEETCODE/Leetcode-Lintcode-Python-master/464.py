@@ -2,6 +2,8 @@
 Without memorization, the time complexity is O(N!)
 With memorization, the time complexity is O(2^N)
 """
+
+
 class Solution:
     def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
         if (maxChoosableInteger + 1) * (maxChoosableInteger / 2) < desiredTotal:
@@ -14,7 +16,7 @@ class Solution:
             if choices[-1] >= target:
                 return True
             for i in range(len(choices)):
-                if not dfs(choices[:i] + choices[i + 1:], target - choices[i]):
+                if not dfs(choices[:i] + choices[i + 1 :], target - choices[i]):
                     cache[tuple(choices)] = True
                     return True
             cache[tuple(choices)] = False

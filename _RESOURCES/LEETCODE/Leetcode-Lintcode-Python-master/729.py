@@ -1,5 +1,4 @@
 class MyCalendar:
-
     def __init__(self):
         self.maps = []
 
@@ -14,6 +13,7 @@ class MyCalendar:
                 self.maps.remove([end, -1])
                 return False
         return True
+
 
 # Your MyCalendar object will be instantiated and called as such:
 # obj = MyCalendar()

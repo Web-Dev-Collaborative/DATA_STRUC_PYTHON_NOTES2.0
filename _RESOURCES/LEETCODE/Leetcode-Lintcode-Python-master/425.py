@@ -7,7 +7,7 @@ class Solution:
         prefix = defaultdict(list)
         for word in words:
             for i in range(n):
-                prefix[word[:i + 1]].append(word)
+                prefix[word[: i + 1]].append(word)
 
         result = []
 
@@ -15,7 +15,7 @@ class Solution:
             if i == n:
                 result.append(path)
                 return
-            for word in prefix[''.join(w[i] for w in path)]:
+            for word in prefix["".join(w[i] for w in path)]:
                 dfs(i + 1, path + [word])
 
         for word in words:

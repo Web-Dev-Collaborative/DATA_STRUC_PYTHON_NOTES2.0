@@ -2,6 +2,7 @@
 # so dp[len(s)-1] stores the result
 # O(n^2)
 
+
 class Solution:
     def minCut(self, s):
         """
@@ -15,7 +16,7 @@ class Solution:
         for mid in range(1, n):
             # odd length
             start, end = mid, mid
-            while (start >= 0 and end < n and s[start] == s[end]):
+            while start >= 0 and end < n and s[start] == s[end]:
                 newCut = 0 if start == 0 else dp[start - 1] + 1
                 dp[end] = min(dp[end], newCut)
                 start -= 1
@@ -23,7 +24,7 @@ class Solution:
 
             # even length
             start, end = mid - 1, mid
-            while (start >= 0 and end < n and s[start] == s[end]):
+            while start >= 0 and end < n and s[start] == s[end]:
                 newCut = 0 if start == 0 else dp[start - 1] + 1
                 dp[end] = min(dp[end], newCut)
                 start -= 1

@@ -27,6 +27,6 @@ def flatten_in_place(orig):
 
             if isinstance(item, list):
                 is_flattened = False
-                orig = orig[:i] + item + orig[i + 1:]
+                orig = orig[:i] + item + orig[i + 1 :]
 
     return orig

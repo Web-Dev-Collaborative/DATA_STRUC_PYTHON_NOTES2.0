@@ -6,8 +6,9 @@ class Solution:
 
     def backtrack(self, nums, path, result):
         result.append(path)
-        if not nums: return
+        if not nums:
+            return
         for i in range(len(nums)):
             if i > 0 and nums[i - 1] == nums[i]:
                 continue
-            self.backtrack(nums[i + 1:], path + [nums[i]], result)
+            self.backtrack(nums[i + 1 :], path + [nums[i]], result)

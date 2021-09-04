@@ -13,5 +13,9 @@ class Solution:
         :rtype: List[int]
         """
         if root:
-            return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
+            return (
+                self.postorderTraversal(root.left)
+                + self.postorderTraversal(root.right)
+                + [root.val]
+            )
         return []

@@ -9,7 +9,8 @@ class Solution:
         result = []
 
         def dfs(node):
-            if not node: return 0
+            if not node:
+                return 0
             height = max(dfs(node.left), dfs(node.right)) + 1
             if height > len(result):
                 result.append([])

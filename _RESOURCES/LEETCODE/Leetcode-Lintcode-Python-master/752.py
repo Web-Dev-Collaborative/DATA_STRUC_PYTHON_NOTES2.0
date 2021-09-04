@@ -4,15 +4,17 @@ class Solution:
         q1, q2 = set(), set()
         visited = set()
 
-        q1.add('0000')
+        q1.add("0000")
         q2.add(target)
         step = 0
 
         while q1 and q2:
             temp = set()
             for i in q1:
-                if i in deadends: continue
-                if i in q2: return step
+                if i in deadends:
+                    continue
+                if i in q2:
+                    return step
                 visited.add(i)
 
                 for j in range(0, 4):
@@ -30,16 +32,16 @@ class Solution:
 
     def plusOne(self, curr, val):
         curr = [c for c in curr]
-        if curr[val] == '9':
-            curr[val] = '0'
+        if curr[val] == "9":
+            curr[val] = "0"
         else:
             curr[val] = chr(ord(curr[val]) + 1)
-        return ''.join(curr)
+        return "".join(curr)
 
     def minusOne(self, curr, val):
         curr = [c for c in curr]
-        if curr[val] == '0':
-            curr[val] = '9'
+        if curr[val] == "0":
+            curr[val] = "9"
         else:
             curr[val] = chr(ord(curr[val]) - 1)
-        return ''.join(curr)
+        return "".join(curr)

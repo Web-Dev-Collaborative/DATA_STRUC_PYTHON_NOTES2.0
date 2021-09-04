@@ -149,8 +149,7 @@ Me gusta usar la línea de comandos para traducir mi texto.
         if t.isspace() or len(t) == 0:
             results.append(t)
         else:
-            results.append(
-                translate(t, to_lang=to_language, from_lang=from_language))
+            results.append(translate(t, to_lang=to_language, from_lang=from_language))
     result = "\n".join(results)
     print(result)
     return result

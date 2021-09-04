@@ -4,13 +4,16 @@ class Solution:
         x, y, empty, end = 0, 0, 1, None
         for i in range(m):
             for j in range(n):
-                if grid[i][j] == 0: empty += 1
-                if grid[i][j] == 1: x, y = i, j
+                if grid[i][j] == 0:
+                    empty += 1
+                if grid[i][j] == 1:
+                    x, y = i, j
 
         self.result = 0
 
         def dfs(x, y, e):
-            if x < 0 or x >= m or y < 0 or y >= n or grid[x][y] < 0: return
+            if x < 0 or x >= m or y < 0 or y >= n or grid[x][y] < 0:
+                return
             if grid[x][y] == 2:
                 self.result += e == 0
                 return

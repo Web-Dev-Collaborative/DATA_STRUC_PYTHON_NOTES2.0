@@ -280,8 +280,7 @@ def button_press_cb(view, ev):
 
 # Actions & UI definition
 buffer_actions = [
-    ("Open", gtk.STOCK_OPEN, "_Ouvre", "<control>O",
-     "Ouvre un fichier", open_file_cb),
+    ("Open", gtk.STOCK_OPEN, "_Ouvre", "<control>O", "Ouvre un fichier", open_file_cb),
     (
         "Quit",
         gtk.STOCK_QUIT,
@@ -295,8 +294,7 @@ buffer_actions = [
 view_actions = [
     ("FileMenu", None, "_Fichier"),
     ("ViewMenu", None, "_Vue"),
-    ("Print", gtk.STOCK_PRINT, "_Impression",
-     "<control>P", "Print the file", print_cb),
+    ("Print", gtk.STOCK_PRINT, "_Impression", "<control>P", "Print the file", print_cb),
     (
         "NewView",
         gtk.STOCK_NEW,
@@ -473,8 +471,7 @@ def create_view_window(buffer, sourceview=None):
         action.set_active(sourceview.get_auto_indent())
         action = action_group.get_action("InsertSpaces")
         action.set_active(sourceview.get_insert_spaces_instead_of_tabs())
-        action = action_group.get_action(
-            "TabsWidth%d" % sourceview.get_tab_width())
+        action = action_group.get_action("TabsWidth%d" % sourceview.get_tab_width())
         if action:
             action.set_active(True)
 

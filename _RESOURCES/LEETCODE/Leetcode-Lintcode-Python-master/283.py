@@ -10,4 +10,4 @@ class Solution:
                 start += 1
             end += 1
         if start < len(nums):
-            nums[start:] = [0]*(len(nums)-start)
+            nums[start:] = [0] * (len(nums) - start)

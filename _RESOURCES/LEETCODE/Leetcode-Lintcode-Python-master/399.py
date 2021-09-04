@@ -3,15 +3,19 @@ from typing import List
 
 
 class Solution:
-    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+    def calcEquation(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
         graph = defaultdict(dict)
         for link, value in zip(equations, values):
             graph[link[0]][link[1]] = value
             graph[link[1]][link[0]] = 1 / value
 
         def answerQuery(s, e):
-            if s not in graph or e not in graph: return -1.0
-            if e == s: return 1.0
+            if s not in graph or e not in graph:
+                return -1.0
+            if e == s:
+                return 1.0
             q = deque([(s, 1.0)])
             visited = {s}
             while q:

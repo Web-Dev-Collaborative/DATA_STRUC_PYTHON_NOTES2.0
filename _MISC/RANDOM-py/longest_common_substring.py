@@ -42,7 +42,7 @@ def longest_common_substring(str1, str2):
                     max_length = curr[j]
                     max_idx = i
 
-    return str1[max_idx - max_length: max_idx]
+    return str1[max_idx - max_length : max_idx]
 
 
 ###########

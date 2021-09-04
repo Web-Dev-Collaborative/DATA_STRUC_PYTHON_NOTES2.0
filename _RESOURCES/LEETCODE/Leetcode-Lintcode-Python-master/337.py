@@ -7,7 +7,8 @@
 class Solution:
     def rob(self, root: TreeNode) -> int:
         def dfs(node):
-            if not node: return (0, 0)
+            if not node:
+                return (0, 0)
             left, right = dfs(node.left), dfs(node.right)
             s1, s2 = node.val + left[0] + right[0], max(left) + max(right)
             return (s2, s1)

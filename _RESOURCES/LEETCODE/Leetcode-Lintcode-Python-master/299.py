@@ -12,4 +12,4 @@ class Solution:
         for k in s:
             if k in g:
                 cows += min(g[k], s[k])
-        return '{}A{}B'.format(bulls, cows)
+        return "{}A{}B".format(bulls, cows)

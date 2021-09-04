@@ -3,14 +3,20 @@ class Solution:
         ops, nums = [], []
 
         def compute(op, second, first):
-            if op == '+': return first + second
-            if op == '-': return first - second
-            if op == '/': return first // second
-            if op == '*': return first * second
+            if op == "+":
+                return first + second
+            if op == "-":
+                return first - second
+            if op == "/":
+                return first // second
+            if op == "*":
+                return first * second
 
         def precede(curr, prev):
-            if prev == '(': return False
-            if (curr == '*' or curr == '/') and (prev == '+' or prev == '-'): return False
+            if prev == "(":
+                return False
+            if (curr == "*" or curr == "/") and (prev == "+" or prev == "-"):
+                return False
             return True
 
         i = 0
@@ -27,10 +33,10 @@ class Solution:
                 while ops and precede(c, ops[-1]):
                     nums.append(compute(ops.pop(), nums.pop(), nums.pop()))
                 ops.append(c)
-            if c == '(':
+            if c == "(":
                 ops.append(c)
-            if c == ')':
-                while ops[-1] != '(':
+            if c == ")":
+                while ops[-1] != "(":
                     nums.append(compute(ops.pop(), nums.pop(), nums.pop()))
                 ops.pop()
             i += 1

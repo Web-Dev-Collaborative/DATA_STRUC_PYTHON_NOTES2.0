@@ -33,8 +33,7 @@ print("                                             +-+-+-+ +-+-+-+-+-+-+-+")
 print("                                             |M|A|C| |c|h|a|n|g|e|r|")
 print("                                             +-+-+-+ +-+-+-+-+-+-+-+")
 # finding wireless interface name that should start with wl e.g.-wlan0,wlp3s0
-infname = cret(
-    'ifconfig -a  | egrep "^[wl-wl]+" | sed "s/: .*//" | grep -v "lo"')
+infname = cret('ifconfig -a  | egrep "^[wl-wl]+" | sed "s/: .*//" | grep -v "lo"')
 # INTERFACE NAME 6 character so return 6 last character
 infname = infname[:6]
 infname = infname.decode("utf-8")

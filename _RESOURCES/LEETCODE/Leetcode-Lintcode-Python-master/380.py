@@ -1,5 +1,4 @@
 class RandomizedSet:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -35,6 +34,7 @@ class RandomizedSet:
         Get a random element from the set.
         """
         return self.nums[random.randint(0, len(self.nums) - 1)]
+
 
 # Your RandomizedSet object will be instantiated and called as such:
 # obj = RandomizedSet()

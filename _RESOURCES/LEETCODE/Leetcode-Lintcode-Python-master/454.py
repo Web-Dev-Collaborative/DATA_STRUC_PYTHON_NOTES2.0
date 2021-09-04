@@ -11,10 +11,10 @@ class Solution:
         :rtype: int
         """
         ret = 0
-        record = defaultdict(lambda:0)
+        record = defaultdict(lambda: 0)
         for i in range(len(A)):
             for j in range(len(B)):
-                record[A[i]+B[j]] += 1
+                record[A[i] + B[j]] += 1
         for i in range(len(C)):
             for j in range(len(D)):
                 ss = -(C[i] + D[j])

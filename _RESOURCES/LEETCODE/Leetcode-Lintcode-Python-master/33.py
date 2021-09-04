@@ -1,14 +1,15 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        if not nums: return -1
-        l, r = 0, len(nums)-1
+        if not nums:
+            return -1
+        l, r = 0, len(nums) - 1
         while l <= r:
-            m = l + (r - l)//2
+            m = l + (r - l) // 2
             if nums[m] == target:
                 return m
             if nums[m] > nums[r]:
                 if nums[r] < target < nums[m]:
-                    r = m -1
+                    r = m - 1
                 else:
                     l = m + 1
             else:
@@ -26,10 +27,11 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        if not nums: return -1
-        l, r = 0, len(nums)-1
+        if not nums:
+            return -1
+        l, r = 0, len(nums) - 1
         while l <= r:
-            m = l + (r - l) //2
+            m = l + (r - l) // 2
             if nums[m] == target:
                 return m
             if nums[r] >= nums[m]:
@@ -39,7 +41,7 @@ class Solution(object):
                     r = m - 1
             else:
                 if nums[l] <= target <= nums[m]:
-                    r = m -1
+                    r = m - 1
                 else:
                     l = m + 1
         return -1

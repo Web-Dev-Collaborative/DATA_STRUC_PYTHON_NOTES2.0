@@ -28,11 +28,14 @@ class Solution:
             for word in candidates:
                 for i, c in enumerate(word):
                     count[i][c] += 1
-            return max(candidates, key=lambda x: sum(count[i][c] for i, c in enumerate(x)))
+            return max(
+                candidates, key=lambda x: sum(count[i][c] for i, c in enumerate(x))
+            )
 
         candidates = wordlist[:]
         while candidates:
             word = mostOverlapWord()
             match = master.guess(word)
-            if match == 6: return
+            if match == 6:
+                return
             candidates = [w for w in candidates if compPair(word, w) == match]

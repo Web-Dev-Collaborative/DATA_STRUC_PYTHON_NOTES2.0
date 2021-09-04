@@ -1,5 +1,7 @@
 class Solution:
-    def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+    def leadsToDestination(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
         neighbors, visited = defaultdict(set), set()
         for edge in edges:
             start, end = edge[0], edge[1]
@@ -13,7 +15,8 @@ class Solution:
             else:
                 visited.add(node)
                 for n in neighbors[node]:
-                    if n == node or n in visited or not dfs(n): return False
+                    if n == node or n in visited or not dfs(n):
+                        return False
                 visited.discard(node)
                 return True
 

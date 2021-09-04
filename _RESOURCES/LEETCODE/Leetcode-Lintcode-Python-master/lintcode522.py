@@ -19,8 +19,9 @@ class TinyUrl2:
             if self.long2short[long_url] == short_url:
                 return short_url
             else:
-                return 'error'
-        if short_url in self.short2long: return 'error'
+                return "error"
+        if short_url in self.short2long:
+            return "error"
         self.long2short[long_url] = short_url
         self.short2long[short_url] = long_url
         return short_url
@@ -33,10 +34,10 @@ class TinyUrl2:
     def longToShort(self, long_url):
         if long_url in self.long2short:
             return self.long2short[long_url]
-        code_pool = string.ascii_letters + '0123456789'
-        code = "http://tiny.url/" + ''.join(random.choice(code_pool) for _ in range(6))
+        code_pool = string.ascii_letters + "0123456789"
+        code = "http://tiny.url/" + "".join(random.choice(code_pool) for _ in range(6))
         while code in self.short2long:
-            code = ''.join(random.choice(code_pool) for _ in range(6))
+            code = "".join(random.choice(code_pool) for _ in range(6))
         self.long2short[long_url] = code
         self.short2long[code] = long_url
         return code
@@ -49,4 +50,4 @@ class TinyUrl2:
     def shortToLong(self, short_url):
         if short_url in self.short2long:
             return self.short2long[short_url]
-        return 'error'
+        return "error"

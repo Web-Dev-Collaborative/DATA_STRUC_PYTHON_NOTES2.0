@@ -1,6 +1,7 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        if not grid or not grid[0]: return 0
+        if not grid or not grid[0]:
+            return 0
         area = 0
         m, n = len(grid), len(grid[0])
         for i in range(m):

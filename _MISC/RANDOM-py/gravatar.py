@@ -56,7 +56,6 @@ if __name__ == "__main__":
     email = "lbessonATens-cachanDOTfr".replace("AT", "@").replace("DOT", ".")
     print("For the email adress " + email)
     print(gravatar(email))
-    email = "ameliaDOTnoreenATgmailDOTcom".replace(
-        "AT", "@").replace("DOT", ".")
+    email = "ameliaDOTnoreenATgmailDOTcom".replace("AT", "@").replace("DOT", ".")
     print("For the email adress " + email)
     print(gravatar(email))

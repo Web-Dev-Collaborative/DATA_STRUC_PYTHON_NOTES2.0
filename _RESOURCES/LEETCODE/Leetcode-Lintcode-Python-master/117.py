@@ -8,9 +8,11 @@ class Node:
         self.next = next
 """
 
+
 class Solution:
-    def connect(self, root: 'Node') -> 'Node':
-        if not root: return None
+    def connect(self, root: "Node") -> "Node":
+        if not root:
+            return None
         result = curr = root
         head = root
         while head:
@@ -19,12 +21,16 @@ class Solution:
             prev = None
             while curr:
                 if curr.left:
-                    if prev: prev.next = curr.left
-                    else: head = curr.left
+                    if prev:
+                        prev.next = curr.left
+                    else:
+                        head = curr.left
                     prev = curr.left
                 if curr.right:
-                    if prev: prev.next = curr.right
-                    else: head = curr.right
+                    if prev:
+                        prev.next = curr.right
+                    else:
+                        head = curr.right
                     prev = curr.right
                 curr = curr.next
         return result

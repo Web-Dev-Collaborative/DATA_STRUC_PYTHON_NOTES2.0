@@ -7,7 +7,8 @@
 class Solution:
     def longestConsecutive(self, root: TreeNode) -> int:
         def getLength(node):
-            if not node: return [0, 0]
+            if not node:
+                return [0, 0]
             increase, decrease = 1, 1
             ll = getLength(node.left)
             rr = getLength(node.right)

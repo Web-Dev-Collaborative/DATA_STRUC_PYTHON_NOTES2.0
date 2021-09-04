@@ -16,8 +16,7 @@ class Background(Canvas):
 
         # Verifica se o parâmetro tk_instance é uma instância de Tk
         if not isinstance(tk_instance, Tk):
-            raise TypeError(
-                "The tk_instance argument must be an instance of Tk.")
+            raise TypeError("The tk_instance argument must be an instance of Tk.")
 
         # Recebe o caminho de imagem e a velocidade da animação
         self.image_path = fp
@@ -169,8 +168,7 @@ class Background(Canvas):
                 # Cria uma nova imagem a partir da última imagem da animação
                 width = self.bbox(self.__background[0])[2] + self.__width // 2
                 self.__background.append(
-                    self.create_image(width, self.__height //
-                                      2, image=self.__bg_image)
+                    self.create_image(width, self.__height // 2, image=self.__bg_image)
                 )
 
             # Executa novamente o método depois de um certo tempo

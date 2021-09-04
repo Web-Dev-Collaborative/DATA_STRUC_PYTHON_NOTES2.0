@@ -62,7 +62,6 @@ class Solution:
     #     curr.next = l1 or l2
     #     return dummy.next
 
-
     ## (3) minHeap
     def mergeKLists(self, lists):
         """

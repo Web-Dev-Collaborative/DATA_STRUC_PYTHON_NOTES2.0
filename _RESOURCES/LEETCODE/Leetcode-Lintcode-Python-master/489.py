@@ -30,6 +30,7 @@
 #        :rtype void
 #        """
 
+
 class Solution:
     def cleanRoom(self, robot):
         """

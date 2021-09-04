@@ -10,7 +10,8 @@ class Solution:
         return self.dfs(root) != -1
 
     def dfs(self, node):
-        if not node: return 0
+        if not node:
+            return 0
         left = self.dfs(node.left)
         right = self.dfs(node.right)
         if left == -1 or right == -1 or abs(left - right) > 1:

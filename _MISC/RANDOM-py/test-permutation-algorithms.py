@@ -41,8 +41,7 @@ def first_permutations(iterable):
     else:
         x, xs = iterable[0], iterable[1:]
         return reduce(
-            lambda acc, p: acc +
-            ins_all_positions(x, p), first_permutations(xs), []
+            lambda acc, p: acc + ins_all_positions(x, p), first_permutations(xs), []
         )
 
 
@@ -68,8 +67,7 @@ def second_permutations(iterable):
         return [[iterable[0]]]
     else:
         return reduce(
-            lambda acc, x: acc +
-            head_of_all(x, second_permutations(rm(x, iterable))),
+            lambda acc, x: acc + head_of_all(x, second_permutations(rm(x, iterable))),
             iterable,
             [],
         )

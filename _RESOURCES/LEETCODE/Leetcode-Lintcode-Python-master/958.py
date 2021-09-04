@@ -13,8 +13,10 @@ class Solution:
         while queue:
             curr = queue.popleft()
             if not curr:
-                if queue and queue[0]: return False
-                else: continue
+                if queue and queue[0]:
+                    return False
+                else:
+                    continue
             queue.append(curr.left)
             queue.append(curr.right)
         return True

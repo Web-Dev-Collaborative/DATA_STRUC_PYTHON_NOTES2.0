@@ -6,7 +6,6 @@ class Node:
 
 
 class MyHashMap:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -65,6 +64,7 @@ class MyHashMap:
                     break
                 curr = curr.next
                 prev = prev.next
+
 
 # Your MyHashMap object will be instantiated and called as such:
 # obj = MyHashMap()

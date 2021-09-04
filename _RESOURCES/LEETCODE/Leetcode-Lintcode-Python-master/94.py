@@ -6,15 +6,20 @@ class TreeNode:
         self.right = None
 
 
-
 class Solution:
     def inorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        if not root: return []
-        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+        if not root:
+            return []
+        return (
+            self.inorderTraversal(root.left)
+            + [root.val]
+            + self.inorderTraversal(root.right)
+        )
+
 
 # iterative
 class Solution:

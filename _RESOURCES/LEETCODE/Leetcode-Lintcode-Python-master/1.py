@@ -15,5 +15,5 @@ class Solution(object):
         for i in range(len(nums)):
             if nums[i] in record:
                 return [record[nums[i]], i]
-            record[target-nums[i]] = i
+            record[target - nums[i]] = i
         return []

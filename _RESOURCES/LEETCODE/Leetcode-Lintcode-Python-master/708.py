@@ -8,7 +8,7 @@ class Node:
 
 
 class Solution:
-    def insert(self, head: 'Node', insertVal: int) -> 'Node':
+    def insert(self, head: "Node", insertVal: int) -> "Node":
         node = Node(insertVal, head)
         if not head:
             node.next = node

@@ -11,5 +11,8 @@ class Solution:
                 return max_val - min_val
             max_val = max(node.val, max_val)
             min_val = min(node.val, min_val)
-            return max(dfs(node.left, min_val, max_val), dfs(node.right, min_val, max_val))
+            return max(
+                dfs(node.left, min_val, max_val), dfs(node.right, min_val, max_val)
+            )
+
         return dfs(root, root.val, root.val)

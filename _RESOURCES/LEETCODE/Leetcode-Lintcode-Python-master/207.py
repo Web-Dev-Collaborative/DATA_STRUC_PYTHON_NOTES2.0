@@ -12,15 +12,16 @@ class Solution:
         return True
 
     def dfs(self, curr, graph, visited):
-        if visited[curr] == 1: return True
-        if visited[curr] == -1: return False
+        if visited[curr] == 1:
+            return True
+        if visited[curr] == -1:
+            return False
         visited[curr] = -1
         for child in graph[curr]:
             if not self.dfs(child, graph, visited):
                 return False
         visited[curr] = 1
         return True
-
 
 
 # BFS

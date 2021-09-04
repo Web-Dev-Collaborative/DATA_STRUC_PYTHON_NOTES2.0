@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def maxPathSum(self, root):
         """
@@ -16,7 +17,8 @@ class Solution:
         return self.res
 
     def dfs(self, node):
-        if not node: return 0
+        if not node:
+            return 0
         left = max(0, self.dfs(node.left))
         right = max(0, self.dfs(node.right))
         self.res = max(self.res, left + right + node.val)

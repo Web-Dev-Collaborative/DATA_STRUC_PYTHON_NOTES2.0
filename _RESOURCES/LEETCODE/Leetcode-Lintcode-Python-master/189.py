@@ -5,7 +5,8 @@ class Solution:
         :type k: int
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        if not nums: return
+        if not nums:
+            return
         n = len(nums)
         k = k % n
         nums[:] = nums[-k:] + nums[:-k]

@@ -10,7 +10,8 @@ class Solution:
         cache = {0: 1}
 
         def backtrack(node, pathSum):
-            if not node: return
+            if not node:
+                return
             pathSum += node.val
             oldSum = pathSum - sum
             if oldSum in cache:

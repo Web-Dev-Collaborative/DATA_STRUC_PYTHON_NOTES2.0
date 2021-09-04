@@ -8,7 +8,8 @@ class TreeNode:
 
 class Solution:
     def generateTrees(self, n: int) -> List[TreeNode]:
-        if n == 0: return []
+        if n == 0:
+            return []
         self.trees = {}
         return self.constructTree(1, n)
 

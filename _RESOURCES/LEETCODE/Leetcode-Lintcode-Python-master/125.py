@@ -4,5 +4,5 @@ class Solution:
         :type s: str
         :rtype: bool
         """
-        ss = ''.join(c.lower() for c in s if c.isalnum())
+        ss = "".join(c.lower() for c in s if c.isalnum())
         return ss[::-1] == ss

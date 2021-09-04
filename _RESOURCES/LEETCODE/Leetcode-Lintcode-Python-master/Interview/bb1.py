@@ -17,6 +17,7 @@ def find(N, S, path, result):
                 N -= 1
             result.append(path)
         else:
-            find(N-1, S-i, path+[i], result)
+            find(N - 1, S - i, path + [i], result)
+
 
 result = findSum(5, 3)

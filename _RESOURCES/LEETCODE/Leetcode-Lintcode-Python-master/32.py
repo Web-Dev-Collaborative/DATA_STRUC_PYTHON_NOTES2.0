@@ -1,22 +1,27 @@
-'''
+"""
 time: O(n)
 space: O(n)
-'''
+"""
+
+
 class Solution:
     def longestValidParentheses(self, s):
         """
         :type s: str
         :rtype: int
         """
-        if not s or len(s) == 0: return 0
+        if not s or len(s) == 0:
+            return 0
         stack, result = [], 0
         for i in range(len(s)):
-            if s[i] == '(':
+            if s[i] == "(":
                 stack.append(i)
             else:
                 if stack:
-                    if s[stack[-1]] == '(': stack.pop()
-                    else: stack.append(i)
+                    if s[stack[-1]] == "(":
+                        stack.pop()
+                    else:
+                        stack.append(i)
                 else:
                     stack.append(i)
         if not stack:

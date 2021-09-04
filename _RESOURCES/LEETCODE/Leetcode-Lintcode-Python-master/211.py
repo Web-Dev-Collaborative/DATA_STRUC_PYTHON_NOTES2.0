@@ -5,7 +5,6 @@ class TreeNode:
 
 
 class WordDictionary:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -33,9 +32,12 @@ class WordDictionary:
 
     def searchNode(self, node, word):
         for i, c in enumerate(word):
-            if c == '.':
-                return any(self.searchNode(node.children[k], word[i + 1:]) for k in node.children)
-            if c not in node.children: return False
+            if c == ".":
+                return any(
+                    self.searchNode(node.children[k], word[i + 1 :])
+                    for k in node.children
+                )
+            if c not in node.children:
+                return False
             node = node.children[c]
         return node.is_word
-

@@ -9,7 +9,7 @@ class Solution:
     def findEmpty(self, board):
         for i in range(9):
             for j in range(9):
-                if board[i][j] == '.':
+                if board[i][j] == ".":
                     return (i, j)
         return None
 
@@ -18,12 +18,12 @@ class Solution:
         if not pos:
             return True
         x, y = pos[0], pos[1]
-        for v in ['1', '2', '3', '4', '5', '6', '7', '8', '9']:
+        for v in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
             if self.isValid(board, x, y, v):
                 board[x][y] = v
                 if self.solve(board):
                     return True
-                board[x][y] = '.'
+                board[x][y] = "."
         return False
 
     def isValid(self, board, row, col, val):

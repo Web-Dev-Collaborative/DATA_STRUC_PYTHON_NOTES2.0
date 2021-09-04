@@ -8,7 +8,8 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        if not head: return
+        if not head:
+            return
         slow = fast = head
         while fast and fast.next:
             slow = slow.next

@@ -67,9 +67,13 @@ def setup_and_teardown_servers(registry):
     assert (
         registry.server_count
         == len(_CLOUD_APPS) * len(_CLOUD_APP_COMPONENTS)
-        == len([(app, server)
+        == len(
+            [
+                (app, server)
                 for app, servers in app_servers.items()
-                for server in servers])
+                for server in servers
+            ]
+        )
     )
 
     # What's really interesting is that servers go away when we leave the

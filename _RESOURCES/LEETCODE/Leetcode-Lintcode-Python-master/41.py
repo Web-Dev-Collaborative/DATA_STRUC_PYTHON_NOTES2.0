@@ -1,6 +1,7 @@
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
-        if not nums or len(nums) == 0: return 1
+        if not nums or len(nums) == 0:
+            return 1
         for i in range(len(nums)):
             target = nums[i]
             while target > 0 and target <= len(nums) and nums[target - 1] != target:
@@ -10,7 +11,8 @@ class Solution:
             if nums[i] != i + 1:
                 return i + 1
         return len(nums) + 1
-        
+
+
 # class Solution:
 #     def firstMissingPositive(self, nums):
 #         """

@@ -1,15 +1,18 @@
 import heapq
 
+
 class Solution:
     def getSkyline(self, buildings):
         """
         :type buildings: List[List[int]]
         :rtype: List[List[int]]
         """
-        rectangles = [[l, -h, r] for l, r, h in buildings] + [[r, h, None] for l, r, h in buildings]
+        rectangles = [[l, -h, r] for l, r, h in buildings] + [
+            [r, h, None] for l, r, h in buildings
+        ]
         rectangles.sort()
         result = []
-        heap = [(0, float('inf'))]
+        heap = [(0, float("inf"))]
         for l, h, r in rectangles:
             top = heap[0][0]
             while l >= heap[0][1]:

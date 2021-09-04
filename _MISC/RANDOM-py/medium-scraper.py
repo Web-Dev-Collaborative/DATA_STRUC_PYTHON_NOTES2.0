@@ -49,8 +49,7 @@ def get_article(links):
             text = ""
             nxt_line = "\n"
             for para in paras:
-                text += unicodedata.normalize("NFKD",
-                                              para.get_text()) + nxt_line
+                text += unicodedata.normalize("NFKD", para.get_text()) + nxt_line
             article["text"] = text
             articles.append(article)
         except KeyboardInterrupt:
@@ -67,16 +66,14 @@ def save_articles(articles, csv_file, is_write=True):
     print(csv_file)
     if is_write:
         with open(csv_file, "w") as csvfile:
-            writer = csv.DictWriter(
-                csvfile, fieldnames=csv_columns, delimiter="|")
+            writer = csv.DictWriter(csvfile, fieldnames=csv_columns, delimiter="|")
             writer.writeheader()
             for data in articles:
                 writer.writerow(data)
             csvfile.close()
     else:
         with open(csv_file, "a+") as csvfile:
-            writer = csv.DictWriter(
-                csvfile, fieldnames=csv_columns, delimiter="|")
+            writer = csv.DictWriter(csvfile, fieldnames=csv_columns, delimiter="|")
             for data in articles:
                 writer.writerow(data)
             csvfile.close()

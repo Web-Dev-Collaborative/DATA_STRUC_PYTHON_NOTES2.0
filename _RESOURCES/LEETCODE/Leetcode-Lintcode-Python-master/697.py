@@ -13,4 +13,6 @@ class Solution:
             first.setdefault(nums[i], i)
             last[nums[i]] = i
         max_degree = max(degree.values())
-        return min(last[key] - first[key] + 1 for key in degree if degree[key] == max_degree)
+        return min(
+            last[key] - first[key] + 1 for key in degree if degree[key] == max_degree
+        )

@@ -59,6 +59,7 @@ class Note:
     associated with them. To streamline the creation and comparison of
     these records, we define an in-memory model of what it is.
     """
+
     author: str
     title: str
     body: str
@@ -85,10 +86,8 @@ def main():
     # https://docs.python.org/3/library/xml.html
     tree = ETree.parse(StringIO(_XML_DATA))
     xml_notes = [
-        Note.from_data({
-            field: note_el.findtext(field)
-            for field in Note.fields()
-        }) for note_el in tree.getroot()
+        Note.from_data({field: note_el.findtext(field) for field in Note.fields()})
+        for note_el in tree.getroot()
     ]
     assert all(isinstance(note, Note) for note in xml_notes)
 

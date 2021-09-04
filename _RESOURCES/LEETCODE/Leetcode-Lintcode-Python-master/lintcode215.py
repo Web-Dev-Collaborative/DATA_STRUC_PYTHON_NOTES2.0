@@ -11,16 +11,16 @@ class Solution:
         self.logs = {}
 
     def isRatelimited(self, timestamp, event, rate, increment):
-        separator = rate.find('/')
+        separator = rate.find("/")
         total_time = int(rate[:separator])
-        unit = rate[separator + 1:]
+        unit = rate[separator + 1 :]
 
         delta = 0
-        if unit == 's':
+        if unit == "s":
             delta = 1
-        elif unit == 'm':
+        elif unit == "m":
             delta = 60
-        elif unit == 'h':
+        elif unit == "h":
             delta = 60 * 60
         else:
             delta = 60 * 60 * 24
@@ -28,7 +28,9 @@ class Solution:
         if event not in self.logs:
             self.logs[event] = []
 
-        is_limited = self.find_event(self.logs[event], timestamp - delta + 1) >= total_time
+        is_limited = (
+            self.find_event(self.logs[event], timestamp - delta + 1) >= total_time
+        )
         if increment and not is_limited:
             self.logs[event].append(timestamp)
 

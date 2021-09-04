@@ -10,14 +10,12 @@ def cocktail_sort(collection):
     while left <= right:
         for i in range(left, right, +1):
             if collection[i] > collection[i + 1]:
-                collection[i], collection[i +
-                                          1] = collection[i + 1], collection[i]
+                collection[i], collection[i + 1] = collection[i + 1], collection[i]
 
         right -= 1
         for i in range(right, left, -1):
             if collection[i - 1] > collection[i]:
-                collection[i], collection[i -
-                                          1] = collection[i - 1], collection[i]
+                collection[i], collection[i - 1] = collection[i - 1], collection[i]
         left += 1
         counter += 1
         print("Step %i -->" % counter, collection)

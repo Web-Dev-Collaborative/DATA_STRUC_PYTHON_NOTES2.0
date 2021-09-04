@@ -38,8 +38,7 @@ def markov(corpus, start, length):
 
 if __name__ == "__main__":
     # Parse cli arguments
-    parser = argparse.ArgumentParser(
-        description="Generate a random latin locution.")
+    parser = argparse.ArgumentParser(description="Generate a random latin locution.")
     parser.add_argument(
         "demo_type",
         type=str,

@@ -4,7 +4,8 @@ class Solution(object):
         :type board: List[List[int]]
         :rtype: None Do not return anything, modify board in-place instead.
         """
-        if not board or len(board) == 0 or len(board[0]) == 0: return
+        if not board or len(board) == 0 or len(board[0]) == 0:
+            return
         for i in range(len(board)):
             for j in range(len(board[0])):
                 lives = self.findLives(board, i, j)

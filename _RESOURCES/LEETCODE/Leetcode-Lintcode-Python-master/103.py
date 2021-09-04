@@ -13,9 +13,12 @@ from typing import List
 Time: O(N)
 Space: O(W), W refers to the width of tree
 """
+
+
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
-        if not root: return []
+        if not root:
+            return []
         result, queue = [], deque([(root, 1)])
 
         while queue:
@@ -32,10 +35,12 @@ class Solution:
                 queue.append((node.right, level + 1))
         return result
 
+
 # DFS
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
-        if not root: return []
+        if not root:
+            return []
         result = []
 
         def dfs(result, level, node):

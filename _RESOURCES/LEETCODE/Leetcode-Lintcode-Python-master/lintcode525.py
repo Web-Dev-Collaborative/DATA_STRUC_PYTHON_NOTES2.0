@@ -1,4 +1,4 @@
-'''
+"""
 Definition of Trip:
 class Trip:
     self.id; # trip's id, primary key
@@ -11,19 +11,17 @@ class Helper:
     @classmethod
     def get_distance(cls, lat1, lng1, lat2, lng2):
         # return calculate the distance between (lat1, lng1) and (lat2, lng2)
-'''
+"""
 from Trip import Trip, Helper
 
 
 class Location:
-
     def __init__(self, lat, lng):
         self.lat = lat
         self.lng = lng
 
 
 class MiniUber:
-
     def __init__(self):
         self.driver2location = {}
         self.driver2trip = {}
@@ -51,7 +49,7 @@ class MiniUber:
         distance, driver_id = -1, -1
 
         for key, value in self.driver2location.items():
-            dis = Helper.get_distance(value.lat, value.lng, lat, lng);
+            dis = Helper.get_distance(value.lat, value.lng, lat, lng)
             if distance < 0 or distance > dis:
                 driver_id = key
                 distance = dis
@@ -59,7 +57,7 @@ class MiniUber:
         if driver_id != -1:
             del self.driver2location[driver_id]
 
-        trip.driver_id = driver_id;
+        trip.driver_id = driver_id
         self.driver2trip[driver_id] = trip
 
         return trip

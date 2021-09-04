@@ -10,7 +10,8 @@ from collections import deque
 
 class Solution:
     def rightSideView(self, root: TreeNode) -> List[int]:
-        if not root: return []
+        if not root:
+            return []
         queue = deque([(root, 1)])
         result = []
 

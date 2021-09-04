@@ -1,5 +1,6 @@
 # Time: O(n)
 
+
 class Solution:
     def minSubArrayLen(self, s, nums):
         """

@@ -1,5 +1,6 @@
 import string
 
+
 class TrieNode:
     def __init__(self):
         self.isWord = False
@@ -59,4 +60,3 @@ class Solution:
                     newf[i] = min(f[i - 1], newf[i])
                 newf[i] = min(newf[i - 1] + 1, newf[i])
             self.dfs(node.children[c], newf, result, n, k, target)
-

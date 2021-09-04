@@ -82,5 +82,4 @@ if __name__ == "__main__":
     )
 
     t = datetime.timedelta(seconds=int(time.process_time() - t))
-    input(
-        f"\n\n Password found: {password}\n Attempts: {attempts}\n Time: {t}\n")
+    input(f"\n\n Password found: {password}\n Attempts: {attempts}\n Time: {t}\n")

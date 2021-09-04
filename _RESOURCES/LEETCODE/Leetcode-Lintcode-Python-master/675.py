@@ -4,7 +4,8 @@ from collections import deque
 
 class Solution:
     def cutOffTree(self, forest: List[List[int]]) -> int:
-        if not forest or not forest[0]: return 0
+        if not forest or not forest[0]:
+            return 0
         m, n = len(forest), len(forest[0])
 
         q = []
@@ -36,8 +37,12 @@ class Solution:
                 return distance
             for direction in directions:
                 new_x, new_y = x + direction[0], y + direction[1]
-                if 0 <= new_x < len(forest) and 0 <= new_y < len(forest[0]) and forest[new_x][new_y] > 0 and (
-                new_x, new_y) not in visited:
+                if (
+                    0 <= new_x < len(forest)
+                    and 0 <= new_y < len(forest[0])
+                    and forest[new_x][new_y] > 0
+                    and (new_x, new_y) not in visited
+                ):
                     queue.append((new_x, new_y, distance + 1))
                     visited.add((new_x, new_y))
         return -1

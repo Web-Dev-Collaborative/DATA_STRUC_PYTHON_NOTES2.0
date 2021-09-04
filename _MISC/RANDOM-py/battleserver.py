@@ -106,13 +106,13 @@ class Board(object):
                         f"Unable to place ship '{name}' of size {size} at position {x}, {y} horizontally... ({x + size} > {self.x})"
                     )
                 return 1
-            if not set(self.board[x: x + size, y]) == {0}:
+            if not set(self.board[x : x + size, y]) == {0}:
                 if debug:
                     print(
                         f"Unable to place ship '{name}' at position {x}, {y} horizontally: line from {x} to {x+size} is not empty!"
                     )
                 return 3
-            self.board[x: x + size, y] = uint8_of_symbol[symbol_of_ship[name]]
+            self.board[x : x + size, y] = uint8_of_symbol[symbol_of_ship[name]]
         else:
             if y + size > self.y:
                 if debug:
@@ -120,13 +120,13 @@ class Board(object):
                         f"Unable to place ship '{name}' of size {size} at position {x}, {y} vertically... ({x + size} > {self.x})"
                     )
                 return 2
-            if not set(self.board[x, y: y + size]) == {0}:
+            if not set(self.board[x, y : y + size]) == {0}:
                 if debug:
                     print(
                         f"Unable to place ship '{name}' at position {x}, {y} vertically: row from {y} to {y+size} is not empty!"
                     )
                 return 4
-            self.board[x, y: y + size] = uint8_of_symbol[symbol_of_ship[name]]
+            self.board[x, y : y + size] = uint8_of_symbol[symbol_of_ship[name]]
         return 0
 
     def random_add_ship(self, name, maxTrials=100):
@@ -195,8 +195,7 @@ def main(args):
                 board.random_add_ship(name)
             else:
                 x, y, direction = args[f"--{name.lower()}"].split(",")
-                board.add_ship(name, x=int(x) - 1, y=int(y) -
-                               1, direction=direction)
+                board.add_ship(name, x=int(x) - 1, y=int(y) - 1, direction=direction)
     if args["--show"]:
         return board.show()
     elif args["--play"]:
@@ -204,6 +203,5 @@ def main(args):
 
 
 if __name__ == "__main__":
-    arguments = docopt(
-        documentation, version=f"{__name_of_app__} v{__version__}")
+    arguments = docopt(documentation, version=f"{__name_of_app__} v{__version__}")
     sys.exit(main(arguments))

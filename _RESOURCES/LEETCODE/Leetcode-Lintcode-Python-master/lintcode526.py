@@ -23,7 +23,8 @@ class LoadBalancer:
     """
 
     def remove(self, server_id):
-        if server_id not in self.id2index: return
+        if server_id not in self.id2index:
+            return
         idx = self.id2index[server_id]
 
         self.id2index[self.cluster[-1]] = idx

@@ -12,12 +12,12 @@ class Solution:
         :type S: str
         :rtype: str
         """
-        result = ''
+        result = ""
         c = Counter(S)
         l = []
         for k, v in c.items():
             heapq.heappush(l, (-v, k))
-        prev_v, prev_k = 0, ''
+        prev_v, prev_k = 0, ""
         while l:
             v, k = heapq.heappop(l)
             result += k

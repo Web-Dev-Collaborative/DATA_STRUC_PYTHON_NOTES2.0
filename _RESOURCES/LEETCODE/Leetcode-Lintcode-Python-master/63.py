@@ -8,5 +8,5 @@ class Solution:
                 if obstacleGrid[i][j] == 1:
                     dp[j] = 0
                 elif j >= 1:
-                    dp[j] += dp[j-1]
+                    dp[j] += dp[j - 1]
         return dp[-1]

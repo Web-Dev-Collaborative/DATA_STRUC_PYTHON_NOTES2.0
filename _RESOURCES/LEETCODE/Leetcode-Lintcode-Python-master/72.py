@@ -1,7 +1,9 @@
-'''
+"""
 Time: O(mn)
 Space: O(m or n)
-'''
+"""
+
+
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         prev = [0]

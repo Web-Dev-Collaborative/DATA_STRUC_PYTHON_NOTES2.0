@@ -2,7 +2,6 @@ from collections import defaultdict
 
 
 class RandomizedCollection:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -36,6 +35,7 @@ class RandomizedCollection:
         Get a random element from the collection.
         """
         return self.nums[random.randint(0, len(self.nums) - 1)]
+
 
 # Your RandomizedCollection object will be instantiated and called as such:
 # obj = RandomizedCollection()

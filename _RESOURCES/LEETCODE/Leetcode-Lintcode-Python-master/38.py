@@ -39,9 +39,10 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
-        result = '1'
+        result = "1"
         for i in range(n - 1):
-            result = "".join(str(len(list(group))) + str(digit) for digit, group in itertools.groupby(result))
+            result = "".join(
+                str(len(list(group))) + str(digit)
+                for digit, group in itertools.groupby(result)
+            )
         return result
-
-

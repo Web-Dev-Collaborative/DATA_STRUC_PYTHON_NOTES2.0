@@ -1,6 +1,7 @@
 edges_dict = {}
 visited_nodes = {}
 
+
 def expected_time(j, t):
 
     global visited_nodes
@@ -17,7 +18,7 @@ def expected_time(j, t):
         for k in connected_edges:
             time += expected_time(k, t)
 
-        time = t[j] + time/float(q)
+        time = t[j] + time / float(q)
 
     return time
 
@@ -26,7 +27,7 @@ def relatedQuestions(n, t, edges):
 
     if n == 1:
         return 0
-    
+
     global visited_nodes
 
     for pair in edges:
@@ -34,7 +35,7 @@ def relatedQuestions(n, t, edges):
         left, right = pair[0], pair[1]
         left1, right1 = pair[1], pair[0]
 
-        for l,r in zip([left, right], [left1, right1]):
+        for l, r in zip([left, right], [left1, right1]):
             if l in edges_dict:
                 edges_dict[l] += [r]
             else:
@@ -48,6 +49,5 @@ def relatedQuestions(n, t, edges):
         total_t[j] = total_t_j
 
     ret_key = min(total_t, key=total_t.get)
-    
-    return ret_key
 
+    return ret_key

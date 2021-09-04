@@ -30,8 +30,7 @@ total_marks = (
     mathematics_marks + physics_marks + chemistry_marks + islamiat_marks + urdu_marks
 )
 obtained_marks = mathematics + chemistry + physics + urdu + islamiat
-percentage = round(obtained_marks / total_marks * 100,
-                   2)  # round to two decimal point
+percentage = round(obtained_marks / total_marks * 100, 2)  # round to two decimal point
 
 # defining variables for grades
 grade_A = "Grade: Grade A"

@@ -1,5 +1,4 @@
 class CombinationIterator:
-
     def __init__(self, characters: str, combinationLength: int):
         self.characters = characters
         self.combinationLength = combinationLength
@@ -17,12 +16,14 @@ class CombinationIterator:
         total = 1 << n
         for i in range(total):
             c = bin(i)[2:].zfill(n)
-            if sum([1 for i in c if i == '1']) == self.combinationLength:
+            if sum([1 for i in c if i == "1"]) == self.combinationLength:
                 combination = []
                 for j in range(n):
-                    if c[j] == '1': combination.append(self.characters[j])
-                result.append(''.join(combination))
+                    if c[j] == "1":
+                        combination.append(self.characters[j])
+                result.append("".join(combination))
         return result
+
 
 # Your CombinationIterator object will be instantiated and called as such:
 # obj = CombinationIterator(characters, combinationLength)

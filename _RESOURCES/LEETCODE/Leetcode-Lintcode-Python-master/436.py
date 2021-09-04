@@ -1,6 +1,7 @@
 class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
-        if len(intervals) <= 1: return [-1]
+        if len(intervals) <= 1:
+            return [-1]
         L = sorted((interval[0], i) for i, interval in enumerate(intervals))
         result = []
 

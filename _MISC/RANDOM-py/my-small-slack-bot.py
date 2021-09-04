@@ -40,8 +40,7 @@ HOURS = 60 * MINUTES
 
 QUOTE_FILE = os.getenv("quotes", expanduser(join("~", ".quotes.txt")))
 
-SLACK_TOKEN = open(expanduser(join("~", ".slack_api_key")),
-                   "r").readline().strip()
+SLACK_TOKEN = open(expanduser(join("~", ".slack_api_key")), "r").readline().strip()
 
 USE_CHANNEL = False  # DEBUG
 USE_CHANNEL = True
@@ -107,28 +106,22 @@ def get_reactions(list_of_ts_channel, sc):
             logging.debug("reaction =", reaction)
             if "message" not in reaction:
                 continue
-            text = {t["name"]: t["count"]
-                    for t in reaction["message"]["reactions"]}
+            text = {t["name"]: t["count"] for t in reaction["message"]["reactions"]}
             logging.info("text =", text)
             if any(s in text.keys() for s in POSITIVE_REACTIONS):
                 nb = max(
-                    [0.5] + [text[s]
-                             for s in POSITIVE_REACTIONS if s in text.keys()]
+                    [0.5] + [text[s] for s in POSITIVE_REACTIONS if s in text.keys()]
                 )
-                logging.info(
-                    "I read {} positive reactions ...".format(int(nb)))
+                logging.info("I read {} positive reactions ...".format(int(nb)))
                 scale_factor /= 2 * nb
             elif any(s in text for s in NEGATIVES_REACTIONS):
                 nb = max(
-                    [0.5] + [text[s]
-                             for s in NEGATIVES_REACTIONS if s in text.keys()]
+                    [0.5] + [text[s] for s in NEGATIVES_REACTIONS if s in text.keys()]
                 )
-                logging.info(
-                    "I read {} negative reactions ...".format(int(nb)))
+                logging.info("I read {} negative reactions ...".format(int(nb)))
                 scale_factor *= 2 * nb
             elif "rage" in text:
-                raise ValueError(
-                    "One user reacted with :rage:, the bot will quit...")
+                raise ValueError("One user reacted with :rage:, the bot will quit...")
         return scale_factor
     except KeyError:
         return scale_factor
@@ -180,8 +173,7 @@ def loop(quote_file=QUOTE_FILE):
         secs = sleeptime(lmbda)
         str_secs = time.asctime(time.localtime(time.time() + secs))
         logging.info(
-            "  ... Next message in {} seconds, at {} ...".format(
-                secs, str_secs)
+            "  ... Next message in {} seconds, at {} ...".format(secs, str_secs)
         )
         sleep_bar(secs)
         # 3. get response
@@ -195,8 +187,7 @@ def loop(quote_file=QUOTE_FILE):
         except KeyError:
             pass
         logging.info(
-            "  Currently, the mean time between messages is {} ...".format(
-                lmbda)
+            "  Currently, the mean time between messages is {} ...".format(lmbda)
         )
     return 0
 

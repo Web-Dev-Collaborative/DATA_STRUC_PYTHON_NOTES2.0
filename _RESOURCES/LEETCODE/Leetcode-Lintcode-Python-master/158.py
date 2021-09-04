@@ -14,8 +14,9 @@ class Solution:
                 buf[i] = self.q.popleft()
                 i += 1
             else:
-                buf4 = [' '] * 4
+                buf4 = [" "] * 4
                 count = read4(buf4)
-                if not count: break
+                if not count:
+                    break
                 self.q += buf4[:count]
         return i

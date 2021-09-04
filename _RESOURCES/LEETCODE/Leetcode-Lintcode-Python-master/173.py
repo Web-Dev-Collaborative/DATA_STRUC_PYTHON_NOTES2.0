@@ -7,6 +7,7 @@
 class BSTIterator:
     def __init__(self, root: TreeNode):
         self.result = []
+
         def dfs(root):
             if not root:
                 return
@@ -15,6 +16,7 @@ class BSTIterator:
             self.result.append(root.val)
             if root.left:
                 dfs(root.left)
+
         dfs(root)
 
     def next(self) -> int:

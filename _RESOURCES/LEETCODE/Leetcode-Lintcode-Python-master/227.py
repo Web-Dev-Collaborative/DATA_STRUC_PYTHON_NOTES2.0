@@ -1,13 +1,17 @@
 class Solution:
     def calculate(self, s: str) -> int:
         def compute(num1, num2, op):
-            if op == '-': return num2 - num1
-            if op == '+': return num1 + num2
-            if op == '*': return num1 * num2
-            if op == '/': return num2 // num1
+            if op == "-":
+                return num2 - num1
+            if op == "+":
+                return num1 + num2
+            if op == "*":
+                return num1 * num2
+            if op == "/":
+                return num2 // num1
 
         def precede(op1, op2):
-            if op1 in {'*', '/'} and op2 in {'+', '-'}:
+            if op1 in {"*", "/"} and op2 in {"+", "-"}:
                 return True
             return False
 
@@ -21,7 +25,7 @@ class Solution:
                     i += 1
                 nums.append(num)
             else:
-                if s[i] in {'+', '-', '*', '/'}:
+                if s[i] in {"+", "-", "*", "/"}:
                     while ops and not precede(s[i], ops[-1]):
                         nums.append(compute(nums.pop(), nums.pop(), ops.pop()))
                     ops.append(s[i])

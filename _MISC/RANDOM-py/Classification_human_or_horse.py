@@ -25,8 +25,7 @@ model = tf.keras.models.Sequential(
 )
 model.summary()
 
-model.compile(optimizer=RMSprop(lr=0.001),
-              loss="binary_crossentropy", metrics=["acc"])
+model.compile(optimizer=RMSprop(lr=0.001), loss="binary_crossentropy", metrics=["acc"])
 
 train_datagen = ImageDataGenerator(rescale=1 / 255)
 train_generator = train_datagen.flow_from_directory(

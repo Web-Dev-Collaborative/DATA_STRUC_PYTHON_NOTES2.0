@@ -39,8 +39,7 @@ def check_iban(iban):
 def main(args):
     try:
         if not args:
-            check_iban(
-                "HAHA LOL YOU THOUGH I WILL LET A REAL IBAN IN MY SCRIPT")
+            check_iban("HAHA LOL YOU THOUGH I WILL LET A REAL IBAN IN MY SCRIPT")
         else:
             for iban in args:
                 check_iban(iban)

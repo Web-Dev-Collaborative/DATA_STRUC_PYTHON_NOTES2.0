@@ -18,8 +18,10 @@ class Solution:
         return result
 
     def dfs(self, curr, result, graph, visited):
-        if visited[curr] == 1: return True
-        if visited[curr] == -1: return False
+        if visited[curr] == 1:
+            return True
+        if visited[curr] == -1:
+            return False
         visited[curr] = -1
         for child in graph[curr]:
             if not self.dfs(child, result, graph, visited):
@@ -27,6 +29,7 @@ class Solution:
         visited[curr] = 1
         result.insert(0, curr)
         return True
+
 
 ## BFS
 class Solution:

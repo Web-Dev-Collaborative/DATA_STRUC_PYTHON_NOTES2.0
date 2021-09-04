@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def inorderSuccessor(self, root, p):
         """
@@ -22,9 +23,8 @@ class Solution(object):
         return successor
 
 
-
 class Solution:
-    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+    def inorderSuccessor(self, root: "TreeNode", p: "TreeNode") -> "TreeNode":
         if not root:
             return None
         if root.val <= p.val:

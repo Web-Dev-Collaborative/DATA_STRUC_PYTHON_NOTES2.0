@@ -25,8 +25,7 @@ from sys import exit, argv
 # Create and compile now the required regexp
 url_finder = re.compile(r'http[^"]*')
 query_finder = re.compile(r"data.query = JSON.parse\('\{[^\n]*")
-searchResponse_finder = re.compile(
-    r"data.searchResponse = JSON.parse\('\{[^\n]*")
+searchResponse_finder = re.compile(r"data.searchResponse = JSON.parse\('\{[^\n]*")
 
 
 # url0 = "http://www.voyages-sncf.com//vsc/train-ticket/?_LANG=fr&site_country=FR&site_language=fr&ORIGIN_CITY=Toulon&DESTINATION_CITY=Paris%20%28Toutes%20gares%20intramuros%29&OUTWARD_DATE=31/05/2016&OUTWARD_TIME=15&INWARD_DATE=&INWARD_TIME=7&COMFORT_CLASS=2&DISTRIBUTED_COUNTRY=FR&NB_TYPO_ADULT=1&bookingChoice=train&PASSENGER_1=YOUNG&PASSENGER_1_CARD=MI1ST&PASSENGER_1_FID_PROG=&PASSENGER_1FID_NUM_BEGIN=&CODE_PROMO_1=&action:searchTravel=Rechercher"
@@ -56,7 +55,7 @@ def main(url, MY_OUTWARD_TIME):
     # print("1. Next url =", next_url)
     # - Second solution: search with a regexp
     m = url_finder.search(res)
-    next_url = m.string[m.start(): m.end()]
+    next_url = m.string[m.start() : m.end()]
     print("Next url =", next_url, "...")
     # Follow this url
     b.open(next_url)
@@ -65,23 +64,22 @@ def main(url, MY_OUTWARD_TIME):
     content = script.contents[0]
     # 1. Search for the query to display it nicely again
     m = query_finder.search(content)
-    jsontext = m.string[m.start(): m.end()]
+    jsontext = m.string[m.start() : m.end()]
     # print(jsontext)
     beginning = "data.query = JSON.parse('"
     end = "');"
-    query = jsontext[len(beginning): -len(end)]
-    jsonrawstr = query.replace(r"\"", '"').replace(
-        r"\'", "'")  # \" > ", \' > '
+    query = jsontext[len(beginning) : -len(end)]
+    jsonrawstr = query.replace(r"\"", '"').replace(r"\'", "'")  # \" > ", \' > '
     # print(jsonrawstr)
     jsonobj = json.loads(jsonrawstr)
     print(json.dumps(jsonobj, sort_keys=True, indent=4))
     # 2. Search for the result
     m = searchResponse_finder.search(content)
-    jsontext = m.string[m.start(): m.end()]
+    jsontext = m.string[m.start() : m.end()]
     # print(jsontext)
     beginning = "data.searchResponse = JSON.parse('"
     end = "');"
-    searchResponse = jsontext[len(beginning): -len(end)]
+    searchResponse = jsontext[len(beginning) : -len(end)]
     # print(searchResponse)
     jsonrawstr = searchResponse.replace(r"\"", '"').replace(
         r"\'", "'"
@@ -140,8 +138,7 @@ if __name__ == "__main__":
     MY_OUTWARD_TIME = (
         argv[3] if len(argv) > 3 and argv[3] else "17:43"
     )  # XXX too specific
-    ORIGIN_CITY = argv[4] if len(
-        argv) > 4 and argv[4] else "Toulon"  # XXX too specific
+    ORIGIN_CITY = argv[4] if len(argv) > 4 and argv[4] else "Toulon"  # XXX too specific
     # DESTINATION_CITY = argv[5] if len(argv) > 5 and argv[5] else 'Paris'  # XXX too specific
     DESTINATION_CITY = (
         argv[5]

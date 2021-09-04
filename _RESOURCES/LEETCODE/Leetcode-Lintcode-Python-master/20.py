@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        maps = {'(':')', '{':'}', '[':']'}
+        maps = {"(": ")", "{": "}", "[": "]"}
         stack = []
         for c in s:
             if c in maps:

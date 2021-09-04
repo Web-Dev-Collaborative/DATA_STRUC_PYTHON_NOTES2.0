@@ -4,7 +4,8 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        if not nums: return -1
+        if not nums:
+            return -1
         l, r = 0, len(nums) - 1
         while l < r:
             m = l + (r - l) // 2

@@ -1,6 +1,8 @@
-'''
+"""
 Time complexity: O(N*N!)
-'''
+"""
+
+
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         result = []
@@ -11,9 +13,10 @@ class Solution:
                 result.append(path)
                 return
             for i in range(len(A)):
-                if i > 0 and A[i - 1] == A[i]: continue
+                if i > 0 and A[i - 1] == A[i]:
+                    continue
                 curr = A[i]
-                find(path + [curr], A[:i] + A[i + 1:])
+                find(path + [curr], A[:i] + A[i + 1 :])
 
         find([], nums)
         return result

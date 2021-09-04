@@ -11,8 +11,7 @@ ask = Ask(app, "/reddit_reader")
 
 
 def get_headlines():
-    user_pass_dict = {"user": "USERNAME",
-                      "passwd": "PASSWORD", "api_type": "json"}
+    user_pass_dict = {"user": "USERNAME", "passwd": "PASSWORD", "api_type": "json"}
     sess = requests.Session()
     sess.headers.update({"User-Agent": "I am testing Alexa: nobi"})
     sess.post("https://www.reddit.com/api/login/", data=user_pass_dict)

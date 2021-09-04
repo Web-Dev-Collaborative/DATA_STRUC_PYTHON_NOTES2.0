@@ -5,8 +5,7 @@ class Anagram:
         # Write your code here
         # Please use 'yield key, value' here
         for word in line.split():
-            yield ''.join(sorted(list(word))), word
-
+            yield "".join(sorted(list(word))), word
 
     # @param key is from mapper
     # @param values is a set of value with the same key

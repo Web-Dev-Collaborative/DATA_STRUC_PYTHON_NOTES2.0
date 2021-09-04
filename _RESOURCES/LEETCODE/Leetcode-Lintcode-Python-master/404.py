@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def sumOfLeftLeaves(self, root):
         """
@@ -23,7 +24,8 @@ from collections import deque
 
 class Solution:
     def sumOfLeftLeaves(self, root: TreeNode) -> int:
-        if not root: return 0
+        if not root:
+            return 0
         q, result = deque([root]), 0
         while q:
             curr = q.popleft()

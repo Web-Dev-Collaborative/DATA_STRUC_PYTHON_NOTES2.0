@@ -12,7 +12,7 @@ class AutocompleteSystem:
     def __init__(self, sentences: List[str], times: List[int]):
         self.root = TrieNode()
         self.curr = self.root
-        self.sentence = ''
+        self.sentence = ""
         for i in range(len(sentences)):
             self.add(sentences[i], times[i])
 
@@ -23,9 +23,9 @@ class AutocompleteSystem:
             curr.count[s] += t
 
     def input(self, c: str) -> List[str]:
-        if c == '#':
+        if c == "#":
             self.add(self.sentence, 1)
-            self.sentence = ''
+            self.sentence = ""
             self.curr = self.root
             return []
         self.sentence += c
@@ -38,7 +38,6 @@ class AutocompleteSystem:
                 _, s = heapq.heappop(q)
                 result.append(s)
         return result
-
 
         # Your AutocompleteSystem object will be instantiated and called as such:
         # obj = AutocompleteSystem(sentences, times)

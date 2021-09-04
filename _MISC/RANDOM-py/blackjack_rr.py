@@ -257,8 +257,7 @@ while True:
     print("\nYour current balance stands at", player_chips.total)
 
     if player_chips.total > 0:
-        new_game = input(
-            "Would you like to play another hand? Enter '1' or '0' ")
+        new_game = input("Would you like to play another hand? Enter '1' or '0' ")
         if new_game.lower() == "1":
             playing = True
             continue

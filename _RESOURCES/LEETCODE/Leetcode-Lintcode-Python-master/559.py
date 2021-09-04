@@ -9,8 +9,9 @@ from collections import deque
 
 
 class Solution:
-    def maxDepth(self, root: 'Node') -> int:
-        if not root: return 0
+    def maxDepth(self, root: "Node") -> int:
+        if not root:
+            return 0
         queue = deque([(root, 1)])
         result = 0
 

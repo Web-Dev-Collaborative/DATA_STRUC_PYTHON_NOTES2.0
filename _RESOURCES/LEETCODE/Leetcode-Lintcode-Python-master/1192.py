@@ -1,6 +1,8 @@
 # Time: O(|E|)
 class Solution:
-    def criticalConnections(self, n: int, connections: List[List[int]]) -> List[List[int]]:
+    def criticalConnections(
+        self, n: int, connections: List[List[int]]
+    ) -> List[List[int]]:
         connections = set(tuple(sorted(edge)) for edge in connections)
         graph = defaultdict(list)
         for connection in connections:
@@ -12,7 +14,8 @@ class Solution:
         redundant_edge = set()
 
         def getRank(u, depth):
-            if rank[u] >= 0: return rank[u]
+            if rank[u] >= 0:
+                return rank[u]
             rank[u] = depth
             min_backtrack_depth = n
             for v in graph[u]:

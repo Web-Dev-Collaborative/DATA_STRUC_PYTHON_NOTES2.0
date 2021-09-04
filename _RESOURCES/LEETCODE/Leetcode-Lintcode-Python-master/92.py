@@ -6,7 +6,8 @@ class Solution:
         :type n: int
         :rtype: ListNode
         """
-        if not head: return None
+        if not head:
+            return None
         dummy = ListNode(0)
         dummy.next = head
         prev = dummy

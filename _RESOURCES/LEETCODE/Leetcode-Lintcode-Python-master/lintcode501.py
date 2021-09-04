@@ -1,15 +1,14 @@
-'''
+"""
 Definition of Tweet:
 class Tweet:
     @classmethod
     def create(cls, user_id, tweet_text):
          # This will create a new tweet object,
          # and auto fill id
-'''
+"""
 
 
 class MiniTwitter:
-
     def __init__(self):
         self.order = 0
         self.users_tweets = {}

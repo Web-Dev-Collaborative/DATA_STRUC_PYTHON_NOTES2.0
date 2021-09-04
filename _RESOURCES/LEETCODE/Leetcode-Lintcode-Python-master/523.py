@@ -1,6 +1,6 @@
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
-        d = {0:-1}
+        d = {0: -1}
         total, m = 0, 0
         for i in range(len(nums)):
             total += nums[i]

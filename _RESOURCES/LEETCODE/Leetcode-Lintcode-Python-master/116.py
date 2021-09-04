@@ -8,9 +8,11 @@ class Node:
         self.next = next
 """
 
+
 class Solution:
-    def connect(self, root: 'Node') -> 'Node':
-        if not root: return None
+    def connect(self, root: "Node") -> "Node":
+        if not root:
+            return None
         dummy = root
         queue = [root]
         while queue:

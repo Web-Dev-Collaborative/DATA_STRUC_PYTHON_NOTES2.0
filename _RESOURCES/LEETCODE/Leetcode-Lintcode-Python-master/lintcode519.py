@@ -9,7 +9,10 @@ class Solution:
         for i in range(1, n):
             index = 0
             for j in range(i):
-                if results[j][1] - results[j][0] + 1 > results[index][1] - results[index][0] + 1:
+                if (
+                    results[j][1] - results[j][0] + 1
+                    > results[index][1] - results[index][0] + 1
+                ):
                     index = j
 
             x, y = results[index][0], results[index][1]

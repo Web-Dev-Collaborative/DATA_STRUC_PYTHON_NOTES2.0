@@ -13,7 +13,11 @@ class Solution:
         :rtype: List[int]
         """
         if root:
-            return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+            return (
+                [root.val]
+                + self.preorderTraversal(root.left)
+                + self.preorderTraversal(root.right)
+            )
         return []
 
         # iterative

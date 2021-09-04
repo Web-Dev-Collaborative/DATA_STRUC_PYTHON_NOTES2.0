@@ -14,5 +14,5 @@ class Solution:
         return True
 
     def isValid(self, data):
-        data = [int(item) for item in data if item != '.']
+        data = [int(item) for item in data if item != "."]
         return len(set(data)) == len(data)

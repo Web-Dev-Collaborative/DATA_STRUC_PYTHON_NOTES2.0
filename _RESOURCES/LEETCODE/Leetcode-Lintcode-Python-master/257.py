@@ -13,7 +13,8 @@
 #         self.right = right
 class Solution:
     def binaryTreePaths(self, root: TreeNode) -> List[str]:
-        if not root: return []
+        if not root:
+            return []
         result = []
         self.findPath(root, str(root.val), result)
         return result
@@ -23,9 +24,10 @@ class Solution:
             result.append(path)
             return
         if node.left:
-            self.findPath(node.left, path + '->' + str(node.left.val), result)
+            self.findPath(node.left, path + "->" + str(node.left.val), result)
         if node.right:
-            self.findPath(node.right, path + '->' + str(node.right.val), result)
+            self.findPath(node.right, path + "->" + str(node.right.val), result)
+
 
 class Solution:
     def binaryTreePaths(self, root):
@@ -42,7 +44,7 @@ class Solution:
             if not node.left and not node.right:
                 result.append(s)
             if node.right:
-                stack.append((node.right, s + '->' + str(node.right.val)))
+                stack.append((node.right, s + "->" + str(node.right.val)))
             if node.left:
-                stack.append((node.left, s + '->' + str(node.left.val)))
+                stack.append((node.left, s + "->" + str(node.left.val)))
         return result

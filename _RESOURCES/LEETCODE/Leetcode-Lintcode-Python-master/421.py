@@ -1,6 +1,7 @@
 # if result ^ 1 ^ p = z, if z in prefix
 # which means we have two numbers p ^ z = result + 1
 
+
 class Solution:
     def findMaximumXOR(self, nums: List[int]) -> int:
         result = 0

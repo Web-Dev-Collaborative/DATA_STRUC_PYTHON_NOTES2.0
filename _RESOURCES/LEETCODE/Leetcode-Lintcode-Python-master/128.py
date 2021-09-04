@@ -1,7 +1,8 @@
 # Union Find
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        if not nums: return 0
+        if not nums:
+            return 0
         length = {}
         unions = {}
         nums = set(nums)
@@ -42,20 +43,23 @@ class Solution:
                 next = num + 1
                 while next in nums:
                     next += 1
-                result = max(result, next-num)
+                result = max(result, next - num)
         return result
 
 
 # Without the constraint of O(N) time complexity
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        if not nums or len(nums) == 0: return 0
-        if len(nums) < 2: return 1
+        if not nums or len(nums) == 0:
+            return 0
+        if len(nums) < 2:
+            return 1
         nums.sort()
         result, l = 1, 1
         for i in range(1, len(nums)):
-            if nums[i] == nums[i-1]: continue
-            if nums[i] - nums[i-1] == 1:
+            if nums[i] == nums[i - 1]:
+                continue
+            if nums[i] - nums[i - 1] == 1:
                 l += 1
             else:
                 l = 1

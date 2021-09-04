@@ -8,7 +8,6 @@ class Column:
 
 
 class MiniCassandra:
-
     def __init__(self):
         self.memory = {}
 

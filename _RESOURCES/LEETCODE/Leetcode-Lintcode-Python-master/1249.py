@@ -3,9 +3,9 @@ class Solution:
         stack = []
         removal = set()
         for i in range(len(s)):
-            if s[i] == '(':
+            if s[i] == "(":
                 stack.append(i)
-            elif s[i] == ')':
+            elif s[i] == ")":
                 if not stack:
                     removal.add(i)
                 else:

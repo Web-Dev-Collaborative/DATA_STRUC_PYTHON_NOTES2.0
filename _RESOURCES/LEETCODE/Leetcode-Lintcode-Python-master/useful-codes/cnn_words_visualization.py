@@ -7,7 +7,9 @@ def _get_highlight_offsets_with_cnn(text: str) -> List[Tuple[int, int]]:
 
     def get_ngrams(k, n, tokens):
         for i in range(n):
-            yield ' *'.join(re.escape(tokens[j]) for j in range(i, i + k) if j < len(tokens))
+            yield " *".join(
+                re.escape(tokens[j]) for j in range(i, i + k) if j < len(tokens)
+            )
 
     def get_index(c, n, top_n):
         _, indice = F.max_pool1d(c, n, return_indices=True)
@@ -40,7 +42,15 @@ def _get_highlight_offsets_with_cnn(text: str) -> List[Tuple[int, int]]:
                 index = get_index(c, kernel_ngram[k], top_n=CNN_HIGHLIGHTS_TOP_N)
                 ngrams[k] = [filters[k][i] for i in index if filters[k][i]]
 
-    ngrams = list(w for ngram in ngrams.values() for w in ngram
-                  if len(w) > 1 and not INTRA_SENT_BOUNDARY_PATTERN.findall(w))
-    offsets = [(m.start(), m.end()) for ngram in ngrams for m in re.finditer(ngram, text, re.IGNORECASE)]
+    ngrams = list(
+        w
+        for ngram in ngrams.values()
+        for w in ngram
+        if len(w) > 1 and not INTRA_SENT_BOUNDARY_PATTERN.findall(w)
+    )
+    offsets = [
+        (m.start(), m.end())
+        for ngram in ngrams
+        for m in re.finditer(ngram, text, re.IGNORECASE)
+    ]
     return merge_offsets(offsets)

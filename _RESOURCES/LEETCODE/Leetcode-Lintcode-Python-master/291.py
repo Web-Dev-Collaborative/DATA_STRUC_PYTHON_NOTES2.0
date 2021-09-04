@@ -18,7 +18,8 @@ class Solution:
             else:
                 for end in range(j + 1, len(str) + 1):
                     ss = str[j:end]
-                    if ss in visited_str: continue
+                    if ss in visited_str:
+                        continue
                     visited_pattern[c] = ss
                     visited_str.add(ss)
                     if backtrack(i + 1, end):

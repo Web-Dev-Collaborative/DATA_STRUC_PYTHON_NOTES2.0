@@ -5,7 +5,6 @@ class TrieNode:
 
 
 class Trie:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -27,7 +26,8 @@ class Trie:
         """
         node = self.root
         for c in word:
-            if c not in node.children: return False
+            if c not in node.children:
+                return False
             node = node.children[c]
         return node.is_word
 
@@ -37,9 +37,11 @@ class Trie:
         """
         node = self.root
         for c in prefix:
-            if c not in node.children: return False
+            if c not in node.children:
+                return False
             node = node.children[c]
         return True
+
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()

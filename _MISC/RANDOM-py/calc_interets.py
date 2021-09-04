@@ -120,13 +120,11 @@ def calc_interets(comptes, taux=taux2020):
     for k in type_comptes:
         print(
             "Pour mon <blue>compte {:>4}<white>, avec <magenta>{:>10,.2f} €<white>, et un <cyan<taux à <u>{:>4,.2f}%<U><white> {} <green>intérêt ~= {:>6.2f} €<white>.".format(
-                k.upper(), comptes[k], taux[k], "→", comptes[k] *
-                taux[k] / 100.0
+                k.upper(), comptes[k], taux[k], "→", comptes[k] * taux[k] / 100.0
             )
         )
     print(
-        "<green>Intérêt estimé pour 2016 : {:.2f} €.<white>".format(
-            interet_fin_annee)
+        "<green>Intérêt estimé pour 2016 : {:.2f} €.<white>".format(interet_fin_annee)
     )
     print(
         "<red>Attention<white> : les vrais intérêts sont calculés toutes les quinzaines, mon estimation n'est pas précise !"
@@ -137,8 +135,7 @@ def calc_interets(comptes, taux=taux2020):
 def main(comptes, taux=taux2020):
     """ Affiche un beau diagramme camembert montrant la répartition de ses économies. """
     argenttotal = sum(comptes.values())
-    interets = sum(round(comptes[k] * taux[k] / 100.0, 3)
-                   for k in type_comptes)
+    interets = sum(round(comptes[k] * taux[k] / 100.0, 3) for k in type_comptes)
     print("Affichage d'un diagrame camembert en cours...")
     valeurs = list(comptes.values())
     print("Valeurs du diagrame : <black>{}<white>".format(valeurs))
@@ -183,8 +180,7 @@ def main(comptes, taux=taux2020):
     year = time.strftime("%Y", time.localtime())
     month = time.strftime("%m", time.localtime())
     day = time.strftime("%d", time.localtime())
-    outfile = "/home/lilian/Public/argent_{}-{}_{}.png".format(
-        day, month, year)
+    outfile = "/home/lilian/Public/argent_{}-{}_{}.png".format(day, month, year)
 
     print("Sauvegarde de ce graphique vers {} en cours...".format(outfile))
     plt.savefig(outfile)

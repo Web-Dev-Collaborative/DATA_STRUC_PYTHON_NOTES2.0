@@ -31,8 +31,7 @@ def batch_rename(work_dir, old_ext, new_ext):
             newfile = root_name + new_ext
 
             # Write the files
-            os.rename(os.path.join(work_dir, filename),
-                      os.path.join(work_dir, newfile))
+            os.rename(os.path.join(work_dir, filename), os.path.join(work_dir, newfile))
     print("rename is done!")
     print(os.listdir(work_dir))
 

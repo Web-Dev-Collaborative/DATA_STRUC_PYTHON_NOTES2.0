@@ -5,13 +5,17 @@
 #         self.left = left
 #         self.right = right
 
+
 class Solution:
     def largestValues(self, root: TreeNode) -> List[int]:
-        if not root: return []
+        if not root:
+            return []
         result = []
         queue = [root]
 
         while queue:
             result.append(max(node.val for node in queue))
-            queue = [child for node in queue for child in [node.left, node.right] if child]
+            queue = [
+                child for node in queue for child in [node.left, node.right] if child
+            ]
         return result

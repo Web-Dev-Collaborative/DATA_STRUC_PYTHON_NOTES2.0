@@ -1,5 +1,4 @@
 class Logger:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -20,6 +19,7 @@ class Logger:
         else:
             self.logger[message] = timestamp + 10
             return True
+
 
 # Your Logger object will be instantiated and called as such:
 # obj = Logger()

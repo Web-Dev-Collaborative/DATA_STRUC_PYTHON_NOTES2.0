@@ -5,7 +5,8 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        if not nums or len(nums) == 0: return [-1, -1]
+        if not nums or len(nums) == 0:
+            return [-1, -1]
 
         def findGreater(t):
             l, r = 0, len(nums) - 1

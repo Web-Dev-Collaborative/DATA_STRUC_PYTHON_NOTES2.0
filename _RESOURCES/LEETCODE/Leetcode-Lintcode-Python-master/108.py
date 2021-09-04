@@ -11,7 +11,8 @@ class Solution:
         return self.dfs(0, len(nums) - 1, nums)
 
     def dfs(self, low, high, nums):
-        if low > high: return None
+        if low > high:
+            return None
         m = low + (high - low) // 2
         root = TreeNode(nums[m])
         root.left = self.dfs(low, m - 1, nums)

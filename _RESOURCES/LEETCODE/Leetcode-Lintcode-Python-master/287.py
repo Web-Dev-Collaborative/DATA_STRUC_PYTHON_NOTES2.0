@@ -1,5 +1,6 @@
 # Time: O(nlogn)
 
+
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         result = 0

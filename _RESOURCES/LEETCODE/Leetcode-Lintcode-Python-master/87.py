@@ -2,6 +2,7 @@
 class Solution:
     def __init__(self):
         self.memo = {}
+
     def isScramble(self, s1, s2):
         """
         :type s1: str
@@ -17,9 +18,9 @@ class Solution:
             self.memo[(s1, s2)] = False
             return False
         for i in range(1, len(s1)):
-            if (self.isScramble(s1[:i], s2[:i]) and self.isScramble(s1[i:], s2[i:])):
+            if self.isScramble(s1[:i], s2[:i]) and self.isScramble(s1[i:], s2[i:]):
                 return True
-            if (self.isScramble(s1[:i], s2[-i:]) and self.isScramble(s1[i:], s2[:-i])):
+            if self.isScramble(s1[:i], s2[-i:]) and self.isScramble(s1[i:], s2[:-i]):
                 return True
         self.memo[(s1, s2)] = False
         return False

@@ -45,6 +45,5 @@ class Print(object):
         return msg
 
 
-cherrypy.config.update(
-    {"server.socket_host": "0.0.0.0", "server.socket_port": 9999})
+cherrypy.config.update({"server.socket_host": "0.0.0.0", "server.socket_port": 9999})
 cherrypy.quickstart(Print())

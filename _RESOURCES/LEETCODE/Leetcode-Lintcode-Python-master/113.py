@@ -11,7 +11,8 @@ class Solution:
         return result
 
     def dfs(self, node, sum, path, result):
-        if not node: return
+        if not node:
+            return
         if not node.left and not node.right and node.val == sum:
             result.append(path + [node.val])
             return

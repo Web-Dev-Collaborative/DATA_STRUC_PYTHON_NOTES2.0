@@ -14,5 +14,5 @@ class Solution:
             res.append(path[:])
             return
         for i in range(1, len(s) + 1):
-            if s[:i] == s[i - 1::-1]:
+            if s[:i] == s[i - 1 :: -1]:
                 self.dfs(res, path + [s[:i]], s[i:])

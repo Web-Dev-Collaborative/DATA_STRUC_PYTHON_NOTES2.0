@@ -1,5 +1,4 @@
 class MyCalendarThree:
-
     def __init__(self):
         self.maps = []
 
@@ -11,6 +10,7 @@ class MyCalendarThree:
             count += v
             result = max(result, count)
         return result
+
 
 # Your MyCalendarThree object will be instantiated and called as such:
 # obj = MyCalendarThree()

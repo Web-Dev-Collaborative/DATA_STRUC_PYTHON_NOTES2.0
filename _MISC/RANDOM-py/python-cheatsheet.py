@@ -18,6 +18,7 @@ import math as m
 from math import *
 from math import ceil, floor
 import math
+
 3  # => 3
 
 # Math is what you would expect
@@ -127,8 +128,7 @@ len("This is a string")  # => 16
 "{} can be {}".format("Strings", "interpolated")
 
 # You can repeat the formatting arguments to save some typing.
-"{0} be nimble, {0} be quick, {0} jump over the {1}".format(
-    "Jack", "candle stick")
+"{0} be nimble, {0} be quick, {0} jump over the {1}".format("Jack", "candle stick")
 # => "Jack be nimble, Jack be quick, Jack jump over the candle stick"
 
 # You can use keywords if you don't want to count.
@@ -941,6 +941,7 @@ if __name__ == "__main__":
 # superhero.py
 
 # Define Batman as a child that inherits from both Superhero and Bat
+
 
 class Batman(Superhero, Bat):
     def __init__(self, *args, **kwargs):

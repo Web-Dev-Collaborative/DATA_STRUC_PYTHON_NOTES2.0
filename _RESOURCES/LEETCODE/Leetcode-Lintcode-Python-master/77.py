@@ -1,6 +1,6 @@
-'''
+"""
 O(n^min(k, n-k))
-'''
+"""
 
 
 class Solution:
@@ -10,7 +10,9 @@ class Solution:
         return result
 
     def dfs(self, arr, k, path, result):
-        if k < 0: return
-        if k == 0: result.append(path)
+        if k < 0:
+            return
+        if k == 0:
+            result.append(path)
         for i in range(len(arr)):
-            self.dfs(arr[i + 1:], k - 1, path + [arr[i]], result)
+            self.dfs(arr[i + 1 :], k - 1, path + [arr[i]], result)

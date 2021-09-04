@@ -10,7 +10,7 @@ from collections import deque
 
 
 class Solution:
-    def getImportance(self, employees: List['Employee'], id: int) -> int:
+    def getImportance(self, employees: List["Employee"], id: int) -> int:
         d = {}
         for employee in employees:
             d[employee.id] = [employee.importance, employee.subordinates]
@@ -23,5 +23,3 @@ class Solution:
             result += d[employee_id][0]
             queue.extend(d[employee_id][1])
         return result
-
-

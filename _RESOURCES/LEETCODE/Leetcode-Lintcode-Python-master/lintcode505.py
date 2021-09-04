@@ -2,7 +2,6 @@ import bisect
 
 
 class WebLogger:
-
     def __init__(self):
         self.queue = []
 

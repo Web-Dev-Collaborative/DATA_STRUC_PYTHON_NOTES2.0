@@ -1,6 +1,6 @@
-'''
+"""
 Time complexity: O(N*N!)
-'''
+"""
 
 
 class Solution:
@@ -17,4 +17,4 @@ class Solution:
         if not nums:
             ret.append(permutation)
         for i in range(len(nums)):
-            self.dfs(nums[:i] + nums[i + 1:], ret, permutation + [nums[i]])
+            self.dfs(nums[:i] + nums[i + 1 :], ret, permutation + [nums[i]])

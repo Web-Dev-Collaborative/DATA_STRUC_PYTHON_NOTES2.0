@@ -119,8 +119,7 @@ CM_Ice = ColorMap(
 )
 
 CM_Fire = ColorMap(
-    [(0.00, (1.0, 1.0, 1.0)), (0.50, (1.0, 1.0, 0.0)),
-     (1.00, (1.0, 0.0, 0.0))], "Fire"
+    [(0.00, (1.0, 1.0, 1.0)), (0.50, (1.0, 1.0, 0.0)), (1.00, (1.0, 0.0, 0.0))], "Fire"
 )
 
 CM_Hot = ColorMap(
@@ -164,20 +163,17 @@ def termimshow(Z, vmin=None, vmax=None, cmap=CM_Hot, show_cmap=True):
     for i in range(Z.shape[0]):
         for j in range(Z.shape[1]):
             c = 16 + int(
-                ((Z[Z.shape[0] - i - 1, j] - cmap.min) /
-                 (cmap.max - cmap.min)) * 239
+                ((Z[Z.shape[0] - i - 1, j] - cmap.min) / (cmap.max - cmap.min)) * 239
             )
             if c < 16:
                 c = 16
             elif c > 255:
                 c = 255
             data += "\x1b[48;5;%dm  " % c
-            u = cmap.max - \
-                (i / float(Z.shape[0] - 1)) * ((cmap.max - cmap.min))
+            u = cmap.max - (i / float(Z.shape[0] - 1)) * ((cmap.max - cmap.min))
         if show_cmap:
             data += "\x1b[0m  "
-            data += "\x1b[48;5;%dm  " % (16 +
-                                         (1 - i / float(Z.shape[0])) * 239)
+            data += "\x1b[48;5;%dm  " % (16 + (1 - i / float(Z.shape[0])) * 239)
             data += "\x1b[0m %+.2f" % u
         data += "\n"
 

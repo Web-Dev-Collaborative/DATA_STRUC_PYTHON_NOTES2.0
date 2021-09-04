@@ -1,5 +1,6 @@
 # Time: O(N^3)
 
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
         return self.dfs(s, set(wordDict), dict())
@@ -8,7 +9,7 @@ class Solution:
         if s in cache:
             return cache[s]
         if len(s) == 0:
-            return ['']
+            return [""]
         result = []
         for i in range(1, len(s) + 1):
             word = s[:i]
@@ -18,6 +19,6 @@ class Solution:
                     if not ss:
                         result.append(word)
                     else:
-                        result.append(word + ' ' + ss)
+                        result.append(word + " " + ss)
         cache[s] = result
         return result

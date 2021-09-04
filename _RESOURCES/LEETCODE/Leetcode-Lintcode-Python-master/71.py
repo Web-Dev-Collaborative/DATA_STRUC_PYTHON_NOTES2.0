@@ -5,10 +5,10 @@ class Solution:
         :rtype: str
         """
         stack = []
-        for p in path.split('/'):
-            if p == '..':
+        for p in path.split("/"):
+            if p == "..":
                 if stack:
                     stack.pop()
-            elif p and p != '.':
+            elif p and p != ".":
                 stack.append(p)
-        return '/' + '/'.join(stack)
+        return "/" + "/".join(stack)

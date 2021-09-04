@@ -56,11 +56,13 @@ class ModelMeta(type):
             kls.model_fields.update(base.model_fields)
 
         # Fill model fields from itself
-        kls.model_fields.update({
-            field_name: field_obj
-            for field_name, field_obj in attrs.items()
-            if isinstance(field_obj, BaseField)
-        })
+        kls.model_fields.update(
+            {
+                field_name: field_obj
+                for field_name, field_obj in attrs.items()
+                if isinstance(field_obj, BaseField)
+            }
+        )
 
         # Register a real table (a table with valid `model_name`) to
         # the metaclass `table` registry. After all the tables are
@@ -112,12 +114,14 @@ class BaseModel(metaclass=ModelMeta):
     In short, think of a metaclass as the creator of classes. This is
     very similar to how classes are the creator of instances.
     """
+
     __abstract__ = True  # This is NOT a real table
     row_id = IntegerField()
 
 
 class UserModel(BaseModel):
     """User model."""
+
     __table_name__ = "user_rocks"  # This is a custom table name
     username = CharField()
     password = CharField()
@@ -127,6 +131,7 @@ class UserModel(BaseModel):
 
 class AddressModel(BaseModel):
     """Address model."""
+
     user_id = IntegerField()
     address = CharField()
     state = CharField()
@@ -159,8 +164,7 @@ def main():
 
     # Every model is created by `ModelMeta`
     assert isinstance(BaseModel, ModelMeta)
-    assert all(isinstance(model, ModelMeta)
-               for model in BaseModel.__subclasses__())
+    assert all(isinstance(model, ModelMeta) for model in BaseModel.__subclasses__())
 
     # And `ModelMeta` is created by `type`
     assert isinstance(ModelMeta, type)

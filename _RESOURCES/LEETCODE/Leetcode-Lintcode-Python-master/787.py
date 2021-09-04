@@ -2,10 +2,13 @@ from collections import deque, defaultdict
 
 
 class Solution:
-    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
-        if not flights: return -1
+    def findCheapestPrice(
+        self, n: int, flights: List[List[int]], src: int, dst: int, K: int
+    ) -> int:
+        if not flights:
+            return -1
 
-        costs = [float('inf')] * n
+        costs = [float("inf")] * n
 
         cities = defaultdict(list)
         for flight in flights:
@@ -21,4 +24,4 @@ class Solution:
                 for n in cities[curr]:
                     queue.append((n[0], stop + 1, cost + n[1]))
 
-        return costs[dst] if costs[dst] != float('inf') else -1
+        return costs[dst] if costs[dst] != float("inf") else -1

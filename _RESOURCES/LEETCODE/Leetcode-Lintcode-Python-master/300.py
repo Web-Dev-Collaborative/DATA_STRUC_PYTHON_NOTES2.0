@@ -1,7 +1,9 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        if not nums: return 0
-        if len(nums) <= 1: return len(nums)
+        if not nums:
+            return 0
+        if len(nums) <= 1:
+            return len(nums)
         tails = [0] * len(nums)
         result = 0
         for x in nums:
@@ -15,8 +17,3 @@ class Solution:
             tails[i] = x
             result = max(i + 1, result)
         return result
-
-
-
-
-

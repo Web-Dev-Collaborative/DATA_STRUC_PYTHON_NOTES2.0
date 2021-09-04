@@ -6,4 +6,6 @@ class Solution:
                 digit_log.append(log)
             else:
                 letter_log.append(log)
-        return sorted(letter_log, key=lambda x: (x.split()[1:], x.split()[0])) + digit_log
+        return (
+            sorted(letter_log, key=lambda x: (x.split()[1:], x.split()[0])) + digit_log
+        )

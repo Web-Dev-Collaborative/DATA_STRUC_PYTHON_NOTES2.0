@@ -266,7 +266,7 @@ def send_sms(text="Empty!", secured=True, sleep_duration=0):
             "  <magenta>Note that new lines and other information can be lost!<white>"
         )
         for i, index in enumerate(range(0, len(text), MAX_SIZE)):
-            answer = send_sms(text[index: index + MAX_SIZE])
+            answer = send_sms(text[index : index + MAX_SIZE])
             printc(
                 "For piece #{} of the message, the answer is:\n  <magenta>{}<white>...\n".format(
                     i + 1, answer[1]

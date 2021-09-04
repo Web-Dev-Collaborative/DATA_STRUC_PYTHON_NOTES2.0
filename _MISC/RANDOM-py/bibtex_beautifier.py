@@ -149,13 +149,13 @@ class Entry(object):
             return None
         self.entry_type = m.group(1)
         self.entry_type = self.NormalizedEntryType()
-        text = text[m.end(2):]
+        text = text[m.end(2) :]
         text, rest = FindMatchingParenthesis(text)
 
         m = re.match("\s*([^\s]+)\s*,\s*", text)
         if m:
             self.entry_name = m.group(1)
-            text = text[m.end():]
+            text = text[m.end() :]
 
         while text:
             text = self.ParseRow(text)
@@ -168,7 +168,7 @@ class Entry(object):
         key = m.group(1)
         if not self.entry_type == "String":
             key = Capitalize(key)
-        text = text[m.end():]
+        text = text[m.end() :]
 
         value = ""
         if text[0] == "{":
@@ -177,11 +177,11 @@ class Entry(object):
         elif text[0] == '"':
             m = re.match('^"([^"]+)"\s*,?\s*', text)
             value = m.group(1)
-            rest = text[m.end():]
+            rest = text[m.end() :]
         else:
             m = re.match("\s*(\w+)\s*,?\s*", text)
             value = m.group(1)
-            rest = text[m.end():]
+            rest = text[m.end() :]
 
         self.rows[key] = value.strip()
         return rest

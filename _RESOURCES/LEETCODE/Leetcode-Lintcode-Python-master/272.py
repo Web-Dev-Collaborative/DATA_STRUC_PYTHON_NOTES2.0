@@ -23,15 +23,19 @@ class Solution:
         return result
 
     def getPredecessor(self, node, target, stack):
-        if not node: return
+        if not node:
+            return
         self.getPredecessor(node.left, target, stack)
-        if node.val >= target: return
+        if node.val >= target:
+            return
         stack.append(node.val)
         self.getPredecessor(node.right, target, stack)
 
     def getSuccessor(self, node, target, stack):
-        if not node: return
+        if not node:
+            return
         self.getSuccessor(node.right, target, stack)
-        if node.val < target: return
+        if node.val < target:
+            return
         stack.append(node.val)
         self.getSuccessor(node.left, target, stack)

@@ -43,7 +43,6 @@ class MaxStack:
         heappop(self.q)
         return result
 
-
         # Your MaxStack object will be instantiated and called as such:
         # obj = MaxStack()
         # obj.push(x)

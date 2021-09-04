@@ -9,7 +9,8 @@ class Solution:
         self.result = 0
 
         def getDiameter(node):
-            if not node: return 0
+            if not node:
+                return 0
             left = getDiameter(node.left)
             right = getDiameter(node.right)
             self.result = max(self.result, left + right)

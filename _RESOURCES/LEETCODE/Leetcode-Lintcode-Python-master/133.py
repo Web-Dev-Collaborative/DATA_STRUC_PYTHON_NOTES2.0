@@ -9,8 +9,9 @@ from collections import deque
 
 
 class Solution:
-    def cloneGraph(self, node: 'Node') -> 'Node':
-        if not node: return None
+    def cloneGraph(self, node: "Node") -> "Node":
+        if not node:
+            return None
         visited = {node: Node(node.val)}
         queue = deque([node])
         while queue:

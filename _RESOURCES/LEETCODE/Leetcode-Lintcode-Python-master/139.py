@@ -6,7 +6,8 @@ class Solution:
     def dfs(self, s, wordDict, cache):
         if s in cache:
             return cache[s]
-        if s in wordDict: return True
+        if s in wordDict:
+            return True
         for i in range(1, len(s)):
             if s[:i] in wordDict and self.dfs(s[i:], wordDict, cache):
                 cache[s] = True

@@ -1,5 +1,4 @@
 class Solution:
-
     def __init__(self, nums: List[int]):
         self.d = {}
         for i, v in enumerate(nums):
@@ -8,6 +7,7 @@ class Solution:
     def pick(self, target: int) -> int:
         n = len(self.d[target])
         return self.d[target][random.randint(0, n - 1)]
+
 
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(nums)

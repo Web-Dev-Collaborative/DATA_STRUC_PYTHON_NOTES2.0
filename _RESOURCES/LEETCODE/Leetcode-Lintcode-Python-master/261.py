@@ -16,7 +16,8 @@ class Solution:
 
         for edge in edges:
             x, y = edge[0], edge[1]
-            if find(x) == find(y): return False
+            if find(x) == find(y):
+                return False
             union(find(x), find(y))
             count -= 1
         return count == 1

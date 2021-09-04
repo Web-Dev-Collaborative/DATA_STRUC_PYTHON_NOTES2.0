@@ -3,10 +3,13 @@ class Solution:
         cache, words = {}, set(words)
 
         def dfs(word):
-            if word in cache: return cache[word]
+            if word in cache:
+                return cache[word]
             for i in range(1, len(word)):
                 prefix, suffix = word[:i], word[i:]
-                if (prefix in words and suffix in words) or (prefix in words and dfs(suffix)):
+                if (prefix in words and suffix in words) or (
+                    prefix in words and dfs(suffix)
+                ):
                     cache[word] = True
                     return True
             cache[word] = False

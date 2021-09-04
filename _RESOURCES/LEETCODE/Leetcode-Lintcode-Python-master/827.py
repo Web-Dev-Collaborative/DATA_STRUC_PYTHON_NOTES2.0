@@ -5,9 +5,23 @@ class Solution:
         colorCode = 2
 
         def paint(x, y, color):
-            if x < 0 or x >= m or y < 0 or y >= n or not grid[x][y] or grid[x][y] == color: return 0
+            if (
+                x < 0
+                or x >= m
+                or y < 0
+                or y >= n
+                or not grid[x][y]
+                or grid[x][y] == color
+            ):
+                return 0
             grid[x][y] = color
-            return 1 + paint(x - 1, y, color) + paint(x + 1, y, color) + paint(x, y - 1, color) + paint(x, y + 1, color)
+            return (
+                1
+                + paint(x - 1, y, color)
+                + paint(x + 1, y, color)
+                + paint(x, y - 1, color)
+                + paint(x, y + 1, color)
+            )
 
         for i in range(m):
             for j in range(n):

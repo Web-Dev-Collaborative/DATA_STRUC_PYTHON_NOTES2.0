@@ -11,7 +11,12 @@ class Solution:
         if idx == len(word):
             return True
 
-        if 0 <= x < len(board) and 0 <= y < len(board[0]) and (x, y) not in visited and board[x][y] == word[idx]:
+        if (
+            0 <= x < len(board)
+            and 0 <= y < len(board[0])
+            and (x, y) not in visited
+            and board[x][y] == word[idx]
+        ):
             for direction in [(0, -1), (0, 1), (1, 0), (-1, 0)]:
                 new_x, new_y = x + direction[0], y + direction[1]
                 if self.dfs(board, new_x, new_y, visited | {(x, y)}, word, idx + 1):

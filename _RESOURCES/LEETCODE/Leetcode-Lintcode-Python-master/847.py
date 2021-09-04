@@ -17,6 +17,7 @@ class Solution:
                     queue.append((child, state | 1 << child, path + 1))
         return -1
 
+
 # Example
 # if we have node of 0, 1, 2, 3
 # with bitmask, when all nodes are visited, the final state should be 1111

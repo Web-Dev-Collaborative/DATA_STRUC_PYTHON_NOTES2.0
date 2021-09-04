@@ -111,8 +111,7 @@ class getReposURLs:
         while len(resp) != 0 or current_page == 1:
             API = "{0}/gists?page={1}".format(self.api_prefix, current_page)
             resp = requests.get(
-                API, headers=self.headers, timeout=self.timeout, auth=(
-                    username, token)
+                API, headers=self.headers, timeout=self.timeout, auth=(username, token)
             ).text
             resp = json.loads(resp)
             self.append_response(URLs, resp, "git_pull_url")
@@ -159,8 +158,7 @@ class getReposURLs:
             self.append_response(URLs, resp, "git_url")
 
             if include_gists is True:
-                URLs.extend(self.UserGists(
-                    user, username=username, token=token))
+                URLs.extend(self.UserGists(user, username=username, token=token))
             current_page += 1
         return URLs
 
@@ -270,8 +268,7 @@ class getReposURLs:
 
         API = "{0}/user".format(self.api_prefix)
         resp = requests.get(
-            API, auth=(
-                username, token), timeout=self.timeout, headers=self.headers
+            API, auth=(username, token), timeout=self.timeout, headers=self.headers
         )
         return resp.status_code == 200
 
@@ -313,8 +310,7 @@ class getReposURLs:
                 self.api_prefix, current_page
             )
             resp = requests.get(
-                API, headers=self.headers, timeout=self.timeout, auth=(
-                    username, token)
+                API, headers=self.headers, timeout=self.timeout, auth=(username, token)
             ).text
             resp = json.loads(resp)
 
@@ -330,8 +326,7 @@ def parseGitURL(URL, username=None, token=None):
 
     URL = URL.replace("git://", "https://")
     if (username or token) is not None:
-        URL = URL.replace(
-            "https://", "https://{0}:{1}@".format(username, token))
+        URL = URL.replace("https://", "https://{0}:{1}@".format(username, token))
     return URL
 
 
@@ -381,8 +376,7 @@ def cloneRepo(URL, cloningpath, username=None, token=None, prefix_mode="undersco
             repopath = repopath[:-4]
 
         if "@" in repopath:
-            repopath = repopath.replace(
-                repopath[: repopath.index("@") + 1], "")
+            repopath = repopath.replace(repopath[: repopath.index("@") + 1], "")
 
         fullpath = cloningpath + "/" + repopath
         with threading.Lock():

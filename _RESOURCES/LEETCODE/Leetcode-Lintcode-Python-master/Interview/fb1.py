@@ -1,20 +1,28 @@
 def cmp_to_key(mycmp):
-    'Convert a cmp= function into a key= function'
+    "Convert a cmp= function into a key= function"
+
     class K(object):
         def __init__(self, obj, *args):
             self.obj = obj
+
         def __lt__(self, other):
             return mycmp(self.obj, other.obj) < 0
+
         def __gt__(self, other):
             return mycmp(self.obj, other.obj) > 0
+
         def __eq__(self, other):
             return mycmp(self.obj, other.obj) == 0
+
         def __le__(self, other):
             return mycmp(self.obj, other.obj) <= 0
+
         def __ge__(self, other):
             return mycmp(self.obj, other.obj) >= 0
+
         def __ne__(self, other):
             return mycmp(self.obj, other.obj) != 0
+
     return K
 
 
@@ -32,12 +40,12 @@ def mycmp(s1, s2):
         if s1[i].isdigit() and s2[j].isdigit():
             v1, v2 = 0, 0
             while i < l1 and s1[i].isdigit():
-                v1 = v1*10 + int(s1[i])
+                v1 = v1 * 10 + int(s1[i])
                 i += 1
             while j < l2 and s2[j].isdigit():
-                v2 = v2*10 + int(s2[j])
+                v2 = v2 * 10 + int(s2[j])
                 j += 1
-            if v1 <v2:
+            if v1 < v2:
                 return -1
             if v1 > v2:
                 return 1
@@ -53,6 +61,6 @@ def mycmp(s1, s2):
     return -1 if i == l1 else 1
 
 
-s = ['ab012b', 'ab12a']
+s = ["ab012b", "ab12a"]
 s.sort(key=cmp_to_key(mycmp))
 print(s)

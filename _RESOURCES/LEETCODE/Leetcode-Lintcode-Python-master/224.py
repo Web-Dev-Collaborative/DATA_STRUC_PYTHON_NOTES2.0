@@ -14,19 +14,19 @@ class Solution(object):
                 total += sign * curr
                 if i >= len(s):
                     break
-            if s[i] == '+':
+            if s[i] == "+":
                 sign = 1
                 curr = 0
-            if s[i] == '-':
+            if s[i] == "-":
                 sign = -1
                 curr = 0
-            if s[i] == '(':
+            if s[i] == "(":
                 stack.append(total)
                 stack.append(sign)
                 curr = 0
                 total = 0
                 sign = 1
-            if s[i] == ')':
+            if s[i] == ")":
                 total *= stack.pop()
                 total += stack.pop()
                 curr = 0

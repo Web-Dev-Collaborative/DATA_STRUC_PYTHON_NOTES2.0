@@ -1,8 +1,9 @@
-'''
+"""
 Given a non repetitive string s and a set of characters C
 How many non-empty substrings of s do not contain every character in C.
-'''
+"""
 from collections import deque
+
 
 class Solution:
     def substrings_missing_at_least_one_char(self, s: str, C: set):
@@ -25,6 +26,7 @@ class Solution:
             count += end - start + 1
         return count
 
+
 s = Solution()
-count = s.substrings_missing_at_least_one_char("caab", {'a', 'c'})
+count = s.substrings_missing_at_least_one_char("caab", {"a", "c"})
 print(count)

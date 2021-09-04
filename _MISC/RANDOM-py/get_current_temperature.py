@@ -53,8 +53,7 @@ def get_data(names, locations, key, verbose=True):
         temperature_in_F = weather["currently"]["temperature"]
         temperature_in_C = round((temperature_in_F - 32) * (5 / 9), 1)
         data.append(
-            {"name": name, "location": location,
-                "temperature_in_C": temperature_in_C}
+            {"name": name, "location": location, "temperature_in_C": temperature_in_C}
         )
         if verbose:
             print(

@@ -11,7 +11,7 @@ import pstats
 import time
 
 # Module-level constants
-_SLEEP_DURATION = .001
+_SLEEP_DURATION = 0.001
 
 
 def finish_slower():
@@ -54,8 +54,9 @@ def main():
     # large projects. Consider profiling in isolation when analyzing complex
     # classes and functions
     ps.print_stats()
-    time_sleep_called = any("60" in line and "time.sleep" in line
-                            for line in buffer.getvalue().split("\n"))
+    time_sleep_called = any(
+        "60" in line and "time.sleep" in line for line in buffer.getvalue().split("\n")
+    )
     assert time_sleep_called is True
 
 

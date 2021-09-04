@@ -10,7 +10,7 @@ class Node:
 
 # Time: O(log N)
 class Solution:
-    def inorderSuccessor(self, node: 'Node') -> 'Node':
+    def inorderSuccessor(self, node: "Node") -> "Node":
         if node.right:
             node = node.right
             while node.left:

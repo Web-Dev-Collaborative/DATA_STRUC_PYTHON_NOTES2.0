@@ -1,4 +1,4 @@
-'''
+"""
 Definition of Location:
 class Location:
     # @param {double} latitude, longitude
@@ -37,14 +37,13 @@ class GeoHash:
     @classmethod
     def decode(cls, hashcode):
         # return convert a geohash string to location
-'''
+"""
 from YelpHelper import Location, Restaurant, GeoHash, Helper
 
 import bisect
 
 
 class MiniYelp:
-
     def __init__(self):
         self.restaurants = {}
         self.ids = {}
@@ -64,7 +63,8 @@ class MiniYelp:
     # @param {int} restaurant_id
     # @return nothing
     def remove_restaurant(self, restaurant_id):
-        if restaurant_id not in self.ids: return
+        if restaurant_id not in self.ids:
+            return
         hashcode = self.ids[restaurant_id]
         idx = bisect.bisect_left(self.geo_value, hashcode)
         self.geo_value.pop(idx)
@@ -79,8 +79,8 @@ class MiniYelp:
         length = self.get_length(k)
         hashcode = GeoHash.encode(location)[0:length]
         left = bisect.bisect_left(self.geo_value, hashcode)
-        right = bisect.bisect_right(self.geo_value, hashcode + '{')
-        #首先字符串之间比较大小，是从左往右比较ASCII码的大小，
+        right = bisect.bisect_right(self.geo_value, hashcode + "{")
+        # 首先字符串之间比较大小，是从左往右比较ASCII码的大小，
         # 比如从第一个字符开始比较，ASCII大的视为整个字符串大于另个一比较的字符串，
         # 若相等则向右一位接着比较。‘{’的ASCII码的大小为123，‘z’的ASCII码的大小为122，
         # 所以你只要选择一个ASCII码比'z'大的字符即可。
@@ -97,7 +97,20 @@ class MiniYelp:
         return [r[1].name for r in results]
 
     def get_length(self, k):
-        ERROR = [2500, 630, 78, 20, 2.4, 0.61, 0.076, 0.01911, 0.00478, 0.0005971, 0.0001492, 0.0000186]
+        ERROR = [
+            2500,
+            630,
+            78,
+            20,
+            2.4,
+            0.61,
+            0.076,
+            0.01911,
+            0.00478,
+            0.0005971,
+            0.0001492,
+            0.0000186,
+        ]
         for i, error in enumerate(ERROR):
             if k > error:
                 return i

@@ -19,5 +19,5 @@ class Solution:
                     if d[curr] == 0:
                         count -= 1
                 start += 1
-            result = max(result, end-start)
+            result = max(result, end - start)
         return result

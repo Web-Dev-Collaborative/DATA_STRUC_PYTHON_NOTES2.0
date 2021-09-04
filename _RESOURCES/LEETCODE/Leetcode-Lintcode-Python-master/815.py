@@ -13,7 +13,8 @@ class Solution:
         visited = {S}
         while queue:
             curr_stop, bus = queue.popleft()
-            if curr_stop == T: return bus
+            if curr_stop == T:
+                return bus
             for r in stop_route[curr_stop]:
                 for s in routes[r]:
                     if s not in visited:

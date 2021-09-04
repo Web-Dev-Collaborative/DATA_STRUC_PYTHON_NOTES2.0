@@ -12,7 +12,7 @@ class Solution:
             new_q = []
             for i, j in q:
                 for d in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-                    x, y = i+d[0], j+d[1]
+                    x, y = i + d[0], j + d[1]
                     if 0 <= x < m and 0 <= y < n and result[x][y] == -1:
                         result[x][y] = result[i][j] + 1
                         new_q.append((x, y))

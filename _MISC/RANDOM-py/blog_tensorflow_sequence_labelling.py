@@ -33,8 +33,7 @@ class SequenceLabelling:
     def prediction(self):
         # Recurrent network.
         network = tf.nn.rnn_cell.GRUCell(self._num_hidden)
-        network = tf.nn.rnn_cell.DropoutWrapper(
-            network, output_keep_prob=self.dropout)
+        network = tf.nn.rnn_cell.DropoutWrapper(network, output_keep_prob=self.dropout)
         network = tf.nn.rnn_cell.MultiRNNCell([network] * self._num_layers)
         output, _ = tf.nn.dynamic_rnn(network, data, dtype=tf.float32)
         # Softmax layer.
@@ -49,8 +48,7 @@ class SequenceLabelling:
 
     @lazy_property
     def cost(self):
-        cross_entropy = - \
-            tf.reduce_sum(self.target * tf.log(self.prediction), [1, 2])
+        cross_entropy = -tf.reduce_sum(self.target * tf.log(self.prediction), [1, 2])
         cross_entropy = tf.reduce_mean(cross_entropy)
         return cross_entropy
 
@@ -98,8 +96,7 @@ if __name__ == "__main__":
         for _ in range(100):
             batch = train.sample(10)
             sess.run(
-                model.optimize, {data: batch.data,
-                                 target: batch.target, dropout: 0.5}
+                model.optimize, {data: batch.data, target: batch.target, dropout: 0.5}
             )
         error = sess.run(
             model.error, {data: test.data, target: test.target, dropout: 1}

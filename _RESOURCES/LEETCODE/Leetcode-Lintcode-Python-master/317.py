@@ -15,7 +15,11 @@ class Solution:
                 x, y, d = queue.popleft()
                 for direction in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                     new_x, new_y = x + direction[0], y + direction[1]
-                    if 0 <= new_x < m and 0 <= new_y < n and (new_x, new_y) not in visited:
+                    if (
+                        0 <= new_x < m
+                        and 0 <= new_y < n
+                        and (new_x, new_y) not in visited
+                    ):
                         visited.add((new_x, new_y))
                         if not grid[new_x][new_y]:
                             buildings[new_x][new_y] += 1
@@ -28,6 +32,14 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 1:
-                    if not bfs(i, j): return -1
+                    if not bfs(i, j):
+                        return -1
         return min(
-            [distance[i][j] for i in range(m) for j in range(n) if not grid[i][j] and buildings[i][j] == k] or [-1])
+            [
+                distance[i][j]
+                for i in range(m)
+                for j in range(n)
+                if not grid[i][j] and buildings[i][j] == k
+            ]
+            or [-1]
+        )

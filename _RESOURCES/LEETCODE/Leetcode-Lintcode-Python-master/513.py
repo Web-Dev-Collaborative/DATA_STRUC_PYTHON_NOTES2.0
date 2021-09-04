@@ -11,5 +11,7 @@ class Solution:
         queue = [root]
         while queue:
             leftmost = queue[0].val
-            queue = [child for node in queue for child in [node.left, node.right] if child]
+            queue = [
+                child for node in queue for child in [node.left, node.right] if child
+            ]
         return leftmost

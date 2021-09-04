@@ -223,8 +223,7 @@ def main(argv):
 
     # Read the files
     printc(
-        "<green>Reading the files<reset>, from: <blue>{}<reset>.".format(
-            args["INFILE"])
+        "<green>Reading the files<reset>, from: <blue>{}<reset>.".format(args["INFILE"])
     )
     text = readfiles(args["INFILE"])
     # Decide where to save it

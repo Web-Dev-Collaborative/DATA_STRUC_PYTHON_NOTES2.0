@@ -5,7 +5,7 @@ class Solution:
     def minWindow(self, s: str, t: str) -> str:
         d = Counter(t)
         start, end = 0, 0
-        result = ''
+        result = ""
         count = len(d)
         while end < len(s):
             c = s[end]
@@ -15,7 +15,7 @@ class Solution:
                     count -= 1
             end += 1
             while count == 0 and start < len(s):
-                if result == '':
+                if result == "":
                     result = s[start:end]
                 else:
                     if len(s[start:end]) < len(result):

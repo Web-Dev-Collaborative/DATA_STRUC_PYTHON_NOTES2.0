@@ -8,6 +8,7 @@
 # time: O(n)
 # space: O(1)
 
+
 class Solution:
     def flatten(self, root):
         """
@@ -15,7 +16,8 @@ class Solution:
         :rtype: void Do not return anything, modify root in-place instead.
         """
         while root:
-            if not root.right: root.left, root.right = root.right, root.left
+            if not root.right:
+                root.left, root.right = root.right, root.left
             elif root.left:
                 root.left, root.right = root.right, root.left
                 it = root

@@ -48,8 +48,7 @@ class Application(tk.Frame):
         self.hello["command"] = self.sayHello
         self.hello.pack(side="top")
 
-        self.quit = tk.Button(self, text="START QUIZ",
-                              command=self.master.destroy)
+        self.quit = tk.Button(self, text="START QUIZ", command=self.master.destroy)
         self.quit.pack(side="bottom")
 
     def sayHello(self):

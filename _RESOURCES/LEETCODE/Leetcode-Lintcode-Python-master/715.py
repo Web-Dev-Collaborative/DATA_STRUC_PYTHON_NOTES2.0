@@ -3,8 +3,8 @@
 # removeRange: O(N)
 # queryRange: O(log N)
 
-class RangeModule:
 
+class RangeModule:
     def __init__(self):
         self.stack = []
 
@@ -12,8 +12,10 @@ class RangeModule:
         start = bisect.bisect_left(self.stack, left)
         end = bisect.bisect_right(self.stack, right)
         newInterval = []
-        if start % 2 == 0: newInterval.append(left)
-        if end % 2 == 0: newInterval.append(right)
+        if start % 2 == 0:
+            newInterval.append(left)
+        if end % 2 == 0:
+            newInterval.append(right)
         self.stack[start:end] = newInterval
 
     def queryRange(self, left: int, right: int) -> bool:
@@ -25,9 +27,12 @@ class RangeModule:
         start = bisect.bisect_left(self.stack, left)
         end = bisect.bisect_right(self.stack, right)
         removedInterval = []
-        if start % 2 == 1: removedInterval.append(left)
-        if end % 2 == 1: removedInterval.append(right)
+        if start % 2 == 1:
+            removedInterval.append(left)
+        if end % 2 == 1:
+            removedInterval.append(right)
         self.stack[start:end] = removedInterval
+
 
 # Your RangeModule object will be instantiated and called as such:
 # obj = RangeModule()

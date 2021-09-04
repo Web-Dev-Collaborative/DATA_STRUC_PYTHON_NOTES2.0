@@ -13,6 +13,7 @@ read4(buf4) # read4 returns 4. Now buf = ['e','f','g','h'], fp points to 'i'
 read4(buf4) # read4 returns 3. Now buf = ['i','j','k',...], fp points to end of file
 """
 
+
 class Solution:
     def read(self, buf, n):
         """
@@ -22,10 +23,11 @@ class Solution:
         """
         i = 0
         while i < n:
-            buf4 = [' ']*4
+            buf4 = [" "] * 4
             count = read4(buf4)
-            if not count: break
-            count = min(count, n-i)
+            if not count:
+                break
+            count = min(count, n - i)
             buf[i:] = buf4[:count]
             i += count
         return i

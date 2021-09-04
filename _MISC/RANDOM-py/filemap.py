@@ -20,8 +20,7 @@ __all__ = ["clear_cache", "cmp", "dircmp", "cmpfiles", "DEFAULT_IGNORES"]
 _cache = {}
 BUFSIZE = 8 * 1024
 
-DEFAULT_IGNORES = ["RCS", "CVS", "tags", ".git",
-                   ".hg", ".bzr", "_darcs", "__pycache__"]
+DEFAULT_IGNORES = ["RCS", "CVS", "tags", ".git", ".hg", ".bzr", "_darcs", "__pycache__"]
 
 
 def clear_cache():
@@ -134,10 +133,8 @@ class dircmp:
             self.ignore = ignore
 
     def phase0(self):  # Compare everything except common subdirectories
-        self.left_list = _filter(os.listdir(
-            self.left), self.hide + self.ignore)
-        self.right_list = _filter(os.listdir(
-            self.right), self.hide + self.ignore)
+        self.left_list = _filter(os.listdir(self.left), self.hide + self.ignore)
+        self.right_list = _filter(os.listdir(self.right), self.hide + self.ignore)
         self.left_list.sort()
         self.right_list.sort()
 
@@ -145,10 +142,8 @@ class dircmp:
         a = dict(zip(map(os.path.normcase, self.left_list), self.left_list))
         b = dict(zip(map(os.path.normcase, self.right_list), self.right_list))
         self.common = list(map(a.__getitem__, filter(b.__contains__, a)))
-        self.left_only = list(
-            map(a.__getitem__, filterfalse(b.__contains__, a)))
-        self.right_only = list(
-            map(b.__getitem__, filterfalse(a.__contains__, b)))
+        self.left_only = list(map(a.__getitem__, filterfalse(b.__contains__, a)))
+        self.right_only = list(map(b.__getitem__, filterfalse(a.__contains__, b)))
 
     def phase2(self):  # Distinguish files, directories, funnies
         self.common_dirs = []

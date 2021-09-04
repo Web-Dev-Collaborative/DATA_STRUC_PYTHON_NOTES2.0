@@ -8,6 +8,6 @@ class Solution:
         for path in paths:
             directory, *files = path.split()
             for file in files:
-                name, content = file.split('(')
-                d[content].append(directory+ '/' + name)
+                name, content = file.split("(")
+                d[content].append(directory + "/" + name)
         return [v for _, v in d.items() if len(v) > 1]

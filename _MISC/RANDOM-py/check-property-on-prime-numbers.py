@@ -36,24 +36,20 @@ def main(maxn):
     rate = float(nb_filtered_primes) / float(nb_primes)
     print(f"That's about {rate:.3%}...")
 
-    primes_satisfying_property = [
-        p for p in filtered_primes if next_ends_by_9(p)]
+    primes_satisfying_property = [p for p in filtered_primes if next_ends_by_9(p)]
     nb_primes_satisfying_property = len(primes_satisfying_property)
     print(
         f"\nWe found {nb_primes_satisfying_property} primes that has next primes finishing by 9..."
     )
-    second_rate = float(nb_primes_satisfying_property) / \
-        float(nb_filtered_primes)
+    second_rate = float(nb_primes_satisfying_property) / float(nb_filtered_primes)
     print(f"That's about {second_rate:.3%}...")
 
-    primes_satisfying_property = [
-        p for p in filtered_primes if next_ends_by_1(p)]
+    primes_satisfying_property = [p for p in filtered_primes if next_ends_by_1(p)]
     nb_primes_satisfying_property = len(primes_satisfying_property)
     print(
         f"\nWe found {nb_primes_satisfying_property} primes that has next primes finishing by 1..."
     )
-    third_rate = float(nb_primes_satisfying_property) / \
-        float(nb_filtered_primes)
+    third_rate = float(nb_primes_satisfying_property) / float(nb_filtered_primes)
     print(f"That's about {third_rate:.3%}...")
     print(f"\n==> which is about {third_rate/second_rate:.3%} more!")
 

@@ -20,4 +20,6 @@ class Solution:
                     union(i, j)
         unions = collections.Counter(find(x) for x in range(n))
         malwares = collections.Counter(find(x) for x in initial)
-        return min(initial, key=lambda x: [(malwares[find(x)] == 1) * -unions[find(x)], x])
+        return min(
+            initial, key=lambda x: [(malwares[find(x)] == 1) * -unions[find(x)], x]
+        )

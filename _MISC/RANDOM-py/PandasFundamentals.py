@@ -96,8 +96,7 @@ def read_artworks_from_json(keys_to_use):
     for root, _, files in os.walk(ROOT_DIR):
         for f in files:
             if f.endswith("json"):
-                record = get_record_from_file(
-                    os.path.join(root, f), keys_to_use)
+                record = get_record_from_file(os.path.join(root, f), keys_to_use)
                 artworks.append(record)
             break  # only first file in each directory to safe time
 
@@ -211,7 +210,8 @@ grouped_titles = df.groupby("title")
 title_counts = grouped_titles.size().sort_values(ascending=False)
 
 
-def condition(x): return len(x.index) > 1
+def condition(x):
+    return len(x.index) > 1
 
 
 dup_titles_df = grouped_titles.filter(condition)
@@ -278,8 +278,7 @@ title_font = {
     "weight": "normal",
     "size": 20,
 }
-labels_font = {"family": "consolas",
-               "color": "darkred", "weight": "normal", "size": 16}
+labels_font = {"family": "consolas", "color": "darkred", "weight": "normal", "size": 16}
 f = plt.figure()
 subplot = f.add_subplot(1, 1, 1)
 acq_years.plot(ax=subplot, rot=90, logy=True, grid=True)

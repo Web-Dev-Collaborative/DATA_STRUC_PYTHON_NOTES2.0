@@ -1,5 +1,4 @@
 class Fancy:
-
     def __init__(self):
         self.A = []
         self.add = [0]
@@ -18,10 +17,12 @@ class Fancy:
         self.mul[-1] *= m
 
     def getIndex(self, idx: int) -> int:
-        if idx >= len(self.A): return -1
+        if idx >= len(self.A):
+            return -1
         m = self.mul[-1] // self.mul[idx]
         inc = self.add[-1] - self.add[idx] * m
         return (self.A[idx] * m + inc) % (10 ** 9 + 7)
+
 
 # Your Fancy object will be instantiated and called as such:
 # obj = Fancy()

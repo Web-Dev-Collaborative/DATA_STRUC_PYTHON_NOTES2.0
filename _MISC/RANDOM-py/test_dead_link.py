@@ -51,10 +51,10 @@ def _file_to_url_iterator(filename):
         text = f.read()
 
     for line in text.split("\\url{")[1:]:
-        url = line[0: line.find("}")]
+        url = line[0 : line.find("}")]
         yield url
     for line in text.split("\\href{")[1:]:
-        url = line[0: line.find("}")]
+        url = line[0 : line.find("}")]
         yield url
 
     # La frime serait d'utiliser des vues de listes
@@ -63,7 +63,7 @@ def _file_to_url_iterator(filename):
         for line in text.split("url =")[1:]:
             start = line.find('"')
             end = line.find('"', 2)
-            url = line[start + 1: end]
+            url = line[start + 1 : end]
             if url is not "...":
                 yield url
 

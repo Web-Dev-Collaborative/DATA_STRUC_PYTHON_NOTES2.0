@@ -1,5 +1,6 @@
 from collections import defaultdict, OrderedDict
 
+
 class Node:
     def __init__(self, value, count):
         self.value = value
@@ -7,7 +8,6 @@ class Node:
 
 
 class LFUCache:
-
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.cache = {}
@@ -32,7 +32,8 @@ class LFUCache:
         return node.value
 
     def put(self, key: int, value: int) -> None:
-        if not self.capacity: return
+        if not self.capacity:
+            return
         node = Node(value, 1)
         if key in self.cache:
             self.cache[key].value = value
@@ -48,6 +49,7 @@ class LFUCache:
 
 
 from collections import defaultdict
+
 
 class ListNode:
     def __init__(self, key: int, val: int):
@@ -102,7 +104,8 @@ class LFUCache:
         return node.val
 
     def put(self, key: int, value: int) -> None:
-        if self.capacity == 0: return
+        if self.capacity == 0:
+            return
 
         if key in self.d:
             node = self.d[key]

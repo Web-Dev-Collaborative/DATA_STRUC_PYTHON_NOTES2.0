@@ -1,5 +1,4 @@
 class MyCalendarTwo:
-
     def __init__(self):
         self.maps = []
 

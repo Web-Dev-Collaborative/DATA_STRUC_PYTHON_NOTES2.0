@@ -1,6 +1,7 @@
 class Solution:
     def jump(self, nums: List[int]) -> int:
-        if len(nums) <= 1: return 0
+        if len(nums) <= 1:
+            return 0
         jumps = 0
         curr_state, max_state = 0, 0
 

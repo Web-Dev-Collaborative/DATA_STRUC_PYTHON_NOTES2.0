@@ -11,7 +11,7 @@ class Solution:
             new_q = []
             for i in range(len(q)):
                 if q[i] == u:
-                    return None if i == len(q)-1 else q[i+1]
+                    return None if i == len(q) - 1 else q[i + 1]
                 if q[i].left:
                     new_q.append(q[i].left)
                 if q[i].right:

@@ -1,6 +1,7 @@
 class Solution:
     def pacificAtlantic(self, matrix: List[List[int]]) -> List[List[int]]:
-        if not matrix or not matrix[0]: return []
+        if not matrix or not matrix[0]:
+            return []
         m, n = len(matrix), len(matrix[0])
 
         toPacific = set()
@@ -13,7 +14,11 @@ class Solution:
             oceanSet.add((x, y))
             for direction in directions:
                 new_x, new_y = x + direction[0], y + direction[1]
-                if 0 <= new_x < m and 0 <= new_y < n and matrix[new_x][new_y] >= matrix[x][y]:
+                if (
+                    0 <= new_x < m
+                    and 0 <= new_y < n
+                    and matrix[new_x][new_y] >= matrix[x][y]
+                ):
                     search(new_x, new_y, oceanSet)
 
         for i in range(m):

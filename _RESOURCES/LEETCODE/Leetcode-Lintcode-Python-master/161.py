@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 class Solution:
     def isOneEditDistance(self, s, t):
         """
@@ -14,5 +15,5 @@ class Solution:
             return False
         for i in range(m):
             if s[i] != t[i]:
-                return s[i+1:] == t[i+1:] or s[i:] == t[i+1:]
+                return s[i + 1 :] == t[i + 1 :] or s[i:] == t[i + 1 :]
         return True

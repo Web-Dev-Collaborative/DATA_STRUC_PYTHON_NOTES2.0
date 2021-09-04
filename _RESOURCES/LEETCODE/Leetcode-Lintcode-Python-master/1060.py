@@ -3,7 +3,7 @@ class Solution:
         missing = nums[-1] - nums[0] - len(nums) + 1
         if missing < k:
             return nums[-1] + k - missing
-        left, right = 0, len(nums)-1
+        left, right = 0, len(nums) - 1
         while left + 1 < right:
             mid = left + (right - left) // 2
             missing = nums[mid] - nums[left] - (mid - left)

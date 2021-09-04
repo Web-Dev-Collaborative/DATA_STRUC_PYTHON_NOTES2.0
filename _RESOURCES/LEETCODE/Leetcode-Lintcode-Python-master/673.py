@@ -6,7 +6,7 @@ class Solution:
         """
         if not nums:
             return 0
-        length, count = [1]*len(nums), [1]*len(nums)
+        length, count = [1] * len(nums), [1] * len(nums)
         result, maxval = 1, 1
         for i in range(1, len(nums)):
             count[i] = 1

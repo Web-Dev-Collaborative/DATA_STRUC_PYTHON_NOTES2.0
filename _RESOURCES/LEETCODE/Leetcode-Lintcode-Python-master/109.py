@@ -22,7 +22,8 @@ class Solution:
         return self.dfs(head, None)
 
     def dfs(self, head, tail):
-        if head == tail: return None
+        if head == tail:
+            return None
         slow, fast = head, head
         while fast != tail and fast.next != tail:
             fast = fast.next.next

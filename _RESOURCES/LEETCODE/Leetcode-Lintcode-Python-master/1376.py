@@ -1,5 +1,7 @@
 class Solution:
-    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+    def numOfMinutes(
+        self, n: int, headID: int, manager: List[int], informTime: List[int]
+    ) -> int:
         children = {i: [] for i in range(n)}
         for child, parent in enumerate(manager):
             if parent >= 0:

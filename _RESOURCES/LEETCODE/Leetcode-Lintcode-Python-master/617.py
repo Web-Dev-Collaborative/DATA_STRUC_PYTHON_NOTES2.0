@@ -14,7 +14,7 @@ class Solution(object):
         :rtype: TreeNode
         """
         if t1 and t2:
-            t = TreeNode(t1.val+t2.val)
+            t = TreeNode(t1.val + t2.val)
             t.left = self.mergeTrees(t1.left, t2.left)
             t.right = self.mergeTrees(t1.right, t2.right)
             return t
