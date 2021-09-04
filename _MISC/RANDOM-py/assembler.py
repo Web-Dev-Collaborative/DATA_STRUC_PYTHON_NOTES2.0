@@ -1629,7 +1629,7 @@ def resetInterpreter():
 # main program
 def main():
     """
-        reads textfiles from the command-line and interprets them. 
+        reads textfiles from the command-line and interprets them.
     """
 
     # [1:] because the first argument is the program itself.

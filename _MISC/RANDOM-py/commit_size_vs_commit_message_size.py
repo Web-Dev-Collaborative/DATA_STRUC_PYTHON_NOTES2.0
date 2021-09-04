@@ -7,7 +7,8 @@
 - *Link:* https://gist.github.com/erikbern/0f347c8d789402a09f2e
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
+# Python 2 compatibility if needed
+from __future__ import print_function, division
 
 import subprocess
 import numpy

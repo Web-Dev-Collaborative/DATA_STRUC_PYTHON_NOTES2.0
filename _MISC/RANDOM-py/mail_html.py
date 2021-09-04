@@ -75,23 +75,29 @@ def send_me_an_email(
     s = smtplib.SMTP_SSL("smtp.crans.org", port=465)  # Try 587 for starttls ?
     # See https://docs.python.org/2/library/smtplib.html#smtplib.SMTP.login
     s.login(
-        b64decode("YmVzc29u"), b64decode(open("/home/lilian/crans.b64").readline()[:-1])
+        b64decode("YmVzc29u"), b64decode(
+            open("/home/lilian/crans.b64").readline()[:-1])
     )
     s.sendmail(me, [you], msg.as_string())
     s.quit()
-    print("A HTML email has been sent to <%s>, from %s <%s>." % (you, my_identity, me))
+    print("A HTML email has been sent to <%s>, from %s <%s>." %
+          (you, my_identity, me))
     print("Title of the email : <%s>" % subj)
     print("Content of the email : \n%s" % message)
 
 
 if __name__ == "__main__":
     if "-h" in sys.argv or "--help" in sys.argv:
-        print("mail_html.py [message [subject [you [me [my_identity]]]]]\nUSAGE:")
+        print(
+            "mail_html.py [message [subject [you [me [my_identity]]]]]\nUSAGE:")
         print(send_me_an_email.__doc__)
     sys.exit(0)
     my_identity = sys.argv[5] if len(sys.argv) > 5 else "jarvis (HTML)"
     me = sys.argv[4] if len(sys.argv) > 4 else defaultaddress
     you = sys.argv[3] if len(sys.argv) > 3 else defaultaddress
-    subject = sys.argv[2] if len(sys.argv) > 2 else "[LOG] jarvis.crans.org (HTML)"
-    message = "%s" % (str(sys.argv[1])) if len(sys.argv) > 1 else "Empty message."
-    send_me_an_email(message, subj=subject, you=you, me=me, my_identity=my_identity)
+    subject = sys.argv[2] if len(
+        sys.argv) > 2 else "[LOG] jarvis.crans.org (HTML)"
+    message = "%s" % (str(sys.argv[1])) if len(
+        sys.argv) > 1 else "Empty message."
+    send_me_an_email(message, subj=subject, you=you,
+                     me=me, my_identity=my_identity)

@@ -13,6 +13,7 @@ data = {
     "year": "2014",
 }
 
-r = requests.post("http://taxee.io/api/v1/calculate/2014", data=data, headers=headers)
+r = requests.post("http://taxee.io/api/v1/calculate/2014",
+                  data=data, headers=headers)
 
 print(r.text)

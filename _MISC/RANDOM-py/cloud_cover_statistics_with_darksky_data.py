@@ -7,7 +7,8 @@
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
+# Python 2 compatibility if needed
+from __future__ import print_function, division
 
 from os.path import expanduser, join
 from datetime import date, timedelta
@@ -110,7 +111,8 @@ def plot_data_by_weekday(all_cloud_cover, name, filename):
             data_by_weekday[weekday] += y
             # print("For weekday", weekday, "one more count with cloud_cover =", y)
     for weekday in range(7):
-        mean_by_weekday[weekday] = data_by_weekday[weekday] / count_of_weekday[weekday]
+        mean_by_weekday[weekday] = data_by_weekday[weekday] / \
+            count_of_weekday[weekday]
 
     plt.figure()
     plt.title(f"Mean cloud cover index in {name}, in 2017")

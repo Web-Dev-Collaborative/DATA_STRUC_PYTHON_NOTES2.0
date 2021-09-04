@@ -9,7 +9,7 @@ Your task is to count in how many ways C can be formed by interleaving of A and 
 
 Input: A='xy', B= 'xz', C: 'xxyz'
 Output: 2
-Output explanation: 
+Output explanation:
     1) Take 'x' from A, then 'x' from B, then 'y' from A and at the end 'z' from B.
     2) Take 'x' from B, then 'x' from A, then 'y' from A and at the end 'z' from B.
 

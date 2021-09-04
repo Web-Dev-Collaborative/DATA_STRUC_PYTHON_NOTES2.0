@@ -29,7 +29,7 @@ def array_pair_sum_sort(arr, k):
     arr.sort()
 
     for i in range(len(arr)):
-        if k - arr[i] in arr[i + 1 :]:
+        if k - arr[i] in arr[i + 1:]:
             result.append([arr[i], k - arr[i]])
 
     return result
@@ -65,7 +65,8 @@ class array_pair_sum_tests(unittest.TestCase):
     def test_one(self):
         self.assertEqual(array_pair_sum_iterative(self.arr1, 10), self.result1)
         self.assertEqual(array_pair_sum_sort(self.arr1, 10), self.result1)
-        self.assertEqual(array_pair_sum_hash_table(self.arr1, 10), self.result1)
+        self.assertEqual(array_pair_sum_hash_table(
+            self.arr1, 10), self.result1)
 
     def test_two(self):
         self.assertEqual(array_pair_sum_iterative(self.arr2, 8), self.result2)

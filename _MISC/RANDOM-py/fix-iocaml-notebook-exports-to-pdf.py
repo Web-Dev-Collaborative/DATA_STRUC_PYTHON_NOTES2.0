@@ -55,7 +55,8 @@ def get_data_texthtml(outputs):
             ):
                 long_data_texthtml = output["data"]["text/html"]
                 assert len(long_data_texthtml) >= 8
-                data_texthtml += transform_data_texthtml(long_data_texthtml[6:-1])
+                data_texthtml += transform_data_texthtml(
+                    long_data_texthtml[6:-1])
         except KeyError:
             pass
     return data_texthtml
@@ -115,7 +116,8 @@ if __name__ == "__main__":
     argv = sys.argv[1:]
     old = argv[0]
     if len(argv) < 2:
-        new = old.replace(".ipynb", "__fix-iocaml-notebook-exports-to-pdf.ipynb")
+        new = old.replace(
+            ".ipynb", "__fix-iocaml-notebook-exports-to-pdf.ipynb")
     else:
         new = argv[1]
     print("old =", old)

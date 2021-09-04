@@ -2,6 +2,8 @@
 brackets = {"(": ")", "{": "}", "[": "]"}
 
 # On each input string, process it using the balance checker
+
+
 def balancedBrackets(string):
     stack = []
     # Process every character on input

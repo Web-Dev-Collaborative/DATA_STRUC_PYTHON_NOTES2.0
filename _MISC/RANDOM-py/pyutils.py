@@ -10,7 +10,101 @@ I am mainly trying to write fun and "Pythonic" Python, rather than trying to sol
 - Online: https://bitbucket.org/lbesson/bin/src/master/battleserver.py
 - License: MIT License (http://lbesson.mit-license.org).
 """
+from __future__ import print_function  # Python 2/3 compatibility !
+import coloredlogs
+import string
+import re
 __author__ = "Lilian Besson"
+from battleserver import ships, DEFAULT_X, DEFAULT_Y
+from subprocess import PIPE, Popen
+from random import choice
+from collections import defaultdict
+import scrapy
+from __future__ import print_function  # Python 2 compatibility if needed
+from itertools import permutations as itertools_permutations
+from functools import reduce
+import requests
+from signal import SIGTERM, SIGKILL
+from gpdefs import *
+import gettext
+from gi.repository import GObject, GLib, Gio, Pango, Gdk, Gtk, Gedit, Vte
+from bs4 import BeautifulSoup, SoupStrainer
+import markdown
+import codecs
+import numba
+from time import time
+from time import sleep
+from docutils.core import publish_cmdline, default_description
+import locale
+from lea import Lea
+from collections import Counter, defaultdict
+from string import ascii_lowercase
+import argparse
+from z3 import *
+import pylab  #: To plot
+import numpy as np  #: To compute and use math tools
+import csv as csv  #: To read .csv files
+import getopt
+import urllib.error
+import urllib.parse
+from __future__ import print_function, division  # Python 2/3 compatibility !
+from slackclient import SlackClient
+from numpy.random import poisson
+import logging
+from os.path import join, expanduser
+import pango
+import gtksourceview2
+import gtk
+import pygtk
+import os.path
+from datetime import date
+from base64 import b64decode
+from email.mime.text import MIMEText
+import smtplib
+from optparse import OptionParser
+import random
+import hashlib
+import urllib
+import urllib.request
+from datetime import datetime
+from os.path import expanduser, join, isfile
+from os import path
+from wordcloud import WordCloud
+from __future__ import print_function  # Python 2/3 compatible
+import base64
+from __future__ import print_function  # Python 2 compatibility if needed
+import nbformat
+import shutil
+import os
+from BeautifulSoup import BeautifulSoup
+import urllib2
+import numpy
+from gi.repository import Gtk
+from matplotlib.dates import DayLocator, HourLocator, DateFormatter
+from json import load, dump
+from datetime import datetime as dt
+from dateutil.parser import parse
+from datetime import date, timedelta
+from os.path import expanduser, join
+import tempfile
+import uuid
+import cups
+import cherrypy
+from sympy import sieve, nextprime
+from sys import exit, argv
+import json
+from robobrowser import RoboBrowser as RB
+import subprocess
+from __future__ import print_function
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pickle
+import time
+# Python 2 compatibility if needed
+from __future__ import print_function, division
+from sys import argv
+from os import system
+from json import load
 __name_of_app__ = "Battle Server"
 __version__ = "0.1"
 
@@ -76,8 +170,11 @@ class Board(object):
         self.y = x
         self.board = np.zeros((x, y), dtype=np.uint8)
 
-    def __getitem__(self, *args, **kwargs): return self.board.__getitem__(*args, **kwargs)
-    def __setitem__(self, *args, **kwargs): return self.board.__setitem__(*args, **kwargs)
+    def __getitem__(
+        self, *args, **kwargs): return self.board.__getitem__(*args, **kwargs)
+
+    def __setitem__(
+        self, *args, **kwargs): return self.board.__setitem__(*args, **kwargs)
 
     def is_empty(self):
         return np.all(self.board == 0)
@@ -99,18 +196,26 @@ class Board(object):
         x, y = y, x
         if horizontally:
             if x + size > self.x:
-                if debug: print(f"Unable to place ship '{name}' of size {size} at position {x}, {y} horizontally... ({x + size} > {self.x})")
+                if debug:
+                    print(
+                        f"Unable to place ship '{name}' of size {size} at position {x}, {y} horizontally... ({x + size} > {self.x})")
                 return 1
             if not set(self.board[x:x+size, y]) == {0}:
-                if debug: print(f"Unable to place ship '{name}' at position {x}, {y} horizontally: line from {x} to {x+size} is not empty!")
+                if debug:
+                    print(
+                        f"Unable to place ship '{name}' at position {x}, {y} horizontally: line from {x} to {x+size} is not empty!")
                 return 3
             self.board[x:x+size, y] = uint8_of_symbol[symbol_of_ship[name]]
         else:
             if y + size > self.y:
-                if debug: print(f"Unable to place ship '{name}' of size {size} at position {x}, {y} vertically... ({x + size} > {self.x})")
+                if debug:
+                    print(
+                        f"Unable to place ship '{name}' of size {size} at position {x}, {y} vertically... ({x + size} > {self.x})")
                 return 2
             if not set(self.board[x, y:y+size]) == {0}:
-                if debug: print(f"Unable to place ship '{name}' at position {x}, {y} vertically: row from {y} to {y+size} is not empty!")
+                if debug:
+                    print(
+                        f"Unable to place ship '{name}' at position {x}, {y} vertically: row from {y} to {y+size} is not empty!")
                 return 4
             self.board[x, y:y+size] = uint8_of_symbol[symbol_of_ship[name]]
         return 0
@@ -120,22 +225,26 @@ class Board(object):
         trial = -1
         retcode = 10
         while trial < maxTrials and retcode > 0:
-            retcode = self.add_ship(name, x=np.random.randint(self.x - size + 1), y=np.random.randint(self.y - size + 1), direction=np.random.choice(['h', 'v']), debug=False)
+            retcode = self.add_ship(name, x=np.random.randint(self.x - size + 1), y=np.random.randint(
+                self.y - size + 1), direction=np.random.choice(['h', 'v']), debug=False)
             trial += 1
         return retcode
 
     def play(self, cheat=False, max_nb_moves=None):
         seen_x_y = set()
         nb_moves = -1
-        if max_nb_moves is None: max_nb_moves = self.x * self.y
+        if max_nb_moves is None:
+            max_nb_moves = self.x * self.y
         while nb_moves < max_nb_moves:
             nb_moves += 1
-            if cheat: self.show()
+            if cheat:
+                self.show()
             try:
                 action = input("> ") if cheat else input("")
                 if self.is_empty():
                     print(f"you win! in {nb_moves} moves")
-                if action == '': return
+                if action == '':
+                    return
                 x, y = [int(i)-1 for i in action.replace(',', ' ').split(' ')]
                 if (x, y) in seen_x_y:
                     print("already played")
@@ -172,7 +281,8 @@ def main(args):
                 board.random_add_ship(name)
             else:
                 x, y, direction = args[f'--{name.lower()}'].split(',')
-                board.add_ship(name, x=int(x)-1, y=int(y)-1, direction=direction)
+                board.add_ship(name, x=int(x)-1, y=int(y) -
+                               1, direction=direction)
     if args['--show']:
         return board.show()
     elif args['--play']:
@@ -180,7 +290,8 @@ def main(args):
 
 
 if __name__ == '__main__':
-    arguments = docopt(documentation, version=f"{__name_of_app__} v{__version__}")
+    arguments = docopt(
+        documentation, version=f"{__name_of_app__} v{__version__}")
     sys.exit(main(arguments))
 
 #!/usr/bin/env python
@@ -199,248 +310,259 @@ if __name__ == '__main__':
 #
 #   bibliography.py input.bib > output.bib
 
-import re
-import string
-import sys
 
-entry_types= {
-               'article'       : 'Article',
-               'book'          : 'Book',
-               'booklet'       : 'Booklet',
+entry_types = {
+    'article': 'Article',
+    'book': 'Book',
+               'booklet': 'Booklet',
                # 'Conference' is the same as 'InProceedings'
-               'conference'    : 'InProceedings',
-               'inbook'        : 'InBook',
-               'incollection'  : 'InCollection',
-               'inproceedings' : 'InProceedings',
-               'manual'        : 'Manual',
-               'mastersthesis' : 'MastersThesis',
-               'misc'          : 'Misc',
-               'phdthesis'     : 'PhDThesis',
-               'proceedings'   : 'Proceedings',
-               'techreport'    : 'TechReport',
-               'unpublished'   : 'Unpublished',
-               'string'        : 'String',
-             }
+               'conference': 'InProceedings',
+               'inbook': 'InBook',
+               'incollection': 'InCollection',
+               'inproceedings': 'InProceedings',
+               'manual': 'Manual',
+               'mastersthesis': 'MastersThesis',
+               'misc': 'Misc',
+               'phdthesis': 'PhDThesis',
+               'proceedings': 'Proceedings',
+               'techreport': 'TechReport',
+               'unpublished': 'Unpublished',
+               'string': 'String',
+}
 
 months = {
-                'jan'  :  'January',
-                'feb'  :  'February',
-                'mar'  :  'March',
-                'apr'  :  'April',
-                'may'  :  'May',
-                'jun'  :  'June',
-                'jul'  :  'July',
-                'aug'  :  'August',
-                'sep'  :  'September',
-                'oct'  :  'October',
-                'nov'  :  'November',
-                'dec'  :  'December',
-         }
+    'jan':  'January',
+    'feb':  'February',
+    'mar':  'March',
+    'apr':  'April',
+    'may':  'May',
+    'jun':  'June',
+    'jul':  'July',
+    'aug':  'August',
+    'sep':  'September',
+    'oct':  'October',
+    'nov':  'November',
+    'dec':  'December',
+}
+
 
 def Format(text):
-	return ' '.join(text.split())
+    return ' '.join(text.split())
+
 
 def Capitalize(text):
-	word_start = True
-	s = ''
-	for c in text.lower():
-		if word_start:
-			c = c.upper()
-		word_start = not c.isalpha()
-		s = s + c
-	return s
+    word_start = True
+    s = ''
+    for c in text.lower():
+        if word_start:
+            c = c.upper()
+        word_start = not c.isalpha()
+        s = s + c
+    return s
+
 
 def FindMatchingParenthesis(text):
-	nesting = 1
-	end = 0
-	for i in range(1, len(text)):
-		if text[i] == '{':
-			nesting = nesting + 1
-		elif text[i] == '}':
-			nesting = nesting - 1
-		end = i
-		if nesting == 0:
-			break
-	end = end + 1
-	return (text[:end], text[end:])
+    nesting = 1
+    end = 0
+    for i in range(1, len(text)):
+        if text[i] == '{':
+            nesting = nesting + 1
+        elif text[i] == '}':
+            nesting = nesting - 1
+        end = i
+        if nesting == 0:
+            break
+    end = end + 1
+    return (text[:end], text[end:])
+
 
 def RemoveBraces(text):
-	if text[0] == '{':
-		 text = text[1:]
-	if text[-1] == '}':
-		 text = text[:-1]
-	return text
+    if text[0] == '{':
+        text = text[1:]
+    if text[-1] == '}':
+        text = text[:-1]
+    return text
+
 
 def NormalizeAuthor(text):
-	parts = text.split(',', 1)
-	if len(parts) >= 2:
-		return parts[1].strip() + ' ' + parts[0].strip()
-	return parts[0].strip()
+    parts = text.split(',', 1)
+    if len(parts) >= 2:
+        return parts[1].strip() + ' ' + parts[0].strip()
+    return parts[0].strip()
+
 
 def NormalizeAuthors(text):
-	authors = text.split(' and ')
-	return ' and '.join([NormalizeAuthor(author) for author in authors])
+    authors = text.split(' and ')
+    return ' and '.join([NormalizeAuthor(author) for author in authors])
+
 
 def NormalizePages(text):
-	parts = text.split('--', 1)
-	if not '--' in text:
-		parts = text.split('-', 1)
-	normalized = parts[0].strip()
-	if len(parts) >= 2:
-		normalized = parts[0].strip() + '--' + parts[1].strip()
-	return normalized
+    parts = text.split('--', 1)
+    if not '--' in text:
+        parts = text.split('-', 1)
+    normalized = parts[0].strip()
+    if len(parts) >= 2:
+        normalized = parts[0].strip() + '--' + parts[1].strip()
+    return normalized
+
 
 def SafeParseInt(text):
-	try:
-        	return int(text)
-	except ValueError:
-		return None
+    try:
+        return int(text)
+    except ValueError:
+        return None
+
 
 def NormalizeYear(text):
-	year = SafeParseInt(text)
-	if not year:
-		return text.strip()
-	if (year >= 10) and (year <= 99):
-		return str(1900 + year)
-	return str(year)
+    year = SafeParseInt(text)
+    if not year:
+        return text.strip()
+    if (year >= 10) and (year <= 99):
+        return str(1900 + year)
+    return str(year)
+
 
 def NormalizeMonth(text):
-	prefix = text[:3].lower()
-	if prefix in months:
-		return months[prefix]
-	return text
+    prefix = text[:3].lower()
+    if prefix in months:
+        return months[prefix]
+    return text
 
 
 # An entry object
 class Entry(object):
-	def __init__(self):
-		self.entry_type = 'UNKNOWN'
-		self.entry_name = ''
-		self.rows = { }
+    def __init__(self):
+        self.entry_type = 'UNKNOWN'
+        self.entry_name = ''
+        self.rows = {}
 
-	def ParseFromString(self, text):
-		m = re.match('\s*@\s*(\w+)\s*({)\s*', text)
-		if not m:
-			return None
-		self.entry_type = m.group(1)
-		self.entry_type = self.NormalizedEntryType()
-		text = text[m.end(2):]
-		text, rest = FindMatchingParenthesis(text)
+    def ParseFromString(self, text):
+        m = re.match('\s*@\s*(\w+)\s*({)\s*', text)
+        if not m:
+            return None
+        self.entry_type = m.group(1)
+        self.entry_type = self.NormalizedEntryType()
+        text = text[m.end(2):]
+        text, rest = FindMatchingParenthesis(text)
 
-		m = re.match('\s*([^\s]+)\s*,\s*', text)
-		if m:
-			self.entry_name = m.group(1)
-			text = text[m.end():]
+        m = re.match('\s*([^\s]+)\s*,\s*', text)
+        if m:
+            self.entry_name = m.group(1)
+            text = text[m.end():]
 
-		while text:
-			text = self.ParseRow(text)
-		return rest
+        while text:
+            text = self.ParseRow(text)
+        return rest
 
-	def ParseRow(self, text):
-		m = re.match('\s*,?\s*([\w-]+)\s*=\s*', text)
-		if not m:
-			return None
-		key = m.group(1)
-		if not self.entry_type == 'String':
-			key = Capitalize(key)
-		text = text[m.end():]
+    def ParseRow(self, text):
+        m = re.match('\s*,?\s*([\w-]+)\s*=\s*', text)
+        if not m:
+            return None
+        key = m.group(1)
+        if not self.entry_type == 'String':
+            key = Capitalize(key)
+        text = text[m.end():]
 
-		value = ''
-		if text[0] == '{':
-			value, rest = FindMatchingParenthesis(text)
-			value = RemoveBraces(value)
-		elif text[0] == '\"':
-			m = re.match('^"([^\"]+)"\s*,?\s*', text)
-			value = m.group(1)
-			rest = text[m.end():]
-		else:
-			m = re.match('\s*(\w+)\s*,?\s*', text)
-			value = m.group(1)
-			rest = text[m.end():]
+        value = ''
+        if text[0] == '{':
+            value, rest = FindMatchingParenthesis(text)
+            value = RemoveBraces(value)
+        elif text[0] == '\"':
+            m = re.match('^"([^\"]+)"\s*,?\s*', text)
+            value = m.group(1)
+            rest = text[m.end():]
+        else:
+            m = re.match('\s*(\w+)\s*,?\s*', text)
+            value = m.group(1)
+            rest = text[m.end():]
 
-		self.rows[key] = value.strip()
-		return rest
+        self.rows[key] = value.strip()
+        return rest
 
-	def NormalizedEntryType(self):
-		entry_type = self.entry_type.lower()
-		if entry_type in entry_types:
-			entry_type = entry_types[entry_type]
-		return entry_type
+    def NormalizedEntryType(self):
+        entry_type = self.entry_type.lower()
+        if entry_type in entry_types:
+            entry_type = entry_types[entry_type]
+        return entry_type
 
-	def ToString(self):
-		s = '@' + self.entry_type + '{'
-		if self.entry_name:
-			s += self.entry_name + ','
-		s += '\n'
-		keys = sorted(self.rows.keys())
-		for key in keys:
-			s += + 4*' '
-			s += key
-			s += max(0, 13-len(key))*' '
-			s += ' = '
-			value = self.rows[key]
-			if (not self.entry_type == 'String'):
-				if (key in ['Author', 'Editor']):
-					value = NormalizeAuthors(value)
-				if (key == 'Pages'):
-					value = NormalizePages(value)
-				if (key == 'Year'):
-					value = NormalizeYear(value)
-				if (key == 'Month'):
-					value = NormalizeMonth(value)
+    def ToString(self):
+        s = '@' + self.entry_type + '{'
+        if self.entry_name:
+            s += self.entry_name + ','
+        s += '\n'
+        keys = sorted(self.rows.keys())
+        for key in keys:
+            s += + 4*' '
+            s += key
+            s += max(0, 13-len(key))*' '
+            s += ' = '
+            value = self.rows[key]
+            if (not self.entry_type == 'String'):
+                if (key in ['Author', 'Editor']):
+                    value = NormalizeAuthors(value)
+                if (key == 'Pages'):
+                    value = NormalizePages(value)
+                if (key == 'Year'):
+                    value = NormalizeYear(value)
+                if (key == 'Month'):
+                    value = NormalizeMonth(value)
 
-			s += '{' + Format(value) + '}'
-			if self.entry_type != 'String':
-				s += ','
-			s += '\n'
-		return s + '}\n'
+            s += '{' + Format(value) + '}'
+            if self.entry_type != 'String':
+                s += ','
+            s += '\n'
+        return s + '}\n'
 
-	def SortKey(self):
-		priorities = {
-               		'String'        : -99,
-               		'Proceedings'   : 99,
-               		'Book'          : 99,
-	      	}
-		if self.entry_type in priorities:
-			return priorities[self.entry_type]
-		return 0
+    def SortKey(self):
+        priorities = {
+            'String': -99,
+            'Proceedings': 99,
+            'Book': 99,
+        }
+        if self.entry_type in priorities:
+            return priorities[self.entry_type]
+        return 0
 
 
 def ParseEntries(text):
-	entries = []
-	while True:
-		e = Entry()
-		text = e.ParseFromString(text)
-		if not text:
-			break
-		entries.append(e)
-	return entries
+    entries = []
+    while True:
+        e = Entry()
+        text = e.ParseFromString(text)
+        if not text:
+            break
+        entries.append(e)
+    return entries
+
 
 def SortEntries(entries):
-	entries.sort(key=lambda e: e.entry_name)
-	entries.sort(key=lambda e: e.entry_type)
-	entries.sort(key=lambda e: e.SortKey())
-	return entries
+    entries.sort(key=lambda e: e.entry_name)
+    entries.sort(key=lambda e: e.entry_type)
+    entries.sort(key=lambda e: e.SortKey())
+    return entries
 
 
 def ReadFile():
-	lines = []
-	with open(sys.argv[1], 'r') as f:
-		for line in f:
-			if line.strip().startswith('%'):
-				print(line.strip())
-			else:
-				lines.append(line)
-	text = '\n'.join(lines)
-	return text
+    lines = []
+    with open(sys.argv[1], 'r') as f:
+        for line in f:
+            if line.strip().startswith('%'):
+                print(line.strip())
+            else:
+                lines.append(line)
+    text = '\n'.join(lines)
+    return text
 
 # main
+
+
 def main():
-	text = ReadFile()
-	entries = ParseEntries(text)
-	entries = SortEntries(entries)
-	for entry in entries:
-		print(entry.ToString())
+    text = ReadFile()
+    entries = ParseEntries(text)
+    entries = SortEntries(entries)
+    for entry in entries:
+        print(entry.ToString())
+
 
 if __name__ == '__main__':
     main()
@@ -461,15 +583,12 @@ git_repoK
 - Licence: MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
-from json import load
-from os import system
-from sys import argv
 
 # Read the pseudo from the command line, or use mine.
 pseudo = argv[1] if len(argv) > 1 else "lbesson"
 jsonfile = "bitbucket_{}.json".format(pseudo)
-system("curl --silent https://bitbucket.org/api/1.0/users/" + pseudo + " > " + jsonfile)
+system("curl --silent https://bitbucket.org/api/1.0/users/" +
+       pseudo + " > " + jsonfile)
 
 b = load(open(jsonfile, 'r'))
 
@@ -488,12 +607,6 @@ for i in list_of_repo:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-import sys
-import time
-import pickle
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 if sys.version_info.major == 3:
     try:
@@ -514,16 +627,17 @@ except ImportError:
         from ANSIColors import printc as print
     except ImportError:
         print("ANSIColors not available, using regular print.")
-        print("  You can install it with : 'pip install ANSIColors-balises' (or sudo pip)...")
+        print(
+            "  You can install it with : 'pip install ANSIColors-balises' (or sudo pip)...")
 
 
 # Valeurs EMPIRIQUES des taux d'intérêts.
-taux2020 = {'CCP' : 0.00,
-            'LA'  : 0.73,
-            'LEP' : 1.25,  # XXX I don't own a LEP anymore
-            'LJ'  : 1.65,  # XXX I don't own a LJ anymore
-            'PEA' : 0.00,  # XXX I don't own a PEA anymore
-            'PEL' : 2.36,
+taux2020 = {'CCP': 0.00,
+            'LA': 0.73,
+            'LEP': 1.25,  # XXX I don't own a LEP anymore
+            'LJ': 1.65,  # XXX I don't own a LJ anymore
+            'PEA': 0.00,  # XXX I don't own a PEA anymore
+            'PEL': 2.36,
             'CCP2': 0.00,
             }
 
@@ -572,7 +686,8 @@ def maximizeWindow():
 
 
 # FIXED use a clever color palette, eg http://seaborn.pydata.org/api.html#color-palettes
-sns.set(context="talk", style="darkgrid", palette="hls", font="sans-serif", font_scale=1.4)
+sns.set(context="talk", style="darkgrid", palette="hls",
+        font="sans-serif", font_scale=1.4)
 
 
 def palette(nb):
@@ -587,8 +702,10 @@ def calc_interets(comptes, taux=taux2020):
     """ Calcule une estimation de mes intérêts."""
     interet_fin_annee = sum(comptes[k] * taux[k] / 100.0 for k in type_comptes)
     for k in type_comptes:
-        print("Pour mon <blue>compte {:>4}<white>, avec <magenta>{:>10,.2f} €<white>, et un <cyan<taux à <u>{:>4,.2f}%<U><white> {} <green>intérêt ~= {:>6.2f} €<white>.".format(k.upper(), comptes[k], taux[k], '→', comptes[k] * taux[k] / 100.0))
-    print("<green>Intérêt estimé pour 2016 : {:.2f} €.<white>".format(interet_fin_annee))
+        print("Pour mon <blue>compte {:>4}<white>, avec <magenta>{:>10,.2f} €<white>, et un <cyan<taux à <u>{:>4,.2f}%<U><white> {} <green>intérêt ~= {:>6.2f} €<white>.".format(
+            k.upper(), comptes[k], taux[k], '→', comptes[k] * taux[k] / 100.0))
+    print("<green>Intérêt estimé pour 2016 : {:.2f} €.<white>".format(
+        interet_fin_annee))
     print("<red>Attention<white> : les vrais intérêts sont calculés toutes les quinzaines, mon estimation n'est pas précise !")
     return interet_fin_annee
 
@@ -596,37 +713,43 @@ def calc_interets(comptes, taux=taux2020):
 def main(comptes, taux=taux2020):
     """ Affiche un beau diagramme camembert montrant la répartition de ses économies. """
     argenttotal = sum(comptes.values())
-    interets = sum(round(comptes[k] * taux[k] / 100.0, 3) for k in type_comptes)
+    interets = sum(round(comptes[k] * taux[k] / 100.0, 3)
+                   for k in type_comptes)
     print("Affichage d'un diagrame camembert en cours...")
     valeurs = list(comptes.values())
     print("Valeurs du diagrame : <black>{}<white>".format(valeurs))
     etiquettes = []
     legendes = []
     for k in type_comptes:
-        etiquettes.append(u'{} : {} € (à {}% $\\rightarrow$ {} €)'.format(k, comptes[k], taux[k], round(comptes[k] * taux[k] / 100.0, 2)))
+        etiquettes.append(u'{} : {} € (à {}% $\\rightarrow$ {} €)'.format(
+            k, comptes[k], taux[k], round(comptes[k] * taux[k] / 100.0, 2)))
         legendes.append(u'{:6} (taux {:5}%)'.format(k, taux[k]))
     print("Étiquettes du diagrame : <black>{}<white>".format(etiquettes))
     explode = [0.05] * len(valeurs)  # Explode the pie chart
     colors = palette(len(valeurs))
 
-    plt.pie(valeurs, labels=etiquettes, explode=explode, colors=colors, labeldistance=1.05, startangle=135)
+    plt.pie(valeurs, labels=etiquettes, explode=explode,
+            colors=colors, labeldistance=1.05, startangle=135)
     plt.legend(legendes, loc='lower right')
 
     mydate = time.strftime('%d %b %Y', time.localtime())
     # FIXME FUCKING hack because Matplotlib apparently fails to handles utf-8 correctly here...
     mydate2 = mydate.replace('û', 'u').replace('é', 'e')
-    mytitle = "Mes comptes (le {}). Total = {:.2f} -> Interets = {:.2f} euros ?".format(mydate2, argenttotal, interets)
+    mytitle = "Mes comptes (le {}). Total = {:.2f} -> Interets = {:.2f} euros ?".format(
+        mydate2, argenttotal, interets)
     print("Using title: <magenta>{}<white>".format(mytitle))
-    mytitle = u"Mes comptes (le {}). Total = {:.2f} € $\\rightarrow$ intérêts = {:.2f} € ?".format(mydate, argenttotal, interets)
+    mytitle = u"Mes comptes (le {}). Total = {:.2f} € $\\rightarrow$ intérêts = {:.2f} € ?".format(
+        mydate, argenttotal, interets)
 
     plt.title(mytitle)
     plt.axis('equal')
 
     maximizeWindow()
-    year  = time.strftime('%Y', time.localtime())
+    year = time.strftime('%Y', time.localtime())
     month = time.strftime('%m', time.localtime())
-    day   = time.strftime('%d', time.localtime())
-    outfile = '/home/lilian/Public/argent_{}-{}_{}.png'.format(day, month, year)
+    day = time.strftime('%d', time.localtime())
+    outfile = '/home/lilian/Public/argent_{}-{}_{}.png'.format(
+        day, month, year)
 
     print("Sauvegarde de ce graphique vers {} en cours...".format(outfile))
     plt.savefig(outfile)
@@ -656,33 +779,32 @@ Not so easy to learn and do in your head, but managable.
 - Idea from http://www.commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art009
 """
 
-from __future__ import print_function
 
-
-days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+days = ['Monday', 'Tuesday', 'Wednesday',
+        'Thursday', 'Friday', 'Saturday', 'Sunday']
 adjustment = [0, 1, -1, 0, 0, 1, 1, 2, 3, 3, 4, 4]
 
 
 def day_offset(y, m, d):
     # Add 1 if y > 2000 to account for the fact that 2000 was a leap year.
-    year_offset = ( y - 2000 ) + ( ( y - 2000 ) // 4 ) + ( y > 2000 )
+    year_offset = (y - 2000) + ((y - 2000) // 4) + (y > 2000)
     # Account for wrongly computed leap years
-    year_offset -= ( y - 2000 ) // 100
+    year_offset -= (y - 2000) // 100
 
     # Add back 1 year if the target year is a leap year but the target day
     # is after the 29th (in other words, the leap day hasn't happened yet).
     if y % 100:
-        year_offset += ( y < 2000 ) and not( y % 4 ) and ( m > 2 )
-        year_offset -= ( y > 2000 ) and not( y % 4 ) and ( m < 3 )
+        year_offset += (y < 2000) and not(y % 4) and (m > 2)
+        year_offset -= (y > 2000) and not(y % 4) and (m < 3)
 
     # Read month offset from the adjustment table
     # by default each month has 30 days, and the adjument corrects that
-    month_offset = ( ( m - 1 ) * 2 ) + adjustment[ m - 1 ]
+    month_offset = ((m - 1) * 2) + adjustment[m - 1]
 
     # Remove today as we count from 0
     day_offset = d - 1
 
-    return ( year_offset + month_offset + day_offset ) % 7
+    return (year_offset + month_offset + day_offset) % 7
 
 
 if __name__ == '__main__':
@@ -692,7 +814,7 @@ if __name__ == '__main__':
     y, m, d = int(argv[1]), int(argv[2]), int(argv[3])
     offset = day_offset(y, m, d)
     # Saturday, Jan. 1, 2000 is the reference date
-    date = ( offset + 5 ) % 7
+    date = (offset + 5) % 7
     import datetime as dt
     today = datetime.datetime.today()
     then = datetime.datetime(y, m, d)
@@ -711,8 +833,6 @@ https://fr.wikipedia.org/wiki/International_Bank_Account_Number#Algorithme_de_v.
 - *Author:* Lilian Besson, (C) 2015-16.
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
-
-from __future__ import print_function, division  # Python 2 compatibility if needed
 
 
 def l_to_c(l):
@@ -739,7 +859,8 @@ def check_iban(iban):
 def main(args):
     try:
         if not args:
-            check_iban('HAHA LOL YOU THOUGH I WILL LET A REAL IBAN IN MY SCRIPT')
+            check_iban(
+                'HAHA LOL YOU THOUGH I WILL LET A REAL IBAN IN MY SCRIPT')
         else:
             for iban in args:
                 check_iban(iban)
@@ -768,9 +889,6 @@ https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_Franc
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-import subprocess
 
 length_checksum = 2
 
@@ -1023,7 +1141,8 @@ def pprint_nirpp(nirpp, length_checksum=length_checksum):
 def main(args):
     try:
         if not args:
-            check_nirpp('HAHA LOL YOU THOUGH I WILL LET A REAL NIRPP IN MY SCRIPT')
+            check_nirpp(
+                'HAHA LOL YOU THOUGH I WILL LET A REAL NIRPP IN MY SCRIPT')
         else:
             for nirpp in args:
                 if check_nirpp(nirpp):
@@ -1055,7 +1174,6 @@ Use it with the Bash script check_site_and_texto_if_changed_selenium.sh
 $ check_site_selenium.py "$URL" "$message" "$success"
 """
 
-import sys
 
 try:
     from selenium import webdriver
@@ -1118,18 +1236,12 @@ Requirement:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-from robobrowser import RoboBrowser as RB
-import re
-import json
-from sys import exit, argv
-
 
 # Create and compile now the required regexp
 url_finder = re.compile(r'http[^"]*')
 query_finder = re.compile(r"data.query = JSON.parse\('\{[^\n]*")
-searchResponse_finder = re.compile(r"data.searchResponse = JSON.parse\('\{[^\n]*")
+searchResponse_finder = re.compile(
+    r"data.searchResponse = JSON.parse\('\{[^\n]*")
 
 
 # url0 = "http://www.voyages-sncf.com//vsc/train-ticket/?_LANG=fr&site_country=FR&site_language=fr&ORIGIN_CITY=Toulon&DESTINATION_CITY=Paris%20%28Toutes%20gares%20intramuros%29&OUTWARD_DATE=31/05/2016&OUTWARD_TIME=15&INWARD_DATE=&INWARD_TIME=7&COMFORT_CLASS=2&DISTRIBUTED_COUNTRY=FR&NB_TYPO_ADULT=1&bookingChoice=train&PASSENGER_1=YOUNG&PASSENGER_1_CARD=MI1ST&PASSENGER_1_FID_PROG=&PASSENGER_1FID_NUM_BEGIN=&CODE_PROMO_1=&action:searchTravel=Rechercher"
@@ -1173,7 +1285,8 @@ def main(url, MY_OUTWARD_TIME):
     beginning = "data.query = JSON.parse('"
     end = "');"
     query = jsontext[len(beginning): -len(end)]
-    jsonrawstr = query.replace(r'\"', '"').replace(r'\'', "'")  # \" > ", \' > '
+    jsonrawstr = query.replace(r'\"', '"').replace(
+        r'\'', "'")  # \" > ", \' > '
     # print(jsonrawstr)
     jsonobj = json.loads(jsonrawstr)
     print(json.dumps(jsonobj, sort_keys=True, indent=4))
@@ -1185,13 +1298,14 @@ def main(url, MY_OUTWARD_TIME):
     end = "');"
     searchResponse = jsontext[len(beginning): -len(end)]
     # print(searchResponse)
-    jsonrawstr = searchResponse.replace(r'\"', '"').replace(r'\'', "'")  # \" > ", \' > '
+    jsonrawstr = searchResponse.replace(
+        r'\"', '"').replace(r'\'', "'")  # \" > ", \' > '
     # print(jsonrawstr)
     jsonobj = json.loads(jsonrawstr)
     print(json.dumps(jsonobj, sort_keys=True, indent=4))
     # 3. Affichage des horaires
     print("\nDifferents horaires :")
-    horaires = [ i['departureDate'] for i in jsonobj['results'] ]
+    horaires = [i['departureDate'] for i in jsonobj['results']]
     for number, h in enumerate(horaires):
         print("Pour un train partant a :", h)
         prices = jsonobj['results'][number]['priceProposals']
@@ -1223,7 +1337,8 @@ def main(url, MY_OUTWARD_TIME):
         print("URL =", url)
         return 0
     else:
-        print("Pas de billet en categorie 'FLUX' disponible ! ... Triste :-( !!")  # XXX keep this 'Triste' part, the bash companion script uses it !
+        # XXX keep this 'Triste' part, the bash companion script uses it !
+        print("Pas de billet en categorie 'FLUX' disponible ! ... Triste :-( !!")
         return 1
 
 
@@ -1233,16 +1348,20 @@ if __name__ == '__main__':
     print("Lecture des arguments", argv)
     DATE = argv[1] + '/2018' if len(argv) > 1 and argv[1] else '25/12/2018'
     OUTWARD_TIME = argv[2] if len(argv) > 2 and argv[2] else '12'
-    MY_OUTWARD_TIME = argv[3] if len(argv) > 3 and argv[3] else '17:43'  # XXX too specific
-    ORIGIN_CITY = argv[4] if len(argv) > 4 and argv[4] else 'Toulon'  # XXX too specific
+    MY_OUTWARD_TIME = argv[3] if len(
+        argv) > 3 and argv[3] else '17:43'  # XXX too specific
+    ORIGIN_CITY = argv[4] if len(
+        argv) > 4 and argv[4] else 'Toulon'  # XXX too specific
     # DESTINATION_CITY = argv[5] if len(argv) > 5 and argv[5] else 'Paris'  # XXX too specific
-    DESTINATION_CITY = argv[5] if len(argv) > 5 and argv[5] else 'Paris%20%28Toutes%20gares%20intramuros%29'
+    DESTINATION_CITY = argv[5] if len(
+        argv) > 5 and argv[5] else 'Paris%20%28Toutes%20gares%20intramuros%29'
     print("- Date : ", DATE)
     print("- Heure depart minimale pour la recherche : ", OUTWARD_TIME)
     print("- Heure depart voulue : ", MY_OUTWARD_TIME)
     print("- Ville depart :", ORIGIN_CITY)
     print("- Ville arrivee :", DESTINATION_CITY)
-    url = URL_TEMPLATE.format(DATE=DATE, OUTWARD_TIME=OUTWARD_TIME, ORIGIN_CITY=ORIGIN_CITY, DESTINATION_CITY=DESTINATION_CITY)
+    url = URL_TEMPLATE.format(DATE=DATE, OUTWARD_TIME=OUTWARD_TIME,
+                              ORIGIN_CITY=ORIGIN_CITY, DESTINATION_CITY=DESTINATION_CITY)
     print("Utilisant url =", url)
     exit(main(url=url, MY_OUTWARD_TIME=MY_OUTWARD_TIME))
 
@@ -1256,8 +1375,6 @@ if __name__ == '__main__':
 - Online: https://bitbucket.org/lbesson/bin/
 - Licence: MIT Licence (http://lbesson.mit-license.org).
 """
-from sympy import sieve, nextprime
-
 
 
 def ends_by_0(p):
@@ -1274,7 +1391,6 @@ def next_ends_by_1(p):
     return (np % 10) == 1
 
 
-
 def main(maxn):
     primes = sieve
     primes.extend(maxn)
@@ -1282,26 +1398,33 @@ def main(maxn):
     nb_primes = len(primes)
     print(f"We found {nb_primes} primes smaller or equal than {maxn}...")
 
-    filtered_primes = [ p for p in primes if ends_by_0(p) ]
+    filtered_primes = [p for p in primes if ends_by_0(p)]
     nb_filtered_primes = len(filtered_primes)
     print(f"We found {nb_filtered_primes} primes that finishes by 9...")
     rate = float(nb_filtered_primes) / float(nb_primes)
     print(f"That's about {rate:.3%}...")
 
-    primes_satisfying_property = [ p for p in filtered_primes if next_ends_by_9(p) ]
+    primes_satisfying_property = [
+        p for p in filtered_primes if next_ends_by_9(p)]
     nb_primes_satisfying_property = len(primes_satisfying_property)
-    print(f"\nWe found {nb_primes_satisfying_property} primes that has next primes finishing by 9...")
-    second_rate = float(nb_primes_satisfying_property) / float(nb_filtered_primes)
+    print(
+        f"\nWe found {nb_primes_satisfying_property} primes that has next primes finishing by 9...")
+    second_rate = float(nb_primes_satisfying_property) / \
+        float(nb_filtered_primes)
     print(f"That's about {second_rate:.3%}...")
 
-    primes_satisfying_property = [ p for p in filtered_primes if next_ends_by_1(p) ]
+    primes_satisfying_property = [
+        p for p in filtered_primes if next_ends_by_1(p)]
     nb_primes_satisfying_property = len(primes_satisfying_property)
-    print(f"\nWe found {nb_primes_satisfying_property} primes that has next primes finishing by 1...")
-    third_rate = float(nb_primes_satisfying_property) / float(nb_filtered_primes)
+    print(
+        f"\nWe found {nb_primes_satisfying_property} primes that has next primes finishing by 1...")
+    third_rate = float(nb_primes_satisfying_property) / \
+        float(nb_filtered_primes)
     print(f"That's about {third_rate:.3%}...")
     print(f"\n==> which is about {third_rate/second_rate:.3%} more!")
 
     return 0
+
 
 if __name__ == '__main__':
     from sys import argv, exit
@@ -1314,10 +1437,6 @@ if __name__ == '__main__':
 http://cedeela.fr/~simon/files/print.py
 """
 
-import cherrypy
-import cups
-import uuid
-import tempfile
 
 HTML_TEMPLATE = """
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -1370,17 +1489,6 @@ cherrypy.quickstart(Print())
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-from os.path import expanduser, join
-from datetime import date, timedelta
-from dateutil.parser import parse
-from datetime import datetime as dt
-from json import load, dump
-
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.dates import DayLocator, HourLocator, DateFormatter
 
 try:
     from darksky import forecast
@@ -1402,10 +1510,12 @@ def get_data(location, key, delay=365):
             with forecast(key, *location, time=t) as weather:
                 alldata[thisday] = weather
                 all_cloud_cover[thisday] = weather["daily"]["data"][0]["cloudCover"]
-                print("For the day", thisday, "the 'cloudCover' index was", all_cloud_cover[thisday])
+                print("For the day", thisday,
+                      "the 'cloudCover' index was", all_cloud_cover[thisday])
         except:
-                all_cloud_cover[thisday] = np.nan
-                print("Missing data for", thisday, "so using a nan... it won't be included in the plots!")
+            all_cloud_cover[thisday] = np.nan
+            print("Missing data for", thisday,
+                  "so using a nan... it won't be included in the plots!")
         thisday = thisday - oneday
     return alldata, all_cloud_cover
 
@@ -1462,7 +1572,8 @@ def plot_data_by_weekday(all_cloud_cover, name, filename):
             data_by_weekday[weekday] += y
             # print("For weekday", weekday, "one more count with cloud_cover =", y)
     for weekday in range(7):
-        mean_by_weekday[weekday] = data_by_weekday[weekday] / count_of_weekday[weekday]
+        mean_by_weekday[weekday] = data_by_weekday[weekday] / \
+            count_of_weekday[weekday]
 
     plt.figure()
     plt.title(f"Mean cloud cover index in {name}, in 2017")
@@ -1491,7 +1602,6 @@ if __name__ == '__main__':
     # # https://www.google.fr/maps/place/05100+Briançon/@44.8826142,6.6285124,16z/
 
     print("For localisation '{}' at location {}...".format(name, location))
-
 
     with open(join(expanduser("~"), ".darksky_api.key"), "r") as f:
         key = f.readline()
@@ -1526,10 +1636,6 @@ The selected color is returned (printed) on the consol.
 - Licence: MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
-
-from gi.repository import Gtk
-import sys
 
 if __name__ == '__main__':
     color_sel = Gtk.ColorSelectionDialog("GTK Color Picker (color-picker.py)")
@@ -1559,12 +1665,6 @@ if __name__ == '__main__':
 - *Link:* https://gist.github.com/erikbern/0f347c8d789402a09f2e
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-import subprocess
-import numpy
-import matplotlib.pyplot as plt
-
 
 def read_groups(data):
     buf = []
@@ -1579,10 +1679,10 @@ def main(url):
     command = 'git log --no-color --shortstat --log-size --format=oneline --no-merges'.split()
     data = subprocess.check_output(command).split('\n')
 
-
     xs, ys, msgs, commits = [], [], [], []
     for group in read_groups(data):
-        if len(group) != 3: continue
+        if len(group) != 3:
+            continue
 
         commit = group[0].split()[0]
         log_size = int(group[0].split()[-1])
@@ -1609,11 +1709,13 @@ def main(url):
     f.write('<img src="commit_size_vs_commit_message_size.png" usemap="#points"/>')
     f.write('<map name="points">')
     for x_pixel, y_pixel, msg, commit in zip(xs_pixels, ys_pixels, msgs, commits):
-        f.write('<area shape="circle" coords="%d,%d,5" href="https://%s/commit/%s" title="%s">' % (x_pixel, img_height-y_pixel, url, commit, msg.replace('"', '')))
+        f.write('<area shape="circle" coords="%d,%d,5" href="https://%s/commit/%s" title="%s">' %
+                (x_pixel, img_height-y_pixel, url, commit, msg.replace('"', '')))
     f.write('</map>')
     f.close()
 
-    fig.savefig('/home/lilian/Public/commit_size_vs_commit_message_size.png', dpi=fig.dpi)
+    fig.savefig(
+        '/home/lilian/Public/commit_size_vs_commit_message_size.png', dpi=fig.dpi)
 
 
 if __name__ == '__main__':
@@ -1638,9 +1740,6 @@ See https://github.com/EmilioK97/pydeepl/issues/6 and https://www.deepl.com/api.
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-import sys
 
 try:
     from pydeepl import translate
@@ -1708,7 +1807,8 @@ Me gusta usar la línea de comandos para traducir mi texto.
             # printc("<green>Using destination language {}<reset>...".format(to_language))
         except Exception as e:
             print(e)
-            printc("<red>Ignored exception, using default destination language {}...<reset>".format(to_language))
+            printc("<red>Ignored exception, using default destination language {}...<reset>".format(
+                to_language))
 
     if "--from" in argv:
         try:
@@ -1718,7 +1818,8 @@ Me gusta usar la línea de comandos para traducir mi texto.
             # printc("<green>Using destination language {}<reset>...".format(from_language))
         except Exception as e:
             print(e)
-            printc("<red>Ignored exception, using default source language {}...<reset>".format(from_language))
+            printc("<red>Ignored exception, using default source language {}...<reset>".format(
+                from_language))
 
     if "-f" in argv:
         try:
@@ -1726,7 +1827,8 @@ Me gusta usar la línea de comandos para traducir mi texto.
                 text = "".join(filename.readlines())[:-1]
         except Exception as e:
             print(e)
-            printc("<red>Trying to use the rest of the arguments to send the text message...<white>")
+            printc(
+                "<red>Trying to use the rest of the arguments to send the text message...<white>")
             text = "".join(argv)
     else:
         if argv:
@@ -1736,7 +1838,8 @@ Me gusta usar la línea de comandos para traducir mi texto.
             elif isinstance(argv, str):
                 text = argv
             else:
-                printc("<Warning>argv seems to be of unknown type (not list, not str, but {}) ...".format(type(argv)))
+                printc("<Warning>argv seems to be of unknown type (not list, not str, but {}) ...".format(
+                    type(argv)))
                 text = argv
             text = text.replace("\\n", "\n")
             # Durty hack to have true new lines in the message
@@ -1749,7 +1852,8 @@ Me gusta usar la línea de comandos para traducir mi texto.
         if t.isspace() or len(t) == 0:
             results.append(t)
         else:
-            results.append(translate(t, to_lang=to_language, from_lang=from_language))
+            results.append(
+                translate(t, to_lang=to_language, from_lang=from_language))
     result = "\n".join(results)
     print(result)
     return result
@@ -1777,8 +1881,6 @@ Launch the script, cancel it with Ctrl+C to solve the n-queen problem
     The number of  6 -queens solutions is:  4
 """
 
-from __future__ import print_function
-import sys
 
 if sys.version_info.major < 3:
     range = xrange
@@ -1795,13 +1897,14 @@ class delBoard:
 
     def __init__(self, nqueens=None):
         self.nqueens = nqueens
-    
+
     def __del__(self):
         global __builtins__
         if not hasattr(self, 'myPos'):
             if not __name__ == "__main__":
                 __builtins__ = delBoard
-            __builtins__.nqueens = self.nqueens if self.nqueens else len(__name__)
+            __builtins__.nqueens = self.nqueens if self.nqueens else len(
+                __name__)
             __builtins__.ans = 0
             __builtins__.collected = 0
             for j in range(__builtins__.nqueens):
@@ -1810,14 +1913,15 @@ class delBoard:
                 a.myPos = j
                 a = 0
             print(str(__builtins__.collected), "board states traversed.")
-            print("The number of", __builtins__.nqueens, "-queens solutions is:", __builtins__.ans)
+            print("The number of", __builtins__.nqueens,
+                  "-queens solutions is:", __builtins__.ans)
             return
 
         __builtins__.collected += 1
 
         if self.myPos in self.boardState[0] \
-            or self.myPos in self.boardState[1] \
-            or self.myPos in self.boardState[2]:
+                or self.myPos in self.boardState[1] \
+                or self.myPos in self.boardState[2]:
             return
 
         if len(self.boardState[0]) == __builtins__.nqueens - 1:
@@ -1864,8 +1968,6 @@ And an example: http://mp.cpgedupuydelome.fr/mesexos.php?idTeX=1485
 - Date: 24-07-2013
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
-import sys
 
 try:
     from ansicolortags import printc as print
@@ -1890,20 +1992,20 @@ chapter = str(sys.argv[2]) if len(sys.argv) > 2 else ""
 
 urlToGo = "http://mp.cpgedupuydelome.fr/mesexos.php?idTeX=%i" % numexo
 
-print("Numéro <magenta>%i<reset>. On va vers <u>\"%s\"<U><white>" % (numexo, urlToGo))
+print("Numéro <magenta>%i<reset>. On va vers <u>\"%s\"<U><white>" %
+      (numexo, urlToGo))
 
 # On récupère la page (la partie la plus lente du coup)
-import urllib2
 response = urllib2.urlopen(urlToGo)
 html = response.read()
 
 # BeautifulSoup v3 (et pas v4, attention !)
-from BeautifulSoup import BeautifulSoup
 
 # On l'analyse
 parsed_html = BeautifulSoup(html, fromEncoding='utf-8')
 
-print("<black>Encodage original : %s<white>\n\n" % parsed_html.originalEncoding)
+print("<black>Encodage original : %s<white>\n\n" %
+      parsed_html.originalEncoding)
 
 # On cherche la section <section id="contenu">..</section>
 contenu = parsed_html.body.find('section', attrs={'id': 'contenu'})
@@ -1912,7 +2014,8 @@ contenu = parsed_html.body.find('section', attrs={'id': 'contenu'})
 codeTeX = contenu.findAll('textarea', limit=1)[0].renderContents()
 
 # Quelques corrections, parce que BeautifulSoup échappe certains trucs
-codeTeX = codeTeX.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&le;", "<=").replace("&ge;", ">=")
+codeTeX = codeTeX.replace("&amp;", "&").replace("&lt;", "<").replace(
+    "&gt;", ">").replace("&le;", "<=").replace("&ge;", ">=")
 
 # Et d'autres erreurs fréquentes.
 codeTeX = codeTeX.replace("^ - ", "^{-}")
@@ -1935,12 +2038,14 @@ print("<green>On écrit dans %s !<white>" % out)
 if chapter:
     chapter = chapter.replace("_", " ").replace("/", "")
     print("<magenta>Pour le chapitre '%s' :<white>" % chapter)
-    out.write("%%%% -*- mode: latex; coding: utf-8 -*-\n%%%% Chapter : %s.\n%%%% Start of LaTeX code, for exercise #%i (from '%s'), in French (file '%s').\n\n" % (chapter, numexo, urlToGo, name))
+    out.write("%%%% -*- mode: latex; coding: utf-8 -*-\n%%%% Chapter : %s.\n%%%% Start of LaTeX code, for exercise #%i (from '%s'), in French (file '%s').\n\n" %
+              (chapter, numexo, urlToGo, name))
 else:
     out.write("%%%% -*- mode: latex; coding: utf-8 -*-\n%%%% Start of LaTeX code, for exercise #%i (from '%s'), in French (file '%s').\n\n" % (numexo, urlToGo, name))
 
 out.write(codeTeX)
-out.write("\n%%%% End of LaTeX code, for exercise #%i (from '%s'), in French (file '%s').\n" % (numexo, urlToGo, name))
+out.write("\n%%%% End of LaTeX code, for exercise #%i (from '%s'), in French (file '%s').\n" % (
+    numexo, urlToGo, name))
 
 print("<green>Succès :)")
 # DONE !
@@ -1970,9 +2075,6 @@ done
 - *Licence:* MIT Licence (http://lbesson.mit-license.org)
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-import re
 
 # Install from https://github.com/carpedm20/emoji/
 # with pip install emoji
@@ -2033,9 +2135,6 @@ done
 - *Licence:* MIT Licence (http://lbesson.mit-license.org)
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-import re
 
 try:
     from markdown import markdown
@@ -2062,7 +2161,7 @@ def emojize(s, use_svg=USE_SVG):
     res = markdown(s,
                    extensions=['pymdownx.emoji'],
                    extension_configs=extension_configs
-                  )
+                   )
     return res.replace('<p>', '').replace('</p>', '')
 
 
@@ -2106,9 +2205,6 @@ if __name__ == '__main__':
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-import numpy as np
-
 
 def coin(p=0.5):
     """ 1 with probability = p, 0 with probability 1 - p. """
@@ -2128,12 +2224,15 @@ def main(n=1000):
     print("\n\n- Using n = {} tests of the von Neumann method, with unknown q in (0, 1).".format(n))
     q = 1.0 / np.pi   # Unknown float number 0.3183098861837907
     tests = [vonNeumann(q) for _ in range(n)]
-    assert all(i in {0, 1} for i in tests), "Error of the vonNeumann function: a value outside of {0, 1} has been produced..."
+    assert all(i in {0, 1}
+               for i in tests), "Error of the vonNeumann function: a value outside of {0, 1} has been produced..."
     mu, sigma = np.mean(tests), np.var(tests)
-    print("For the values x generated by the vonNeumann(q) function:\n Average mu = {:.4g} (should be 0.5) and variance sigma = {:.4g} (should be 0.25).".format(mu, sigma))
+    print("For the values x generated by the vonNeumann(q) function:\n Average mu = {:.4g} (should be 0.5) and variance sigma = {:.4g} (should be 0.25).".format(
+        mu, sigma))
     delta_mu = abs(mu - 0.5) / 0.5
     delta_sigma = abs(sigma - 0.25) / 0.25
-    print("Relative errors: delta_mu = {:.5%} and delta sigma = {:.5%} (both should be small).".format(delta_mu, delta_sigma))
+    print("Relative errors: delta_mu = {:.5%} and delta sigma = {:.5%} (both should be small).".format(
+        delta_mu, delta_sigma))
     return mu, sigma
 
 
@@ -2159,13 +2258,6 @@ About:
 - *Web*: https://github.com/Naereen/fix-iocaml-notebook-exports-to-pdf
 """
 
-import sys
-import os
-import shutil
-import json
-import nbformat
-from pprint import pprint
-
 
 def is_stderr_used(outputs):
     for output in outputs:
@@ -2181,7 +2273,8 @@ def transform_data_texthtml(data_texthtml):
     data_texthtml[0] = data_texthtml[0][2:]
     for i in range(len(data_texthtml)):
         # Hack to replace a few HTML escaped caracters
-        data_texthtml[i] = data_texthtml[i].replace('&gt;','>').replace('&lt;','<').replace('&quot;','\'')
+        data_texthtml[i] = data_texthtml[i].replace(
+            '&gt;', '>').replace('&lt;', '<').replace('&quot;', '\'')
     return data_texthtml
 
 
@@ -2192,7 +2285,8 @@ def get_data_texthtml(outputs):
             if output['output_type'] == "execute_result" and 'text/html' in output['data']:
                 long_data_texthtml = output['data']['text/html']
                 assert len(long_data_texthtml) >= 8
-                data_texthtml += transform_data_texthtml(long_data_texthtml[6:-1])
+                data_texthtml += transform_data_texthtml(
+                    long_data_texthtml[6:-1])
         except KeyError:
             pass
     return data_texthtml
@@ -2204,7 +2298,8 @@ def main(old, new, debug=False):
     with open(filename, 'r') as file:
         content = json.load(file)
     # Check that it is a IOCaml notebook
-    assert content['metadata']['kernelspec']['name'] == "iocaml-kernel" and content['metadata']['kernelspec']['language'] == "ocaml" and content['metadata']['kernelspec']['display_name'] == "OCaml", "Error: the input notebook does not appear to have been produced by the IOCaml OCaml kernel."
+    assert content['metadata']['kernelspec']['name'] == "iocaml-kernel" and content['metadata']['kernelspec']['language'] == "ocaml" and content[
+        'metadata']['kernelspec']['display_name'] == "OCaml", "Error: the input notebook does not appear to have been produced by the IOCaml OCaml kernel."
     # For each cell
     for cell in content['cells']:
         if cell['cell_type'] == "code":
@@ -2226,7 +2321,8 @@ def main(old, new, debug=False):
             for output in outputs:
                 if 'data' in output:
                     output['data']['text/plain'] = data_texthtml
-                    if debug: pprint(output['data'])
+                    if debug:
+                        pprint(output['data'])
                     break  # do not add twice the same output cell
 
     # Check before changing the file
@@ -2245,7 +2341,8 @@ if __name__ == '__main__':
     argv = sys.argv[1:]
     old = argv[0]
     if len(argv) < 2:
-        new = old.replace('.ipynb', '__fix-iocaml-notebook-exports-to-pdf.ipynb')
+        new = old.replace(
+            '.ipynb', '__fix-iocaml-notebook-exports-to-pdf.ipynb')
     else:
         new = argv[1]
     print("old =", old)
@@ -2260,8 +2357,6 @@ if __name__ == '__main__':
 - *Author:* Lilian Besson, (C) 2017.
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
-
-from __future__ import print_function  # Python 2 compatibility if needed
 
 
 # Constantes
@@ -2289,30 +2384,36 @@ def main(nbJour=3, nbRepas=None, trains=None, nbNuit=None, totalHotel=None):
     print("\n- Pour les repas :")
     if nbRepas is None:
         nbRepas = 2 * nbJour
-        print("   2 repas par jour, pour", nbJour, "jours, soit", nbRepas, "repas.")
+        print("   2 repas par jour, pour", nbJour,
+              "jours, soit", nbRepas, "repas.")
     totalRepas = repas * nbRepas
-    print("  ", repas, "€ par repas, soit", totalRepas, "€ pour", nbRepas, "repas.")
+    print("  ", repas, "€ par repas, soit",
+          totalRepas, "€ pour", nbRepas, "repas.")
     total += totalRepas
 
     # Hôtel
     if totalHotel:
         print("\n- Pour l'hôtel, un total de", totalHotel, "€.")
     else:
-        print("\n- Pour l'hôtel : déjà réglé avant, normalement. Sinon, max", hotel, "€ par nuit.")
+        print("\n- Pour l'hôtel : déjà réglé avant, normalement. Sinon, max",
+              hotel, "€ par nuit.")
     if nbNuit is None:
         nbNuit = nbJour - 1
-        print("  ", nbJour, "jours sur place, soit", nbNuit, "nuits d'hôtel (par défaut)")
+        print("  ", nbJour, "jours sur place, soit",
+              nbNuit, "nuits d'hôtel (par défaut)")
 
     # Taxe de séjour
     print("\n- Taxe de séjour :")
     totalTaxeSejour = taxeSejour * nbNuit
-    print("  ", taxeSejour, "€ par nuit, soit", totalTaxeSejour, "€ pour ces", nbNuit, "nuits.")
+    print("  ", taxeSejour, "€ par nuit, soit",
+          totalTaxeSejour, "€ pour ces", nbNuit, "nuits.")
     total += totalTaxeSejour
 
     # Déplacements sur place
     print("\n- Métro :")
     totalMetro = 2 * metro * nbJour
-    print("  ", metro, "€ par trajet, soit", totalMetro, "€ pour ces", nbJour, "jours sur place")
+    print("  ", metro, "€ par trajet, soit", totalMetro,
+          "€ pour ces", nbJour, "jours sur place")
     total += totalMetro
 
     # Train
@@ -2325,7 +2426,8 @@ def main(nbJour=3, nbRepas=None, trains=None, nbNuit=None, totalHotel=None):
         for (trajet, (prix, date)) in trains.items():
             print("   -", trajet, "le", date, "à couté", prix, "€")
             totalTrain += prix
-        print("   Soit", totalTrain, "€ pour ces", len(trains), "trajets en train.")
+        print("   Soit", totalTrain, "€ pour ces",
+              len(trains), "trajets en train.")
         total += totalTrain
 
     print("==> Soit un total de", total, "€ à me faire rembourser.")
@@ -2387,25 +2489,20 @@ Will send a test message to your mobile phone.
     SOFTWARE.
 """
 
-from __future__ import print_function
 
 # Use sys.version to be compatible with Python 2
-import sys
 # Use os.getenv to see try to emulate os.path.expanduser if needed
-import os
 # Use time to sleep and get string for today current hour
-import time
 # Use JSON to pretty print a dictionary
-import json
 # Use base64 to not keep plaintext files of the number, username and password in your home
-import base64
 
 today = time.strftime("%H:%M:%S %Y-%m-%d")
 
 try:
     from os.path import expanduser
 except ImportError:
-    print("Warning, os.path.expanduser is not available, trying to use os.getenv('USER') = {} ...".format(os.getenv("USER")))
+    print("Warning, os.path.expanduser is not available, trying to use os.getenv('USER') = {} ...".format(
+        os.getenv("USER")))
 
     def expanduser(s):
         """ Try to simulate the os.path.expanduser function. """
@@ -2444,7 +2541,8 @@ except ImportError:
 def testSpecialFile(name, number=''):
     """ Test if the hidden file '~/.smsapifreemobile_name.b64' exists and decodes (base64) correctly.
     """
-    assert name in ["number", "user", "password"], "Error: unknown or incorrect value for 'name' for the function openSpecialFile(name) ..."
+    assert name in ["number", "user",
+                    "password"], "Error: unknown or incorrect value for 'name' for the function openSpecialFile(name) ..."
     # printc("<cyan>Testing the hidden file <white>'<u>~/.smsapifreemobile_{}.b64<U>'<cyan>...<white>".format(name))  # DEBUG
     try:
         with open(expanduser('~/') + ".smsapifreemobile_" + name + number + ".b64") as f:
@@ -2456,11 +2554,11 @@ def testSpecialFile(name, number=''):
         return False
 
 
-
 def openSpecialFile(name, number=''):
     """ Open the hidden file '~/.smsapifreemobile_name.b64', read and decode (base64) and return its content.
     """
-    assert name in ["number", "user", "password"], "Error: unknown or incorrect value for 'name' for the function openSpecialFile(name) ..."
+    assert name in ["number", "user",
+                    "password"], "Error: unknown or incorrect value for 'name' for the function openSpecialFile(name) ..."
     printc("<cyan>Opening the hidden file <white>'<u>~/.smsapifreemobile_{}.b64<U>'<cyan>, read and decode (base64) and return its content...<white>".format(name))
     try:
         with open(expanduser('~/') + ".smsapifreemobile_" + name + number + ".b64") as f:
@@ -2470,16 +2568,21 @@ def openSpecialFile(name, number=''):
             return variable
     except OSError:
         printc("<red>Error: unable to read the file '~/.smsapifreemobile_{}.b64' ...<white>".format(name))
-        printc("<yellow>Please check that it is present, and if it not there, create it:<white>")
+        printc(
+            "<yellow>Please check that it is present, and if it not there, create it:<white>")
         if name == "number":
             print("To create '~/.smsapifreemobile_number.b64', use your phone number (like '0612345678', not wiht +33), and execute this command line (in a terminal):")
-            printc("<black>echo '0612345678' | base64 > '~/.smsapifreemobile_number.b64'<white>".format())
+            printc(
+                "<black>echo '0612345678' | base64 > '~/.smsapifreemobile_number.b64'<white>".format())
         elif name == "user":
             print("To create '~/.smsapifreemobile_user.b64', use your Free Mobile identifier (a 8 digit number, like '83123456'), and execute this command line (in a terminal):")
-            printc("<black>echo '83123456' | base64 > '~/.smsapifreemobile_user.b64'<white>".format())
+            printc(
+                "<black>echo '83123456' | base64 > '~/.smsapifreemobile_user.b64'<white>".format())
         elif name == "password":
-            print("To create '~/.smsapifreemobile_password.b64', go to this webpage, https://mobile.free.fr/moncompte/index.php?page=options&show=20 (after logging to your Free Mobile account), and copy the API key (a 14-caracters string on [a-zA-Z0-9]*, like 'H6ahkTABEADz5Z'), and execute this command line (in a terminal):")
-            printc("<black>echo 'H6ahkTABEADz5Z' | base64 > '~/.smsapifreemobile_password.b64<white>' ".format())
+            print(
+                "To create '~/.smsapifreemobile_password.b64', go to this webpage, https://mobile.free.fr/moncompte/index.php?page=options&show=20 (after logging to your Free Mobile account), and copy the API key (a 14-caracters string on [a-zA-Z0-9]*, like 'H6ahkTABEADz5Z'), and execute this command line (in a terminal):")
+            printc(
+                "<black>echo 'H6ahkTABEADz5Z' | base64 > '~/.smsapifreemobile_password.b64<white>' ".format())
 
 
 numbers = []
@@ -2543,11 +2646,13 @@ def send_sms(text="Empty!", secured=True, sleep_duration=0):
     if len(text) > MAX_SIZE:
         printc(errorcodes["toolong"])
         nb_sub_messages = len(text) / MAX_SIZE
-        printc("\n<red>Warning<white>: message will be split in <red>{} piece{}<white> of size smaller than <black>{} characters<white>...".format(nb_sub_messages + 1, 's' if nb_sub_messages > 0 else '', MAX_SIZE))
+        printc("\n<red>Warning<white>: message will be split in <red>{} piece{}<white> of size smaller than <black>{} characters<white>...".format(
+            nb_sub_messages + 1, 's' if nb_sub_messages > 0 else '', MAX_SIZE))
         printc("  <magenta>Note that new lines and other information can be lost!<white>")
         for i, index in enumerate(range(0, len(text), MAX_SIZE)):
             answer = send_sms(text[index: index + MAX_SIZE])
-            printc("For piece #{} of the message, the answer is:\n  <magenta>{}<white>...\n".format(i + 1, answer[1]))
+            printc("For piece #{} of the message, the answer is:\n  <magenta>{}<white>...\n".format(
+                i + 1, answer[1]))
         return answer
         # raise ValueError(errorcodes["toolong"])
 
@@ -2581,13 +2686,16 @@ def send_sms(text="Empty!", secured=True, sleep_duration=0):
         string_query = string_query.replace(password, '*' * len(password))
         printc("\nThe web-based query to the Free Mobile API (<u>{}://smsapi.free-mobile.fr/sendmsg?query<U>) will be based on:\n{}.".format(url, string_query))
         if sleep_duration > 0:
-            printc("\nSleeping for <red>{}<reset><white> seconds before querying the API...".format(sleep_duration))
+            printc("\nSleeping for <red>{}<reset><white> seconds before querying the API...".format(
+                sleep_duration))
             try:
                 time.sleep(sleep_duration)
             except KeyboardInterrupt as e:
-                printc("<red>You interrupted the process of sending this message, skipping to next one (or stopping now)...<reset><white>")
+                printc(
+                    "<red>You interrupted the process of sending this message, skipping to next one (or stopping now)...<reset><white>")
             else:
-                printc("\nDone sleeping for <red>{}<reset><white> seconds, it's time to query the API !".format(sleep_duration))
+                printc("\nDone sleeping for <red>{}<reset><white> seconds, it's time to query the API !".format(
+                    sleep_duration))
 
         query = urlencode(dictQuery)
         url += "://smsapi.free-mobile.fr/sendmsg?{}".format(query)
@@ -2646,7 +2754,8 @@ Sleep one minute.
             try:
                 sleep_duration = int(argv[index + 1])
             except:
-                printc("<red>Unable to get a sleep duration value from the command line argument ('{}' does not convert to an integer).".format(argv[index + 1]))  # DEBUG
+                printc("<red>Unable to get a sleep duration value from the command line argument ('{}' does not convert to an integer).".format(
+                    argv[index + 1]))  # DEBUG
             else:
                 argv.pop(index)  # remove sleep_duration
         argv.pop(index)  # remove "--sleep"
@@ -2667,7 +2776,8 @@ Sleep one minute.
             elif isinstance(argv, str):
                 text = argv
             else:
-                printc("<Warning>argv seems to be of unknown type (not list, not str, but {}) ...".format(type(argv)))
+                printc("<Warning>argv seems to be of unknown type (not list, not str, but {}) ...".format(
+                    type(argv)))
                 text = argv
             text = text.replace("\\n", "\n")
             # Durty hack to have true new lines in the message
@@ -2684,7 +2794,8 @@ Sleep one minute.
             try:
                 machinename = open("/etc/hostname").readline()[:-1]
             except OSError:
-                print("Warning: unknown machine name (file '/etc/hostname' not readable?)...")
+                print(
+                    "Warning: unknown machine name (file '/etc/hostname' not readable?)...")
                 machinename = "unknown machine"
             text = text.format(date=today, machinename=machinename)
             text = text.replace("[at]", "@").replace("[dot]", ".")
@@ -2747,14 +2858,8 @@ Generate a wordcloud from all the txt files in the current directory, save it to
    If not, see <http://perso.crans.org/besson/LICENSE.html>.
 """
 
-from __future__ import print_function  # Python 2/3 compatible
 
-from sys import exit, argv
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
-from os import path
 # import argparse  # DONE : switch to docopt (https://github.com/docopt/docopt)
-from docopt import docopt
 
 try:
     try:
@@ -2793,9 +2898,9 @@ def generate(text, max_words=600, width=1600, height=900):
     """ Generate a word cloud image from the given text (one huge string). """
     # Take relative word frequencies into account, lower max_font_size
     # https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html#wordcloud.WordCloud
-    max_words = int(max_words) if max_words is not None else  600
-    width     = int(width)     if width     is not None else  1600
-    height    = int(height)    if height    is not None else  900
+    max_words = int(max_words) if max_words is not None else 600
+    width = int(width) if width is not None else 1600
+    height = int(height) if height is not None else 900
     wc = WordCloud(
         max_font_size=50,
         relative_scaling=.5,
@@ -2822,9 +2927,11 @@ def makeimage(wordcloud,
             printc("<green>Showing the generated image...<reset>")
             plt.show()
         else:
-            printc("<green>Saving the generated image<reset> to <blue>'{}'<reset>...".format(outname))
+            printc(
+                "<green>Saving the generated image<reset> to <blue>'{}'<reset>...".format(outname))
             if (not force) and path.exists(outname):
-                erase = raw_input("The outfile '{}' already exists, should I erase it ?  [y/N]".format(outname))
+                erase = raw_input(
+                    "The outfile '{}' already exists, should I erase it ?  [y/N]".format(outname))
                 if erase == 'y':
                     plt.savefig(outname)
                 else:
@@ -2833,7 +2940,8 @@ def makeimage(wordcloud,
                     plt.show()
             else:
                 if force:
-                    printc("<WARNING> -f or --force has been used, overwriting the image '{}' <red>without<reset> asking you...".format(outname))
+                    printc(
+                        "<WARNING> -f or --force has been used, overwriting the image '{}' <red>without<reset> asking you...".format(outname))
                 plt.savefig(outname)
     except Exception as e:
         printc("<ERROR> Error, exception<reset>: {}".format(e))
@@ -2897,11 +3005,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 def main(argv):
     """ Use the arguments of the command line. """
     # Use the arg parser
-    args = docopt(full_docopt_text, argv=argv, version="generate-word-cloud.py v{}".format(version))
+    args = docopt(full_docopt_text, argv=argv,
+                  version="generate-word-cloud.py v{}".format(version))
     # printc("<magenta>Arguments: {} <reset>".format(args))  # DEBUG
 
     # Read the files
-    printc("<green>Reading the files<reset>, from: <blue>{}<reset>.".format(args['INFILE']))
+    printc("<green>Reading the files<reset>, from: <blue>{}<reset>.".format(
+        args['INFILE']))
     text = readfiles(args['INFILE'])
     # Decide where to save it
     outname = args['--outfile'] if args['--outfile'] else 'wordcloud.png'
@@ -2938,12 +3048,6 @@ https://bitbucket.org/scee_ietr/malin-multi-arm-bandit-learning-for-iot-networks
 - *Author:* Lilian Besson, © 2018.
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
-
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-from os.path import expanduser, join, isfile
-from datetime import datetime
-from json import load, dump
 
 
 try:
@@ -2985,7 +3089,8 @@ def get_data(names, locations, key, verbose=True):
             "temperature_in_C": temperature_in_C,
         })
         if verbose:
-            print("\n- In {}, at location {}, the temperature is {}°C at time {:%Y-%m-%d %H:%M}".format(name, location, temperature_in_C, now))
+            print("\n- In {}, at location {}, the temperature is {}°C at time {:%Y-%m-%d %H:%M}".format(
+                name, location, temperature_in_C, now))
     return weather['currently']['time'], data
 
 
@@ -3002,7 +3107,8 @@ if __name__ == '__main__':
     # https://www.google.fr/maps/place/Supélec/@48.1252316,-1.6255899,17z/
     name = "CentraleSupélec, Rennes, France"
     location = 48.1252316, -1.6255899
-    names.append(name); locations.append(location)
+    names.append(name)
+    locations.append(location)
 
     # # https://www.google.fr/maps/place/05100+Briançon/@44.8826142,6.6285124,16z/
     # name = "Briançon, France"
@@ -3012,7 +3118,8 @@ if __name__ == '__main__':
     # https://www.google.fr/maps/place/Palais+du+Grand+Large/@48.6516678,-2.0214016,17z/
     name = "ICT conference, Saint-Malo, France"
     location = 48.6516678, -2.0214016
-    names.append(name); locations.append(location)
+    names.append(name)
+    locations.append(location)
 
     with open(join(expanduser("~"), ".darksky_api.key"), "r") as f:
         key = f.readline()
@@ -3023,10 +3130,6 @@ if __name__ == '__main__':
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
-import urllib.request
-import re
-import json
-import sys
 response = urllib.request.urlopen(
     'https://scholar.google.fr/citations?user={}'.format(sys.argv[1]))
 html = response.read()
@@ -3058,10 +3161,7 @@ A simple python implementation of Gravatar Image requests (using their API).
 - Licence: MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
 # import code for encoding urls and generating md5 hashes
-import urllib
-import hashlib
 
 # Set the default picture
 # default = "http://perso.crans.org/besson/.besson.jpg"
@@ -3081,9 +3181,11 @@ def gravatar(email, default=default, size=size, secure=secure):
     @secure: if true, the returned URL use https://secure.gravatar.com instead of http://www.gravatar.com. Default is %s."
     """ % (default, size, secure)
     if secure:
-        gravatar_url = "https://secure.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?r=pg&"
+        gravatar_url = "https://secure.gravatar.com/avatar/" + \
+            hashlib.md5(email.lower()).hexdigest() + "?r=pg&"
     else:
-        gravatar_url = "http://www.gravatar.com/avatar/" + hashlib.md5(email.lower()).hexdigest() + "?r=pg&"
+        gravatar_url = "http://www.gravatar.com/avatar/" + \
+            hashlib.md5(email.lower()).hexdigest() + "?r=pg&"
     gravatar_url += urllib.urlencode({'d': default, 's': str(size)})
     return gravatar_url
 
@@ -3093,7 +3195,8 @@ if __name__ == '__main__':
     email = "lbessonATens-cachanDOTfr".replace("AT", "@").replace("DOT", ".")
     print("For the email adress " + email)
     print(gravatar(email))
-    email = "ameliaDOTnoreenATgmailDOTcom".replace("AT", "@").replace("DOT", ".")
+    email = "ameliaDOTnoreenATgmailDOTcom".replace(
+        "AT", "@").replace("DOT", ".")
     print("For the email adress " + email)
     print(gravatar(email))
 
@@ -3156,7 +3259,8 @@ class hashtable(object):
     def insert(self, key, value):
         """Insert a new (key, value) pair in the hash table."""
         if key in self.keys():
-            raise ValueError("key = {} is already present in the hash table".format(key))
+            raise ValueError(
+                "key = {} is already present in the hash table".format(key))
         self._keys.append(key)
         self._nb += 1
         h = small_hash(key, nb_bits=self._nb_bits)
@@ -3172,7 +3276,8 @@ class hashtable(object):
         self._nb_bits += 1
         self._size *= 2
         if debug:
-            print("Doubling the size of the hash table...\nUsing now {} bits for the addressing, and able to store up to {} values. Currently {} are used.".format(self._nb_bits, self._size, self._nb))  # DEBUG
+            print("Doubling the size of the hash table...\nUsing now {} bits for the addressing, and able to store up to {} values. Currently {} are used.".format(
+                self._nb_bits, self._size, self._nb))  # DEBUG
 
     # read, write, delete methods
 
@@ -3315,16 +3420,13 @@ def test():
     H.update([(k, k**2) for k in range(15, 20)])
     print(H)
 
+
 if __name__ == '__main__':
     test()
 
 #!/usr/bin/python
 """Replacement for htpasswd"""
 # Original author: Eli Carter
-import os
-import sys
-import random
-from optparse import OptionParser
 # We need a crypt module, but Windows doesn't have one by default.  Try to find
 # one, and tell the user if we can't.
 try:
@@ -3336,14 +3438,19 @@ except ImportError:
         sys.stderr.write("Cannot find a crypt module.  "
                          "Possibly http://carey.geek.nz/code/python-fcrypt/\n")
         sys.exit(1)
+
+
 def salt():
     """Returns a string of 2 randome letters"""
     letters = 'abcdefghijklmnopqrstuvwxyz' \
               'ABCDEFGHIJKLMNOPQRSTUVWXYZ' \
               '0123456789/.'
     return random.choice(letters) + random.choice(letters)
+
+
 class HtpasswdFile:
     """A class for manipulating htpasswd files."""
+
     def __init__(self, filename, create=False):
         self.entries = []
         self.filename = filename
@@ -3352,6 +3459,7 @@ class HtpasswdFile:
                 self.load()
             else:
                 raise Exception("%s does not exist" % self.filename)
+
     def load(self):
         """Read the htpasswd file into memory."""
         lines = open(self.filename, 'r').readlines()
@@ -3360,10 +3468,12 @@ class HtpasswdFile:
             username, pwhash = line.split(':')
             entry = [username, pwhash.rstrip()]
             self.entries.append(entry)
+
     def save(self):
         """Write the htpasswd file to disk"""
         open(self.filename, 'w').writelines(["%s:%s\n" % (entry[0], entry[1])
                                              for entry in self.entries])
+
     def update(self, username, password):
         """Replace the entry for the given user, or add it if new."""
         pwhash = crypt.crypt(password, salt())
@@ -3373,10 +3483,13 @@ class HtpasswdFile:
             matching_entries[0][1] = pwhash
         else:
             self.entries.append([username, pwhash])
+
     def delete(self, username):
         """Remove the entry for the given user."""
         self.entries = [entry for entry in self.entries
                         if entry[0] != username]
+
+
 def main():
     """
         %prog -b[c] filename username password
@@ -3384,13 +3497,14 @@ def main():
     # For now, we only care about the use cases that affect tests/functional.py
     parser = OptionParser(usage=main.__doc__)
     parser.add_option('-b', action='store_true', dest='batch', default=False,
-        help='Batch mode; password is passed on the command line IN THE CLEAR.'
-        )
+                      help='Batch mode; password is passed on the command line IN THE CLEAR.'
+                      )
     parser.add_option('-c', action='store_true', dest='create', default=False,
-        help='Create a new htpasswd file, overwriting any existing file.')
+                      help='Create a new htpasswd file, overwriting any existing file.')
     parser.add_option('-D', action='store_true', dest='delete_user',
-        default=False, help='Remove the given user from the password file.')
+                      default=False, help='Remove the given user from the password file.')
     options, args = parser.parse_args()
+
     def syntax_error(msg):
         """Utility function for displaying fatal error messages with usage
         help.
@@ -3418,13 +3532,14 @@ def main():
     else:
         passwdfile.update(username, password)
     passwdfile.save()
+
+
 if __name__ == '__main__':
     main()
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Configure your logger.
-import logging, coloredlogs
 logger = logging.getLogger('your-module')
 logger.addHandler(coloredlogs.ColoredStreamHandler())
 
@@ -3438,30 +3553,29 @@ logger.fatal("this is a fatal message")
 logger.critical("this is a critical message")
 
 #!/usr/bin/env /usr/bin/python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # (C) Lilian BESSON, 2013
 # http://perso.crans.org/besson/bin/mail.py
 
-import subprocess
-def notify(msg, submsg="mail.py : auto mailer (with notify-send)"):
- ''' Notification using subprocess and notify-send.
- Also print the informations directly to the screen.
 
- Fails simply if notify-send is not found.'''
- try:
-  subprocess.Popen(['notify-send', msg, submsg])
- except:
-  print "notify-send : not-found !"
-  return -1
- print "msg=%s\nsubmsg=%s" % (msg, submsg)
+def notify(msg, submsg="mail.py : auto mailer (with notify-send)"):
+    ''' Notification using subprocess and notify-send.
+    Also print the informations directly to the screen.
+
+    Fails simply if notify-send is not found.'''
+    try:
+        subprocess.Popen(['notify-send', msg, submsg])
+    except:
+        print "notify-send : not-found !"
+        return -1
+    print "msg=%s\nsubmsg=%s" % (msg, submsg)
+
 
 # Import smtplib for the actual sending function
-import smtplib
 
 # Import the email modules we'll need
-from email.mime.text import MIMEText
 
-signature="""\n
+signature = """\n
 --
 %s
 ###	Auto-sent by [mail.py], a simple Python 2.6 script.
@@ -3469,49 +3583,52 @@ signature="""\n
 ###	(c) by Lilian Besson
 """
 
-def send_me_an_email(message, subj="[LOG] no object", me="jarvisATcransDOTorg".replace("AT","@").replace("DOT","."), you="jarvisATcransDOTorg".replace("AT","@").replace("DOT","."), my_identity="jarvis log"):
-	""" Send a message [message] by email.
-	The content of the email is [message], the subject is [subj].
-	The sender is [me], not necessary a valid sender for the SMTP.
-	The mail will be sent to [you].
 
-	Auto configure with SMTP server on localhost in the cr@ns server (http://www.crans.org)
+def send_me_an_email(message, subj="[LOG] no object", me="jarvisATcransDOTorg".replace("AT", "@").replace("DOT", "."), you="jarvisATcransDOTorg".replace("AT", "@").replace("DOT", "."), my_identity="jarvis log"):
+    """ Send a message [message] by email.
+    The content of the email is [message], the subject is [subj].
+    The sender is [me], not necessary a valid sender for the SMTP.
+    The mail will be sent to [you].
 
-	(c) Lilian Besson, 2012-2013.
-	"""
-	notify(subj, message+"\n### ME="+me+" YOU="+you)
-	msg = MIMEText(message+(signature % me))
-	# The order is "important", to act like a real mail client !
-	msg['From'] = my_identity+" <"+me+">"
-	msg['To'] = you
-	msg['Subject'] = subj
-	# Send the message via our own SMTP server, but don't include the
-	# envelope header.
-	s = smtplib.SMTP('smtp.crans.org')
-	# s = smtplib.SMTP('localhost')
-	s.sendmail(me, [you], msg.as_string())
-	s.quit()
-	print "An email has been sent to %s, from %s <%s>." % (you, my_identity, me)
-	print "Title of the email : \n%s" % subj
-	print "Content of the email : \n%s" % message
+    Auto configure with SMTP server on localhost in the cr@ns server (http://www.crans.org)
 
-import sys, os
+    (c) Lilian Besson, 2012-2013.
+    """
+    notify(subj, message+"\n### ME="+me+" YOU="+you)
+    msg = MIMEText(message+(signature % me))
+    # The order is "important", to act like a real mail client !
+    msg['From'] = my_identity+" <"+me+">"
+    msg['To'] = you
+    msg['Subject'] = subj
+    # Send the message via our own SMTP server, but don't include the
+    # envelope header.
+    s = smtplib.SMTP('smtp.crans.org')
+    # s = smtplib.SMTP('localhost')
+    s.sendmail(me, [you], msg.as_string())
+    s.quit()
+    print "An email has been sent to %s, from %s <%s>." % (you, my_identity, me)
+    print "Title of the email : \n%s" % subj
+    print "Content of the email : \n%s" % message
+
 
 if __name__ == '__main__':
-  if '-h' in sys.argv or '--help' in sys.argv:
-   print "  mail.py [message [subject]]\nUSAGE:"
-   print send_me_an_email.__doc__
-   sys.exit(0)
-  if len(sys.argv)>2:
-   subject = sys.argv[2]
-  else:
-   subject = "[LOG] jarvis"
-  identity = "User = %s @ Host = %s." % (os.getenv("USER"), os.getenv("HOSTNAME"))
-  message="### Content of the email :\n"
-  if len(sys.argv)>1:
-   message=message+str(sys.argv[1])
-  message=message+("\n### Content of command line : %s.\n### From %s" % (str(sys.argv), identity))
-  send_me_an_email(message, subj=subject)
+    if '-h' in sys.argv or '--help' in sys.argv:
+        print "  mail.py [message [subject]]\nUSAGE:"
+        print send_me_an_email.__doc__
+        sys.exit(0)
+    if len(sys.argv) > 2:
+        subject = sys.argv[2]
+    else:
+        subject = "[LOG] jarvis"
+    identity = "User = %s @ Host = %s." % (
+        os.getenv("USER"), os.getenv("HOSTNAME"))
+    message = "### Content of the email :\n"
+    if len(sys.argv) > 1:
+        message = message+str(sys.argv[1])
+    message = message + \
+        ("\n### Content of command line : %s.\n### From %s" %
+         (str(sys.argv), identity))
+    send_me_an_email(message, subj=subject)
 
 #!/usr/bin/env /usr/bin/python
 # -*- coding: utf-8; mode: python -*-
@@ -3523,15 +3640,10 @@ A small Python 2/3 script to send an email from the crans.org network.
 - Licence: MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
 
 # Import sys to use arg of the script
-import sys
 # Import smtplib for the actual sending function
-import smtplib
 # Import the email modules we'll need
-from email.mime.text import MIMEText
-from base64 import b64decode
 
 
 defaultaddress = "jarvisATcransDOTorg".replace("AT", "@").replace("DOT", ".")
@@ -3553,7 +3665,8 @@ def send_me_an_email(message, subj="[LOG] no object", me=defaultaddress,
 
     (c) Lilian Besson, 2012-2014.
     """
-    msg = MIMEText("%s" % (message + (signature % me)).replace("\n", '\n'), _charset="utf-8")
+    msg = MIMEText("%s" % (message + (signature % me)
+                           ).replace("\n", '\n'), _charset="utf-8")
     # The order is "important", to act like a real mail client !
     msg['User-Agent'] = "smtplib.text/plain with python 2.7.6 on jarvis.crans.org (with http://perso.crans.org/besson/bin/mail_ghost.py)"
     # Identity
@@ -3566,25 +3679,30 @@ def send_me_an_email(message, subj="[LOG] no object", me=defaultaddress,
     # s = smtplib.SMTP('smtp.crans.org', port=465) # Try 587 for starttls ?
     s = smtplib.SMTP_SSL('smtp.crans.org', port=465)  # Try 587 for starttls ?
     # See https://docs.python.org/2/library/smtplib.html#smtplib.SMTP.login
-    s.login(b64decode('YmVzc29u'), b64decode(open('/home/lilian/crans.b64').readline()[:-1]))
+    s.login(b64decode('YmVzc29u'), b64decode(
+        open('/home/lilian/crans.b64').readline()[:-1]))
     s.sendmail(me, [you], msg.as_string())
     s.quit()
-    print("An email has been sent to <%s>, from %s <%s>." % (you, my_identity, me))
+    print("An email has been sent to <%s>, from %s <%s>." %
+          (you, my_identity, me))
     print("Title of the email : <%s>" % subj)
     print("Content of the email : \n%s" % message)
 
 
 if __name__ == '__main__':
     if '-h' in sys.argv or '--help' in sys.argv:
-        print("mail_ghost.py [message [subject [you [me [my_identity]]]]]\nUSAGE:")
+        print(
+            "mail_ghost.py [message [subject [you [me [my_identity]]]]]\nUSAGE:")
         print(send_me_an_email.__doc__)
     sys.exit(0)
     my_identity = sys.argv[5] if len(sys.argv) > 5 else "jarvis"
     me = sys.argv[4] if len(sys.argv) > 4 else defaultaddress
     you = sys.argv[3] if len(sys.argv) > 3 else defaultaddress
     subject = sys.argv[2] if len(sys.argv) > 2 else "[LOG] jarvis.crans.org"
-    message = "%s" % (str(sys.argv[1])) if len(sys.argv) > 1 else "Empty message."
-    send_me_an_email(message, subj=subject, you=you, me=me, my_identity=my_identity)
+    message = "%s" % (str(sys.argv[1])) if len(
+        sys.argv) > 1 else "Empty message."
+    send_me_an_email(message, subj=subject, you=you,
+                     me=me, my_identity=my_identity)
 
 #!/usr/bin/env /usr/bin/python
 # -*- coding: utf-8; mode: python -*-
@@ -3596,17 +3714,11 @@ A small Python 2/3 script to send a HTML formatted email from the crans.org netw
 - Licence: MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
 
 # Import sys to use arg of the script
-import sys
 # Import smtplib for the actual sending function
-import smtplib
 # Import the email modules we'll need
-from email.mime.text import MIMEText
-from base64 import b64decode
 # Import date module
-from datetime import date
 datetoday = date.today().isoformat()
 
 defaultaddress = "jarvisATcransDOTorg".replace("AT", "@").replace("DOT", ".")
@@ -3626,7 +3738,8 @@ def send_me_an_email(message, subj="[LOG] no object", me=defaultaddress,
 
     (c) Lilian Besson, 2014.
     """
-    msg = MIMEText("%s" % (message + (signature % me)).replace("\n", '\n'), _charset=None, _subtype="html")
+    msg = MIMEText("%s" % (message + (signature % me)
+                           ).replace("\n", '\n'), _charset=None, _subtype="html")
     # The order is "important", to act like a real mail client !
     # Change "Content-Type" to "text/html"
     msg['Content-Transfer-Encoding'] = "utf-8"
@@ -3643,25 +3756,31 @@ def send_me_an_email(message, subj="[LOG] no object", me=defaultaddress,
     # s = smtplib.SMTP('smtp.crans.org', port=465) # Try 587 for starttls ?
     s = smtplib.SMTP_SSL('smtp.crans.org', port=465)  # Try 587 for starttls ?
     # See https://docs.python.org/2/library/smtplib.html#smtplib.SMTP.login
-    s.login(b64decode('YmVzc29u'), b64decode(open('/home/lilian/crans.b64').readline()[:-1]))
+    s.login(b64decode('YmVzc29u'), b64decode(
+        open('/home/lilian/crans.b64').readline()[:-1]))
     s.sendmail(me, [you], msg.as_string())
     s.quit()
-    print("A HTML email has been sent to <%s>, from %s <%s>." % (you, my_identity, me))
+    print("A HTML email has been sent to <%s>, from %s <%s>." %
+          (you, my_identity, me))
     print("Title of the email : <%s>" % subj)
     print("Content of the email : \n%s" % message)
 
 
 if __name__ == '__main__':
     if '-h' in sys.argv or '--help' in sys.argv:
-        print("mail_html.py [message [subject [you [me [my_identity]]]]]\nUSAGE:")
+        print(
+            "mail_html.py [message [subject [you [me [my_identity]]]]]\nUSAGE:")
         print(send_me_an_email.__doc__)
     sys.exit(0)
     my_identity = sys.argv[5] if len(sys.argv) > 5 else "jarvis (HTML)"
     me = sys.argv[4] if len(sys.argv) > 4 else defaultaddress
     you = sys.argv[3] if len(sys.argv) > 3 else defaultaddress
-    subject = sys.argv[2] if len(sys.argv) > 2 else "[LOG] jarvis.crans.org (HTML)"
-    message = "%s" % (str(sys.argv[1])) if len(sys.argv) > 1 else "Empty message."
-    send_me_an_email(message, subj=subject, you=you, me=me, my_identity=my_identity)
+    subject = sys.argv[2] if len(
+        sys.argv) > 2 else "[LOG] jarvis.crans.org (HTML)"
+    message = "%s" % (str(sys.argv[1])) if len(
+        sys.argv) > 1 else "Empty message."
+    send_me_an_email(message, subj=subject, you=you,
+                     me=me, my_identity=my_identity)
 
 #!/usr/bin/env /usr/bin/python
 # -*- coding: utf-8; mode: python -*-
@@ -3673,14 +3792,9 @@ A small Python 2/3 script to send an email from the crans.org network, verbous m
 - Licence: MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
 
 # Import smtplib for the actual sending function
-import smtplib
 # Import the email modules we'll need
-from email.mime.text import MIMEText
-import sys
-import os
 
 signature = """\n
 --
@@ -3763,21 +3877,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 """
 
 ##################################################################
-from __future__ import print_function  # Python 2/3 compatibility !
 
-import os
-import os.path
-import sys
-import pygtk
 pygtk.require('2.0')
 
-import gtk
 if gtk.pygtk_version < (2, 10, 0):
     print("PyGtk 2.10 ou supérieur est requis pour cet exemple")
     raise SystemExit
-
-import gtksourceview2
-import pango
 
 
 # global vars
@@ -3917,7 +4022,8 @@ def print_cb(action, sourceview):
     res = print_op.run(gtk.PRINT_OPERATION_ACTION_PRINT_DIALOG, window)
 
     if res == gtk.PRINT_OPERATION_RESULT_ERROR:
-        error_dialog(window, "Une erreur est survenue lors de l'impression du fichier :\n\n" + filename)
+        error_dialog(
+            window, "Une erreur est survenue lors de l'impression du fichier :\n\n" + filename)
     elif res == gtk.PRINT_OPERATION_RESULT_APPLY:
         print('Le fichier suivant a bien été imprimé "%s"' % filename)
 
@@ -3951,7 +4057,8 @@ def update_cursor_position(buffer, view):
         else:
             col += 1
         start.forward_char()
-    pos_label.set_text('[Caractère: %d, Ligne: %d, Colonne: %d]' % (nchars, row, col + 1))
+    pos_label.set_text(
+        '[Caractère: %d, Ligne: %d, Colonne: %d]' % (nchars, row, col + 1))
 
 
 def move_cursor_cb(buffer, cursoriter, mark, view):
@@ -3985,7 +4092,8 @@ def button_press_cb(view, ev):
         line_start = view.get_line_at_y(y_buf)[0]
 
         # get the markers already in the line
-        mark_list = buffer.get_source_marks_at_line(line_start.get_line(), mark_category)
+        mark_list = buffer.get_source_marks_at_line(
+            line_start.get_line(), mark_category)
         # search for the marker corresponding to the button pressed
         for m in mark_list:
             if m.get_category() == mark_category:
@@ -4001,24 +4109,33 @@ def button_press_cb(view, ev):
 
 # Actions & UI definition
 buffer_actions = [
-    ('Open', gtk.STOCK_OPEN, '_Ouvre', '<control>O', 'Ouvre un fichier', open_file_cb),
-    ('Quit', gtk.STOCK_QUIT, '_Quitte', '<control>Q', 'Quitte l\'application', gtk.main_quit)
+    ('Open', gtk.STOCK_OPEN, '_Ouvre', '<control>O',
+     'Ouvre un fichier', open_file_cb),
+    ('Quit', gtk.STOCK_QUIT, '_Quitte', '<control>Q',
+     'Quitte l\'application', gtk.main_quit)
 ]
 
 view_actions = [
     ('FileMenu', None, '_Fichier'),
     ('ViewMenu', None, '_Vue'),
-    ('Print', gtk.STOCK_PRINT, '_Impression', '<control>P', 'Print the file', print_cb),
-    ('NewView', gtk.STOCK_NEW, '_Nouvelle Vue', None, 'Create a new view of the file', new_view_cb),
+    ('Print', gtk.STOCK_PRINT, '_Impression',
+     '<control>P', 'Print the file', print_cb),
+    ('NewView', gtk.STOCK_NEW, '_Nouvelle Vue', None,
+     'Create a new view of the file', new_view_cb),
     ('TabsWidth', None, '_Largeur des tabulations')
 ]
 
 toggle_actions = [
-    ('ShowNumbers', None, 'Montre les numéros de _lignes', None, 'Toggle visibility of line numbers in the left margin', numbers_toggled_cb, False),
-    ('ShowMarkers', None, 'Montre les _Marqueurs', None, 'Toggle visibility of markers in the left margin', marks_toggled_cb, False),
-    ('ShowMargin', None, 'Montre les M_arges', None, 'Toggle visibility of right margin indicator', margin_toggled_cb, False),
-    ('AutoIndent', None, 'Activer l\'_auto-indentation', None, 'Toggle automatic auto indentation of text', auto_indent_toggled_cb, False),
-    ('InsertSpaces', None, 'Insérer des e_spaces au lieu des tabulations', None, 'Whether to insert space characters when inserting tabulations', insert_spaces_toggled_cb, False)
+    ('ShowNumbers', None, 'Montre les numéros de _lignes', None,
+     'Toggle visibility of line numbers in the left margin', numbers_toggled_cb, False),
+    ('ShowMarkers', None, 'Montre les _Marqueurs', None,
+     'Toggle visibility of markers in the left margin', marks_toggled_cb, False),
+    ('ShowMargin', None, 'Montre les M_arges', None,
+     'Toggle visibility of right margin indicator', margin_toggled_cb, False),
+    ('AutoIndent', None, 'Activer l\'_auto-indentation', None,
+     'Toggle automatic auto indentation of text', auto_indent_toggled_cb, False),
+    ('InsertSpaces', None, 'Insérer des e_spaces au lieu des tabulations', None,
+     'Whether to insert space characters when inserting tabulations', insert_spaces_toggled_cb, False)
 ]
 
 radio_actions = [
@@ -4138,7 +4255,8 @@ def create_view_window(buffer, sourceview=None):
         action.set_active(sourceview.get_auto_indent())
         action = action_group.get_action('InsertSpaces')
         action.set_active(sourceview.get_insert_spaces_instead_of_tabs())
-        action = action_group.get_action('TabsWidth%d' % sourceview.get_tab_width())
+        action = action_group.get_action(
+            'TabsWidth%d' % sourceview.get_tab_width())
         if action:
             action.set_active(True)
 
@@ -4240,23 +4358,13 @@ About:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
 
-import sys
-import os
-import random
-from os.path import join, expanduser
-import time
-
-import logging
 logging.basicConfig(
     format="%(asctime)s  %(levelname)s: %(message)s",
     datefmt='%m-%d-%Y %I:%M:%S %p',
     level=logging.INFO
 )
 
-from numpy.random import poisson
-from slackclient import SlackClient
 
 # --- Parameters of the bot
 
@@ -4265,7 +4373,8 @@ HOURS = 60 * MINUTES
 
 QUOTE_FILE = os.getenv("quotes", expanduser(join("~", ".quotes.txt")))
 
-SLACK_TOKEN = open(expanduser(join("~", ".slack_api_key")), 'r').readline().strip()
+SLACK_TOKEN = open(expanduser(join("~", ".slack_api_key")),
+                   'r').readline().strip()
 
 USE_CHANNEL = False  # DEBUG
 USE_CHANNEL = True
@@ -4311,7 +4420,8 @@ def random_line(lines):
     try:
         return random.choice(lines).replace('`', '').replace('_', '')
     except:  # Default quote
-        logging.info("Failed to read a random line from this list with {} lines...".format(len(lines)))  # DEBUG
+        logging.info("Failed to read a random line from this list with {} lines...".format(
+            len(lines)))  # DEBUG
         return "I love you !"
 
 
@@ -4327,18 +4437,24 @@ def get_reactions(list_of_ts_channel, sc):
             logging.debug("reaction =", reaction)
             if 'message' not in reaction:
                 continue
-            text = {t['name']: t['count'] for t in reaction['message']['reactions']}
+            text = {t['name']: t['count']
+                    for t in reaction['message']['reactions']}
             logging.info("text =", text)
             if any(s in text.keys() for s in POSITIVE_REACTIONS):
-                nb = max([0.5] + [text[s] for s in POSITIVE_REACTIONS if s in text.keys()])
-                logging.info("I read {} positive reactions ...".format(int(nb)))
+                nb = max([0.5] + [text[s]
+                                  for s in POSITIVE_REACTIONS if s in text.keys()])
+                logging.info(
+                    "I read {} positive reactions ...".format(int(nb)))
                 scale_factor /= 2 * nb
             elif any(s in text for s in NEGATIVES_REACTIONS):
-                nb = max([0.5] + [text[s] for s in NEGATIVES_REACTIONS if s in text.keys()])
-                logging.info("I read {} negative reactions ...".format(int(nb)))
+                nb = max([0.5] + [text[s]
+                                  for s in NEGATIVES_REACTIONS if s in text.keys()])
+                logging.info(
+                    "I read {} negative reactions ...".format(int(nb)))
                 scale_factor *= 2 * nb
             elif "rage" in text:
-                raise ValueError("One user reacted with :rage:, the bot will quit...")
+                raise ValueError(
+                    "One user reacted with :rage:, the bot will quit...")
         return scale_factor
     except KeyError:
         return scale_factor
@@ -4351,7 +4467,8 @@ def send(text, sc, use_channel=USE_CHANNEL):
     """
     channel = SLACK_CHANNEL if use_channel else SLACK_USER
     text = "{}\n> (Sent by an _open-source_ Python script :snake:, {}, written by Lilian Besson)".format(text, URL)
-    logging.info("Sending the message '{}' to channel/user {} ...".format(text, channel))
+    logging.info(
+        "Sending the message '{}' to channel/user {} ...".format(text, channel))
     # https://api.slack.com/methods/chat.postMessage
     return sc.api_call(
         "chat.postMessage", channel=channel, text=text,
@@ -4361,7 +4478,8 @@ def send(text, sc, use_channel=USE_CHANNEL):
 
 def loop(quote_file=QUOTE_FILE):
     """Main loop."""
-    logging.info("Starting my Slack bot, reading random quotes from the file {}...".format(quote_file))
+    logging.info(
+        "Starting my Slack bot, reading random quotes from the file {}...".format(quote_file))
     # Get list of quotes and parameters
     the_quote_file = open(quote_file, 'r')
     lines = the_quote_file.readlines()
@@ -4378,7 +4496,8 @@ def loop(quote_file=QUOTE_FILE):
         # 2. sleep until next quote
         secs = sleeptime(lmbda)
         str_secs = time.asctime(time.localtime(time.time() + secs))
-        logging.info("  ... Next message in {} seconds, at {} ...".format(secs, str_secs))
+        logging.info(
+            "  ... Next message in {} seconds, at {} ...".format(secs, str_secs))
         sleep_bar(secs)
         # 3. get response
         try:
@@ -4390,7 +4509,8 @@ def loop(quote_file=QUOTE_FILE):
             lmbda = scale_factor * MEAN_TIME  # Don't accumulate this!
         except KeyError:
             pass
-        logging.info("  Currently, the mean time between messages is {} ...".format(lmbda))
+        logging.info(
+            "  Currently, the mean time between messages is {} ...".format(lmbda))
     return 0
 
 
@@ -4426,10 +4546,6 @@ Using extended color capability of terminal (256 colors), the termimshow functio
 renders a 2D numpy array within terminal.
 """
 
-from __future__ import print_function, division  # Python 2/3 compatibility !
-
-import sys
-import numpy as np
 
 try:
     try:
@@ -4497,10 +4613,10 @@ class ColorMap:
 
 # Some colormaps
 CM_IceAndFire = ColorMap([(0.00, (0.0, 0.0, 1.0)),
-                         (0.25, (0.0, 0.5, 1.0)),
-                         (0.50, (1.0, 1.0, 1.0)),
-                         (0.75, (1.0, 1.0, 0.0)),
-                         (1.00, (1.0, 0.0, 0.0))], "Ice and Fire")
+                          (0.25, (0.0, 0.5, 1.0)),
+                          (0.50, (1.0, 1.0, 1.0)),
+                          (0.75, (1.0, 1.0, 0.0)),
+                          (1.00, (1.0, 0.0, 0.0))], "Ice and Fire")
 # ==> GAME OF THRONES !
 
 CM_Ice = ColorMap([(0.00, (0.0, 0.0, 1.0)),
@@ -4536,22 +4652,27 @@ def termimshow(Z, vmin=None, vmax=None, cmap=CM_Hot, show_cmap=True):
     for i in range(240):
         v = cmap.min + (i / 240.0) * (cmap.max - cmap.min)
         r, g, b = cmap.color(v)
-        init += "\x1b]4;%d;rgb:%02x/%02x/%02x\x1b\\" % (16 + i, int(r * 255), int(g * 255), int(b * 255))
+        init += "\x1b]4;%d;rgb:%02x/%02x/%02x\x1b\\" % (
+            16 + i, int(r * 255), int(g * 255), int(b * 255))
 
     # Build array data string
     data = ''
     for i in range(Z.shape[0]):
         for j in range(Z.shape[1]):
-            c = 16 + int(((Z[Z.shape[0] - i - 1, j] - cmap.min) / (cmap.max - cmap.min)) * 239)
+            c = 16 + \
+                int(((Z[Z.shape[0] - i - 1, j] - cmap.min) /
+                     (cmap.max - cmap.min)) * 239)
             if (c < 16):
                 c = 16
             elif (c > 255):
                 c = 255
             data += "\x1b[48;5;%dm  " % c
-            u = cmap.max - (i / float(Z.shape[0] - 1)) * ((cmap.max - cmap.min))
+            u = cmap.max - \
+                (i / float(Z.shape[0] - 1)) * ((cmap.max - cmap.min))
         if show_cmap:
             data += "\x1b[0m  "
-            data += "\x1b[48;5;%dm  " % (16 + (1 - i / float(Z.shape[0])) * 239)
+            data += "\x1b[48;5;%dm  " % (16 +
+                                         (1 - i / float(Z.shape[0])) * 239)
             data += "\x1b[0m %+.2f" % u
         data += "\n"
 
@@ -4629,12 +4750,6 @@ You should have received a copy of the GNU General Public License
 along with pastebox.py.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
-import sys
-import urllib.request
-import urllib.parse
-import urllib.error
-import getopt
 
 URL = 'http://p.boxnet.eu/'
 
@@ -4714,7 +4829,8 @@ def usage():
 
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv, "sdh", ["stdout", "download", "mode=", "authhash=", "ttl=", "help"])
+        opts, args = getopt.getopt(
+            argv, "sdh", ["stdout", "download", "mode=", "authhash=", "ttl=", "help"])
     except getopt.GetoptError:
         usage()
         sys.exit(2)
@@ -4756,13 +4872,15 @@ def main(argv):
     if not opts and args:
         for file in args:
             try:
-                print("%s: %s" % (file, paste.create(''.join(open(file, 'r').readlines()))))
+                print("%s: %s" % (file, paste.create(
+                    ''.join(open(file, 'r').readlines()))))
             except IOError:
                 print("skipping %s: file does not exist" % file)
 
     if not sys.stdin.isatty():
         paste = paste.create(' '.join(sys.stdin.readlines()))
         print(paste)
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])
@@ -4774,7 +4892,6 @@ if __name__ == "__main__":
 (C) Lilian BESSON ~ Janvier 2014
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
 
 try:
     try:
@@ -4787,11 +4904,6 @@ except ImportError:
     print("Optional dependancy (ANSIColors) is not available, using regular print function.")
     print("  You can install it with : 'pip install ANSIColors-balises' (or sudo pip)...")
 
-
-import sys
-import csv as csv  #: To read .csv files
-import numpy as np  #: To compute and use math tools
-import pylab  #: To plot
 
 #: Read the datas
 csv_file = sys.argv[1]
@@ -4827,46 +4939,55 @@ f = file(csv_name + "table", 'w')
 f.write("%% Notes from '%s'" % f.name)
 for i in range(nbnotes):
     f.write("\n%s & %g/%i \\\\" % (data[i, 0], notes[i], noteMax))
-    print("I wrote <blue>'%s & %g/%i \\\\'<white> in <u>%s<U>..." % (data[i, 0], notes[i], noteMax, f.name))
+    print("I wrote <blue>'%s & %g/%i \\\\'<white> in <u>%s<U>..." %
+          (data[i, 0], notes[i], noteMax, f.name))
 
 minimale = np.min(notes)
 f = file(csv_name + "minimale", 'w')
 f.write("%g/%i" % (minimale, noteMax))
-print("I wrote the value of minimale (<cyan>%g<white>) to <u>%s<U>..." % (minimale, f.name))
+print("I wrote the value of minimale (<cyan>%g<white>) to <u>%s<U>..." %
+      (minimale, f.name))
 
 argminimale = data[np.argmin(notes), 0]
 f = file(csv_name + "argminimale", 'w')
 f.write("%s" % argminimale)
-print("I wrote the value of argminimale (<cyan>%s<white>) to <u>%s<U>..." % (argminimale, f.name))
+print("I wrote the value of argminimale (<cyan>%s<white>) to <u>%s<U>..." %
+      (argminimale, f.name))
 
 maximale = np.max(notes)
 f = file(csv_name + "maximale", 'w')
 f.write("%g/%i" % (maximale, noteMax))
-print("I wrote the value of maximale (<cyan>%g<white>) to <u>%s<U>..." % (maximale, f.name))
+print("I wrote the value of maximale (<cyan>%g<white>) to <u>%s<U>..." %
+      (maximale, f.name))
 
 argmaximale = data[np.argmax(notes), 0]
 f = file(csv_name + "argmaximale", 'w')
 f.write("%s" % argmaximale)
-print("I wrote the value of argmaximale (<cyan>%s<white>) to <u>%s<U>..." % (argmaximale, f.name))
+print("I wrote the value of argmaximale (<cyan>%s<white>) to <u>%s<U>..." %
+      (argmaximale, f.name))
 
 moyenne = np.mean(notes)
 f = file(csv_name + "moyenne", 'w')
 f.write("%2.2g/%i" % (moyenne, noteMax))
-print("I wrote the value of moyenne (<cyan>%2.2g<white>) to <u>%s<U>..." % (moyenne, f.name))
+print("I wrote the value of moyenne (<cyan>%2.2g<white>) to <u>%s<U>..." %
+      (moyenne, f.name))
 
 ecarttype = np.std(notes)
 f = file(csv_name + "ecarttype", 'w')
 f.write("%2.2g" % ecarttype)
-print("I wrote the value of ecarttype (<cyan>%2.2g<white>) to <u>%s<U>..." % (ecarttype, f.name))
+print("I wrote the value of ecarttype (<cyan>%2.2g<white>) to <u>%s<U>..." %
+      (ecarttype, f.name))
 
 variance = np.var(notes)
 f = file(csv_name + "variance", 'w')
 f.write("%2.2g" % variance)
-print("I wrote the value of variance (<cyan>%2.2g<white>) to <u>%s<U>..." % (variance, f.name))
+print("I wrote the value of variance (<cyan>%2.2g<white>) to <u>%s<U>..." %
+      (variance, f.name))
 
 ###################################################################
 # I want now to plot some graphics about the datas, with matplotlib
-print("\nPloting some graphics from <u>%s<U> (<neg><green>%i student(s)<Neg><white>)..." % (csv_name + "csv", nbnotes))
+print("\nPloting some graphics from <u>%s<U> (<neg><green>%i student(s)<Neg><white>)..." %
+      (csv_name + "csv", nbnotes))
 
 #: Graph options
 pylab.xlabel(u"Notes (entre $0$ et $%i$)" % noteMax)
@@ -4876,7 +4997,8 @@ pylab.title(u"Répartition des notes dans la classe")
 pylab.xlim(0, noteMax)
 pylab.xticks(np.arange(noteMax + 1))
 
-xvalues, bins, patches = pylab.hist(notes, np.arange(noteMax + 1), range=(0., 20.), facecolor='blue', alpha=0.0)
+xvalues, bins, patches = pylab.hist(notes, np.arange(
+    noteMax + 1), range=(0., 20.), facecolor='blue', alpha=0.0)
 
 pylab.ylim(0, xvalues.max() + 1)
 pylab.yticks(np.arange(xvalues.max() + 1))
@@ -4899,37 +5021,29 @@ pylab.draw()
 pylab.clf()
 
 #!/usr/bin/env python3
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
-from z3 import *
 
 # We know each queen must be in a different row.
 # So, we represent each queen by a single integer: the column position
-Q = [ Int('Q_%i' % (i + 1)) for i in range(8) ]
+Q = [Int('Q_%i' % (i + 1)) for i in range(8)]
 
 # Each queen is in a column {1, ... 8 }
-val_c = [ And(1 <= Q[i], Q[i] <= 8) for i in range(8) ]
+val_c = [And(1 <= Q[i], Q[i] <= 8) for i in range(8)]
 
 # At most one queen per column
-col_c = [ Distinct(Q) ]
+col_c = [Distinct(Q)]
 
 # Diagonal constraint
-diag_c = [ If(i == j,
-              True,
-              And(Q[i] - Q[j] != i - j, Q[i] - Q[j] != j - i))
-           for i in range(8) for j in range(i) ]
+diag_c = [If(i == j,
+             True,
+             And(Q[i] - Q[j] != i - j, Q[i] - Q[j] != j - i))
+          for i in range(8) for j in range(i)]
 
 solve(val_c + col_c + diag_c)
 #!/usr/bin/env python3
-#-*- coding: utf8 -*-
+# -*- coding: utf8 -*-
 """Produce text from a list of sentences, inspired by https://github.com/jilljenn/markov.py"""
-
-import argparse
-import os
-import random
-from string import ascii_lowercase
-from collections import Counter, defaultdict
-from lea import Lea
 
 
 WORD_LIST = '/home/lilian/bin/latin.txt'
@@ -4960,7 +5074,8 @@ def markov(corpus, start, length):
 
 if __name__ == '__main__':
     # Parse cli arguments
-    parser = argparse.ArgumentParser(description='Generate a random latin locution.')
+    parser = argparse.ArgumentParser(
+        description='Generate a random latin locution.')
     parser.add_argument(
         'demo_type',
         type=str,
@@ -5048,19 +5163,18 @@ Markdown writer to output from reStructuredText source.
 From: https://github.com/cgwrench/rst2md
 """
 
-import locale
 try:
     locale.setlocale(locale.LC_ALL, '')
 except:
     pass
 
-from docutils.core import publish_cmdline, default_description
 try:
     from docutils.writers import markdown
 except ImportError:
     # Obviously still just testing this package (i.e. have not installed it)
     # Remove this try-except from the final release version.
-    import sys, os
+    import sys
+    import os
     sys.path.insert(0, os.path.abspath('.'))
     import markdown
 
@@ -5083,11 +5197,6 @@ About:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-import sys
-from time import sleep
-from numpy.random import poisson
 
 MINUTE = 60
 MEAN_TIME = 3 * MINUTE
@@ -5105,9 +5214,6 @@ if __name__ == '__main__':
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 
-from time import time
-import numpy as np
-import numba
 
 def smooth_nojit(u, a):
     y = np.zeros_like(u)
@@ -5154,13 +5260,6 @@ Copyright: 2015, Lilian Besson.
 License: GPLv3.
 """
 
-from __future__ import print_function  # Python 2/3 compatibility !
-import sys
-import codecs
-import markdown
-import re
-import os.path
-from bs4 import BeautifulSoup, SoupStrainer
 
 __author__ = "Lilian Besson"
 __version__ = "0.3.1"
@@ -5188,11 +5287,16 @@ except ImportError:
 try:
     import markdown.extensions
     list_extensions = [
-        'markdown.extensions.extra',  # https://pythonhosted.org/Markdown/extensions/extra.html
-        'markdown.extensions.smarty',  # https://pythonhosted.org/Markdown/extensions/smarty.html
-        'markdown.extensions.headerid',  # https://pythonhosted.org/Markdown/extensions/header_id.html
-        'markdown.extensions.tables',  # https://pythonhosted.org/Markdown/extensions/tables.html
-        'markdown.extensions.smart_strong',  # https://pythonhosted.org/Markdown/extensions/smart_strong.html
+        # https://pythonhosted.org/Markdown/extensions/extra.html
+        'markdown.extensions.extra',
+        # https://pythonhosted.org/Markdown/extensions/smarty.html
+        'markdown.extensions.smarty',
+        # https://pythonhosted.org/Markdown/extensions/header_id.html
+        'markdown.extensions.headerid',
+        # https://pythonhosted.org/Markdown/extensions/tables.html
+        'markdown.extensions.tables',
+        # https://pythonhosted.org/Markdown/extensions/smart_strong.html
+        'markdown.extensions.smart_strong',
         # 'urlize'  # https://github.com/r0wb0t/markdown-urlize
     ]
     try:
@@ -5233,11 +5337,13 @@ def main(argv=[], path='/tmp', outfile='test.html', title='Test', use_jquery=Fal
 
     printc("<green>Starting main, with:<white>")
     # FIXME printc does not handle UTF-8 correctly ! AAAH!
-    print("path='{path}', outfile='{outfile}'.".format(path=path, outfile=outfile))
+    print("path='{path}', outfile='{outfile}'.".format(
+        path=path, outfile=outfile))
     print("And the title is:", title)
     fullpath = os.path.join(path, outfile)
 
-    printc("<magenta>The output file will be <white>'<u>{fullpath}<U>'.".format(fullpath=fullpath))
+    printc("<magenta>The output file will be <white>'<u>{fullpath}<U>'.".format(
+        fullpath=fullpath))
 
     with open(fullpath, "w") as html_file:
         html_file = codecs.getwriter('utf-8')(html_file)
@@ -5316,13 +5422,16 @@ def main(argv=[], path='/tmp', outfile='test.html', title='Test', use_jquery=Fal
         # Now, work with each file.
         for inputfile in argv:
             try:
-                printc("# <INFO> Trying to read from the file '<green><u>{inputfile}<reset><white>'.".format(inputfile=inputfile))
+                printc("# <INFO> Trying to read from the file '<green><u>{inputfile}<reset><white>'.".format(
+                    inputfile=inputfile))
                 with open(inputfile, 'r') as openinputfile:
-                    printc(" I opened it, to '{openinputfile}'.".format(openinputfile=openinputfile))
+                    printc(" I opened it, to '{openinputfile}'.".format(
+                        openinputfile=openinputfile))
                     # FIXME detect encoding better?
                     openinputfile = codecs.getreader('utf-8')(openinputfile)
                     printc(" <INFO> Codec manually changed to utf8.<white>")
-                    html_text = "\t<!-- Failed to read from '{inputfile}'... This comment should have been replaced with the content of that file, converted to pure HTML... -->".format(inputfile=inputfile)
+                    html_text = "\t<!-- Failed to read from '{inputfile}'... This comment should have been replaced with the content of that file, converted to pure HTML... -->".format(
+                        inputfile=inputfile)
 
                     # Read that file !
                     markdown_text = openinputfile.read()
@@ -5335,69 +5444,101 @@ def main(argv=[], path='/tmp', outfile='test.html', title='Test', use_jquery=Fal
                         # First, let try to see if the input file was not a StrapDown.js file.
                         try:
                             only_xmp_tag = SoupStrainer("xmp")
-                            html = BeautifulSoup(markdown_text, "html.parser", parse_only=only_xmp_tag, from_encoding="utf-8")
+                            html = BeautifulSoup(
+                                markdown_text, "html.parser", parse_only=only_xmp_tag, from_encoding="utf-8")
                             if beta:
-                                print(" BTW, this html read with Beautiful soup has the encoding,", html.original_encoding)
+                                print(
+                                    " BTW, this html read with Beautiful soup has the encoding,", html.original_encoding)
                             x = html.xmp
-                            printc(" <black>BeautifulSoup<white> was used to read the input file as an HTML file, and reading its first xmp tag.")
+                            printc(
+                                " <black>BeautifulSoup<white> was used to read the input file as an HTML file, and reading its first xmp tag.")
                             # new_markdown_text = unicode(x.prettify("utf-8"), encoding="utf-8")
-                            new_markdown_text = unicode(x.encode("utf-8"), encoding="utf-8")
-                            printc(" I found the xmp tag and its content. Printing it:")
+                            new_markdown_text = unicode(
+                                x.encode("utf-8"), encoding="utf-8")
+                            printc(
+                                " I found the xmp tag and its content. Printing it:")
                             # OMG this is so durty ! FIXME do better?
                             if beta:
                                 print(type(new_markdown_text))
                                 print(new_markdown_text)
-                            printc(" Now lets replaced '<xmp>' --> '' and '</xmp>' --> ''. Lets go!")
-                            markdown_text = new_markdown_text.replace('<xmp>', '').replace('</xmp>', '')
-                            printc(" Yeah, I replaced '<xmp>' --> '' and '</xmp>' --> ''. I did it!")
+                            printc(
+                                " Now lets replaced '<xmp>' --> '' and '</xmp>' --> ''. Lets go!")
+                            markdown_text = new_markdown_text.replace(
+                                '<xmp>', '').replace('</xmp>', '')
+                            printc(
+                                " Yeah, I replaced '<xmp>' --> '' and '</xmp>' --> ''. I did it!")
                             # Add code to add the good Prism.js class to <code> and <pre>, to color the code accordingly.
-                            markdown_text = markdown_text.replace('```python', '<pre><code class="language-python" style="font-size:145%;">')
-                            markdown_text = markdown_text.replace('```bash', '<pre><code class="language-bash" style="font-size:145%;">')
-                            markdown_text = markdown_text.replace('```', '</code></pre>')
+                            markdown_text = markdown_text.replace(
+                                '```python', '<pre><code class="language-python" style="font-size:145%;">')
+                            markdown_text = markdown_text.replace(
+                                '```bash', '<pre><code class="language-bash" style="font-size:145%;">')
+                            markdown_text = markdown_text.replace(
+                                '```', '</code></pre>')
                             # This should be good.
                         except Exception as e:
-                            printc(" <warning> Exception found: <yellow>{e}<white>.".format(e=e))
-                            printc("  ===> <WARNING> I tried to read the file as a StrapDown.js powered file, but failed.<white>\n <magenta>I will now read it as a simple Markdown file.<white>")
+                            printc(
+                                " <warning> Exception found: <yellow>{e}<white>.".format(e=e))
+                            printc(
+                                "  ===> <WARNING> I tried to read the file as a StrapDown.js powered file, but failed.<white>\n <magenta>I will now read it as a simple Markdown file.<white>")
 
                         # This is so durty... FIXME do better?
                         try:
-                            markdown_text = markdown_text.replace('<!DOCTYPE html><html><head><meta charset="utf-8"/><title>', '<h1>')
-                            markdown_text = markdown_text.replace('<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>', '<h1>')
-                            markdown_text = markdown_text.replace('</title></head><body><xmp>', '</h1>')
-                            markdown_text = markdown_text.replace('</title></head><body><xmp theme="united">', '</h1>')
-                            markdown_text = markdown_text.replace('<xmp theme="united">', '')
-                            markdown_text = markdown_text.replace('</title></head><body><xmp theme="cyborg">', '</h1>')
-                            markdown_text = markdown_text.replace('<xmp theme="cyborg">', '')
-                            markdown_text = markdown_text.replace('<p></xmp><script type="text/javascript" src="http://perso.crans.org/besson/s/md/strapdown.min.js"></script></body></html></p>', '')
-                            printc(" <INFO> Now I replace '<xmp>' --> '' and '</xmp>' --> ''. Lets go!<white>")
+                            markdown_text = markdown_text.replace(
+                                '<!DOCTYPE html><html><head><meta charset="utf-8"/><title>', '<h1>')
+                            markdown_text = markdown_text.replace(
+                                '<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>', '<h1>')
+                            markdown_text = markdown_text.replace(
+                                '</title></head><body><xmp>', '</h1>')
+                            markdown_text = markdown_text.replace(
+                                '</title></head><body><xmp theme="united">', '</h1>')
+                            markdown_text = markdown_text.replace(
+                                '<xmp theme="united">', '')
+                            markdown_text = markdown_text.replace(
+                                '</title></head><body><xmp theme="cyborg">', '</h1>')
+                            markdown_text = markdown_text.replace(
+                                '<xmp theme="cyborg">', '')
+                            markdown_text = markdown_text.replace(
+                                '<p></xmp><script type="text/javascript" src="http://perso.crans.org/besson/s/md/strapdown.min.js"></script></body></html></p>', '')
+                            printc(
+                                " <INFO> Now I replace '<xmp>' --> '' and '</xmp>' --> ''. Lets go!<white>")
                         except:
-                            printc(" I tried (again) to replace '<xmp>' --> '' and '</xmp>' --> '' byt failed")
+                            printc(
+                                " I tried (again) to replace '<xmp>' --> '' and '</xmp>' --> '' byt failed")
                         # Alright, let us convert this MD text to HTML
-                        printc(" Let convert the content I read to HTML with markdown.markdown.")
+                        printc(
+                            " Let convert the content I read to HTML with markdown.markdown.")
                         if beta:
                             print(markdown_text)
                         # FIXME: use markdown.markdownFromFile instead (simpler ?)
                         markdown_text = markdown_text.replace('&gt; ', '> ')
                         # Cf. https://pythonhosted.org/Markdown/reference.html#markdownFromFile
-                        html_text = markdown.markdown(markdown_text, extensions=list_extensions)
+                        html_text = markdown.markdown(
+                            markdown_text, extensions=list_extensions)
                         # BETA: improve how tables look like
-                        html_text = html_text.replace('<table>', '<table class="table table-striped table-bordered">')
+                        html_text = html_text.replace(
+                            '<table>', '<table class="table table-striped table-bordered">')
                         printc(" I converted from Markdown to HTML: yeah!!<white>")
                     # Oups ! Bug !
                     except Exception as e:
-                        printc("<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
-                        printc(" ===> <WARNING> I failed to markdownise these lines. Next!<reset><white>")
+                        printc(
+                            "<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
+                        printc(
+                            " ===> <WARNING> I failed to markdownise these lines. Next!<reset><white>")
 
                     # Now we have that html_text, lets write to the output file (append mode).
                     html_file.write(html_text)
-                    printc(" <blue>I wrote this to the output file '{html_file}'<white>.".format(html_file=html_file))
+                    printc(" <blue>I wrote this to the output file '{html_file}'<white>.".format(
+                        html_file=html_file))
                     # Done for that reading from that file
 
-                html_file.write("\n<!-- End of the HTML converted from the file '{inputfile}'. -->\n<br><hr><br>\n<!-- Next file -->\n".format(inputfile=inputfile))
+                html_file.write(
+                    "\n<!-- End of the HTML converted from the file '{inputfile}'. -->\n<br><hr><br>\n<!-- Next file -->\n".format(inputfile=inputfile))
             # Opening the input file failed !
             except Exception as e:
-                printc("<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
-                printc(" ==> <ERROR>: Failed to read from the file {inputfile}. Going to the next one.<reset><white>\n".format(inputfile=inputfile))
+                printc(
+                    "<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
+                printc(" ==> <ERROR>: Failed to read from the file {inputfile}. Going to the next one.<reset><white>\n".format(
+                    inputfile=inputfile))
 
         if use_jquery:
             html_file.write(u"""
@@ -5489,15 +5630,19 @@ License: GPLv3.""")
                     contentfile1 = file1.read()
                     # FIXME experimental detection of the need for QuickSearch
                     # use_jquery = use_jquery or ((contentfile1.find('<table>') >= 0) or (contentfile1.find('') >= 0))
-                    title = re.search("<title>[^<]+</title>", contentfile1).group()
-                    title = title.replace('<title>', '').replace('</title>', '')
+                    title = re.search(
+                        "<title>[^<]+</title>", contentfile1).group()
+                    title = title.replace(
+                        '<title>', '').replace('</title>', '')
                 except Exception as e:
                     # printc("<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
-                    printc("<WARNING> Failed to read title from the file '{file1}'.<white>".format(file1=file1))
+                    printc("<WARNING> Failed to read title from the file '{file1}'.<white>".format(
+                        file1=file1))
         except:
             break
     if title == '':
-        printc("<WARNING> I tried to read the title in one of the input file, but failed.<white>\n")
+        printc(
+            "<WARNING> I tried to read the title in one of the input file, but failed.<white>\n")
         title = '(No title for that StrapDown document)'
 
     # Try to guess path+outfile from the first inputfile.
@@ -5516,14 +5661,17 @@ License: GPLv3.""")
                 if len(out) > 100:
                     break
         except:
-            printc("<WARNING> I tried to guess the output file myself, but failed. Let use '/tmp/test.html'...<white>")
+            printc(
+                "<WARNING> I tried to guess the output file myself, but failed. Let use '/tmp/test.html'...<white>")
 
     path = os.path.dirname(out) if out else '/tmp/'
     outfile = os.path.basename(out) if out else 'test.html'
 
     # Calling main
-    main(args[1:], path=path, outfile=outfile, title=title, use_jquery=use_jquery)
-    printc("\n<green>Done, I wrote to the file '{outfile}' in the dir '{path}'.<white>".format(path=path, outfile=outfile))
+    main(args[1:], path=path, outfile=outfile,
+         title=title, use_jquery=use_jquery)
+    printc("\n<green>Done, I wrote to the file '{outfile}' in the dir '{path}'.<white>".format(
+        path=path, outfile=outfile))
 
     if '-v' in args or '--view' in args:
         try:
@@ -5543,8 +5691,6 @@ License: GPLv3.""")
 - Dependency: install z3-solver (https://pypi.org/project/z3-solver/)
 """
 
-from __future__ import print_function
-import sys
 
 if __name__ != "__main__":
     sys.exit(0)
@@ -5562,32 +5708,32 @@ SIZE = 3
 
 # 9x9 matrix of integer variables
 X = [
-     [ z3.Int("x_%s_%s" % (i + 1, j + 1)) for j in range(SIZE**2) ]
-     for i in range(SIZE**2)
+    [z3.Int("x_%s_%s" % (i + 1, j + 1)) for j in range(SIZE**2)]
+    for i in range(SIZE**2)
 ]
 
 # each cell contains a value in {1, ..., 9}
-cells_c = [ z3.And(1 <= X[i][j], X[i][j] <= SIZE**2)
-            for i in range(SIZE**2)
-            for j in range(SIZE**2)
-          ]
+cells_c = [z3.And(1 <= X[i][j], X[i][j] <= SIZE**2)
+           for i in range(SIZE**2)
+           for j in range(SIZE**2)
+           ]
 
 # each row contains a digit at most once
-rows_c = [ z3.Distinct(X[i]) for i in range(SIZE**2) ]
+rows_c = [z3.Distinct(X[i]) for i in range(SIZE**2)]
 
 # each column contains a digit at most once
-cols_c = [ z3.Distinct( [ X[i][j] for i in range(SIZE**2) ] )
-           for j in range(SIZE**2)
-         ]
+cols_c = [z3.Distinct([X[i][j] for i in range(SIZE**2)])
+          for j in range(SIZE**2)
+          ]
 
 # each 3x3 square contains a digit at most once
-sq_c = [ z3.Distinct([ X[SIZE * i0 + i][SIZE * j0 + j]
-                       for i in range(SIZE)
-                                        for j in range(SIZE)
-                  ])
+sq_c = [z3.Distinct([X[SIZE * i0 + i][SIZE * j0 + j]
+                     for i in range(SIZE)
+                     for j in range(SIZE)
+                     ])
         for i0 in range(SIZE)
         for j0 in range(SIZE)
-       ]
+        ]
 
 sudoku_c = cells_c + rows_c + cols_c + sq_c
 
@@ -5614,12 +5760,11 @@ except ImportError:
 print("Trying to solve this 9x9 SUDOKU grid:")
 pprint(instance)
 
-import time
 before = time.time()
 
-instance_c = [ z3.If(instance[i][j] == 0, True, X[i][j] == instance[i][j])
-               for i in range(9) for j in range(9)
-             ]
+instance_c = [z3.If(instance[i][j] == 0, True, X[i][j] == instance[i][j])
+              for i in range(9) for j in range(9)
+              ]
 
 s = z3.Solver()
 s.add(sudoku_c + instance_c)
@@ -5630,8 +5775,8 @@ if s.check() == z3.sat:
     duration = after - before
     print("Solved in {:.4g} seconds.".format(duration))
 
-    r = [ [ m.evaluate(X[i][j]) for j in range(SIZE**2) ]
-            for i in range(SIZE**2) ]
+    r = [[m.evaluate(X[i][j]) for j in range(SIZE**2)]
+         for i in range(SIZE**2)]
     z3.print_matrix(r)
 else:
     print("Failed to solve the grid...")
@@ -5660,7 +5805,7 @@ else:
 # Foundation, Inc., 51 Franklin St, Fifth Floor,
 # Boston, MA  02110-1301  USA
 ############################################################################
-## To copy here : /usr/lib/gedit/plugins
+# To copy here : /usr/lib/gedit/plugins
 
 """ A terminal embedded in Gedit inferior panel, v3.2.2."""
 
@@ -5673,17 +5818,13 @@ __website__ = "https://sites.google.com/site/naereencorp/gedit/"
 print ".:[ Initializing %s, v%s. (c) %s ]:." % (__app_disp_name__, __version__, __author__)
 print ".:[ Take a look at %s for more informations, or for the latest version of this piece of software. ]:." % (__website__)
 
-from gi.repository import GObject, GLib, Gio, Pango, Gdk, Gtk, Gedit, Vte
-import os
-import gettext
-from gpdefs import *
-from signal import SIGTERM, SIGKILL
 
 try:
     gettext.bindtextdomain(GETTEXT_PACKAGE, GP_LOCALEDIR)
-    _ = lambda s: gettext.dgettext(GETTEXT_PACKAGE, s);
+    def _(s): return gettext.dgettext(GETTEXT_PACKAGE, s)
 except:
-    _ = lambda s: s
+    def _(s): return s
+
 
 class GeditTerminal(Gtk.Box):
     """VTE terminal which follows gnome-terminal default profile options"""
@@ -5697,20 +5838,22 @@ class GeditTerminal(Gtk.Box):
     }
 
     defaults = {
-        'emulation'             : 'xterm', # Don't try to put anything else here.
-        'visible_bell'          : True, # NEW
-        'audible_bell'          : True, # NEW
-        #'opacity'          : 55000, # NEW
-        'allow_bold'          : True, # NEW
+        'emulation': 'xterm',  # Don't try to put anything else here.
+        'visible_bell': True,  # NEW
+        'audible_bell': True,  # NEW
+        # 'opacity'          : 55000, # NEW
+        'allow_bold': True,  # NEW
     }
 
     def __init__(self):
         Gtk.Box.__init__(self)
 
         self.profile_settings = self.get_profile_settings()
-        self.profile_settings.connect("changed", self.on_profile_settings_changed)
+        self.profile_settings.connect(
+            "changed", self.on_profile_settings_changed)
         self.system_settings = Gio.Settings.new("org.gnome.desktop.interface")
-        self.system_settings.connect("changed::monospace-font-name", self.font_changed)
+        self.system_settings.connect(
+            "changed::monospace-font-name", self.font_changed)
 
         self._vte = Vte.Terminal()
         self.reconfigure_vte()
@@ -5719,12 +5862,13 @@ class GeditTerminal(Gtk.Box):
         self._vte.show()
         self.pack_start(self._vte, True, True, 0)
 
-        scrollbar = Gtk.Scrollbar.new(Gtk.Orientation.VERTICAL, self._vte.get_vadjustment())
+        scrollbar = Gtk.Scrollbar.new(
+            Gtk.Orientation.VERTICAL, self._vte.get_vadjustment())
         scrollbar.show()
         self.pack_start(scrollbar, False, False, 0)
 
         # we need to reconf colors if the style changes
-        #FIXME: why?
+        # FIXME: why?
         #self._vte.connect("style-update", lambda term, oldstyle: self.reconfigure_vte())
         self._vte.connect("key-press-event", self.on_vte_key_press)
         self._vte.connect("button-press-event", self.on_vte_button_press)
@@ -5746,12 +5890,14 @@ class GeditTerminal(Gtk.Box):
             accel = Gtk.AccelMap.lookup_entry(path)
 
             if not accel[0]:
-                 Gtk.AccelMap.add_entry(path, self._accels[name][0], self._accels[name][1])
+                Gtk.AccelMap.add_entry(
+                    path, self._accels[name][0], self._accels[name][1])
 
-        self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
+        self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [
+                                    Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
 
     def on_child_exited(self, term):
-#:        print "on_child_exited have been called (shell is terminated)"
+        #:        print "on_child_exited have been called (shell is terminated)"
         print ".:[ Re-launching a shell, on %s, v%s. (c) %s ]:." % (__app_disp_name__, __version__, __author__)
         print ".:[ Take a look at %s for more informations, or for the latest version of this piece of software. ]:." % (__website__)
         print self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
@@ -5760,7 +5906,7 @@ class GeditTerminal(Gtk.Box):
         self._vte.grab_focus()
 
     def get_profile_settings(self):
-        #FIXME return either the gnome-terminal settings or the gedit one
+        # FIXME return either the gnome-terminal settings or the gedit one
         return Gio.Settings.new("org.gnome.gedit.plugins.terminal")
 
     def get_font(self):
@@ -5811,18 +5957,25 @@ class GeditTerminal(Gtk.Box):
 
         self._vte.set_colors_rgba(fg, bg, palette)
 
-        self._vte.set_cursor_blink_mode(self.profile_settings.get_enum("cursor-blink-mode"))
-        self._vte.set_cursor_shape(self.profile_settings.get_enum("cursor-shape"))
-        self._vte.set_audible_bell(not self.profile_settings.get_boolean("silent-bell"))
-        self._vte.set_allow_bold(self.profile_settings.get_boolean("allow-bold"))
-        self._vte.set_scroll_on_keystroke(self.profile_settings.get_boolean("scrollback-on-keystroke"))
-        self._vte.set_scroll_on_output(self.profile_settings.get_boolean("scrollback-on-output"))
-        self._vte.set_word_chars(self.profile_settings.get_string("word-chars"))
+        self._vte.set_cursor_blink_mode(
+            self.profile_settings.get_enum("cursor-blink-mode"))
+        self._vte.set_cursor_shape(
+            self.profile_settings.get_enum("cursor-shape"))
+        self._vte.set_audible_bell(
+            not self.profile_settings.get_boolean("silent-bell"))
+        self._vte.set_allow_bold(
+            self.profile_settings.get_boolean("allow-bold"))
+        self._vte.set_scroll_on_keystroke(
+            self.profile_settings.get_boolean("scrollback-on-keystroke"))
+        self._vte.set_scroll_on_output(
+            self.profile_settings.get_boolean("scrollback-on-output"))
+        self._vte.set_word_chars(
+            self.profile_settings.get_string("word-chars"))
         self._vte.set_emulation(self.defaults['emulation'])
         self._vte.set_visible_bell(self.defaults['visible_bell'])
         # NEW.
         self._vte.set_audible_bell(self.defaults['audible_bell'])
-        #self._vte.set_opacity(self.defaults['opacity'])
+        # self._vte.set_opacity(self.defaults['opacity'])
         self._vte.set_allow_bold(self.defaults['allow_bold'])
 
         if self.profile_settings.get_boolean("scrollback-unlimited"):
@@ -5879,11 +6032,11 @@ class GeditTerminal(Gtk.Box):
         item.set_accel_path(self._accel_base + '/paste-clipboard')
         menu.append(item)
 
-        #MenuItem => separator
+        # MenuItem => separator
         item = Gtk.SeparatorMenuItem()
         menu.append(item)
 
-        #MenuItem => About
+        # MenuItem => About
         item = Gtk.ImageMenuItem.new_from_stock("gtk-about", None)
         item.connect("activate", lambda menu_item: self.show_about_dialog())
         menu.append(item)
@@ -5892,7 +6045,7 @@ class GeditTerminal(Gtk.Box):
         menu.show_all()
         return menu
 
-    def make_popup(self, event = None):
+    def make_popup(self, event=None):
         menu = self.create_popup_menu()
         menu.attach_to_widget(self, None)
 
@@ -5900,7 +6053,8 @@ class GeditTerminal(Gtk.Box):
             menu.popup(None, None, None, None, event.button, event.time)
         else:
             menu.popup(None, None,
-                       lambda m: Gedit.utils_menu_position_under_widget(m, self),
+                       lambda m: Gedit.utils_menu_position_under_widget(
+                           m, self),
                        None,
                        0, Gtk.get_current_event_time())
             menu.select_first(False)
@@ -5915,25 +6069,28 @@ class GeditTerminal(Gtk.Box):
 
     def change_directory(self, path):
         path = path.replace('\\', '\\\\').replace('"', '\\"')
-        self._vte.feed_child('cd "%s" # Inserted by Gnome-Terminal.\n' % path, -1)
+        self._vte.feed_child(
+            'cd "%s" # Inserted by Gnome-Terminal.\n' % path, -1)
         self._vte.grab_focus()
 
     def show_about_dialog(self):
         """Display the about dialog."""
         about_dlg = Gtk.AboutDialog()
-        #Set the content of the dialog
+        # Set the content of the dialog
         about_dlg.set_program_name(__app_disp_name__)
         about_dlg.set_version(__version__)
         about_dlg.set_comments(__doc__)
         about_dlg.set_website(__website__)
         about_dlg.set_copyright("Copyright (c) 2005-13  %s" % __author__)
 #: FIXME : on doit aller la chercher + intelligemment.
-        logo = Gtk.Image.new_from_file("/usr/share/icons/gnome/32x32/apps/terminal.png") # 32x32
+        logo = Gtk.Image.new_from_file(
+            "/usr/share/icons/gnome/32x32/apps/terminal.png")  # 32x32
         about_dlg.set_logo(logo.get_pixbuf())
-        #Signal
+        # Signal
         about_dlg.connect("response", lambda w, r: w.destroy())
-        #Display the dialog
+        # Display the dialog
         about_dlg.show()
+
 
 class TerminalPlugin(GObject.Object, Gedit.WindowActivatable):
     __gtype_name__ = "TerminalPlugin"
@@ -5948,10 +6105,12 @@ class TerminalPlugin(GObject.Object, Gedit.WindowActivatable):
         self._panel.connect("populate-popup", self.on_panel_populate_popup)
         self._panel.show()
 
-        image = Gtk.Image.new_from_icon_name("utilities-terminal", Gtk.IconSize.MENU)
+        image = Gtk.Image.new_from_icon_name(
+            "utilities-terminal", Gtk.IconSize.MENU)
 
         bottom = self.window.get_bottom_panel()
-        bottom.add_item(self._panel, "GeditTerminalPanel", _("Embedded Terminal"), image)
+        bottom.add_item(self._panel, "GeditTerminalPanel",
+                        _("Embedded Terminal"), image)
         # FIXME
 
     def do_deactivate(self):
@@ -5975,7 +6134,8 @@ class TerminalPlugin(GObject.Object, Gedit.WindowActivatable):
         menu.prepend(Gtk.SeparatorMenuItem())
         path = self.get_active_document_directory()
         item = Gtk.MenuItem.new_with_mnemonic(_("C_hange Directory"))
-        item.connect("activate", lambda menu_item: panel.change_directory(path))
+        item.connect(
+            "activate", lambda menu_item: panel.change_directory(path))
         item.set_sensitive(path is not None)
         menu.prepend(item)
 
@@ -6006,7 +6166,8 @@ class TerminalPlugin(GObject.Object, Gedit.WindowActivatable):
 # Foundation, Inc., 51 Franklin St, Fifth Floor,
 # Boston, MA  02110-1301  USA
 ############################################################################
-## To copy here : /usr/lib/gedit/plugins
+# To copy here : /usr/lib/gedit/plugins
+
 
 """ A terminal embedded in Gedit lateral panel, v3.2.3."""
 
@@ -6019,17 +6180,13 @@ __website__ = "https://sites.google.com/site/naereencorp/gedit/"
 print ".:[ Initializing %s, v%s. (c) %s ]:." % (__app_disp_name__, __version__, __author__)
 print ".:[ Take a look at %s for more informations, or for the latest version of this piece of software. ]:." % (__website__)
 
-from gi.repository import GObject, GLib, Gio, Pango, Gdk, Gtk, Gedit, Vte
-import os
-import gettext
-from gpdefs import *
-from signal import SIGTERM, SIGKILL
 
 try:
     gettext.bindtextdomain(GETTEXT_PACKAGE, GP_LOCALEDIR)
-    _ = lambda s: gettext.dgettext(GETTEXT_PACKAGE, s);
+    def _(s): return gettext.dgettext(GETTEXT_PACKAGE, s)
 except:
-    _ = lambda s: s
+    def _(s): return s
+
 
 class GeditTerminal2(Gtk.Box):
     """VTE terminal2 which follows gnome-terminal default profile options"""
@@ -6043,20 +6200,22 @@ class GeditTerminal2(Gtk.Box):
     }
 
     defaults = {
-        'emulation'             : 'xterm', # Don't try to put anything else here.
-        'visible_bell'          : True, # NEW
-        'audible_bell'          : True, # NEW
-        #'opacity'          : 55000, # NEW
-        'allow_bold'          : True, # NEW
+        'emulation': 'xterm',  # Don't try to put anything else here.
+        'visible_bell': True,  # NEW
+        'audible_bell': True,  # NEW
+        # 'opacity'          : 55000, # NEW
+        'allow_bold': True,  # NEW
     }
 
     def __init__(self):
         Gtk.Box.__init__(self)
 
         self.profile_settings = self.get_profile_settings()
-        self.profile_settings.connect("changed", self.on_profile_settings_changed)
+        self.profile_settings.connect(
+            "changed", self.on_profile_settings_changed)
         self.system_settings = Gio.Settings.new("org.gnome.desktop.interface")
-        self.system_settings.connect("changed::monospace-font-name", self.font_changed)
+        self.system_settings.connect(
+            "changed::monospace-font-name", self.font_changed)
 
         self._vte = Vte.Terminal()
         self.reconfigure_vte()
@@ -6065,12 +6224,13 @@ class GeditTerminal2(Gtk.Box):
         self._vte.show()
         self.pack_start(self._vte, True, True, 0)
 
-        scrollbar = Gtk.Scrollbar.new(Gtk.Orientation.VERTICAL, self._vte.get_vadjustment())
+        scrollbar = Gtk.Scrollbar.new(
+            Gtk.Orientation.VERTICAL, self._vte.get_vadjustment())
         scrollbar.show()
         self.pack_start(scrollbar, False, False, 0)
 
         # we need to reconf colors if the style changes
-        #FIXME: why?
+        # FIXME: why?
         #self._vte.connect("style-update", lambda term, oldstyle: self.reconfigure_vte())
         self._vte.connect("key-press-event", self.on_vte_key_press)
         self._vte.connect("button-press-event", self.on_vte_button_press)
@@ -6092,12 +6252,14 @@ class GeditTerminal2(Gtk.Box):
             accel = Gtk.AccelMap.lookup_entry(path)
 
             if not accel[0]:
-                 Gtk.AccelMap.add_entry(path, self._accels[name][0], self._accels[name][1])
+                Gtk.AccelMap.add_entry(
+                    path, self._accels[name][0], self._accels[name][1])
 
-        self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
+        self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [
+                                    Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
 
     def on_child_exited(self, term):
-#:        print "on_child_exited have been called (shell is terminated)"
+        #:        print "on_child_exited have been called (shell is terminated)"
         print ".:[ Re-launching a shell, on %s, v%s. (c) %s ]:." % (__app_disp_name__, __version__, __author__)
         print ".:[ Take a look at %s for more informations, or for the latest version of this piece of software. ]:." % (__website__)
         print self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
@@ -6106,7 +6268,7 @@ class GeditTerminal2(Gtk.Box):
         self._vte.grab_focus()
 
     def get_profile_settings(self):
-        #FIXME return either the gnome-terminal settings or the gedit one
+        # FIXME return either the gnome-terminal settings or the gedit one
         return Gio.Settings.new("org.gnome.gedit.plugins.terminal")
 
     def get_font(self):
@@ -6157,18 +6319,25 @@ class GeditTerminal2(Gtk.Box):
 
         self._vte.set_colors_rgba(fg, bg, palette)
 
-        self._vte.set_cursor_blink_mode(self.profile_settings.get_enum("cursor-blink-mode"))
-        self._vte.set_cursor_shape(self.profile_settings.get_enum("cursor-shape"))
-        self._vte.set_audible_bell(not self.profile_settings.get_boolean("silent-bell"))
-        self._vte.set_allow_bold(self.profile_settings.get_boolean("allow-bold"))
-        self._vte.set_scroll_on_keystroke(self.profile_settings.get_boolean("scrollback-on-keystroke"))
-        self._vte.set_scroll_on_output(self.profile_settings.get_boolean("scrollback-on-output"))
-        self._vte.set_word_chars(self.profile_settings.get_string("word-chars"))
+        self._vte.set_cursor_blink_mode(
+            self.profile_settings.get_enum("cursor-blink-mode"))
+        self._vte.set_cursor_shape(
+            self.profile_settings.get_enum("cursor-shape"))
+        self._vte.set_audible_bell(
+            not self.profile_settings.get_boolean("silent-bell"))
+        self._vte.set_allow_bold(
+            self.profile_settings.get_boolean("allow-bold"))
+        self._vte.set_scroll_on_keystroke(
+            self.profile_settings.get_boolean("scrollback-on-keystroke"))
+        self._vte.set_scroll_on_output(
+            self.profile_settings.get_boolean("scrollback-on-output"))
+        self._vte.set_word_chars(
+            self.profile_settings.get_string("word-chars"))
         self._vte.set_emulation(self.defaults['emulation'])
         self._vte.set_visible_bell(self.defaults['visible_bell'])
         # NEW.
         self._vte.set_audible_bell(self.defaults['audible_bell'])
-        #self._vte.set_opacity(self.defaults['opacity'])
+        # self._vte.set_opacity(self.defaults['opacity'])
         self._vte.set_allow_bold(self.defaults['allow_bold'])
 
         if self.profile_settings.get_boolean("scrollback-unlimited"):
@@ -6225,11 +6394,11 @@ class GeditTerminal2(Gtk.Box):
         item.set_accel_path(self._accel_base + '/paste-clipboard')
         menu.append(item)
 
-        #MenuItem => separator
+        # MenuItem => separator
         item = Gtk.SeparatorMenuItem()
         menu.append(item)
 
-        #MenuItem => About
+        # MenuItem => About
         item = Gtk.ImageMenuItem.new_from_stock("gtk-about", None)
         item.connect("activate", lambda menu_item: self.show_about_dialog())
         menu.append(item)
@@ -6238,7 +6407,7 @@ class GeditTerminal2(Gtk.Box):
         menu.show_all()
         return menu
 
-    def make_popup(self, event = None):
+    def make_popup(self, event=None):
         menu = self.create_popup_menu()
         menu.attach_to_widget(self, None)
 
@@ -6246,7 +6415,8 @@ class GeditTerminal2(Gtk.Box):
             menu.popup(None, None, None, None, event.button, event.time)
         else:
             menu.popup(None, None,
-                       lambda m: Gedit.utils_menu_position_under_widget(m, self),
+                       lambda m: Gedit.utils_menu_position_under_widget(
+                           m, self),
                        None,
                        0, Gtk.get_current_event_time())
             menu.select_first(False)
@@ -6261,25 +6431,28 @@ class GeditTerminal2(Gtk.Box):
 
     def change_directory(self, path):
         path = path.replace('\\', '\\\\').replace('"', '\\"')
-        self._vte.feed_child('cd "%s" # Inserted by Gnome-Terminal.\n' % path, -1)
+        self._vte.feed_child(
+            'cd "%s" # Inserted by Gnome-Terminal.\n' % path, -1)
         self._vte.grab_focus()
 
     def show_about_dialog(self):
         """Display the about dialog."""
         about_dlg = Gtk.AboutDialog()
-        #Set the content of the dialog
+        # Set the content of the dialog
         about_dlg.set_program_name(__app_disp_name__)
         about_dlg.set_version(__version__)
         about_dlg.set_comments(__doc__)
         about_dlg.set_website(__website__)
         about_dlg.set_copyright("Copyright (c) 2005-13  %s" % __author__)
 #: FIXME : on doit aller la chercher + intelligemment.
-        logo = Gtk.Image.new_from_file("/usr/share/icons/gnome/32x32/apps/terminal.png") # 32x32
+        logo = Gtk.Image.new_from_file(
+            "/usr/share/icons/gnome/32x32/apps/terminal.png")  # 32x32
         about_dlg.set_logo(logo.get_pixbuf())
-        #Signal
+        # Signal
         about_dlg.connect("response", lambda w, r: w.destroy())
-        #Display the dialog
+        # Display the dialog
         about_dlg.show()
+
 
 class TerminalPlugin2(GObject.Object, Gedit.WindowActivatable):
     __gtype_name__ = "TerminalPlugin2"
@@ -6294,10 +6467,12 @@ class TerminalPlugin2(GObject.Object, Gedit.WindowActivatable):
         self._panel.connect("populate-popup", self.on_panel_populate_popup)
         self._panel.show()
 
-        image = Gtk.Image.new_from_icon_name("utilities-terminal", Gtk.IconSize.MENU)
+        image = Gtk.Image.new_from_icon_name(
+            "utilities-terminal", Gtk.IconSize.MENU)
 
         side = self.window.get_side_panel()
-        side.add_item(self._panel, "GeditTerminal2Panel", _("Embedded Terminal"), image)
+        side.add_item(self._panel, "GeditTerminal2Panel",
+                      _("Embedded Terminal"), image)
         # FIXME
 
     def do_deactivate(self):
@@ -6321,7 +6496,8 @@ class TerminalPlugin2(GObject.Object, Gedit.WindowActivatable):
         menu.prepend(Gtk.SeparatorMenuItem())
         path = self.get_active_document_directory()
         item = Gtk.MenuItem.new_with_mnemonic(_("C_hange Directory"))
-        item.connect("activate", lambda menu_item: panel.change_directory(path))
+        item.connect(
+            "activate", lambda menu_item: panel.change_directory(path))
         item.set_sensitive(path is not None)
         menu.prepend(item)
 
@@ -6352,7 +6528,8 @@ class TerminalPlugin2(GObject.Object, Gedit.WindowActivatable):
 # Foundation, Inc., 51 Franklin St, Fifth Floor,
 # Boston, MA  02110-1301  USA
 ############################################################################
-## To copy here : /usr/lib/gedit/plugins
+# To copy here : /usr/lib/gedit/plugins
+
 
 """ A terminal embedded in Gedit inferior panel, v3.2.3."""
 
@@ -6365,17 +6542,13 @@ __website__ = "https://sites.google.com/site/naereencorp/gedit/"
 print ".:[ Initializing %s, v%s. (c) %s ]:." % (__app_disp_name__, __version__, __author__)
 print ".:[ Take a look at %s for more informations, or for the latest version of this piece of software. ]:." % (__website__)
 
-from gi.repository import GObject, GLib, Gio, Pango, Gdk, Gtk, Gedit, Vte
-import os
-import gettext
-from gpdefs import *
-from signal import SIGTERM, SIGKILL
 
 try:
     gettext.bindtextdomain(GETTEXT_PACKAGE, GP_LOCALEDIR)
-    _ = lambda s: gettext.dgettext(GETTEXT_PACKAGE, s);
+    def _(s): return gettext.dgettext(GETTEXT_PACKAGE, s)
 except:
-    _ = lambda s: s
+    def _(s): return s
+
 
 class GeditTerminal3(Gtk.Box):
     """VTE terminal3 which follows gnome-terminal default profile options"""
@@ -6389,20 +6562,22 @@ class GeditTerminal3(Gtk.Box):
     }
 
     defaults = {
-        'emulation'             : 'xterm', # Don't try to put anything else here.
-        'visible_bell'          : True, # NEW
-        'audible_bell'          : True, # NEW
-        #'opacity'          : 55000, # NEW
-        'allow_bold'          : True, # NEW
+        'emulation': 'xterm',  # Don't try to put anything else here.
+        'visible_bell': True,  # NEW
+        'audible_bell': True,  # NEW
+        # 'opacity'          : 55000, # NEW
+        'allow_bold': True,  # NEW
     }
 
     def __init__(self):
         Gtk.Box.__init__(self)
 
         self.profile_settings = self.get_profile_settings()
-        self.profile_settings.connect("changed", self.on_profile_settings_changed)
+        self.profile_settings.connect(
+            "changed", self.on_profile_settings_changed)
         self.system_settings = Gio.Settings.new("org.gnome.desktop.interface")
-        self.system_settings.connect("changed::monospace-font-name", self.font_changed)
+        self.system_settings.connect(
+            "changed::monospace-font-name", self.font_changed)
 
         self._vte = Vte.Terminal()
         self.reconfigure_vte()
@@ -6411,12 +6586,13 @@ class GeditTerminal3(Gtk.Box):
         self._vte.show()
         self.pack_start(self._vte, True, True, 0)
 
-        scrollbar = Gtk.Scrollbar.new(Gtk.Orientation.VERTICAL, self._vte.get_vadjustment())
+        scrollbar = Gtk.Scrollbar.new(
+            Gtk.Orientation.VERTICAL, self._vte.get_vadjustment())
         scrollbar.show()
         self.pack_start(scrollbar, False, False, 0)
 
         # we need to reconf colors if the style changes
-        #FIXME: why?
+        # FIXME: why?
         #self._vte.connect("style-update", lambda term, oldstyle: self.reconfigure_vte())
         self._vte.connect("key-press-event", self.on_vte_key_press)
         self._vte.connect("button-press-event", self.on_vte_button_press)
@@ -6438,12 +6614,14 @@ class GeditTerminal3(Gtk.Box):
             accel = Gtk.AccelMap.lookup_entry(path)
 
             if not accel[0]:
-                 Gtk.AccelMap.add_entry(path, self._accels[name][0], self._accels[name][1])
+                Gtk.AccelMap.add_entry(
+                    path, self._accels[name][0], self._accels[name][1])
 
-        self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
+        self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [
+                                    Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
 
     def on_child_exited(self, term):
-#:        print "on_child_exited have been called (shell is terminated)"
+        #:        print "on_child_exited have been called (shell is terminated)"
         print ".:[ Re-launching a shell, on %s, v%s. (c) %s ]:." % (__app_disp_name__, __version__, __author__)
         print ".:[ Take a look at %s for more informations, or for the latest version of this piece of software. ]:." % (__website__)
         print self._vte.fork_command_full(Vte.PtyFlags.DEFAULT, None, [Vte.get_user_shell()], None, GLib.SpawnFlags.SEARCH_PATH, None, None)
@@ -6452,7 +6630,7 @@ class GeditTerminal3(Gtk.Box):
         self._vte.grab_focus()
 
     def get_profile_settings(self):
-        #FIXME return either the gnome-terminal settings or the gedit one
+        # FIXME return either the gnome-terminal settings or the gedit one
         return Gio.Settings.new("org.gnome.gedit.plugins.terminal")
 
     def get_font(self):
@@ -6503,18 +6681,25 @@ class GeditTerminal3(Gtk.Box):
 
         self._vte.set_colors_rgba(fg, bg, palette)
 
-        self._vte.set_cursor_blink_mode(self.profile_settings.get_enum("cursor-blink-mode"))
-        self._vte.set_cursor_shape(self.profile_settings.get_enum("cursor-shape"))
-        self._vte.set_audible_bell(not self.profile_settings.get_boolean("silent-bell"))
-        self._vte.set_allow_bold(self.profile_settings.get_boolean("allow-bold"))
-        self._vte.set_scroll_on_keystroke(self.profile_settings.get_boolean("scrollback-on-keystroke"))
-        self._vte.set_scroll_on_output(self.profile_settings.get_boolean("scrollback-on-output"))
-        self._vte.set_word_chars(self.profile_settings.get_string("word-chars"))
+        self._vte.set_cursor_blink_mode(
+            self.profile_settings.get_enum("cursor-blink-mode"))
+        self._vte.set_cursor_shape(
+            self.profile_settings.get_enum("cursor-shape"))
+        self._vte.set_audible_bell(
+            not self.profile_settings.get_boolean("silent-bell"))
+        self._vte.set_allow_bold(
+            self.profile_settings.get_boolean("allow-bold"))
+        self._vte.set_scroll_on_keystroke(
+            self.profile_settings.get_boolean("scrollback-on-keystroke"))
+        self._vte.set_scroll_on_output(
+            self.profile_settings.get_boolean("scrollback-on-output"))
+        self._vte.set_word_chars(
+            self.profile_settings.get_string("word-chars"))
         self._vte.set_emulation(self.defaults['emulation'])
         self._vte.set_visible_bell(self.defaults['visible_bell'])
         # NEW.
         self._vte.set_audible_bell(self.defaults['audible_bell'])
-        #self._vte.set_opacity(self.defaults['opacity'])
+        # self._vte.set_opacity(self.defaults['opacity'])
         self._vte.set_allow_bold(self.defaults['allow_bold'])
 
         if self.profile_settings.get_boolean("scrollback-unlimited"):
@@ -6571,11 +6756,11 @@ class GeditTerminal3(Gtk.Box):
         item.set_accel_path(self._accel_base + '/paste-clipboard')
         menu.append(item)
 
-        #MenuItem => separator
+        # MenuItem => separator
         item = Gtk.SeparatorMenuItem()
         menu.append(item)
 
-        #MenuItem => About
+        # MenuItem => About
         item = Gtk.ImageMenuItem.new_from_stock("gtk-about", None)
         item.connect("activate", lambda menu_item: self.show_about_dialog())
         menu.append(item)
@@ -6584,7 +6769,7 @@ class GeditTerminal3(Gtk.Box):
         menu.show_all()
         return menu
 
-    def make_popup(self, event = None):
+    def make_popup(self, event=None):
         menu = self.create_popup_menu()
         menu.attach_to_widget(self, None)
 
@@ -6592,7 +6777,8 @@ class GeditTerminal3(Gtk.Box):
             menu.popup(None, None, None, None, event.button, event.time)
         else:
             menu.popup(None, None,
-                       lambda m: Gedit.utils_menu_position_under_widget(m, self),
+                       lambda m: Gedit.utils_menu_position_under_widget(
+                           m, self),
                        None,
                        0, Gtk.get_current_event_time())
             menu.select_first(False)
@@ -6607,25 +6793,28 @@ class GeditTerminal3(Gtk.Box):
 
     def change_directory(self, path):
         path = path.replace('\\', '\\\\').replace('"', '\\"')
-        self._vte.feed_child('cd "%s" # Inserted by Gnome-Terminal.\n' % path, -1)
+        self._vte.feed_child(
+            'cd "%s" # Inserted by Gnome-Terminal.\n' % path, -1)
         self._vte.grab_focus()
 
     def show_about_dialog(self):
         """Display the about dialog."""
         about_dlg = Gtk.AboutDialog()
-        #Set the content of the dialog
+        # Set the content of the dialog
         about_dlg.set_program_name(__app_disp_name__)
         about_dlg.set_version(__version__)
         about_dlg.set_comments(__doc__)
         about_dlg.set_website(__website__)
         about_dlg.set_copyright("Copyright (c) 2005-13  %s" % __author__)
 #: FIXME : on doit aller la chercher + intelligemment.
-        logo = Gtk.Image.new_from_file("/usr/share/icons/gnome/32x32/apps/terminal.png") # 32x32
+        logo = Gtk.Image.new_from_file(
+            "/usr/share/icons/gnome/32x32/apps/terminal.png")  # 32x32
         about_dlg.set_logo(logo.get_pixbuf())
-        #Signal
+        # Signal
         about_dlg.connect("response", lambda w, r: w.destroy())
-        #Display the dialog
+        # Display the dialog
         about_dlg.show()
+
 
 class TerminalPlugin3(GObject.Object, Gedit.WindowActivatable):
     __gtype_name__ = "TerminalPlugin3"
@@ -6640,10 +6829,12 @@ class TerminalPlugin3(GObject.Object, Gedit.WindowActivatable):
         self._panel.connect("populate-popup", self.on_panel_populate_popup)
         self._panel.show()
 
-        image = Gtk.Image.new_from_icon_name("utilities-terminal", Gtk.IconSize.MENU)
+        image = Gtk.Image.new_from_icon_name(
+            "utilities-terminal", Gtk.IconSize.MENU)
 
         bottom = self.window.get_bottom_panel()
-        bottom.add_item(self._panel, "GeditTerminal3Panel", _("Embedded Terminal"), image)
+        bottom.add_item(self._panel, "GeditTerminal3Panel",
+                        _("Embedded Terminal"), image)
         # FIXME
 
     def do_deactivate(self):
@@ -6667,7 +6858,8 @@ class TerminalPlugin3(GObject.Object, Gedit.WindowActivatable):
         menu.prepend(Gtk.SeparatorMenuItem())
         path = self.get_active_document_directory()
         item = Gtk.MenuItem.new_with_mnemonic(_("C_hange Directory"))
-        item.connect("activate", lambda menu_item: panel.change_directory(path))
+        item.connect(
+            "activate", lambda menu_item: panel.change_directory(path))
         item.set_sensitive(path is not None)
         menu.prepend(item)
 
@@ -6681,22 +6873,20 @@ class TerminalPlugin3(GObject.Object, Gedit.WindowActivatable):
 # mazhe project.
 
 
-import os
-import sys
-import string
+starting_path = os.path.abspath(sys.argv[1])
 
-starting_path=os.path.abspath(sys.argv[1])
 
 def exclude_dir(directory):
     if "build" in directory:
         return True
-    if ".git" in directory :
+    if ".git" in directory:
         return True
     return False
 
+
 def _tex_file_iterator(directory):
     for p in os.listdir(directory):
-        path=os.path.join(directory,p)
+        path = os.path.join(directory, p)
         if os.path.isfile(path):
             if path.endswith(".tex"):
                 yield path
@@ -6704,52 +6894,57 @@ def _tex_file_iterator(directory):
             for f in _tex_file_iterator(path):
                 yield f
 
+
 def tex_file_iterator(directory):
     """
     Provides 'mazhe.bib' and then the '.tex' files in the
     directory (recursive).
     """
-    yield os.path.join(directory,"mazhe.bib")
+    yield os.path.join(directory, "mazhe.bib")
     for p in _tex_file_iterator(directory):
         yield p
+
 
 def _file_to_url_iterator(filename):
     """
     iterate over the url cited in 'filename'
     """
-    pos=0
-    with open(filename,'r') as f:
-        text=f.read()
+    pos = 0
+    with open(filename, 'r') as f:
+        text = f.read()
 
     for line in text.split("\\url{")[1:]:
-        url=line[0:line.find("}")]
+        url = line[0:line.find("}")]
         yield url
     for line in text.split("\\href{")[1:]:
-        url=line[0:line.find("}")]
+        url = line[0:line.find("}")]
         yield url
 
     # La frime serait d'utiliser des vues de listes
     # pour éviter la copie.
     if filename.endswith("mazhe.bib"):
         for line in text.split("url =")[1:]:
-            start=line.find('"')
-            end=line.find('"',2)
-            url=line[start+1:end]
+            start = line.find('"')
+            end = line.find('"', 2)
+            url = line[start+1:end]
             if url is not "...":
                 yield url
 
+
 # List of death links that we don't care (because from other projects)
-useless_url=[]
+useless_url = []
 useless_url.append("http://xmaths.free.fr/1S/exos/1SstatexA2.pdf")
-useless_url.append("http://www.daniel-botton.fr/mathematiques/seconde/geometrie_plane/seconde_geometrie_plane_devoir.pdf")
+useless_url.append(
+    "http://www.daniel-botton.fr/mathematiques/seconde/geometrie_plane/seconde_geometrie_plane_devoir.pdf")
 useless_url.append("<++>")
 useless_url.append("<++>")
 useless_url.append("<++>")
+
 
 def is_serious_url(url):
     if url == r"\lstname":
         return False
-    if url in useless_url :
+    if url in useless_url:
         return False
     return True
 
@@ -6760,12 +6955,13 @@ def file_to_url_iterator(filename):
             yield url
 
 
-def check_url_corectness(url,f):
-    if url=="":
-        print("There is an empty URL in ",f)
-    if url[0] not in string.ascii_letters :
-        print("In ",f," : the url does not starts with an ascii character :")
+def check_url_corectness(url, f):
+    if url == "":
+        print("There is an empty URL in ", f)
+    if url[0] not in string.ascii_letters:
+        print("In ", f, " : the url does not starts with an ascii character :")
         print(url)
+
 
 try:
     from httplib import HTTPConnection
@@ -6775,6 +6971,7 @@ try:
     from urlparse import urlparse
 except ImportError:
     from urllib.parse import urlparse
+
 
 def checkUrl(url):
     try:
@@ -6788,8 +6985,6 @@ def checkUrl(url):
         return False
 
 
-import requests
-
 def is_not_dead(url):
     try:
         ret = requests.head(url)
@@ -6798,16 +6993,17 @@ def is_not_dead(url):
         print("Exception:", e)
         return False
 
+
 for f in tex_file_iterator(starting_path):
     print("File", f)
     for url in file_to_url_iterator(f):
         print("  URL", url)
-        check_url_corectness(url,f)
+        check_url_corectness(url, f)
         if not is_not_dead(url):
-            print("death link in ",f," :")
+            print("death link in ", f, " :")
             print(url)
         elif not checkUrl(url):
-            print("death link in ",f," :")
+            print("death link in ", f, " :")
             print(url)
 
 #! /usr/bin/env python3
@@ -6823,11 +7019,8 @@ Reference:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-from functools import reduce
 
 # Builtin implementation, as a reference
-from itertools import permutations as itertools_permutations
 
 
 # --- First algorithm : The insert-into-all-positions solution
@@ -6973,7 +7166,8 @@ def third_permutations(iterable):
 
 def test(list_of_f, iterable, stopearly=False):
     """ Test that all functions in list_of_f give the same list of permutation on this iterable."""
-    print("\n\nTesting for the list of functions {} ...".format([f.__name__ for f in list_of_f]))  # DEBUG
+    print("\n\nTesting for the list of functions {} ...".format(
+        [f.__name__ for f in list_of_f]))  # DEBUG
     result = True
     print("Testing for the iterable {} ...".format(iterable))  # DEBUG
     i = iterable
@@ -6984,7 +7178,8 @@ def test(list_of_f, iterable, stopearly=False):
         for j in range(i + 1, len(allperms)):
             pj = allperms[j]
             if pi != pj:
-                print(" - Function #{} ({.__name__}) gave a different list of permutations as function #{} ({.__name__}) ...".format(i, list_of_f[i], j, list_of_f[j]))  # DEBUG
+                print(" - Function #{} ({.__name__}) gave a different list of permutations as function #{} ({.__name__}) ...".format(
+                    i, list_of_f[i], j, list_of_f[j]))  # DEBUG
                 # print("   - pi =", pi)  # DEBUG
                 # print("   - pj =", pj)  # DEBUG
                 if stopearly:
@@ -6992,14 +7187,16 @@ def test(list_of_f, iterable, stopearly=False):
                 else:
                     result = False
             else:
-                print(" - Function #{} ({.__name__}) gave the same list of permutations as function #{} ({.__name__}) ...".format(i, list_of_f[i], j, list_of_f[j]))  # DEBUG
+                print(" - Function #{} ({.__name__}) gave the same list of permutations as function #{} ({.__name__}) ...".format(
+                    i, list_of_f[i], j, list_of_f[j]))  # DEBUG
     return result
 
 
 def main():
     # list_of_f = [itertools_permutations, first_permutations]
     # list_of_f = [itertools_permutations, first_permutations, second_permutations]
-    list_of_f = [itertools_permutations, first_permutations, second_permutations, third_permutations]
+    list_of_f = [itertools_permutations, first_permutations,
+                 second_permutations, third_permutations]
 
     iterable = [1, 2, 3]
     test(list_of_f, iterable)
@@ -7031,25 +7228,19 @@ Requirement:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
-
-from robobrowser import RoboBrowser as RB
-import re
-import json
-from sys import exit, argv
-
 
 # Create and compile now the required regexp
 url_finder = re.compile(r'http[^"]*')
 query_finder = re.compile(r"data.query = JSON.parse\('\{[^\n]*")
-searchResponse_finder = re.compile(r"data.searchResponse = JSON.parse\('\{[^\n]*")
+searchResponse_finder = re.compile(
+    r"data.searchResponse = JSON.parse\('\{[^\n]*")
 
 
 # url0 = "http://www.voyages-sncf.com//vsc/train-ticket/?_LANG=fr&site_country=FR&site_language=fr&ORIGIN_CITY=Toulon&DESTINATION_CITY=Paris%20%28Toutes%20gares%20intramuros%29&OUTWARD_DATE=31/05/2016&OUTWARD_TIME=15&INWARD_DATE=&INWARD_TIME=7&COMFORT_CLASS=2&DISTRIBUTED_COUNTRY=FR&NB_TYPO_ADULT=1&bookingChoice=train&PASSENGER_1=YOUNG&PASSENGER_1_CARD=MI1ST&PASSENGER_1_FID_PROG=&PASSENGER_1FID_NUM_BEGIN=&CODE_PROMO_1=&action:searchTravel=Rechercher"
 
 #URL_TEMPLATE = "http://www.voyages-sncf.com//vsc/train-ticket/?_LANG=fr&site_country=FR&site_language=fr&ORIGIN_CITY={ORIGIN_CITY}&DESTINATION_CITY={DESTINATION_CITY}&OUTWARD_DATE={DATE}&OUTWARD_TIME={OUTWARD_TIME}&INWARD_DATE=&INWARD_TIME=7&COMFORT_CLASS=2&DISTRIBUTED_COUNTRY=FR&NB_TYPO_ADULT=1&bookingChoice=train&PASSENGER_1=YOUNG&PASSENGER_1_CARD=MI1ST&PASSENGER_1_FID_PROG=&PASSENGER_1FID_NUM_BEGIN=&CODE_PROMO_1=&action:searchTravel=Rechercher"
 URL_TEMPLATE = 'https://www.oui.sncf/vsc/train-ticket/?_LANG=fr&ORIGIN_CITY={ORIGIN_CITY}&DESTINATION_CITY={DESTINATION_CITY}&OUTWARD_DATE={DATE}&OUTWARD_TIME={OUTWARD_TIME}&DIRECT_TRAVEL_CHECK=1&COMFORT_CLASS=2&PASSENGER_1=YOUNG&PASSENGER_1_CARD=&PASSENGER_1_FID_PROG=&PASSENGER_1FID_NUM_BEGIN=&CODE_PROMO_1=&PASSENGER_1_CARD_NUMBER=&PASSENGER_1_CARD_BIRTH_DATE=&action:searchTravelLaunchTrain=Rechercher'
-#EXEMPLE SANS CARTE PARTICULIERE TARIF NORMAL
+# EXEMPLE SANS CARTE PARTICULIERE TARIF NORMAL
 
 # url1 = 'http://www.voyages-sncf.com/vsc/proposals/findProposals?hid='
 
@@ -7090,7 +7281,8 @@ def main(url, MY_OUTWARD_TIME_MINI, MY_OUTWARD_TIME_MAXI="23:59"):
     beginning = "data.query = JSON.parse('"
     end = "');"
     query = jsontext[len(beginning): -len(end)]
-    jsonrawstr = query.replace(r'\"', '"').replace(r'\'', "'")  # \" > ", \' > '
+    jsonrawstr = query.replace(r'\"', '"').replace(
+        r'\'', "'")  # \" > ", \' > '
     # print(jsonrawstr)
     jsonobj = json.loads(jsonrawstr)
     #print(json.dumps(jsonobj, sort_keys=True, indent=4))
@@ -7103,7 +7295,8 @@ def main(url, MY_OUTWARD_TIME_MINI, MY_OUTWARD_TIME_MAXI="23:59"):
     end = "');"
     searchResponse = jsontext[len(beginning): -len(end)]
     # print(searchResponse)
-    jsonrawstr = searchResponse.replace(r'\"', '"').replace(r'\'', "'")  # \" > ", \' > '
+    jsonrawstr = searchResponse.replace(
+        r'\"', '"').replace(r'\'', "'")  # \" > ", \' > '
     # print(jsonrawstr)
     jsonobj = json.loads(jsonrawstr)
     #print(json.dumps(jsonobj, sort_keys=True, indent=4))
@@ -7115,7 +7308,7 @@ def main(url, MY_OUTWARD_TIME_MINI, MY_OUTWARD_TIME_MAXI="23:59"):
 
     # 3. Affichage des horaires
     print("\nDifferents horaires :")
-    horaires = [ i['departureDate'] for i in jsonobj['trainProposals'] ]
+    horaires = [i['departureDate'] for i in jsonobj['trainProposals']]
     print(horaires)
     for number, h in enumerate(horaires):
         print("Pour un train partant a :", h)
@@ -7127,9 +7320,6 @@ def main(url, MY_OUTWARD_TIME_MINI, MY_OUTWARD_TIME_MAXI="23:59"):
             print("\tTrain complet.")
 
 
-
-
-
 if __name__ == '__main__':
 
     dictRecherche = {
@@ -7137,14 +7327,16 @@ if __name__ == '__main__':
         'DESTINATION_CITY': 'Laval',
         'DATE': '29/11/2018',
         'OUTWARD_TIME': '6',
-        }
+    }
 
-    MY_OUTWARD_TIME_MINI = '06:00' # pas utilisé pour le moment
-    MY_OUTWARD_TIME_MAXI = '23:59' # pas utilisé pour le moment
+    MY_OUTWARD_TIME_MINI = '06:00'  # pas utilisé pour le moment
+    MY_OUTWARD_TIME_MAXI = '23:59'  # pas utilisé pour le moment
 
-    url = URL_TEMPLATE.format(ORIGIN_CITY=dictRecherche['ORIGIN_CITY'], DESTINATION_CITY=dictRecherche['DESTINATION_CITY'], DATE=dictRecherche['DATE'], OUTWARD_TIME=dictRecherche['OUTWARD_TIME'])
+    url = URL_TEMPLATE.format(ORIGIN_CITY=dictRecherche['ORIGIN_CITY'], DESTINATION_CITY=dictRecherche[
+                              'DESTINATION_CITY'], DATE=dictRecherche['DATE'], OUTWARD_TIME=dictRecherche['OUTWARD_TIME'])
     print("Utilisant url =", url)
-    exit(main(url=url, MY_OUTWARD_TIME_MINI=MY_OUTWARD_TIME_MINI, MY_OUTWARD_TIME_MAXI=MY_OUTWARD_TIME_MAXI))
+    exit(main(url=url, MY_OUTWARD_TIME_MINI=MY_OUTWARD_TIME_MINI,
+              MY_OUTWARD_TIME_MAXI=MY_OUTWARD_TIME_MAXI))
 
 
 #!/usr/bin/python3
@@ -7162,9 +7354,7 @@ About:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function # Python 2 compatibility if needed
 
-from sys import argv
 try:
     from titlecase import titlecase
 except ImportError:
@@ -7209,11 +7399,7 @@ If not, see <http://perso.crans.org/besson/LICENSE.html>.
 """
 
 
-from __future__ import print_function  # Python 2/3 compatibility !
-
 # Pour détecter le langage par défault
-import os
-import sys
 
 # Default values
 language_default = os.getenv("LANG")[0:2]
@@ -7238,6 +7424,7 @@ Example:
             "unknown"
     else:
         return {"en": "english", "fr": "french"}[lang]
+
 
 latest = 30  # also 60 or 90 are available
 
@@ -7272,13 +7459,16 @@ Example:
     # To move the destination file to "/tmp/" if it is already there.
     import distutils.file_util
 
-    url_to_download = template_url.format(page=page, language=language, latest=latest)
+    url_to_download = template_url.format(
+        page=page, language=language, latest=latest)
     outfile = template_output.format(page=page, language=language)
 
     try:
-        stderr.write("\nWarning: The destination file '{outfile}' was already present in the current directory, now it is in {newfile}.\n".format(outfile=outfile, newfile=distutils.file_util.copy_file(outfile, "/tmp/")[0]))
+        stderr.write("\nWarning: The destination file '{outfile}' was already present in the current directory, now it is in {newfile}.\n".format(
+            outfile=outfile, newfile=distutils.file_util.copy_file(outfile, "/tmp/")[0]))
     except distutils.file_util.DistutilsFileError:
-        stderr.write("Perfect, apparently the destination file '{outfile}' is not there.\n".format(outfile=outfile))
+        stderr.write("Perfect, apparently the destination file '{outfile}' is not there.\n".format(
+            outfile=outfile))
 
     url_request = urllib2.urlopen(url_to_download)
     distutils.file_util.write_file(outfile, url_request.readlines())
@@ -7317,7 +7507,8 @@ def plot_stats_from_json(json_obj, graphic_name=None, graphic_name_template="{ti
         rank = "NA"
 
     if not graphic_name:
-        graphic_name = graphic_name_template.format(title=title, lang=lang, ext=ext)
+        graphic_name = graphic_name_template.format(
+            title=title, lang=lang, ext=ext)
 
     views = json_obj["daily_views"]
 
@@ -7339,7 +7530,8 @@ def plot_stats_from_json(json_obj, graphic_name=None, graphic_name_template="{ti
         # print("On {year}, the {date} the page \"{title}\" (lang={lang}) had {number} visitor{plural}.".format(date=newkey, number=stats[newkey], title=title, lang=lang, year=year, plural=("s" if stats[newkey]>1 else "")))
 
     # Now make a graphic thanks to this data
-    print("A graphic will be produced to the file \"{graphic_name}\" (with the type \"{ext}\").".format(graphic_name=graphic_name, ext=ext))
+    print("A graphic will be produced to the file \"{graphic_name}\" (with the type \"{ext}\").".format(
+        graphic_name=graphic_name, ext=ext))
 
     # We use numpy for the data manipulation and pylab for plotting (à la Matlab).
     import numpy
@@ -7355,7 +7547,8 @@ def plot_stats_from_json(json_obj, graphic_name=None, graphic_name_template="{ti
     numbers = data[::, 1].astype(numpy.int)
     nbnumbers = numpy.size(numbers)
 
-    print("The page \"{title}\", with language {lang}, has been ranked {rank}th on the {month}th month of {year}, for a total of {total} views.".format(title=title, lang=lang_to_text(lang, exception=True), rank=rank, month=month, year=year, total=sum(numbers)))
+    print("The page \"{title}\", with language {lang}, has been ranked {rank}th on the {month}th month of {year}, for a total of {total} views.".format(
+        title=title, lang=lang_to_text(lang, exception=True), rank=rank, month=month, year=year, total=sum(numbers)))
 
     # # Sort decreasingly (bad idea here)
     # ind = numpy.argsort(numbers)
@@ -7363,18 +7556,22 @@ def plot_stats_from_json(json_obj, graphic_name=None, graphic_name_template="{ti
     # numbers = numbers[ind]
 
     # Graph options
-    pylab.xlabel("Dates from the last 30 days (at the {today})".format(today=datetime.date.today()))
+    pylab.xlabel("Dates from the last 30 days (at the {today})".format(
+        today=datetime.date.today()))
     pylab.ylabel("Number of visitors")
 
     try:
-        lang_name = "(in " + lang_to_text(lang, exception=False).capitalize() + ")"
+        lang_name = "(in " + lang_to_text(lang,
+                                          exception=False).capitalize() + ")"
     except KeyError:
         lang_name = "(unknown language)"
-    pylab.title(u".: Visiting statistics for the Wikipedia page '{title}' {lang_name} :.\n (Data from http://stats.grok.se, Python script by Lilian Besson (C) 2014) ".format(title=title, lang_name=lang_name))
+    pylab.title(u".: Visiting statistics for the Wikipedia page '{title}' {lang_name} :.\n (Data from http://stats.grok.se, Python script by Lilian Besson (C) 2014) ".format(
+        title=title, lang_name=lang_name))
 
     # X axis
     pylab.xlim(1, nbnumbers + 1)
-    pylab.xticks(range(nbnumbers + 1), [s[-2:] for s in data[:, 0]], rotation=70)
+    pylab.xticks(range(nbnumbers + 1), [s[-2:]
+                                        for s in data[:, 0]], rotation=70)
     # Y axis
     pylab.ylim(numbers.min() * 0.95, numbers.max() * 1.05)
 
@@ -7397,12 +7594,14 @@ def plot_stats_from_json(json_obj, graphic_name=None, graphic_name_template="{ti
         graphic_name = "{title}.{lang}.".format(title=title, lang=lang)
         for ext in ["png", "svg", "pdf"]:
             pylab.savefig(graphic_name + ext, format=ext, dpi=600)
-            print("Ploting the statistics on an histogram on the file \"{graphic_name}\".".format(graphic_name=graphic_name + ext))
+            print("Ploting the statistics on an histogram on the file \"{graphic_name}\".".format(
+                graphic_name=graphic_name + ext))
             pylab.draw()
     # Otherwise use only the one given by the user
     else:
         pylab.savefig(graphic_name, format=ext, dpi=400)
-        print("Ploting the statistics on an histogram on the file \"{graphic_name}\".".format(graphic_name=graphic_name))
+        print("Ploting the statistics on an histogram on the file \"{graphic_name}\".".format(
+            graphic_name=graphic_name))
         pylab.draw()
     pylab.clf()
 
@@ -7442,10 +7641,6 @@ if __name__ == "__main__":
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function  # Python 2 compatibility if needed
-
-import logging
-import scrapy
 
 # Trying to disable logging
 logging.getLogger('scrapy').setLevel(logging.WARNING)
@@ -7460,8 +7655,8 @@ class QuotesSpider(scrapy.Spider):
         'file:///tmp/wl.html'
     ]
     custom_settings = {
-    	"LOG_ENABLED": False,
-    	"LOG_LEVEL": 'ERROR',
+        "LOG_ENABLED": False,
+        "LOG_LEVEL": 'ERROR',
     }
 
     def parse(self, response):
@@ -7473,12 +7668,12 @@ class QuotesSpider(scrapy.Spider):
             author = item.css('div.pl-video-owner')[0]
             res = {
                 'id': i,
-                'href': video.xpath('@href').extract_first().replace('&index=%i&list=WL'%i, ''),
+                'href': video.xpath('@href').extract_first().replace('&index=%i&list=WL' % i, ''),
                 'title': video.css('a::text').extract_first().strip(),
                 'author': author.css('a::text').extract_first().strip()
             }
             print(res)
-            #yield res
+            # yield res
 
 
 # End of youtube_playlist_spider_scrapy.py
@@ -7497,20 +7692,12 @@ __author__ = "Lilian Besson"
 __name_of_app__ = "Battle Client"
 __version__ = "0.1"
 
-import sys
-from collections import defaultdict
-from time import sleep
-from random import choice
-from docopt import docopt
-import numpy as np
 # https://stackoverflow.com/a/4896288/5889533
-from subprocess import PIPE, Popen
 ON_POSIX = 'posix' in sys.builtin_module_names
 
-from battleserver import ships, DEFAULT_X, DEFAULT_Y
 
 length_of_ships = defaultdict(lambda: min(ships.values()))
-length_of_ships.update({k.lower(): v for k,v in ships.items()})
+length_of_ships.update({k.lower(): v for k, v in ships.items()})
 
 # --- Documentation
 
@@ -7539,9 +7726,11 @@ def main(args):
         cmd += f" --size={sizex},{sizey}"
     smart = args['--smart']
 
-    if not cmd: return 1
+    if not cmd:
+        return 1
 
-    pipe = Popen(cmd.split(' '), stdout=PIPE, stdin=PIPE, bufsize=1, close_fds=ON_POSIX, universal_newlines=True)
+    pipe = Popen(cmd.split(' '), stdout=PIPE, stdin=PIPE,
+                 bufsize=1, close_fds=ON_POSIX, universal_newlines=True)
     child_stdin, child_stdout = pipe.stdin, pipe.stdout
 
     all_possible_positions = [
@@ -7573,7 +7762,8 @@ def main(args):
     x, y = -1, -1
     while True:
         # 1. playing
-        if (x, y) in all_possible_positions: all_possible_positions.remove((x, y))
+        if (x, y) in all_possible_positions:
+            all_possible_positions.remove((x, y))
         x, y = next_play()
         # 2. seeing output and using it as feedback
         stdout_data = child_stdout.readline()
@@ -7582,7 +7772,8 @@ def main(args):
             return 2
         if smart:
             if 'hit ' in stdout_data:  # hit a ship!
-                new_hit_ship = stdout_data.replace('\n','').replace('hit ','')
+                new_hit_ship = stdout_data.replace(
+                    '\n', '').replace('hit ', '')
                 if not hit_a_ship:
                     # first hit of this ship
                     hit_a_ship = True
@@ -7608,25 +7799,32 @@ def main(args):
                     ]
                 else:
                     if new_hit_ship != last_hist_ship:
-                        print(f"WARNING: was hitting {last_hist_ship} but now hitting {new_hit_ship}")
+                        print(
+                            f"WARNING: was hitting {last_hist_ship} but now hitting {new_hit_ship}")
                         if new_hit_ship is None:
                             if x == hit_x:  # we tried to aim at same x
                                 for _y in range(0, sizey):
-                                    if _y in next_x_y and hit_y != _y: next_x_y.remove((x, _y))
+                                    if _y in next_x_y and hit_y != _y:
+                                        next_x_y.remove((x, _y))
                             if y == hit_y:  # we tried to aim at same y
                                 for _x in range(0, sizex):
-                                    if _x in next_x_y and hit_x != _x: next_x_y.remove((_x, y))
+                                    if _x in next_x_y and hit_x != _x:
+                                        next_x_y.remove((_x, y))
                     else:
                         if x == hit_x:  # the ship has same x
                             for _y in range(0, sizey):
-                                if _y in next_x_y: next_x_y.remove((x, _y))
+                                if _y in next_x_y:
+                                    next_x_y.remove((x, _y))
                         if y == hit_y:  # the ship has same y
                             for _x in range(0, sizex):
-                                if _x in next_x_y: next_x_y.remove((_x, y))
+                                if _x in next_x_y:
+                                    next_x_y.remove((_x, y))
             elif 'sunk ' in stdout_data:  # sunk a ship!
-                new_hit_ship = stdout_data.replace('\n','').replace('sunk ','')
+                new_hit_ship = stdout_data.replace(
+                    '\n', '').replace('sunk ', '')
                 if new_hit_ship != last_hist_ship:
-                    print(f"WARNING: was hitting {last_hist_ship} but sunk {new_hit_ship}")
+                    print(
+                        f"WARNING: was hitting {last_hist_ship} but sunk {new_hit_ship}")
                 else:
                     hit_a_ship = False
                     last_hist_ship = None
@@ -7637,10 +7835,13 @@ def main(args):
             print("VICTORY!")
             return 0
         if len(all_possible_positions) == 0:
-            print("ERROR: cannot play anymore, all positions were tried but the bot did not win!")
+            print(
+                "ERROR: cannot play anymore, all positions were tried but the bot did not win!")
             return 1
         sleep(delay)
 
+
 if __name__ == '__main__':
-    arguments = docopt(documentation, version=f"{__name_of_app__} v{__version__}")
+    arguments = docopt(
+        documentation, version=f"{__name_of_app__} v{__version__}")
     sys.exit(main(arguments))

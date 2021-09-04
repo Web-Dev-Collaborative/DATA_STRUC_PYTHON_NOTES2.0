@@ -4,9 +4,9 @@ def get_user_input(start, end):
                lower limit 'start' and maximum 'end'
                the arguments aren't inclusive.
 
-        output: if reading successful then returns the read integer. 
+        output: if reading successful then returns the read integer.
 
-        purpose: reads from command-line a integer in the given bounds. 
+        purpose: reads from command-line a integer in the given bounds.
                  while input invalid asks user again
     """
 

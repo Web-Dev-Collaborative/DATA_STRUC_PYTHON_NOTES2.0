@@ -10,7 +10,8 @@ Not so easy to learn and do in your head, but managable.
 from __future__ import print_function
 
 
-days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+days = ["Monday", "Tuesday", "Wednesday",
+        "Thursday", "Friday", "Saturday", "Sunday"]
 adjustment = [0, 1, -1, 0, 0, 1, 1, 2, 3, 3, 4, 4]
 
 

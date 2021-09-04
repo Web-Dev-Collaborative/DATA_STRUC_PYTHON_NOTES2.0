@@ -102,7 +102,8 @@ Example:
     # To move the destination file to "/tmp/" if it is already there.
     import distutils.file_util
 
-    url_to_download = template_url.format(page=page, language=language, latest=latest)
+    url_to_download = template_url.format(
+        page=page, language=language, latest=latest)
     outfile = template_output.format(page=page, language=language)
 
     try:
@@ -164,7 +165,8 @@ def plot_stats_from_json(
         rank = "NA"
 
     if not graphic_name:
-        graphic_name = graphic_name_template.format(title=title, lang=lang, ext=ext)
+        graphic_name = graphic_name_template.format(
+            title=title, lang=lang, ext=ext)
 
     views = json_obj["daily_views"]
 
@@ -233,7 +235,8 @@ def plot_stats_from_json(
     pylab.ylabel("Number of visitors")
 
     try:
-        lang_name = "(in " + lang_to_text(lang, exception=False).capitalize() + ")"
+        lang_name = "(in " + lang_to_text(lang,
+                                          exception=False).capitalize() + ")"
     except KeyError:
         lang_name = "(unknown language)"
     pylab.title(
@@ -244,7 +247,8 @@ def plot_stats_from_json(
 
     # X axis
     pylab.xlim(1, nbnumbers + 1)
-    pylab.xticks(range(nbnumbers + 1), [s[-2:] for s in data[:, 0]], rotation=70)
+    pylab.xticks(range(nbnumbers + 1), [s[-2:]
+                                        for s in data[:, 0]], rotation=70)
     # Y axis
     pylab.ylim(numbers.min() * 0.95, numbers.max() * 1.05)
 

@@ -35,9 +35,11 @@ def main(nbJour=3, nbRepas=None, trains=None, nbNuit=None, totalHotel=None):
     print("\n- Pour les repas :")
     if nbRepas is None:
         nbRepas = 2 * nbJour
-        print("   2 repas par jour, pour", nbJour, "jours, soit", nbRepas, "repas.")
+        print("   2 repas par jour, pour", nbJour,
+              "jours, soit", nbRepas, "repas.")
     totalRepas = repas * nbRepas
-    print("  ", repas, "€ par repas, soit", totalRepas, "€ pour", nbRepas, "repas.")
+    print("  ", repas, "€ par repas, soit",
+          totalRepas, "€ pour", nbRepas, "repas.")
     total += totalRepas
 
     # Hôtel
@@ -93,7 +95,8 @@ def main(nbJour=3, nbRepas=None, trains=None, nbNuit=None, totalHotel=None):
         for (trajet, (prix, date)) in trains.items():
             print("   -", trajet, "le", date, "à couté", prix, "€")
             totalTrain += prix
-        print("   Soit", totalTrain, "€ pour ces", len(trains), "trajets en train.")
+        print("   Soit", totalTrain, "€ pour ces",
+              len(trains), "trajets en train.")
         total += totalTrain
 
     print("==> Soit un total de", total, "€ à me faire rembourser.")

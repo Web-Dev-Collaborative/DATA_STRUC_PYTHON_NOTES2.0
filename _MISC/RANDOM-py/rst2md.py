@@ -24,7 +24,8 @@ try:
 except ImportError:
     # Obviously still just testing this package (i.e. have not installed it)
     # Remove this try-except from the final release version.
-    import sys, os
+    import sys
+    import os
 
     sys.path.insert(0, os.path.abspath("."))
     import markdown

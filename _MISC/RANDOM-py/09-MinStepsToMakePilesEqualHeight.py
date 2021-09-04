@@ -18,8 +18,8 @@ Explanation:
 So final number of steps required is 3.
 """
 
-## time complexity:  O(n)
-## space complexity:  O(1)
+# time complexity:  O(n)
+# space complexity:  O(1)
 
 
 def min_steps_equal_piles(piles):

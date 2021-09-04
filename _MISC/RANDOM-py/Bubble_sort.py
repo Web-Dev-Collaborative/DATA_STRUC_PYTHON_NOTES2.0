@@ -9,7 +9,8 @@ def bubble_sort(collection):
         is_sorted = True
         for j in range(0, length - 1):
             if collection[j] > collection[j + 1]:
-                collection[j], collection[j + 1] = collection[j + 1], collection[j]
+                collection[j], collection[j +
+                                          1] = collection[j + 1], collection[j]
                 is_sorted = False
         counter += 1
         print("Step %i -->" % counter, collection)

@@ -22,7 +22,8 @@ class AudioToText:
         self.minSilenceLen = (
             500
         )  # The minimum length for silent sections in milliseconds.
-        self.silenceThresh = 14  # The upper bound for how quiet silent in dBFS.
+        # The upper bound for how quiet silent in dBFS.
+        self.silenceThresh = 14
         self.keepSilence = 500  # How much silence to keep in ms or a bool.
 
         self.__check_files_valid()
@@ -101,7 +102,8 @@ class AudioToText:
             raise Exception(f"{self.output} is not of type str.")
         dirname = os.path.dirname(self.output)
         if not dirname == "" and not os.path.exists(dirname):
-            raise Exception(f"Some directories may be missing in path: {self.output}.")
+            raise Exception(
+                f"Some directories may be missing in path: {self.output}.")
 
 
 if __name__ == "__main__":

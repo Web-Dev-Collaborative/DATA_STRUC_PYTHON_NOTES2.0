@@ -65,7 +65,7 @@ def anagramDetection(parent, child):
     total = 0
 
     for i in range(0, len(parent) - length):
-        if hashString(parent[i : i + length]) == anagram:
+        if hashString(parent[i: i + length]) == anagram:
             total = total + 1
 
     return total

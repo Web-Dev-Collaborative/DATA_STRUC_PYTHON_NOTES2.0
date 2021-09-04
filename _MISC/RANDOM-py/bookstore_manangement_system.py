@@ -196,7 +196,8 @@ for m in data2222:
                         separator()
 
                         user_name2 = input("ENTER  USER  NAME -- ")
-                        passw2 = input("ENTER  PASSWORD AGAIN (limit 8-20) -- ")
+                        passw2 = input(
+                            "ENTER  PASSWORD AGAIN (limit 8-20) -- ")
                         lenght1 = len(passw2)
 
                         if lenght1 >= 8 and lenght1 <= 20:
@@ -222,7 +223,8 @@ for m in data2222:
                             separator()
 
                             user_name = input("ENTER  USER  NAME -- ")
-                            passw = input("ENTER  PASSWORD AGAIN (limit 8-20) -- ")
+                            passw = input(
+                                "ENTER  PASSWORD AGAIN (limit 8-20) -- ")
                             lenght = len(passw)
 
                             if lenght >= 8 and lenght >= 20:
@@ -618,7 +620,8 @@ while a == True:
 
                 separator()
 
-                rep = input("Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
+                rep = input(
+                    "Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
 
                 if rep == "yes":
 
@@ -646,7 +649,8 @@ while a == True:
 
             separator()
 
-            rep = input("Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
+            rep = input(
+                "Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
 
             if rep == "yes":
 
@@ -694,7 +698,8 @@ while a == True:
 
             else:
 
-                insert = (SNo10, name10, author10, year10, ISBN10, price10, nob10)
+                insert = (SNo10, name10, author10,
+                          year10, ISBN10, price10, nob10)
                 insert20 = "insert into books values(%s,%s,%s,%s,%s,%s,%s)"
                 mycur.execute(insert20, insert)
                 mycon.commit()
@@ -755,7 +760,8 @@ while a == True:
 
             separator()
 
-            rep = input("Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
+            rep = input(
+                "Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
 
             if rep == "yes":
 
@@ -782,7 +788,8 @@ while a == True:
 
             separator()
 
-            rep = input("Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
+            rep = input(
+                "Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
 
             if rep == "yes":
 
@@ -833,7 +840,8 @@ while a == True:
 
                 separator()
 
-                rep = input("Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
+                rep = input(
+                    "Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
 
                 if rep == "yes":
 
@@ -862,7 +870,8 @@ while a == True:
 
                 separator()
 
-                rep = input("Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
+                rep = input(
+                    "Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
 
                 if rep == "yes":
 
@@ -891,7 +900,8 @@ while a == True:
 
             separator()
 
-            rep = input("Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
+            rep = input(
+                "Do  You  Want  To  Restart  ??    yes / no  --  ").lower()
 
             if rep == "yes":
 

@@ -9,6 +9,7 @@
 """
 
 from __future__ import print_function
+import time
 import sys
 
 if __name__ != "__main__":
@@ -45,12 +46,14 @@ cells_c = [
 rows_c = [z3.Distinct(X[i]) for i in range(SIZE ** 2)]
 
 # each column contains a digit at most once
-cols_c = [z3.Distinct([X[i][j] for i in range(SIZE ** 2)]) for j in range(SIZE ** 2)]
+cols_c = [z3.Distinct([X[i][j] for i in range(SIZE ** 2)])
+          for j in range(SIZE ** 2)]
 
 # each 3x3 square contains a digit at most once
 sq_c = [
     z3.Distinct(
-        [X[SIZE * i0 + i][SIZE * j0 + j] for i in range(SIZE) for j in range(SIZE)]
+        [X[SIZE * i0 + i][SIZE * j0 + j]
+            for i in range(SIZE) for j in range(SIZE)]
     )
     for i0 in range(SIZE)
     for j0 in range(SIZE)
@@ -83,7 +86,6 @@ except ImportError:
 print("Trying to solve this 9x9 SUDOKU grid:")
 pprint(instance)
 
-import time
 
 before = time.time()
 
@@ -102,7 +104,8 @@ if s.check() == z3.sat:
     duration = after - before
     print("Solved in {:.4g} seconds.".format(duration))
 
-    r = [[m.evaluate(X[i][j]) for j in range(SIZE ** 2)] for i in range(SIZE ** 2)]
+    r = [[m.evaluate(X[i][j]) for j in range(SIZE ** 2)]
+         for i in range(SIZE ** 2)]
     z3.print_matrix(r)
 else:
     print("Failed to solve the grid...")

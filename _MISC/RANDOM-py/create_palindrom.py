@@ -35,6 +35,9 @@ Dynamic programming. Count intersections looking in 3 direction in the dp table 
 ##############
 
 
+import math
+
+
 def create_palindrome_1(word):
     n = len(word)
 
@@ -68,8 +71,6 @@ def create_palindrome_1(word):
 # Solution 2 #
 ##############
 
-import math
-
 
 def create_palindrome_2(word):
     n = len(word)
@@ -82,7 +83,8 @@ def create_palindrome_2(word):
             if word[left] == word[right]:
                 dp[left][right] = dp[left + 1][right - 1]
             else:
-                dp[left][right] = min(dp[left][right - 1], dp[left + 1][right]) + 1
+                dp[left][right] = min(
+                    dp[left][right - 1], dp[left + 1][right]) + 1
             left += 1
 
     # build the palindrome using the dp table

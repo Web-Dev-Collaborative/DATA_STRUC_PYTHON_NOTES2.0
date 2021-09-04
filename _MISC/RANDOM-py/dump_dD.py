@@ -15,6 +15,8 @@ And an example: http://mp.cpgedupuydelome.fr/mesexos.php?idTeX=1485
 """
 
 from __future__ import print_function  # Python 2/3 compatibility !
+from BeautifulSoup import BeautifulSoup
+import urllib2
 import sys
 
 try:
@@ -40,21 +42,21 @@ chapter = str(sys.argv[2]) if len(sys.argv) > 2 else ""
 
 urlToGo = "http://mp.cpgedupuydelome.fr/mesexos.php?idTeX=%i" % numexo
 
-print('Numéro <magenta>%i<reset>. On va vers <u>"%s"<U><white>' % (numexo, urlToGo))
+print('Numéro <magenta>%i<reset>. On va vers <u>"%s"<U><white>' %
+      (numexo, urlToGo))
 
 # On récupère la page (la partie la plus lente du coup)
-import urllib2
 
 response = urllib2.urlopen(urlToGo)
 html = response.read()
 
 # BeautifulSoup v3 (et pas v4, attention !)
-from BeautifulSoup import BeautifulSoup
 
 # On l'analyse
 parsed_html = BeautifulSoup(html, fromEncoding="utf-8")
 
-print("<black>Encodage original : %s<white>\n\n" % parsed_html.originalEncoding)
+print("<black>Encodage original : %s<white>\n\n" %
+      parsed_html.originalEncoding)
 
 # On cherche la section <section id="contenu">..</section>
 contenu = parsed_html.body.find("section", attrs={"id": "contenu"})

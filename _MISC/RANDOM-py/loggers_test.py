@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # Configure your logger.
-import logging, coloredlogs
+import logging
+import coloredlogs
 
 logger = logging.getLogger("your-module")
 logger.addHandler(coloredlogs.ColoredStreamHandler())

@@ -11,7 +11,8 @@ https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_Franc
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
+# Python 2 compatibility if needed
+from __future__ import print_function, division
 
 import subprocess
 
@@ -211,7 +212,7 @@ def pprint_nirpp(nirpp, length_checksum=length_checksum):
     ib = ib[:-length_checksum]
     # Printing
     for (i, l) in sorted(information_nirpp):
-        n = nirpp[i : i + l]
+        n = nirpp[i: i + l]
         info = information_nirpp[(i, l)]
         if n in info["mapping"]:
             explain = '"{}"'.format(info["mapping"][n])
@@ -244,7 +245,7 @@ def pprint_nirpp(nirpp, length_checksum=length_checksum):
                 args = [
                     "grep",
                     "--",
-                    "',{},{},'".format(nirpp[5 : 5 + 2], nirpp[7 : 7 + 3]),
+                    "',{},{},'".format(nirpp[5: 5 + 2], nirpp[7: 7 + 3]),
                     "/home/lilian/bin/comsimp2016.txt",
                     "|",
                     "cut",
@@ -255,7 +256,7 @@ def pprint_nirpp(nirpp, length_checksum=length_checksum):
                 explain = subprocess.check_output(" ".join(args), shell=True)
                 explain = explain[:-1].decode()
                 # print("explain =", explain)
-                explain = "{} (code {})".format(explain, nirpp[7 : 7 + 3])
+                explain = "{} (code {})".format(explain, nirpp[7: 7 + 3])
             except Exception:
                 explain = n
         print(
@@ -268,7 +269,8 @@ def pprint_nirpp(nirpp, length_checksum=length_checksum):
 def main(args):
     try:
         if not args:
-            check_nirpp("HAHA LOL YOU THOUGH I WILL LET A REAL NIRPP IN MY SCRIPT")
+            check_nirpp(
+                "HAHA LOL YOU THOUGH I WILL LET A REAL NIRPP IN MY SCRIPT")
         else:
             for nirpp in args:
                 if check_nirpp(nirpp):

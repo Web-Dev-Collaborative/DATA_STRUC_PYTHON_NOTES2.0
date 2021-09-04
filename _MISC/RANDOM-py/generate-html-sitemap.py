@@ -200,12 +200,12 @@ def process_dir(top_dir, opts):
         margin-right: 5px;
     }
 
-    tr.clickable { 
-        cursor: pointer; 
-    } 
-    tr.clickable a { 
-        display: block; 
-    } 
+    tr.clickable {
+        cursor: pointer;
+    }
+    tr.clickable a {
+        display: block;
+    }
 
     @media (max-width: 600px) {
 
@@ -334,7 +334,7 @@ def process_dir(top_dir, opts):
         if opts.verbose:
             print(f"{entry.absolute()}")
 
-        size_bytes = -1  ## is a folder
+        size_bytes = -1  # is a folder
         size_pretty = "&mdash;"
         last_modified = "-"
         last_modified_human_readable = "-"

@@ -60,7 +60,8 @@ class BinarySearchTree:
         # c) Get the size of maximum size BST in
         #    left subtree (updates max_size[0])
         max_ref[0] = -999999999999
-        ls = largestBSTUtil(node.left, min_ref, max_ref, max_size_ref, is_bst_ref)
+        ls = largestBSTUtil(node.left, min_ref, max_ref,
+                            max_size_ref, is_bst_ref)
         if is_bst_ref[0] == 1 and node.data > max_ref[0]:
             left_flag = True
 
@@ -72,7 +73,8 @@ class BinarySearchTree:
         # The following recursive call does similar
         # (similar to left subtree) task for right subtree
         min_ref[0] = 999999999999
-        rs = largestBSTUtil(node.right, min_ref, max_ref, max_size_ref, is_bst_ref)
+        rs = largestBSTUtil(node.right, min_ref, max_ref,
+                            max_size_ref, is_bst_ref)
         if is_bst_ref[0] == 1 and node.data < min_ref[0]:
             right_flag = True
 

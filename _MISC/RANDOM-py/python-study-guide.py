@@ -1,3 +1,6 @@
+import math
+
+
 def say_hi(name):
     """<---- Multi-Line Comments and Docstrings
     This is where you put your content for help() to inform the user
@@ -160,17 +163,23 @@ while True:
     break
 
 # Functions - use def keyword to define a function in Python
+
+
 def printCopyright():
     print("Copyright 2021, Bgoonz")
 
 
 # Lambdas are one liners! (Should be at least, you can use parenthesis to disobey)
-avg = lambda num1, num2: print(num1 + num2)
+def avg(num1, num2): return print(num1 + num2)
+
+
 avg(1, 2)
 # Calling it with keyword arguments, order does not matter
 avg(num2=20, num1=1252)
 printCopyright()
 # We can give parameters default arguments like JS
+
+
 def greeting(name, saying="Hello"):
     print(saying, name)
 
@@ -179,6 +188,8 @@ greeting("Mike")  # Hello Mike
 greeting("Bryan", saying="Hello there...")
 # A common gotcha is using a mutable object for a default parameter
 # All invocations of the function reference the same mutable object
+
+
 def append_item(item_name, item_list=[]):  # Will it obey and give us a new list?
     item_list.append(item_name)
     return item_list
@@ -196,6 +207,8 @@ print(append_item("notebook", []))
 # Functions - * to get rest of position arguments as tuple
 #           - ** to get rest of keyword arguments as a dictionary
 # Variable Length positional arguments
+
+
 def add(a, b, *args):
     # args is a tuple of the rest of the arguments
     total = a + b
@@ -207,6 +220,8 @@ def add(a, b, *args):
 print(add(1, 2))  # args is None, returns 3
 print(add(1, 2, 3, 4, 5, 6))  # args is (3, 4, 5, 6), returns 21
 # Variable Length Keyword Arguments
+
+
 def print_names_and_countries(greeting, **kwargs):
     # kwargs is a dictionary of the rest of the keyword arguments
     for k, v in kwargs.items():
@@ -217,6 +232,8 @@ print_names_and_countries(
     "Hey there", Monica="Sweden", Mike="The United States", Mark="China"
 )
 # We can combine all of these together
+
+
 def example2(arg1, arg2, *args, kw_1="cheese", kw_2="horse", **kwargs):
     pass
 
@@ -267,14 +284,19 @@ for i in range1:
     print(i)
 # Built-in functions:
 # Filter
-isOdd = lambda num: num % 2 == 1
+def isOdd(num): return num % 2 == 1
+
+
 filtered = filter(isOdd, [1, 2, 3, 4])
 print(list(filtered))
 for num in filtered:
     print(f"first way: {num}")
 print("--" * 20)
-[print(f"list comprehension: {i}") for i in [1, 2, 3, 4, 5, 6, 7, 8] if i % 2 == 1]
+[print(f"list comprehension: {i}")
+ for i in [1, 2, 3, 4, 5, 6, 7, 8] if i % 2 == 1]
 # Map
+
+
 def toUpper(str):
     return str.upper()
 
@@ -288,7 +310,8 @@ print(list(sorted_items))  # Notice uppercase comes before lowercase
 sorted_items = sorted(["john", "tom", "sonny", "Mike"], key=str.lower)
 print(sorted_items)
 # You can also reverse the sort
-sorted_items = sorted(["john", "tom", "sonny", "Mike"], key=str.lower, reverse=True)
+sorted_items = sorted(["john", "tom", "sonny", "Mike"],
+                      key=str.lower, reverse=True)
 print(sorted_items)
 # Enumerate creates a tuple with an index for what you're enumerating
 quarters = ["First", "Second", "Third", "Fourth"]
@@ -306,7 +329,10 @@ z_coords = [20, 10, 5, 9, 1]
 coords = zip(x_coords, y_coords, z_coords)
 print(list(coords))
 # Len reports the length of strings along with list and any other object data type
-print_len = lambda item: print(len(item))  # doing this to save myself some typing
+# doing this to save myself some typing
+def print_len(item): return print(len(item))
+
+
 print_len("Mike")
 print_len([1, 5, 2, 10, 3, 10])
 print_len({1, 5, 10, 9, 10})  # 4 because there is a duplicate here (10)
@@ -343,6 +369,8 @@ print(dir(user))
 # If we peek into the addition.py file we see there's an add function
 # addition.py
 # We can import 'add' from other places because it's a 'name' and is automatically exported
+
+
 def add(num1, num2):
     return num1 + num2
 
@@ -359,7 +387,6 @@ def add(num1, num2):
 # So if we have a script.py and want to import add, we could do it many ways
 # This will load and execute the 'math/__init__.py' file and give
 # us an object with the exported names in 'math/__init__.py'
-import math
 
 # print(math.add(1,2))
 # This imports JUST the add from 'math/__init__.py'
@@ -376,17 +403,19 @@ import math
 # from math import add as add_some_numbers
 # --------------------------------------- DAY 3 ---------------------------------------
 # Classes, Methods, and Properties
+
 class AngryBird:
     # Slots optimize property access and memory usage and prevent you
     # from arbitrarily assigning new properties the instance
     __slots__ = ["_x", "_y"]
     # Constructor
+
     def __init__(self, x=0, y=0):
         # Doc String
         """
         Construct a new AngryBird by setting it's position to (0, 0)
         """
-        ## Instance Variables
+        # Instance Variables
         self._x = x
         self._y = y
 

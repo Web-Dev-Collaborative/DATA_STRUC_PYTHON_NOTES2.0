@@ -113,7 +113,7 @@ def parse_file(arguments):
         # Split list of list into chunks
         current_chunk = 1
         for i in range(0, len(all_rows), row_limit):  # Loop through list
-            chunk = all_rows[i : i + row_limit]  # Create single chunk
+            chunk = all_rows[i: i + row_limit]  # Create single chunk
 
             current_output = os.path.join(  # Create new output file
                 output_path, "{}-{}.csv".format(output_file, current_chunk)

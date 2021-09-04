@@ -35,7 +35,7 @@ def num_decodings(code):
         if code[i] != "0":
             # looking for how many combinations are there till now if this is a single digit
             dp[i] += dp[i - 1]
-        if is_valid(code[i - 1 : i + 1]):
+        if is_valid(code[i - 1: i + 1]):
             # looking for how many combinations are there till now if this is a number of 2 digits
             dp[i] += dp[i - 2]
 

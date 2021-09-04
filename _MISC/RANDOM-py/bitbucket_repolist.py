@@ -22,7 +22,8 @@ from sys import argv
 # Read the pseudo from the command line, or use mine.
 pseudo = argv[1] if len(argv) > 1 else "lbesson"
 jsonfile = "bitbucket_{}.json".format(pseudo)
-system("curl --silent https://bitbucket.org/api/1.0/users/" + pseudo + " > " + jsonfile)
+system("curl --silent https://bitbucket.org/api/1.0/users/" +
+       pseudo + " > " + jsonfile)
 
 b = load(open(jsonfile, "r"))
 

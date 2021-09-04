@@ -25,7 +25,8 @@ done
 - *Licence:* MIT Licence (http://lbesson.mit-license.org)
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
+# Python 2 compatibility if needed
+from __future__ import print_function, division
 
 import re
 
@@ -50,7 +51,8 @@ USE_SVG = False
 def emojize(s, use_svg=USE_SVG):
     """Call markdown.markdown() on s."""
     emoji_generator = pymdownx.emoji.to_svg if use_svg else pymdownx.emoji.to_png
-    extension_configs = {"pymdownx.emoji": {"emoji_generator": emoji_generator}}
+    extension_configs = {"pymdownx.emoji": {
+        "emoji_generator": emoji_generator}}
     res = markdown(
         s, extensions=["pymdownx.emoji"], extension_configs=extension_configs
     )

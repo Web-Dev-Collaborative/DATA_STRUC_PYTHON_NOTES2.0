@@ -3,6 +3,12 @@
 
 """
 
+from matplotlib import rcParams
+import matplotlib.pyplot as plt
+import sqlalchemy as sa
+import sqlite3
+import json
+import os
 import numpy as np
 import pandas as pd
 
@@ -18,8 +24,6 @@ df.columns
 df.columns = ["First", "Second"]
 df["Second"]
 
-import pandas as pd
-import os
 
 # 1 Reading data
 # 1.1 reading from a CSV
@@ -53,7 +57,6 @@ records = [("Espresso", "$5"), ("Flat White", "$10")]
 pd.DataFrame.from_records(records, columns=["Coffee", "Price"])
 
 # 1.3 reading from a JSON
-import json
 
 KEYS_TO_USE = [
     "id",
@@ -93,7 +96,8 @@ def read_artworks_from_json(keys_to_use):
     for root, _, files in os.walk(ROOT_DIR):
         for f in files:
             if f.endswith("json"):
-                record = get_record_from_file(os.path.join(root, f), keys_to_use)
+                record = get_record_from_file(
+                    os.path.join(root, f), keys_to_use)
                 artworks.append(record)
             break  # only first file in each directory to safe time
 
@@ -206,7 +210,10 @@ min_acq_years = grouped_acq_year.min()
 grouped_titles = df.groupby("title")
 title_counts = grouped_titles.size().sort_values(ascending=False)
 
-condition = lambda x: len(x.index) > 1
+
+def condition(x): return len(x.index) > 1
+
+
 dup_titles_df = grouped_titles.filter(condition)
 dup_titles_df.sort_values("title", inplace=True)
 # Final Demo
@@ -241,12 +248,10 @@ sheet.conditional_format(
 writer.save()
 
 # 4.2 Outputting Data to a relational DB
-import sqlite3
 
 with sqlite3.connect("my_database.db") as conn:
     small_df.to_sql("Tate", conn)
 
-import sqlalchemy as sa
 
 with sa.create_engine("postgresql://localhost/my_data") as conn:
     small_df.to_sql("Tate", conn)
@@ -257,7 +262,6 @@ small_df.to_json("default.json", orient="table")
 
 # 5 Visualization: Plotting with matplotlib
 
-import pandas as pd
 
 df = pd.read_pickle(".\\artwork_data_cols.pickle")
 # Simplest default plot
@@ -265,8 +269,6 @@ acq_years = df.groupby("acquisitionYear").size()
 acq_years.plot()
 
 # Formatting our plot using Matplotlib
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
 
 rcParams.update({"figure.autolayout": True, "axes.titlepad": 20})
 
@@ -276,7 +278,8 @@ title_font = {
     "weight": "normal",
     "size": 20,
 }
-labels_font = {"family": "consolas", "color": "darkred", "weight": "normal", "size": 16}
+labels_font = {"family": "consolas",
+               "color": "darkred", "weight": "normal", "size": 16}
 f = plt.figure()
 subplot = f.add_subplot(1, 1, 1)
 acq_years.plot(ax=subplot, rot=90, logy=True, grid=True)

@@ -12,7 +12,8 @@ See https://github.com/EmilioK97/pydeepl/issues/6 and https://www.deepl.com/api.
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
+# Python 2 compatibility if needed
+from __future__ import print_function, division
 
 import sys
 
@@ -148,7 +149,8 @@ Me gusta usar la línea de comandos para traducir mi texto.
         if t.isspace() or len(t) == 0:
             results.append(t)
         else:
-            results.append(translate(t, to_lang=to_language, from_lang=from_language))
+            results.append(
+                translate(t, to_lang=to_language, from_lang=from_language))
     result = "\n".join(results)
     print(result)
     return result

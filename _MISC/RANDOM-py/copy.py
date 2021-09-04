@@ -188,7 +188,8 @@ def deepcopy(x, memo=None, _nil=[]):
                         if reductor:
                             rv = reductor()
                         else:
-                            raise Error("un(deep)copyable object of type %s" % cls)
+                            raise Error(
+                                "un(deep)copyable object of type %s" % cls)
                 if isinstance(rv, str):
                     y = x
                 else:

@@ -1,8 +1,8 @@
 # Write a function to count the number of nodes in a given singly linked list.
 
 
-## time complexity:  mostly O(1), O(n) at worst for loop
-## space complexity:  O(1)
+# time complexity:  mostly O(1), O(n) at worst for loop
+# space complexity:  O(1)
 
 # Node class
 class Node:

@@ -1,9 +1,9 @@
 """
 Generating random strings from regex-like expressions.
 
-Generates sequences of random characters derived from a production 
-expression with a grammar approximately identical to that used by Regular 
-Expressions.  
+Generates sequences of random characters derived from a production
+expression with a grammar approximately identical to that used by Regular
+Expressions.
 
 This is intended for data-driven testing (fuzzing) of input validators and
 parsers that use regex or regex-like semantics.
@@ -24,7 +24,9 @@ Where this snippet Is Not The Right Tool:  (Go use Sulley or Peach)
 
 """
 
-import re, sys, random
+import re
+import sys
+import random
 
 
 def op_dat(data):

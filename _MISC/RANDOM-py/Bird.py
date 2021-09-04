@@ -37,7 +37,8 @@ class Bird(Thread):
                 "The background argument must be an instance of Background."
             )
         if not callable(gameover_function):
-            raise TypeError("The gameover_method argument must be a callable object.")
+            raise TypeError(
+                "The gameover_method argument must be a callable object.")
 
         # Instância os parâmetros
         self.__canvas = background
@@ -142,7 +143,7 @@ class Bird(Thread):
         image=None, image_path=None, width=None, height=None, closeAfter=False
     ):
         """
-        Retorna um objeto da classe PIL.ImageTk.PhotoImage de uma imagem e as imagens criadas de PIL.Image 
+        Retorna um objeto da classe PIL.ImageTk.PhotoImage de uma imagem e as imagens criadas de PIL.Image
         (photoImage, new, original)
 
         @param image: Instância de PIL.Image.open

@@ -7,8 +7,8 @@
 
 # Constraints:  1 <= n <= 1000
 
-## time complexity:  O(1 or n)
-## space complexity:  O(1)
+# time complexity:  O(1 or n)
+# space complexity:  O(1)
 
 
 def sumZero(self, n: int):

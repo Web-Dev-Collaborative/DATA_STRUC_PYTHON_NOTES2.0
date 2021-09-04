@@ -12,15 +12,15 @@
 
 """
 Examples:
-1. Given S = "aabab", the function should return 3, 
+1. Given S = "aabab", the function should return 3,
     because a string "aabaabaa" can be made.
-2. Given S = "dog", the function should return 8, 
+2. Given S = "dog", the function should return 8,
     because a string "aadaaoaagaa" can be made.
-3. Given S = "aa", the function should return 0, 
+3. Given S = "aa", the function should return 0,
     because no longer string can be made.
-4. Given S= "baaaa", the function should return -1, 
+4. Given S= "baaaa", the function should return -1,
     because there is a substring "aaa".
 """
 
-## time complexity:  O()
-## space complexity:  O()
+# time complexity:  O()
+# space complexity:  O()

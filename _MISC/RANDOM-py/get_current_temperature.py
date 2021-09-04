@@ -11,7 +11,8 @@ https://bitbucket.org/scee_ietr/malin-multi-arm-bandit-learning-for-iot-networks
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
+# Python 2 compatibility if needed
+from __future__ import print_function, division
 
 from os.path import expanduser, join, isfile
 from datetime import datetime
@@ -52,7 +53,8 @@ def get_data(names, locations, key, verbose=True):
         temperature_in_F = weather["currently"]["temperature"]
         temperature_in_C = round((temperature_in_F - 32) * (5 / 9), 1)
         data.append(
-            {"name": name, "location": location, "temperature_in_C": temperature_in_C}
+            {"name": name, "location": location,
+                "temperature_in_C": temperature_in_C}
         )
         if verbose:
             print(

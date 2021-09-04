@@ -41,7 +41,8 @@ class delBoard:
         if not hasattr(self, "myPos"):
             if not __name__ == "__main__":
                 __builtins__ = delBoard
-            __builtins__.nqueens = self.nqueens if self.nqueens else len(__name__)
+            __builtins__.nqueens = self.nqueens if self.nqueens else len(
+                __name__)
             __builtins__.ans = 0
             __builtins__.collected = 0
             for j in range(__builtins__.nqueens):

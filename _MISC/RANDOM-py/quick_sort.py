@@ -19,8 +19,10 @@ def quickSort(collection, left, right, counter):
         print("Step %i -->" % counter, collection)
 
         mainstay = partition(collection, left, right)
-        collection, counter = quickSort(collection, left, mainstay - 1, counter)
-        collection, counter = quickSort(collection, mainstay + 1, right, counter)
+        collection, counter = quickSort(
+            collection, left, mainstay - 1, counter)
+        collection, counter = quickSort(
+            collection, mainstay + 1, right, counter)
 
     return collection, counter
 

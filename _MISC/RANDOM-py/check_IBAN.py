@@ -11,7 +11,8 @@ https://fr.wikipedia.org/wiki/International_Bank_Account_Number#Algorithme_de_v.
 - *Licence:* MIT Licence (http://lbesson.mit-license.org).
 """
 
-from __future__ import print_function, division  # Python 2 compatibility if needed
+# Python 2 compatibility if needed
+from __future__ import print_function, division
 
 
 def l_to_c(l):
@@ -38,7 +39,8 @@ def check_iban(iban):
 def main(args):
     try:
         if not args:
-            check_iban("HAHA LOL YOU THOUGH I WILL LET A REAL IBAN IN MY SCRIPT")
+            check_iban(
+                "HAHA LOL YOU THOUGH I WILL LET A REAL IBAN IN MY SCRIPT")
         else:
             for iban in args:
                 check_iban(iban)

@@ -15,8 +15,8 @@ Output
 [4, 13, 11, 8, -5, 90]
 Explanation
 
-The even numbers are sorted in increasing order, the odd numbers are sorted in 
-decreasing number, and the relative positions were 
+The even numbers are sorted in increasing order, the odd numbers are sorted in
+decreasing number, and the relative positions were
 [even, odd, odd, even, odd, even] and remain the same after sorting.
 """
 
@@ -61,7 +61,8 @@ def mixed_sorting(nums):
 
 class TestMixedSorting(unittest.TestCase):
     def test_1(self):
-        self.assertEqual(mixed_sorting([8, 13, 11, 90, -5, 4]), [4, 13, 11, 8, -5, 90])
+        self.assertEqual(mixed_sorting(
+            [8, 13, 11, 90, -5, 4]), [4, 13, 11, 8, -5, 90])
 
     def test_2(self):
         self.assertEqual(mixed_sorting([1, 2, 3, 6, 5, 4]), [5, 2, 3, 4, 1, 6])

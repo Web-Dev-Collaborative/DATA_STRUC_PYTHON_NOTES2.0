@@ -64,11 +64,16 @@ try:
     import markdown.extensions
 
     list_extensions = [
-        "markdown.extensions.extra",  # https://pythonhosted.org/Markdown/extensions/extra.html
-        "markdown.extensions.smarty",  # https://pythonhosted.org/Markdown/extensions/smarty.html
-        "markdown.extensions.headerid",  # https://pythonhosted.org/Markdown/extensions/header_id.html
-        "markdown.extensions.tables",  # https://pythonhosted.org/Markdown/extensions/tables.html
-        "markdown.extensions.smart_strong",  # https://pythonhosted.org/Markdown/extensions/smart_strong.html
+        # https://pythonhosted.org/Markdown/extensions/extra.html
+        "markdown.extensions.extra",
+        # https://pythonhosted.org/Markdown/extensions/smarty.html
+        "markdown.extensions.smarty",
+        # https://pythonhosted.org/Markdown/extensions/header_id.html
+        "markdown.extensions.headerid",
+        # https://pythonhosted.org/Markdown/extensions/tables.html
+        "markdown.extensions.tables",
+        # https://pythonhosted.org/Markdown/extensions/smart_strong.html
+        "markdown.extensions.smart_strong",
         # 'urlize'  # https://github.com/r0wb0t/markdown-urlize
     ]
     try:
@@ -111,7 +116,8 @@ def main(argv=[], path="/tmp", outfile="test.html", title="Test", use_jquery=Fal
 
     printc("<green>Starting main, with:<white>")
     # FIXME printc does not handle UTF-8 correctly ! AAAH!
-    print("path='{path}', outfile='{outfile}'.".format(path=path, outfile=outfile))
+    print("path='{path}', outfile='{outfile}'.".format(
+        path=path, outfile=outfile))
     print("And the title is:", title)
     fullpath = os.path.join(path, outfile)
 
@@ -262,7 +268,8 @@ def main(argv=[], path="/tmp", outfile="test.html", title="Test", use_jquery=Fal
                             new_markdown_text = unicode(
                                 x.encode("utf-8"), encoding="utf-8"
                             )
-                            printc(" I found the xmp tag and its content. Printing it:")
+                            printc(
+                                " I found the xmp tag and its content. Printing it:")
                             # OMG this is so durty ! FIXME do better?
                             if beta:
                                 print(type(new_markdown_text))
@@ -356,7 +363,8 @@ def main(argv=[], path="/tmp", outfile="test.html", title="Test", use_jquery=Fal
                     # Oups ! Bug !
                     except Exception as e:
                         printc(
-                            "<ERROR> Exception found: <yellow>{e}<white>.".format(e=e)
+                            "<ERROR> Exception found: <yellow>{e}<white>.".format(
+                                e=e)
                         )
                         printc(
                             " ===> <WARNING> I failed to markdownise these lines. Next!<reset><white>"
@@ -378,7 +386,8 @@ def main(argv=[], path="/tmp", outfile="test.html", title="Test", use_jquery=Fal
                 )
             # Opening the input file failed !
             except Exception as e:
-                printc("<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
+                printc(
+                    "<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
                 printc(
                     " ==> <ERROR>: Failed to read from the file {inputfile}. Going to the next one.<reset><white>\n".format(
                         inputfile=inputfile
@@ -483,8 +492,10 @@ License: GPLv3."""
                     contentfile1 = file1.read()
                     # FIXME experimental detection of the need for QuickSearch
                     # use_jquery = use_jquery or ((contentfile1.find('<table>') >= 0) or (contentfile1.find('') >= 0))
-                    title = re.search("<title>[^<]+</title>", contentfile1).group()
-                    title = title.replace("<title>", "").replace("</title>", "")
+                    title = re.search(
+                        "<title>[^<]+</title>", contentfile1).group()
+                    title = title.replace(
+                        "<title>", "").replace("</title>", "")
                 except Exception as e:
                     # printc("<ERROR> Exception found: <yellow>{e}<white>.".format(e=e))
                     printc(
@@ -525,7 +536,8 @@ License: GPLv3."""
     outfile = os.path.basename(out) if out else "test.html"
 
     # Calling main
-    main(args[1:], path=path, outfile=outfile, title=title, use_jquery=use_jquery)
+    main(args[1:], path=path, outfile=outfile,
+         title=title, use_jquery=use_jquery)
     printc(
         "\n<green>Done, I wrote to the file '{outfile}' in the dir '{path}'.<white>".format(
             path=path, outfile=outfile

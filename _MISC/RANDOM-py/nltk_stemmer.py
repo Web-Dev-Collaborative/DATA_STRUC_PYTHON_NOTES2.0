@@ -5,17 +5,17 @@ SO Stemmer Q?
 @author: me
 """
 
+import string
+import gensim
+from gensim import corpora, models
+from nltk.stem.porter import PorterStemmer
+from nltk.tokenize import RegexpTokenizer
 import warnings
 
 warnings.filterwarnings(action="ignore", category=UserWarning, module="gensim")
-from nltk.tokenize import RegexpTokenizer
 
 # from stop_words import get_stop_words
-from nltk.stem.porter import PorterStemmer
-from gensim import corpora, models
 
-import gensim
-import string
 
 tokenizer = RegexpTokenizer(r"\w+")
 
@@ -372,7 +372,7 @@ Clap along if you know what happiness is to you
 Because I'm happy
 Clap along if you feel like that's what you wanna do
 Happy, bring me down, can't nuthin'
-Happy, bring me down, 
+Happy, bring me down,
 My level is too high, to bring me down
 Can't nuthin', bring me down
 I said, let me tell you 'bout, unh
@@ -399,7 +399,7 @@ Clap along if you feel like that's what you wanna do
 Bring me down can't nuthin'
 Bring me down my level is too high
 Bring me down can't nuthin'
-Bring me down, I said 
+Bring me down, I said
 Because I'm happy
 Clap along if you feel like a room without a roof
 Because I'm happy

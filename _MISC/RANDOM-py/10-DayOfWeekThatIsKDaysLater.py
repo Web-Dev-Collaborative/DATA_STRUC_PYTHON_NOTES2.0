@@ -13,8 +13,8 @@
 # "Mon".
 
 
-## time complexity:  O(1)
-## space complexity:  O(1)
+# time complexity:  O(1)
+# space complexity:  O(1)
 
 
 def k_days_later(s, k):

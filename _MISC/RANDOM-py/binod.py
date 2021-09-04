@@ -24,7 +24,8 @@ def checkBinod(file):  # Trying to find Binod In File Insted Of Manohar Ka Kotha
         # master
         fileContent = f.read()
     if "binod" in fileContent.lower():
-        print(f"**************Congratulations Binod found in {f}********************")
+        print(
+            f"**************Congratulations Binod found in {f}********************")
         return True
     else:
         return False

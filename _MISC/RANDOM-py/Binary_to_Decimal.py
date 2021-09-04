@@ -3,13 +3,13 @@
 
 def binaryToDecimal(binary):
     """
-	>>> binaryToDecimal(111110000)
-	496
-	>>> binaryToDecimal(10100)
-	20
-	>>> binaryToDecimal(101011)
-	43
-	"""
+        >>> binaryToDecimal(111110000)
+        496
+        >>> binaryToDecimal(10100)
+        20
+        >>> binaryToDecimal(101011)
+        43
+        """
     decimal, i, n = 0, 0, 0
     while binary != 0:
         dec = binary % 10

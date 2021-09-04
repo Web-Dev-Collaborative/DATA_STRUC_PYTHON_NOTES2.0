@@ -54,7 +54,8 @@ if __name__ == "__main__":
 
     options = ["rock", "paper", "scissors"]
 
-    user_choice = input("Please choose either 'rock', 'paper', or 'scissors': ")
+    user_choice = input(
+        "Please choose either 'rock', 'paper', or 'scissors': ")
 
     if user_choice in options:
         print("You chose:", user_choice)

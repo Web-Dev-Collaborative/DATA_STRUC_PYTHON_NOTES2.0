@@ -7,7 +7,7 @@ def menu():
     global quality
     print(
         """
-        Image format: 
+        Image format:
         1. Very High Resolution - 700 dpi
         2. High Resolution - 500 dpi
         3. Medium Resolution - 300 dpi

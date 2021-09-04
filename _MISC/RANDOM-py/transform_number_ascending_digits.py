@@ -23,7 +23,7 @@ Dynamic programming solution.
 
 def operations(number):
     n = len(number)
-    diff = lambda i, j: abs(j - int(number[i]))
+    def diff(i, j): return abs(j - int(number[i]))
     # compute diff between the current digit and wanted digit, and fill the dp
     prev_dp = [min(diff(0, i), 10 - diff(0, i)) for i in range(10)]
 
@@ -32,7 +32,7 @@ def operations(number):
         curr_dp = [min(diff(i, j), 10 - diff(i, j)) for j in range(10)]
         for j in range(10):
             # find the min value for the previous digit and add it to the current value
-            curr_dp[j] += min(prev_dp[0 : j + 1])
+            curr_dp[j] += min(prev_dp[0: j + 1])
         prev_dp = curr_dp
 
     # min value from the last digit

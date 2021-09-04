@@ -109,7 +109,8 @@ def usage():
 def main(argv):
     try:
         opts, args = getopt.getopt(
-            argv, "sdh", ["stdout", "download", "mode=", "authhash=", "ttl=", "help"]
+            argv, "sdh", ["stdout", "download",
+                          "mode=", "authhash=", "ttl=", "help"]
         )
     except getopt.GetoptError:
         usage()

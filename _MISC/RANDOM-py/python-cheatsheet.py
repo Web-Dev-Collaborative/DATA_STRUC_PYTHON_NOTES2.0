@@ -6,10 +6,18 @@
 """
 
 ####################################################
-## 1. Primitive Datatypes and Operators
+# 1. Primitive Datatypes and Operators
 ####################################################
 
 # You have numbers
+from functools import wraps
+from bat import Bat
+from superhero import Superhero
+from human import Human
+import math as m
+from math import *
+from math import ceil, floor
+import math
 3  # => 3
 
 # Math is what you would expect
@@ -115,10 +123,12 @@ b == a  # => True, a's and b's objects are equal
 len("This is a string")  # => 16
 
 # .format can be used to format strings, like this:
-"{} can be {}".format("Strings", "interpolated")  # => "Strings can be interpolated"
+# => "Strings can be interpolated"
+"{} can be {}".format("Strings", "interpolated")
 
 # You can repeat the formatting arguments to save some typing.
-"{0} be nimble, {0} be quick, {0} jump over the {1}".format("Jack", "candle stick")
+"{0} be nimble, {0} be quick, {0} jump over the {1}".format(
+    "Jack", "candle stick")
 # => "Jack be nimble, Jack be quick, Jack jump over the candle stick"
 
 # You can use keywords if you don't want to count.
@@ -158,7 +168,7 @@ bool({})  # => False
 bool(())  # => False
 
 ####################################################
-## 2. Variables and Collections
+# 2. Variables and Collections
 ####################################################
 
 # Python has a print function
@@ -286,7 +296,8 @@ filled_dict = {"one": 1, "two": 2, "three": 3}
 # Note keys for dictionaries have to be immutable types. This is to ensure that
 # the key can be converted to a constant hash value for quick look-ups.
 # Immutable types include ints, floats, strings, tuples.
-invalid_dict = {[1, 2, 3]: "123"}  # => Raises a TypeError: unhashable type: 'list'
+# => Raises a TypeError: unhashable type: 'list'
+invalid_dict = {[1, 2, 3]: "123"}
 valid_dict = {(1, 2, 3): [1, 2, 3]}  # Values can be of any type, however.
 
 # Look up values with []
@@ -326,7 +337,8 @@ filled_dict.setdefault("five", 5)  # filled_dict["five"] is set to 5
 filled_dict.setdefault("five", 6)  # filled_dict["five"] is still 5
 
 # Adding to a dictionary
-filled_dict.update({"four": 4})  # => {"one": 1, "two": 2, "three": 3, "four": 4}
+# => {"one": 1, "two": 2, "three": 3, "four": 4}
+filled_dict.update({"four": 4})
 filled_dict["four"] = 4  # another way to add to dict
 
 # Remove keys from a dictionary with del
@@ -377,7 +389,7 @@ filled_set | other_set  # => {1, 2, 3, 4, 5, 6}
 
 
 ####################################################
-## 3. Control Flow and Iterables
+# 3. Control Flow and Iterables
 ####################################################
 
 # Let's just make a variable
@@ -474,7 +486,7 @@ except (TypeError, NameError):
     pass  # Multiple exceptions can be handled together, if required.
 else:  # Optional clause to the try/except block. Must follow all except blocks
     print("All good!")  # Runs only if the code in try raises no exceptions
-finally:  #  Execute under all circumstances
+finally:  # Execute under all circumstances
     print("We can clean up resources here")
 
 # Instead of try/finally to cleanup resources you can use a with statement
@@ -544,7 +556,7 @@ list(our_iterator)  # => Returns [] because state is saved
 
 
 ####################################################
-## 4. Functions
+# 4. Functions
 ####################################################
 
 # Use "def" to create new functions
@@ -561,6 +573,8 @@ add(y=6, x=5)  # Keyword arguments can arrive in any order.
 
 # You can define functions that take a variable number of
 # positional arguments
+
+
 def varargs(*args):
     return args
 
@@ -569,6 +583,8 @@ varargs(1, 2, 3)  # => (1, 2, 3)
 
 # You can define functions that take a variable number of
 # keyword arguments, as well
+
+
 def keyword_args(**kwargs):
     return kwargs
 
@@ -595,9 +611,12 @@ args = (1, 2, 3, 4)
 kwargs = {"a": 3, "b": 4}
 all_the_args(*args)  # equivalent to all_the_args(1, 2, 3, 4)
 all_the_args(**kwargs)  # equivalent to all_the_args(a=3, b=4)
-all_the_args(*args, **kwargs)  # equivalent to all_the_args(1, 2, 3, 4, a=3, b=4)
+# equivalent to all_the_args(1, 2, 3, 4, a=3, b=4)
+all_the_args(*args, **kwargs)
 
 # Returning multiple values (with tuple assignments)
+
+
 def swap(x, y):
     return y, x  # Return multiple values as a tuple without the parenthesis.
     # (Note: parenthesis have been excluded but can be included)
@@ -661,26 +680,22 @@ list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))  # => [6, 7]
 
 
 ####################################################
-## 5. Modules
+# 5. Modules
 ####################################################
 
 # You can import modules
-import math
 
 print(math.sqrt(16))  # => 4.0
 
 # You can get specific functions from a module
-from math import ceil, floor
 
 print(ceil(3.7))  # => 4.0
 print(floor(3.7))  # => 3.0
 
 # You can import all functions from a module.
 # Warning: this is not recommended
-from math import *
 
 # You can shorten module names
-import math as m
 
 math.sqrt(16) == m.sqrt(16)  # => True
 
@@ -690,7 +705,6 @@ math.sqrt(16) == m.sqrt(16)  # => True
 
 # You can find out which functions and attributes
 # are defined in a module.
-import math
 
 dir(math)
 
@@ -702,7 +716,7 @@ dir(math)
 
 
 ####################################################
-## 6. Classes
+# 6. Classes
 ####################################################
 
 # We use the "class" statement to create a class
@@ -799,7 +813,7 @@ if __name__ == "__main__":
 
 
 ####################################################
-## 6.1 Inheritance
+# 6.1 Inheritance
 ####################################################
 
 # Inheritance allows new child classes to be defined that inherit methods and
@@ -815,8 +829,6 @@ if __name__ == "__main__":
 
 # To import functions from other files use the following format
 # from "filename-without-extension" import "function-or-class"
-
-from human import Human
 
 
 # Specify the parent class(es) as parameters to the class definition
@@ -895,11 +907,13 @@ if __name__ == "__main__":
     print("Am I Oscar eligible? " + str(sup.movie))
 
 ####################################################
-## 6.2 Multiple Inheritance
+# 6.2 Multiple Inheritance
 ####################################################
 
 # Another class definition
 # bat.py
+
+
 class Bat:
 
     species = "Baty"
@@ -925,10 +939,9 @@ if __name__ == "__main__":
 
 # And yet another class definition that inherits from Superhero and Bat
 # superhero.py
-from superhero import Superhero
-from bat import Bat
 
 # Define Batman as a child that inherits from both Superhero and Bat
+
 class Batman(Superhero, Bat):
     def __init__(self, *args, **kwargs):
         # Typically to inherit attributes you have to call super:
@@ -980,7 +993,7 @@ if __name__ == "__main__":
 
 
 ####################################################
-## 7. Advanced
+# 7. Advanced
 ####################################################
 
 # Generators help you make lazy code.
@@ -1013,7 +1026,6 @@ print(gen_to_list)  # => [-1, -2, -3, -4, -5]
 # Decorators
 # In this example `beg` wraps `say`. If say_please is True then it
 # will change the returned message.
-from functools import wraps
 
 
 def beg(target_function):
