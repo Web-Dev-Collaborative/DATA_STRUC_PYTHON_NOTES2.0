@@ -9,7 +9,7 @@
 
 ---
 
-* [projects of Python installation and packaging](summaries-and-links-for-the-most-relevant-projects-in-the-space-of-python-installation-and-packaging.md)
+* [projects of Python installation and packaging](projects-of-python-installation-and-packaging.md)
 * [Running List Of Notes](running-list-of-notes.md)
 * [Aux Resources](aux-resources.md)
 * [Python Data Structures Repo & Website](untitled.md)
@@ -64,7 +64,7 @@
 
 ## Wk-16
 
-* [Past Material](wk-16/untitled.md)
+* [Past Material](wk-16/past-material.md)
 
 ---
 
@@ -77,8 +77,8 @@
 
 ## Wk-20-Notes
 
-* [Generate a graph](wk-20-notes/generate-a-graph-1.md)
-* [D1 Notes](wk-20-notes/d1.md)
+* [Generate a graph](wk-20-notes/generate-a-graph.md)
+* [D1 Notes](wk-20-notes/d1-notes.md)
 * [D3](wk-20-notes/d3.md)
 * [Sprint Prep](wk-20-notes/sprint-prep.md)
 
