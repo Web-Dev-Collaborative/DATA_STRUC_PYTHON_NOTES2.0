@@ -1,14 +1,16 @@
 # Aux Resources
 
+## Aux Resources
+
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 
-## Notes I Wish I Had When I Started Learning Python <a id="de54"></a>
+### Notes I Wish I Had When I Started Learning Python <a id="de54"></a>
 
-### Plus resources for learning data structures and algorithms in python at the bottom of this article! <a id="55c5"></a>
+#### Plus resources for learning data structures and algorithms in python at the bottom of this article! <a id="55c5"></a>
 
 [![Bryan Guner](https://miro.medium.com/fit/c/32/32/1*4fzEKCI8uJO85RqLCiNWLw.png)](https://bryanguner.medium.com/?source=post_page-----16ce4244be12--------------------------------)[Bryan Guner](https://bryanguner.medium.com/?source=post_page-----16ce4244be12--------------------------------)[Aug 24·22 min read](https://bryanguner.medium.com/notes-i-wish-i-had-when-i-started-learning-python-16ce4244be12?source=post_page-----16ce4244be12--------------------------------)![](https://miro.medium.com/max/1125/0*8zBTnh_6r7agz9wz.jpg)
 
-## Basics <a id="9bfe"></a>
+### Basics <a id="9bfe"></a>
 
 * **PEP8** : Python Enhancement Proposals, style-guide for Python.
 * `print` is the equivalent of `console.log`.
@@ -26,7 +28,7 @@ def foo():
 
 * Python has a built in help function that let’s you see a description of the source code without having to navigate to it.
 
-## Numbers <a id="532f"></a>
+### Numbers <a id="532f"></a>
 
 * Python has three types of numbers:
 * **Integer**
@@ -46,7 +48,7 @@ print(3) # => 3 print(int(19)) # => 19 print(int()) # => 0
 print(2.24) # => 2.24 print(2.) # => 2.0 print(float()) # => 0.0 print(27e-5) # => 0.00027
 ```
 
-### **Complex Numbers** <a id="5e6f"></a>
+#### **Complex Numbers** <a id="5e6f"></a>
 
 * Consist of a real part and imaginary part.
 * The `i` is switched to a `j` in programming.
@@ -55,7 +57,7 @@ print(2.24) # => 2.24 print(2.) # => 2.0 print(float()) # => 0.0 print(27e-5) # 
 print(7j) # => 7j print(5.1+7.7j)) # => 5.1+7.7j print(complex(3, 5)) # => 3+5j print(complex(17)) # => 17+0j print(complex()) # => 0j
 ```
 
-### **Type Casting** : The process of converting one number to another. <a id="8602"></a>
+#### **Type Casting** : The process of converting one number to another. <a id="8602"></a>
 
 ```text
 # Using Float
@@ -75,7 +77,7 @@ print(str(17.0) + ' and ' + str(17))        # => 17.0 and 17
 
 ![](https://miro.medium.com/max/34/0*kq_3dH4n7wsmAy7u.png?q=20)![](https://miro.medium.com/max/675/0*kq_3dH4n7wsmAy7u.png)
 
-## Strings <a id="f071"></a>
+### Strings <a id="f071"></a>
 
 * Python uses both single and double quotes.
 * You can escape strings like so `'Jodi asked, "What\'s up, Sam?"'`
@@ -159,7 +161,7 @@ print('Your name is {0} {1}'.format(first_name, last_name))  # => Your name is B
 
 ![](https://miro.medium.com/max/34/0*BIsBBI09FpFa1ntJ.png?q=20)![](https://miro.medium.com/max/788/0*BIsBBI09FpFa1ntJ.png)
 
-## Variables and Expressions <a id="3a98"></a>
+### Variables and Expressions <a id="3a98"></a>
 
 * **Duck-Typing** : Programming Style which avoids checking an object’s type to figure out what it can do.
 * Duck Typing is the fundamental approach of Python.
@@ -196,7 +198,7 @@ print(a)         # => seventeen
 * `none` is an object and can be directly assigned to a variable.
 * Using none is a convenient way to check to see why an action may not be operating correctly in your program.
 
-## Boolean Data Type <a id="ce8b"></a>
+### Boolean Data Type <a id="ce8b"></a>
 
 * One of the biggest benefits of Python is that it reads more like English than JS does.
 
@@ -221,7 +223,7 @@ print(not True or False)    # => False
 * Empty Sequence or Collection.
 * `True` and `False` must be capitalized
 
-## Comparison Operators <a id="9dc1"></a>
+### Comparison Operators <a id="9dc1"></a>
 
 * Python uses all the same equality operators as JS.
 * In Python, equality operators are processed from left to right.
@@ -234,7 +236,7 @@ print(not True or False)    # => False
 
 ![](https://miro.medium.com/max/34/0*nlYkqe_JubdBB2mv.png?q=20)![](https://miro.medium.com/max/788/0*nlYkqe_JubdBB2mv.png)
 
-## Identity vs Equality <a id="7377"></a>
+### Identity vs Equality <a id="7377"></a>
 
 ```text
 print (2 == '2')    # => False
@@ -246,7 +248,7 @@ print (2 is 2.0)    # => False
 
 * In the Python community it is better to use `is` and `is not` over `==` or `!=`
 
-## If Statements <a id="11e6"></a>
+### If Statements <a id="11e6"></a>
 
 ```text
 if name == 'Monica':
@@ -265,7 +267,7 @@ elif age > 100:
 
 * Remember the order of `elif` statements matter.
 
-## While Statements <a id="df32"></a>
+### While Statements <a id="df32"></a>
 
 ```text
 spam = 0
@@ -297,7 +299,7 @@ while True:
   break
 ```
 
-## Try/Except Statements <a id="df5c"></a>
+### Try/Except Statements <a id="df5c"></a>
 
 * Python equivalent to `try/catch`
 
@@ -398,7 +400,7 @@ if hasattr(b, '__len__'):
     print(len(b))
 ```
 
-## Pass <a id="7db4"></a>
+### Pass <a id="7db4"></a>
 
 * Pass Keyword is required to write the JS equivalent of :
 
@@ -409,7 +411,7 @@ if (true) {
   pass
 ```
 
-## Functions <a id="953a"></a>
+### Functions <a id="953a"></a>
 
 * **Function** definition includes:
 * The `def` keyword
@@ -453,9 +455,9 @@ greeting("Monica", saying="Hi")
 
 `toUpper = lambda s: s.upper()`
 
-## Notes <a id="c7cf"></a>
+### Notes <a id="c7cf"></a>
 
-## Formatted Strings <a id="1d1d"></a>
+### Formatted Strings <a id="1d1d"></a>
 
 * Remember that in Python `join()` is called on a string with an array/list passed in as the argument.
 
@@ -487,19 +489,19 @@ for num in range(1,16):
     print()
 ```
 
-## Getting Input from the Command Line <a id="9d88"></a>
+### Getting Input from the Command Line <a id="9d88"></a>
 
 * Python runs synchronously, all programs and processes will stop when listening for a user input.
 * The `input` function shows a prompt to a user and waits for them to type 'ENTER'.
 
-## Scripts vs Programs <a id="49e9"></a>
+### Scripts vs Programs <a id="49e9"></a>
 
 * **Programming Script** : A set of code that runs in a linear fashion.
 * The largest difference between scripts and programs is the level of complexity and purpose. Programs typically have many UI’s.
 * Python can be used to display html, css, and JS.
 * We will be using Python as an API \(Application Programming Interface\)
 
-## Structured Data <a id="40e0"></a>
+### Structured Data <a id="40e0"></a>
 
 * **Sequence** : The most basic data structure in Python where the index determines the order.
 * List
@@ -513,7 +515,7 @@ for num in range(1,16):
 * **Iterable** : Generic name for a sequence or collection; any object that can be iterated through.
 * Can be mutable or immutable.
 
-## Built In Data Types <a id="53bb"></a>
+### Built In Data Types <a id="53bb"></a>
 
 * **Lists** are the python equivalent of arrays.
 
@@ -569,7 +571,7 @@ c = dict([('two', 2), ('one', 1), ('three', 3)])
 * Benefit of dictionaries in Python is that it doesn’t matter how it is defined, if the keys and values are the same the dictionaries are considered equal.
 * Use the `in` operator to see if a key exists in a dictionary.
 
-### **Sets** : Unordered collection of distinct objects; objects that **need** to be hashable. <a id="06db"></a>
+#### **Sets** : Unordered collection of distinct objects; objects that **need** to be hashable. <a id="06db"></a>
 
 * Always be unique, duplicate items are auto dropped from the set.
 * **Common Uses**:
@@ -586,7 +588,7 @@ letters = set('abracadabra')
 print(letters)
 ```
 
-## Built-In Functions <a id="dbc7"></a>
+### Built-In Functions <a id="dbc7"></a>
 
 **Functions using iterables**
 
@@ -652,7 +654,7 @@ print(b - a)        # => {4, 6}
 print(a ^ b)        # => {1, 3, 4, 6}
 ```
 
-## For Statements <a id="5721"></a>
+### For Statements <a id="5721"></a>
 
 * In python, there is only one for loop.
 * Always Includes:
@@ -732,7 +734,7 @@ for c in "abcdefg":
     print(c)
 ```
 
-## More On Functions <a id="8b86"></a>
+### More On Functions <a id="8b86"></a>
 
 * **Variable-length positional arguments** : \(\*args\)
 
@@ -771,7 +773,7 @@ def example(arg_1, arg_2, *args, **kwargs):
   pass
 ```
 
-## Importing in Python <a id="162d"></a>
+### Importing in Python <a id="162d"></a>
 
 * Modules are similar to packages in Node.js
 * Come in different types: Built-In, Third-Party, Custom.
@@ -799,7 +801,7 @@ from urllib.request import (
 )
 ```
 
-## Watching Out for Python 2 <a id="aef9"></a>
+### Watching Out for Python 2 <a id="aef9"></a>
 
 * Python 3 removed `<>` and only uses `!=`
 * `format()` was introduced with P3
@@ -809,7 +811,7 @@ from urllib.request import (
 * `sets` were killed in favor of `set()` class.
 * `print` was a statement in P2, but is a function in P3.
 
-## Classes In Python <a id="c906"></a>
+### Classes In Python <a id="c906"></a>
 
 * Classes are a way of combining information and behavior.
 * Classes are blueprints to make objects.
@@ -915,7 +917,7 @@ class AngryBird:
         return f"<AngryBird ({self._x}, {self._y})>"
 ```
 
-## Properties for Classes <a id="035e"></a>
+### Properties for Classes <a id="035e"></a>
 
 * Getters and Setters are used in object-oriented programming to add validation logic around getting and setting a value.
 
@@ -964,7 +966,7 @@ class AngryBird:
         self._y = value
 ```
 
-## List Comprehensions <a id="7ab5"></a>
+### List Comprehensions <a id="7ab5"></a>
 
 * List comprehensions are the equivalent of wrapped up filter namp array methods while also allowing nested loops.
 * `new_list = [expression for member in iterable]`
@@ -1004,11 +1006,11 @@ matrix = [[i for i in range(5)] for _ in range(6)]print(matrix)
 # ]
 ```
 
-## My Blog: <a id="fe0e"></a>
+### My Blog: <a id="fe0e"></a>
 
 [Web-Dev-HubMemoization, Tabulation, and Sorting Algorithms by Example Why is looking at runtime not a reliable method of…master--bgoonz-blog.netlify.app](https://master--bgoonz-blog.netlify.app/)
 
-## Python Data Structures & Algorithms Resources: <a id="c07d"></a>
+### Python Data Structures & Algorithms Resources: <a id="c07d"></a>
 
 * [The Framework for Learning Algorithms and intense problem solving exercises](https://72a70b9d-739e-477a-bd84-85357c883a09.vscode-webview-test.com/vscode-resource/file///c:/MY-WEB-DEV/_JOB-SEARCH/03-Interview-Prep/01-reference-guides/think_like_computer/Framework%20and%20thoughts%20about%20learning%20data%20structure%20and%20algorithm.md)
 * [Algs4: Recommended book for Learning Algorithms and Data Structures](https://72a70b9d-739e-477a-bd84-85357c883a09.vscode-webview-test.com/vscode-resource/file///c:/MY-WEB-DEV/_JOB-SEARCH/03-Interview-Prep/01-reference-guides/think_like_computer/why_i_recommend_algs4.md)
@@ -1087,7 +1089,7 @@ matrix = [[i for i in range(5)] for _ in range(6)]print(matrix)
 * [Cryptology Algorithm](https://72a70b9d-739e-477a-bd84-85357c883a09.vscode-webview-test.com/vscode-resource/file///c:/MY-WEB-DEV/_JOB-SEARCH/03-Interview-Prep/01-reference-guides/common_knowledge/Cryptology.md)
 * [Some Good Online Practice Platforms](https://72a70b9d-739e-477a-bd84-85357c883a09.vscode-webview-test.com/vscode-resource/file///c:/MY-WEB-DEV/_JOB-SEARCH/03-Interview-Prep/01-reference-guides/common_knowledge/OnlinePraticePlatform.md)
 
-## Algorithms: <a id="7664"></a>
+### Algorithms: <a id="7664"></a>
 
 * [100 days of algorithms](https://github.com/coells/100days)
 * [Algorithms](https://github.com/marcosfede/algorithms) — Solved algorithms and data structures problems in many languages.
@@ -1145,7 +1147,7 @@ matrix = [[i for i in range(5)] for _ in range(6)]print(matrix)
 * [In search of the fastest concurrent Union-Find algorithm \(2019\)](https://arxiv.org/pdf/1911.06347.pdf)
 * [Computer Science 521 Advanced Algorithm Design](https://www.cs.princeton.edu/courses/archive/fall13/cos521/)
 
-## Data Structures: <a id="6c92"></a>
+### Data Structures: <a id="6c92"></a>
 
 * [Data Structures and Algorithms implementation in Go](https://github.com/floyernick/Data-Structures-and-Algorithms)
 * [Which algorithms/data structures should I “recognize” and know by name?](https://softwareengineering.stackexchange.com/questions/155639/which-algorithms-data-structures-should-i-recognize-and-know-by-name)
@@ -1222,8 +1224,7 @@ Let's begin!
 
 1\) Find prime factors.
 
-For the very basics, let's start with something unusual: Public Key Encryption. This technique relies on certain really large numbers being computationally hard to factor to keep data secure.
-In this first exercise I'll factor some numbers that are easy to deal with; the goal is to create a Python function to find all prime factors, I'll do it by taking an integer value as input and the return or output will be a list of prime factors.
+For the very basics, let's start with something unusual: Public Key Encryption. This technique relies on certain really large numbers being computationally hard to factor to keep data secure. In this first exercise I'll factor some numbers that are easy to deal with; the goal is to create a Python function to find all prime factors, I'll do it by taking an integer value as input and the return or output will be a list of prime factors.
 
 In this solution I decided to search for factors by dividing the given sequentially larger values \(starting from 2\) to see which one divide evenly into it, without leaving a remainder behind:
 
@@ -1243,8 +1244,7 @@ Again, I'll write a function to detect palindromes, where my input will be the s
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s--rphnyM23--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/n4ei7nrn43w256y9khhu.png)](https://res.cloudinary.com/practicaldev/image/fetch/s--rphnyM23--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/n4ei7nrn43w256y9khhu.png)
 
-Going line by line, first I'm importing the "re" library, which contains regular expressions to extract letters from an input string, then I'm defining a "palindrome" function that receives a "string" parameter.
-Then I use the lower operator in the input string to convert all of the letters to lowercase, then I pass the result to the regular expression "findall" function with a pattern that will search for combinations of one or more letters. Tat will produce a list with all of the matched sub-strings that I merged together into a single string using the "join" function.
+Going line by line, first I'm importing the "re" library, which contains regular expressions to extract letters from an input string, then I'm defining a "palindrome" function that receives a "string" parameter. Then I use the lower operator in the input string to convert all of the letters to lowercase, then I pass the result to the regular expression "findall" function with a pattern that will search for combinations of one or more letters. Tat will produce a list with all of the matched sub-strings that I merged together into a single string using the "join" function.
 
 Then I slice the entire string, with the stride set to negative one, meaning I'll get a copy of the original string in reverse order.
 
@@ -1278,11 +1278,9 @@ The user press enters, then the timer starts. The user's goal is to wait the spe
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s---TjnJiEv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/r5tn2pfns2gzwv864vpu.png)](https://res.cloudinary.com/practicaldev/image/fetch/s---TjnJiEv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/r5tn2pfns2gzwv864vpu.png)
 
-For this exercise I used to modules, "time" module to measure the amount of time,
-and the "random" module to generate a random number of seconds.
+For this exercise I used to modules, "time" module to measure the amount of time, and the "random" module to generate a random number of seconds.
 
-The input function prompts the user to press enter to begin and then blocks the
-execution until the user hits enter again.
+The input function prompts the user to press enter to begin and then blocks the execution until the user hits enter again.
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s--L8hbntYT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/yqkq6s70sacxwnv4fpgi.PNG)](https://res.cloudinary.com/practicaldev/image/fetch/s--L8hbntYT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/yqkq6s70sacxwnv4fpgi.PNG)
 
@@ -1314,38 +1312,31 @@ And finally, I used the join method to combine the random words into a single st
 
 [![Alt Text](https://res.cloudinary.com/practicaldev/image/fetch/s--hZBb-kUj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/5diuv6ikyernk1nnewe5.PNG)](https://res.cloudinary.com/practicaldev/image/fetch/s--hZBb-kUj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/5diuv6ikyernk1nnewe5.PNG)
 
+## Extra Project Ideas:
 
+## projects of Python installation and packaging
 
+### PyPA Projects[¶](https://packaging.python.org/key_projects/#pypa-projects)
 
-
----
----
-# Extra Project Ideas:
-
-
-# projects of Python installation and packaging
-
-## PyPA Projects[¶](https://packaging.python.org/key_projects/#pypa-projects)
-
-### bandersnatch[¶](https://packaging.python.org/key_projects/#bandersnatch)
+#### bandersnatch[¶](https://packaging.python.org/key_projects/#bandersnatch)
 
 [Issues](https://github.com/pypa/bandersnatch/issues) \| [GitHub](https://github.com/pypa/bandersnatch) \| [PyPI](https://pypi.org/project/bandersnatch)
 
 `bandersnatch` is a PyPI mirroring client designed to efficiently create a complete mirror of the contents of PyPI. Organizations thus save bandwidth and latency on package downloads \(especially in the context of automated tests\) and to prevent heavily loading PyPI’s Content Delivery Network \(CDN\).
 
-### build[¶](https://packaging.python.org/key_projects/#build)
+#### build[¶](https://packaging.python.org/key_projects/#build)
 
 [Docs](https://pypa-build.readthedocs.io/) \| [Issues](https://github.com/pypa/build/issues) \| [GitHub](https://github.com/pypa/build) \| [PyPI](https://pypi.org/project/build)
 
 `build` is a [**PEP 517**](https://www.python.org/dev/peps/pep-0517) compatible Python package builder. It provides a CLI to build packages, as well as a Python API.
 
-### cibuildwheel[¶](https://packaging.python.org/key_projects/#cibuildwheel)
+#### cibuildwheel[¶](https://packaging.python.org/key_projects/#cibuildwheel)
 
 [Docs](https://cibuildwheel.readthedocs.io/) \| [Issues](https://github.com/pypa/cibuildwheel/issues) \| [GitHub](https://github.com/pypa/cibuildwheel) \| [PyPI](https://pypi.org/project/cibuildwheel) \| [Discussions](https://github.com/pypa/cibuildwheel/discussions) \| [Discord \#cibuildwheel](https://discord.com/invite/pypa)
 
 `cibuildwheel` is a Python package that builds [wheels](https://packaging.python.org/glossary/#term-Wheel) for all common platforms and Python versions on most CI systems. Also see [multibuild](https://packaging.python.org/key_projects/#multibuild).
 
-### distlib[¶](https://packaging.python.org/key_projects/#distlib)
+#### distlib[¶](https://packaging.python.org/key_projects/#distlib)
 
 [Docs](http://pythonhosted.org/distlib/) \| [Issues](https://bitbucket.org/pypa/distlib/issues?status=new&status=open) \| [Bitbucket](https://bitbucket.org/pypa/distlib) \| [PyPI](https://pypi.org/project/distlib)
 
@@ -1353,7 +1344,7 @@ And finally, I used the join method to combine the random words into a single st
 
 Unlike the stricter [packaging](https://packaging.python.org/key_projects/#packaging) project \(below\), which specifically implements modern Python packaging interoperability standards, `distlib` also attempts to provide reasonable fallback behaviours when asked to handle legacy packages and metadata that predate the modern interoperability standards and fall into the subset of packages that are incompatible with those standards.
 
-### packaging[¶](https://packaging.python.org/key_projects/#packaging)
+#### packaging[¶](https://packaging.python.org/key_projects/#packaging)
 
 [Docs](https://packaging.pypa.io/) \| [Issues](https://github.com/pypa/packaging/issues) \| [GitHub](https://github.com/pypa/packaging) \| [PyPI](https://pypi.org/project/packaging)
 
@@ -1363,7 +1354,7 @@ The core utilities in the packaging library handle version handling, specifiers,
 
 This project specifically focuses on implementing the modern Python packaging interoperability standards defined at [PyPA specifications](https://packaging.python.org/specifications/#packaging-specifications), and will report errors for sufficiently old legacy packages that are incompatible with those standards. In contrast, the [distlib](https://packaging.python.org/key_projects/#distlib) project is a more permissive library that attempts to provide a plausible reading of ambiguous metadata in cases where [packaging](https://packaging.python.org/key_projects/#packaging) will instead report on error.
 
-### pip[¶](https://packaging.python.org/key_projects/#pip)
+#### pip[¶](https://packaging.python.org/key_projects/#pip)
 
 [Docs](https://pip.pypa.io/en/stable/) \| [Issues](https://github.com/pypa/pip/issues) \| [GitHub](https://github.com/pypa/pip) \| [PyPI](https://pypi.org/project/pip/)
 
@@ -1371,7 +1362,7 @@ The most popular tool for installing Python packages, and the one included with 
 
 It provides the essential core features for finding, downloading, and installing packages from PyPI and other Python package indexes, and can be incorporated into a wide range of development workflows via its command-line interface \(CLI\).
 
-### Pipenv[¶](https://packaging.python.org/key_projects/#pipenv)
+#### Pipenv[¶](https://packaging.python.org/key_projects/#pipenv)
 
 [Docs](https://pipenv.pypa.io/) \| [Source](https://github.com/pypa/pipenv) \| [Issues](https://github.com/pypa/pipenv/issues) \| [PyPI](https://pypi.org/project/pipenv)
 
@@ -1379,31 +1370,31 @@ Pipenv is a project that aims to bring the best of all packaging worlds to the P
 
 Pipenv aims to help users manage environments, dependencies, and imported packages on the command line. It also works well on Windows \(which other tools often underserve\), makes and checkes file hashes, to ensure compliance with hash-locked dependency specifiers, and eases uninstallation of packages and dependencies. It is used by Python users and system administrators, but has been less maintained since late 2018.
 
-### Pipfile[¶](https://packaging.python.org/key_projects/#pipfile)
+#### Pipfile[¶](https://packaging.python.org/key_projects/#pipfile)
 
 [Source](https://github.com/pypa/pipfile)
 
 `Pipfile` and its sister `Pipfile.lock` are a higher-level application-centric alternative to [pip](https://packaging.python.org/key_projects/#pip)’s lower-level `requirements.txt` file.
 
-### pipx[¶](https://packaging.python.org/key_projects/#pipx)
+#### pipx[¶](https://packaging.python.org/key_projects/#pipx)
 
 [Docs](https://pypa.github.io/pipx/) \| [GitHub](https://github.com/pypa/pipx) \| [PyPI](https://pypi.org/project/pipx/)
 
 pipx is a tool to install and run Python command-line applications without causing dependency conflicts with other packages installed on the system.
 
-### Python Packaging User Guide[¶](https://packaging.python.org/key_projects/#python-packaging-user-guide)
+#### Python Packaging User Guide[¶](https://packaging.python.org/key_projects/#python-packaging-user-guide)
 
 [Docs](https://packaging.python.org/en/latest/) \| [Issues](https://github.com/pypa/python-packaging-user-guide/issues) \| [GitHub](https://github.com/pypa/python-packaging-user-guide)
 
 This guide!
 
-### readme\_renderer[¶](https://packaging.python.org/key_projects/#readme-renderer)
+#### readme\_renderer[¶](https://packaging.python.org/key_projects/#readme-renderer)
 
 [GitHub and docs](https://github.com/pypa/readme_renderer/) \| [PyPI](https://pypi.org/project/readme_renderer/)
 
 `readme_renderer` is a library that package developers use to render their user documentation \(README\) files into HTML from markup languages such as Markdown or reStructuredText. Developers call it on its own or via [twine](https://packaging.python.org/key_projects/#twine), as part of their release management process, to check that their package descriptions will properly display on PyPI.
 
-### setuptools[¶](https://packaging.python.org/key_projects/#easy-install)
+#### setuptools[¶](https://packaging.python.org/key_projects/#easy-install)
 
 [Docs](https://setuptools.readthedocs.io/en/latest/) \| [Issues](https://github.com/pypa/setuptools/issues) \| [GitHub](https://github.com/pypa/setuptools) \| [PyPI](https://pypi.org/project/setuptools)
 
@@ -1411,7 +1402,7 @@ setuptools \(which includes `easy_install`\) is a collection of enhancements to 
 
 [distribute](https://pypi.org/project/distribute) was a fork of setuptools that was merged back into setuptools \(in v0.7\), thereby making setuptools the primary choice for Python packaging.
 
-### trove-classifiers[¶](https://packaging.python.org/key_projects/#trove-classifiers)
+#### trove-classifiers[¶](https://packaging.python.org/key_projects/#trove-classifiers)
 
 [Issues](https://github.com/pypa/trove-classifiers/issues) \| [GitHub](https://github.com/pypa/trove-classifiers) \| [PyPI](https://pypi.org/project/trove-classifiers/)
 
@@ -1419,25 +1410,25 @@ trove-classifiers is the canonical source for [classifiers on PyPI](https://pypi
 
 The trove-classifiers package contains a list of valid classifiers and deprecated classifiers \(which are paired with the classifiers that replace them\). Use this package to validate classifiers used in packages intended for uploading to PyPI. As this list of classifiers is published as code, you can install and import it, giving you a more convenient workflow compared to referring to the [list published on PyPI](https://pypi.org/classifiers/). The [issue tracker](https://github.com/pypa/trove-classifiers/issues) for the project hosts discussions on proposed classifiers and requests for new classifiers.
 
-### twine[¶](https://packaging.python.org/key_projects/#twine)
+#### twine[¶](https://packaging.python.org/key_projects/#twine)
 
 [Docs](https://twine.readthedocs.io/en/latest/) \| [Issues](https://github.com/pypa/twine/issues) \| [GitHub](https://github.com/pypa/twine) \| [PyPI](https://pypi.org/project/twine)
 
 Twine is the primary tool developers use to upload packages to the Python Package Index or other Python package indexes. It is a command-line program that passes program files and metadata to a web API. Developers use it because it’s the official PyPI upload tool, it’s fast and secure, it’s maintained, and it reliably works.
 
-### virtualenv[¶](https://packaging.python.org/key_projects/#virtualenv)
+#### virtualenv[¶](https://packaging.python.org/key_projects/#virtualenv)
 
 [Docs](https://virtualenv.pypa.io/en/stable/) \| [Issues](https://github.com/pypa/virtualenv/issues) \| [GitHub](https://github.com/pypa/virtualenv) \| [PyPI](https://pypi.org/project/virtualenv/)
 
 virtualenv is a tool which uses the command-line path environment variable to create isolated Python [Virtual Environments](https://packaging.python.org/glossary/#term-Virtual-Environment), much as [venv](https://packaging.python.org/key_projects/#venv) does. virtualenv provides additional functionality, compared to [venv](https://packaging.python.org/key_projects/#venv), by supporting Python 2.7 and by providing convenient features for configuring, maintaining, duplicating, and troubleshooting the virtual environments. For more information, see the section on [Creating Virtual Environments](https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments).
 
-### Warehouse[¶](https://packaging.python.org/key_projects/#warehouse)
+#### Warehouse[¶](https://packaging.python.org/key_projects/#warehouse)
 
 [Docs](https://warehouse.pypa.io/) \| [Issues](https://github.com/pypa/warehouse/issues) \| [GitHub](https://github.com/pypa/warehouse)
 
 The current codebase powering the [Python Package Index \(PyPI\)](https://packaging.python.org/glossary/#term-Python-Package-Index-PyPI). It is hosted at [pypi.org](https://pypi.org/). The default source for [pip](https://packaging.python.org/key_projects/#pip) downloads.
 
-### wheel[¶](https://packaging.python.org/key_projects/#wheel)
+#### wheel[¶](https://packaging.python.org/key_projects/#wheel)
 
 [Docs](https://wheel.readthedocs.io/en/latest/) \| [Issues](https://github.com/pypa/wheel/issues) \| [GitHub](https://github.com/pypa/wheel) \| [PyPI](https://pypi.org/project/wheel)
 
@@ -1445,15 +1436,15 @@ Primarily, the wheel project offers the `bdist_wheel` [setuptools](https://packa
 
 See also [auditwheel](https://github.com/pypa/auditwheel), a tool that package developers use to check and fix Python packages they are making in the binary wheel format. It provides functionality to discover dependencies, check metadata for compliance, and repair the wheel and metadata to properly link and include external shared libraries in a package.
 
-## Non-PyPA Projects[¶](https://packaging.python.org/key_projects/#non-pypa-projects)
+### Non-PyPA Projects[¶](https://packaging.python.org/key_projects/#non-pypa-projects)
 
-### buildout[¶](https://packaging.python.org/key_projects/#buildout)
+#### buildout[¶](https://packaging.python.org/key_projects/#buildout)
 
 [Docs](http://www.buildout.org/en/latest/) \| [Issues](https://bugs.launchpad.net/zc.buildout) \| [PyPI](https://pypi.org/project/zc.buildout) \| [GitHub](https://github.com/buildout/buildout/)
 
 Buildout is a Python-based build system for creating, assembling and deploying applications from multiple parts, some of which may be non-Python-based. It lets you create a buildout configuration and reproduce the same software later.
 
-### conda[¶](https://packaging.python.org/key_projects/#conda)
+#### conda[¶](https://packaging.python.org/key_projects/#conda)
 
 [Docs](http://conda.pydata.org/docs/)
 
@@ -1463,13 +1454,13 @@ Conda is a completely separate tool from [pip](https://packaging.python.org/key_
 
 Conda does not install packages from PyPI and can install only from the official Anaconda repositories, or anaconda.org \(a place for user-contributed _conda_ packages\), or a local \(e.g. intranet\) package server. However, note that [pip](https://packaging.python.org/key_projects/#pip) can be installed into, and work side-by-side with conda for managing [distributions](https://packaging.python.org/glossary/#term-Distribution-Package) from PyPI. Also, [conda skeleton](https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html) is a tool to make Python packages installable by conda by first fetching them from PyPI and modifying their metadata.
 
-### devpi[¶](https://packaging.python.org/key_projects/#devpi)
+#### devpi[¶](https://packaging.python.org/key_projects/#devpi)
 
 [Docs](http://doc.devpi.net/latest/) \| [Issues](https://bitbucket.org/hpk42/devpi/issues) \| [PyPI](https://pypi.org/project/devpi)
 
 devpi features a powerful PyPI-compatible server and PyPI proxy cache with a complementary command line tool to drive packaging, testing and release activities with Python. devpi also provides a browsable and searchable web interface.
 
-### flit[¶](https://packaging.python.org/key_projects/#flit)
+#### flit[¶](https://packaging.python.org/key_projects/#flit)
 
 [Docs](https://flit.readthedocs.io/en/latest/) \| [Issues](https://github.com/takluyver/flit/issues) \| [PyPI](https://pypi.org/project/flit)
 
@@ -1477,73 +1468,73 @@ Flit provides a simple way to upload pure Python packages and modules to PyPI. I
 
 Flit uses `pyproject.toml` to configure a project. Flit does not rely on tools such as [setuptools](https://packaging.python.org/key_projects/#setuptools) to build distributions, or [twine](https://packaging.python.org/key_projects/#twine) to upload them to PyPI. Flit requires Python 3, but you can use it to distribute modules for Python 2, so long as they can be imported on Python 3.
 
-### enscons[¶](https://packaging.python.org/key_projects/#enscons)
+#### enscons[¶](https://packaging.python.org/key_projects/#enscons)
 
 [Source](https://bitbucket.org/dholth/enscons/src) \| [Issues](https://bitbucket.org/dholth/enscons/issues) \| [PyPI](https://pypi.org/project/enscons)
 
 Enscons is a Python packaging tool based on [SCons](http://scons.org/). It builds [pip](https://packaging.python.org/key_projects/#pip)-compatible source distributions and wheels without using distutils or setuptools, including distributions with C extensions. Enscons has a different architecture and philosophy than [distutils](https://packaging.python.org/key_projects/#distutils). Rather than adding build features to a Python packaging system, enscons adds Python packaging to a general purpose build system. Enscons helps you to build sdists that can be automatically built by [pip](https://packaging.python.org/key_projects/#pip), and wheels that are independent of enscons.
 
-### Hashdist[¶](https://packaging.python.org/key_projects/#hashdist)
+#### Hashdist[¶](https://packaging.python.org/key_projects/#hashdist)
 
 [Docs](https://hashdist.readthedocs.io/en/latest/) \| [GitHub](https://github.com/hashdist/hashdist/)
 
 Hashdist is a library for building non-root software distributions. Hashdist is trying to be “the Debian of choice for cases where Debian technology doesn’t work”. The best way for Pythonistas to think about Hashdist may be a more powerful hybrid of [virtualenv](https://packaging.python.org/key_projects/#virtualenv) and [buildout](https://packaging.python.org/key_projects/#buildout). It is aimed at solving the problem of installing scientific software, and making package distribution stateless, cached, and branchable. It is used by some researchers but has been lacking in maintenance since 2016.
 
-### hatch[¶](https://packaging.python.org/key_projects/#hatch)
+#### hatch[¶](https://packaging.python.org/key_projects/#hatch)
 
 [GitHub and Docs](https://github.com/ofek/hatch) \| [PyPI](https://pypi.org/project/hatch)
 
 Hatch is a unified command-line tool meant to conveniently manage dependencies and environment isolation for Python developers. Python package developers use Hatch to configure, version, specify dependencies for, and publish packages to PyPI. Under the hood, it uses [twine](https://packaging.python.org/key_projects/#twine) to upload packages to PyPI, and [pip](https://packaging.python.org/key_projects/#pip) to download and install packages.
 
-### multibuild[¶](https://packaging.python.org/key_projects/#multibuild)
+#### multibuild[¶](https://packaging.python.org/key_projects/#multibuild)
 
 [GitHub](https://github.com/matthew-brett/multibuild)
 
 Multibuild is a set of CI scripts for building and testing Python [wheels](https://packaging.python.org/glossary/#term-Wheel) for Linux, macOS, and \(less flexibly\) Windows. Also see [cibuildwheel](https://packaging.python.org/key_projects/#cibuildwheel).
 
-### pex[¶](https://packaging.python.org/key_projects/#pex)
+#### pex[¶](https://packaging.python.org/key_projects/#pex)
 
 [Docs](https://pex.readthedocs.io/en/latest/) \| [GitHub](https://github.com/pantsbuild/pex/) \| [PyPI](https://pypi.org/project/pex)
 
 pex is both a library and tool for generating `.pex` \(Python EXecutable\) files, standalone Python environments in the spirit of [virtualenv](https://packaging.python.org/key_projects/#virtualenv). `.pex` files are just carefully constructed zip files with a `#!/usr/bin/env python` and special `__main__.py`, and are designed to make deployment of Python applications as simple as `cp`.
 
-### pip-tools[¶](https://packaging.python.org/key_projects/#pip-tools)
+#### pip-tools[¶](https://packaging.python.org/key_projects/#pip-tools)
 
 [GitHub and Docs](https://github.com/jazzband/pip-tools/) \| [PyPI](https://pypi.org/project/pip-tools/)
 
 pip-tools is a suite of tools meant for Python system administrators and release managers who particularly want to keep their builds deterministic yet stay up to date with new versions of their dependencies. Users can specify particular release of their dependencies via hash, conveniently make a properly formatted list of requirements from information in other parts of their program, update all dependencies \(a feature [pip](https://packaging.python.org/key_projects/#pip) currently does not provide\), and create layers of constraints for the program to obey.
 
-### piwheels[¶](https://packaging.python.org/key_projects/#piwheels)
+#### piwheels[¶](https://packaging.python.org/key_projects/#piwheels)
 
 [Website](https://www.piwheels.org/) \| [Docs](https://piwheels.readthedocs.io/) \| [GitHub](https://github.com/piwheels/piwheels/)
 
 piwheels is a website, and software underpinning it, that fetches source code distribution packages from PyPI and compiles them into binary wheels that are optimized for installation onto Raspberry Pi computers. Raspberry Pi OS pre-configures pip to use piwheels.org as an additional index to PyPI.
 
-### poetry[¶](https://packaging.python.org/key_projects/#poetry)
+#### poetry[¶](https://packaging.python.org/key_projects/#poetry)
 
 [Docs](https://python-poetry.org/) \| [GitHub](https://github.com/python-poetry/poetry) \| [PyPI](https://pypi.org/project/poetry/)
 
 poetry is a command-line tool to handle dependency installation and isolation as well as building and packaging of Python packages. It uses `pyproject.toml` and, instead of depending on the resolver functionality within [pip](https://packaging.python.org/key_projects/#pip), provides its own dependency resolver. It attempts to speed users’ experience of installation and dependency resolution by locally caching metadata about dependencies.
 
-### pypiserver[¶](https://packaging.python.org/key_projects/#pypiserver)
+#### pypiserver[¶](https://packaging.python.org/key_projects/#pypiserver)
 
 [Docs](https://github.com/pypiserver/pypiserver/blob/master/README.rst) \| [GitHub](https://github.com/pypiserver/pypiserver) \| [PyPI](https://pypi.org/project/pypiserver/)
 
 pypiserver is a minimalist application that serves as a private Python package index within organizations, implementing a simple API and browser interface. You can upload private packages using standard upload tools, and users can download and install them with [pip](https://packaging.python.org/key_projects/#pip), without publishing them publicly. Organizations who use pypiserver usually download packages both from pypiserver and from PyPI.
 
-### scikit-build[¶](https://packaging.python.org/key_projects/#scikit-build)
+#### scikit-build[¶](https://packaging.python.org/key_projects/#scikit-build)
 
 [Docs](https://scikit-build.readthedocs.io/en/latest/) \| [GitHub](https://github.com/scikit-build/scikit-build/) \| [PyPI](https://pypi.org/project/scikit-build)
 
 Scikit-build is an improved build system generator for CPython C/C++/Fortran/Cython extensions that integrates with [setuptools](https://packaging.python.org/key_projects/#setuptools), [wheel](https://packaging.python.org/key_projects/#wheel) and [pip](https://packaging.python.org/key_projects/#pip). It internally uses [cmake](https://pypi.org/project/cmake) \(available on PyPI\) to provide better support for additional compilers, build systems, cross compilation, and locating dependencies and their associated build requirements. To speed up and parallelize the build of large projects, the user can install [ninja](https://pypi.org/project/ninja) \(also available on PyPI\).
 
-### shiv[¶](https://packaging.python.org/key_projects/#shiv)
+#### shiv[¶](https://packaging.python.org/key_projects/#shiv)
 
 [Docs](https://shiv.readthedocs.io/en/latest/) \| [GitHub](https://github.com/linkedin/shiv) \| [PyPI](https://pypi.org/project/shiv/)
 
 shiv is a command line utility for building fully self contained Python zipapps as outlined in [**PEP 441**](https://www.python.org/dev/peps/pep-0441), but with all their dependencies included. Its primary goal is making distributing Python applications and command line tools fast & easy.
 
-### Spack[¶](https://packaging.python.org/key_projects/#spack)
+#### Spack[¶](https://packaging.python.org/key_projects/#spack)
 
 [Docs](https://spack.readthedocs.io/) \| [GitHub](https://github.com/llnl/spack/) \| [Paper](http://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf) \| [Slides](https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf)
 
@@ -1551,21 +1542,21 @@ A flexible package manager designed to support multiple versions, configurations
 
 Spack is not in PyPI \(yet\), but it requires no installation and can be used immediately after cloning from GitHub.
 
-### zest.releaser[¶](https://packaging.python.org/key_projects/#zest-releaser)
+#### zest.releaser[¶](https://packaging.python.org/key_projects/#zest-releaser)
 
 [Docs](https://zestreleaser.readthedocs.io/en/latest/) \| [GitHub](https://github.com/zestsoftware/zest.releaser/) \| [PyPI](https://pypi.org/project/zest.releaser/)
 
 `zest.releaser` is a Python package release tool providing an abstraction layer on top of [twine](https://packaging.python.org/key_projects/#twine). Python developers use `zest.releaser` to automate incrementing package version numbers, updating changelogs, tagging releases in source control, and uploading new packages to PyPI.
 
-## Standard Library Projects[¶](https://packaging.python.org/key_projects/#standard-library-projects)
+### Standard Library Projects[¶](https://packaging.python.org/key_projects/#standard-library-projects)
 
-### ensurepip[¶](https://packaging.python.org/key_projects/#ensurepip)
+#### ensurepip[¶](https://packaging.python.org/key_projects/#ensurepip)
 
 [Docs](https://docs.python.org/3/library/ensurepip.html) \| [Issues](http://bugs.python.org/)
 
 A package in the Python Standard Library that provides support for bootstrapping [pip](https://packaging.python.org/key_projects/#pip) into an existing Python installation or virtual environment. In most cases, end users won’t use this module, but rather it will be used during the build of the Python distribution.
 
-### distutils[¶](https://packaging.python.org/key_projects/#distutils)
+#### distutils[¶](https://packaging.python.org/key_projects/#distutils)
 
 [Docs](https://docs.python.org/3/library/distutils.html) \| [Issues](http://bugs.python.org/)
 
@@ -1573,10 +1564,9 @@ The original Python packaging system, added to the standard library in Python 2.
 
 Due to the challenges of maintaining a packaging system where feature updates are tightly coupled to language runtime updates, direct usage of [distutils](https://packaging.python.org/key_projects/#distutils) is now actively discouraged, with [setuptools](https://packaging.python.org/key_projects/#setuptools) being the preferred replacement. [setuptools](https://packaging.python.org/key_projects/#setuptools) not only provides features that plain [distutils](https://packaging.python.org/key_projects/#distutils) doesn’t offer \(such as dependency declarations and entry point declarations\), it also provides a consistent build interface and feature set across all supported Python versions.
 
-### venv[¶](https://packaging.python.org/key_projects/#venv)
+#### venv[¶](https://packaging.python.org/key_projects/#venv)
 
 [Docs](https://docs.python.org/3/library/venv.html) \| [Issues](http://bugs.python.org/)
 
 A package in the Python Standard Library \(starting with Python 3.3\) for creating [Virtual Environments](https://packaging.python.org/glossary/#term-Virtual-Environment). For more information, see the section on [Creating Virtual Environments](https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments).
-
 
