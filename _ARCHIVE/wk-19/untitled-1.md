@@ -41,9 +41,9 @@ We can represent the relationship between a perfect binary tree's total number o
 
 ### **Additional Resources** <a id="9cebce00-8a9e-4d31-b489-f3451e88f29d"></a>
 
-- [https://en.wikipedia.org/wiki/Binary_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_tree)
-- [https://www.geeksforgeeks.org/binary-tree-data-structure/](https://www.geeksforgeeks.org/binary-tree-data-structure/)
-- [**Binary Tree Data Structure**](https://www.geeksforgeeks.org/binary-tree-data-structure/?ref=lbp)
+* [https://en.wikipedia.org/wiki/Binary\_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_tree)
+* [https://www.geeksforgeeks.org/binary-tree-data-structure/](https://www.geeksforgeeks.org/binary-tree-data-structure/)
+* [**Binary Tree Data Structure**](https://www.geeksforgeeks.org/binary-tree-data-structure/?ref=lbp)
 
 ## **Binary Tree Data Structure** <a id="b496bdf0-71ce-4993-a757-768d9e6708c0"></a>
 
@@ -88,7 +88,7 @@ for _ in range(t):
             even_sum += value[node - 1]
         else:
             odd_sum += value[node - 1]
-
+        
         for edge_vertex in graph[node]:
             if visited[edge_vertex]:
                 continue
@@ -96,7 +96,7 @@ for _ in range(t):
             visited[edge_vertex] = True
             new_level = level[node] + 1
             level[edge_vertex] = new_level
-
+            
     print(abs(even_sum - odd_sum))
 ```
 
@@ -110,19 +110,19 @@ def bfs(tree,arr,n):
     vis[0]=True
     even=0
     odd=0
-
+    
     while Q:
         u,l=Q.popleft()
         if l%2==0:
             even+=arr[u]
         elif l%2!=0:
             odd+=arr[u]
-
+        
         for v in tree[u]:
             if vis[v]==False:
                 Q.append((v,l+1))
                 vis[v]=True
-
+    
     return abs(even-odd)
 
 def main():
@@ -137,7 +137,7 @@ def main():
             v-=1
             tree[u].append(v)
             tree[v].append(u)
-
+            
         ans=bfs(tree,arr,n)
         print(ans)
 
@@ -151,44 +151,44 @@ def bfs(d):
     while len(que):
         elem = que[0]
         level = visited[elem]
-
+        
         if elem in d:
             for i in d[elem]:
                 if i not in visited:
                     visited[i] = level + 1
                     que.append(i)
-
+                    
         que.pop(0)
-
+        
     return visited
-
+    
 for _ in range(int(input())):
     n = int(input())
     l = list(map(int, input().split()))
-
+    
     d = {}
     for i in range(n-1):
         a, b = map(int, input().split())
-
+        
         if a not in d:
             d[a] = [b]
         else:
             d[a].append(b)
-
+            
         if b not in d:
             d[b] = [a]
         else:
             d[b].append(a)
-
+            
     levels = bfs(d)
-
+    
     x, y = 0, 0
     for i in levels:
         if levels[i] % 2:
             x += l[i-1]
         else:
             y += l[i-1]
-
+    
     print(abs(x - y))
 ```
 
@@ -238,9 +238,9 @@ doubles as you go down. Second, the quantity of the last level's nodes is the sa
 
 _height_
 
-of a tree. The height of a tree is the number of levels that it contains. Based on the properties outlined above, we can deduce that we can calculate the tree's height with the following formula: !\[log_2\(n+1\) = h\]\(
+of a tree. The height of a tree is the number of levels that it contains. Based on the properties outlined above, we can deduce that we can calculate the tree's height with the following formula: !\[log\_2\(n+1\) = h\]\(
 
-[https://i.upmath.me/svg/log_2\(n%2B1\) %3D h](https://i.upmath.me/svg/log_2%28n%2B1%29%20%3D%20h)
+[https://i.upmath.me/svg/log\_2\(n%2B1\) %3D h](https://i.upmath.me/svg/log_2%28n%2B1%29%20%3D%20h)
 
 \) In the formula above,
 
@@ -262,8 +262,8 @@ We can represent the relationship between a perfect binary tree's total number o
 
 ‌
 
-- [https://en.wikipedia.org/wiki/Binary_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_tree)
-- [https://www.geeksforgeeks.org/binary-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-tree-data-structure/)
+* [https://en.wikipedia.org/wiki/Binary\_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_tree)
+* [https://www.geeksforgeeks.org/binary-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-tree-data-structure/)
 
 ‌
 
@@ -345,8 +345,8 @@ The primary weakness of a BST is that they only have efficient operations if the
 
 ‌
 
-- [https://www.geeksforgeeks.org/binary-search-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)
-- [https://en.wikipedia.org/wiki/Binary_search_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_search_tree)
+* [https://www.geeksforgeeks.org/binary-search-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)
+* [https://en.wikipedia.org/wiki/Binary\_search\_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_search_tree)
 
 ‌
 
@@ -485,5 +485,6 @@ To implement a `delete` operation on our `BST` and `BSTNode` classes, we must co
 
 ‌
 
-- [https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/)
-- [https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/)
+* [https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/)
+* [https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/)
+

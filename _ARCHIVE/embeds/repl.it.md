@@ -45,7 +45,7 @@
 {% embed url="https://replit.com/@bgoonz/awesome-python-1\#README.md" caption="" %}
 
 | **Keypress** | **Action** |
-| :-- | :-- |
+| :--- | :--- |
 | Ctrl + A | Go to the beginning of the line you are currently typing on |
 | Ctrl + E | Go to the end of the line you are currently typing on |
 | Ctrl + L | Clears the Screen, similar to the clear command |
@@ -63,3 +63,4 @@
 ## {% embed url="[https://replit.com/@bgoonz/intro-2-Python-through-projects-1\#main.py](https://replit.com/@bgoonz/intro-2-Python-through-projects-1#main.py)" %}
 
 > > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
+

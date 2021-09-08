@@ -254,7 +254,7 @@ To install \(make sure **virtualenv** is already installed\):
 $ pip install virtualenvwrapper-win
 ```
 
-In Windows, the default path for WORKON_HOME is %USERPROFILE%\Envs
+In Windows, the default path for WORKON\_HOME is %USERPROFILE%\Envs
 
 #### Basic Usage
 
@@ -315,3 +315,4 @@ $ brew install direnv
 ```
 
 On Linux follow the instructions at [direnv.net](https://direnv.net/)
+

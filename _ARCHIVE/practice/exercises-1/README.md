@@ -53,11 +53,11 @@ _Output :_ java
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-7.php)
 
 **8.** Write a Python program to display the first and last colors from the following list. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
-color_list = \["Red","Green","White" ,"Black"\]  
+color\_list = \["Red","Green","White" ,"Black"\]  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-8.php)
 
-**9.** Write a Python program to display the examination schedule. \(extract the date from exam_st_date\). [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
-exam_st_date = \(11, 12, 2014\)  
+**9.** Write a Python program to display the examination schedule. \(extract the date from exam\_st\_date\). [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
+exam\_st\_date = \(11, 12, 2014\)  
 Sample Output : The examination will start from : 11 / 12 / 2014  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-9.php)
 
@@ -147,11 +147,11 @@ numbers = [
 
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-28.php)
 
-**29.** Write a Python program to print out a set containing all the colors from color*list_1 which are not present in color_list_2.* [_Go to the editor_](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
+**29.** Write a Python program to print out a set containing all the colors from color_list\_1 which are not present in color\_list\_2._ [_Go to the editor_](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
 _\_Test Data_ :  
-color*list_1 = set\(\["White", "Black", "Red"\]\)  
-color_list_2 = set\(\["Red", "Green"\]\)  
-\_Expected Output* :  
+color_list\_1 = set\(\["White", "Black", "Red"\]\)  
+color\_list\_2 = set\(\["Red", "Green"\]\)  
+\_Expected Output_ :  
 {'Black', 'White'}  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-29.php)
 
@@ -167,7 +167,7 @@ color_list_2 = set\(\["Red", "Green"\]\)
 **33.** Write a Python program to sum of three given integers. However, if two values are equal sum will be zero. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-33.php)
 
-**34.** Write a Python program to sum of two given integers. However, if the sum is between 15 to 20 it will return 20. [Go to the editor  
+**34.** Write a Python program to sum of two given integers. However, if the sum is between 15 to 20 it will return 20. [Go to the editor    
 ](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)[Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-34.php)
 
 **35.** Write a Python program that will return true if the two given integer values are equal or their sum or difference is 5. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
@@ -547,8 +547,8 @@ Note: Do not use built-in functions.
 **150.** Write a Python function to check whether a distinct pair of numbers whose product is odd present in a sequence of integer values. [Go to the editor](https://www.w3resource.com/python-exercises/python-basic-exercises.php#EDITOR)  
 [Click me to see the sample solution](https://www.w3resource.com/python-exercises/python-basic-exercise-150.php)
 
-{% tabs %} {% tab title="Direct" %}
-
+{% tabs %}
+{% tab title="Direct" %}
 ```python
 import math
 
@@ -1043,9 +1043,12 @@ person = {"name": "Corina", "age": 32, "height": 1.4}
 newPerson = {key.title(): value for key, value in person.items()}
 print(list(newPerson.items()))
 ```
-
 {% endtab %}
 
 {% tab title="Gist" %}
 
-{% tab title="Repl" %} {% embed url="https://replit.com/@bgoonz/StripedInternationalMotion\#main.py" caption="" %} {% endtab %} {% endtabs %}
+{% tab title="Repl" %}
+{% embed url="https://replit.com/@bgoonz/StripedInternationalMotion\#main.py" caption="" %}
+{% endtab %}
+{% endtabs %}
+

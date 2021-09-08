@@ -167,6 +167,10 @@ If you run into trouble with the above, try the following:
 
 ### Linux <a id="linux"></a>
 
+
+
+
+
 Many packages provide command line applications. Examples of such packages are [mypy](https://github.com/python/mypy), [flake8](https://github.com/PyCQA/flake8), [black](https://github.com/psf/black), and [Pipenv](https://packaging.python.org/key_projects/#pipenv).
 
 Usually you want to be able to access these applications from anywhere on your system, but installing packages and their dependencies to the same global environment can cause version conflicts and break dependencies the operating system has on Python packages.
@@ -278,3 +282,4 @@ pipx --help
 ![Copy to clipboard](https://packaging.python.org/_static/copy-button.svg)
 
 You can learn more about pipx at [https://pypa.github.io/pipx/](https://pypa.github.io/pipx/).
+

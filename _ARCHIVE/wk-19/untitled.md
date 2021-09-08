@@ -20,13 +20,13 @@ A linked list is a simple, linear data structure used to store a collection of e
 
 For example, in an array, each element of the list `[43, 32, 63` is stored in memory like so:
 
-![https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg](https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg)
+![https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767\_arrays-stored-in-memory.001.jpeg](https://tk-assets.lambdaschool.com/61d549f9-9f66-4d1f-9572-2d43098c2767_arrays-stored-in-memory.001.jpeg)
 
 `43` is the first item in the collection and is therefore stored in the first slot. `32` is the second item and is stored immediately next to `43` in memory. This pattern continues on and on.
 
 In a linked list, each element of the list could be stored like so:
 
-![https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg](https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg)
+![https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922\_linked-list-in-memory.001.jpeg](https://tk-assets.lambdaschool.com/72151497-7a5e-4940-835c-d8beb9c88922_linked-list-in-memory.001.jpeg)
 
 You can see here that the elements can be spaced out in memory. Because the elements are not stored contiguously, each element in memory must contain information about the next element in the list. The first item stores the data `43` and the location in memory \(`*3`\) for the next item in the list. This example is simplified; the second item in the list `32` could be located anywhere in memory. It could even come before the first item in memory.
 
@@ -92,7 +92,7 @@ Let’s look at how we can represent a singly linked list graphically and in Pyt
 
 How do you represent a singly linked list graphically? Let’s say you wanted to store the numbers 1, 2, and 3. You would need to create three nodes. Then, each of these nodes would be linked together using the pointers.
 
-![https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg](https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg)
+![https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966\_linked-list-graphical-representation.001.jpeg](https://tk-assets.lambdaschool.com/baa6486b-9322-481e-95be-c660640c4966_linked-list-graphical-representation.001.jpeg)
 
 Notice that the last element or node in the linked list does not have a pointer to any other node. This fact is how you know you are at the end of the linked list.
 
@@ -109,7 +109,7 @@ Now, we need to build out the class for the `LinkedList` itself:
 
 ```python
 class LinkedList:
-    def __init__(self, head=None):
+    def __init__(self, head=None):  
         self.head = head
 ```
 
@@ -117,7 +117,7 @@ Our class is super simple so far and only includes an initialization method. Let
 
 ```python
 class LinkedList:
-    def __init__(self, head=None):
+    def __init__(self, head=None):  
         self.head = head
 
     def append(self, data):
@@ -289,7 +289,7 @@ once.
 *Note: If you get stuck, try drawing a picture of a small linked list and
 running your function by hand. Does it actually work? Also, don't forget to
 consider edge cases (like a list with only 1 or 0 elements).*
-          cn         p
+          cn         p                
         None        [1] -> [2] ->[3] -> None
 
 
@@ -443,3 +443,4 @@ class HashTable:
         """
         # Your code here
 ```
+

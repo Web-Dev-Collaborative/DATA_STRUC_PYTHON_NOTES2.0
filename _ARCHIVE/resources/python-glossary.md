@@ -14,8 +14,8 @@ The default Python prompt of the interactive shell. Often seen for code examples
 
 Can refer to:
 
-- The default Python prompt of the interactive shell when entering the code for an indented code block, when within a pair of matching left and right delimiters \(parentheses, square brackets, curly braces or triple quotes\), or after specifying a decorator.
-- The [`Ellipsis`](https://docs.python.org/3/library/constants.html#Ellipsis) built-in constant.
+* The default Python prompt of the interactive shell when entering the code for an indented code block, when within a pair of matching left and right delimiters \(parentheses, square brackets, curly braces or triple quotes\), or after specifying a decorator.
+* The [`Ellipsis`](https://docs.python.org/3/library/constants.html#Ellipsis) built-in constant.
 
 2to3
 
@@ -33,14 +33,14 @@ See [variable annotation](https://docs.python.org/3/glossary.html#term-variable-
 
 A value passed to a [function](https://docs.python.org/3/glossary.html#term-function) \(or [method](https://docs.python.org/3/glossary.html#term-method)\) when calling the function. There are two kinds of argument:
 
-- _keyword argument_: an argument preceded by an identifier \(e.g. `name=`\) in a function call or passed as a value in a dictionary preceded by `**`. For example, `3` and `5` are both keyword arguments in the following calls to [`complex()`](https://docs.python.org/3/library/functions.html#complex):
+* _keyword argument_: an argument preceded by an identifier \(e.g. `name=`\) in a function call or passed as a value in a dictionary preceded by `**`. For example, `3` and `5` are both keyword arguments in the following calls to [`complex()`](https://docs.python.org/3/library/functions.html#complex):
 
   ```text
   complex(real=3, imag=5)
   complex(**{'real': 3, 'imag': 5})
   ```
 
-- _positional argument_: an argument that is not a keyword argument. Positional arguments can appear at the beginning of an argument list and/or be passed as elements of an [iterable](https://docs.python.org/3/glossary.html#term-iterable) preceded by `*`. For example, `3` and `5` are both positional arguments in the following calls:
+* _positional argument_: an argument that is not a keyword argument. Positional arguments can appear at the beginning of an argument list and/or be passed as elements of an [iterable](https://docs.python.org/3/glossary.html#term-iterable) preceded by `*`. For example, `3` and `5` are both positional arguments in the following calls:
 
   ```text
   complex(3, 5)
@@ -334,31 +334,31 @@ See also [regular package](https://docs.python.org/3/glossary.html#term-regular-
 
 A named entity in a [function](https://docs.python.org/3/glossary.html#term-function) \(or method\) definition that specifies an [argument](https://docs.python.org/3/glossary.html#term-argument) \(or in some cases, arguments\) that the function can accept. There are five kinds of parameter:
 
-- _positional-or-keyword_: specifies an argument that can be passed either [positionally](https://docs.python.org/3/glossary.html#term-argument) or as a [keyword argument](https://docs.python.org/3/glossary.html#term-argument). This is the default kind of parameter, for example _foo_ and _bar_ in the following:
+* _positional-or-keyword_: specifies an argument that can be passed either [positionally](https://docs.python.org/3/glossary.html#term-argument) or as a [keyword argument](https://docs.python.org/3/glossary.html#term-argument). This is the default kind of parameter, for example _foo_ and _bar_ in the following:
 
   ```text
   def func(foo, bar=None): ...
   ```
 
-- _positional-only_: specifies an argument that can be supplied only by position. Positional-only parameters can be defined by including a `/` character in the parameter list of the function definition after them, for example _posonly1_ and _posonly2_ in the following:
+* _positional-only_: specifies an argument that can be supplied only by position. Positional-only parameters can be defined by including a `/` character in the parameter list of the function definition after them, for example _posonly1_ and _posonly2_ in the following:
 
   ```text
   def func(posonly1, posonly2, /, positional_or_keyword): ...
   ```
 
-- _keyword-only_: specifies an argument that can be supplied only by keyword. Keyword-only parameters can be defined by including a single var-positional parameter or bare `*` in the parameter list of the function definition before them, for example _kw_only1_ and _kw_only2_ in the following:
+* _keyword-only_: specifies an argument that can be supplied only by keyword. Keyword-only parameters can be defined by including a single var-positional parameter or bare `*` in the parameter list of the function definition before them, for example _kw\_only1_ and _kw\_only2_ in the following:
 
   ```text
   def func(arg, *, kw_only1, kw_only2): ...
   ```
 
-- _var-positional_: specifies that an arbitrary sequence of positional arguments can be provided \(in addition to any positional arguments already accepted by other parameters\). Such a parameter can be defined by prepending the parameter name with `*`, for example _args_ in the following:
+* _var-positional_: specifies that an arbitrary sequence of positional arguments can be provided \(in addition to any positional arguments already accepted by other parameters\). Such a parameter can be defined by prepending the parameter name with `*`, for example _args_ in the following:
 
   ```text
   def func(*args, **kwargs): ...
   ```
 
-- _var-keyword_: specifies that arbitrarily many keyword arguments can be provided \(in addition to any keyword arguments already accepted by other parameters\). Such a parameter can be defined by prepending the parameter name with `**`, for example _kwargs_ in the example above.
+* _var-keyword_: specifies that arbitrarily many keyword arguments can be provided \(in addition to any keyword arguments already accepted by other parameters\). Such a parameter can be defined by prepending the parameter name with `**`, for example _kwargs_ in the example above.
 
 Parameters can specify both optional and required arguments, as well as default values for some optional arguments.
 
@@ -578,7 +578,7 @@ Making a release may entail the publishing of multiple [Distributions](https://p
 
 A specification for a [package](https://packaging.python.org/glossary/#term-Distribution-Package) to be installed. [pip](https://packaging.python.org/key_projects/#pip), the [PYPA](https://packaging.python.org/glossary/#term-Python-Packaging-Authority-PyPA) recommended installer, allows various forms of specification that can all be considered a “requirement”. For more information, see the [pip install](https://pip.pypa.io/en/latest/cli/pip_install/#pip-install) reference.Requirement Specifier
 
-A format used by [pip](https://packaging.python.org/key_projects/#pip) to install packages from a [Package Index](https://packaging.python.org/glossary/#term-Package-Index). For an EBNF diagram of the format, see the [pkg_resources.Requirement](https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects) entry in the [setuptools](https://packaging.python.org/key_projects/#setuptools) docs. For example, “foo&gt;=1.3” is a requirement specifier, where “foo” is the project name, and the “&gt;=1.3” portion is the [Version Specifier](https://packaging.python.org/glossary/#term-Version-Specifier)Requirements File
+A format used by [pip](https://packaging.python.org/key_projects/#pip) to install packages from a [Package Index](https://packaging.python.org/glossary/#term-Package-Index). For an EBNF diagram of the format, see the [pkg\_resources.Requirement](https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects) entry in the [setuptools](https://packaging.python.org/key_projects/#setuptools) docs. For example, “foo&gt;=1.3” is a requirement specifier, where “foo” is the project name, and the “&gt;=1.3” portion is the [Version Specifier](https://packaging.python.org/glossary/#term-Version-Specifier)Requirements File
 
 A file containing a list of [Requirements](https://packaging.python.org/glossary/#term-Requirement) that can be installed using [pip](https://packaging.python.org/key_projects/#pip). For more information, see the [pip](https://packaging.python.org/key_projects/#pip) docs on [Requirements Files](https://pip.pypa.io/en/latest/user_guide/#requirements-files).setup.pysetup.cfg
 
@@ -599,3 +599,4 @@ A [Built Distribution](https://packaging.python.org/glossary/#term-Built-Distrib
 ## A collection of [distributions](https://packaging.python.org/glossary/#term-Distribution-Package) available for importing. These are the distributions that are on the [`sys.path`](https://docs.python.org/2/library/sys.html#sys.path) variable. At most, one [Distribution](https://packaging.python.org/glossary/#term-Distribution-Package) for a project is possible in a working set.
 
 > > > > > > > e4bf9b77d4b065ed20f39ffb8a1f8425c6ab66cf
+

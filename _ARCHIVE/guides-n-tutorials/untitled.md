@@ -1,63 +1,63 @@
-# Untitled
+# Complete Beginner's Guide
 
 ## Course Content
 
 Before I get started here is the Course Content
 
-- Comments
-  - Single-Line
-  - Multi-Line
-- Print Statements
-  - Single-Line
-  - Multi-Line
-- Data Types
-  - Strings
-  - Integers
-  - Floating Points
-  - Booleans
-- Variables
-  - Proper Variable Names
-  - Printing them
-  - Changing them
-  - Type Function
-  - f-strings
-  - .format
-- String Methods
-  - indexing
-  - slicing
-- Concatenation
-  - Printing Using Concatenation
-  - Assigning Variables Using Concatenation
-  - Type Casting
-- Operators
-  - Basic Operators
-  - Assignment Operators
-  - Comparison Operators
-- Getting Inputs
-  - Storing inputs in a variable
-  - Specifying input type
-- Practice Problem
-- Lists
-  - List Methods
-- Conditional Statements
-  - if
-  - else
-  - elif
-  - pass
-  - logic
-- Practice Problem
-- Loops
-  - for Loops
-  - while Loops
-- Practice Problem
-- Escape Codes
-- Functions
-  - Return
-  - Parameters
-  - Lambda
-  - Scope
-    - Global
-    - Local
+* Comments
+  * Single-Line
+  * Multi-Line
+* Print Statements
+  * Single-Line
+  * Multi-Line
+* Data Types
+  * Strings
+  * Integers
+  * Floating Points
+  * Booleans
+* Variables
+  * Proper Variable Names
+  * Printing them
+  * Changing them
+  * Type Function
+  * f-strings
+  * .format
+* String Methods
+  * indexing
+  * slicing
+* Concatenation
+  * Printing Using Concatenation
+  * Assigning Variables Using Concatenation
+  * Type Casting
+* Operators
+  * Basic Operators
+  * Assignment Operators
+  * Comparison Operators
+* Getting Inputs
+  * Storing inputs in a variable
+  * Specifying input type
+* Practice Problem
+* Lists
+  * List Methods
+* Conditional Statements
+  * if
+  * else
+  * elif
+  * pass
+  * logic
+* Practice Problem
+* Loops
+  * for Loops
+  * while Loops
+* Practice Problem
+* Escape Codes
+* Functions
+  * Return
+  * Parameters
+  * Lambda
+  * Scope
+    * Global
+    * Local
 
 **Let's Get Started!**
 
@@ -502,7 +502,7 @@ a //= b
 print(a)
 a **= b
 print(a)
-#I won't show the output for this because it is to big, but it would output the result of 15**10
+#I won't show the output for this because it is to big, but it would output the result of 15**10 
 ```
 
 Output:
@@ -757,7 +757,7 @@ elif age == 4:
 Output:
 
 ```text
-#Nothing because in the first statement, age is not 13, so it won't run and in the second statement age is not 4 so it won't run either
+#Nothing because in the first statement, age is not 13, so it won't run and in the second statement age is not 4 so it won't run either 
 ```
 
 ### Else
@@ -861,7 +861,7 @@ For loops are used to iterate through items in a list, dictionary, integer, or s
 Example:
 
 ```python
-example_list = ['item1','other item','last item']
+example_list = ['item1','other item','last item'] 
 #we now have a list
 
 for i in example_list: #loops through everything in the list
@@ -1218,7 +1218,7 @@ variable_name(parameters)
 And here's an example
 
 ```text
-multiply_by5 = lambda num: num * 5
+multiply_by5 = lambda num: num * 5 
 ```
 
 Calling it:
@@ -1279,3 +1279,4 @@ print(x)
 ```
 
 The `global` keyword basically moves the `x` variable from the local scope to the global scope, and all changes that are made when the function is called is applied to the global version of `x`.
+
