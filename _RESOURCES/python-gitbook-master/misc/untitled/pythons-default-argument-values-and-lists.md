@@ -130,4 +130,3 @@ It's because we only ever notice there's a problem when we modify the data. And 
 Put another way, we simply don't care if variables are pointing to the same `"hello!"` or to different `"hello!"`s. We cannot tell the difference.
 
 But with something mutable like a list, we certainly can tell, but only after we mutate it and see if it only affects one variable, or if it affects them all.
-

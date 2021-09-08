@@ -89,4 +89,3 @@ if __name__ == '__main__':
 **Output**
 
 ![Selection Sort using For loop in Python Output](https://i2.wp.com/codezup.com/wp-content/uploads/2020/01/Selection-Sort-using-For-loop-in-Python-Output.png?resize=665%2C129&ssl=1)
-

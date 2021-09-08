@@ -1,7 +1,5 @@
 # Install Python
 
-
-
 ## Installing Python 3
 
 Brian "Beej Jorgensen" Hall edited this page on May 29, 2020 · [1 revision](https://github.com/LambdaSchool/CS-Wiki/wiki/Installing-Python-3/_history)
@@ -170,4 +168,3 @@ If you run into trouble with the above, try the following:
       2. Confirm that `/usr/bin/python3 --version` refers to 3.6.8
       3. `pipenv --three --python=`which python3\`\` _NOTE_ that there are backticks \(\`\) around _which python3_
       4. This should create the shell forcing it to use 3.6.8
-

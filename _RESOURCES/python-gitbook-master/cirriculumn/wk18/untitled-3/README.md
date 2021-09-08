@@ -1,7 +1,5 @@
 # D1
 
-
-
 ## Objective 01 - Understand random access memory \(RAM\) as it relates to data structures
 
 ### Overview <a id="overview"></a>
@@ -40,13 +38,11 @@ Draw a model of how a processor interacts with the cache, memory controller, and
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://en.wikipedia.org/wiki/Random-access\_memory \(Links to an external site.\)](https://en.wikipedia.org/wiki/Random-access_memory)
-* [https://en.wikipedia.org/wiki/Memory\_controller \(Links to an external site.\)](https://en.wikipedia.org/wiki/Memory_controller)
-* [https://en.wikipedia.org/wiki/CPU\_cache \(Links to an external site.\)](https://en.wikipedia.org/wiki/CPU_cache)
+- [https://en.wikipedia.org/wiki/Random-access_memory \(Links to an external site.\)](https://en.wikipedia.org/wiki/Random-access_memory)
+- [https://en.wikipedia.org/wiki/Memory_controller \(Links to an external site.\)](https://en.wikipedia.org/wiki/Memory_controller)
+- [https://en.wikipedia.org/wiki/CPU_cache \(Links to an external site.\)](https://en.wikipedia.org/wiki/CPU_cache)
 
 ![](../../../.gitbook/assets/devider%20%284%29.png)
-
-
 
 ## Objective 02 - Convert back and forth from decimal to binary
 
@@ -73,16 +69,16 @@ So, what if the number "1001" was in binary and not decimal? What would it repre
 Below, is a table that shows how to count up to 8 in binary and decimal:
 
 | Decimal | Binary |
-| :--- | :--- |
-| 0 | 0000 |
-| 1 | 0001 |
-| 2 | 0010 |
-| 3 | 0011 |
-| 4 | 0100 |
-| 5 | 0101 |
-| 6 | 0110 |
-| 7 | 0111 |
-| 8 | 1000 |
+| :------ | :----- |
+| 0       | 0000   |
+| 1       | 0001   |
+| 2       | 0010   |
+| 3       | 0011   |
+| 4       | 0100   |
+| 5       | 0101   |
+| 6       | 0110   |
+| 7       | 0111   |
+| 8       | 1000   |
 
 ### Challenge <a id="challenge"></a>
 
@@ -95,18 +91,10 @@ Convert the following decimal numbers into binary numbers:
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.mathsisfun.com/binary-number-system.html \(Links to an external site.\)](https://www.mathsisfun.com/binary-number-system.html)
-* [https://www.mathsisfun.com/definitions/decimal-number-system.html](https://www.mathsisfun.com/definitions/decimal-number-system.html)
-
-
-
-
+- [https://www.mathsisfun.com/binary-number-system.html \(Links to an external site.\)](https://www.mathsisfun.com/binary-number-system.html)
+- [https://www.mathsisfun.com/definitions/decimal-number-system.html](https://www.mathsisfun.com/definitions/decimal-number-system.html)
 
 ![](../../../.gitbook/assets/devider%20%284%29.png)
-
-
-
-
 
 ## Objective 03 - Understand how fixed-width integers are stored in memory
 
@@ -120,9 +108,9 @@ Remember that each digit in a binary number is a successive power of 2. If we ha
 
 Let's see if we can find a pattern:
 
-* With one bit, we can express two numbers \(`0` and `1`\)
-* With two bits, for each of the first numbers \(`0` or `1`\), we can put a `0` or a `1` after it, so we can express four numbers
-* With three bits, we can express eight numbers.
+- With one bit, we can express two numbers \(`0` and `1`\)
+- With two bits, for each of the first numbers \(`0` or `1`\), we can put a `0` or a `1` after it, so we can express four numbers
+- With three bits, we can express eight numbers.
 
 Every time we add a new bit, we double the number of possible numbers we can express in binary. This pattern can be generalized as `2^n` and `2^8 = 256`.
 
@@ -145,13 +133,9 @@ Storing numbers as fixed-width integers introduces a trade-off. We have constant
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html \(Links to an external site.\)](https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html)
-
-
+- [https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html \(Links to an external site.\)](https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html)
 
 ![](../../../.gitbook/assets/devider%20%284%29.png)
-
-
 
 ## Objective 04 - Describe, in general terms, how arrays are stored in memory and the time complexity of lookups
 
@@ -179,15 +163,9 @@ Let's say you need to store an array of 64-bit integers. Your array needs to hav
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://en.wikipedia.org/wiki/Array\_data\_type](https://en.wikipedia.org/wiki/Array_data_type)
-
-
-
-
+- [https://en.wikipedia.org/wiki/Array_data_type](https://en.wikipedia.org/wiki/Array_data_type)
 
 ![](../../../.gitbook/assets/devider%20%284%29.png)
-
-
 
 ## Objective 05 - Describe character encoding and how strings are stored in memory
 
@@ -200,33 +178,33 @@ In this example, we will store some strings. A string, as we know, is just a bun
 To use our 8-bit slots in memory, we need a way to encode each character in a string in 8-bits. One common character encoding to do this is called "ASCII". Here's how the alphabet is encoded in ASCII:
 
 | Letter | Encoding |
-| :--- | :--- |
-| A | 01000001 |
-| B | 01000010 |
-| C | 01000011 |
-| D | 01000100 |
-| E | 01000101 |
-| F | 01000110 |
-| G | 01000111 |
-| H | 01001000 |
-| I | 01001001 |
-| J | 01001010 |
-| K | 01001011 |
-| L | 01001100 |
-| M | 01001101 |
-| N | 01001110 |
-| O | 01001111 |
-| P | 01010000 |
-| Q | 01010001 |
-| R | 01010010 |
-| S | 01010011 |
-| T | 01010100 |
-| U | 01010101 |
-| V | 01010110 |
-| W | 01010111 |
-| X | 01011000 |
-| Y | 01011001 |
-| Z | 01011010 |
+| :----- | :------- |
+| A      | 01000001 |
+| B      | 01000010 |
+| C      | 01000011 |
+| D      | 01000100 |
+| E      | 01000101 |
+| F      | 01000110 |
+| G      | 01000111 |
+| H      | 01001000 |
+| I      | 01001001 |
+| J      | 01001010 |
+| K      | 01001011 |
+| L      | 01001100 |
+| M      | 01001101 |
+| N      | 01001110 |
+| O      | 01001111 |
+| P      | 01010000 |
+| Q      | 01010001 |
+| R      | 01010010 |
+| S      | 01010011 |
+| T      | 01010100 |
+| U      | 01010101 |
+| V      | 01010110 |
+| W      | 01010111 |
+| X      | 01011000 |
+| Y      | 01011001 |
+| Z      | 01011010 |
 
 Since we can express characters as 8-bit integers, we can express strings as arrays of 8-bit characters.
 
@@ -249,15 +227,6 @@ Draw out a model of a section of memory that stores the string `"Computer Scienc
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.w3schools.com/charsets/ref\_html\_ascii.asp](https://www.w3schools.com/charsets/ref_html_ascii.asp)
-
-
-
-
+- [https://www.w3schools.com/charsets/ref_html_ascii.asp](https://www.w3schools.com/charsets/ref_html_ascii.asp)
 
 ![](../../../.gitbook/assets/devider%20%284%29.png)
-
-
-
-
-

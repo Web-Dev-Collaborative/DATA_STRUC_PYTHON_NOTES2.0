@@ -124,4 +124,3 @@ if __name__ == '__main__':
 **Output**
 
 ![Merge Sort implementation example in Python Output](https://i2.wp.com/codezup.com/wp-content/uploads/2020/01/Merge-Sort-implementation-example-in-Python-Output.png?resize=665%2C264&ssl=1)
-

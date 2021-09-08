@@ -89,4 +89,3 @@ if __name__ == '__main__':
 **Output**
 
 ![Insertion Sort implementation example in Python Output](https://i2.wp.com/codezup.com/wp-content/uploads/2020/01/Insertion-Sort-implementation-example-in-Python.png?resize=665%2C163&ssl=1)
-

@@ -1,13 +1,11 @@
 # Python Module Index:
 
-
-
 ## Python Module Index
 
 [**\_**](https://docs.python.org/3/py-modindex.html#cap-_) \| [**a**](https://docs.python.org/3/py-modindex.html#cap-a) \| [**b**](https://docs.python.org/3/py-modindex.html#cap-b) \| [**c**](https://docs.python.org/3/py-modindex.html#cap-c) \| [**d**](https://docs.python.org/3/py-modindex.html#cap-d) \| [**e**](https://docs.python.org/3/py-modindex.html#cap-e) \| [**f**](https://docs.python.org/3/py-modindex.html#cap-f) \| [**g**](https://docs.python.org/3/py-modindex.html#cap-g) \| [**h**](https://docs.python.org/3/py-modindex.html#cap-h) \| [**i**](https://docs.python.org/3/py-modindex.html#cap-i) \| [**j**](https://docs.python.org/3/py-modindex.html#cap-j) \| [**k**](https://docs.python.org/3/py-modindex.html#cap-k) \| [**l**](https://docs.python.org/3/py-modindex.html#cap-l) \| [**m**](https://docs.python.org/3/py-modindex.html#cap-m) \| [**n**](https://docs.python.org/3/py-modindex.html#cap-n) \| [**o**](https://docs.python.org/3/py-modindex.html#cap-o) \| [**p**](https://docs.python.org/3/py-modindex.html#cap-p) \| [**q**](https://docs.python.org/3/py-modindex.html#cap-q) \| [**r**](https://docs.python.org/3/py-modindex.html#cap-r) \| [**s**](https://docs.python.org/3/py-modindex.html#cap-s) \| [**t**](https://docs.python.org/3/py-modindex.html#cap-t) \| [**u**](https://docs.python.org/3/py-modindex.html#cap-u) \| [**v**](https://docs.python.org/3/py-modindex.html#cap-v) \| [**w**](https://docs.python.org/3/py-modindex.html#cap-w) \| [**x**](https://docs.python.org/3/py-modindex.html#cap-x) \| [**z**](https://docs.python.org/3/py-modindex.html#cap-z)
 
 |  |  |  |
-| :--- | :--- | :--- |
+| :-- | :-- | :-- |
 |  | **\_** |  |
 |  | [`__future__`](https://docs.python.org/3/library/__future__.html#module-__future__) | _Future statement definitions_ |
 |  | [`__main__`](https://docs.python.org/3/library/__main__.html#module-__main__) | _The environment where the top-level script is run._ |
@@ -269,4 +267,3 @@
 |  | [`zipimport`](https://docs.python.org/3/library/zipimport.html#module-zipimport) | _Support for importing Python modules from ZIP archives._ |
 |  | [`zlib`](https://docs.python.org/3/library/zlib.html#module-zlib) | _Low-level interface to compression and decompression routines compatible with gzip._ |
 |  | [`zoneinfo`](https://docs.python.org/3/library/zoneinfo.html#module-zoneinfo) | _IANA time zone support_ |
-

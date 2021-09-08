@@ -1,7 +1,7 @@
 # Recursion Examples
 
-{% tabs %}
-{% tab title="explained" %}
+{% tabs %} {% tab title="explained" %}
+
 ```python
 from typing import List, Optional, Sequence
 
@@ -120,9 +120,11 @@ def deep_recursion():
 
 # Those are some recursion in Python basics. Go find some other recursive problems and enjoy!
 ```
+
 {% endtab %}
 
 {% tab title="1" %}
+
 ```python
 from typing import List, Optional, Sequence
 
@@ -241,9 +243,11 @@ def deep_recursion():
 
 # Those are some recursion in Python basics. Go find some other recursive problems and enjoy!
 ```
+
 {% endtab %}
 
 {% tab title="factorial" %}
+
 ```python
 #recursions example-2
 def factorial(n):
@@ -266,9 +270,11 @@ factorial(4)
 #Returning 6 for factorial of 3
 #Returning 24 for factorial of 4
 ```
+
 {% endtab %}
 
 {% tab title="3" %}
+
 ```python
 from collections.abc import MutableSequence
 
@@ -286,30 +292,37 @@ def selection_sort_recur(seq: MutableSequence[T], i=0) -> None:
     selection_sort_recur(seq, i + 1)
 
 ```
+
 {% endtab %}
 
 {% tab title="4" %}
+
 ```
 
 ```
+
 {% endtab %}
 
 {% tab title="5" %}
+
 ```
 
 ```
+
 {% endtab %}
 
 {% tab title="6" %}
+
 ```
 
 ```
+
 {% endtab %}
 
 {% tab title="7" %}
+
 ```
 
 ```
-{% endtab %}
-{% endtabs %}
 
+{% endtab %} {% endtabs %}

@@ -2,8 +2,6 @@
 
 {% embed url="https://gist.github.com/bgoonz/4089b60131f0679eb0c16c831e623811" %}
 
-
-
 ## Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a hash table
 
 ### **Overview**
@@ -52,7 +50,7 @@ The above is just one of the ways to deal with hash collisions. Hopefully, you c
 
 ### **Additional Resources**
 
-* [https://www.geeksforgeeks.org/hashing-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/hashing-data-structure/)
+- [https://www.geeksforgeeks.org/hashing-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/hashing-data-structure/)
 
 ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/18e22e25-8fb5-4763-b92e-ce3ac0d3e4e4/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/18e22e25-8fb5-4763-b92e-ce3ac0d3e4e4/Untitled.png)
 
@@ -62,11 +60,11 @@ The above is just one of the ways to deal with hash collisions. Hopefully, you c
 
 Hashing functions take an input \(usually a string\) and return an integer as the output. Let's say we needed to store five colors in our hash table. Currently, we have an empty table that looks like this:
 
-![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8\_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
+![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
 
 Now, I need to assign an index given the name of a color. Our hash function will take the name of a color and convert it into an index.
 
-![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca\_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
+![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
 
 So, hash functions convert the strings into indexes, and then we store the given string into the computed index of an array.
 
@@ -149,11 +147,11 @@ def my_hashing_func(str, table_size):
 
 Hashing functions take an input \(usually a string\) and return an integer as the output. Let's say we needed to store five colors in our hash table. Currently, we have an empty table that looks like this:
 
-![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8\_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
+![https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png](https://tk-assets.lambdaschool.com/add0f486-f742-4b70-9885-88c6938237f8_Untitled.png)
 
 Now, I need to assign an index given the name of a color. Our hash function will take the name of a color and convert it into an index.
 
-![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca\_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
+![https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif](https://tk-assets.lambdaschool.com/16439e40-5ec9-4242-b5c5-07584bc665ca_S5-M1-O1-Hash-Table-Animation.gif)
 
 So, hash functions convert the strings into indexes, and then we store the given string into the computed index of an array.
 
@@ -238,16 +236,16 @@ def my_hashing_func(str, table_size):
 
 We define a hash table as an empty array and hash function as a function that takes a value and converts it into an array index where you will store that value. Let's put the two together. Let's implement a `HashTable` class where we can:
 
-* Insert values into a hash table
-* Retrieve values from a hash table
-* Delete values from a hash table
+- Insert values into a hash table
+- Retrieve values from a hash table
+- Delete values from a hash table
 
 Let's start with the insert function. For an insert, I need to insert a value with an associated key. Let's store the instructors at Lambda and where they live. We want to store:
 
-* `("Parth", "California")`
-* `("Beej", "Oregon")`
-* `("Dustin", "Utah")`
-* `("Ryan", "Utah")`
+- `("Parth", "California")`
+- `("Beej", "Oregon")`
+- `("Dustin", "Utah")`
+- `("Ryan", "Utah")`
 
 Here's what our `HashTable` class looks like right now:
 
@@ -320,12 +318,12 @@ Let's break this down a little bit. Our `init` function takes in the length of a
 
 Let's create our `put` function. Before we code, let's break down what needs to happen:
 
-* Given a `key` and a `value`, insert the respective `value` into a hash table array using the hashed `key` to determine the storage location index.
+- Given a `key` and a `value`, insert the respective `value` into a hash table array using the hashed `key` to determine the storage location index.
 
 Let's think about what we need to do:
 
-* Hash the `key` into an index using the hash function
-* Put the `value` into that index
+- Hash the `key` into an index using the hash function
+- Put the `value` into that index
 
 You might be thinking, "What if two keys hash to the same index?" That's a great question, and we will worry about that later. It's a nifty solution 🎉. But for now, let's worry about hashing a key and storing a value.
 
@@ -404,4 +402,3 @@ def get(self, key):
     index = self.hash_index(key)
     return self.storage[index]
 ```
-

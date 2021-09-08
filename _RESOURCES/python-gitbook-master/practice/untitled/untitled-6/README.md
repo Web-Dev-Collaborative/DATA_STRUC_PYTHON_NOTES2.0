@@ -62,6 +62,3 @@ print get_fib(11)
 print get_fib(0)
 
 ```
-
-
-

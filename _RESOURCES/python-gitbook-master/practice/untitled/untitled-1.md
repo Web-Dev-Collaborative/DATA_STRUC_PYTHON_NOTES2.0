@@ -1,10 +1,6 @@
 # Graphs
 
-
-
-{% tabs %}
-{% tab title="Directed Graph:" %}
-
+{% tabs %} {% tab title="Directed Graph:" %}
 
 ## Directed Graph:
 
@@ -120,9 +116,11 @@ print(graph.get_adjacency_list())
 # Should be [[0, 0, 0, 0, 0], [0, 0, 100, 101, 102], [0, 0, 0, 0, 0], [0, 0, 0, 0, 103], [0, 0, 0, 0, 0]]
 print(graph.get_adjacency_matrix())
 ```
+
 {% endtab %}
 
 {% tab title="Graph Traversal" %}
+
 ```python
 class Node(object):
     def __init__(self, value):
@@ -389,8 +387,5 @@ pp.pprint(graph.bfs_names(2))
 # ['London', 'Shanghai', 'Berlin', 'Sao Paolo', 'Mountain View', 'San Francisco']
 
 ```
-{% endtab %}
-{% endtabs %}
 
-
-
+{% endtab %} {% endtabs %}

@@ -1,32 +1,16 @@
 # Python Cheat Sheet
 
-
-
 {% embed url="https://websitesetup.org/wp-content/uploads/2021/04/Python-cheat-sheet-April-2021.pdf" %}
 
-
-
 ![](../.gitbook/assets/image%20%284%29%20%284%29.png)
-
-
-
-
 
 ![](../.gitbook/assets/image%20%285%29.png)
 
 {% file src="../.gitbook/assets/beginners\_python\_cheat\_sheet\_pcc\_all.pdf" %}
 
-
-
 ![](../.gitbook/assets/image%20%284%29%20%283%29.png)
 
 {% embed url="https://mybinder.org/v2/gh/wilfredinni/python-cheatsheet/1b1fd1d46ea6b2bff715db5c0e1c2b26bacb74f5" %}
-
-
-
-
-
-
 
 ### Python Basics <a id="Python-Basics"></a>
 
@@ -34,15 +18,15 @@
 
 From **Highest** to **Lowest** precedence:
 
-| Operators | Operation | Example |
-| :--- | :--- | :--- |
-| \*\* | Exponent | `2 ** 3 = 8` |
-| % | Modulus/Remainder | `22 % 8 = 6` |
-| // | Integer division | `22 // 8 = 2` |
-| / | Division | `22 / 8 = 2.75` |
-| \* | Multiplication | `3 * 3 = 9` |
-| - | Subtraction | `5 - 2 = 3` |
-| + | Addition | `2 + 2 = 4` |
+| Operators | Operation         | Example         |
+| :-------- | :---------------- | :-------------- |
+| \*\*      | Exponent          | `2 ** 3 = 8`    |
+| %         | Modulus/Remainder | `22 % 8 = 6`    |
+| //        | Integer division  | `22 // 8 = 2`   |
+| /         | Division          | `22 / 8 = 2.75` |
+| \*        | Multiplication    | `3 * 3 = 9`     |
+| -         | Subtraction       | `5 - 2 = 3`     |
+| +         | Addition          | `2 + 2 = 4`     |
 
 Examples of expressions in the interactive shell:
 
@@ -78,11 +62,11 @@ Examples of expressions in the interactive shell:
 
 #### Data Types <a id="Data-Types"></a>
 
-| Data Type | Examples |
-| :--- | :--- |
-| Integers | `-2, -1, 0, 1, 2, 3, 4, 5` |
+| Data Type              | Examples                                  |
+| :--------------------- | :---------------------------------------- |
+| Integers               | `-2, -1, 0, 1, 2, 3, 4, 5`                |
 | Floating-point numbers | `-1.25, -1.0, --0.5, 0.0, 0.5, 1.0, 1.25` |
-| Strings | `'a', 'aa', 'aaa', 'Hello!', '11 cats'` |
+| Strings                | `'a', 'aa', 'aaa', 'Hello!', '11 cats'`   |
 
 #### String Concatenation and Replication <a id="String-Concatenation-and-Replication"></a>
 
@@ -237,14 +221,14 @@ Float to Integer:
 
 #### Comparison Operators <a id="Comparison-Operators"></a>
 
-| Operator | Meaning |
-| :--- | :--- |
-| `==` | Equal to |
-| `!=` | Not equal to |
-| `<` | Less than |
-| `>` | Greater Than |
-| `<=` | Less than or Equal to |
-| `>=` | Greater than or Equal to |
+| Operator | Meaning                  |
+| :------- | :----------------------- |
+| `==`     | Equal to                 |
+| `!=`     | Not equal to             |
+| `<`      | Less than                |
+| `>`      | Greater Than             |
+| `<=`     | Less than or Equal to    |
+| `>=`     | Greater than or Equal to |
 
 These operators evaluate to True or False depending on the values you give them.
 
@@ -341,28 +325,28 @@ There are three Boolean operators: and, or, and not.
 
 The _and_ Operator’s _Truth_ Table:
 
-| Expression | Evaluates to |
-| :--- | :--- |
-| `True and True` | `True` |
-| `True and False` | `False` |
-| `False and True` | `False` |
-| `False and False` | `False` |
+| Expression        | Evaluates to |
+| :---------------- | :----------- |
+| `True and True`   | `True`       |
+| `True and False`  | `False`      |
+| `False and True`  | `False`      |
+| `False and False` | `False`      |
 
 The _or_ Operator’s _Truth_ Table:
 
-| Expression | Evaluates to |
-| :--- | :--- |
-| `True or True` | `True` |
-| `True or False` | `True` |
-| `False or True` | `True` |
-| `False or False` | `False` |
+| Expression       | Evaluates to |
+| :--------------- | :----------- |
+| `True or True`   | `True`       |
+| `True or False`  | `True`       |
+| `False or True`  | `True`       |
+| `False or False` | `False`      |
 
 The _not_ Operator’s _Truth_ Table:
 
-| Expression | Evaluates to |
-| :--- | :--- |
-| `not True` | `False` |
-| `not False` | `True` |
+| Expression  | Evaluates to |
+| :---------- | :----------- |
+| `not True`  | `False`      |
+| `not False` | `True`       |
 
 #### Mixing Boolean and Comparison Operators <a id="Mixing-Boolean-and-Comparison-Operators"></a>
 
@@ -562,8 +546,8 @@ Hello Bob
 
 When creating a function using the def statement, you can specify what the return value should be with a return statement. A return statement consists of the following:
 
-* The return keyword.
-* The value or expression that the function should return.
+- The return keyword.
+- The value or expression that the function should return.
 
 ```text
 import random
@@ -626,10 +610,10 @@ cats,dogs,mice
 
 #### Local and Global Scope <a id="Local-and-Global-Scope"></a>
 
-* Code in the global scope cannot use any local variables.
-* However, a local scope can access global variables.
-* Code in a function’s local scope cannot use variables in any other local scope.
-* You can use the same name for different variables if they are in different scopes. That is, there can be a local variable named spam and a global variable also named spam.
+- Code in the global scope cannot use any local variables.
+- However, a local scope can access global variables.
+- Code in a function’s local scope cannot use variables in any other local scope.
+- You can use the same name for different variables if they are in different scopes. That is, there can be a local variable named spam and a global variable also named spam.
 
 #### The global Statement <a id="The-global-Statement"></a>
 
@@ -938,8 +922,8 @@ The multiple assignment trick can also be used to swap the values in two variabl
 
 #### Augmented Assignment Operators <a id="Augmented-Assignment-Operators"></a>
 
-| Operator | Equivalent |
-| :--- | :--- |
+| Operator    | Equivalent        |
+| :---------- | :---------------- |
 | `spam += 1` | `spam = spam + 1` |
 | `spam -= 1` | `spam = spam - 1` |
 | `spam *= 1` | `spam = spam * 1` |
@@ -1392,7 +1376,7 @@ KeyError: 3
 {4}
 ```
 
-#### set symetric\_difference <a id="set-symetric_difference"></a>
+#### set symetric_difference <a id="set-symetric_difference"></a>
 
 `symetric_difference` or `^` will return all the elements that are not common between them.
 
@@ -1498,7 +1482,7 @@ Example:
 ('triangle', 'square')
 ```
 
-#### combinations\_with\_replacement\(\) <a id="combinations_with_replacement()"></a>
+#### combinations_with_replacement\(\) <a id="combinations_with_replacement()"></a>
 
 Just like combinations\(\), but allows individual elements to be repeated more than once.
 
@@ -1860,7 +1844,7 @@ green
 blue
 ```
 
-#### zip\_longest\(\) <a id="zip_longest()"></a>
+#### zip_longest\(\) <a id="zip_longest()"></a>
 
 Makes an iterator that aggregates elements from each of the iterables. If the iterables are of uneven length, missing values are filled-in with fillvalue. Iteration continues until the longest iterable is exhausted.
 
@@ -1926,13 +1910,13 @@ A List comprehension can be generated from a dictionary:
 
 #### Escape Characters <a id="Escape-Characters"></a>
 
-| Escape character | Prints as |
-| :--- | :--- |
-| `\'` | Single quote |
-| `\"` | Double quote |
-| `\t` | Tab |
-| `\n` | Newline \(line break\) |
-| `\\` | Backslash |
+| Escape character | Prints as              |
+| :--------------- | :--------------------- |
+| `\'`             | Single quote           |
+| `\"`             | Double quote           |
+| `\t`             | Tab                    |
+| `\n`             | Newline \(line break\) |
+| `\\`             | Backslash              |
 
 Example:
 
@@ -2145,11 +2129,11 @@ False
 
 #### The isX String Methods <a id="The-isX-String-Methods"></a>
 
-* **isalpha\(\)** returns True if the string consists only of letters and is not blank.
-* **isalnum\(\)** returns True if the string consists only of letters and numbers and is not blank.
-* **isdecimal\(\)** returns True if the string consists only of numeric characters and is not blank.
-* **isspace\(\)** returns True if the string consists only of spaces,tabs, and new-lines and is not blank.
-* **istitle\(\)** returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters.
+- **isalpha\(\)** returns True if the string consists only of letters and is not blank.
+- **isalnum\(\)** returns True if the string consists only of letters and numbers and is not blank.
+- **isdecimal\(\)** returns True if the string consists only of numeric characters and is not blank.
+- **isspace\(\)** returns True if the string consists only of spaces,tabs, and new-lines and is not blank.
+- **istitle\(\)** returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters.
 
 #### The startswith\(\) and endswith\(\) String Methods <a id="The-startswith()-and-endswith()-String-Methods"></a>
 
@@ -2593,8 +2577,8 @@ In addition to the search\(\) method, Regex objects also have a findall\(\) meth
 
 To summarize what the findall\(\) method returns, remember the following:
 
-* When called on a regex with no groups, such as \d-\d\d\d-\d\d\d\d, the method findall\(\) returns a list of ng matches, such as \['415-555-9999', '212-555-0000'\].
-* When called on a regex that has groups, such as \(\d\d\d\)-\(d\d\)-\(\d\d\d\d\), the method findall\(\) returns a list of es of strings \(one string for each group\), such as \[\('415', '555', '9999'\), \('212', '555', '0000'\)\].
+- When called on a regex with no groups, such as \d-\d\d\d-\d\d\d\d, the method findall\(\) returns a list of ng matches, such as \['415-555-9999', '212-555-0000'\].
+- When called on a regex that has groups, such as \(\d\d\d\)-\(d\d\)-\(\d\d\d\d\), the method findall\(\) returns a list of es of strings \(one string for each group\), such as \[\('415', '555', '9999'\), \('212', '555', '0000'\)\].
 
 #### Making Your Own Character Classes <a id="Making-Your-Own-Character-Classes"></a>
 
@@ -2621,9 +2605,9 @@ By placing a caret character \(^\) just after the character class’s opening br
 
 #### The Caret and Dollar Sign Characters <a id="The-Caret-and-Dollar-Sign-Characters"></a>
 
-* You can also use the caret symbol \(^\) at the start of a regex to indicate that a match must occur at the beginning of the searched text.
-* Likewise, you can put a dollar sign \(\$\) at the end of the regex to indicate the string must end with this regex pattern.
-* And you can use the ^ and \$ together to indicate that the entire string must match the regex—that is, it’s not enough for a match to be made on some subset of the string.
+- You can also use the caret symbol \(^\) at the start of a regex to indicate that a match must occur at the beginning of the searched text.
+- Likewise, you can put a dollar sign \(\$\) at the end of the regex to indicate the string must end with this regex pattern.
+- And you can use the ^ and \$ together to indicate that the entire string must match the regex—that is, it’s not enough for a match to be made on some subset of the string.
 
 The r'^Hello' regular expression string matches strings that begin with 'Hello':
 
@@ -2714,7 +2698,7 @@ The dot-star will match everything except a newline. By passing re.DOTALL as the
 #### Review of Regex Symbols <a id="Review-of-Regex-Symbols"></a>
 
 | Symbol | Matches |
-| :--- | :--- |
+| :-- | :-- |
 | `?` | zero or one of the preceding group. |
 | `*` | zero or more of the preceding group. |
 | `+` | one or more of the preceding group. |
@@ -2932,8 +2916,8 @@ And all is good :\)
 
 There are two ways to specify a file path.
 
-* An absolute path, which always begins with the root folder
-* A relative path, which is relative to the program’s current working directory
+- An absolute path, which always begins with the root folder
+- A relative path, which is relative to the program’s current working directory
 
 There are also the dot \(.\) and dot-dot \(..\) folders. These are not real folders but special names that can be used in a path. A single period \(“dot”\) for a folder name is shorthand for “this directory.” Two periods \(“dot-dot”\) means “the parent folder.”
 
@@ -3220,9 +3204,9 @@ If there is no eggs folder, then move\(\) will rename bacon.txt to a file named 
 
 #### Permanently Deleting Files and Folders <a id="Permanently-Deleting-Files-and-Folders"></a>
 
-* Calling os.unlink\(path\) or Path.unlink\(\) will delete the file at path.
-* Calling os.rmdir\(path\) or Path.rmdir\(\) will delete the folder at path. This folder must be empty of any files or folders.
-* Calling shutil.rmtree\(path\) will remove the folder at path, and all files and folders it contains will also be deleted.
+- Calling os.unlink\(path\) or Path.unlink\(\) will delete the file at path.
+- Calling os.rmdir\(path\) or Path.rmdir\(\) will delete the folder at path. This folder must be empty of any files or folders.
+- Calling shutil.rmtree\(path\) will remove the folder at path, and all files and folders it contains will also be deleted.
 
 #### Safe Deletes with the send2trash Module <a id="Safe-Deletes-with-the-send2trash-Module"></a>
 
@@ -3450,8 +3434,8 @@ Compared to JSON, YAML allows for much better human maintainability and gives yo
 
 There are two main libraries allowing to access to YAML files:
 
-* [PyYaml](https://pypi.python.org/pypi/PyYAML)
-* [Ruamel.yaml](https://pypi.python.org/pypi/ruamel.yaml)
+- [PyYaml](https://pypi.python.org/pypi/PyYAML)
+- [Ruamel.yaml](https://pypi.python.org/pypi/ruamel.yaml)
 
 Install them using `pip install` in your virtual environment.
 
@@ -3491,9 +3475,9 @@ conf1 = anyconfig.load("/path/to/foo/conf.d/a.yml")
 
 Exceptions are raised with a raise statement. In code, a raise statement consists of the following:
 
-* The raise keyword
-* A call to the Exception\(\) function
-* A string with a helpful error message passed to the Exception\(\) function
+- The raise keyword
+- A call to the Exception\(\) function
+- A string with a helpful error message passed to the Exception\(\) function
 
 ```text
 >>> raise Exception('This is the error message.')
@@ -3526,7 +3510,7 @@ for sym, w, h in (('*', 4, 4), ('O', 20, 5), ('x', 1, 3), ('ZZ', 3, 3)):
 
 #### Getting the Traceback as a String <a id="Getting-the-Traceback-as-a-String"></a>
 
-The traceback is displayed by Python whenever a raised exception goes unhandled. But can also obtain it as a string by calling traceback.format\_exc\(\). This function is useful if you want the information from an exception’s traceback but also want an except statement to gracefully handle the exception. You will need to import Python’s traceback module before calling this function.
+The traceback is displayed by Python whenever a raised exception goes unhandled. But can also obtain it as a string by calling traceback.format_exc\(\). This function is useful if you want the information from an exception’s traceback but also want an except statement to gracefully handle the exception. You will need to import Python’s traceback module before calling this function.
 
 ```text
 >>> import traceback
@@ -3553,10 +3537,10 @@ Exception: This is the error message.
 
 An assertion is a sanity check to make sure your code isn’t doing something obviously wrong. These sanity checks are performed by assert statements. If the sanity check fails, then an AssertionError exception is raised. In code, an assert statement consists of the following:
 
-* The assert keyword
-* A condition \(that is, an expression that evaluates to True or False\)
-* A comma
-* A string to display when the condition is False
+- The assert keyword
+- A condition \(that is, an expression that evaluates to True or False\)
+- A comma
+- A string to display when the condition is False
 
 ```text
 >>> pod_bay_door_status = 'open'
@@ -3631,7 +3615,7 @@ Say you wrote a function to calculate the factorial of a number. In mathematics,
 Logging levels provide a way to categorize your log messages by importance. There are five logging levels, described in Table 10-1 from least to most important. Messages can be logged at each level using a different logging function.
 
 | Level | Logging Function | Description |
-| :--- | :--- | :--- |
+| :-- | :-- | :-- |
 | `DEBUG` | `logging.debug()` | The lowest level. Used for small details. Usually you care about these messages only when diagnosing problems. |
 | `INFO` | `logging.info()` | Used to record information on general events in your program or confirm that things are working at their point in the program. |
 | `WARNING` | `logging.warning()` | Used to indicate a potential problem that doesn’t prevent the program from working but might do so in the future. |
@@ -3941,7 +3925,7 @@ python setup.py install
 
 and module will install itself.
 
-Our initial setup.py will also include information about the license and will re-use the README.txt file for the long\_description field. This will look like:
+Our initial setup.py will also include information about the license and will re-use the README.txt file for the long_description field. This will look like:
 
 ```text
 >>> from distutils.core import setup
@@ -4221,217 +4205,199 @@ Usage:
    conda deactivate
    ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Python Cheatsheet
 
-* [About](https://github.com/Web-Dev-Collaborative/python-cheatsheet#about)
-  * [Contribute](https://github.com/Web-Dev-Collaborative/python-cheatsheet#contribute)
-  * [Read It](https://github.com/Web-Dev-Collaborative/python-cheatsheet#read-it)
-  * [Python Cheatsheet](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
-  * [The Zen of Python](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-zen-of-python)
-  * [Python Basics](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-basics)
-    * [Math Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#math-operators)
-    * [Data Types](https://github.com/Web-Dev-Collaborative/python-cheatsheet#data-types)
-    * [String Concatenation and Replication](https://github.com/Web-Dev-Collaborative/python-cheatsheet#string-concatenation-and-replication)
-    * [Variables](https://github.com/Web-Dev-Collaborative/python-cheatsheet#variables)
-    * [Comments](https://github.com/Web-Dev-Collaborative/python-cheatsheet#comments)
-    * [The print\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-print-function)
-    * [The input\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-input-function)
-    * [The len\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-len-function)
-    * [The str\(\), int\(\), and float\(\) Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-str-int-and-float-functions)
-  * [Flow Control](https://github.com/Web-Dev-Collaborative/python-cheatsheet#flow-control)
-    * [Comparison Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#comparison-operators)
-    * [Boolean evaluation](https://github.com/Web-Dev-Collaborative/python-cheatsheet#boolean-evaluation)
-    * [Boolean Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#boolean-operators)
-    * [Mixing Boolean and Comparison Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#mixing-boolean-and-comparison-operators)
-    * [if Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#if-statements)
-    * [else Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#else-statements)
-    * [elif Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#elif-statements)
-    * [while Loop Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#while-loop-statements)
-    * [break Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#break-statements)
-    * [continue Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#continue-statements)
-    * [for Loops and the range\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#for-loops-and-the-range-function)
-    * [For else statement](https://github.com/Web-Dev-Collaborative/python-cheatsheet#for-else-statement)
-    * [Importing Modules](https://github.com/Web-Dev-Collaborative/python-cheatsheet#importing-modules)
-    * [Ending a Program Early with sys.exit\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#ending-a-program-early-with-sysexit)
-  * [Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#functions)
-    * [Return Values and return Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#return-values-and-return-statements)
-    * [The None Value](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-none-value)
-    * [Keyword Arguments and print\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#keyword-arguments-and-print)
-    * [Local and Global Scope](https://github.com/Web-Dev-Collaborative/python-cheatsheet#local-and-global-scope)
-    * [The global Statement](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-global-statement)
-  * [Exception Handling](https://github.com/Web-Dev-Collaborative/python-cheatsheet#exception-handling)
-    * [Basic exception handling](https://github.com/Web-Dev-Collaborative/python-cheatsheet#basic-exception-handling)
-    * [Final code in exception handling](https://github.com/Web-Dev-Collaborative/python-cheatsheet#final-code-in-exception-handling)
-  * [Lists](https://github.com/Web-Dev-Collaborative/python-cheatsheet#lists)
-    * [Getting Individual Values in a List with Indexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-individual-values-in-a-list-with-indexes)
-    * [Negative Indexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#negative-indexes)
-    * [Getting Sublists with Slices](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-sublists-with-slices)
-    * [Getting a List’s Length with len\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-a-lists-length-with-len)
-    * [Changing Values in a List with Indexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#changing-values-in-a-list-with-indexes)
-    * [List Concatenation and List Replication](https://github.com/Web-Dev-Collaborative/python-cheatsheet#list-concatenation-and-list-replication)
-    * [Removing Values from Lists with del Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-values-from-lists-with-del-statements)
-    * [Using for Loops with Lists](https://github.com/Web-Dev-Collaborative/python-cheatsheet#using-for-loops-with-lists)
-    * [Looping Through Multiple Lists with zip\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#looping-through-multiple-lists-with-zip)
-    * [The in and not in Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-in-and-not-in-operators)
-    * [The Multiple Assignment Trick](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-multiple-assignment-trick)
-    * [Augmented Assignment Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#augmented-assignment-operators)
-    * [Finding a Value in a List with the index\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#finding-a-value-in-a-list-with-the-index-method)
-    * [Adding Values to Lists with the append\(\) and insert\(\) Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#adding-values-to-lists-with-the-append-and-insert-methods)
-    * [Removing Values from Lists with remove\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-values-from-lists-with-remove)
-    * [Removing Values from Lists with pop\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-values-from-lists-with-pop)
-    * [Sorting the Values in a List with the sort\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#sorting-the-values-in-a-list-with-the-sort-method)
-    * [Tuple Data Type](https://github.com/Web-Dev-Collaborative/python-cheatsheet#tuple-data-type)
-    * [Converting Types with the list\(\) and tuple\(\) Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#converting-types-with-the-list-and-tuple-functions)
-  * [Dictionaries and Structuring Data](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dictionaries-and-structuring-data)
-    * [The keys\(\), values\(\), and items\(\) Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-keys-values-and-items-methods)
-    * [Checking Whether a Key or Value Exists in a Dictionary](https://github.com/Web-Dev-Collaborative/python-cheatsheet#checking-whether-a-key-or-value-exists-in-a-dictionary)
-    * [The get\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-get-method)
-    * [The setdefault\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-setdefault-method)
-    * [Pretty Printing](https://github.com/Web-Dev-Collaborative/python-cheatsheet#pretty-printing)
-    * [Merge two dictionaries](https://github.com/Web-Dev-Collaborative/python-cheatsheet#merge-two-dictionaries)
-  * [sets](https://github.com/Web-Dev-Collaborative/python-cheatsheet#sets)
-    * [Initializing a set](https://github.com/Web-Dev-Collaborative/python-cheatsheet#initializing-a-set)
-    * [sets: unordered collections of unique elements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#sets-unordered-collections-of-unique-elements)
-    * [set add\(\) and update\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-add-and-update)
-    * [set remove\(\) and discard\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-remove-and-discard)
-    * [set union\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-union)
-    * [set intersection](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-intersection)
-    * [set difference](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-difference)
-    * [set symetric\_difference](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-symetric_difference)
-  * [itertools Module](https://github.com/Web-Dev-Collaborative/python-cheatsheet#itertools-module)
-    * [accumulate\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#accumulate)
-    * [combinations\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#combinations)
-    * [combinations\_with\_replacement\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#combinations_with_replacement)
-    * [count\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#count)
-    * [cycle\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#cycle)
-    * [chain\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#chain)
-    * [compress\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#compress)
-    * [dropwhile\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dropwhile)
-    * [filterfalse\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#filterfalse)
-    * [groupby\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#groupby)
-    * [islice\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#islice)
-    * [permutations\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#permutations)
-    * [product\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#product)
-    * [repeat\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#repeat)
-    * [starmap\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#starmap)
-    * [takewhile\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#takewhile)
-    * [tee\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#tee)
-    * [zip\_longest\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#zip_longest)
-  * [Comprehensions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#comprehensions)
-    * [List comprehension](https://github.com/Web-Dev-Collaborative/python-cheatsheet#list-comprehension)
-    * [Set comprehension](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-comprehension)
-    * [Dict comprehension](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dict-comprehension)
-  * [Manipulating Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#manipulating-strings)
-    * [Escape Characters](https://github.com/Web-Dev-Collaborative/python-cheatsheet#escape-characters)
-    * [Raw Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#raw-strings)
-    * [Multiline Strings with Triple Quotes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#multiline-strings-with-triple-quotes)
-    * [Indexing and Slicing Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#indexing-and-slicing-strings)
-    * [The in and not in Operators with Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-in-and-not-in-operators-with-strings)
-    * [The in and not in Operators with list](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-in-and-not-in-operators-with-list)
-    * [The upper\(\), lower\(\), isupper\(\), and islower\(\) String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-upper-lower-isupper-and-islower-string-methods)
-    * [The isX String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-isx-string-methods)
-    * [The startswith\(\) and endswith\(\) String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-startswith-and-endswith-string-methods)
-    * [The join\(\) and split\(\) String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-join-and-split-string-methods)
-    * [Justifying Text with rjust\(\), ljust\(\), and center\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#justifying-text-with-rjust-ljust-and-center)
-    * [Removing Whitespace with strip\(\), rstrip\(\), and lstrip\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-whitespace-with-strip-rstrip-and-lstrip)
-    * [Copying and Pasting Strings with the pyperclip Module \(need pip install\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#copying-and-pasting-strings-with-the-pyperclip-module-need-pip-install)
-  * [String Formatting](https://github.com/Web-Dev-Collaborative/python-cheatsheet#string-formatting)
-    * [% operator](https://github.com/Web-Dev-Collaborative/python-cheatsheet#-operator)
-    * [String Formatting \(str.format\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#string-formatting-strformat)
-    * [Lazy string formatting](https://github.com/Web-Dev-Collaborative/python-cheatsheet#lazy-string-formatting)
-    * [Formatted String Literals or f-strings \(Python 3.6+\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#formatted-string-literals-or-f-strings-python-36)
-    * [Template Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#template-strings)
-  * [Regular Expressions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#regular-expressions)
-    * [Matching Regex Objects](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-regex-objects)
-    * [Grouping with Parentheses](https://github.com/Web-Dev-Collaborative/python-cheatsheet#grouping-with-parentheses)
-    * [Matching Multiple Groups with the Pipe](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-multiple-groups-with-the-pipe)
-    * [Optional Matching with the Question Mark](https://github.com/Web-Dev-Collaborative/python-cheatsheet#optional-matching-with-the-question-mark)
-    * [Matching Zero or More with the Star](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-zero-or-more-with-the-star)
-    * [Matching One or More with the Plus](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-one-or-more-with-the-plus)
-    * [Matching Specific Repetitions with Curly Brackets](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-specific-repetitions-with-curly-brackets)
-    * [Greedy and Nongreedy Matching](https://github.com/Web-Dev-Collaborative/python-cheatsheet#greedy-and-nongreedy-matching)
-    * [The findall\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-findall-method)
-    * [Making Your Own Character Classes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#making-your-own-character-classes)
-    * [The Caret and Dollar Sign Characters](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-caret-and-dollar-sign-characters)
-    * [The Wildcard Character](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-wildcard-character)
-    * [Matching Everything with Dot-Star](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-everything-with-dot-star)
-    * [Matching Newlines with the Dot Character](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-newlines-with-the-dot-character)
-    * [Review of Regex Symbols](https://github.com/Web-Dev-Collaborative/python-cheatsheet#review-of-regex-symbols)
-    * [Case-Insensitive Matching](https://github.com/Web-Dev-Collaborative/python-cheatsheet#case-insensitive-matching)
-    * [Substituting Strings with the sub\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#substituting-strings-with-the-sub-method)
-    * [Managing Complex Regexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#managing-complex-regexes)
-  * [Handling File and Directory Paths](https://github.com/Web-Dev-Collaborative/python-cheatsheet#handling-file-and-directory-paths)
-    * [Backslash on Windows and Forward Slash on OS X and Linux](https://github.com/Web-Dev-Collaborative/python-cheatsheet#backslash-on-windows-and-forward-slash-on-os-x-and-linux)
-    * [The Current Working Directory](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-current-working-directory)
-    * [Creating New Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#creating-new-folders)
-    * [Absolute vs. Relative Paths](https://github.com/Web-Dev-Collaborative/python-cheatsheet#absolute-vs-relative-paths)
-    * [Handling Absolute and Relative Paths](https://github.com/Web-Dev-Collaborative/python-cheatsheet#handling-absolute-and-relative-paths)
-    * [Checking Path Validity](https://github.com/Web-Dev-Collaborative/python-cheatsheet#checking-path-validity)
-    * [Finding File Sizes and Folder Contents](https://github.com/Web-Dev-Collaborative/python-cheatsheet#finding-file-sizes-and-folder-contents)
-    * [Copying Files and Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#copying-files-and-folders)
-    * [Moving and Renaming Files and Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#moving-and-renaming-files-and-folders)
-    * [Permanently Deleting Files and Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#permanently-deleting-files-and-folders)
-    * [Safe Deletes with the send2trash Module](https://github.com/Web-Dev-Collaborative/python-cheatsheet#safe-deletes-with-the-send2trash-module)
-    * [Walking a Directory Tree](https://github.com/Web-Dev-Collaborative/python-cheatsheet#walking-a-directory-tree)
-  * [Reading and Writing Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#reading-and-writing-files)
-    * [The File Reading/Writing Process](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-file-readingwriting-process)
-    * [Opening and reading files with the open\(\) function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#opening-and-reading-files-with-the-open-function)
-    * [Writing to Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#writing-to-files)
-    * [Saving Variables with the shelve Module](https://github.com/Web-Dev-Collaborative/python-cheatsheet#saving-variables-with-the-shelve-module)
-    * [Saving Variables with the pprint.pformat\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#saving-variables-with-the-pprintpformat-function)
-    * [Reading ZIP Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#reading-zip-files)
-    * [Extracting from ZIP Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#extracting-from-zip-files)
-    * [Creating and Adding to ZIP Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#creating-and-adding-to-zip-files)
-  * [JSON, YAML and configuration files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#json-yaml-and-configuration-files)
-    * [JSON](https://github.com/Web-Dev-Collaborative/python-cheatsheet#json)
-    * [YAML](https://github.com/Web-Dev-Collaborative/python-cheatsheet#yaml)
-    * [Anyconfig](https://github.com/Web-Dev-Collaborative/python-cheatsheet#anyconfig)
-  * [Debugging](https://github.com/Web-Dev-Collaborative/python-cheatsheet#debugging)
-    * [Raising Exceptions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#raising-exceptions)
-    * [Getting the Traceback as a String](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-the-traceback-as-a-string)
-    * [Assertions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#assertions)
-    * [Logging](https://github.com/Web-Dev-Collaborative/python-cheatsheet#logging)
-    * [Logging Levels](https://github.com/Web-Dev-Collaborative/python-cheatsheet#logging-levels)
-    * [Disabling Logging](https://github.com/Web-Dev-Collaborative/python-cheatsheet#disabling-logging)
-    * [Logging to a File](https://github.com/Web-Dev-Collaborative/python-cheatsheet#logging-to-a-file)
-  * [Lambda Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#lambda-functions)
-  * [Ternary Conditional Operator](https://github.com/Web-Dev-Collaborative/python-cheatsheet#ternary-conditional-operator)
-  * [args and kwargs](https://github.com/Web-Dev-Collaborative/python-cheatsheet#args-and-kwargs)
-    * [Things to Remember\(args\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#things-to-rememberargs)
-    * [Things to Remember\(kwargs\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#things-to-rememberkwargs)
-  * [Context Manager](https://github.com/Web-Dev-Collaborative/python-cheatsheet#context-manager)
-    * [with statement](https://github.com/Web-Dev-Collaborative/python-cheatsheet#with-statement)
-    * [Writing your own contextmanager using generator syntax](https://github.com/Web-Dev-Collaborative/python-cheatsheet#writing-your-own-contextmanager-using-generator-syntax)
-  * [`__main__` Top-level script environment](https://github.com/Web-Dev-Collaborative/python-cheatsheet#__main__-top-level-script-environment)
-    * [Advantages](https://github.com/Web-Dev-Collaborative/python-cheatsheet#advantages)
-  * [setup.py](https://github.com/Web-Dev-Collaborative/python-cheatsheet#setuppy)
-  * [Dataclasses](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dataclasses)
-    * [Features](https://github.com/Web-Dev-Collaborative/python-cheatsheet#features)
-    * [Default values](https://github.com/Web-Dev-Collaborative/python-cheatsheet#default-values)
-    * [Type hints](https://github.com/Web-Dev-Collaborative/python-cheatsheet#type-hints)
-  * [Virtual Environment](https://github.com/Web-Dev-Collaborative/python-cheatsheet#virtual-environment)
-    * [virtualenv](https://github.com/Web-Dev-Collaborative/python-cheatsheet#virtualenv)
-    * [poetry](https://github.com/Web-Dev-Collaborative/python-cheatsheet#poetry)
-    * [pipenv](https://github.com/Web-Dev-Collaborative/python-cheatsheet#pipenv)
-    * [anaconda](https://github.com/Web-Dev-Collaborative/python-cheatsheet#anaconda)
+- [About](https://github.com/Web-Dev-Collaborative/python-cheatsheet#about)
+  - [Contribute](https://github.com/Web-Dev-Collaborative/python-cheatsheet#contribute)
+  - [Read It](https://github.com/Web-Dev-Collaborative/python-cheatsheet#read-it)
+  - [Python Cheatsheet](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
+  - [The Zen of Python](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-zen-of-python)
+  - [Python Basics](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-basics)
+    - [Math Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#math-operators)
+    - [Data Types](https://github.com/Web-Dev-Collaborative/python-cheatsheet#data-types)
+    - [String Concatenation and Replication](https://github.com/Web-Dev-Collaborative/python-cheatsheet#string-concatenation-and-replication)
+    - [Variables](https://github.com/Web-Dev-Collaborative/python-cheatsheet#variables)
+    - [Comments](https://github.com/Web-Dev-Collaborative/python-cheatsheet#comments)
+    - [The print\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-print-function)
+    - [The input\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-input-function)
+    - [The len\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-len-function)
+    - [The str\(\), int\(\), and float\(\) Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-str-int-and-float-functions)
+  - [Flow Control](https://github.com/Web-Dev-Collaborative/python-cheatsheet#flow-control)
+    - [Comparison Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#comparison-operators)
+    - [Boolean evaluation](https://github.com/Web-Dev-Collaborative/python-cheatsheet#boolean-evaluation)
+    - [Boolean Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#boolean-operators)
+    - [Mixing Boolean and Comparison Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#mixing-boolean-and-comparison-operators)
+    - [if Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#if-statements)
+    - [else Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#else-statements)
+    - [elif Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#elif-statements)
+    - [while Loop Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#while-loop-statements)
+    - [break Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#break-statements)
+    - [continue Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#continue-statements)
+    - [for Loops and the range\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#for-loops-and-the-range-function)
+    - [For else statement](https://github.com/Web-Dev-Collaborative/python-cheatsheet#for-else-statement)
+    - [Importing Modules](https://github.com/Web-Dev-Collaborative/python-cheatsheet#importing-modules)
+    - [Ending a Program Early with sys.exit\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#ending-a-program-early-with-sysexit)
+  - [Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#functions)
+    - [Return Values and return Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#return-values-and-return-statements)
+    - [The None Value](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-none-value)
+    - [Keyword Arguments and print\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#keyword-arguments-and-print)
+    - [Local and Global Scope](https://github.com/Web-Dev-Collaborative/python-cheatsheet#local-and-global-scope)
+    - [The global Statement](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-global-statement)
+  - [Exception Handling](https://github.com/Web-Dev-Collaborative/python-cheatsheet#exception-handling)
+    - [Basic exception handling](https://github.com/Web-Dev-Collaborative/python-cheatsheet#basic-exception-handling)
+    - [Final code in exception handling](https://github.com/Web-Dev-Collaborative/python-cheatsheet#final-code-in-exception-handling)
+  - [Lists](https://github.com/Web-Dev-Collaborative/python-cheatsheet#lists)
+    - [Getting Individual Values in a List with Indexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-individual-values-in-a-list-with-indexes)
+    - [Negative Indexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#negative-indexes)
+    - [Getting Sublists with Slices](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-sublists-with-slices)
+    - [Getting a List’s Length with len\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-a-lists-length-with-len)
+    - [Changing Values in a List with Indexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#changing-values-in-a-list-with-indexes)
+    - [List Concatenation and List Replication](https://github.com/Web-Dev-Collaborative/python-cheatsheet#list-concatenation-and-list-replication)
+    - [Removing Values from Lists with del Statements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-values-from-lists-with-del-statements)
+    - [Using for Loops with Lists](https://github.com/Web-Dev-Collaborative/python-cheatsheet#using-for-loops-with-lists)
+    - [Looping Through Multiple Lists with zip\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#looping-through-multiple-lists-with-zip)
+    - [The in and not in Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-in-and-not-in-operators)
+    - [The Multiple Assignment Trick](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-multiple-assignment-trick)
+    - [Augmented Assignment Operators](https://github.com/Web-Dev-Collaborative/python-cheatsheet#augmented-assignment-operators)
+    - [Finding a Value in a List with the index\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#finding-a-value-in-a-list-with-the-index-method)
+    - [Adding Values to Lists with the append\(\) and insert\(\) Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#adding-values-to-lists-with-the-append-and-insert-methods)
+    - [Removing Values from Lists with remove\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-values-from-lists-with-remove)
+    - [Removing Values from Lists with pop\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-values-from-lists-with-pop)
+    - [Sorting the Values in a List with the sort\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#sorting-the-values-in-a-list-with-the-sort-method)
+    - [Tuple Data Type](https://github.com/Web-Dev-Collaborative/python-cheatsheet#tuple-data-type)
+    - [Converting Types with the list\(\) and tuple\(\) Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#converting-types-with-the-list-and-tuple-functions)
+  - [Dictionaries and Structuring Data](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dictionaries-and-structuring-data)
+    - [The keys\(\), values\(\), and items\(\) Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-keys-values-and-items-methods)
+    - [Checking Whether a Key or Value Exists in a Dictionary](https://github.com/Web-Dev-Collaborative/python-cheatsheet#checking-whether-a-key-or-value-exists-in-a-dictionary)
+    - [The get\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-get-method)
+    - [The setdefault\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-setdefault-method)
+    - [Pretty Printing](https://github.com/Web-Dev-Collaborative/python-cheatsheet#pretty-printing)
+    - [Merge two dictionaries](https://github.com/Web-Dev-Collaborative/python-cheatsheet#merge-two-dictionaries)
+  - [sets](https://github.com/Web-Dev-Collaborative/python-cheatsheet#sets)
+    - [Initializing a set](https://github.com/Web-Dev-Collaborative/python-cheatsheet#initializing-a-set)
+    - [sets: unordered collections of unique elements](https://github.com/Web-Dev-Collaborative/python-cheatsheet#sets-unordered-collections-of-unique-elements)
+    - [set add\(\) and update\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-add-and-update)
+    - [set remove\(\) and discard\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-remove-and-discard)
+    - [set union\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-union)
+    - [set intersection](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-intersection)
+    - [set difference](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-difference)
+    - [set symetric_difference](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-symetric_difference)
+  - [itertools Module](https://github.com/Web-Dev-Collaborative/python-cheatsheet#itertools-module)
+    - [accumulate\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#accumulate)
+    - [combinations\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#combinations)
+    - [combinations_with_replacement\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#combinations_with_replacement)
+    - [count\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#count)
+    - [cycle\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#cycle)
+    - [chain\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#chain)
+    - [compress\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#compress)
+    - [dropwhile\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dropwhile)
+    - [filterfalse\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#filterfalse)
+    - [groupby\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#groupby)
+    - [islice\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#islice)
+    - [permutations\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#permutations)
+    - [product\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#product)
+    - [repeat\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#repeat)
+    - [starmap\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#starmap)
+    - [takewhile\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#takewhile)
+    - [tee\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#tee)
+    - [zip_longest\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#zip_longest)
+  - [Comprehensions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#comprehensions)
+    - [List comprehension](https://github.com/Web-Dev-Collaborative/python-cheatsheet#list-comprehension)
+    - [Set comprehension](https://github.com/Web-Dev-Collaborative/python-cheatsheet#set-comprehension)
+    - [Dict comprehension](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dict-comprehension)
+  - [Manipulating Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#manipulating-strings)
+    - [Escape Characters](https://github.com/Web-Dev-Collaborative/python-cheatsheet#escape-characters)
+    - [Raw Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#raw-strings)
+    - [Multiline Strings with Triple Quotes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#multiline-strings-with-triple-quotes)
+    - [Indexing and Slicing Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#indexing-and-slicing-strings)
+    - [The in and not in Operators with Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-in-and-not-in-operators-with-strings)
+    - [The in and not in Operators with list](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-in-and-not-in-operators-with-list)
+    - [The upper\(\), lower\(\), isupper\(\), and islower\(\) String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-upper-lower-isupper-and-islower-string-methods)
+    - [The isX String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-isx-string-methods)
+    - [The startswith\(\) and endswith\(\) String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-startswith-and-endswith-string-methods)
+    - [The join\(\) and split\(\) String Methods](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-join-and-split-string-methods)
+    - [Justifying Text with rjust\(\), ljust\(\), and center\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#justifying-text-with-rjust-ljust-and-center)
+    - [Removing Whitespace with strip\(\), rstrip\(\), and lstrip\(\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#removing-whitespace-with-strip-rstrip-and-lstrip)
+    - [Copying and Pasting Strings with the pyperclip Module \(need pip install\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#copying-and-pasting-strings-with-the-pyperclip-module-need-pip-install)
+  - [String Formatting](https://github.com/Web-Dev-Collaborative/python-cheatsheet#string-formatting)
+    - [% operator](https://github.com/Web-Dev-Collaborative/python-cheatsheet#-operator)
+    - [String Formatting \(str.format\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#string-formatting-strformat)
+    - [Lazy string formatting](https://github.com/Web-Dev-Collaborative/python-cheatsheet#lazy-string-formatting)
+    - [Formatted String Literals or f-strings \(Python 3.6+\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#formatted-string-literals-or-f-strings-python-36)
+    - [Template Strings](https://github.com/Web-Dev-Collaborative/python-cheatsheet#template-strings)
+  - [Regular Expressions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#regular-expressions)
+    - [Matching Regex Objects](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-regex-objects)
+    - [Grouping with Parentheses](https://github.com/Web-Dev-Collaborative/python-cheatsheet#grouping-with-parentheses)
+    - [Matching Multiple Groups with the Pipe](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-multiple-groups-with-the-pipe)
+    - [Optional Matching with the Question Mark](https://github.com/Web-Dev-Collaborative/python-cheatsheet#optional-matching-with-the-question-mark)
+    - [Matching Zero or More with the Star](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-zero-or-more-with-the-star)
+    - [Matching One or More with the Plus](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-one-or-more-with-the-plus)
+    - [Matching Specific Repetitions with Curly Brackets](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-specific-repetitions-with-curly-brackets)
+    - [Greedy and Nongreedy Matching](https://github.com/Web-Dev-Collaborative/python-cheatsheet#greedy-and-nongreedy-matching)
+    - [The findall\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-findall-method)
+    - [Making Your Own Character Classes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#making-your-own-character-classes)
+    - [The Caret and Dollar Sign Characters](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-caret-and-dollar-sign-characters)
+    - [The Wildcard Character](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-wildcard-character)
+    - [Matching Everything with Dot-Star](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-everything-with-dot-star)
+    - [Matching Newlines with the Dot Character](https://github.com/Web-Dev-Collaborative/python-cheatsheet#matching-newlines-with-the-dot-character)
+    - [Review of Regex Symbols](https://github.com/Web-Dev-Collaborative/python-cheatsheet#review-of-regex-symbols)
+    - [Case-Insensitive Matching](https://github.com/Web-Dev-Collaborative/python-cheatsheet#case-insensitive-matching)
+    - [Substituting Strings with the sub\(\) Method](https://github.com/Web-Dev-Collaborative/python-cheatsheet#substituting-strings-with-the-sub-method)
+    - [Managing Complex Regexes](https://github.com/Web-Dev-Collaborative/python-cheatsheet#managing-complex-regexes)
+  - [Handling File and Directory Paths](https://github.com/Web-Dev-Collaborative/python-cheatsheet#handling-file-and-directory-paths)
+    - [Backslash on Windows and Forward Slash on OS X and Linux](https://github.com/Web-Dev-Collaborative/python-cheatsheet#backslash-on-windows-and-forward-slash-on-os-x-and-linux)
+    - [The Current Working Directory](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-current-working-directory)
+    - [Creating New Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#creating-new-folders)
+    - [Absolute vs. Relative Paths](https://github.com/Web-Dev-Collaborative/python-cheatsheet#absolute-vs-relative-paths)
+    - [Handling Absolute and Relative Paths](https://github.com/Web-Dev-Collaborative/python-cheatsheet#handling-absolute-and-relative-paths)
+    - [Checking Path Validity](https://github.com/Web-Dev-Collaborative/python-cheatsheet#checking-path-validity)
+    - [Finding File Sizes and Folder Contents](https://github.com/Web-Dev-Collaborative/python-cheatsheet#finding-file-sizes-and-folder-contents)
+    - [Copying Files and Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#copying-files-and-folders)
+    - [Moving and Renaming Files and Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#moving-and-renaming-files-and-folders)
+    - [Permanently Deleting Files and Folders](https://github.com/Web-Dev-Collaborative/python-cheatsheet#permanently-deleting-files-and-folders)
+    - [Safe Deletes with the send2trash Module](https://github.com/Web-Dev-Collaborative/python-cheatsheet#safe-deletes-with-the-send2trash-module)
+    - [Walking a Directory Tree](https://github.com/Web-Dev-Collaborative/python-cheatsheet#walking-a-directory-tree)
+  - [Reading and Writing Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#reading-and-writing-files)
+    - [The File Reading/Writing Process](https://github.com/Web-Dev-Collaborative/python-cheatsheet#the-file-readingwriting-process)
+    - [Opening and reading files with the open\(\) function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#opening-and-reading-files-with-the-open-function)
+    - [Writing to Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#writing-to-files)
+    - [Saving Variables with the shelve Module](https://github.com/Web-Dev-Collaborative/python-cheatsheet#saving-variables-with-the-shelve-module)
+    - [Saving Variables with the pprint.pformat\(\) Function](https://github.com/Web-Dev-Collaborative/python-cheatsheet#saving-variables-with-the-pprintpformat-function)
+    - [Reading ZIP Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#reading-zip-files)
+    - [Extracting from ZIP Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#extracting-from-zip-files)
+    - [Creating and Adding to ZIP Files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#creating-and-adding-to-zip-files)
+  - [JSON, YAML and configuration files](https://github.com/Web-Dev-Collaborative/python-cheatsheet#json-yaml-and-configuration-files)
+    - [JSON](https://github.com/Web-Dev-Collaborative/python-cheatsheet#json)
+    - [YAML](https://github.com/Web-Dev-Collaborative/python-cheatsheet#yaml)
+    - [Anyconfig](https://github.com/Web-Dev-Collaborative/python-cheatsheet#anyconfig)
+  - [Debugging](https://github.com/Web-Dev-Collaborative/python-cheatsheet#debugging)
+    - [Raising Exceptions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#raising-exceptions)
+    - [Getting the Traceback as a String](https://github.com/Web-Dev-Collaborative/python-cheatsheet#getting-the-traceback-as-a-string)
+    - [Assertions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#assertions)
+    - [Logging](https://github.com/Web-Dev-Collaborative/python-cheatsheet#logging)
+    - [Logging Levels](https://github.com/Web-Dev-Collaborative/python-cheatsheet#logging-levels)
+    - [Disabling Logging](https://github.com/Web-Dev-Collaborative/python-cheatsheet#disabling-logging)
+    - [Logging to a File](https://github.com/Web-Dev-Collaborative/python-cheatsheet#logging-to-a-file)
+  - [Lambda Functions](https://github.com/Web-Dev-Collaborative/python-cheatsheet#lambda-functions)
+  - [Ternary Conditional Operator](https://github.com/Web-Dev-Collaborative/python-cheatsheet#ternary-conditional-operator)
+  - [args and kwargs](https://github.com/Web-Dev-Collaborative/python-cheatsheet#args-and-kwargs)
+    - [Things to Remember\(args\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#things-to-rememberargs)
+    - [Things to Remember\(kwargs\)](https://github.com/Web-Dev-Collaborative/python-cheatsheet#things-to-rememberkwargs)
+  - [Context Manager](https://github.com/Web-Dev-Collaborative/python-cheatsheet#context-manager)
+    - [with statement](https://github.com/Web-Dev-Collaborative/python-cheatsheet#with-statement)
+    - [Writing your own contextmanager using generator syntax](https://github.com/Web-Dev-Collaborative/python-cheatsheet#writing-your-own-contextmanager-using-generator-syntax)
+  - [`__main__` Top-level script environment](https://github.com/Web-Dev-Collaborative/python-cheatsheet#__main__-top-level-script-environment)
+    - [Advantages](https://github.com/Web-Dev-Collaborative/python-cheatsheet#advantages)
+  - [setup.py](https://github.com/Web-Dev-Collaborative/python-cheatsheet#setuppy)
+  - [Dataclasses](https://github.com/Web-Dev-Collaborative/python-cheatsheet#dataclasses)
+    - [Features](https://github.com/Web-Dev-Collaborative/python-cheatsheet#features)
+    - [Default values](https://github.com/Web-Dev-Collaborative/python-cheatsheet#default-values)
+    - [Type hints](https://github.com/Web-Dev-Collaborative/python-cheatsheet#type-hints)
+  - [Virtual Environment](https://github.com/Web-Dev-Collaborative/python-cheatsheet#virtual-environment)
+    - [virtualenv](https://github.com/Web-Dev-Collaborative/python-cheatsheet#virtualenv)
+    - [poetry](https://github.com/Web-Dev-Collaborative/python-cheatsheet#poetry)
+    - [pipenv](https://github.com/Web-Dev-Collaborative/python-cheatsheet#pipenv)
+    - [anaconda](https://github.com/Web-Dev-Collaborative/python-cheatsheet#anaconda)
 
 ### The Zen of Python
 
@@ -4472,15 +4438,15 @@ Namespaces are one honking great idea -- let's do more of those!
 
 From **Highest** to **Lowest** precedence:
 
-| Operators | Operation | Example |
-| :--- | :--- | :--- |
-| \*\* | Exponent | `2 ** 3 = 8` |
-| % | Modulus/Remainder | `22 % 8 = 6` |
-| // | Integer division | `22 // 8 = 2` |
-| / | Division | `22 / 8 = 2.75` |
-| \* | Multiplication | `3 * 3 = 9` |
-| - | Subtraction | `5 - 2 = 3` |
-| + | Addition | `2 + 2 = 4` |
+| Operators | Operation         | Example         |
+| :-------- | :---------------- | :-------------- |
+| \*\*      | Exponent          | `2 ** 3 = 8`    |
+| %         | Modulus/Remainder | `22 % 8 = 6`    |
+| //        | Integer division  | `22 // 8 = 2`   |
+| /         | Division          | `22 / 8 = 2.75` |
+| \*        | Multiplication    | `3 * 3 = 9`     |
+| -         | Subtraction       | `5 - 2 = 3`     |
+| +         | Addition          | `2 + 2 = 4`     |
 
 Examples of expressions in the interactive shell:
 
@@ -4518,11 +4484,11 @@ Examples of expressions in the interactive shell:
 
 #### Data Types
 
-| Data Type | Examples |
-| :--- | :--- |
-| Integers | `-2, -1, 0, 1, 2, 3, 4, 5` |
+| Data Type              | Examples                                  |
+| :--------------------- | :---------------------------------------- |
+| Integers               | `-2, -1, 0, 1, 2, 3, 4, 5`                |
 | Floating-point numbers | `-1.25, -1.0, --0.5, 0.0, 0.5, 1.0, 1.25` |
-| Strings | `'a', 'aa', 'aaa', 'Hello!', '11 cats'` |
+| Strings                | `'a', 'aa', 'aaa', 'Hello!', '11 cats'`   |
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
@@ -4693,14 +4659,14 @@ Float to Integer:
 
 #### Comparison Operators
 
-| Operator | Meaning |
-| :--- | :--- |
-| `==` | Equal to |
-| `!=` | Not equal to |
-| `<` | Less than |
-| `>` | Greater Than |
-| `<=` | Less than or Equal to |
-| `>=` | Greater than or Equal to |
+| Operator | Meaning                  |
+| :------- | :----------------------- |
+| `==`     | Equal to                 |
+| `!=`     | Not equal to             |
+| `<`      | Less than                |
+| `>`      | Greater Than             |
+| `<=`     | Less than or Equal to    |
+| `>=`     | Greater than or Equal to |
 
 These operators evaluate to True or False depending on the values you give them.
 
@@ -4799,28 +4765,28 @@ There are three Boolean operators: and, or, and not.
 
 The _and_ Operator’s _Truth_ Table:
 
-| Expression | Evaluates to |
-| :--- | :--- |
-| `True and True` | `True` |
-| `True and False` | `False` |
-| `False and True` | `False` |
-| `False and False` | `False` |
+| Expression        | Evaluates to |
+| :---------------- | :----------- |
+| `True and True`   | `True`       |
+| `True and False`  | `False`      |
+| `False and True`  | `False`      |
+| `False and False` | `False`      |
 
 The _or_ Operator’s _Truth_ Table:
 
-| Expression | Evaluates to |
-| :--- | :--- |
-| `True or True` | `True` |
-| `True or False` | `True` |
-| `False or True` | `True` |
-| `False or False` | `False` |
+| Expression       | Evaluates to |
+| :--------------- | :----------- |
+| `True or True`   | `True`       |
+| `True or False`  | `True`       |
+| `False or True`  | `True`       |
+| `False or False` | `False`      |
 
 The _not_ Operator’s _Truth_ Table:
 
-| Expression | Evaluates to |
-| :--- | :--- |
-| `not True` | `False` |
-| `not False` | `True` |
+| Expression  | Evaluates to |
+| :---------- | :----------- |
+| `not True`  | `False`      |
+| `not False` | `True`       |
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
@@ -5044,8 +5010,8 @@ Hello Bob
 
 When creating a function using the def statement, you can specify what the return value should be with a return statement. A return statement consists of the following:
 
-* The return keyword.
-* The value or expression that the function should return.
+- The return keyword.
+- The value or expression that the function should return.
 
 ```text
 import random
@@ -5114,10 +5080,10 @@ cats,dogs,mice
 
 #### Local and Global Scope
 
-* Code in the global scope cannot use any local variables.
-* However, a local scope can access global variables.
-* Code in a function’s local scope cannot use variables in any other local scope.
-* You can use the same name for different variables if they are in different scopes. That is, there can be a local variable named spam and a global variable also named spam.
+- Code in the global scope cannot use any local variables.
+- However, a local scope can access global variables.
+- Code in a function’s local scope cannot use variables in any other local scope.
+- You can use the same name for different variables if they are in different scopes. That is, there can be a local variable named spam and a global variable also named spam.
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
@@ -5456,8 +5422,8 @@ The multiple assignment trick can also be used to swap the values in two variabl
 
 #### Augmented Assignment Operators
 
-| Operator | Equivalent |
-| :--- | :--- |
+| Operator    | Equivalent        |
+| :---------- | :---------------- |
 | `spam += 1` | `spam = spam + 1` |
 | `spam -= 1` | `spam = spam - 1` |
 | `spam *= 1` | `spam = spam * 1` |
@@ -5955,7 +5921,7 @@ KeyError: 3
 {4}
 ```
 
-#### set symetric\_difference
+#### set symetric_difference
 
 `symetric_difference` or `^` will return all the elements that are not common between them.
 
@@ -6069,7 +6035,7 @@ Example:
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
-#### combinations\_with\_replacement\(\)
+#### combinations_with_replacement\(\)
 
 Just like combinations\(\), but allows individual elements to be repeated more than once.
 
@@ -6461,7 +6427,7 @@ blue
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
-#### zip\_longest\(\)
+#### zip_longest\(\)
 
 Makes an iterator that aggregates elements from each of the iterables. If the iterables are of uneven length, missing values are filled-in with fillvalue. Iteration continues until the longest iterable is exhausted.
 
@@ -6529,13 +6495,13 @@ A List comprehension can be generated from a dictionary:
 
 #### Escape Characters
 
-| Escape character | Prints as |
-| :--- | :--- |
-| `\'` | Single quote |
-| `\"` | Double quote |
-| `\t` | Tab |
-| `\n` | Newline \(line break\) |
-| `\\` | Backslash |
+| Escape character | Prints as              |
+| :--------------- | :--------------------- |
+| `\'`             | Single quote           |
+| `\"`             | Double quote           |
+| `\t`             | Tab                    |
+| `\n`             | Newline \(line break\) |
+| `\\`             | Backslash              |
 
 Example:
 
@@ -6759,11 +6725,11 @@ False
 
 #### The isX String Methods
 
-* **isalpha\(\)** returns True if the string consists only of letters and is not blank.
-* **isalnum\(\)** returns True if the string consists only of letters and numbers and is not blank.
-* **isdecimal\(\)** returns True if the string consists only of numeric characters and is not blank.
-* **isspace\(\)** returns True if the string consists only of spaces,tabs, and new-lines and is not blank.
-* **istitle\(\)** returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters.
+- **isalpha\(\)** returns True if the string consists only of letters and is not blank.
+- **isalnum\(\)** returns True if the string consists only of letters and numbers and is not blank.
+- **isdecimal\(\)** returns True if the string consists only of numeric characters and is not blank.
+- **isspace\(\)** returns True if the string consists only of spaces,tabs, and new-lines and is not blank.
+- **istitle\(\)** returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters.
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
@@ -7247,8 +7213,8 @@ In addition to the search\(\) method, Regex objects also have a findall\(\) meth
 
 To summarize what the findall\(\) method returns, remember the following:
 
-* When called on a regex with no groups, such as \d-\d\d\d-\d\d\d\d, the method findall\(\) returns a list of ng matches, such as \['415-555-9999', '212-555-0000'\].
-* When called on a regex that has groups, such as \(\d\d\d\)-\(d\d\)-\(\d\d\d\d\), the method findall\(\) returns a list of es of strings \(one string for each group\), such as \[\('415', '555', '9999'\), \('212', '555', '0000'\)\].
+- When called on a regex with no groups, such as \d-\d\d\d-\d\d\d\d, the method findall\(\) returns a list of ng matches, such as \['415-555-9999', '212-555-0000'\].
+- When called on a regex that has groups, such as \(\d\d\d\)-\(d\d\)-\(\d\d\d\d\), the method findall\(\) returns a list of es of strings \(one string for each group\), such as \[\('415', '555', '9999'\), \('212', '555', '0000'\)\].
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
@@ -7279,9 +7245,9 @@ By placing a caret character \(^\) just after the character class’s opening br
 
 #### The Caret and Dollar Sign Characters
 
-* You can also use the caret symbol \(^\) at the start of a regex to indicate that a match must occur at the beginning of the searched text.
-* Likewise, you can put a dollar sign \($\) at the end of the regex to indicate the string must end with this regex pattern.
-* And you can use the ^ and $ together to indicate that the entire string must match the regex—that is, it’s not enough for a match to be made on some subset of the string.
+- You can also use the caret symbol \(^\) at the start of a regex to indicate that a match must occur at the beginning of the searched text.
+- Likewise, you can put a dollar sign \($\) at the end of the regex to indicate the string must end with this regex pattern.
+- And you can use the ^ and $ together to indicate that the entire string must match the regex—that is, it’s not enough for a match to be made on some subset of the string.
 
 The r'^Hello' regular expression string matches strings that begin with 'Hello':
 
@@ -7380,7 +7346,7 @@ The dot-star will match everything except a newline. By passing re.DOTALL as the
 #### Review of Regex Symbols
 
 | Symbol | Matches |
-| :--- | :--- |
+| :-- | :-- |
 | `?` | zero or one of the preceding group. |
 | `*` | zero or more of the preceding group. |
 | `+` | one or more of the preceding group. |
@@ -7614,8 +7580,8 @@ And all is good :\)
 
 There are two ways to specify a file path.
 
-* An absolute path, which always begins with the root folder
-* A relative path, which is relative to the program’s current working directory
+- An absolute path, which always begins with the root folder
+- A relative path, which is relative to the program’s current working directory
 
 There are also the dot \(.\) and dot-dot \(..\) folders. These are not real folders but special names that can be used in a path. A single period \(“dot”\) for a folder name is shorthand for “this directory.” Two periods \(“dot-dot”\) means “the parent folder.”
 
@@ -7914,9 +7880,9 @@ If there is no eggs folder, then move\(\) will rename bacon.txt to a file named 
 
 #### Permanently Deleting Files and Folders
 
-* Calling os.unlink\(path\) or Path.unlink\(\) will delete the file at path.
-* Calling os.rmdir\(path\) or Path.rmdir\(\) will delete the folder at path. This folder must be empty of any files or folders.
-* Calling shutil.rmtree\(path\) will remove the folder at path, and all files and folders it contains will also be deleted.
+- Calling os.unlink\(path\) or Path.unlink\(\) will delete the file at path.
+- Calling os.rmdir\(path\) or Path.rmdir\(\) will delete the folder at path. This folder must be empty of any files or folders.
+- Calling shutil.rmtree\(path\) will remove the folder at path, and all files and folders it contains will also be deleted.
 
 [_Return to the Top_](https://github.com/Web-Dev-Collaborative/python-cheatsheet#python-cheatsheet)
 
@@ -8168,8 +8134,8 @@ Compared to JSON, YAML allows for much better human maintainability and gives yo
 
 There are two main libraries allowing to access to YAML files:
 
-* [PyYaml](https://pypi.python.org/pypi/PyYAML)
-* [Ruamel.yaml](https://pypi.python.org/pypi/ruamel.yaml)
+- [PyYaml](https://pypi.python.org/pypi/PyYAML)
+- [Ruamel.yaml](https://pypi.python.org/pypi/ruamel.yaml)
 
 Install them using `pip install` in your virtual environment.
 
@@ -8213,9 +8179,9 @@ conf1 = anyconfig.load("/path/to/foo/conf.d/a.yml")
 
 Exceptions are raised with a raise statement. In code, a raise statement consists of the following:
 
-* The raise keyword
-* A call to the Exception\(\) function
-* A string with a helpful error message passed to the Exception\(\) function
+- The raise keyword
+- A call to the Exception\(\) function
+- A string with a helpful error message passed to the Exception\(\) function
 
 ```text
 >>> raise Exception('This is the error message.')
@@ -8250,7 +8216,7 @@ for sym, w, h in (('*', 4, 4), ('O', 20, 5), ('x', 1, 3), ('ZZ', 3, 3)):
 
 #### Getting the Traceback as a String
 
-The traceback is displayed by Python whenever a raised exception goes unhandled. But can also obtain it as a string by calling traceback.format\_exc\(\). This function is useful if you want the information from an exception’s traceback but also want an except statement to gracefully handle the exception. You will need to import Python’s traceback module before calling this function.
+The traceback is displayed by Python whenever a raised exception goes unhandled. But can also obtain it as a string by calling traceback.format_exc\(\). This function is useful if you want the information from an exception’s traceback but also want an except statement to gracefully handle the exception. You will need to import Python’s traceback module before calling this function.
 
 ```text
 >>> import traceback
@@ -8279,10 +8245,10 @@ Exception: This is the error message.
 
 An assertion is a sanity check to make sure your code isn’t doing something obviously wrong. These sanity checks are performed by assert statements. If the sanity check fails, then an AssertionError exception is raised. In code, an assert statement consists of the following:
 
-* The assert keyword
-* A condition \(that is, an expression that evaluates to True or False\)
-* A comma
-* A string to display when the condition is False
+- The assert keyword
+- A condition \(that is, an expression that evaluates to True or False\)
+- A comma
+- A string to display when the condition is False
 
 ```text
 >>> pod_bay_door_status = 'open'
@@ -8361,7 +8327,7 @@ Say you wrote a function to calculate the factorial of a number. In mathematics,
 Logging levels provide a way to categorize your log messages by importance. There are five logging levels, described in Table 10-1 from least to most important. Messages can be logged at each level using a different logging function.
 
 | Level | Logging Function | Description |
-| :--- | :--- | :--- |
+| :-- | :-- | :-- |
 | `DEBUG` | `logging.debug()` | The lowest level. Used for small details. Usually you care about these messages only when diagnosing problems. |
 | `INFO` | `logging.info()` | Used to record information on general events in your program or confirm that things are working at their point in the program. |
 | `WARNING` | `logging.warning()` | Used to indicate a potential problem that doesn’t prevent the program from working but might do so in the future. |
@@ -8687,7 +8653,7 @@ python setup.py install
 
 and module will install itself.
 
-Our initial setup.py will also include information about the license and will re-use the README.txt file for the long\_description field. This will look like:
+Our initial setup.py will also include information about the license and will re-use the README.txt file for the long_description field. This will look like:
 
 ```text
 >>> from distutils.core import setup
@@ -8980,4 +8946,3 @@ Usage:
    ```text
    conda deactivate
    ```
-

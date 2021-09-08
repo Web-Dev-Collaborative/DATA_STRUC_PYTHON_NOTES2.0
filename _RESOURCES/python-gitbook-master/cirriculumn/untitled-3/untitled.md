@@ -1,7 +1,5 @@
 # D4-Module 04 - Python IV
 
-
-
 ## Objective 01 - Recall the time and space complexity, the strengths and weaknesses, and basic operations of a static array
 
 ### Overview <a id="overview"></a>
@@ -54,7 +52,7 @@ In Python, the syntax looks like this:
 my_list[start_index:end_index]
 ```
 
-The default start index is 0, and if you leave off the end\_index, the slice will capture through the end of the list.
+The default start index is 0, and if you leave off the end_index, the slice will capture through the end of the list.
 
 ```text
 my_list[:]  # This would be all of the items in my_list
@@ -73,12 +71,10 @@ You must keep these facts in mind and account for them when using a slice in you
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.hackerearth.com/practice/data-structures/arrays/1-d/tutorial/ \(Links to an external site.\)](https://www.hackerearth.com/practice/data-structures/arrays/1-d/tutorial/)
-* [https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/](https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/)
+- [https://www.hackerearth.com/practice/data-structures/arrays/1-d/tutorial/ \(Links to an external site.\)](https://www.hackerearth.com/practice/data-structures/arrays/1-d/tutorial/)
+- [https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/](https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ## Objective 02 - Describe the differences between in-place and out-of-place algorithms
 
@@ -158,15 +154,9 @@ Notice how we had to store the returned list in a new variable. Also, notice tha
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.techiedelight.com/in-place-vs-out-of-place-algorithms/](https://www.techiedelight.com/in-place-vs-out-of-place-algorithms/)
-
-
-
-
+- [https://www.techiedelight.com/in-place-vs-out-of-place-algorithms/](https://www.techiedelight.com/in-place-vs-out-of-place-algorithms/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ## Objective 03 - Recall the time and space complexity, the strengths and weaknesses, and basic operations of a dynamic array
 
@@ -220,13 +210,9 @@ So, let's say that your dynamic array instantiates with an underlying static arr
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.youtube.com/watch?v=qTb1sZX74K0 \(Links to an external site.\)](https://www.youtube.com/watch?v=qTb1sZX74K0)[![](https://lambdaschool.instructure.com/images/play_overlay.png)](https://www.youtube.com/watch?v=qTb1sZX74K0)
+- [https://www.youtube.com/watch?v=qTb1sZX74K0 \(Links to an external site.\)](https://www.youtube.com/watch?v=qTb1sZX74K0)[![](https://lambdaschool.instructure.com/images/play_overlay.png)](https://www.youtube.com/watch?v=qTb1sZX74K0)
 
 {% embed url="https://www.youtube.com/watch?v=qTb1sZX74K0" %}
-
-
-
-
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
@@ -234,21 +220,6 @@ So, let's say that your dynamic array instantiates with an underlying static arr
 
 This module project requires you to answer some multiple-choice questions related to the module's objectives. Additionally, you must continue developing your problem-solving skills by completing coding challenges related to its content.
 
-
-
-
-
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
-
-
-
-
-
-
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
-
-
-

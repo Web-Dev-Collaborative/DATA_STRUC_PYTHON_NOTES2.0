@@ -12,9 +12,8 @@ Class name in python is preceded with `class` keyword followed by a colon \(`:`\
 
 Let's see an example.
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 Here we have created a class called `Person` which contains one data field called `name` and method `whoami()`.
 
@@ -24,9 +23,8 @@ All methods in python including some special methods like initializer have first
 
 ### Creating object from class \#
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 **Expected Output:**
 
@@ -36,9 +34,8 @@ When you call a method you don't need to pass anything to `self` parameter, pyth
 
 You can also change the `name` data field.
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 **Expected Output:**
 
@@ -50,15 +47,13 @@ To hide data fields you need to define private data fields. In python you can cr
 
 Let's see an example
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 **Expected Output:**
 
-|  |  |
-| :--- | :--- |
-
+|     |     |
+| :-- | :-- |
 
 Let's try to access `__balance` data field outside of class.
 
@@ -75,4 +70,3 @@ Other Tutorials \(Sponsors\)
 This site generously supported by [DataCamp](https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials). DataCamp offers online interactive [Python Tutorials](https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials) for Data Science. Join over a million other learners and get started learning Python for data science today!
 
 [Source](https://thepythonguru.com/python-object-and-classes/)
-

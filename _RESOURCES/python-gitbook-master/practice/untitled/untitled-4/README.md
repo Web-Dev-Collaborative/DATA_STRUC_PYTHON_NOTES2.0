@@ -1,7 +1,7 @@
 # Linked List
 
-{% tabs %}
-{% tab title="Implementation " %}
+{% tabs %} {% tab title="Implementation " %}
+
 ```python
 """The LinkedList code from before is provided below.
 Add three functions to the LinkedList.
@@ -113,6 +113,7 @@ print ll.get_position(2).value
 print ll.get_position(3).value
 
 ```
+
 {% endtab %}
 
 {% tab title="Second Tab" %}
@@ -120,6 +121,7 @@ print ll.get_position(3).value
 {% endtab %}
 
 {% tab title="Advanced" %}
+
 ```python
 from __future__ import annotations
 
@@ -342,20 +344,20 @@ class CircularDoublyLinkedList(BaseCircularLinkedList[T], BaseDoublyLinkedList[T
         self.tail.next, self.tail.last, self.tail = self.tail.last, self.tail.next, self.tail.next
 
 ```
-{% endtab %}
-{% endtabs %}
 
-A linked list is similar to an array, it holds values. However, links in a linked  list do not have indexes.
+{% endtab %} {% endtabs %}
 
-* This is an example of a double ended, doubly linked list.
-* Each link references the next link and the previous one.
-* A Doubly Linked List \(DLL\) contains an extra pointer, typically called previous
+A linked list is similar to an array, it holds values. However, links in a linked list do not have indexes.
 
-    pointer, together with next pointer and data which are there in singly linked list.
+- This is an example of a double ended, doubly linked list.
+- Each link references the next link and the previous one.
+- A Doubly Linked List \(DLL\) contains an extra pointer, typically called previous
 
-  * Advantages over SLL - It can be traversed in both forward and backward direction.
+  pointer, together with next pointer and data which are there in singly linked list.
 
-     Delete operation is more efficient
+  - Advantages over SLL - It can be traversed in both forward and backward direction.
+
+    Delete operation is more efficient
 
 ```python
 """Each ListNode holds a reference to its previous node
@@ -423,15 +425,11 @@ class DoublyLinkedList:
 
   def delete(self, node):
     pass
-    
+
   def get_max(self):
     pass
 
 ```
-
-
-
-
 
 Test:
 
@@ -475,7 +473,7 @@ class DoublyLinkedListTests(unittest.TestCase):
     self.assertEqual(len(self.dll), 1)
     self.assertEqual(self.dll.remove_from_head(), 2)
     self.assertEqual(len(self.dll), 0)
-    
+
     self.dll.add_to_head(55)
     self.assertEqual(len(self.dll), 1)
     self.assertEqual(self.dll.remove_from_head(), 55)
@@ -590,6 +588,3 @@ class DoublyLinkedListTests(unittest.TestCase):
 if __name__ == '__main__':
   unittest.main()
 ```
-
-
-

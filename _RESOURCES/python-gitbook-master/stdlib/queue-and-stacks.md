@@ -10,10 +10,10 @@ Python’s `deque` is a low-level and highly optimized [double-ended queue](http
 
 **In this tutorial, you’ll learn:**
 
-* How to create and use Python’s **`deque`** in your code
-* How to efficiently **append** and **pop** items from both ends of a `deque`
-* How to use `deque` to build efficient **queues** and **stacks**
-* When it’s worth using **`deque`** instead of **`list`**
+- How to create and use Python’s **`deque`** in your code
+- How to efficiently **append** and **pop** items from both ends of a `deque`
+- How to use `deque` to build efficient **queues** and **stacks**
+- When it’s worth using **`deque`** instead of **`list`**
 
 To better understand these topics, you should know the basics of working with Python [lists](https://realpython.com/python-lists-tuples/). It’ll also be beneficial for you to have a general understanding of [queues](https://realpython.com/python-data-structures/#queues-fifos) and [stacks](https://realpython.com/how-to-implement-python-stack/).
 
@@ -41,16 +41,16 @@ Deques are also the way to go if you need to keep a list of last-seen items beca
 
 Here’s a summary of the main characteristics of `deque`:
 
-* Stores items of any [data type](https://realpython.com/python-data-types/)
-* Is a [mutable](https://docs.python.org/3/glossary.html#term-mutable) data type
-* Supports [membership operations](https://realpython.com/python-boolean/#the-in-operator) with the `in` operator
-* Supports [indexing](https://realpython.com/python-lists-tuples/#list-elements-can-be-accessed-by-index), like in `a_deque[i]`
-* Doesn’t support slicing, like in `a_deque[0:2]`
-* Supports built-in functions that operate on sequences and iterables, such as [`len()`](https://docs.python.org/3/library/functions.html#len), [`sorted()`](https://realpython.com/python-sort/), [`reversed()`](https://realpython.com/python-reverse-list/), and more
-* Doesn’t support [in-place](https://en.wikipedia.org/wiki/In-place_algorithm) sorting
-* Supports normal and reverse iteration
-* Supports pickling with [`pickle`](https://realpython.com/python-pickle-module/)
-* Ensures fast, memory-efficient, and thread-safe pop and append operations on both ends
+- Stores items of any [data type](https://realpython.com/python-data-types/)
+- Is a [mutable](https://docs.python.org/3/glossary.html#term-mutable) data type
+- Supports [membership operations](https://realpython.com/python-boolean/#the-in-operator) with the `in` operator
+- Supports [indexing](https://realpython.com/python-lists-tuples/#list-elements-can-be-accessed-by-index), like in `a_deque[i]`
+- Doesn’t support slicing, like in `a_deque[0:2]`
+- Supports built-in functions that operate on sequences and iterables, such as [`len()`](https://docs.python.org/3/library/functions.html#len), [`sorted()`](https://realpython.com/python-sort/), [`reversed()`](https://realpython.com/python-reverse-list/), and more
+- Doesn’t support [in-place](https://en.wikipedia.org/wiki/In-place_algorithm) sorting
+- Supports normal and reverse iteration
+- Supports pickling with [`pickle`](https://realpython.com/python-pickle-module/)
+- Ensures fast, memory-efficient, and thread-safe pop and append operations on both ends
 
 Creating `deque` instances is a straightforward process. You just need to import `deque` from `collections` and call it with an optional `iterable` as an argument:&gt;&gt;&gt;
 
@@ -193,7 +193,7 @@ The `deque` data type was designed to guarantee efficient append and pop operati
 Python’s `deque` returns mutable sequences that work quite similarly to lists. Besides allowing you to append and pop items from their ends efficiently, deques provide a group of list-like methods and other sequence-like operations to work with items at arbitrary locations. Here are some of them:
 
 | Option | Description |
-| :--- | :--- |
+| :-- | :-- |
 | [`.insert(i, value)`](https://docs.python.org/3/library/collections.html#collections.deque.insert) | Insert an item `value` into a deque at index `i`. |
 | [`.remove(value)`](https://docs.python.org/3/library/collections.html#collections.deque.remove) | Remove the first occurrence of `value`, raising [`ValueError`](https://docs.python.org/3/library/exceptions.html#ValueError) if the `value` doesn’t exist. |
 | [`a_deque[i]`](https://docs.python.org/3/library/stdtypes.html#common-sequence-operations) | Retrieve the item at index `i` from a deque. |
@@ -291,7 +291,7 @@ Deques aren’t random-access data structures like lists. Therefore, accessing e
 Python’s `deque` is optimized for operations on either end of the sequence, so they’re consistently better than lists in this regard. On the other hand, lists are better for random-access and fixed-length operations. Here are some of the differences between deques and lists in terms of performance:
 
 | Operation | `deque` | `list` |
-| :--- | :--- | :--- |
+| :-- | :-- | :-- |
 | Accessing arbitrary items through indexing | _O_\(_n_\) | _O_\(1\) |
 | Popping and appending items on the left end | _O_\(1\) | _O_\(_n_\) |
 | Popping and appending items on the right end | _O_\(1\) | _O_\(1\) + reallocation |
@@ -353,12 +353,12 @@ The good news is that you can create custom queue classes with the functionality
 
 For example, say you need a custom queue abstract data type that provides only the following features:
 
-* Enqueuing items
-* Dequeuing items
-* Returning the length of the queue
-* Supporting membership tests
-* Supporting normal and reverse iteration
-* Providing a user-friendly string representation
+- Enqueuing items
+- Dequeuing items
+- Returning the length of the queue
+- Supporting membership tests
+- Supporting normal and reverse iteration
+- Providing a user-friendly string representation
 
 In this case, you can write a `Queue` class that looks like the following:
 
@@ -401,7 +401,7 @@ Here, `._items` holds a `deque` object that allows you to store and manipulate t
 The [special methods](https://docs.python.org/3/glossary.html#term-special-method) support the following features:
 
 | Method | Support |
-| :--- | :--- |
+| :-- | :-- |
 | [`.__len__()`](https://docs.python.org/3/reference/datamodel.html#object.__len__) | Length with `len()` |
 | [`.__contains__()`](https://docs.python.org/3/reference/datamodel.html#object.__contains__) | Membership tests with `in` |
 | [`.__iter__()`](https://docs.python.org/3/reference/datamodel.html#object.__iter__) | Normal iteration |
@@ -594,7 +594,7 @@ You can use the addition [operator](https://realpython.com/python-operators-expr
 Regarding other sequence methods, the following table provides a summary:
 
 | Method | Description |
-| :--- | :--- |
+| :-- | :-- |
 | [`.clear()`](https://docs.python.org/3/library/collections.html#collections.deque.clear) | Remove all the elements from a deque. |
 | [`.copy()`](https://docs.python.org/3/library/collections.html#collections.deque.copy) | Create a shallow copy of a deque. |
 | [`.count(value)`](https://docs.python.org/3/library/collections.html#collections.deque.count) | Count the number times `value` appears in a deque. |
@@ -769,10 +769,9 @@ With `deque`, you can code your own queues and stacks at a low level in an elega
 
 **In this tutorial, you learned how to:**
 
-* Create and use Python’s **`deque`** in your code
-* Efficiently **append** and **pop** items from both ends of a sequence with `deque`
-* Use `deque` to build efficient **queues** and **stacks** in Python
-* Decide when to use **`deque`** instead of **`list`**
+- Create and use Python’s **`deque`** in your code
+- Efficiently **append** and **pop** items from both ends of a sequence with `deque`
+- Use `deque` to build efficient **queues** and **stacks** in Python
+- Decide when to use **`deque`** instead of **`list`**
 
 In this tutorial, you also coded a few examples that helped you approach some common use cases of `deque` in Python.
-

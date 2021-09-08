@@ -1,11 +1,5 @@
 # SCRAP
 
-
-
-
-
-
-
 ```python
 """
 
@@ -42,4 +36,3 @@ print(plus_one([9, 9, 9]))
 # put it back into an array and return
 
 ```
-

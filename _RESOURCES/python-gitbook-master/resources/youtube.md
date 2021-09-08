@@ -2,17 +2,9 @@
 
 {% embed url="https://youtu.be/ocxkkzjdFeY" %}
 
-
-
-
-
-
-
 {% embed url="https://youtu.be/j5Hu08FhAJQ" %}
 
 \*\*\*\*
-
-
 
 {% embed url="https://youtu.be/rxYrTtxefjE" %}
 
@@ -22,81 +14,25 @@
 
 \*\*\*\*
 
-
-
 {% embed url="https://youtu.be/BJ8YtWWFUnw" %}
-
-
-
-
 
 {% embed url="https://youtu.be/7bxLcOqwL2c" %}
 
-
-
-
-
 {% embed url="https://youtu.be/mYu3vNKp8SQ" %}
-
-
-
-
 
 {% embed url="https://youtu.be/-S5CwtII718" %}
 
-
-
-
-
 {% embed url="https://youtu.be/MQmxFxERdCY" %}
-
-
-
-
-
-
 
 {% embed url="https://youtu.be/PC0w44UH7Mo" %}
 
-
-
-
-
-
-
 {% embed url="https://youtu.be/qPgANRuDdhw" %}
-
-
-
-
-
-
-
-
 
 {% embed url="https://youtu.be/BsWLku3l5ik" %}
 
-
-
-
-
-
-
 {% embed url="https://youtu.be/KhR06pnMSCQ" %}
 
-
-
-
-
-
-
-
-
 {% embed url="https://youtu.be/c-nFwfcxQ0o" %}
-
-
-
-
 
 \*\*\*\*
 
@@ -121,4 +57,3 @@
 17. \*\*\*\*[**Telusko**](https://mikkegoes.com/youtube-channels-learn-python/#telusko)\*\*\*\*
 18. \*\*\*\*[**thenewboston**](https://mikkegoes.com/youtube-channels-learn-python/#thenewboston)\*\*\*\*
 19. \*\*\*\*[**Traversy Media**](https://mikkegoes.com/youtube-channels-learn-python/#traversy-media)\*\*\*\*
-

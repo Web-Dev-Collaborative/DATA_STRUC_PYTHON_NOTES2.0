@@ -1,16 +1,8 @@
 # D2-Graphs 2
 
-
-
 {% embed url="https://gist.github.com/bgoonz/4dc35438f8c293cf68e81c0d73ddfe1a" %}
 
-
-
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
-
-
 
 ## Objective 01 - Represent a breadth-first-search of a graph in pseudo-code and recall typical applications for its use
 
@@ -32,15 +24,15 @@ _Note: it's essential to know the distinction between a breadth-first search and
 
 #### Applications of BFS <a id="applications-of-bfs"></a>
 
-* Pathfinding, Routing
-* Find neighbor nodes in a P2P network like BitTorrent
-* Web crawlers
-* Finding people `n` connections away on a social network
-* Find neighboring locations on the graph
-* Broadcasting in a network
-* Cycle detection in a graph
-* Finding [Connected Components \(Links to an external site.\)](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29)
-* Solving several theoretical graph problems
+- Pathfinding, Routing
+- Find neighbor nodes in a P2P network like BitTorrent
+- Web crawlers
+- Finding people `n` connections away on a social network
+- Find neighboring locations on the graph
+- Broadcasting in a network
+- Cycle detection in a graph
+- Finding [Connected Components \(Links to an external site.\)](https://en.wikipedia.org/wiki/Connected_component_%28graph_theory%29)
+- Solving several theoretical graph problems
 
 #### Coloring Vertexes <a id="coloring-vertexes"></a>
 
@@ -88,9 +80,9 @@ The condition we check at the outset of each while loop is if the queue is **not
 
 Then, we loop through each of that vert's neighbors and:
 
-* We check if it is unvisited \(the color white\).
-* If it is unvisited, we mark it as gray \(meaning we will explore its neighbors\).
-* We enqueue the vert.
+- We check if it is unvisited \(the color white\).
+- If it is unvisited, we mark it as gray \(meaning we will explore its neighbors\).
+- We enqueue the vert.
 
 Next, we dequeue the current vert we've been exploring and mark that vert as black \(marking it as visited\).
 
@@ -128,13 +120,9 @@ On your own, complete the following tasks:
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://brilliant.org/wiki/breadth-first-search-bfs/](https://brilliant.org/wiki/breadth-first-search-bfs/)
-
-
+- [https://brilliant.org/wiki/breadth-first-search-bfs/](https://brilliant.org/wiki/breadth-first-search-bfs/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ## Objective 02 - Represent a depth-first-search of a graph in pseudo-code and recall typical applications for its use
 
@@ -158,11 +146,11 @@ DFS is often the preferred method or exploring a graph _if we want to ensure we 
 
 So, this is an example of where a DFS _would not work well_. What about a genuine use case for DFS. Here are a few examples:
 
-* Finding [Minimum Spanning Trees \(Links to an external site.\)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of weighted graphs
-* Pathfinding
-* Detecting cycles in graphs
-* [Topological sorting \(Links to an external site.\)](https://en.wikipedia.org/wiki/Topological_sorting), useful for scheduling sequences of dependent jobs
-* Solving and generating mazes
+- Finding [Minimum Spanning Trees \(Links to an external site.\)](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of weighted graphs
+- Pathfinding
+- Detecting cycles in graphs
+- [Topological sorting \(Links to an external site.\)](https://en.wikipedia.org/wiki/Topological_sorting), useful for scheduling sequences of dependent jobs
+- Solving and generating mazes
 
 #### Coloring Vertexes <a id="coloring-vertexes"></a>
 
@@ -175,8 +163,6 @@ Unvisited verts are white, verts whose neighbors are being explored are gray, an
 Since DFS will pursue leads in the graph as far as it can, and then "back up" to an earlier branch point to explore that way, recursion is an excellent approach to help "remember" where we left off.
 
 Looking at it with pseudo-code to make the recursion more clear:
-
-
 
 ```python
 explore(graph) {
@@ -223,12 +209,6 @@ On your own, complete the following tasks:
 1. Please spend a few minutes researching to find a unique use-case of a depth-first search that we did not mention in the list above.
 2. Using the graph represented below, draw a picture of the graph and label each of the verts to show the correct vertex visitation order for a depth-first-search starting with vertex `"I"`.
 
-
-
-
-
-
-
 ```python
 class Graph:
     def __init__(self):
@@ -252,15 +232,9 @@ class Graph:
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://brilliant.org/wiki/depth-first-search-dfs/ \(Links to an external site.\)](https://brilliant.org/wiki/depth-first-search-dfs/)
-
-
-
-
+- [https://brilliant.org/wiki/depth-first-search-dfs/ \(Links to an external site.\)](https://brilliant.org/wiki/depth-first-search-dfs/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ## Objective 03 - Implement a breadth-first search on a graph
 
@@ -373,15 +347,9 @@ class Graph:
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/ \(Links to an external site.\)](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
-
-
-
-
+- [https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/ \(Links to an external site.\)](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ## Objective 04 - Implement a depth-first search on a graph
 
@@ -488,15 +456,6 @@ class Graph:
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/ \(Links to an external site.\)](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
-
-
-
-
+- [https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/ \(Links to an external site.\)](https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
-
-
-

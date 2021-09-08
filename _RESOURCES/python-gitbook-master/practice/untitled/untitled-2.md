@@ -1,9 +1,7 @@
 # Searching
 
+{% tabs %} {% tab title="First Tab" %}
 
-
-{% tabs %}
-{% tab title="First Tab" %}
 ```python
 from collections import deque
 from collections.abc import Sequence
@@ -29,9 +27,11 @@ def bfs_search_grid(grid: Sequence[Sequence[int]], start: tuple[int, int], goal:
     return False
 
 ```
+
 {% endtab %}
 
 {% tab title="bisect\_search.py" %}
+
 ```python
 from collections.abc import Callable
 
@@ -47,9 +47,11 @@ def bisect_search(predicate: Callable[[int], bool], low: int, high: int) -> int:
     return low
 
 ```
+
 {% endtab %}
 
 {% tab title="Binary Search" %}
+
 ```python
 # Uses python3
 import random
@@ -130,9 +132,11 @@ stress_test(100, 100000)
 # print(binary_search(test_list, 11))
 
 ```
+
 {% endtab %}
 
 {% tab title="BST.py" %}
+
 ```python
 class BSTNode:
     def __init__(self, value):
@@ -205,9 +209,11 @@ print(f"does 8 exist? {root.search(7)}")
 print(f"does 8 exist? {root.search(15)}")
 
 ```
+
 {% endtab %}
 
 {% tab title="" %}
+
 ```python
 # -*- coding: utf-8 -*-
 """Searching.ipynb
@@ -398,8 +404,8 @@ def fib2(n):
 fib(460)
 
 ```
-{% endtab %}
-{% endtabs %}
+
+{% endtab %} {% endtabs %}
 
 ```python
 from collections import deque
@@ -423,4 +429,3 @@ def bfs_search_dict(graph: Mapping[Node, Iterable[Node]], start: Node, predicate
     return False
 
 ```
-

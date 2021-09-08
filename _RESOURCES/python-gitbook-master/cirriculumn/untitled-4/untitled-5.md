@@ -1,12 +1,9 @@
 ---
 description: >-
-  Objective 01 - Recall the different traversal types for a binary tree and
-  implement a function to complete the traversal for each type
+  Objective 01 - Recall the different traversal types for a binary tree and implement a function to complete the traversal for each type
 ---
 
 # D4- Module 04 - Tree Traversal
-
-
 
 ### Overview <a id="overview"></a>
 
@@ -37,7 +34,7 @@ Let's first look at an inorder depth-first traversal of a binary tree. In this t
 
 Notice that we don't actually "visit" a node until we've already gone to the left subtree. In the animation below, the "going" is denoted by changing the color to a light grey. The actual visiting is represented when it turns red. The base cases in the recursion are when there is no left or right subtree to visit.
 
-![https://tk-assets.lambdaschool.com/4b1680ed-3b4b-4fcf-ba97-bbfe54f5d066\_depth-first-inorder-traversal.gif](https://tk-assets.lambdaschool.com/4b1680ed-3b4b-4fcf-ba97-bbfe54f5d066_depth-first-inorder-traversal.gif)
+![https://tk-assets.lambdaschool.com/4b1680ed-3b4b-4fcf-ba97-bbfe54f5d066_depth-first-inorder-traversal.gif](https://tk-assets.lambdaschool.com/4b1680ed-3b4b-4fcf-ba97-bbfe54f5d066_depth-first-inorder-traversal.gif)
 
 Here is one possible way to code a depth-first inorder traversal in Python:
 
@@ -71,7 +68,7 @@ This traversal type is very similar to an inorder traversal except that the thre
 
 Below is the visualization for how this would type of traversal would look.
 
-![https://tk-assets.lambdaschool.com/c44685b7-b6f7-4214-ba85-226ca56e8042\_depth-first-preorder-traversal.gif](https://tk-assets.lambdaschool.com/c44685b7-b6f7-4214-ba85-226ca56e8042_depth-first-preorder-traversal.gif)
+![https://tk-assets.lambdaschool.com/c44685b7-b6f7-4214-ba85-226ca56e8042_depth-first-preorder-traversal.gif](https://tk-assets.lambdaschool.com/c44685b7-b6f7-4214-ba85-226ca56e8042_depth-first-preorder-traversal.gif)
 
 Here is one possible way to code a depth-first preorder traversal in Python:
 
@@ -107,7 +104,7 @@ This traversal type is very similar to our other traversals except that the thre
 
 Below is the visualization for how this would type of traversal would look.
 
-![https://tk-assets.lambdaschool.com/41bc2877-94d4-4103-885b-c396bec4832a\_depth-first-postorder-traversal.gif](https://tk-assets.lambdaschool.com/41bc2877-94d4-4103-885b-c396bec4832a_depth-first-postorder-traversal.gif)
+![https://tk-assets.lambdaschool.com/41bc2877-94d4-4103-885b-c396bec4832a_depth-first-postorder-traversal.gif](https://tk-assets.lambdaschool.com/41bc2877-94d4-4103-885b-c396bec4832a_depth-first-postorder-traversal.gif)
 
 Here is one possible way to code a depth-first postorder traversal in Python:
 
@@ -143,7 +140,7 @@ A breadth-first traversal is a little different than the depth-first traversals 
 
 Below is a visualization for a breadth-first traversal.
 
-![https://tk-assets.lambdaschool.com/671a11b7-acee-4b16-9452-d42f3b69a24e\_breadth-first-traversal.gif](https://tk-assets.lambdaschool.com/671a11b7-acee-4b16-9452-d42f3b69a24e_breadth-first-traversal.gif)
+![https://tk-assets.lambdaschool.com/671a11b7-acee-4b16-9452-d42f3b69a24e_breadth-first-traversal.gif](https://tk-assets.lambdaschool.com/671a11b7-acee-4b16-9452-d42f3b69a24e_breadth-first-traversal.gif)
 
 Here is one way that you could code a breadth-first \(level order\) traversal in Python:
 
@@ -182,44 +179,15 @@ def breadth_first_traversal(root):
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/ \(Links to an external site.\)](https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/)
-* [https://www.geeksforgeeks.org/level-order-tree-traversal/ \(Links to an external site.\)](https://www.geeksforgeeks.org/level-order-tree-traversal/)
+- [https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/ \(Links to an external site.\)](https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/)
+- [https://www.geeksforgeeks.org/level-order-tree-traversal/ \(Links to an external site.\)](https://www.geeksforgeeks.org/level-order-tree-traversal/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
-
-
-
-
-
+![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
-
-
-
-
-
-
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
-
-
-
-
-
-
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
-
-
-
-
-
-![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
-
-
-

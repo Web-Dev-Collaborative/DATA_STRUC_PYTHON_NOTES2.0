@@ -1,7 +1,7 @@
 # Queue
 
-{% tabs %}
-{% tab title="Implementation " %}
+{% tabs %} {% tab title="Implementation " %}
+
 ```python
 """Make a Queue class using a list!
 Hint: You can use any Python list method
@@ -58,12 +58,12 @@ q.enqueue(5)
 print q.peek()
 
 ```
+
 {% endtab %}
 
 {% tab title="Second Tab" %}
 
-{% endtab %}
-{% endtabs %}
+{% endtab %} {% endtabs %}
 
 ```python
 """Make a Queue class using a list!
@@ -121,4 +121,3 @@ q.enqueue(5)
 print q.peek()
 
 ```
-

@@ -66,15 +66,11 @@ class DoublyLinkedList:
 
   def delete(self, node):
     pass
-    
+
   def get_max(self):
     pass
 
 ```
-
-
-
-
 
 Test:
 
@@ -118,7 +114,7 @@ class DoublyLinkedListTests(unittest.TestCase):
     self.assertEqual(len(self.dll), 1)
     self.assertEqual(self.dll.remove_from_head(), 2)
     self.assertEqual(len(self.dll), 0)
-    
+
     self.dll.add_to_head(55)
     self.assertEqual(len(self.dll), 1)
     self.assertEqual(self.dll.remove_from_head(), 55)
@@ -233,6 +229,3 @@ class DoublyLinkedListTests(unittest.TestCase):
 if __name__ == '__main__':
   unittest.main()
 ```
-
-
-

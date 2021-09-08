@@ -4,8 +4,6 @@ description: Python Glossary
 
 # Python Glossary
 
-
-
 This page is meant to be a quick reference guide to Python. If you see something that needs to be added, please let us know and we will add it to the list.
 
 **“&gt;&gt;&gt;”**
@@ -15,10 +13,6 @@ The default Python prompt of the interactive shell. Often seen for [code example
 **abs**
 
 Return the absolute value of a number.
-
-
-
-
 
 **argparse**
 
@@ -76,9 +70,9 @@ A docstring is a string literal that occurs as the first statement in a module, 
 
 A pseudo-module which programmers can use to enable new language features which are not compatible with the current interpreter.
 
-**easy\_install**
+**easy_install**
 
-Easy Install is a python module \(easy\_install\) bundled with setuptools that lets you automatically download, build, install, and manage Python packages.
+Easy Install is a python module \(easy_install\) bundled with setuptools that lets you automatically download, build, install, and manage Python packages.
 
 **evaluation order**
 
@@ -273,4 +267,3 @@ Returns a value from a generator function.
 **Zen of Python**
 
 When you type “import this”, Python’s philosophy is printed out.
-

@@ -9,4 +9,3 @@ for dir in d:
     currrent_path = os.path.abspath(dir)
     print(currrent_path)
 ```
-

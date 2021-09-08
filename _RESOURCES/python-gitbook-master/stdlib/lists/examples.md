@@ -1,7 +1,7 @@
 # Examples
 
-{% tabs %}
-{% tab title="ll.py" %}
+{% tabs %} {% tab title="ll.py" %}
+
 ```python
 # -*- coding: utf-8 -*-
 """Copy of Linked Lists.ipynb
@@ -17,18 +17,18 @@ Original file is located at
 - Next (A pointer or reference to the next node in the list)
 
 ```
-L1 = Node(34)
-L1.next = Node(45)
-L1.next.next = Node(90)
+
+L1 = Node(34) L1.next = Node(45) L1.next.next = Node(90)
 
 # while the current node is not none
-  # do something with the data
-  # traverse to next node
+
+# do something with the data
+
+# traverse to next node
 
 L1 = [34]-> [45]-> [90] -> None
 
-Node(45)
-Node(90)
+Node(45) Node(90)
 
 ```
 """
@@ -298,12 +298,13 @@ class HashTable:
         # Your code here
 
 ```
+
 {% endtab %}
 
 {% tab title="Second Tab" %}
+
 ```python
 
 ```
-{% endtab %}
-{% endtabs %}
 
+{% endtab %} {% endtabs %}

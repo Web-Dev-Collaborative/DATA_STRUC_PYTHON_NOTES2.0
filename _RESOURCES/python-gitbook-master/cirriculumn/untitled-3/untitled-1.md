@@ -71,8 +71,6 @@ for number in numbers:
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-list-operations-1" %}
 
-
-
 ### Follow Along <a id="follow-along"></a>
 
 Let's use a dictionary to create a collection that maps first names as keys \(strings\) to phone numbers as values.
@@ -120,7 +118,7 @@ Ok, let's stop freaking out, and let's think about this. If we don't do anything
 
 Let's fix this problem. The most common way to solve this is with **chaining**. If we see multiple values hashed to an index, we will chain them in a some data structure that can hold multiple items. In our case, we'll use Python's `list` type, but a more typical solution would use a linked list. We'll cover linked lists in a future module.
 
-![https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0\_collision.gif](https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0_collision.gif)
+![https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0_collision.gif](https://tk-assets.lambdaschool.com/f952600c-f3e0-4d96-bb53-def08235c9c0_collision.gif)
 
 Ok, sounds ideal? But how does this work in code? Let's write some of it together.
 
@@ -328,7 +326,7 @@ The performance of hash tables for search, insertion, and deletion is constant t
 
 The load factor of a hash table is trivial to calculate. You take the number of items stored in the hash table divided by the number of slots.
 
-![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae\_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
+![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
 
 Hash tables use an array for storage. So, the load factor is the number of occupied slots divided by the length of the array. So, an array of length 10 with three items in it has a load factor of 0.3, and an array of length 20 with twenty items has a load factor of 1. If you use linear probing for collision resolution, then the maximum load factor is 1. If you use chaining for collision resolution, then the load factor can be greater than 1.
 
@@ -567,7 +565,7 @@ The performance of hash tables for search, insertion, and deletion is constant t
 
 The load factor of a hash table is trivial to calculate. You take the number of items stored in the hash table divided by the number of slots.
 
-![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae\_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
+![https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg](https://tk-assets.lambdaschool.com/59d00218-52e2-4f3d-9680-2b2d8baad3ae_S5-M3-O1LoadFactor.001.jpeg)
 
 Hash tables use an array for storage. So, the load factor is the number of occupied slots divided by the length of the array. So, an array of length 10 with three items in it has a load factor of 0.3, and an array of length 20 with twenty items has a load factor of 1. If you use linear probing for collision resolution, then the maximum load factor is 1. If you use chaining for collision resolution, then the load factor can be greater than 1.
 
@@ -798,7 +796,7 @@ Fantastic, we did it!
 
 ### **Additional Resources**
 
-* [https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf \(Links to an external site.\)](https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf)
+- [https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf \(Links to an external site.\)](https://courses.csail.mit.edu/6.006/spring11/rec/rec07.pdf)
 
 ```python
 for name, number in phonebook.items():
@@ -826,11 +824,7 @@ print(phonebook.pop("Bill"))
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-dictionaries-1\#main.py" %}
 
-
-
-
-
-## 
+##
 
 #### Identity <a id="identity"></a>
 
@@ -890,11 +884,11 @@ A mutable object is an object whose value can be changed after it is created. Th
 
 The following types of objects are mutable:
 
-* list
-* set
-* dict
-* byte array
-* instances of user-defined classes
+- list
+- set
+- dict
+- byte array
+- instances of user-defined classes
 
 Let's look at a few examples in code:
 
@@ -953,19 +947,19 @@ Below, I'm going to walk through what happens when you **alias** a mutable objec
 
 Let me illustrate this with a helpful code visualizer tool called [Python Tutor \(Links to an external site.\)](http://www.pythontutor.com/):
 
-![https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf\_Untitled.png](https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png)
+![https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png](https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png)
 
 On line 1, we instantiate a new list object with three elements \(`1`, `2`, and `3`\). The name `my_list_orig` is the variable that we assign the new list to.
 
-![https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b\_Untitled-2.png](https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png)
+![https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png](https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png)
 
 Then, on line 2, we create an alias of `my_list_orig` by pointing `my_list_alias` to whatever object `my_list_orig` is pointing at. Notice in the image above that there is still only one list object. However, there are two variables in the global frame, and they are both pointing to the same object.
 
-![https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4\_Untitled-3.png](https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png)
+![https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png](https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png)
 
 On line 3, we append a new element to `my_list_orig`. Notice that, because both variables are referencing the same object, even though we appended to `my_list_orig`, we also modified `my_list_alias`.
 
-![https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423\_Untitled-4.png](https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png)
+![https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png](https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png)
 
 On line 4, we removed the element `1` from `my_list_orig`. Notice, just like when we added to the list, `my_list_alias` is also affected.
 
@@ -977,11 +971,11 @@ An immutable object is an object whose value cannot be changed after it is creat
 
 The following types are immutable:
 
-* Numbers \(int, float, complex\)
-* Strings
-* Bytes
-* Booleans
-* Tuples
+- Numbers \(int, float, complex\)
+- Strings
+- Bytes
+- Booleans
+- Tuples
 
 Immutable objects are useful when you want to make sure that the object you created will always maintain the same value. Immutable objects are more _expensive_ to change \(in terms of time and space complexity\) because changing the object requires making a copy of the existing object.
 
@@ -1089,14 +1083,14 @@ Mutable and immutable objects are not treated the same when they are passed as a
 >>> my_list = [1,2,3]
 >>> def append_num_to_list(lst, num):
 ... lst.append(num)
-... 
+...
 >>> append_num_to_list(my_list, 4)
 >>> my_list
 [1, 2, 3, 4]
 >>>
 ```
 
-![https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc\_mutable-object-passed-as-argument-to-function.gif](https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif)
+![https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif](https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif)
 
 Notice that when `append_num_to_list` is called and `my_list` is passed in as an argument. When `my_list` is bound to `lst` in that stack frame, `lst` points to the original `my_list` in memory. The function call did not create a copy of `my_list`. This behavior is because lists are mutable objects in Python.
 
@@ -1108,7 +1102,7 @@ Next, let's see how Python behaves when we pass an immutable object as an argume
 >>> my_string = "I am an immutable object."
 >>> def concatenate_string_to_string(orig_string, string_to_add):
 ... return orig_string + string_to_add
-... 
+...
 >>> concatenate_string_to_string(my_string, " I hope!")
 'I am an immutable object. I hope!'
 >>> my_string
@@ -1116,25 +1110,17 @@ Next, let's see how Python behaves when we pass an immutable object as an argume
 >>>
 ```
 
-![https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0\_immutable-object-passed-argument-to-function.gif](https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif)
+![https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif](https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif)
 
 Notice when an immutable object is passed into a function, the object is copied and bound to the parameter name. In the example above, when `my_string` is passed into `concatenate_string_to_string`, `my_string` is copied to a new object bound to the name `orig_string`.
 
 ### Challenge <a id="challenge"></a>
 
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-3-mutable-and-immutable-objects-1" %}
 
-
-
-
-
-
-
-* [ Home](https://lambdaschool.instructure.com/courses/1575)
-* [Grades](https://lambdaschool.instructure.com/courses/1575/grades)
-* [Modules](https://lambdaschool.instructure.com/courses/1575/modules)
+- [ Home](https://lambdaschool.instructure.com/courses/1575)
+- [Grades](https://lambdaschool.instructure.com/courses/1575/grades)
+- [Modules](https://lambdaschool.instructure.com/courses/1575/modules)
 
 ## Objective 02 - Recognize mutable and immutable objects
 
@@ -1235,11 +1221,11 @@ A mutable object is an object whose value can be changed after it is created. Th
 
 The following types of objects are mutable:
 
-* list
-* set
-* dict
-* byte array
-* instances of user-defined classes
+- list
+- set
+- dict
+- byte array
+- instances of user-defined classes
 
 Let's look at a few examples in code:
 
@@ -1298,19 +1284,19 @@ Below, I'm going to walk through what happens when you **alias** a mutable objec
 
 Let me illustrate this with a helpful code visualizer tool called [Python Tutor \(Links to an external site.\)](http://www.pythontutor.com/):
 
-![https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf\_Untitled.png](https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png)
+![https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png](https://tk-assets.lambdaschool.com/ba46ee2f-6bb4-421e-8be7-cba3a55eedcf_Untitled.png)
 
 On line 1, we instantiate a new list object with three elements \(`1`, `2`, and `3`\). The name `my_list_orig` is the variable that we assign the new list to.
 
-![https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b\_Untitled-2.png](https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png)
+![https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png](https://tk-assets.lambdaschool.com/23cd8845-e086-4cf6-9b50-70b37a11731b_Untitled-2.png)
 
 Then, on line 2, we create an alias of `my_list_orig` by pointing `my_list_alias` to whatever object `my_list_orig` is pointing at. Notice in the image above that there is still only one list object. However, there are two variables in the global frame, and they are both pointing to the same object.
 
-![https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4\_Untitled-3.png](https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png)
+![https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png](https://tk-assets.lambdaschool.com/604c130d-254c-4126-87a8-49625e676ef4_Untitled-3.png)
 
 On line 3, we append a new element to `my_list_orig`. Notice that, because both variables are referencing the same object, even though we appended to `my_list_orig`, we also modified `my_list_alias`.
 
-![https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423\_Untitled-4.png](https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png)
+![https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png](https://tk-assets.lambdaschool.com/f1655834-f68c-4b49-95ca-93d4a1578423_Untitled-4.png)
 
 On line 4, we removed the element `1` from `my_list_orig`. Notice, just like when we added to the list, `my_list_alias` is also affected.
 
@@ -1322,11 +1308,11 @@ An immutable object is an object whose value cannot be changed after it is creat
 
 The following types are immutable:
 
-* Numbers \(int, float, complex\)
-* Strings
-* Bytes
-* Booleans
-* Tuples
+- Numbers \(int, float, complex\)
+- Strings
+- Bytes
+- Booleans
+- Tuples
 
 Immutable objects are useful when you want to make sure that the object you created will always maintain the same value. Immutable objects are more _expensive_ to change \(in terms of time and space complexity\) because changing the object requires making a copy of the existing object.
 
@@ -1434,14 +1420,14 @@ Mutable and immutable objects are not treated the same when they are passed as a
 >>> my_list = [1,2,3]
 >>> def append_num_to_list(lst, num):
 ... lst.append(num)
-... 
+...
 >>> append_num_to_list(my_list, 4)
 >>> my_list
 [1, 2, 3, 4]
 >>>
 ```
 
-![https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc\_mutable-object-passed-as-argument-to-function.gif](https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif)
+![https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif](https://tk-assets.lambdaschool.com/5528e90f-2784-4199-b520-a4d03adccbbc_mutable-object-passed-as-argument-to-function.gif)
 
 Notice that when `append_num_to_list` is called and `my_list` is passed in as an argument. When `my_list` is bound to `lst` in that stack frame, `lst` points to the original `my_list` in memory. The function call did not create a copy of `my_list`. This behavior is because lists are mutable objects in Python.
 
@@ -1453,7 +1439,7 @@ Next, let's see how Python behaves when we pass an immutable object as an argume
 >>> my_string = "I am an immutable object."
 >>> def concatenate_string_to_string(orig_string, string_to_add):
 ... return orig_string + string_to_add
-... 
+...
 >>> concatenate_string_to_string(my_string, " I hope!")
 'I am an immutable object. I hope!'
 >>> my_string
@@ -1461,7 +1447,7 @@ Next, let's see how Python behaves when we pass an immutable object as an argume
 >>>
 ```
 
-![https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0\_immutable-object-passed-argument-to-function.gif](https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif)
+![https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif](https://tk-assets.lambdaschool.com/3e6a1461-9853-4494-8c17-33919e641eb0_immutable-object-passed-argument-to-function.gif)
 
 Notice when an immutable object is passed into a function, the object is copied and bound to the parameter name. In the example above, when `my_string` is passed into `concatenate_string_to_string`, `my_string` is copied to a new object bound to the name `orig_string`.
 
@@ -1469,13 +1455,11 @@ Notice when an immutable object is passed into a function, the object is copied 
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [Mutable vs. Immutable Objects in Python - A Visual and Hands-On Guide \(Links to an external site.\)](https://www.freecodecamp.org/news/mutable-vs-immutable-objects-python/)
-* [Python Basics: Mutable vs. Immutable Objects \(Links to an external site.\)](https://towardsdatascience.com/https-towardsdatascience-com-python-basics-mutable-vs-immutable-objects-829a0cb1530a)
-* [What are mutable and immutable objects in Python3? \(Links to an external site.\)](https://www.educative.io/edpresso/what-are-mutable-and-immutable-objects-in-python3)
+- [Mutable vs. Immutable Objects in Python - A Visual and Hands-On Guide \(Links to an external site.\)](https://www.freecodecamp.org/news/mutable-vs-immutable-objects-python/)
+- [Python Basics: Mutable vs. Immutable Objects \(Links to an external site.\)](https://towardsdatascience.com/https-towardsdatascience-com-python-basics-mutable-vs-immutable-objects-829a0cb1530a)
+- [What are mutable and immutable objects in Python3? \(Links to an external site.\)](https://www.educative.io/edpresso/what-are-mutable-and-immutable-objects-in-python3)
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-3-mutable-and-immutable-objects-1\#main.py" %}
-
-
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
@@ -1514,7 +1498,7 @@ We don't care about speed when the input size is small. The differences in speed
 Refer to the table below to see a list of the most common runtimes. The table is ordered from fastest to slowest.
 
 | Classification | Description |
-| :--- | :--- |
+| :-- | :-- |
 | Constant `O(1)` | The runtime is entirely unaffected by the input size. This is the ideal solution. |
 | Logarithmic `O(log n)` | As the input size increases, the runtime will grow slightly slower. This is a pretty good solution. |
 | Linear `O(n)` | As the input size increases, the runtime will grow at the same rate. This is a pretty good solution. |
@@ -1524,7 +1508,7 @@ Refer to the table below to see a list of the most common runtimes. The table is
 
 Besides the table, it's also essential to look at the curves of these different runtimes.
 
-![https://tk-assets.lambdaschool.com/1b27038a-098f-46e5-bc20-03be9a3480b9\_68747470733a2f2f746b2d6173736574732e6c616d6264617363686f6f6c2e636f6d2f65343335376235662d316436332d343463642d623861302d3439353732363061653965635f556e7469746c6564312e706e67.png](https://tk-assets.lambdaschool.com/1b27038a-098f-46e5-bc20-03be9a3480b9_68747470733a2f2f746b2d6173736574732e6c616d6264617363686f6f6c2e636f6d2f65343335376235662d316436332d343463642d623861302d3439353732363061653965635f556e7469746c6564312e706e67.png)
+![https://tk-assets.lambdaschool.com/1b27038a-098f-46e5-bc20-03be9a3480b9_68747470733a2f2f746b2d6173736574732e6c616d6264617363686f6f6c2e636f6d2f65343335376235662d316436332d343463642d623861302d3439353732363061653965635f556e7469746c6564312e706e67.png](https://tk-assets.lambdaschool.com/1b27038a-098f-46e5-bc20-03be9a3480b9_68747470733a2f2f746b2d6173736574732e6c616d6264617363686f6f6c2e636f6d2f65343335376235662d316436332d343463642d623861302d3439353732363061653965635f556e7469746c6564312e706e67.png)
 
 Again, `n` represents the size of the data, and on the chart above, `N` represents the number of operations. This visualization should help illustrate why `O(1)` or `O(log n)` is the most desirable.
 
@@ -1677,25 +1661,4 @@ The only two options left at this point are logarithmic and linear. Since the tw
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-2-time-complexity-1" %}
 
-
-
-
-
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,8 +2,6 @@
 
 {% embed url="https://replit.com/@bgoonz/main-prac\#directed\_graph.py" %}
 
-
-
 ## Reverse String:
 
 ```python
@@ -13,11 +11,7 @@ print(reverse("I am printing a sentence in reverse order"))
 print(reverse("printing strings in reverse order using python"))
 ```
 
-
-
 ### Implement a function recursively to get the desired Fibonacci sequence value. Your code should have the same input/output as the iterative code in the instructions.
-
-
 
 ```python
 def get_fib(position):
@@ -38,4 +32,3 @@ print get_fib(11)
 print get_fib(0)
 
 ```
-

@@ -1,7 +1,7 @@
 # Exotic
 
-{% tabs %}
-{% tab title="num-class" %}
+{% tabs %} {% tab title="num-class" %}
+
 ```python
 import math
 from numbers import Rational
@@ -172,10 +172,9 @@ EIGHT = Number(8)
 NINE = Number(9)
 
 ```
+
 {% endtab %}
 
 {% tab title="Second Tab" %}
 
-{% endtab %}
-{% endtabs %}
-
+{% endtab %} {% endtabs %}

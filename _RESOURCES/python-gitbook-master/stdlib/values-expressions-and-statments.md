@@ -125,14 +125,14 @@ But what if we want to represent the literal for a linefeed \(what you get when 
 
 There are several of these escape sequences that are helpful to know.
 
-| Escape Sequence | Meaning |
-| :--- | :--- |
-| `\\` | Backslash \(`\`\) |
-| `\'` | Single quote \(`'`\) |
-| `\"` | Double quote \(`"`\) |
-| `\b` | Backspace |
-| `\n` | Linefeed |
-| `\t` | Tab |
+| Escape Sequence | Meaning              |
+| :-------------- | :------------------- |
+| `\\`            | Backslash \(`\`\)    |
+| `\'`            | Single quote \(`'`\) |
+| `\"`            | Double quote \(`"`\) |
+| `\b`            | Backspace            |
+| `\n`            | Linefeed             |
+| `\t`            | Tab                  |
 
 `\n` is the most frequently used of these. The following example will hopefully make what it does clear.
 
@@ -283,13 +283,13 @@ It turns out that `class` is one of the Python **keywords**. Keywords define the
 
 Python 3 has thirty-three keywords \(and every now and again improvements to Python introduce or eliminate one or two\):
 
-| and | as | assert | break | class | continue |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| def | del | elif | else | except | finally |
-| for | from | global | if | import | in |
-| is | lambda | nonlocal | not | or | pass |
-| raise | return | try | while | with | yield |
-| True | False | None |  |  |  |
+| and   | as     | assert   | break | class  | continue |
+| :---- | :----- | :------- | :---- | :----- | :------- |
+| def   | del    | elif     | else  | except | finally  |
+| for   | from   | global   | if    | import | in       |
+| is    | lambda | nonlocal | not   | or     | pass     |
+| raise | return | try      | while | with   | yield    |
+| True  | False  | None     |       |        |          |
 
 You might want to keep this list handy. Actually, as will often be the case when learning to program with Python, when you aren’t sure about something, you can _ask Python_:
 
@@ -639,4 +639,3 @@ A number, string, or any of the other things that can be stored in a variable or
 A name that refers to a value.variable name
 
 A name given to a variable. Variable names in Python consist of a sequence of letters \(a..z, A..Z, and \_\) and digits \(0..9\) that begins with a letter. In best programming practice, variable names should be chosen so that they describe their use in the program, making the program _self documenting_.
-

@@ -24,9 +24,4 @@ In this module, you will learn about hash collisions and implement a complete ha
 
 This module will teach about logarithms, linear search, binary search, and recursion. This material sets the stage for learning about traversal techniques of trees and graphs. Additionally, using a binary search is a common optimization technique that may come up during a technical interview.
 
-
-
 {% embed url="https://codesandbox.io/s/iframes-v9xfe?file=/index.html" %}
-
-
-

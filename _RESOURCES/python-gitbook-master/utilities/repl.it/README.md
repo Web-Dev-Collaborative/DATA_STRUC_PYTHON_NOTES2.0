@@ -2,8 +2,6 @@
 
 {% embed url="https://replit.com/@bgoonz/week-10-take-5\#2-resources/general/cheat-sheets/0-OFFICIALLY-ALLOWED-Sequelize-Cheat-sheet.md" %}
 
-
-
 ## Repl.it
 
 {% embed url="https://replit.com/@bgoonz/PYTHONPRAC" caption="" %}
@@ -14,13 +12,9 @@
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-functions-1\#main.py" caption="" %}
 
-
-
 {% embed url="https://replit.com/@bgoonz/python-practice\#basics.py" caption="" %}
 
 {% embed url="https://replit.com/@bgoonz/python-practice-exercises\#main.py" caption="" %}
-
-
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-types-2\#main.py" caption="" %}
 
@@ -53,6 +47,4 @@
 {% embed url="https://replit.com/@bgoonz/awesome-python-1\#README.md" caption="" %}
 
 | \*\*\*\* |
-| :--- |
-
-
+| :------- |

@@ -10,15 +10,10 @@
 
 {% page-ref page="../untitled-2/untitled-3.md" %}
 
-
-
 {% page-ref page="untitled-7.md" %}
-
-
 
 {% page-ref page="untitled-8.md" %}
 
 {% page-ref page="untitled-5.md" %}
 
 {% page-ref page="../untitled-1/" %}
-

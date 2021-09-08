@@ -1,9 +1,5 @@
 # Things To Internalize:
 
-
-
-
-
 ```python
 """
 There are two main keywords for making loops of code in Python: for and while.
@@ -26,7 +22,7 @@ for k in list(d):
     if k.isupper():
         del d[k]
 
-# Use "while" when you want to do something repeatedly and 
+# Use "while" when you want to do something repeatedly and
 # then stop at a certain condition which can't be calculated ahead of time.
 i = 1
 while i < 100:
@@ -65,4 +61,3 @@ for factor in range(2, 11):
 else:
     print(f'{number} isn\'t divisible by 2 through 10')
 ```
-

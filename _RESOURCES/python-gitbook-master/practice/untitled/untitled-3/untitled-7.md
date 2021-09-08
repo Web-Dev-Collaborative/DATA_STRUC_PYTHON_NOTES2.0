@@ -165,4 +165,3 @@ if __name__ == '__main__':
 **Output**
 
 ![Quick Sort implementation example in Python Output](https://i1.wp.com/codezup.com/wp-content/uploads/2020/01/Quick-Sort-implementation-example-in-Python-Output.png?resize=665%2C309&ssl=1)
-

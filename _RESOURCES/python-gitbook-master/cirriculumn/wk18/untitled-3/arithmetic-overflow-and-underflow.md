@@ -1,7 +1,5 @@
 # Arithmetic Overflow and Underflow
 
-
-
 ## Arithmetic Overflow and Underflow
 
 Arithmetic overflow happens when an arithmetic operation results in a value that is outside the range of values representable by the expression’s type. For example, the following C++ code prints 0:
@@ -13,7 +11,7 @@ x++;
 std::cout << x;
 ```
 
-x is an unsigned 16 bit integer, which can represent values between 0 and 65535. If x is 65535 and we increment it, the value becomes 65536 but that value cannot be represented by a uint16\_t. This is an overflow. In this case, C++ wraps the value around and x becomes 0.
+x is an unsigned 16 bit integer, which can represent values between 0 and 65535. If x is 65535 and we increment it, the value becomes 65536 but that value cannot be represented by a uint16_t. This is an overflow. In this case, C++ wraps the value around and x becomes 0.
 
 Similarly, an underflow occurs when an arithmetic operation generates a result that is below the smallest representable value of the expression’s type:
 
@@ -24,7 +22,7 @@ x--;
 std::cout << x;
 ```
 
-The above prints 65535, as the result of decrementing 0 is -1, which cannot be represented by an uint16\_t.
+The above prints 65535, as the result of decrementing 0 is -1, which cannot be represented by an uint16_t.
 
 Before we digging into overflow behavior, we need to understand how computers represent numbers.
 
@@ -64,9 +62,9 @@ With this representation, N bits can encode a signed integer between 2N-1-1 and 
 
 If the result of an arithmetic operation cannot fit the type, there are several approaches we can take and different programming languages employ different strategies. These are:
 
-* Exceptions
-* Wrap-around
-* Saturation
+- Exceptions
+- Wrap-around
+- Saturation
 
 All of these approaches have their pros and cons.
 
@@ -78,7 +76,7 @@ This is usually desirable from a security/safety perspective, but the trade-off 
 
 #### Wrap-around
 
-The default behavior in C++, wrap-around simply continues from the smallest possible value in case of overflow or from the largest possible value in case of underflow. For unsigned integers, this is equivalent to modulo arithmetic. For example, for an int8\_t, which can represent values between -128 and 127, wrap-around would make 127 + 1 be -128 and similarly -128 - 1 be 127.
+The default behavior in C++, wrap-around simply continues from the smallest possible value in case of overflow or from the largest possible value in case of underflow. For unsigned integers, this is equivalent to modulo arithmetic. For example, for an int8_t, which can represent values between -128 and 127, wrap-around would make 127 + 1 be -128 and similarly -128 - 1 be 127.
 
 This is usually the most efficient way to perform arithmetic as no checking is involved. Most hardware uses wrap-around as it can simply discard overflowing bits to achieve the result. The two’s complement representation of 127 is 01111111. The two’s complement representation of 128 is 10000000. With this representation, adding 1 to 127 naturally makes it 128.
 
@@ -279,7 +277,7 @@ This is a simple implementation for illustrative purposes. The Integer type curr
 
 The generic overflow and underflow checks can be specialized for unsigned types so that we don’t redundantly check for b &lt; 0 for a type which cannot represent negative numbers. Similarly, we wouldn’t worry, for example, about addition underflowing for an unsigned type.
 
-We can also extend our safe arithmetic to not only rely on the standard numeric\_limits, but also allow users to clamp values between user-defined minimum and maximum values.
+We can also extend our safe arithmetic to not only rely on the standard numeric_limits, but also allow users to clamp values between user-defined minimum and maximum values.
 
 For a production-ready safe arithmetic library, I recommend you check out David LeBlanc’s [SafeInt](https://github.com/dcleblanc/SafeInt).
 
@@ -287,18 +285,16 @@ For a production-ready safe arithmetic library, I recommend you check out David 
 
 This post covered arithmetic overflow and underflow, and ways to handle it. We looked at:
 
-* What arithmetic overflow and underflow are
-* Integer representations:
-  * Unsigned
-  * Two’s complement
-* Ways to deal with overflow/underflow:
-  * Exceptions
-  * Wrap-around
-  * Saturation
-* How to detect overflow/underflow
-* Implementing a simple Integer wrapper that performs safe arithmetic
+- What arithmetic overflow and underflow are
+- Integer representations:
+  - Unsigned
+  - Two’s complement
+- Ways to deal with overflow/underflow:
+  - Exceptions
+  - Wrap-around
+  - Saturation
+- How to detect overflow/underflow
+- Implementing a simple Integer wrapper that performs safe arithmetic
 
 | [\[1\]](https://vladris.com/blog/2018/10/13/arithmetic-overflow-and-underflow.html#id1) | An example of how an attacker can exploit integer overflow is the following [SSH1 vulnerability](https://www.kb.cert.org/vuls/id/945216). |
-| :--- | :--- |
-
-
+| :-- | :-- |

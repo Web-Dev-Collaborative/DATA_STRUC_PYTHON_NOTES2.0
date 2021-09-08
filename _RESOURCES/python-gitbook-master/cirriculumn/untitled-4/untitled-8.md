@@ -1,7 +1,5 @@
 # D3- Module 03 - Binary Search Trees
 
-
-
 ## Objective 01 - Describe the properties of a binary tree and the properties of a "perfect" tree
 
 ### Overview <a id="overview"></a>
@@ -22,7 +20,7 @@ class BinaryTreeNode:
 
 With this simple class, we can now build up a structure that could be visualized like so:
 
-![https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e\_binary-tree-example.001.png](https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.png)
+![https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.png](https://tk-assets.lambdaschool.com/c00c8f45-abff-4c3a-b29b-92631b5ac88e_binary-tree-example.001.png)
 
 #### "Perfect" Trees <a id="perfect-trees"></a>
 
@@ -30,13 +28,13 @@ A "perfect" tree has all of its levels full. This means that there are not any m
 
 "Perfect" trees have specific properties. First, the quantity of each level's nodes doubles as you go down.
 
-![https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed\_binary-tree-example-levels.001.png](https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.png)
+![https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.png](https://tk-assets.lambdaschool.com/36747e43-d96d-40c9-b8ab-d318f6da8aed_binary-tree-example-levels.001.png)
 
 Second, the quantity of the last level's nodes is the same as the quantity of all the other nodes plus one.
 
 These properties are useful for understanding how to calculate the _height_ of a tree. The height of a tree is the number of levels that it contains. Based on the properties outlined above, we can deduce that we can calculate the tree's height with the following formula:
 
-![log\_2\(n+1\) = h](https://i.upmath.me/svg/log_2%28n%2B1%29%20%3D%20h)
+![log_2(n+1) = h](https://i.upmath.me/svg/log_2%28n%2B1%29%20%3D%20h)
 
 In the formula above, `n` is the total number of nodes. If you know the tree's height and want to calculate the total number of nodes, you can do so with the following formula:
 
@@ -51,12 +49,10 @@ We can represent the relationship between a perfect binary tree's total number o
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://en.wikipedia.org/wiki/Binary\_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_tree)
-* [https://www.geeksforgeeks.org/binary-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-tree-data-structure/)
+- [https://en.wikipedia.org/wiki/Binary_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_tree)
+- [https://www.geeksforgeeks.org/binary-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-tree-data-structure/)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ## Objective 02 - Recall the time and space complexity, the strengths and weaknesses, and the common uses of a binary search tree
 
@@ -66,7 +62,7 @@ Just like a binary tree is a specific type of tree, a binary search tree \(BST\)
 
 We can call a binary search tree balanced if the heights of its left and right subtrees differ by at most one, and both of the subtrees are also balanced.
 
-![https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083\_binary-tree-example-balanced-unbalanced.001.png](https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.png)
+![https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.png](https://tk-assets.lambdaschool.com/f84f26b9-09f3-48e0-a4c6-a51740d9c083_binary-tree-example-balanced-unbalanced.001.png)
 
 ### Follow Along <a id="follow-along"></a>
 
@@ -104,16 +100,10 @@ If you want to learn more about trees that automatically rearrange their nodes t
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.geeksforgeeks.org/binary-search-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)
-* [https://en.wikipedia.org/wiki/Binary\_search\_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_search_tree)
-
-
-
-
+- [https://www.geeksforgeeks.org/binary-search-tree-data-structure/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)
+- [https://en.wikipedia.org/wiki/Binary_search_tree \(Links to an external site.\)](https://en.wikipedia.org/wiki/Binary_search_tree)
 
 ![](../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ## Objective 03 - Construct a binary search tree that can perform basic operations with a logarithmic time complexity
 
@@ -228,10 +218,5 @@ Given the above information, can you write pseudocode for a method that can find
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/)
-* [https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/)
-
-
-
-
-
+- [https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/)
+- [https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/ \(Links to an external site.\)](https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/)

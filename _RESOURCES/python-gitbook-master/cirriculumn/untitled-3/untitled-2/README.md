@@ -4,8 +4,6 @@
 
 {% embed url="https://replit.com/@bgoonz/d1\#main.py" %}
 
-
-
 #### Windows <a id="windows"></a>
 
 Windows machines usually do not ship with Python installed. Installing on Windows is pretty simple.
@@ -47,15 +45,13 @@ After Homebrew has finished its installation process, you then need to install P
 
 Here are a few websites that give you online access to the Python interpreter:
 
-* [Repl.it \(Links to an external site.\)](https://repl.it/)
-* [Trinket \(Links to an external site.\)](https://trinket.io/)
-* [Python Fiddle \(Links to an external site.\)](http://pythonfiddle.com/)
-* [Python.org Online Console \(Links to an external site.\)](https://www.python.org/shell)
-* [Python Anywhere](https://www.pythonanywhere.com/)
+- [Repl.it \(Links to an external site.\)](https://repl.it/)
+- [Trinket \(Links to an external site.\)](https://trinket.io/)
+- [Python Fiddle \(Links to an external site.\)](http://pythonfiddle.com/)
+- [Python.org Online Console \(Links to an external site.\)](https://www.python.org/shell)
+- [Python Anywhere](https://www.pythonanywhere.com/)
 
 ![](../../../.gitbook/assets/image%20%284%29%20%281%29.png)
-
-
 
 #### Search and Research <a id="search-and-research"></a>
 
@@ -132,10 +128,10 @@ It appears the questioner proofread their question beforehand as it does not con
 
 ### Additional Resources <a id="additional-resources"></a>
 
-* [Stack Overflow: How Do I Ask a Good Question? \(Links to an external site.\)](https://stackoverflow.com/help/how-to-ask)
-* [Writing the Perfect Question \(Links to an external site.\)](https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
-* [How to Ask Questions the Smart Way \(Links to an external site.\)](http://catb.org/esr/faqs/smart-questions.html)
-* [How to Debug Small Programs \(Links to an external site.\)](https://ericlippert.com/2014/03/05/how-to-debug-small-programs/)
+- [Stack Overflow: How Do I Ask a Good Question? \(Links to an external site.\)](https://stackoverflow.com/help/how-to-ask)
+- [Writing the Perfect Question \(Links to an external site.\)](https://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
+- [How to Ask Questions the Smart Way \(Links to an external site.\)](http://catb.org/esr/faqs/smart-questions.html)
+- [How to Debug Small Programs \(Links to an external site.\)](https://ericlippert.com/2014/03/05/how-to-debug-small-programs/)
 
 ![](../../../.gitbook/assets/image%20%284%29%20%285%29.png)
 
@@ -263,8 +259,6 @@ You have now learned the basics of using the `print` function in Python. You lea
 
 Now, get some practice using the `print` function by completing the challenge below.
 
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-print-3\#main.py" %}
 
 ![](../../../.gitbook/assets/image%20%284%29.png)
@@ -355,8 +349,6 @@ Consistent whitespace usage \(indentation\) is crucial to making sure that Pytho
 
 In Python, whitespace has meaning; it denotes the end of logical lines and also code blocks. Whitespace is any character represented by something that appears empty, although the most common characters are `" "`, `\t`, and `\n`. The Python interpreter knows where the end of a logical line of code is because of the `\n`. The amount of whitespace \(level of indentation\) is used in Python to denote blocks of code. Understanding how the Python interpreter looks at whitespace is vital to writing valid Python code.
 
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-white-space-3\#main.py" %}
 
 ![](../../../.gitbook/assets/image%20%284%29%20%282%29.png)
@@ -417,11 +409,7 @@ my_str = "Lambda School"
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-types-3" %}
 
-
-
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ### Overview <a id="overview"></a>
 
@@ -510,13 +498,9 @@ If our code works as expected, `combined` should have a length of 10.
 print(len(combined)) # 10
 ```
 
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-operators-1\#main.py" %}
 
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
 
 ### Overview <a id="overview"></a>
 
@@ -549,11 +533,11 @@ print("my_list: %s" % my_list)
 
 A few of the common argument specifiers are:
 
-* `%s` - String \(or any object with a string representation\)
-* `%d` - Integers
-* `%f` - Floating point numbers
-* `%.<number of digits>f` - Floating point numbers with a fixed amount of digits to the dot's right.
-* `%x/%X` - Integers in hexadecimal \(lowercase/uppercase\)
+- `%s` - String \(or any object with a string representation\)
+- `%d` - Integers
+- `%f` - Floating point numbers
+- `%.<number of digits>f` - Floating point numbers with a fixed amount of digits to the dot's right.
+- `%x/%X` - Integers in hexadecimal \(lowercase/uppercase\)
 
 ### Follow Along <a id="follow-along"></a>
 
@@ -574,13 +558,7 @@ print("%s (id: %d) are currently $%.2f." % (product_name, product_id, price))
 # bananas (id: 123456) are currently $1.23.
 ```
 
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-formatted-strings-2" %}
-
-
-
-
 
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
@@ -653,15 +631,9 @@ print(my_string.split("l")) # ['He', '', 'o, wor', 'd!']
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-2" %}
 
-
-
-
-
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
 ## Objective 09 - Perform basic string operations
-
-
 
 ### Overview <a id="overview"></a>
 
@@ -731,17 +703,7 @@ print(my_string.split("l")) # ['He', '', 'o, wor', 'd!']
 
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-basic-string-operations-3" %}
 
-
-
-
-
-
-
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
-
-
-
-
 
 ### Overview <a id="overview"></a>
 
@@ -829,8 +791,6 @@ print(not (1 == 1)) # False because 1 == 1 is True and then is inverted by not
 
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
-
-
 ### Overview <a id="overview"></a>
 
 You can use two types of loops in Python, a `for` loop and a `while` loop. A `for` loop iterates over a given sequence \(iterator expression\). A `while` loop repeats as long as a boolean context evaluates to `True`.
@@ -902,17 +862,11 @@ for x in range(8):
     print(x)
 ```
 
-
-
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-loops-2\#main.py" %}
 
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
 ## Objective 12 - Create user-defined functions and call them
-
-
 
 To make our code more readable and DRY \(Don't Repeat Yourself\), we often want to encapsulate code inside a callable function.
 
@@ -954,17 +908,9 @@ print(eight)
 
 ![](../../../.gitbook/assets/image%20%284%29%20%286%29.png)
 
-
-
 {% embed url="https://replit.com/@bgoonz/cs-unit-1-sprint-1-module-1-loops-3\#main.py" %}
 
-
-
 {% embed url="https://gist.github.com/bgoonz/4f5c0b5fe80a84421ff9a5a66dce29da" %}
-
-
-
-
 
 ### Overview <a id="overview"></a>
 
@@ -1047,6 +993,3 @@ There is also the `not` operator, which inverts the boolean that follows it:
 print(not False)    # True
 print(not (1 == 1)) # False because 1 == 1 is True and then is inverted by not
 ```
-
-
-

@@ -6,7 +6,7 @@ Functions are the re-usable pieces of code which helps us to organize structure 
 
 Python uses def keyword to start a function, here is the syntax:
 
-def function\_name\(arg1, arg2, arg3, .... argN\):
+def function_name\(arg1, arg2, arg3, .... argN\):
 
 ```text
  #statement inside function
@@ -66,13 +66,13 @@ Let's see some examples to illustrate this point.
 
 **Example 1**:
 
-global\_var \= 12 \# a global variable
+global_var \= 12 \# a global variable
 
-def func\(\): local\_var \= 100 \# this is local variable print\(global\_var\) \# you can access global variables in side function
+def func\(\): local_var \= 100 \# this is local variable print\(global_var\) \# you can access global variables in side function
 
 func\(\) \# calling function func\(\)
 
-## print\(local\_var\)        \# you can't access local\_var outside the function, because as soon as function ends local\_var is destroyed
+## print\(local_var\) \# you can't access local_var outside the function, because as soon as function ends local_var is destroyed
 
 **Expected Output:**
 
@@ -150,11 +150,11 @@ There are two ways to pass arguments to method: positional arguments and Keyword
 
 Keyword arguments allows you to pass each arguments using name value pairs like this `name=value`. Let's take an example:
 
-def named\_args\(name, greeting\): print\(greeting + " " + name \)
+def named_args\(name, greeting\): print\(greeting + " " + name \)
 
-named\_args\(name\='jim', greeting\='Hello'\)
+named_args\(name\='jim', greeting\='Hello'\)
 
-named\_args\(greeting\='Hello', name\='jim'\) \# you can pass arguments this way too
+named_args\(greeting\='Hello', name\='jim'\) \# you can pass arguments this way too
 
 **Expected Value:**
 
@@ -162,17 +162,17 @@ named\_args\(greeting\='Hello', name\='jim'\) \# you can pass arguments this way
 
 It is possible to mix positional arguments and Keyword arguments, but for this positional argument must appear before any Keyword arguments. Let's see this through an example.
 
-def my\_func\(a, b, c\): print\(a, b, c\)
+def my_func\(a, b, c\): print\(a, b, c\)
 
 You can call the above function in the following ways.
 
-\# using positional arguments only my\_func\(12, 13, 14\)
+\# using positional arguments only my_func\(12, 13, 14\)
 
-\# here first argument is passed as positional arguments while other two as keyword argument my\_func\(12, b\=13, c\=14\)
+\# here first argument is passed as positional arguments while other two as keyword argument my_func\(12, b\=13, c\=14\)
 
-\# same as above my\_func\(12, c\=13, b\=14\)
+\# same as above my_func\(12, c\=13, b\=14\)
 
-\# this is wrong as positional argument must appear before any keyword argument \# my\_func\(12, b=13, 14\)
+\# this is wrong as positional argument must appear before any keyword argument \# my_func\(12, b=13, 14\)
 
 **Expected Output:**
 
@@ -189,4 +189,3 @@ s \= bigger\(12, 100\) print\(s\) print\(type\(s\)\)
 **Expected Output:**
 
 \(100, 12\)
-
