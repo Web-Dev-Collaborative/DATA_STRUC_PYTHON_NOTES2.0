@@ -149,4 +149,3 @@
   * [Untitled](./_RESOURCES/bgoonz42.gitbook.io/aux-exploration/subject/untitled-3.md)
   * [Untitled](./_RESOURCES/bgoonz42.gitbook.io/aux-exploration/subject/untitled-2.md)
   * [Untitled](./_RESOURCES/bgoonz42.gitbook.io/aux-exploration/subject/untitled-1.md)
-
