@@ -1,14 +1,9 @@
 # Search In Sorted Matrix
 
-Given a matrix (a two-dimensional array), whose width and height do not
-necessarily match, containing distinct integers where each row is sorted and
-each column is also sorted, write a function that searches for a target value in
-the matrix. The function should return a tuple (or two-element array) of the row
-and column indices of the target value. If the target value is not found in the
-array, the function should return [-1, -1].
+Given a matrix (a two-dimensional array), whose width and height do not necessarily match, containing distinct integers where each row is sorted and each column is also sorted, write a function that searches for a target value in the matrix. The function should return a tuple (or two-element array) of the row and column indices of the target value. If the target value is not found in the array, the function should return [-1, -1].
 
-Sample input:
-45,
+Sample input: 45,
+
 ```
 [
     [1, 4, 7, 12, 15, 997, 999],

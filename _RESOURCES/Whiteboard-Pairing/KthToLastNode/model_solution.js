@@ -21,7 +21,6 @@ function kthToLastNode(k, head) {
 
   // move rightNode to the kth node
   for (var i = 0; i < k - 1; i++) {
-
     // but along the way, if a rightNode doesn't have a next,
     // then k is greater than the length of the list and there
     // can't be a kth-to-last node! we'll raise an error
@@ -53,11 +52,11 @@ class ListNode {
   }
 }
 
-let a = new ListNode("Australian Sheperd");
-let b = new ListNode("Beagle");
-let c = new ListNode("Cairne Terrier");
-let d = new ListNode("Dobermann");
-let e = new ListNode("English Mastiff");
+let a = new ListNode('Australian Sheperd');
+let b = new ListNode('Beagle');
+let c = new ListNode('Cairne Terrier');
+let d = new ListNode('Dobermann');
+let e = new ListNode('English Mastiff');
 
 a.next = b;
 b.next = c;
@@ -65,6 +64,6 @@ c.next = d;
 d.next = e;
 
 /* Some console.log tests */
-console.log(kthToLastNode(2, a));   // should print 'Dobermann'
-console.log(kthToLastNode(5, a));   // should print 'Australian Sheperd'
-console.log(kthToLastNode(3, c));   // should print 'Cairne Terrier'
+console.log(kthToLastNode(2, a)); // should print 'Dobermann'
+console.log(kthToLastNode(5, a)); // should print 'Australian Sheperd'
+console.log(kthToLastNode(3, c)); // should print 'Cairne Terrier'

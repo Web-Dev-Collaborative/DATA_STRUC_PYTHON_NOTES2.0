@@ -26,15 +26,15 @@ buffer.append('a');
 buffer.append('b');
 buffer.append('c');
 buffer.append('d');
-console.log(buffer.allValues());  // should print ['a', 'b', 'c', 'd']
+console.log(buffer.allValues()); // should print ['a', 'b', 'c', 'd']
 
 buffer.append('e');
-console.log(buffer.allValues());  // should print ['a', 'b', 'c', 'd', 'e']
+console.log(buffer.allValues()); // should print ['a', 'b', 'c', 'd', 'e']
 
 buffer.append('f');
-console.log(buffer.allValues());  // should print ['f', 'b', 'c', 'd', 'e']
+console.log(buffer.allValues()); // should print ['f', 'b', 'c', 'd', 'e']
 
 buffer.append('g');
 buffer.append('h');
 buffer.append('i');
-console.log(buffer.allValues());  // should print ['f', 'g', 'h', 'i', 'e']
+console.log(buffer.allValues()); // should print ['f', 'g', 'h', 'i', 'e']

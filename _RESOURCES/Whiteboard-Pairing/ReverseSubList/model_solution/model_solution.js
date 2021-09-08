@@ -40,12 +40,12 @@ d.next = e;
 /* Function that prints the contents of a linked list */
 function printList(node) {
   let current = node;
-  
+
   while (current) {
     console.log(current.value);
     current = current.next;
   }
 }
 
-console.log(reverseLinkedList(a));  // should print 'e'
-printList(e);   // should print 'e', 'd', 'c', 'b', 'a'
+console.log(reverseLinkedList(a)); // should print 'e'
+printList(e); // should print 'e', 'd', 'c', 'b', 'a'

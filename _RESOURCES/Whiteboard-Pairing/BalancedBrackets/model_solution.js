@@ -13,15 +13,15 @@ function balancedBrackets(str) {
   // we use an object to store the possible openers with
   // their corresponding closers
   const openers = {
-    '(': ')', 
-    '{': '}', 
-    '[': ']'
+    '(': ')',
+    '{': '}',
+    '[': ']',
   };
 
   const closers = {
-    ')': true, 
-    '}': true, 
-    ']': true
+    ')': true,
+    '}': true,
+    ']': true,
   };
 
   for (let i = 0; i < line.length; i++) {
@@ -39,9 +39,9 @@ function balancedBrackets(str) {
 }
 
 /* Some console.log tests */
-console.log(balancedBrackets('{}[]()'));        // should print true
-console.log(balancedBrackets('{(([]))}'));      // should print true
-console.log(balancedBrackets('{ [ ] ( ) }'));   // should print true
-console.log(balancedBrackets('{ [ ( ] ) }'));   // should print false
-console.log(balancedBrackets('('));             // should print false
-console.log(balancedBrackets('{[}'));           // should print false
+console.log(balancedBrackets('{}[]()')); // should print true
+console.log(balancedBrackets('{(([]))}')); // should print true
+console.log(balancedBrackets('{ [ ] ( ) }')); // should print true
+console.log(balancedBrackets('{ [ ( ] ) }')); // should print false
+console.log(balancedBrackets('(')); // should print false
+console.log(balancedBrackets('{[}')); // should print false

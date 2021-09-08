@@ -7,7 +7,7 @@ function countVotes(arr) {
   let maxVotes = 0;
   let winner = '';
   // Iterate over entire array
-  arr.forEach(vote => {
+  arr.forEach((vote) => {
     // If name doesnt exist in counts yet, add it with a value of 0
     if (!counts[vote]) counts[vote] = 0;
 

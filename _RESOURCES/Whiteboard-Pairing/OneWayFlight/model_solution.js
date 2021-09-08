@@ -8,7 +8,7 @@ function reconstructTrip(tickets) {
   const hash = {};
   const route = Array(tickets.length - 1);
 
-  tickets.forEach(ticket => {
+  tickets.forEach((ticket) => {
     // check for the start destination of our trip
     if (ticket[0] === null) {
       // add it to our `route` array as the first element
@@ -22,7 +22,7 @@ function reconstructTrip(tickets) {
   // loop through our object, grabbing the source's
   // associated destination and adding it to our route
   for (let i = 1; i < tickets.length - 1; i++) {
-    route[i] = hash[route[i-1]];
+    route[i] = hash[route[i - 1]];
   }
 
   return route;
@@ -40,7 +40,7 @@ const longerSet = [
   ['XNA', 'CID'],
   ['SFO', 'BHM'],
   ['FLG', 'XNA'],
-  [null, 'LAX'], 
+  [null, 'LAX'],
   ['LAX', 'SFO'],
   ['CID', 'SLC'],
   ['ORD', null],
@@ -49,4 +49,4 @@ const longerSet = [
 ];
 
 console.log(reconstructTrip(shorterSet)); // should print [ 'PDX', 'DCA' ]
-console.log(reconstructTrip(longerSet));  // should print [ 'LAX', 'SFO', 'BHM', 'FLG', 'XNA', 'CID', 'SLC', 'PIT', 'ORD' ]
+console.log(reconstructTrip(longerSet)); // should print [ 'LAX', 'SFO', 'BHM', 'FLG', 'XNA', 'CID', 'SLC', 'PIT', 'ORD' ]
